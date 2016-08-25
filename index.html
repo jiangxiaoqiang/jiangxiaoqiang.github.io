@@ -1,207 +1,503 @@
 <!DOCTYPE html>
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style></style>
-        <link href="./Steve Losh_files/css" rel="stylesheet" type="text/css">
-        <link rel="profile" href="http://microformats.org/profile/hcard">     
+<html lang="zh-cn" loaded="1"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style></style>
+  
+  <title>小强 | 小强的个人网站</title>
+  <meta name="HandheldFriendly" content="True">
+  <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,user-scalable=0">
+  <meta name="author" content="https://plus.google.com/112634278852964994392?hl=zh-cn">
+  <meta name="email" content="jiangtingqiang@gmail.com">
+  <meta name="description" content="笔记...">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="小强 | 小强的个人网站">
+  <meta property="og:url" content="//www.barretlee.com/index.html">
+  <meta property="og:site_name" content="">
+  <meta property="og:description" content="想法，随笔，思考，感叹，瞬间，笔记...">
+  <meta name="generator" content="https://hexo.io">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="renderer" content="webkit">
+  <link href="http://www.barretlee.com/blogimgs/app-icon.png" rel="apple-touch-icon-precomposed">
+  <link rel="shoticon" href="http://www.barretlee.com/favicon.ico" type="image/x-icon">
+  <link rel="alternate" type="application/rss+xml" href="http://www.barretlee.com/rss2.xml" title="小强的个人网站">
+  
+  <link rel="next" href="http://www.barretlee.com/" title="undefined">
+  <link rel="start" href="http://www.barretlee.com/entry/" title="Blog Entry">
+  <link rel="stylesheet" href="./style.css">
+  <link type="text/css" rel="stylesheet" href="./embed.default.css"><style type="text/css">.ds-sync {    white-space: normal;}
 
-        <title>Steve Losh</title>        
-            <link href="http://feeds2.feedburner.com/stevelosh" rel="alternate" title="Steve Losh" type="application/atom+xml">   
+.ds-post {transition:all 0.3s !important;}
 
-        
-            <link rel="stylesheet" href="./Steve Losh_files/aal.css" type="text/css" media="screen" charset="utf-8">
-            <link rel="stylesheet" href="./Steve Losh_files/sjl.css" type="text/css" media="screen" charset="utf-8">
-            <link rel="stylesheet" href="./Steve Losh_files/print.css" type="text/css" media="print" charset="utf-8">
-            
-        
+.ds-post:hover {
+  transition:all 0.3s !important; 
+  border-radius: 5px !important;
+  background:#F3F3F3 !important;
+}
 
-        
-            <script type="text/javascript" async="" src="./Steve Losh_files/ga.js"></script><script data-cfasync="false" src="./Steve Losh_files/jquery.js" type="text/javascript"></script>
-            <script data-cfasync="false" src="./Steve Losh_files/jquery.timeago.js" type="text/javascript"></script>
-            <script data-cfasync="false" src="./Steve Losh_files/sjl.js" type="text/javascript"></script>
-            <script data-cfasync="false" src="./Steve Losh_files/print.js" type="text/javascript"></script>
-            <script data-cfasync="false" type="text/javascript" src="./Steve Losh_files/MathJax.js"></script>
+.footer-wraper .ds-post:hover {
+  background:#4C4C4C !important;
+}
 
-            
-        
+#ds-thread #ds-reset .ds-comments {border-bottom:none; padding: 15px 0;}
 
-        <link rel="openid.server" href="http://www.myopenid.com/server">
-        <link rel="openid.delegate" href="http://stevelosh.myopenid.com/">
+#ds-thread #ds-reset .ds-powered-by {display:none;}
 
-        <script type="text/javascript">
-          var _gaq = _gaq || [];
-          _gaq.push(['_setAccount', 'UA-15328874-2']);
-          _gaq.push(['_trackPageview']);
+.ds-thread .ds-loading {
+  padding: 20px 0;
+  text-align: center;
+  color: #AFAFAF;
+  background-color: #EFEFEF;
+  border-radius: 5px;
+  line-height: 30px;
+  font-style: 15px;
+}
 
-          (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-          })();
-        </script>
 
-    <style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
-.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
-.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
-.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
-.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
-</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
-#MathJax_About.MathJax_MousePost {outline: none}
-.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
-.MathJax_MenuItem {padding: 1px 2em; background: transparent}
-.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
-.MathJax_MenuActive .MathJax_MenuArrow {color: white}
-.MathJax_MenuArrow.RTL {left: .5em; right: auto}
-.MathJax_MenuCheck {position: absolute; left: .7em}
-.MathJax_MenuCheck.RTL {right: .7em; left: auto}
-.MathJax_MenuRadioCheck {position: absolute; left: .7em}
-.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
-.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
-.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
-.MathJax_MenuDisabled {color: GrayText}
-.MathJax_MenuActive {background-color: #606872; color: white}
-.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
-.MathJax_ContextMenu:focus {outline: none}
-.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
-#MathJax_AboutClose {top: .2em; right: .2em}
-.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
-.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
-.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
-.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
-.MathJax_MenuClose:hover span {background-color: #CCC!important}
-.MathJax_MenuClose:hover:focus {outline: none}
-</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
-</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
-.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
-</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
-#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
-#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
-#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
-</style><style type="text/css">.MathJax_Preview {color: #888}
-#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
-#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
-.MathJax_Error {color: #CC0000; font-style: italic}
-</style><style type="text/css">.MJXp-script {font-size: .8em}
-.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
-.MJXp-bold {font-weight: bold}
-.MJXp-italic {font-style: italic}
-.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
-.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
-.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
-.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
-.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
-.MJXp-largeop {font-size: 150%}
-.MJXp-largeop.MJXp-int {vertical-align: -.2em}
-.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
-.MJXp-display {display: block; text-align: center; margin: 1em 0}
-.MJXp-math span {display: inline-block}
-.MJXp-box {display: block!important; text-align: center}
-.MJXp-box:after {content: " "}
-.MJXp-rule {display: block!important; margin-top: .1em}
-.MJXp-char {display: block!important}
-.MJXp-mo {margin: 0 .15em}
-.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
-.MJXp-denom {display: inline-table!important; width: 100%}
-.MJXp-denom > * {display: table-row!important}
-.MJXp-surd {vertical-align: top}
-.MJXp-surd > * {display: block!important}
-.MJXp-script-box > *  {display: table!important; height: 50%}
-.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
-.MJXp-script-box > *:last-child > * {vertical-align: bottom}
-.MJXp-script-box > * > * > * {display: block!important}
-.MJXp-mphantom {visibility: hidden}
-.MJXp-munderover {display: inline-table!important}
-.MJXp-over {display: inline-block!important; text-align: center}
-.MJXp-over > * {display: block!important}
-.MJXp-munderover > * {display: table-row!important}
-.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
-.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
-.MJXp-mtr {display: table-row!important}
-.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
-.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
-.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
-.MJXp-mlabeledtr {display: table-row!important}
-.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
-.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
-.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
-.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
-.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
-.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
-.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
-.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
-.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
-.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
-.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
-.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
-.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
-.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+#ds-thread .ds-loading {
+  display: none;
+  height: 0;
+  visibility: hidden;
+}
+
+
+// duoshuo
+#ds-thread #ds-reset .ds-comments {
+  border-bottom: none;
+}
+
+.ds-like-panel,#ds-thread #ds-reset a:hover {
+  color: #999;
+}
+
+#ds-reset .ds-avatar,#ds-reset .ds-avatar img {
+  border-radius: 100%;
+}
+
+#ds-thread #ds-reset li.ds-post {
+  border-top: none;
+}
+
+div#ds-thread #ds-reset .ds-comment-body p {
+  color: #000;
+}
+
+#ds-thread #ds-reset .ds-comment-body a {
+  color: #777 !important;
+}
+
+#ds-thread #ds-reset li.ds-tab a {
+  text-shadow: none;
+}
+
+#ds-thread #ds-reset .ds-sort a.ds-current, #ds-thread #ds-reset .ds-sort a:active {
+  color: #e58c7c;
+}
+
+#ds-thread #ds-reset .ds-post-self {
+  border-top: none;
+}
+
+.ds-thread-like-text {
+  display: block;
+}
+
+.ds-thread-cancel-like {
+  display: none;
+}
+
+.ds-thread-liked .ds-thread-like-text {
+  display: none;
+}
+
+.ds-thread-liked .ds-thread-cancel-like {
+  display: block;
+}
+
+.footer #ds-thread #ds-reset .ds-meta {
+  margin-top: -25px;
+  text-align: left;
+}
+
+#ds-thread #ds-reset img  {
+  transition: all 0.3s;
+}
+
+#ds-thread #ds-reset img:hover {
+  transform: rotate(180deg);
+  transition: all 0.3s;
+}
+
+#ds-thread #ds-reset a.ds-like-thread-button {
+  position: relative;
+  z-index: 3;
+}
+
+.footer #ds-reset {
+  position: relative;
+}
+
+.footer #ds-thread #ds-reset .ds-comment-body p {
+  color: #CCC;
+}
+
+div#ds-thread #ds-reset .ds-comment-body {
+  color: #555;
+}
+
+#ds-thread #ds-reset .ds-replybox {
+  margin-bottom: 40px;
+}
+
+#ds-thread #ds-reset .ds-comment-body a[data-user-id='2300830']::after {
+  content: "博主";
+  border: 1px solid #e58c7c;
+  border-radius: 2px;
+  margin-left: 4px;
+  color: #e58c7c;
+  padding: 0 2px;
+  font-size: 12px;
+  line-height: 14px;
+  display: inline-block;
+}
+
+
+
+
+/* 改善视觉，增大 */
+.ds-post-reply, .ds-post-repost {
+  display: none;
+}
+
+.ds-post-self:hover .ds-post-reply, .ds-post-self:hover .ds-post-repost {
+  display: inline;
+}
+
+.ds-user-name {
+  font-size: 14px !important;
+  line-height: 42px !important;
+}
+
+.ds-children .ds-user-name {
+  line-height: 26px !important;
+}
+
+div#ds-thread #ds-reset .ds-comment-body p {
+  font-size: 16px !important;
+}
+
+div#ds-thread #ds-reset .ds-comment-header .ds-user-name {
+  font-size: 18px !important;
+  font-family:consolas !important;
+  line-height: 30px !important;
+}
+
+div#ds-thread #ds-reset .ds-textarea-wrapper textarea {
+  height: 120px !important;
+  font-size: 16px !important;
+  font-family: Consolas, Georgia, serif;
+}
+
+div#ds-thread #ds-reset .ds-post-options {
+  overflow: hidden;
+}
+
+div#ds-thread #ds-reset .ds-replybox {
+  margin-bottom: 180px;
+}
+
+div#ds-thread #ds-reset .ds-post-toolbar {
+  box-shadow: none;
+}
+
+div#ds-thread #ds-reset .ds-post-button {
+  position: relative;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+div#ds-thread #ds-reset .ds-post-options {
+  margin-right: 0 !important;
+  border-right: 1px solid #CCC;
+}
+
+@media screen and (max-width: 641px) {
+  div#ds-thread #ds-reset .ds-replybox {
+    padding: 0 !important;
+  }
+
+  div#ds-thread #ds-reset .ds-replybox .ds-avatar {
+    display: none !important;
+  }
+
+  .ds-post-self:hover .ds-post-repost, .ds-post-self:hover .ds-post-report, .ds-post-self:hover .ds-post-reply {
+    display: none !important;
+  }
+
+}
+
+div#ds-thread #ds-reset .ds-comment-body p {
+  white-space: pre-wrap;
+ font-family:consolas !important;
+}
+
+div.footer #ds-thread #ds-reset .ds-meta,
+div.footer #ds-thread #ds-reset .ds-comments-info {
+  display: none;
+}
+
+div.footer #ds-thread #ds-reset .ds-comments {
+  padding: 0;
+}
+
+#ds-thread #ds-reset .ds-paginator a {
+  font-size: 20px !important;
+}
+
+#ds-thread #ds-reset .ds-login-buttons p {
+  color: #999;
+}
 </style></head>
+<body><span class="aria-readonly" tabindex="0" aria-hidden="true">小强的博客良好支持读屏软件阅读，请放心使用。</span>
 
-    <body><div id="MathJax_Message" style="display: none;"></div>
-        <div class="wrap">
-            <div class="top group">
-                <header>
-                    <a href="http://stevelosh.com/">steve losh</a>
-                </header>
 
-                <nav>
-                    <a href="http://stevelosh.com/blog/">Blog</a>
-                    <span class="sep">-</span>
-                    <a href="http://stevelosh.com/projects">Projects</a>
-                    <span class="sep">-</span>
-                    <a href="http://stevelosh.com/links">Links</a>
-                    <span class="sep">-</span>
-                    <a href="http://stevelosh.com/about/">About</a>
-                    <span class="sep">-</span>
-                    <a href="http://feeds2.feedburner.com/stevelosh">Feed</a>
-                </nav>
-            </div>
 
-            <div class="hr">&nbsp;</div>
+  <div class="rainbow"></div>
+  <div class="home">
+	<div class="home-color-bg"></div>
+	<div class="home-box">		
+		<h3 title="For Future, For Freedom." aria-hidden="true">dolphin's personal website</h3>
+		<p><font aria-hidden="true">»</font>
+			<a href="#" aria-label="点击查看博客文章列表">博客</a> <font aria-hidden="true">/</font>
+		</p>
+		<p><font aria-hidden="true">»</font>
+			<i class="icon" title="Github"><a href="https://github.com/jiangxiaoqiang" target="_blank" aria-label="小强的 Github 地址">☃</a></i>
+		</p>
+	</div>
+</div>
 
-            <div class="content">
-                
-                    
-                        
-    <div class="splash vcard">
-        
-            <p>
-                Hello,
-                I’m
-                <a href="http://stevelosh.com/" class="fn url">Steve<span class="last-name"> Losh</span></a>.
-            </p>
 
-            <p>
-                I’m a
-                <span class="role">programmer, photographer, dancer <span class="amp">&amp;</span> bassist</span>
-                currently living in
-                <span class="adr"><span class="locality">Reykjavík</span>, <span class="region">Iceland</span></span>.
-            </p>
+<script async="" src="./小强的个人网站_files/analytics.js"></script><script src="./小强的个人网站_files/hm.js"></script><script src="./小强的个人网站_files/jquery.js"></script>
+<script src="./小强的个人网站_files/socket.io.js"></script>
+<script>
+  window.onerror = function(e) {
+    window.console && window.console.log && window.console.log(e);
+    return true;
+  };
+</script>
+<script src="./小强的个人网站_files/aplayer.js"></script>
+<script src="./小强的个人网站_files/main.js"></script>
 
-            <p>
-                If you want to get in touch with me,
-                <a class="email" href="mailto:steve@stevelosh.com">email</a>
-                is&nbsp;best.
-            </p>
-        
-    </div>
 
-                    
-                
-            </div>
-
-            <div class="hrb">&nbsp;</div>
-
-            <footer>
-                <p>
-                    <a href="https://bitbucket.org/sjl/">Bitbucket</a> ・ 
-                    <a href="https://github.com/sjl/">GitHub</a> ・ 
-                    <a href="https://twitter.com/stevelosh/">Twitter</a> ・ 
-                    <a href="https://instagram.com/thirtytwobirds/">Instagram</a> ・ 
-                    <a href="https://bitbucket.org/sjl/.plan/#readme">.plan</a>
-                </p>
-
-                <a class="rochester-made" href="http://rochestermade.com/" title="Rochester Made"><img src="./Steve Losh_files/rochester-made-dark-on-light.png" alt="Rochester Made" title="Rochester Made"></a>
-            </footer>
-        </div>
-    
-
-</body></html>
+</body><div class="chatroom chatroom-fold">
+<div class="chatroom-feedback"><a href="#" target="_blank">源码</a> | <a href="#" target="_blank">反馈</a></div>
+<div class="chatroom-info"></div>
+<ul class="chatroom-tribes">
+</li>
+</ul>
+<div class="chatroom-pannels">
+<div class="chatroom-pannel-bd">
+<style>
+  .no-scroll {
+    overflow: hidden;
+  }
+  .no-scroll body {
+    overflow: hidden;
+  }
+  #nmlist {
+    position: fixed;
+    right: 100%;
+    width: 100%;
+    bottom: 0;
+    top: 0;
+    z-index: 102;
+    margin-right: 3px;
+    background: #FFF;
+    transition: right 0.3s;
+  }
+  #nmlist h2 {
+    line-height: 40px;
+    text-align: center;
+    font-size: 24px;
+    background: #FFF;
+    margin-top: 10px;
+    box-shadow: 0 3px 3px #dfdfdf;
+    position: relative;
+    z-index: 1;
+  }
+  #nmlist ul {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 40px;
+    bottom: 0;
+    padding: 20px;
+    overflow: scroll;
+  }
+  #nmlist li {
+    float: left;
+    width: 140px;
+    height: 140px;
+    position: relative;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    overflow:hidden;
+    background: #FAFAFA;
+  }
+  #nmlist li:after {
+    font-family: "iconfont";
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -15px;
+    margin-top: -15px;
+    height: 30px;
+    line-height: 30px;
+    width: 30px;
+    text-align: center;
+    font-size: 32px;
+    color: rgba(255, 68, 0, 0.6);
+    opacity: 0;
+    content: attr(data-start);
+  }
+  #nmlist li:hover:after {
+    opacity: 1;
+    color: rgb(255, 68, 0);
+  }
+  #nmlist li.on:after {
+    opacity: 1;
+    color: rgb(255, 68, 0);
+    content: attr(data-pause);
+  }
+  #nmlist li.on img {
+    -webkit-filter: blur(2px);
+  }
+  #nmlist li.play:after {
+    opacity: 1;
+    color: rgb(255, 68, 0);
+    content: attr(data-start);
+  }
+  #nmlist li.loading:after {
+    opacity: 1;
+    color: #f40;
+    content: '加载中...';
+    font-size: 16px;
+    left: 0;
+    right: 0;
+    width: auto;
+    margin: 0;
+    margin-top: -20px;
+    font-weight: normal;
+    background: rgba(255,255,255,0.4);
+  }
+  #nmlist li img {
+    width: 140px;
+    height: 140px;
+    background: #EEE;
+    line-height: 140px;
+    overflow: hidden;
+    font-size: 12px;
+    text-align: center;
+  }
+  #nmlist li:hover img {
+    font-weight: bold;
+  }
+  #nmlist li span {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -50px;
+    max-height: 40px;
+    overflow: hidden;
+    line-height: 20px;
+    font-size: 12px;
+    background: rgba(0,0,0,.5);
+    color: #FFF;
+    padding: 5px 8px;
+    transition: bottom 0.3s;
+  }
+  #nmlist li:hover span, #nmlist li.on span, #nmlist li.loading span, #nmlist li.play span {
+    bottom: 0;
+    transition: bottom 0.3s;
+  }
+  #nmlist li:hover b, #nmlist li.on b, #nmlist li.loading b, #nmlist li.play b {
+    transition: background 0.3s;
+    background: rgba(0,0,0,.5);
+  }
+  #nmlist li b {
+    transition: background 0.3s;
+    position: absolute;
+    font-size: 12px;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: rgba(0,0,0,.3);
+    top: 0;
+    right: 0;
+  }
+  #nmlist i {
+    position: absolute;
+    right: -36px;
+    top: 50%;
+    margin-top: -18px;
+    height: 36px;
+    width: 36px;
+    line-height: 36px;
+    text-align: center;
+    border-radius: 6px;
+    color: #666;
+    font-size: 18px;
+    transition: all 0.3s;
+    cursor: pointer;
+    z-index: 104;
+  }
+  #nmlist i:after {
+    content: attr(data-start);
+  }
+  #nmlist i:hover {
+    color: #000;
+    transition: color 0.3s;
+  }
+  #nmlist.nmlist-opened {
+    right: 0;
+    margin-right: 0;
+    transition: right 0.3s;
+  }
+  #nmlist.nmlist-opened i {
+    right: 10px;
+    transition: all 0.3s;
+  }
+  #nmlist.nmlist-opened i:after {
+    content: attr(data-pause);
+  }
+  #nmPlayer {
+    position: fixed;
+    top: 100%;
+    left: 0;
+    margin-top: -126px;
+    margin-left: 60px;
+    z-index: 83;
+    cursor: move;
+    background: rgba(250, 250, 250, 0.8);
+    min-width: 300px;
+  }
+  @media screen and (max-width: 800px) {
+    #nmPlayer {
+      top: auto !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      margin: 0 !important;
+      min-width: 66px;
+    }
+    .aplayer-info, .aplayer-controller, .aplayer-list {
+      display: none;
+    }
+    #nmlist li span {
+      bottom: 0;
+    }
+  }
+</style>
