@@ -1,11 +1,28 @@
 ---
-title: Hello World
+搭建SSM框架
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
-## Quick Start
+SSM是Spring、Spring MVC、Mybatis的缩写。下面就是框架的搭建过程。
+环境：
+
+* JDK 1.8
+
+## 新建一个Maven Web项目
 
 ### Create a new post
+
+File-->New Project,选择Maven Project如下图所示。
+
+![](images\build-ssm-frame\select-maven-project.png)
+
+## Spring与Mybatis整合
+
+
+
+
+## 集成Spring
+
+
 
 ``` bash
 $ hexo new "My New Post"
