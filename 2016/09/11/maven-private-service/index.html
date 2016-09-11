@@ -11,10 +11,12 @@
 <meta property="og:url" content="http://yoursite.com/2016/09/11/maven-private-service/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Nexus简介Nexus 是Maven仓库管理器，如果你使用Maven，你可以从Maven中央仓库下载所需要的构件（artifact），但这通常不是一个好的做法，你应该在本地架设一个Maven仓库服务器，在代理远程仓库的同时维护本地仓库，以节省带宽和时间，Nexus就可以满足这样的需要。此外，他还提供了强大的仓库管理功能，构件搜索功能，它基于REST，友好的UI是一个extjs的REST客户端，它">
-<meta property="og:updated_time" content="2016-09-11T14:42:45.798Z">
+<meta property="og:image" content="http://yoursite.com/images\maven-private-service\nexus-main-page.png">
+<meta property="og:updated_time" content="2016-09-11T15:14:57.473Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows下用Nexus搭建Maven私服">
 <meta name="twitter:description" content="Nexus简介Nexus 是Maven仓库管理器，如果你使用Maven，你可以从Maven中央仓库下载所需要的构件（artifact），但这通常不是一个好的做法，你应该在本地架设一个Maven仓库服务器，在代理远程仓库的同时维护本地仓库，以节省带宽和时间，Nexus就可以满足这样的需要。此外，他还提供了强大的仓库管理功能，构件搜索功能，它基于REST，友好的UI是一个extjs的REST客户端，它">
+<meta name="twitter:image" content="http://yoursite.com/images\maven-private-service\nexus-main-page.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -54,7 +56,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -86,6 +88,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="Nexus简介"><a href="#Nexus简介" class="headerlink" title="Nexus简介"></a>Nexus简介</h2><p>Nexus 是Maven仓库管理器，如果你使用Maven，你可以从Maven中央仓库下载所需要的构件（artifact），但这通常不是一个好的做法，你应该在本地架设一个Maven仓库服务器，在代理远程仓库的同时维护本地仓库，以节省带宽和时间，Nexus就可以满足这样的需要。此外，他还提供了强大的仓库管理功能，构件搜索功能，它基于REST，友好的UI是一个extjs的REST客户端，它占用较少的内存，基于简单文件系统而非数据库。这些优点使其日趋成为最流行的Maven仓库管理器。下载Nexus（nexus-3.0.1-01-win64.exe），安装完毕后访问<a href="http://192.168.1.102:8081/" target="_blank" rel="external">本地Maven私服主页</a>。如下如所示：</p>
+<p><img src="images\maven-private-service\nexus-main-page.png" alt=""></p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>安装完毕后需要登录，默认的用户名密码是：<code>admin/admin123</code>。登录之后才会显示设置图标，才能添加repositories。将<a href="http://192.168.1.102:8081/repository/maven-public/" target="_blank" rel="external">本地Maven私服路径</a>配置到项目的pom.xml中即可。如下代码片段所示。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">repositories</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">repository</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>my-nexus-repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://192.168.1.102:8081/repository/maven-public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">releases</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">releases</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">pluginRepositories</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">pluginRepository</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>my-nexus-repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://192.168.1.102:8081/repository/maven-public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">releases</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">releases</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">pluginRepository</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">pluginRepositories</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>如果在本地私服没有的jar包，会自动从中心服务器下载。至此，最简单的Maven私服搭建完毕。</p>
@@ -93,7 +96,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/11/maven-private-service/" data-id="cisyrf1kk0000ikfl0682i76t" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2016/09/11/maven-private-service/" data-id="cisyrf1kk0000ikfl0682i76t" class="article-share-link">Share</a>
       
       
     </footer>
@@ -104,7 +107,7 @@
   
   
     <a href="/2016/09/11/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Ouder</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">Hello World</div>
     </a>
   
@@ -127,7 +130,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li></ul>
     </div>
@@ -137,7 +140,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
