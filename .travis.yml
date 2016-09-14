@@ -27,4 +27,4 @@ branches:
     - blog-source
 env:
  global:
-   - GH_REF: github.com/lifengsofts/lifengsofts.github.io.git
+   - GH_REF: github.com/jiangxiaoqiang/jiangxiaoqiang.github.com.git
