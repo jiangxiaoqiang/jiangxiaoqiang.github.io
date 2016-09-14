@@ -3,24 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Java Web开发--log4j | 小强的博客</title>
+  <title>小强的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="isDebugEnabled在输出日志时，判断输出级别：
-123if(logger.isDebugEnabled()) &amp;#123;    logger.debug(&quot;通用处理，信息为：&quot; + JSON.toJSONString(vehicleLocationData));&amp;#125;
-当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于deb">
+  <meta name="description" content="title: 加速Java应用开发Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask m">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java Web开发--log4j">
-<meta property="og:url" content="http://yoursite.com/2016/09/13/log4j/index.html">
+<meta property="og:title" content="小强的博客">
+<meta property="og:url" content="http://yoursite.com/2016/09/14/accelerate-java-development/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="isDebugEnabled在输出日志时，判断输出级别：
-123if(logger.isDebugEnabled()) &amp;#123;    logger.debug(&quot;通用处理，信息为：&quot; + JSON.toJSONString(vehicleLocationData));&amp;#125;
-当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于deb">
-<meta property="og:updated_time" content="2016-09-13T08:15:50.453Z">
+<meta property="og:description" content="title: 加速Java应用开发Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask m">
+<meta property="og:updated_time" content="2016-09-11T14:42:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java Web开发--log4j">
-<meta name="twitter:description" content="isDebugEnabled在输出日志时，判断输出级别：
-123if(logger.isDebugEnabled()) &amp;#123;    logger.debug(&quot;通用处理，信息为：&quot; + JSON.toJSONString(vehicleLocationData));&amp;#125;
-当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于deb">
+<meta name="twitter:title" content="小强的博客">
+<meta name="twitter:description" content="title: 加速Java应用开发Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask m">
   
     <link rel="alternate" href="/atom.xml" title="小强的博客" type="application/atom+xml">
   
@@ -69,38 +63,37 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-log4j" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-accelerate-java-development" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/09/13/log4j/" class="article-date">
-  <time datetime="2016-09-13T03:20:48.221Z" itemprop="datePublished">2016-09-13</time>
+    <a href="/2016/09/14/accelerate-java-development/" class="article-date">
+  <time datetime="2016-09-14T00:42:48.675Z" itemprop="datePublished">2016-09-14</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Java Web开发--log4j
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="isDebugEnabled"><a href="#isDebugEnabled" class="headerlink" title="isDebugEnabled"></a>isDebugEnabled</h2><p>在输出日志时，判断输出级别：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(logger.isDebugEnabled()) &#123;</div><div class="line">    logger.debug(<span class="string">"通用处理，信息为："</span> + JSON.toJSONString(vehicleLocationData));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于debug，即不需要进行日志信息输出时：</p>
-<p>①假如debug方法中的参数比较简单时（比如直接就是写好的字符串），加不加这句if判断，在效率上也几乎没有什么差别；</p>
-<p>②假如debug方法中的参数比较复杂时（比如还要使用别的函数进行计算、或者还要进行字符串的拼接等等,如上代码片段所示，输出的内容需要序列化），在前面就加上这句if判断，会让效率提高（否则，开始大动干戈做了很多事情（比如字符串的拼接，序列化），后来才发现不需要进行输出日志信息），白白浪费了CPU资源，影响程序的运行效率。</p>
+        <hr>
+<h2 id="title-加速Java应用开发"><a href="#title-加速Java应用开发" class="headerlink" title="title: 加速Java应用开发"></a>title: 加速Java应用开发</h2><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new <span class="string">"My New Post"</span>
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/13/log4j/" data-id="cit102idl0000swctemnnnbxg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/14/accelerate-java-development/" data-id="cit2c7zod0008i8ctoxtqnv36" class="article-share-link">Share</a>
       
       
     </footer>
@@ -109,15 +102,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/09/13/thunder-framework/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
+    <a href="/2016/09/14/build-ssm-frame/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
   
 </nav>
 

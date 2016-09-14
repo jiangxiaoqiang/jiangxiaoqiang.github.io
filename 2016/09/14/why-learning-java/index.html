@@ -3,24 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Java Web开发--log4j | 小强的博客</title>
+  <title>小强的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="isDebugEnabled在输出日志时，判断输出级别：
-123if(logger.isDebugEnabled()) &amp;#123;    logger.debug(&quot;通用处理，信息为：&quot; + JSON.toJSONString(vehicleLocationData));&amp;#125;
-当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于deb">
+  <meta name="description" content="为什么要学习Java？Java很火Java语言长期居于TIOBE编程语言排行榜第一名。
+Java开源热爱开源，开源意味着你掌握的主动权更多，依赖更少。企业都是以盈利为目的的，给钱相对好说话，不给钱可能就没有办法一起好好玩耍了。
+Java应用广Java在各大科技公司都有大规模应用，例如Google、Yahoo、Alibaba、eBay等等。大型系统非常多都是由Java应用支撑。.NET平台比较有名的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java Web开发--log4j">
-<meta property="og:url" content="http://yoursite.com/2016/09/13/log4j/index.html">
+<meta property="og:title" content="小强的博客">
+<meta property="og:url" content="http://yoursite.com/2016/09/14/why-learning-java/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="isDebugEnabled在输出日志时，判断输出级别：
-123if(logger.isDebugEnabled()) &amp;#123;    logger.debug(&quot;通用处理，信息为：&quot; + JSON.toJSONString(vehicleLocationData));&amp;#125;
-当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于deb">
-<meta property="og:updated_time" content="2016-09-13T08:15:50.453Z">
+<meta property="og:description" content="为什么要学习Java？Java很火Java语言长期居于TIOBE编程语言排行榜第一名。
+Java开源热爱开源，开源意味着你掌握的主动权更多，依赖更少。企业都是以盈利为目的的，给钱相对好说话，不给钱可能就没有办法一起好好玩耍了。
+Java应用广Java在各大科技公司都有大规模应用，例如Google、Yahoo、Alibaba、eBay等等。大型系统非常多都是由Java应用支撑。.NET平台比较有名的">
+<meta property="og:updated_time" content="2016-08-27T13:54:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java Web开发--log4j">
-<meta name="twitter:description" content="isDebugEnabled在输出日志时，判断输出级别：
-123if(logger.isDebugEnabled()) &amp;#123;    logger.debug(&quot;通用处理，信息为：&quot; + JSON.toJSONString(vehicleLocationData));&amp;#125;
-当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于deb">
+<meta name="twitter:title" content="小强的博客">
+<meta name="twitter:description" content="为什么要学习Java？Java很火Java语言长期居于TIOBE编程语言排行榜第一名。
+Java开源热爱开源，开源意味着你掌握的主动权更多，依赖更少。企业都是以盈利为目的的，给钱相对好说话，不给钱可能就没有办法一起好好玩耍了。
+Java应用广Java在各大科技公司都有大规模应用，例如Google、Yahoo、Alibaba、eBay等等。大型系统非常多都是由Java应用支撑。.NET平台比较有名的">
   
     <link rel="alternate" href="/atom.xml" title="小强的博客" type="application/atom+xml">
   
@@ -69,38 +69,27 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-log4j" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-why-learning-java" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/09/13/log4j/" class="article-date">
-  <time datetime="2016-09-13T03:20:48.221Z" itemprop="datePublished">2016-09-13</time>
+    <a href="/2016/09/14/why-learning-java/" class="article-date">
+  <time datetime="2016-09-14T00:42:48.223Z" itemprop="datePublished">2016-09-14</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Java Web开发--log4j
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="isDebugEnabled"><a href="#isDebugEnabled" class="headerlink" title="isDebugEnabled"></a>isDebugEnabled</h2><p>在输出日志时，判断输出级别：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(logger.isDebugEnabled()) &#123;</div><div class="line">    logger.debug(<span class="string">"通用处理，信息为："</span> + JSON.toJSONString(vehicleLocationData));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于debug，即不需要进行日志信息输出时：</p>
-<p>①假如debug方法中的参数比较简单时（比如直接就是写好的字符串），加不加这句if判断，在效率上也几乎没有什么差别；</p>
-<p>②假如debug方法中的参数比较复杂时（比如还要使用别的函数进行计算、或者还要进行字符串的拼接等等,如上代码片段所示，输出的内容需要序列化），在前面就加上这句if判断，会让效率提高（否则，开始大动干戈做了很多事情（比如字符串的拼接，序列化），后来才发现不需要进行输出日志信息），白白浪费了CPU资源，影响程序的运行效率。</p>
+        <h1 id="为什么要学习Java？"><a href="#为什么要学习Java？" class="headerlink" title="为什么要学习Java？"></a>为什么要学习Java？</h1><h2 id="Java很火"><a href="#Java很火" class="headerlink" title="Java很火"></a>Java很火</h2><p>Java语言长期居于<a href="http://www.tiobe.com" target="_blank" rel="external">TIOBE</a>编程语言排行榜第一名。</p>
+<h2 id="Java开源"><a href="#Java开源" class="headerlink" title="Java开源"></a>Java开源</h2><p>热爱开源，开源意味着你掌握的主动权更多，依赖更少。企业都是以盈利为目的的，给钱相对好说话，不给钱可能就没有办法一起好好玩耍了。</p>
+<h2 id="Java应用广"><a href="#Java应用广" class="headerlink" title="Java应用广"></a>Java应用广</h2><p>Java在各大科技公司都有大规模应用，例如Google、Yahoo、Alibaba、eBay等等。大型系统非常多都是由Java应用支撑。.NET平台比较有名的就是StackOverflow了。</p>
+<h2 id="自己想学习Java"><a href="#自己想学习Java" class="headerlink" title="自己想学习Java"></a>自己想学习Java</h2><p>最最重要的还是咱们的主观能动性。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/13/log4j/" data-id="cit102idl0000swctemnnnbxg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/14/why-learning-java/" data-id="cit2c7zo30007i8ct6c3pg2uf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -109,7 +98,7 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/09/13/thunder-framework/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/09/14/maven-private-service/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
@@ -118,6 +107,11 @@
       </div>
     </a>
   
+  
+    <a href="/2016/09/13/spring/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
   
 </nav>
 

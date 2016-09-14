@@ -3,24 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Java Web开发--log4j | 小强的博客</title>
+  <title>HBase分享 | 小强的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="isDebugEnabled在输出日志时，判断输出级别：
-123if(logger.isDebugEnabled()) &amp;#123;    logger.debug(&quot;通用处理，信息为：&quot; + JSON.toJSONString(vehicleLocationData));&amp;#125;
-当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于deb">
+  <meta name="description" content="HBase简介HBase – Hadoop Database，是一个高可靠性、高性能、面向列、可伸缩的分布式存储系统，利用HBase技术可在廉价PC Server上搭建起大规模结构化存储集群。
+HBase是Google Bigtable的开源实现，类似Google Bigtable利用GFS作为其文件存储系统，HBase利用Hadoop HDFS作为其文件存储系统；Google运行MapReduc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java Web开发--log4j">
-<meta property="og:url" content="http://yoursite.com/2016/09/13/log4j/index.html">
+<meta property="og:title" content="HBase分享">
+<meta property="og:url" content="http://yoursite.com/2016/09/14/hbase/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="isDebugEnabled在输出日志时，判断输出级别：
-123if(logger.isDebugEnabled()) &amp;#123;    logger.debug(&quot;通用处理，信息为：&quot; + JSON.toJSONString(vehicleLocationData));&amp;#125;
-当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于deb">
-<meta property="og:updated_time" content="2016-09-13T08:15:50.453Z">
+<meta property="og:description" content="HBase简介HBase – Hadoop Database，是一个高可靠性、高性能、面向列、可伸缩的分布式存储系统，利用HBase技术可在廉价PC Server上搭建起大规模结构化存储集群。
+HBase是Google Bigtable的开源实现，类似Google Bigtable利用GFS作为其文件存储系统，HBase利用Hadoop HDFS作为其文件存储系统；Google运行MapReduc">
+<meta property="og:updated_time" content="2016-09-12T13:02:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java Web开发--log4j">
-<meta name="twitter:description" content="isDebugEnabled在输出日志时，判断输出级别：
-123if(logger.isDebugEnabled()) &amp;#123;    logger.debug(&quot;通用处理，信息为：&quot; + JSON.toJSONString(vehicleLocationData));&amp;#125;
-当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于deb">
+<meta name="twitter:title" content="HBase分享">
+<meta name="twitter:description" content="HBase简介HBase – Hadoop Database，是一个高可靠性、高性能、面向列、可伸缩的分布式存储系统，利用HBase技术可在廉价PC Server上搭建起大规模结构化存储集群。
+HBase是Google Bigtable的开源实现，类似Google Bigtable利用GFS作为其文件存储系统，HBase利用Hadoop HDFS作为其文件存储系统；Google运行MapReduc">
   
     <link rel="alternate" href="/atom.xml" title="小强的博客" type="application/atom+xml">
   
@@ -69,10 +66,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-log4j" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-hbase" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/09/13/log4j/" class="article-date">
-  <time datetime="2016-09-13T03:20:48.221Z" itemprop="datePublished">2016-09-13</time>
+    <a href="/2016/09/14/hbase/" class="article-date">
+  <time datetime="2016-09-14T00:42:48.501Z" itemprop="datePublished">2016-09-14</time>
 </a>
     
   </div>
@@ -83,7 +80,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Java Web开发--log4j
+      HBase分享
     </h1>
   
 
@@ -91,16 +88,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="isDebugEnabled"><a href="#isDebugEnabled" class="headerlink" title="isDebugEnabled"></a>isDebugEnabled</h2><p>在输出日志时，判断输出级别：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(logger.isDebugEnabled()) &#123;</div><div class="line">    logger.debug(<span class="string">"通用处理，信息为："</span> + JSON.toJSONString(vehicleLocationData));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于debug，即不需要进行日志信息输出时：</p>
-<p>①假如debug方法中的参数比较简单时（比如直接就是写好的字符串），加不加这句if判断，在效率上也几乎没有什么差别；</p>
-<p>②假如debug方法中的参数比较复杂时（比如还要使用别的函数进行计算、或者还要进行字符串的拼接等等,如上代码片段所示，输出的内容需要序列化），在前面就加上这句if判断，会让效率提高（否则，开始大动干戈做了很多事情（比如字符串的拼接，序列化），后来才发现不需要进行输出日志信息），白白浪费了CPU资源，影响程序的运行效率。</p>
-
+        <h2 id="HBase简介"><a href="#HBase简介" class="headerlink" title="HBase简介"></a>HBase简介</h2><p>HBase – Hadoop Database，是一个高可靠性、高性能、面向列、可伸缩的分布式存储系统，利用HBase技术可在廉价PC Server上搭建起大规模结构化存储集群。</p>
+<p>HBase是Google Bigtable的开源实现，类似Google Bigtable利用GFS作为其文件存储系统，HBase利用Hadoop HDFS作为其文件存储系统；Google运行MapReduce来处理Bigtable中的海量数据，HBase同样利用Hadoop MapReduce来处理HBase中的海量数据；Google Bigtable利用 Chubby作为协同服务，HBase利用Zookeeper作为对应。</p>
+<p>此外，Pig和Hive还为HBase提供了高层语言支持，使得在HBase上进行数据统计处理变的非常简单。 Sqoop则为HBase提供了方便的RDBMS数据导入功能，使得传统数据库数据向HBase中迁移变的非常方便。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/13/log4j/" data-id="cit102idl0000swctemnnnbxg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/14/hbase/" data-id="cit2c7zno0000i8ctfysyllnu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -109,7 +104,7 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/09/13/thunder-framework/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/09/14/mybatis-generator-tutorial/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
@@ -118,6 +113,11 @@
       </div>
     </a>
   
+  
+    <a href="/2016/09/14/java-web-helloworld/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
   
 </nav>
 
