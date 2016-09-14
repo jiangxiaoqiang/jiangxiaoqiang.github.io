@@ -1,6 +1,6 @@
 language: node_js
 sudo: false
-# master为hexo博客所在分支
+# master为hexo博客所在分支-
 branches:
   only:
   - master
