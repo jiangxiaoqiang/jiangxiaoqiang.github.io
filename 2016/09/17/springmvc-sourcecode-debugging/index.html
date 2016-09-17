@@ -123,7 +123,7 @@ Apache Tomcat 8.0
 
 想了解平时学习的理论知识在实际的代码实现中是什么情况，">
 <meta property="og:image" content="http://yoursite.com/2016/09/17/springmvc-sourcecode-debugging/springmvc-attach-source.png">
-<meta property="og:updated_time" content="2016-09-17T05:55:08.571Z">
+<meta property="og:updated_time" content="2016-09-17T07:13:59.644Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring MVC源码调试">
 <meta name="twitter:description" content="这里调试Spring MVC的环境是：
@@ -337,6 +337,7 @@ Apache Tomcat 8.0
 </li>
 </ul>
 <p>想了解平时学习的理论知识在实际的代码实现中是什么情况，比较好的方式是阅读源码，如果能在阅读过程中根据疑问动手调试源码验证猜想和疑问，那就更加完美了。这里想看Spring MVC一个HTTP请求从开始到结束到底是怎么运行的，Spring MVC怎么处理，选取了4.2.3版本的源码进行调试。</p>
+<a id="more"></a>
 <p>首先从GitHub上下载4.2.3版本的源码，在项目的Maven Dependencies找到名为spring-webmvc-4.2.3.REALEASE的jar包，单击右键build-path–&gt;Configure build path,在Libraries中找到对应的jar包，选中source attachment–&gt;Edit.</p>
 <img src="/2016/09/17/springmvc-sourcecode-debugging/springmvc-attach-source.png" alt="Spring MVC关联源码" title="Spring MVC关联源码">
 <p>在spring-webmvc-4.2.3.REALEASE.jar中找到dispatchservlet类，打断点即可进入调试。</p>
