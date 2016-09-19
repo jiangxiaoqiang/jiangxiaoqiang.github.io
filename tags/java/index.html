@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Spring," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -90,57 +90,12 @@
 
 
 
-<meta name="description" content="这里调试Spring MVC的环境是：
-
-Windows 7
-
-Eclipse Java EE IDE for Web Developers,Version: Neon Release (4.6.0).Build id: 20160613-1800
-
-JDK 1.8
-
-Spring MVC 4.2.3
-
-Apache Tomcat 8.0
-
-
-想了解平时学习的理论知识在实际的代码实现中是什么情况，">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Spring MVC源码调试">
-<meta property="og:url" content="http://yoursite.com/2016/09/17/springmvc-sourcecode-debugging/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="小强的博客">
+<meta property="og:url" content="http://yoursite.com/tags/java/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="这里调试Spring MVC的环境是：
-
-Windows 7
-
-Eclipse Java EE IDE for Web Developers,Version: Neon Release (4.6.0).Build id: 20160613-1800
-
-JDK 1.8
-
-Spring MVC 4.2.3
-
-Apache Tomcat 8.0
-
-
-想了解平时学习的理论知识在实际的代码实现中是什么情况，">
-<meta property="og:image" content="http://yoursite.com/2016/09/17/springmvc-sourcecode-debugging/springmvc-attach-source.png">
-<meta property="og:updated_time" content="2016-09-17T07:13:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring MVC源码调试">
-<meta name="twitter:description" content="这里调试Spring MVC的环境是：
-
-Windows 7
-
-Eclipse Java EE IDE for Web Developers,Version: Neon Release (4.6.0).Build id: 20160613-1800
-
-JDK 1.8
-
-Spring MVC 4.2.3
-
-Apache Tomcat 8.0
-
-
-想了解平时学习的理论知识在实际的代码实现中是什么情况，">
-<meta name="twitter:image" content="http://yoursite.com/2016/09/17/springmvc-sourcecode-debugging/springmvc-attach-source.png">
+<meta name="twitter:title" content="小强的博客">
 
 
 
@@ -161,9 +116,9 @@ Apache Tomcat 8.0
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/09/17/springmvc-sourcecode-debugging/"/>
+  <link rel="canonical" href="http://yoursite.com/tags/java/"/>
 
-  <title> Spring MVC源码调试 | 小强的博客 </title>
+  <title> 标签: java | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -184,7 +139,7 @@ Apache Tomcat 8.0
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -262,150 +217,46 @@ Apache Tomcat 8.0
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        java
+        <small>标签</small>
+      </h2>
+    </div>
 
     
-      <header class="post-header">
+      
 
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
+            <a class="post-title-link" href="/2016/09/19/java-string-not-null/" itemprop="url">
               
-                Spring MVC源码调试
+                <span itemprop="name">Java中String非空判断</span>
               
-            
-          </h1>
+            </a>
         
+      </h1>
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-17T13:55:08+08:00" content="2016-09-17">
-              2016-09-17
-            </time>
-          </span>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-09-19T18:18:13+08:00"
+              content="2016-09-19" >
+          09-19
+        </time>
+      </div>
 
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/17/springmvc-sourcecode-debugging/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/17/springmvc-sourcecode-debugging/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>这里调试Spring MVC的环境是：</p>
-<ul>
-<li><p>Windows 7</p>
-</li>
-<li><p>Eclipse Java EE IDE for Web Developers,Version: Neon Release (4.6.0).Build id: 20160613-1800</p>
-</li>
-<li><p>JDK 1.8</p>
-</li>
-<li><p>Spring MVC 4.2.3</p>
-</li>
-<li><p>Apache Tomcat 8.0</p>
-</li>
-</ul>
-<p>想了解平时学习的理论知识在实际的代码实现中是什么情况，比较好的方式是阅读源码，如果能在阅读过程中根据疑问动手调试源码验证猜想和疑问，那就更加完美了。这里想看Spring MVC一个HTTP请求从开始到结束到底是怎么运行的，Spring MVC怎么处理，选取了4.2.3版本的源码进行调试。</p>
-<a id="more"></a>
-<p>首先从GitHub上下载4.2.3版本的源码，在项目的Maven Dependencies找到名为spring-webmvc-4.2.3.REALEASE的jar包，单击右键build-path–&gt;Configure build path,在Libraries中找到对应的jar包，选中source attachment–&gt;Edit.</p>
-<img src="/2016/09/17/springmvc-sourcecode-debugging/springmvc-attach-source.png" alt="Spring MVC关联源码" title="Spring MVC关联源码">
-<p>在spring-webmvc-4.2.3.REALEASE.jar中找到dispatchservlet类，打断点即可进入调试。</p>
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Spring/" rel="tag">#Spring</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/09/14/maven-private-service/" rel="next" title="Windows下用Nexus搭建Maven私服">
-                <i class="fa fa-chevron-left"></i> Windows下用Nexus搭建Maven私服
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/18/log4j/" rel="prev" title="Java Web开发--log4j">
-                Java Web开发--log4j <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
-      
-    </div>
+    
   </div>
+
+  
 
 
           </div>
@@ -413,17 +264,6 @@ Apache Tomcat 8.0
 
 
           
-  <div class="comments" id="comments">
-    
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    
-  </div>
-
 
         </div>
         
@@ -443,17 +283,8 @@ Apache Tomcat 8.0
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -507,17 +338,6 @@ Apache Tomcat 8.0
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <p class="post-toc-empty">此文章未包含目录</p>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -621,10 +441,6 @@ Apache Tomcat 8.0
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
 
   
 
@@ -641,9 +457,9 @@ Apache Tomcat 8.0
 
     <script type="text/javascript">
       var disqus_shortname = 'jiangxiaoqiang';
-      var disqus_identifier = '2016/09/17/springmvc-sourcecode-debugging/';
-      var disqus_title = "Spring MVC源码调试";
-      var disqus_url = 'http://yoursite.com/2016/09/17/springmvc-sourcecode-debugging/';
+      var disqus_identifier = 'tags/java/index.html';
+      var disqus_title = "";
+      var disqus_url = '';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
@@ -654,8 +470,6 @@ Apache Tomcat 8.0
       }
 
       run_disqus_script('count.js');
-      
-        run_disqus_script('embed.js');
       
     </script>
   

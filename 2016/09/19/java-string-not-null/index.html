@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Spring," />
+  <meta name="keywords" content="java," />
 
 
 
@@ -90,57 +90,28 @@
 
 
 
-<meta name="description" content="这里调试Spring MVC的环境是：
-
-Windows 7
-
-Eclipse Java EE IDE for Web Developers,Version: Neon Release (4.6.0).Build id: 20160613-1800
-
-JDK 1.8
-
-Spring MVC 4.2.3
-
-Apache Tomcat 8.0
-
-
-想了解平时学习的理论知识在实际的代码实现中是什么情况，">
+<meta name="description" content="如果使用的Java运行时版本在Java SE 1.6之前，可以这样判断字符串非空：
+1if(str != null &amp;amp;&amp;amp; str.length() != 0)
+如果使用的Java运行时版本是Java SE 1.6及之后版本，可以这样判断字符串非空：
+1if(str != null &amp;amp;&amp;amp; !str.isEmpty())
+使用org.apache.commons.lan">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring MVC源码调试">
-<meta property="og:url" content="http://yoursite.com/2016/09/17/springmvc-sourcecode-debugging/index.html">
+<meta property="og:title" content="Java中String非空判断">
+<meta property="og:url" content="http://yoursite.com/2016/09/19/java-string-not-null/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="这里调试Spring MVC的环境是：
-
-Windows 7
-
-Eclipse Java EE IDE for Web Developers,Version: Neon Release (4.6.0).Build id: 20160613-1800
-
-JDK 1.8
-
-Spring MVC 4.2.3
-
-Apache Tomcat 8.0
-
-
-想了解平时学习的理论知识在实际的代码实现中是什么情况，">
-<meta property="og:image" content="http://yoursite.com/2016/09/17/springmvc-sourcecode-debugging/springmvc-attach-source.png">
-<meta property="og:updated_time" content="2016-09-17T07:13:59.000Z">
+<meta property="og:description" content="如果使用的Java运行时版本在Java SE 1.6之前，可以这样判断字符串非空：
+1if(str != null &amp;amp;&amp;amp; str.length() != 0)
+如果使用的Java运行时版本是Java SE 1.6及之后版本，可以这样判断字符串非空：
+1if(str != null &amp;amp;&amp;amp; !str.isEmpty())
+使用org.apache.commons.lan">
+<meta property="og:updated_time" content="2016-09-19T10:18:13.642Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring MVC源码调试">
-<meta name="twitter:description" content="这里调试Spring MVC的环境是：
-
-Windows 7
-
-Eclipse Java EE IDE for Web Developers,Version: Neon Release (4.6.0).Build id: 20160613-1800
-
-JDK 1.8
-
-Spring MVC 4.2.3
-
-Apache Tomcat 8.0
-
-
-想了解平时学习的理论知识在实际的代码实现中是什么情况，">
-<meta name="twitter:image" content="http://yoursite.com/2016/09/17/springmvc-sourcecode-debugging/springmvc-attach-source.png">
+<meta name="twitter:title" content="Java中String非空判断">
+<meta name="twitter:description" content="如果使用的Java运行时版本在Java SE 1.6之前，可以这样判断字符串非空：
+1if(str != null &amp;amp;&amp;amp; str.length() != 0)
+如果使用的Java运行时版本是Java SE 1.6及之后版本，可以这样判断字符串非空：
+1if(str != null &amp;amp;&amp;amp; !str.isEmpty())
+使用org.apache.commons.lan">
 
 
 
@@ -161,9 +132,9 @@ Apache Tomcat 8.0
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/09/17/springmvc-sourcecode-debugging/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/09/19/java-string-not-null/"/>
 
-  <title> Spring MVC源码调试 | 小强的博客 </title>
+  <title> Java中String非空判断 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -283,7 +254,7 @@ Apache Tomcat 8.0
             
             
               
-                Spring MVC源码调试
+                Java中String非空判断
               
             
           </h1>
@@ -295,8 +266,8 @@ Apache Tomcat 8.0
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-17T13:55:08+08:00" content="2016-09-17">
-              2016-09-17
+            <time itemprop="dateCreated" datetime="2016-09-19T18:18:13+08:00" content="2016-09-19">
+              2016-09-19
             </time>
           </span>
 
@@ -306,8 +277,8 @@ Apache Tomcat 8.0
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/17/springmvc-sourcecode-debugging/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/17/springmvc-sourcecode-debugging/" itemprop="commentsCount"></span>
+                <a href="/2016/09/19/java-string-not-null/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/19/java-string-not-null/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -330,24 +301,18 @@ Apache Tomcat 8.0
       
 
       
-        <p>这里调试Spring MVC的环境是：</p>
+        <p>如果使用的Java运行时版本在Java SE 1.6之前，可以这样判断字符串非空：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(str != <span class="keyword">null</span> &amp;&amp; str.length() != <span class="number">0</span>)</div></pre></td></tr></table></figure>
+<p>如果使用的Java运行时版本是Java SE 1.6及之后版本，可以这样判断字符串非空：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(str != <span class="keyword">null</span> &amp;&amp; !str.isEmpty())</div></pre></td></tr></table></figure>
+<p>使用org.apache.commons.lang.StringUtils<a href="http://commons.apache.org/proper/commons-lang/" target="_blank" rel="external">Apache commons-lang</a>来完成：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.apache.commons.lang.StringUtils;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (StringUtils.isNotBlank(str)) &#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如下方式也可：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> com.google.common.base.Strings;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (!Strings.isNullOrEmpty(myString)) &#123;</div><div class="line">       <span class="keyword">return</span> myString;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>源自：</p>
 <ul>
-<li><p>Windows 7</p>
-</li>
-<li><p>Eclipse Java EE IDE for Web Developers,Version: Neon Release (4.6.0).Build id: 20160613-1800</p>
-</li>
-<li><p>JDK 1.8</p>
-</li>
-<li><p>Spring MVC 4.2.3</p>
-</li>
-<li><p>Apache Tomcat 8.0</p>
-</li>
+<li><a href="http://stackoverflow.com/questions/3598770/java-check-whether-a-string-is-not-null-and-not-empty" target="_blank" rel="external">Java, check whether a string is not null and not empty?</a></li>
 </ul>
-<p>想了解平时学习的理论知识在实际的代码实现中是什么情况，比较好的方式是阅读源码，如果能在阅读过程中根据疑问动手调试源码验证猜想和疑问，那就更加完美了。这里想看Spring MVC一个HTTP请求从开始到结束到底是怎么运行的，Spring MVC怎么处理，选取了4.2.3版本的源码进行调试。</p>
-<a id="more"></a>
-<p>首先从GitHub上下载4.2.3版本的源码，在项目的Maven Dependencies找到名为spring-webmvc-4.2.3.REALEASE的jar包，单击右键build-path–&gt;Configure build path,在Libraries中找到对应的jar包，选中source attachment–&gt;Edit.</p>
-<img src="/2016/09/17/springmvc-sourcecode-debugging/springmvc-attach-source.png" alt="Spring MVC关联源码" title="Spring MVC关联源码">
-<p>在spring-webmvc-4.2.3.REALEASE.jar中找到dispatchservlet类，打断点即可进入调试。</p>
 
       
     </div>
@@ -370,7 +335,7 @@ Apache Tomcat 8.0
       
         <div class="post-tags">
           
-            <a href="/tags/Spring/" rel="tag">#Spring</a>
+            <a href="/tags/java/" rel="tag">#java</a>
           
         </div>
       
@@ -379,17 +344,13 @@ Apache Tomcat 8.0
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/14/maven-private-service/" rel="next" title="Windows下用Nexus搭建Maven私服">
-                <i class="fa fa-chevron-left"></i> Windows下用Nexus搭建Maven私服
+              <a href="/2016/09/19/lombok/" rel="next" title="Lombok精简Java代码">
+                <i class="fa fa-chevron-left"></i> Lombok精简Java代码
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/18/log4j/" rel="prev" title="Java Web开发--log4j">
-                Java Web开发--log4j <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -641,9 +602,9 @@ Apache Tomcat 8.0
 
     <script type="text/javascript">
       var disqus_shortname = 'jiangxiaoqiang';
-      var disqus_identifier = '2016/09/17/springmvc-sourcecode-debugging/';
-      var disqus_title = "Spring MVC源码调试";
-      var disqus_url = 'http://yoursite.com/2016/09/17/springmvc-sourcecode-debugging/';
+      var disqus_identifier = '2016/09/19/java-string-not-null/';
+      var disqus_title = "Java中String非空判断";
+      var disqus_url = 'http://yoursite.com/2016/09/19/java-string-not-null/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
