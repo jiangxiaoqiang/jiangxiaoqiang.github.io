@@ -115,7 +115,8 @@ JDK 1.8">
 <meta property="og:image" content="http://yoursite.com/2016/09/20/launching-and-debugging-tomcat/create-new-java-project.jpg">
 <meta property="og:image" content="http://yoursite.com/2016/09/20/launching-and-debugging-tomcat/tomcat8-tree-structure.jpg">
 <meta property="og:image" content="http://yoursite.com/2016/09/20/launching-and-debugging-tomcat/config-workspace.jpg">
-<meta property="og:updated_time" content="2016-09-20T04:29:28.048Z">
+<meta property="og:image" content="http://yoursite.com/2016/09/20/launching-and-debugging-tomcat/config-workspace.jpg">
+<meta property="og:updated_time" content="2016-09-20T06:28:23.544Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Eclipse中启动和调试Tomcat（一）">
 <meta name="twitter:description" content="在Eclipse中调试Tomcat可以分析HTTP请求从Tomcat捕获到Servlet的过程。这个是调试Tomcat的目的。调试的环境是：
@@ -344,11 +345,18 @@ JDK 1.8">
 <img src="/2016/09/20/launching-and-debugging-tomcat/create-new-java-project.jpg" alt="新建项目Tomcat8" title="新建项目Tomcat8">
 <h5 id="下载Tomcat"><a href="#下载Tomcat" class="headerlink" title="下载Tomcat"></a>下载Tomcat</h5><p>下载<a href="https://tomcat.apache.org/download-80.cgi" target="_blank" rel="external">Tomcat 8.0.37</a>对应的二进制文件。将之拷贝到项目Tomcat8的根目录。拷贝之后Tomcat项目的目录结构应该如图所示。</p>
 <img src="/2016/09/20/launching-and-debugging-tomcat/tomcat8-tree-structure.jpg" alt="Tomcat8项目目录树结构" title="Tomcat8项目目录树结构">
-<h5 id="创建一个新的“Test”项目"><a href="#创建一个新的“Test”项目" class="headerlink" title="创建一个新的“Test”项目"></a>创建一个新的“Test”项目</h5><p>创建一个Maven的webapp项目。</p>
+<h5 id="创建一个新的“Test”项目"><a href="#创建一个新的“Test”项目" class="headerlink" title="创建一个新的“Test”项目"></a>创建一个新的“Test”项目</h5><p>创建一个Maven的webapp项目名字为“test”。</p>
 <h5 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h5><p>配置test项目，创建调试配置，配置Main Class为Tomcat的启动类：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">org.apache.catalina.startup.Bootstrap</div></pre></td></tr></table></figure>
 <p>配置test项目的工作空间为Tomcat8的工作空间，如图所示：</p>
 <img src="/2016/09/20/launching-and-debugging-tomcat/config-workspace.jpg" alt="配置test项目工作空间" title="配置test项目工作空间">
+<p>添加自定义Servlet，如图所示：</p>
+<img src="/2016/09/20/launching-and-debugging-tomcat/config-workspace.jpg" alt="配置test项目工作空间" title="配置test项目工作空间">
+<p>在Tomcat8项目中配置servlet映射(/webapps/examples/WEB-INF)：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>test<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/demo/test<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>在Tomcat8项目中配置servlet(/webapps/examples/WEB-INF)：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>test<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>demo.TestServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>在test项目中新建一个自定义的Servlet，名字为“TestServlet”。由于TestServlet实现HttpServlet接口，所以在test项目的Library中需要引用Tomcat8项目目录下的servlet-api.jar包。</p>
 <h5 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h5><p>打开浏览器访问<a href="http://localhost:9090/examples/demo/test" target="_blank" rel="external">链接</a>即可。</p>
 <p>源自：</p>
 <ul>
