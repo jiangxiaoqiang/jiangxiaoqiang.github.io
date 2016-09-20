@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Tomcat," />
 
 
 
@@ -90,22 +90,44 @@
 
 
 
-<meta name="description" content="isDebugEnabled在输出日志时，判断输出级别：
-123if(logger.isDebugEnabled()) &amp;#123;    logger.debug(&quot;通用处理，信息为：&quot; + JSON.toJSONString(vehicleLocationData));&amp;#125;
-当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于deb">
+<meta name="description" content="在Eclipse中调试Tomcat可以分析HTTP请求从Tomcat捕获到Servlet的过程。这个是调试Tomcat的目的。调试的环境是：
+
+IDE：Eclipse Java EE IDE for Web Developers.Version: Neon Release (4.6.0) Build id: 20160613-1800
+
+
+Tomcat 8.0（8.0.37）
+
+
+JDK 1.8">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java Web开发--log4j">
-<meta property="og:url" content="http://yoursite.com/2016/09/18/log4j/index.html">
+<meta property="og:title" content="在Eclipse中启动和调试Tomcat（一）">
+<meta property="og:url" content="http://yoursite.com/2016/09/20/launching-and-debugging-tomcat/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="isDebugEnabled在输出日志时，判断输出级别：
-123if(logger.isDebugEnabled()) &amp;#123;    logger.debug(&quot;通用处理，信息为：&quot; + JSON.toJSONString(vehicleLocationData));&amp;#125;
-当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于deb">
-<meta property="og:updated_time" content="2016-09-13T08:15:50.000Z">
+<meta property="og:description" content="在Eclipse中调试Tomcat可以分析HTTP请求从Tomcat捕获到Servlet的过程。这个是调试Tomcat的目的。调试的环境是：
+
+IDE：Eclipse Java EE IDE for Web Developers.Version: Neon Release (4.6.0) Build id: 20160613-1800
+
+
+Tomcat 8.0（8.0.37）
+
+
+JDK 1.8">
+<meta property="og:image" content="http://yoursite.com/2016/09/20/launching-and-debugging-tomcat/create-new-java-project.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/09/20/launching-and-debugging-tomcat/tomcat8-tree-structure.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/09/20/launching-and-debugging-tomcat/config-workspace.jpg">
+<meta property="og:updated_time" content="2016-09-20T04:15:42.310Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java Web开发--log4j">
-<meta name="twitter:description" content="isDebugEnabled在输出日志时，判断输出级别：
-123if(logger.isDebugEnabled()) &amp;#123;    logger.debug(&quot;通用处理，信息为：&quot; + JSON.toJSONString(vehicleLocationData));&amp;#125;
-当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于deb">
+<meta name="twitter:title" content="在Eclipse中启动和调试Tomcat（一）">
+<meta name="twitter:description" content="在Eclipse中调试Tomcat可以分析HTTP请求从Tomcat捕获到Servlet的过程。这个是调试Tomcat的目的。调试的环境是：
+
+IDE：Eclipse Java EE IDE for Web Developers.Version: Neon Release (4.6.0) Build id: 20160613-1800
+
+
+Tomcat 8.0（8.0.37）
+
+
+JDK 1.8">
+<meta name="twitter:image" content="http://yoursite.com/2016/09/20/launching-and-debugging-tomcat/create-new-java-project.jpg">
 
 
 
@@ -126,9 +148,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/09/18/log4j/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/09/20/launching-and-debugging-tomcat/"/>
 
-  <title> Java Web开发--log4j | 小强的博客 </title>
+  <title> 在Eclipse中启动和调试Tomcat（一） | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -257,7 +279,7 @@
             
             
               
-                Java Web开发--log4j
+                在Eclipse中启动和调试Tomcat（一）
               
             
           </h1>
@@ -269,8 +291,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-18T08:54:34+08:00" content="2016-09-18">
-              2016-09-18
+            <time itemprop="dateCreated" datetime="2016-09-20T12:15:42+08:00" content="2016-09-20">
+              2016-09-20
             </time>
           </span>
 
@@ -280,8 +302,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/18/log4j/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/18/log4j/" itemprop="commentsCount"></span>
+                <a href="/2016/09/20/launching-and-debugging-tomcat/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/20/launching-and-debugging-tomcat/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -304,11 +326,29 @@
       
 
       
-        <h2 id="isDebugEnabled"><a href="#isDebugEnabled" class="headerlink" title="isDebugEnabled"></a>isDebugEnabled</h2><p>在输出日志时，判断输出级别：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(logger.isDebugEnabled()) &#123;</div><div class="line">    logger.debug(<span class="string">"通用处理，信息为："</span> + JSON.toJSONString(vehicleLocationData));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于debug，即不需要进行日志信息输出时：</p>
-<p>①假如debug方法中的参数比较简单时（比如直接就是写好的字符串），加不加这句if判断，在效率上也几乎没有什么差别；</p>
-<p>②假如debug方法中的参数比较复杂时（比如还要使用别的函数进行计算、或者还要进行字符串的拼接等等,如上代码片段所示，输出的内容需要序列化），在前面就加上这句if判断，会让效率提高（否则，开始大动干戈做了很多事情（比如字符串的拼接，序列化），后来才发现不需要进行输出日志信息），白白浪费了CPU资源，影响程序的运行效率。</p>
+        <p>在Eclipse中调试Tomcat可以分析HTTP请求从Tomcat捕获到Servlet的过程。这个是调试Tomcat的目的。调试的环境是：</p>
+<ul>
+<li>IDE：Eclipse Java EE IDE for Web Developers.Version: Neon Release (4.6.0) Build id: 20160613-1800</li>
+</ul>
+<ul>
+<li>Tomcat 8.0（8.0.37）</li>
+</ul>
+<ul>
+<li><p>JDK 1.8</p>
+</li>
+<li><p>OS：Windows 7 Ultimate x64</p>
+</li>
+</ul>
+<h5 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h5><p>创建一个新的Java类型项目，项目名称为“Tomcat8”，如下如所示。</p>
+<img src="/2016/09/20/launching-and-debugging-tomcat/create-new-java-project.jpg" alt="新建项目Tomcat8" title="新建项目Tomcat8">
+<h5 id="下载Tomcat"><a href="#下载Tomcat" class="headerlink" title="下载Tomcat"></a>下载Tomcat</h5><p>下载<a href="https://tomcat.apache.org/download-80.cgi" target="_blank" rel="external">Tomcat 8.0.37</a>对应的二进制文件。将之拷贝到项目Tomcat8的根目录。拷贝之后Tomcat项目的目录结构应该如图所示。</p>
+<img src="/2016/09/20/launching-and-debugging-tomcat/tomcat8-tree-structure.jpg" alt="Tomcat8项目目录树结构" title="Tomcat8项目目录树结构">
+<h5 id="创建一个新的“Test”项目"><a href="#创建一个新的“Test”项目" class="headerlink" title="创建一个新的“Test”项目"></a>创建一个新的“Test”项目</h5><p>创建一个Maven的webapp项目。</p>
+<h5 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h5><p>配置test项目，创建调试配置，配置Main Class为Tomcat的启动类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">org.apache.catalina.startup.Bootstrap</div></pre></td></tr></table></figure>
+<p>配置test项目的工作空间为Tomcat8的工作空间，如图所示：</p>
+<img src="/2016/09/20/launching-and-debugging-tomcat/config-workspace.jpg" alt="配置test项目工作空间" title="配置test项目工作空间">
+<h5 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h5><p>打开浏览器访问<a href="http://localhost:9090/examples/demo/test" target="_blank" rel="external">链接</a>即可。</p>
 
       
     </div>
@@ -329,22 +369,24 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Tomcat/" rel="tag">#Tomcat</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/17/springmvc-sourcecode-debugging/" rel="next" title="Spring MVC源码调试">
-                <i class="fa fa-chevron-left"></i> Spring MVC源码调试
+              <a href="/2016/09/19/java-string-not-null/" rel="next" title="Java中String非空判断">
+                <i class="fa fa-chevron-left"></i> Java中String非空判断
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/18/springmvc-dispatcherservlet/" rel="prev" title="Spring MVC-DispatcherServlet处理请求过程">
-                Spring MVC-DispatcherServlet处理请求过程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -469,7 +511,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#isDebugEnabled"><span class="nav-number">1.</span> <span class="nav-text">isDebugEnabled</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建项目"><span class="nav-number">1.</span> <span class="nav-text">创建项目</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下载Tomcat"><span class="nav-number">2.</span> <span class="nav-text">下载Tomcat</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建一个新的“Test”项目"><span class="nav-number">3.</span> <span class="nav-text">创建一个新的“Test”项目</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置"><span class="nav-number">4.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#调试"><span class="nav-number">5.</span> <span class="nav-text">调试</span></a></li></ol></div>
             
           </div>
         </section>
@@ -596,9 +638,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'jiangxiaoqiang';
-      var disqus_identifier = '2016/09/18/log4j/';
-      var disqus_title = "Java Web开发--log4j";
-      var disqus_url = 'http://yoursite.com/2016/09/18/log4j/';
+      var disqus_identifier = '2016/09/20/launching-and-debugging-tomcat/';
+      var disqus_title = "在Eclipse中启动和调试Tomcat（一）";
+      var disqus_url = 'http://yoursite.com/2016/09/20/launching-and-debugging-tomcat/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
