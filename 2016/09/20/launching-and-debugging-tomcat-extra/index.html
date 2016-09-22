@@ -90,18 +90,12 @@
 
 
 
-
 <meta name="description" content="在Eclipse中启动和调试Tomcat（一）中，断点只能在自定义Servlet中命中，如果想观察详细的Tomcat运行过程，还需要从Tomcat的入口开始进行调试。详细步骤如下：
 引入Tomcat8.0.37jar包由于Tomcat的入口类JIoEndPoint实现在tomcat-coyote.jar包中，入口org.apache.tomcat.util.net.JIoEndpoint，该类用来">
-=======
-<meta name="description" content="在Eclipse中启动和调试Tomcat（一）中，断点只能在自定义Servlet中命中，如果想观察详细的Tomcat运行过程，还需要从Tomcat的入口开始进行调试。详细步骤如下(未完全通过，暂勿参考)：
-引入Tomcat8.0.37jar包由于Tomcat的入口类JIoEndPoint实现在tomcat-coyote.jar包中，入口org.apache.tomcat.util.net.JIoE">
->>>>>>> a2206a909c03e9f974176974bcbc87ead60583e7
 <meta property="og:type" content="article">
 <meta property="og:title" content="在Eclipse中启动和调试Tomcat（二）">
 <meta property="og:url" content="http://yoursite.com/2016/09/20/launching-and-debugging-tomcat-extra/index.html">
 <meta property="og:site_name" content="小强的博客">
-
 <meta property="og:description" content="在Eclipse中启动和调试Tomcat（一）中，断点只能在自定义Servlet中命中，如果想观察详细的Tomcat运行过程，还需要从Tomcat的入口开始进行调试。详细步骤如下：
 引入Tomcat8.0.37jar包由于Tomcat的入口类JIoEndPoint实现在tomcat-coyote.jar包中，入口org.apache.tomcat.util.net.JIoEndpoint，该类用来">
 <meta property="og:image" content="http://yoursite.com/2016/09/20/launching-and-debugging-tomcat-extra/attach-tomcat-source.jpg">
@@ -110,16 +104,6 @@
 <meta name="twitter:title" content="在Eclipse中启动和调试Tomcat（二）">
 <meta name="twitter:description" content="在Eclipse中启动和调试Tomcat（一）中，断点只能在自定义Servlet中命中，如果想观察详细的Tomcat运行过程，还需要从Tomcat的入口开始进行调试。详细步骤如下：
 引入Tomcat8.0.37jar包由于Tomcat的入口类JIoEndPoint实现在tomcat-coyote.jar包中，入口org.apache.tomcat.util.net.JIoEndpoint，该类用来">
-=======
-<meta property="og:description" content="在Eclipse中启动和调试Tomcat（一）中，断点只能在自定义Servlet中命中，如果想观察详细的Tomcat运行过程，还需要从Tomcat的入口开始进行调试。详细步骤如下(未完全通过，暂勿参考)：
-引入Tomcat8.0.37jar包由于Tomcat的入口类JIoEndPoint实现在tomcat-coyote.jar包中，入口org.apache.tomcat.util.net.JIoE">
-<meta property="og:image" content="http://yoursite.com/2016/09/20/launching-and-debugging-tomcat-extra/attach-tomcat-source.jpg">
-<meta property="og:updated_time" content="2016-09-21T05:19:44.298Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在Eclipse中启动和调试Tomcat（二）">
-<meta name="twitter:description" content="在Eclipse中启动和调试Tomcat（一）中，断点只能在自定义Servlet中命中，如果想观察详细的Tomcat运行过程，还需要从Tomcat的入口开始进行调试。详细步骤如下(未完全通过，暂勿参考)：
-引入Tomcat8.0.37jar包由于Tomcat的入口类JIoEndPoint实现在tomcat-coyote.jar包中，入口org.apache.tomcat.util.net.JIoE">
->>>>>>> a2206a909c03e9f974176974bcbc87ead60583e7
 <meta name="twitter:image" content="http://yoursite.com/2016/09/20/launching-and-debugging-tomcat-extra/attach-tomcat-source.jpg">
 
 
@@ -319,11 +303,7 @@
       
 
       
-
         <p>在Eclipse中启动和调试Tomcat（一）中，断点只能在自定义Servlet中命中，如果想观察详细的Tomcat运行过程，还需要从Tomcat的入口开始进行调试。详细步骤如下：</p>
-=======
-        <p>在Eclipse中启动和调试Tomcat（一）中，断点只能在自定义Servlet中命中，如果想观察详细的Tomcat运行过程，还需要从Tomcat的入口开始进行调试。详细步骤如下(未完全通过，暂勿参考)：</p>
->>>>>>> a2206a909c03e9f974176974bcbc87ead60583e7
 <h4 id="引入Tomcat8-0-37jar包"><a href="#引入Tomcat8-0-37jar包" class="headerlink" title="引入Tomcat8.0.37jar包"></a>引入Tomcat8.0.37jar包</h4><p>由于Tomcat的入口类JIoEndPoint实现在tomcat-coyote.jar包中，入口org.apache.tomcat.util.net.JIoEndpoint，该类用来处理传递进来的TCP连接，它实现了一个简单的服务器模式：一个监听线程用来接收socket以及为每个进来的连接创建一个worker来处理。更加高级的功能会涉及到线程重用，如队列等。所以需要引入Tomcat8.0.37中的tomcat-coyote.jar包，在Tomcat8项目的lib目录中。</p>
 <h4 id="附加源码"><a href="#附加源码" class="headerlink" title="附加源码"></a>附加源码</h4><p>附加源码如下图所示。</p>
 <img src="/2016/09/20/launching-and-debugging-tomcat-extra/attach-tomcat-source.jpg" alt="Tomcat源码附加" title="Tomcat源码附加">
@@ -372,13 +352,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
-
-              <a href="/2016/09/22/tomcat-http/" rel="prev" title="Tomcat HTTP请求流程">
-                Tomcat HTTP请求流程 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/09/22/tomcat-http/" rel="prev" title="Tomcat 8.0 HTTP请求流程">
+                Tomcat 8.0 HTTP请求流程 <i class="fa fa-chevron-right"></i>
               </a>
             
-=======
->>>>>>> a2206a909c03e9f974176974bcbc87ead60583e7
           </div>
         </div>
       
@@ -452,11 +429,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-
               <span class="site-state-item-count">10</span>
-=======
-              <span class="site-state-item-count">9</span>
->>>>>>> a2206a909c03e9f974176974bcbc87ead60583e7
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -466,11 +439,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-
                 <span class="site-state-item-count">8</span>
-=======
-                <span class="site-state-item-count">7</span>
->>>>>>> a2206a909c03e9f974176974bcbc87ead60583e7
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
