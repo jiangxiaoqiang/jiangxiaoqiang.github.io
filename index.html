@@ -302,7 +302,7 @@
         
           
             <p>假设来自浏览器的请求为：<a href="http://localhost:8080/test/index.jsp" target="_blank" rel="external">http://localhost:8080/test/index.jsp</a></p>
-<h5 id="Connector获取请求-AbstractEndpoint"><a href="#Connector获取请求-AbstractEndpoint" class="headerlink" title="Connector获取请求(AbstractEndpoint)"></a>Connector获取请求(AbstractEndpoint)</h5><p>请求被发送到本机端口8080，被在那里侦听的Coyote HTTP/1.1 Connector获得。Tomcat源码中与connector相关的类位于org.apache.coyote包中，Connector分为以下几类：</p>
+<h4 id="Connector获取请求-AbstractEndpoint"><a href="#Connector获取请求-AbstractEndpoint" class="headerlink" title="Connector获取请求(AbstractEndpoint)"></a>Connector获取请求(AbstractEndpoint)</h4><p>请求被发送到本机端口8080，被在那里侦听的Coyote HTTP/1.1 Connector获得。Tomcat源码中与connector相关的类位于org.apache.coyote包中，Connector分为以下几类：</p>
 <ul>
 <li><strong>Http Connector</strong> 基于HTTP协议，负责建立HTTP连接。它又分为BIO Http Connector与NIO Http Connector(org.apache.tomcat.util.net.NioEndpoint)两种，后者提供非阻塞IO与长连接Comet支持。</li>
 <li><strong>AJP Connector</strong>    基于AJP协议，AJP是专门设计用来为tomcat与http服务器之间通信专门定制的协议，能提供较高的通信速度和效率。如与Apache服务器集成时，采用这个协议。</li>
