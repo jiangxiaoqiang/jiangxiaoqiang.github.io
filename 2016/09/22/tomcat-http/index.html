@@ -91,24 +91,24 @@
 
 
 <meta name="description" content="假设来自浏览器的请求为：http://localhost:8080/test/index.jsp
-Connector获取请求请求被发送到本机端口8080，被在那里侦听的Coyote HTTP/1.1 Connector获得。Tomcat源码中与connector相关的类位于org.apache.coyote包中，Connector分为以下几类：
+Connector获取请求(AbstractEndpoint)请求被发送到本机端口8080，被在那里侦听的Coyote HTTP/1.1 Connector获得。Tomcat源码中与connector相关的类位于org.apache.coyote包中，Connector分为以下几类：
 
-Http Connector 基于HTTP协议，负">
+Http Co">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tomcat HTTP请求流程">
 <meta property="og:url" content="http://yoursite.com/2016/09/22/tomcat-http/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="假设来自浏览器的请求为：http://localhost:8080/test/index.jsp
-Connector获取请求请求被发送到本机端口8080，被在那里侦听的Coyote HTTP/1.1 Connector获得。Tomcat源码中与connector相关的类位于org.apache.coyote包中，Connector分为以下几类：
+Connector获取请求(AbstractEndpoint)请求被发送到本机端口8080，被在那里侦听的Coyote HTTP/1.1 Connector获得。Tomcat源码中与connector相关的类位于org.apache.coyote包中，Connector分为以下几类：
 
-Http Connector 基于HTTP协议，负">
-<meta property="og:updated_time" content="2016-09-22T14:42:17.086Z">
+Http Co">
+<meta property="og:updated_time" content="2016-09-22T15:21:41.447Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tomcat HTTP请求流程">
 <meta name="twitter:description" content="假设来自浏览器的请求为：http://localhost:8080/test/index.jsp
-Connector获取请求请求被发送到本机端口8080，被在那里侦听的Coyote HTTP/1.1 Connector获得。Tomcat源码中与connector相关的类位于org.apache.coyote包中，Connector分为以下几类：
+Connector获取请求(AbstractEndpoint)请求被发送到本机端口8080，被在那里侦听的Coyote HTTP/1.1 Connector获得。Tomcat源码中与connector相关的类位于org.apache.coyote包中，Connector分为以下几类：
 
-Http Connector 基于HTTP协议，负">
+Http Co">
 
 
 
@@ -308,13 +308,13 @@ Http Connector 基于HTTP协议，负">
 
       
         <p>假设来自浏览器的请求为：<a href="http://localhost:8080/test/index.jsp" target="_blank" rel="external">http://localhost:8080/test/index.jsp</a></p>
-<h5 id="Connector获取请求"><a href="#Connector获取请求" class="headerlink" title="Connector获取请求"></a>Connector获取请求</h5><p>请求被发送到本机端口8080，被在那里侦听的Coyote HTTP/1.1 Connector获得。Tomcat源码中与connector相关的类位于org.apache.coyote包中，Connector分为以下几类：</p>
+<h5 id="Connector获取请求-AbstractEndpoint"><a href="#Connector获取请求-AbstractEndpoint" class="headerlink" title="Connector获取请求(AbstractEndpoint)"></a>Connector获取请求(AbstractEndpoint)</h5><p>请求被发送到本机端口8080，被在那里侦听的Coyote HTTP/1.1 Connector获得。Tomcat源码中与connector相关的类位于org.apache.coyote包中，Connector分为以下几类：</p>
 <ul>
-<li><strong>Http Connector</strong> 基于HTTP协议，负责建立HTTP连接。它又分为BIO Http Connector与NIO Http Connector两种，后者提供非阻塞IO与长连接Comet支持。</li>
+<li><strong>Http Connector</strong> 基于HTTP协议，负责建立HTTP连接。它又分为BIO Http Connector与NIO Http Connector(org.apache.tomcat.util.net.NioEndpoint)两种，后者提供非阻塞IO与长连接Comet支持。</li>
 <li><strong>AJP Connector</strong>    基于AJP协议，AJP是专门设计用来为tomcat与http服务器之间通信专门定制的协议，能提供较高的通信速度和效率。如与Apache服务器集成时，采用这个协议。</li>
-<li><strong>APR HTTP Connector</strong> 用C实现，通过JNI调用的。主要提升对静态资源(如HTML、图片、CSS、JS等)的访问性能。现在这个库已独立出来可用在任何项目中。Tomcat在配置APR之后性能非常强劲。</li>
+<li><strong>APR HTTP Connector</strong> org.apache.tomcat.util.net.AprEndpoint，用C实现，通过JNI调用的。主要提升对静态资源(如HTML、图片、CSS、JS等)的访问性能。现在这个库已独立出来可用在任何项目中。Tomcat在配置APR之后性能非常强劲。</li>
 </ul>
-<h5 id="Engine处理请求"><a href="#Engine处理请求" class="headerlink" title="Engine处理请求"></a>Engine处理请求</h5><p>Connector把该请求交给它所在的Service的Engine来处理，并等待Engine的回应</p>
+<h5 id="Engine处理请求-StandardEngine"><a href="#Engine处理请求-StandardEngine" class="headerlink" title="Engine处理请求(StandardEngine)"></a>Engine处理请求(StandardEngine)</h5><p>Connector把该请求交给它所在的Service的Engine来处理，并等待Engine的回应。Container 是容器的父接口，所有子容器都必须实现这个接口，Container 容器的设计用的是典型的责任链的设计模式，它有四个子容器组件构成，分别是：Engine、Host、Context、Wrapper，这四个组件不是平行的，而是父子关系，Engine 包含 Host,Host 包含 Context，Context 包含 Wrapper。通常一个 Servlet class 对应一个 Wrapper，如果有多个 Servlet 就可以定义多个 Wrapper，如果有多个 Wrapper 就要定义一个更高的 Container。</p>
 <h5 id="匹配Host"><a href="#匹配Host" class="headerlink" title="匹配Host"></a>匹配Host</h5><p>Engine获得请求localhost:8080/test/index.jsp，匹配它所有虚拟主机Host<br>Engine匹配到名为localhost的Host（即使匹配不到也把请求交给该Host处理，因为该Host被定义为该Engine的默认主机）</p>
 <h5 id="匹配Context"><a href="#匹配Context" class="headerlink" title="匹配Context"></a>匹配Context</h5><p>localhost Host获得请求/test/index.jsp，匹配它所拥有的所有Context<br>Host匹配到路径为/test的Context（如果匹配不到就把该请求交给路径名为””的Context去处理）</p>
 <h5 id="匹配Servlet"><a href="#匹配Servlet" class="headerlink" title="匹配Servlet"></a>匹配Servlet</h5><p>path=”/test”的Context获得请求/index.jsp，在它的mapping table中寻找对应的servlet<br>Context匹配到URL PATTERN为*.jsp的servlet，对应于JspServlet类<br>构造HttpServletRequest对象和HttpServletResponse对象，作为参数调用JspServlet的doGet或doPost方法</p>
@@ -481,7 +481,7 @@ Http Connector 基于HTTP协议，负">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Connector获取请求"><span class="nav-number">1.</span> <span class="nav-text">Connector获取请求</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Engine处理请求"><span class="nav-number">2.</span> <span class="nav-text">Engine处理请求</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#匹配Host"><span class="nav-number">3.</span> <span class="nav-text">匹配Host</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#匹配Context"><span class="nav-number">4.</span> <span class="nav-text">匹配Context</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#匹配Servlet"><span class="nav-number">5.</span> <span class="nav-text">匹配Servlet</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#返回请求"><span class="nav-number">6.</span> <span class="nav-text">返回请求</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Connector获取请求-AbstractEndpoint"><span class="nav-number">1.</span> <span class="nav-text">Connector获取请求(AbstractEndpoint)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Engine处理请求-StandardEngine"><span class="nav-number">2.</span> <span class="nav-text">Engine处理请求(StandardEngine)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#匹配Host"><span class="nav-number">3.</span> <span class="nav-text">匹配Host</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#匹配Context"><span class="nav-number">4.</span> <span class="nav-text">匹配Context</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#匹配Servlet"><span class="nav-number">5.</span> <span class="nav-text">匹配Servlet</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#返回请求"><span class="nav-number">6.</span> <span class="nav-text">返回请求</span></a></li></ol></div>
             
           </div>
         </section>
