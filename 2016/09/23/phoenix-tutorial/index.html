@@ -90,43 +90,18 @@
 
 
 
-<meta name="description" content="登录。
-1./sqlline.py localhost
-查看HBase所有表。
-1!tables
-table schema为system的是系统表。
-查看HBase中表名为test的所有列。
-1!columns test
-表名不用加引号。
-删除表数据。
-12delete from test where condition;//语法delete from test where name is nul">
+<meta name="description" content="简介Phoenix本意是凤凰的意思，Apache Phoenix是构建在HBase之上的关系型数据库层，作为内嵌的客户端JDBC驱动用以对HBase中的数据进行低延迟访问。Apache Phoenix会将用户编写的sql查询编译为一系列的scan操作，最终产生通用的JDBC结果集返回给客户端。数据表的元数据存储在HBase的表中被会标记版本号，所以进行查询的时候会自动选择正确的schema。直接使">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Phoenix常用操作">
 <meta property="og:url" content="http://yoursite.com/2016/09/23/phoenix-tutorial/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="登录。
-1./sqlline.py localhost
-查看HBase所有表。
-1!tables
-table schema为system的是系统表。
-查看HBase中表名为test的所有列。
-1!columns test
-表名不用加引号。
-删除表数据。
-12delete from test where condition;//语法delete from test where name is nul">
-<meta property="og:updated_time" content="2016-09-23T08:57:30.489Z">
+<meta property="og:description" content="简介Phoenix本意是凤凰的意思，Apache Phoenix是构建在HBase之上的关系型数据库层，作为内嵌的客户端JDBC驱动用以对HBase中的数据进行低延迟访问。Apache Phoenix会将用户编写的sql查询编译为一系列的scan操作，最终产生通用的JDBC结果集返回给客户端。数据表的元数据存储在HBase的表中被会标记版本号，所以进行查询的时候会自动选择正确的schema。直接使">
+<meta property="og:image" content="http://yoursite.com/2016/09/23/phoenix-tutorial/phoenix-position.jpg">
+<meta property="og:updated_time" content="2016-09-23T09:08:17.139Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Phoenix常用操作">
-<meta name="twitter:description" content="登录。
-1./sqlline.py localhost
-查看HBase所有表。
-1!tables
-table schema为system的是系统表。
-查看HBase中表名为test的所有列。
-1!columns test
-表名不用加引号。
-删除表数据。
-12delete from test where condition;//语法delete from test where name is nul">
+<meta name="twitter:description" content="简介Phoenix本意是凤凰的意思，Apache Phoenix是构建在HBase之上的关系型数据库层，作为内嵌的客户端JDBC驱动用以对HBase中的数据进行低延迟访问。Apache Phoenix会将用户编写的sql查询编译为一系列的scan操作，最终产生通用的JDBC结果集返回给客户端。数据表的元数据存储在HBase的表中被会标记版本号，所以进行查询的时候会自动选择正确的schema。直接使">
+<meta name="twitter:image" content="http://yoursite.com/2016/09/23/phoenix-tutorial/phoenix-position.jpg">
 
 
 
@@ -325,7 +300,9 @@ table schema为system的是系统表。
       
 
       
-        <p>登录。</p>
+        <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>Phoenix本意是凤凰的意思，Apache Phoenix是构建在HBase之上的关系型数据库层，作为内嵌的客户端JDBC驱动用以对HBase中的数据进行低延迟访问。Apache Phoenix会将用户编写的sql查询编译为一系列的scan操作，最终产生通用的JDBC结果集返回给客户端。数据表的元数据存储在HBase的表中被会标记版本号，所以进行查询的时候会自动选择正确的schema。直接使用HBase的API，结合协处理器（coprocessor）和自定义的过滤器的话，小范围的查询在毫秒级响应，千万数据的话响应速度为秒级。</p>
+<img src="/2016/09/23/phoenix-tutorial/phoenix-position.jpg" alt="Phoenix的定位" title="Phoenix的定位">
+<h4 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h4><p>登录。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./sqlline.py localhost</div></pre></td></tr></table></figure>
 <p>查看HBase所有表。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">!tables</div></pre></td></tr></table></figure>
@@ -498,7 +475,7 @@ table schema为system的是系统表。
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用操作"><span class="nav-number">2.</span> <span class="nav-text">常用操作</span></a></li></ol></div>
             
           </div>
         </section>
