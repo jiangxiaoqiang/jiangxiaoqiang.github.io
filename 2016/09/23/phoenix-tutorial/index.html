@@ -97,7 +97,7 @@
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="简介Phoenix本意是凤凰的意思，Apache Phoenix是构建在HBase之上的关系型数据库层，作为内嵌的客户端JDBC驱动用以对HBase中的数据进行低延迟访问。Apache Phoenix会将用户编写的sql查询编译为一系列的scan操作，最终产生通用的JDBC结果集返回给客户端。数据表的元数据存储在HBase的表中被会标记版本号，所以进行查询的时候会自动选择正确的schema。直接使">
 <meta property="og:image" content="http://yoursite.com/2016/09/23/phoenix-tutorial/phoenix-position.jpg">
-<meta property="og:updated_time" content="2016-09-23T09:15:10.827Z">
+<meta property="og:updated_time" content="2016-09-23T09:18:34.219Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Phoenix常用操作">
 <meta name="twitter:description" content="简介Phoenix本意是凤凰的意思，Apache Phoenix是构建在HBase之上的关系型数据库层，作为内嵌的客户端JDBC驱动用以对HBase中的数据进行低延迟访问。Apache Phoenix会将用户编写的sql查询编译为一系列的scan操作，最终产生通用的JDBC结果集返回给客户端。数据表的元数据存储在HBase的表中被会标记版本号，所以进行查询的时候会自动选择正确的schema。直接使">
@@ -300,7 +300,7 @@
       
 
       
-        <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>Phoenix本意是凤凰的意思，Apache Phoenix是构建在HBase之上的关系型数据库层，作为内嵌的客户端JDBC驱动用以对HBase中的数据进行低延迟访问。Apache Phoenix会将用户编写的sql查询编译为一系列的scan操作，最终产生通用的JDBC结果集返回给客户端。数据表的元数据存储在HBase的表中被会标记版本号，所以进行查询的时候会自动选择正确的schema。直接使用HBase的API，结合协处理器（coprocessor）和自定义的过滤器的话，小范围的查询在毫秒级响应，千万数据的话响应速度为秒级。</p>
+        <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>Phoenix本意是凤凰的意思，<a href="http://phoenix.apache.org/" target="_blank" rel="external">Apache Phoenix</a>是构建在HBase之上的关系型数据库层，作为内嵌的客户端JDBC驱动用以对HBase中的数据进行低延迟访问。Apache Phoenix会将用户编写的sql查询编译为一系列的scan操作，最终产生通用的JDBC结果集返回给客户端。数据表的元数据存储在HBase的表中被会标记版本号，所以进行查询的时候会自动选择正确的schema。直接使用HBase的API，结合协处理器（coprocessor）和自定义的过滤器的话，小范围的查询在毫秒级响应，千万数据的话响应速度为秒级。</p>
 <a id="more"></a>
 <img src="/2016/09/23/phoenix-tutorial/phoenix-position.jpg" alt="Phoenix的定位" title="Phoenix的定位">
 <h4 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h4><p>Phoenix可以用SQL语句来查询Hbase，且只能查Hbase，别的类型比如查询文本文件等都不支持！如果要查文本文件等，可以使用Hive和Impala，Phoenix在Hbase上查询的性能较Hive和Impala具有优势。</p>
