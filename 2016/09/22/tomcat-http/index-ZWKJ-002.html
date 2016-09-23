@@ -102,7 +102,7 @@ Http Co">
 Connector获取请求(AbstractEndpoint)请求被发送到本机端口8080，被在那里侦听的Coyote HTTP/1.1 Connector获得。Tomcat源码中与connector相关的类位于org.apache.coyote包中，Connector分为以下几类：
 
 Http Co">
-<meta property="og:updated_time" content="2016-09-23T14:41:51.648Z">
+<meta property="og:updated_time" content="2016-09-22T15:28:52.035Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tomcat 8.0 HTTP请求流程">
 <meta name="twitter:description" content="假设来自浏览器的请求为：http://localhost:8080/test/index.jsp
@@ -314,7 +314,6 @@ Http Co">
 <li><strong>AJP Connector</strong>    基于AJP协议，AJP是专门设计用来为tomcat与http服务器之间通信专门定制的协议，能提供较高的通信速度和效率。如与Apache服务器集成时，采用这个协议。</li>
 <li><strong>APR HTTP Connector</strong> org.apache.tomcat.util.net.AprEndpoint，用C实现，通过JNI调用的。主要提升对静态资源(如HTML、图片、CSS、JS等)的访问性能。现在这个库已独立出来可用在任何项目中。Tomcat在配置APR之后性能非常强劲。</li>
 </ul>
-<a id="more"></a>
 <h4 id="Engine处理请求-StandardEngine"><a href="#Engine处理请求-StandardEngine" class="headerlink" title="Engine处理请求(StandardEngine)"></a>Engine处理请求(StandardEngine)</h4><p>Connector把该请求交给它所在的Service的Engine来处理，并等待Engine的回应。Container 是容器的父接口，所有子容器都必须实现这个接口，Container 容器的设计用的是典型的责任链的设计模式，它有四个子容器组件构成，分别是：Engine、Host、Context、Wrapper，这四个组件不是平行的，而是父子关系，Engine 包含 Host,Host 包含 Context，Context 包含 Wrapper。通常一个 Servlet class 对应一个 Wrapper，如果有多个 Servlet 就可以定义多个 Wrapper，如果有多个 Wrapper 就要定义一个更高的 Container。</p>
 <h4 id="匹配Host"><a href="#匹配Host" class="headerlink" title="匹配Host"></a>匹配Host</h4><p>Engine获得请求localhost:8080/test/index.jsp，匹配它所有虚拟主机Host<br>Engine匹配到名为localhost的Host（即使匹配不到也把请求交给该Host处理，因为该Host被定义为该Engine的默认主机）</p>
 <h4 id="匹配Context"><a href="#匹配Context" class="headerlink" title="匹配Context"></a>匹配Context</h4><p>localhost Host获得请求/test/index.jsp，匹配它所拥有的所有Context<br>Host匹配到路径为/test的Context（如果匹配不到就把该请求交给路径名为””的Context去处理）</p>
@@ -358,10 +357,6 @@ Http Co">
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/23/phoenix-tutorial/" rel="prev" title="Phoenix常用操作">
-                Phoenix常用操作 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -436,7 +431,7 @@ Http Co">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -446,7 +441,7 @@ Http Co">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

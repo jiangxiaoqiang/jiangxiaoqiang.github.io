@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="HTTP," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -90,25 +90,24 @@
 
 
 
-<meta name="description" content="假设来自浏览器的请求为：http://localhost:8080/test/index.jsp
-Connector获取请求(AbstractEndpoint)请求被发送到本机端口8080，被在那里侦听的Coyote HTTP/1.1 Connector获得。Tomcat源码中与connector相关的类位于org.apache.coyote包中，Connector分为以下几类：
+<meta name="description" content="Spring MVC基于模型-视图-控制器(Model-View-Controller,MVC)模式，它能够帮助我们建立灵活和松耦合的Web程序.Spring MVC中用户请求如下图所示：
 
-Http Co">
+请求发出(HTTP Resquest)一个请求携带信息进入Spring MVC程序时，第一站是Spring的DispatcherServlet，它是接收所有用户请求的前端控制器Servlet。Dispatch">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tomcat 8.0 HTTP请求流程">
-<meta property="og:url" content="http://yoursite.com/2016/09/22/tomcat-http/index.html">
+<meta property="og:title" content="Spring MVC-DispatcherServlet处理请求过程">
+<meta property="og:url" content="http://yoursite.com/2016/09/16/springmvc-dispatcherservlet/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="假设来自浏览器的请求为：http://localhost:8080/test/index.jsp
-Connector获取请求(AbstractEndpoint)请求被发送到本机端口8080，被在那里侦听的Coyote HTTP/1.1 Connector获得。Tomcat源码中与connector相关的类位于org.apache.coyote包中，Connector分为以下几类：
+<meta property="og:description" content="Spring MVC基于模型-视图-控制器(Model-View-Controller,MVC)模式，它能够帮助我们建立灵活和松耦合的Web程序.Spring MVC中用户请求如下图所示：
 
-Http Co">
-<meta property="og:updated_time" content="2016-09-23T14:41:51.648Z">
+请求发出(HTTP Resquest)一个请求携带信息进入Spring MVC程序时，第一站是Spring的DispatcherServlet，它是接收所有用户请求的前端控制器Servlet。Dispatch">
+<meta property="og:image" content="http://yoursite.com/2016/09/16/springmvc-dispatcherservlet/example.jpg">
+<meta property="og:updated_time" content="2016-09-16T12:38:28.514Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tomcat 8.0 HTTP请求流程">
-<meta name="twitter:description" content="假设来自浏览器的请求为：http://localhost:8080/test/index.jsp
-Connector获取请求(AbstractEndpoint)请求被发送到本机端口8080，被在那里侦听的Coyote HTTP/1.1 Connector获得。Tomcat源码中与connector相关的类位于org.apache.coyote包中，Connector分为以下几类：
+<meta name="twitter:title" content="Spring MVC-DispatcherServlet处理请求过程">
+<meta name="twitter:description" content="Spring MVC基于模型-视图-控制器(Model-View-Controller,MVC)模式，它能够帮助我们建立灵活和松耦合的Web程序.Spring MVC中用户请求如下图所示：
 
-Http Co">
+请求发出(HTTP Resquest)一个请求携带信息进入Spring MVC程序时，第一站是Spring的DispatcherServlet，它是接收所有用户请求的前端控制器Servlet。Dispatch">
+<meta name="twitter:image" content="http://yoursite.com/2016/09/16/springmvc-dispatcherservlet/example.jpg">
 
 
 
@@ -129,9 +128,9 @@ Http Co">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/09/22/tomcat-http/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/09/16/springmvc-dispatcherservlet/"/>
 
-  <title> Tomcat 8.0 HTTP请求流程 | 小强的博客 </title>
+  <title> Spring MVC-DispatcherServlet处理请求过程 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -260,7 +259,7 @@ Http Co">
             
             
               
-                Tomcat 8.0 HTTP请求流程
+                Spring MVC-DispatcherServlet处理请求过程
               
             
           </h1>
@@ -272,8 +271,8 @@ Http Co">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-22T22:11:14+08:00" content="2016-09-22">
-              2016-09-22
+            <time itemprop="dateCreated" datetime="2016-09-16T19:41:45+08:00" content="2016-09-16">
+              2016-09-16
             </time>
           </span>
 
@@ -283,8 +282,8 @@ Http Co">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/22/tomcat-http/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/22/tomcat-http/" itemprop="commentsCount"></span>
+                <a href="/2016/09/16/springmvc-dispatcherservlet/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/16/springmvc-dispatcherservlet/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -307,19 +306,19 @@ Http Co">
       
 
       
-        <p>假设来自浏览器的请求为：<a href="http://localhost:8080/test/index.jsp" target="_blank" rel="external">http://localhost:8080/test/index.jsp</a></p>
-<h4 id="Connector获取请求-AbstractEndpoint"><a href="#Connector获取请求-AbstractEndpoint" class="headerlink" title="Connector获取请求(AbstractEndpoint)"></a>Connector获取请求(AbstractEndpoint)</h4><p>请求被发送到本机端口8080，被在那里侦听的Coyote HTTP/1.1 Connector获得。Tomcat源码中与connector相关的类位于org.apache.coyote包中，Connector分为以下几类：</p>
+        <p>Spring MVC基于模型-视图-控制器(Model-View-Controller,MVC)模式，它能够帮助我们建立灵活和松耦合的Web程序.Spring MVC中用户请求如下图所示：</p>
+<img src="/2016/09/16/springmvc-dispatcherservlet/example.jpg" alt="DispatcherServlet处理请求过程" title="DispatcherServlet处理请求过程">
+<h6 id="请求发出-HTTP-Resquest"><a href="#请求发出-HTTP-Resquest" class="headerlink" title="请求发出(HTTP Resquest)"></a>请求发出(HTTP Resquest)</h6><p>一个请求携带信息进入Spring MVC程序时，第一站是Spring的DispatcherServlet，它是接收所有用户请求的前端控制器Servlet。DispatcherServlet的任务是将请求转发给Spring MVC控制器(Controller)，控制器是用于处理用户请求的Spring Bean。</p>
+<h6 id="处理器映射-Handler-Mapping"><a href="#处理器映射-Handler-Mapping" class="headerlink" title="处理器映射(Handler Mapping)"></a>处理器映射(Handler Mapping)</h6><p>一般程序中会有不止一个控制器，那么DispatcherServlet需要知道将请求发送给哪个控制器，所以DispatcherServlet将会查询处理器映射(handler mapping)来确定请求的下一站，处理器映射会根据用户请求的URL来决定是哪个控制器。</p>
+<h6 id="控制器-Controller"><a href="#控制器-Controller" class="headerlink" title="控制器(Controller)"></a>控制器(Controller)</h6><p>DispatcherServlet选择了控制器之后，就会将请求发送给该控制器并等待控制器处理用户请求。控制器在完成了逻辑处理后，通常会返回处理结果并将这些结果在浏览器上显示，这些信息在Spring MVC中成为模型(Model)。</p>
+<h6 id="模型以及逻辑视图名称-Model"><a href="#模型以及逻辑视图名称-Model" class="headerlink" title="模型以及逻辑视图名称(Model)"></a>模型以及逻辑视图名称(Model)</h6><p>控制器仅仅返回模型信息往往是不够的，需要对模型信息进行格式化，生成用户友好的方式如html进行显示。所以模型信息将会被发送给一个视图(View，例如jsp视图。事实上，控制器同时产生了模型以及视图名称，将这些信息发送回DispatcherServlet。</p>
+<h6 id="视图解析器-View-Parser"><a href="#视图解析器-View-Parser" class="headerlink" title="视图解析器(View Parser)"></a>视图解析器(View Parser)</h6><p>DispatcherServlet收到控制器的视图名称并不直接表示某个特定的JSP，这个视图名称仅仅是个逻辑值，DispatcherServlet为了找到真正的视图，会使用视图解析器(view resolver)将视图名称匹配成一个具体的视图。</p>
+<h6 id="视图-View"><a href="#视图-View" class="headerlink" title="视图(View)"></a>视图(View)</h6><p>目前为止，DispatcherServlet知道了具体由哪个视图来显示模型信息，那么它就会将模型信息交付给视图，请求的任务到这里就完成了。</p>
+<h6 id="响应-HTTP-Response"><a href="#响应-HTTP-Response" class="headerlink" title="响应(HTTP Response)"></a>响应(HTTP Response)</h6><p>视图渲染模型信息并输出，该输出最后会传递给用户端，展示给用户查看。从以上步骤可以看到，Spring MVC要处理很多过程，但是大部分过程是Spring框架内部处理的，事实上，我们可以十分方便利用Spring MVC框架的编写功能强大的Web应用程序，下一章我们将搭建一个基础的Spring MVC实例程序。</p>
+<p>原始地址：</p>
 <ul>
-<li><strong>Http Connector</strong> 基于HTTP协议，负责建立HTTP连接。它又分为BIO Http Connector与NIO Http Connector(org.apache.tomcat.util.net.NioEndpoint)两种，后者提供非阻塞IO与长连接Comet支持。</li>
-<li><strong>AJP Connector</strong>    基于AJP协议，AJP是专门设计用来为tomcat与http服务器之间通信专门定制的协议，能提供较高的通信速度和效率。如与Apache服务器集成时，采用这个协议。</li>
-<li><strong>APR HTTP Connector</strong> org.apache.tomcat.util.net.AprEndpoint，用C实现，通过JNI调用的。主要提升对静态资源(如HTML、图片、CSS、JS等)的访问性能。现在这个库已独立出来可用在任何项目中。Tomcat在配置APR之后性能非常强劲。</li>
+<li><a href="http://wiki.jikexueyuan.com/project/spring/mvc-framework/spring-mvc-form-handling-example.html" target="_blank" rel="external">Spring MVC入门-DispatcherServlet处理请求过程</a></li>
 </ul>
-<a id="more"></a>
-<h4 id="Engine处理请求-StandardEngine"><a href="#Engine处理请求-StandardEngine" class="headerlink" title="Engine处理请求(StandardEngine)"></a>Engine处理请求(StandardEngine)</h4><p>Connector把该请求交给它所在的Service的Engine来处理，并等待Engine的回应。Container 是容器的父接口，所有子容器都必须实现这个接口，Container 容器的设计用的是典型的责任链的设计模式，它有四个子容器组件构成，分别是：Engine、Host、Context、Wrapper，这四个组件不是平行的，而是父子关系，Engine 包含 Host,Host 包含 Context，Context 包含 Wrapper。通常一个 Servlet class 对应一个 Wrapper，如果有多个 Servlet 就可以定义多个 Wrapper，如果有多个 Wrapper 就要定义一个更高的 Container。</p>
-<h4 id="匹配Host"><a href="#匹配Host" class="headerlink" title="匹配Host"></a>匹配Host</h4><p>Engine获得请求localhost:8080/test/index.jsp，匹配它所有虚拟主机Host<br>Engine匹配到名为localhost的Host（即使匹配不到也把请求交给该Host处理，因为该Host被定义为该Engine的默认主机）</p>
-<h4 id="匹配Context"><a href="#匹配Context" class="headerlink" title="匹配Context"></a>匹配Context</h4><p>localhost Host获得请求/test/index.jsp，匹配它所拥有的所有Context<br>Host匹配到路径为/test的Context（如果匹配不到就把该请求交给路径名为””的Context去处理）</p>
-<h4 id="匹配Servlet"><a href="#匹配Servlet" class="headerlink" title="匹配Servlet"></a>匹配Servlet</h4><p>path=”/test”的Context获得请求/index.jsp，在它的mapping table中寻找对应的servlet<br>Context匹配到URL PATTERN为*.jsp的servlet，对应于JspServlet类<br>构造HttpServletRequest对象和HttpServletResponse对象，作为参数调用JspServlet的doGet或doPost方法</p>
-<h4 id="返回请求"><a href="#返回请求" class="headerlink" title="返回请求"></a>返回请求</h4><p>Context把执行完了之后的HttpServletResponse对象返回给Host<br>Host把HttpServletResponse对象返回给Engine<br>Engine把HttpServletResponse对象返回给Connector<br>Connector把HttpServletResponse对象返回给客户browser</p>
 
       
     </div>
@@ -340,27 +339,21 @@ Http Co">
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/HTTP/" rel="tag">#HTTP</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/20/launching-and-debugging-tomcat-extra/" rel="next" title="在Eclipse中启动和调试Tomcat（二）">
-                <i class="fa fa-chevron-left"></i> 在Eclipse中启动和调试Tomcat（二）
+              <a href="/2016/09/14/log4j/" rel="next" title="Java Web开发--log4j">
+                <i class="fa fa-chevron-left"></i> Java Web开发--log4j
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/09/23/phoenix-tutorial/" rel="prev" title="Phoenix常用操作">
-                Phoenix常用操作 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/09/17/springmvc-sourcecode-debugging/" rel="prev" title="Spring MVC源码调试">
+                Spring MVC源码调试 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -436,7 +429,7 @@ Http Co">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -446,7 +439,7 @@ Http Co">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -486,7 +479,7 @@ Http Co">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Connector获取请求-AbstractEndpoint"><span class="nav-number">1.</span> <span class="nav-text">Connector获取请求(AbstractEndpoint)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Engine处理请求-StandardEngine"><span class="nav-number">2.</span> <span class="nav-text">Engine处理请求(StandardEngine)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配Host"><span class="nav-number">3.</span> <span class="nav-text">匹配Host</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配Context"><span class="nav-number">4.</span> <span class="nav-text">匹配Context</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配Servlet"><span class="nav-number">5.</span> <span class="nav-text">匹配Servlet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#返回请求"><span class="nav-number">6.</span> <span class="nav-text">返回请求</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#请求发出-HTTP-Resquest"><span class="nav-number">1.</span> <span class="nav-text">请求发出(HTTP Resquest)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#处理器映射-Handler-Mapping"><span class="nav-number">2.</span> <span class="nav-text">处理器映射(Handler Mapping)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#控制器-Controller"><span class="nav-number">3.</span> <span class="nav-text">控制器(Controller)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#模型以及逻辑视图名称-Model"><span class="nav-number">4.</span> <span class="nav-text">模型以及逻辑视图名称(Model)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#视图解析器-View-Parser"><span class="nav-number">5.</span> <span class="nav-text">视图解析器(View Parser)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#视图-View"><span class="nav-number">6.</span> <span class="nav-text">视图(View)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#响应-HTTP-Response"><span class="nav-number">7.</span> <span class="nav-text">响应(HTTP Response)</span></a></li></ol></div>
             
           </div>
         </section>
@@ -613,9 +606,9 @@ Http Co">
 
     <script type="text/javascript">
       var disqus_shortname = 'jiangxiaoqiang';
-      var disqus_identifier = '2016/09/22/tomcat-http/';
-      var disqus_title = "Tomcat 8.0 HTTP请求流程";
-      var disqus_url = 'http://yoursite.com/2016/09/22/tomcat-http/';
+      var disqus_identifier = '2016/09/16/springmvc-dispatcherservlet/';
+      var disqus_title = "Spring MVC-DispatcherServlet处理请求过程";
+      var disqus_url = 'http://yoursite.com/2016/09/16/springmvc-dispatcherservlet/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

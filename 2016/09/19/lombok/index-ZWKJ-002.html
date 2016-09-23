@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="HTTP," />
+  <meta name="keywords" content="lombok," />
 
 
 
@@ -90,25 +90,28 @@
 
 
 
-<meta name="description" content="假设来自浏览器的请求为：http://localhost:8080/test/index.jsp
-Connector获取请求(AbstractEndpoint)请求被发送到本机端口8080，被在那里侦听的Coyote HTTP/1.1 Connector获得。Tomcat源码中与connector相关的类位于org.apache.coyote包中，Connector分为以下几类：
+<meta name="description" content="lombok提供了简单的注解的形式来帮助我们简化消除一些必须有但显得很臃肿的java代码,特别是相对于POJO(Plain Ordinary Java Object)。
+常用的 lombok 注解：
 
-Http Co">
+@Data：注解在类上；提供类所有属性的 getting 和 setting 方法，此外还提供了equals、canEqual、hashCode、toString 方法
+@Setter：注解在属性上">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tomcat 8.0 HTTP请求流程">
-<meta property="og:url" content="http://yoursite.com/2016/09/22/tomcat-http/index.html">
+<meta property="og:title" content="Lombok精简Java代码">
+<meta property="og:url" content="http://yoursite.com/2016/09/19/lombok/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="假设来自浏览器的请求为：http://localhost:8080/test/index.jsp
-Connector获取请求(AbstractEndpoint)请求被发送到本机端口8080，被在那里侦听的Coyote HTTP/1.1 Connector获得。Tomcat源码中与connector相关的类位于org.apache.coyote包中，Connector分为以下几类：
+<meta property="og:description" content="lombok提供了简单的注解的形式来帮助我们简化消除一些必须有但显得很臃肿的java代码,特别是相对于POJO(Plain Ordinary Java Object)。
+常用的 lombok 注解：
 
-Http Co">
-<meta property="og:updated_time" content="2016-09-23T14:41:51.648Z">
+@Data：注解在类上；提供类所有属性的 getting 和 setting 方法，此外还提供了equals、canEqual、hashCode、toString 方法
+@Setter：注解在属性上">
+<meta property="og:updated_time" content="2016-09-18T14:45:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tomcat 8.0 HTTP请求流程">
-<meta name="twitter:description" content="假设来自浏览器的请求为：http://localhost:8080/test/index.jsp
-Connector获取请求(AbstractEndpoint)请求被发送到本机端口8080，被在那里侦听的Coyote HTTP/1.1 Connector获得。Tomcat源码中与connector相关的类位于org.apache.coyote包中，Connector分为以下几类：
+<meta name="twitter:title" content="Lombok精简Java代码">
+<meta name="twitter:description" content="lombok提供了简单的注解的形式来帮助我们简化消除一些必须有但显得很臃肿的java代码,特别是相对于POJO(Plain Ordinary Java Object)。
+常用的 lombok 注解：
 
-Http Co">
+@Data：注解在类上；提供类所有属性的 getting 和 setting 方法，此外还提供了equals、canEqual、hashCode、toString 方法
+@Setter：注解在属性上">
 
 
 
@@ -129,9 +132,9 @@ Http Co">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/09/22/tomcat-http/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/09/19/lombok/"/>
 
-  <title> Tomcat 8.0 HTTP请求流程 | 小强的博客 </title>
+  <title> Lombok精简Java代码 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -260,7 +263,7 @@ Http Co">
             
             
               
-                Tomcat 8.0 HTTP请求流程
+                Lombok精简Java代码
               
             
           </h1>
@@ -272,8 +275,8 @@ Http Co">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-22T22:11:14+08:00" content="2016-09-22">
-              2016-09-22
+            <time itemprop="dateCreated" datetime="2016-09-19T09:15:45+08:00" content="2016-09-19">
+              2016-09-19
             </time>
           </span>
 
@@ -283,8 +286,8 @@ Http Co">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/22/tomcat-http/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/22/tomcat-http/" itemprop="commentsCount"></span>
+                <a href="/2016/09/19/lombok/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/19/lombok/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -307,19 +310,22 @@ Http Co">
       
 
       
-        <p>假设来自浏览器的请求为：<a href="http://localhost:8080/test/index.jsp" target="_blank" rel="external">http://localhost:8080/test/index.jsp</a></p>
-<h4 id="Connector获取请求-AbstractEndpoint"><a href="#Connector获取请求-AbstractEndpoint" class="headerlink" title="Connector获取请求(AbstractEndpoint)"></a>Connector获取请求(AbstractEndpoint)</h4><p>请求被发送到本机端口8080，被在那里侦听的Coyote HTTP/1.1 Connector获得。Tomcat源码中与connector相关的类位于org.apache.coyote包中，Connector分为以下几类：</p>
+        <p><a href="https://projectlombok.org/" target="_blank" rel="external">lombok</a>提供了简单的注解的形式来帮助我们简化消除一些必须有但显得很臃肿的java代码,特别是相对于POJO(Plain Ordinary Java Object)。</p>
+<p>常用的 lombok 注解：</p>
 <ul>
-<li><strong>Http Connector</strong> 基于HTTP协议，负责建立HTTP连接。它又分为BIO Http Connector与NIO Http Connector(org.apache.tomcat.util.net.NioEndpoint)两种，后者提供非阻塞IO与长连接Comet支持。</li>
-<li><strong>AJP Connector</strong>    基于AJP协议，AJP是专门设计用来为tomcat与http服务器之间通信专门定制的协议，能提供较高的通信速度和效率。如与Apache服务器集成时，采用这个协议。</li>
-<li><strong>APR HTTP Connector</strong> org.apache.tomcat.util.net.AprEndpoint，用C实现，通过JNI调用的。主要提升对静态资源(如HTML、图片、CSS、JS等)的访问性能。现在这个库已独立出来可用在任何项目中。Tomcat在配置APR之后性能非常强劲。</li>
+<li><strong>@Data</strong>：注解在类上；提供类所有属性的 getting 和 setting 方法，此外还提供了equals、canEqual、hashCode、toString 方法</li>
+<li><strong>@Setter</strong>：注解在属性上；为属性提供 setting 方法</li>
+<li><strong>@Getter</strong>：注解在属性上；为属性提供 getting 方法</li>
+<li><strong>@Log4j</strong>：注解在类上；为类提供一个 属性名为log 的 log4j 日志对象</li>
+<li><strong>@NoArgsConstructor</strong>：注解在类上；为类提供一个无参的构造方法</li>
+<li><strong>@AllArgsConstructor</strong>：注解在类上；为类提供一个全参的构造方法</li>
 </ul>
+<p>如果不使用lombok注解，代码是这样：</p>
 <a id="more"></a>
-<h4 id="Engine处理请求-StandardEngine"><a href="#Engine处理请求-StandardEngine" class="headerlink" title="Engine处理请求(StandardEngine)"></a>Engine处理请求(StandardEngine)</h4><p>Connector把该请求交给它所在的Service的Engine来处理，并等待Engine的回应。Container 是容器的父接口，所有子容器都必须实现这个接口，Container 容器的设计用的是典型的责任链的设计模式，它有四个子容器组件构成，分别是：Engine、Host、Context、Wrapper，这四个组件不是平行的，而是父子关系，Engine 包含 Host,Host 包含 Context，Context 包含 Wrapper。通常一个 Servlet class 对应一个 Wrapper，如果有多个 Servlet 就可以定义多个 Wrapper，如果有多个 Wrapper 就要定义一个更高的 Container。</p>
-<h4 id="匹配Host"><a href="#匹配Host" class="headerlink" title="匹配Host"></a>匹配Host</h4><p>Engine获得请求localhost:8080/test/index.jsp，匹配它所有虚拟主机Host<br>Engine匹配到名为localhost的Host（即使匹配不到也把请求交给该Host处理，因为该Host被定义为该Engine的默认主机）</p>
-<h4 id="匹配Context"><a href="#匹配Context" class="headerlink" title="匹配Context"></a>匹配Context</h4><p>localhost Host获得请求/test/index.jsp，匹配它所拥有的所有Context<br>Host匹配到路径为/test的Context（如果匹配不到就把该请求交给路径名为””的Context去处理）</p>
-<h4 id="匹配Servlet"><a href="#匹配Servlet" class="headerlink" title="匹配Servlet"></a>匹配Servlet</h4><p>path=”/test”的Context获得请求/index.jsp，在它的mapping table中寻找对应的servlet<br>Context匹配到URL PATTERN为*.jsp的servlet，对应于JspServlet类<br>构造HttpServletRequest对象和HttpServletResponse对象，作为参数调用JspServlet的doGet或doPost方法</p>
-<h4 id="返回请求"><a href="#返回请求" class="headerlink" title="返回请求"></a>返回请求</h4><p>Context把执行完了之后的HttpServletResponse对象返回给Host<br>Host把HttpServletResponse对象返回给Engine<br>Engine把HttpServletResponse对象返回给Connector<br>Connector把HttpServletResponse对象返回给客户browser</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> String id;</div><div class="line">    <span class="keyword">private</span> Logger log = Logger.getLogger(Person.class);</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String id)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.id = id;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getId</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> id;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(String id)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.id = id;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用lombok注解，代码是这样：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Data</span></div><div class="line"><span class="meta">@Log</span>4j</div><div class="line"><span class="meta">@NoArgsConstructor</span></div><div class="line"><span class="meta">@AllArgsConstructor</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> String id;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>一旦POJO字段较多时精简的代码就很明显了，而且使用Lombok的代码更加干净、易读，添加<strong>@Data</strong>注解之后，按Ctrl + O(Outline)可以看到生成了get和set方法。</p>
 
       
     </div>
@@ -342,7 +348,7 @@ Http Co">
       
         <div class="post-tags">
           
-            <a href="/tags/HTTP/" rel="tag">#HTTP</a>
+            <a href="/tags/lombok/" rel="tag">#lombok</a>
           
         </div>
       
@@ -351,16 +357,16 @@ Http Co">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/20/launching-and-debugging-tomcat-extra/" rel="next" title="在Eclipse中启动和调试Tomcat（二）">
-                <i class="fa fa-chevron-left"></i> 在Eclipse中启动和调试Tomcat（二）
+              <a href="/2016/09/18/springmvc-dispatcherservlet/" rel="next" title="Spring MVC-DispatcherServlet处理请求过程">
+                <i class="fa fa-chevron-left"></i> Spring MVC-DispatcherServlet处理请求过程
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/09/23/phoenix-tutorial/" rel="prev" title="Phoenix常用操作">
-                Phoenix常用操作 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/09/19/java-string-not-null/" rel="prev" title="Java中String非空判断">
+                Java中String非空判断 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -436,7 +442,7 @@ Http Co">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -446,7 +452,7 @@ Http Co">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -486,7 +492,7 @@ Http Co">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Connector获取请求-AbstractEndpoint"><span class="nav-number">1.</span> <span class="nav-text">Connector获取请求(AbstractEndpoint)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Engine处理请求-StandardEngine"><span class="nav-number">2.</span> <span class="nav-text">Engine处理请求(StandardEngine)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配Host"><span class="nav-number">3.</span> <span class="nav-text">匹配Host</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配Context"><span class="nav-number">4.</span> <span class="nav-text">匹配Context</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配Servlet"><span class="nav-number">5.</span> <span class="nav-text">匹配Servlet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#返回请求"><span class="nav-number">6.</span> <span class="nav-text">返回请求</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
@@ -613,9 +619,9 @@ Http Co">
 
     <script type="text/javascript">
       var disqus_shortname = 'jiangxiaoqiang';
-      var disqus_identifier = '2016/09/22/tomcat-http/';
-      var disqus_title = "Tomcat 8.0 HTTP请求流程";
-      var disqus_url = 'http://yoursite.com/2016/09/22/tomcat-http/';
+      var disqus_identifier = '2016/09/19/lombok/';
+      var disqus_title = "Lombok精简Java代码";
+      var disqus_url = 'http://yoursite.com/2016/09/19/lombok/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

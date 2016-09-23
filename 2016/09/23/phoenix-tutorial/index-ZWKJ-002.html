@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="HTTP," />
+  <meta name="keywords" content="Phoenix," />
 
 
 
@@ -90,25 +90,18 @@
 
 
 
-<meta name="description" content="假设来自浏览器的请求为：http://localhost:8080/test/index.jsp
-Connector获取请求(AbstractEndpoint)请求被发送到本机端口8080，被在那里侦听的Coyote HTTP/1.1 Connector获得。Tomcat源码中与connector相关的类位于org.apache.coyote包中，Connector分为以下几类：
-
-Http Co">
+<meta name="description" content="简介Phoenix本意是凤凰的意思，Apache Phoenix是构建在HBase之上的关系型数据库层，作为内嵌的客户端JDBC驱动用以对HBase中的数据进行低延迟访问。Apache Phoenix会将用户编写的sql查询编译为一系列的scan操作，最终产生通用的JDBC结果集返回给客户端。数据表的元数据存储在HBase的表中被会标记版本号，所以进行查询的时候会自动选择正确的schema。直接使">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tomcat 8.0 HTTP请求流程">
-<meta property="og:url" content="http://yoursite.com/2016/09/22/tomcat-http/index.html">
+<meta property="og:title" content="Phoenix常用操作">
+<meta property="og:url" content="http://yoursite.com/2016/09/23/phoenix-tutorial/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="假设来自浏览器的请求为：http://localhost:8080/test/index.jsp
-Connector获取请求(AbstractEndpoint)请求被发送到本机端口8080，被在那里侦听的Coyote HTTP/1.1 Connector获得。Tomcat源码中与connector相关的类位于org.apache.coyote包中，Connector分为以下几类：
-
-Http Co">
-<meta property="og:updated_time" content="2016-09-23T14:41:51.648Z">
+<meta property="og:description" content="简介Phoenix本意是凤凰的意思，Apache Phoenix是构建在HBase之上的关系型数据库层，作为内嵌的客户端JDBC驱动用以对HBase中的数据进行低延迟访问。Apache Phoenix会将用户编写的sql查询编译为一系列的scan操作，最终产生通用的JDBC结果集返回给客户端。数据表的元数据存储在HBase的表中被会标记版本号，所以进行查询的时候会自动选择正确的schema。直接使">
+<meta property="og:image" content="http://yoursite.com/2016/09/23/phoenix-tutorial/phoenix-position.jpg">
+<meta property="og:updated_time" content="2016-09-23T09:24:53.955Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tomcat 8.0 HTTP请求流程">
-<meta name="twitter:description" content="假设来自浏览器的请求为：http://localhost:8080/test/index.jsp
-Connector获取请求(AbstractEndpoint)请求被发送到本机端口8080，被在那里侦听的Coyote HTTP/1.1 Connector获得。Tomcat源码中与connector相关的类位于org.apache.coyote包中，Connector分为以下几类：
-
-Http Co">
+<meta name="twitter:title" content="Phoenix常用操作">
+<meta name="twitter:description" content="简介Phoenix本意是凤凰的意思，Apache Phoenix是构建在HBase之上的关系型数据库层，作为内嵌的客户端JDBC驱动用以对HBase中的数据进行低延迟访问。Apache Phoenix会将用户编写的sql查询编译为一系列的scan操作，最终产生通用的JDBC结果集返回给客户端。数据表的元数据存储在HBase的表中被会标记版本号，所以进行查询的时候会自动选择正确的schema。直接使">
+<meta name="twitter:image" content="http://yoursite.com/2016/09/23/phoenix-tutorial/phoenix-position.jpg">
 
 
 
@@ -129,9 +122,9 @@ Http Co">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/09/22/tomcat-http/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/09/23/phoenix-tutorial/"/>
 
-  <title> Tomcat 8.0 HTTP请求流程 | 小强的博客 </title>
+  <title> Phoenix常用操作 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -260,7 +253,7 @@ Http Co">
             
             
               
-                Tomcat 8.0 HTTP请求流程
+                Phoenix常用操作
               
             
           </h1>
@@ -272,8 +265,8 @@ Http Co">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-22T22:11:14+08:00" content="2016-09-22">
-              2016-09-22
+            <time itemprop="dateCreated" datetime="2016-09-23T16:57:30+08:00" content="2016-09-23">
+              2016-09-23
             </time>
           </span>
 
@@ -283,8 +276,8 @@ Http Co">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/22/tomcat-http/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/22/tomcat-http/" itemprop="commentsCount"></span>
+                <a href="/2016/09/23/phoenix-tutorial/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/23/phoenix-tutorial/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -307,19 +300,23 @@ Http Co">
       
 
       
-        <p>假设来自浏览器的请求为：<a href="http://localhost:8080/test/index.jsp" target="_blank" rel="external">http://localhost:8080/test/index.jsp</a></p>
-<h4 id="Connector获取请求-AbstractEndpoint"><a href="#Connector获取请求-AbstractEndpoint" class="headerlink" title="Connector获取请求(AbstractEndpoint)"></a>Connector获取请求(AbstractEndpoint)</h4><p>请求被发送到本机端口8080，被在那里侦听的Coyote HTTP/1.1 Connector获得。Tomcat源码中与connector相关的类位于org.apache.coyote包中，Connector分为以下几类：</p>
-<ul>
-<li><strong>Http Connector</strong> 基于HTTP协议，负责建立HTTP连接。它又分为BIO Http Connector与NIO Http Connector(org.apache.tomcat.util.net.NioEndpoint)两种，后者提供非阻塞IO与长连接Comet支持。</li>
-<li><strong>AJP Connector</strong>    基于AJP协议，AJP是专门设计用来为tomcat与http服务器之间通信专门定制的协议，能提供较高的通信速度和效率。如与Apache服务器集成时，采用这个协议。</li>
-<li><strong>APR HTTP Connector</strong> org.apache.tomcat.util.net.AprEndpoint，用C实现，通过JNI调用的。主要提升对静态资源(如HTML、图片、CSS、JS等)的访问性能。现在这个库已独立出来可用在任何项目中。Tomcat在配置APR之后性能非常强劲。</li>
-</ul>
+        <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>Phoenix本意是凤凰的意思，<a href="http://phoenix.apache.org/" target="_blank" rel="external">Apache Phoenix</a>是构建在HBase之上的关系型数据库层，作为内嵌的客户端JDBC驱动用以对HBase中的数据进行低延迟访问。Apache Phoenix会将用户编写的sql查询编译为一系列的scan操作，最终产生通用的JDBC结果集返回给客户端。数据表的元数据存储在HBase的表中被会标记版本号，所以进行查询的时候会自动选择正确的schema。直接使用HBase的API，结合协处理器（coprocessor）和自定义的过滤器的话，小范围的查询在毫秒级响应，千万数据的话响应速度为秒级。</p>
 <a id="more"></a>
-<h4 id="Engine处理请求-StandardEngine"><a href="#Engine处理请求-StandardEngine" class="headerlink" title="Engine处理请求(StandardEngine)"></a>Engine处理请求(StandardEngine)</h4><p>Connector把该请求交给它所在的Service的Engine来处理，并等待Engine的回应。Container 是容器的父接口，所有子容器都必须实现这个接口，Container 容器的设计用的是典型的责任链的设计模式，它有四个子容器组件构成，分别是：Engine、Host、Context、Wrapper，这四个组件不是平行的，而是父子关系，Engine 包含 Host,Host 包含 Context，Context 包含 Wrapper。通常一个 Servlet class 对应一个 Wrapper，如果有多个 Servlet 就可以定义多个 Wrapper，如果有多个 Wrapper 就要定义一个更高的 Container。</p>
-<h4 id="匹配Host"><a href="#匹配Host" class="headerlink" title="匹配Host"></a>匹配Host</h4><p>Engine获得请求localhost:8080/test/index.jsp，匹配它所有虚拟主机Host<br>Engine匹配到名为localhost的Host（即使匹配不到也把请求交给该Host处理，因为该Host被定义为该Engine的默认主机）</p>
-<h4 id="匹配Context"><a href="#匹配Context" class="headerlink" title="匹配Context"></a>匹配Context</h4><p>localhost Host获得请求/test/index.jsp，匹配它所拥有的所有Context<br>Host匹配到路径为/test的Context（如果匹配不到就把该请求交给路径名为””的Context去处理）</p>
-<h4 id="匹配Servlet"><a href="#匹配Servlet" class="headerlink" title="匹配Servlet"></a>匹配Servlet</h4><p>path=”/test”的Context获得请求/index.jsp，在它的mapping table中寻找对应的servlet<br>Context匹配到URL PATTERN为*.jsp的servlet，对应于JspServlet类<br>构造HttpServletRequest对象和HttpServletResponse对象，作为参数调用JspServlet的doGet或doPost方法</p>
-<h4 id="返回请求"><a href="#返回请求" class="headerlink" title="返回请求"></a>返回请求</h4><p>Context把执行完了之后的HttpServletResponse对象返回给Host<br>Host把HttpServletResponse对象返回给Engine<br>Engine把HttpServletResponse对象返回给Connector<br>Connector把HttpServletResponse对象返回给客户browser</p>
+<img src="/2016/09/23/phoenix-tutorial/phoenix-position.jpg" alt="Phoenix的定位" title="Phoenix的定位">
+<h4 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h4><p>Phoenix可以用SQL语句来查询Hbase，且只能查Hbase，别的类型比如查询文本文件等都不支持！如果要查文本文件等，可以使用Hive和Impala，Phoenix在Hbase上查询的性能较Hive和Impala具有优势。</p>
+<h4 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h4><p>登录。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./sqlline.py localhost</div></pre></td></tr></table></figure>
+<p>查看HBase所有表。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">!tables</div></pre></td></tr></table></figure>
+<p>table schema为system的是系统表。</p>
+<p>查看HBase中表名为test的所有列。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">!columns <span class="built_in">test</span></div></pre></td></tr></table></figure>
+<p>表名不用加引号。</p>
+<p>查询表数据。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">test</span>;</div><div class="line"><span class="keyword">select</span> <span class="keyword">name</span> <span class="keyword">from</span> <span class="keyword">test</span>;//查询指定列</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">test</span> <span class="keyword">where</span> <span class="keyword">name</span> = <span class="string">'jiangxiaoqiang'</span>;//条件查询</div></pre></td></tr></table></figure>
+<p>删除表数据。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">delete</span> <span class="keyword">from</span> <span class="keyword">test</span> <span class="keyword">where</span> condition;//语法</div><div class="line"><span class="keyword">delete</span> <span class="keyword">from</span> <span class="keyword">test</span> <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">is</span> <span class="literal">null</span>;//例子</div></pre></td></tr></table></figure>
+<p>condition是过滤条件，注意结尾需要有分号，表示SQL语句已经结束，可以提交给引擎执行。</p>
 
       
     </div>
@@ -342,7 +339,7 @@ Http Co">
       
         <div class="post-tags">
           
-            <a href="/tags/HTTP/" rel="tag">#HTTP</a>
+            <a href="/tags/Phoenix/" rel="tag">#Phoenix</a>
           
         </div>
       
@@ -358,10 +355,6 @@ Http Co">
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/23/phoenix-tutorial/" rel="prev" title="Phoenix常用操作">
-                Phoenix常用操作 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -436,7 +429,7 @@ Http Co">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -446,7 +439,7 @@ Http Co">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -486,7 +479,7 @@ Http Co">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Connector获取请求-AbstractEndpoint"><span class="nav-number">1.</span> <span class="nav-text">Connector获取请求(AbstractEndpoint)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Engine处理请求-StandardEngine"><span class="nav-number">2.</span> <span class="nav-text">Engine处理请求(StandardEngine)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配Host"><span class="nav-number">3.</span> <span class="nav-text">匹配Host</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配Context"><span class="nav-number">4.</span> <span class="nav-text">匹配Context</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配Servlet"><span class="nav-number">5.</span> <span class="nav-text">匹配Servlet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#返回请求"><span class="nav-number">6.</span> <span class="nav-text">返回请求</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特性"><span class="nav-number">2.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用操作"><span class="nav-number">3.</span> <span class="nav-text">常用操作</span></a></li></ol></div>
             
           </div>
         </section>
@@ -613,9 +606,9 @@ Http Co">
 
     <script type="text/javascript">
       var disqus_shortname = 'jiangxiaoqiang';
-      var disqus_identifier = '2016/09/22/tomcat-http/';
-      var disqus_title = "Tomcat 8.0 HTTP请求流程";
-      var disqus_url = 'http://yoursite.com/2016/09/22/tomcat-http/';
+      var disqus_identifier = '2016/09/23/phoenix-tutorial/';
+      var disqus_title = "Phoenix常用操作";
+      var disqus_url = 'http://yoursite.com/2016/09/23/phoenix-tutorial/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

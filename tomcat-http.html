@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="HTTP," />
+  <meta name="keywords" content=",,,," />
 
 
 
@@ -94,15 +94,15 @@
 Connector获取请求(AbstractEndpoint)请求被发送到本机端口8080，被在那里侦听的Coyote HTTP/1.1 Connector获得。Tomcat源码中与connector相关的类位于org.apache.coyote包中，Connector分为以下几类：
 
 Http Co">
-<meta property="og:type" content="article">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Tomcat 8.0 HTTP请求流程">
-<meta property="og:url" content="http://yoursite.com/2016/09/22/tomcat-http/index.html">
+<meta property="og:url" content="http://yoursite.com/tomcat-http.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="假设来自浏览器的请求为：http://localhost:8080/test/index.jsp
 Connector获取请求(AbstractEndpoint)请求被发送到本机端口8080，被在那里侦听的Coyote HTTP/1.1 Connector获得。Tomcat源码中与connector相关的类位于org.apache.coyote包中，Connector分为以下几类：
 
 Http Co">
-<meta property="og:updated_time" content="2016-09-23T14:41:51.648Z">
+<meta property="og:updated_time" content="2016-09-22T15:28:52.035Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tomcat 8.0 HTTP请求流程">
 <meta name="twitter:description" content="假设来自浏览器的请求为：http://localhost:8080/test/index.jsp
@@ -129,9 +129,15 @@ Http Co">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/09/22/tomcat-http/"/>
+  <link rel="canonical" href="http://yoursite.com/tomcat-http.html"/>
 
-  <title> Tomcat 8.0 HTTP请求流程 | 小强的博客 </title>
+  <title>
+  
+
+  
+    Tomcat 8.0 HTTP请求流程 | 小强的博客
+  
+</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -161,7 +167,7 @@ Http Co">
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -241,142 +247,21 @@ Http Co">
 
   <div id="posts" class="posts-expand">
     
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                Tomcat 8.0 HTTP请求流程
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-22T22:11:14+08:00" content="2016-09-22">
-              2016-09-22
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/22/tomcat-http/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/22/tomcat-http/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>假设来自浏览器的请求为：<a href="http://localhost:8080/test/index.jsp" target="_blank" rel="external">http://localhost:8080/test/index.jsp</a></p>
+      <p>假设来自浏览器的请求为：<a href="http://localhost:8080/test/index.jsp" target="_blank" rel="external">http://localhost:8080/test/index.jsp</a></p>
 <h4 id="Connector获取请求-AbstractEndpoint"><a href="#Connector获取请求-AbstractEndpoint" class="headerlink" title="Connector获取请求(AbstractEndpoint)"></a>Connector获取请求(AbstractEndpoint)</h4><p>请求被发送到本机端口8080，被在那里侦听的Coyote HTTP/1.1 Connector获得。Tomcat源码中与connector相关的类位于org.apache.coyote包中，Connector分为以下几类：</p>
 <ul>
 <li><strong>Http Connector</strong> 基于HTTP协议，负责建立HTTP连接。它又分为BIO Http Connector与NIO Http Connector(org.apache.tomcat.util.net.NioEndpoint)两种，后者提供非阻塞IO与长连接Comet支持。</li>
 <li><strong>AJP Connector</strong>    基于AJP协议，AJP是专门设计用来为tomcat与http服务器之间通信专门定制的协议，能提供较高的通信速度和效率。如与Apache服务器集成时，采用这个协议。</li>
 <li><strong>APR HTTP Connector</strong> org.apache.tomcat.util.net.AprEndpoint，用C实现，通过JNI调用的。主要提升对静态资源(如HTML、图片、CSS、JS等)的访问性能。现在这个库已独立出来可用在任何项目中。Tomcat在配置APR之后性能非常强劲。</li>
 </ul>
-<a id="more"></a>
 <h4 id="Engine处理请求-StandardEngine"><a href="#Engine处理请求-StandardEngine" class="headerlink" title="Engine处理请求(StandardEngine)"></a>Engine处理请求(StandardEngine)</h4><p>Connector把该请求交给它所在的Service的Engine来处理，并等待Engine的回应。Container 是容器的父接口，所有子容器都必须实现这个接口，Container 容器的设计用的是典型的责任链的设计模式，它有四个子容器组件构成，分别是：Engine、Host、Context、Wrapper，这四个组件不是平行的，而是父子关系，Engine 包含 Host,Host 包含 Context，Context 包含 Wrapper。通常一个 Servlet class 对应一个 Wrapper，如果有多个 Servlet 就可以定义多个 Wrapper，如果有多个 Wrapper 就要定义一个更高的 Container。</p>
 <h4 id="匹配Host"><a href="#匹配Host" class="headerlink" title="匹配Host"></a>匹配Host</h4><p>Engine获得请求localhost:8080/test/index.jsp，匹配它所有虚拟主机Host<br>Engine匹配到名为localhost的Host（即使匹配不到也把请求交给该Host处理，因为该Host被定义为该Engine的默认主机）</p>
 <h4 id="匹配Context"><a href="#匹配Context" class="headerlink" title="匹配Context"></a>匹配Context</h4><p>localhost Host获得请求/test/index.jsp，匹配它所拥有的所有Context<br>Host匹配到路径为/test的Context（如果匹配不到就把该请求交给路径名为””的Context去处理）</p>
 <h4 id="匹配Servlet"><a href="#匹配Servlet" class="headerlink" title="匹配Servlet"></a>匹配Servlet</h4><p>path=”/test”的Context获得请求/index.jsp，在它的mapping table中寻找对应的servlet<br>Context匹配到URL PATTERN为*.jsp的servlet，对应于JspServlet类<br>构造HttpServletRequest对象和HttpServletResponse对象，作为参数调用JspServlet的doGet或doPost方法</p>
 <h4 id="返回请求"><a href="#返回请求" class="headerlink" title="返回请求"></a>返回请求</h4><p>Context把执行完了之后的HttpServletResponse对象返回给Host<br>Host把HttpServletResponse对象返回给Engine<br>Engine把HttpServletResponse对象返回给Connector<br>Connector把HttpServletResponse对象返回给客户browser</p>
 
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/HTTP/" rel="tag">#HTTP</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/09/20/launching-and-debugging-tomcat-extra/" rel="next" title="在Eclipse中启动和调试Tomcat（二）">
-                <i class="fa fa-chevron-left"></i> 在Eclipse中启动和调试Tomcat（二）
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/23/phoenix-tutorial/" rel="prev" title="Phoenix常用操作">
-                Phoenix常用操作 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
+    
   </div>
 
 
@@ -415,17 +300,8 @@ Http Co">
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -479,17 +355,6 @@ Http Co">
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Connector获取请求-AbstractEndpoint"><span class="nav-number">1.</span> <span class="nav-text">Connector获取请求(AbstractEndpoint)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Engine处理请求-StandardEngine"><span class="nav-number">2.</span> <span class="nav-text">Engine处理请求(StandardEngine)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配Host"><span class="nav-number">3.</span> <span class="nav-text">匹配Host</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配Context"><span class="nav-number">4.</span> <span class="nav-text">匹配Context</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配Servlet"><span class="nav-number">5.</span> <span class="nav-text">匹配Servlet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#返回请求"><span class="nav-number">6.</span> <span class="nav-text">返回请求</span></a></li></ol></div>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -593,10 +458,6 @@ Http Co">
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
 
   
 
@@ -613,9 +474,9 @@ Http Co">
 
     <script type="text/javascript">
       var disqus_shortname = 'jiangxiaoqiang';
-      var disqus_identifier = '2016/09/22/tomcat-http/';
+      var disqus_identifier = 'tomcat-http.html';
       var disqus_title = "Tomcat 8.0 HTTP请求流程";
-      var disqus_url = 'http://yoursite.com/2016/09/22/tomcat-http/';
+      var disqus_url = 'http://yoursite.com/tomcat-http.html';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
