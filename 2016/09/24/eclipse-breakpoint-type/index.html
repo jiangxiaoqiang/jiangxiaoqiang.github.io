@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Eclipse," />
 
 
 
@@ -90,22 +90,27 @@
 
 
 
-<meta name="description" content="isDebugEnabled在输出日志时，判断输出级别：
-123if(logger.isDebugEnabled()) &amp;#123;    logger.debug(&quot;通用处理，信息为：&quot; + JSON.toJSONString(vehicleLocationData));&amp;#125;
-当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于deb">
+<meta name="description" content="本文的Eclipse版本为:Eclipse Java EE IDE for Web Developers.
+Version: Neon Release (4.6.0)Build id: 20160613-1800
+Line BreakpointLine Breakpoint是最简单的Eclipse断点，只要双击某行代码对应的左侧栏，就对该行设置上断点。断点的颜色为一个蓝色的实心点。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java Web开发--log4j">
-<meta property="og:url" content="http://yoursite.com/2016/09/18/log4j/index.html">
+<meta property="og:title" content="Eclipse断点类型">
+<meta property="og:url" content="http://yoursite.com/2016/09/24/eclipse-breakpoint-type/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="isDebugEnabled在输出日志时，判断输出级别：
-123if(logger.isDebugEnabled()) &amp;#123;    logger.debug(&quot;通用处理，信息为：&quot; + JSON.toJSONString(vehicleLocationData));&amp;#125;
-当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于deb">
-<meta property="og:updated_time" content="2016-09-13T08:15:50.000Z">
+<meta property="og:description" content="本文的Eclipse版本为:Eclipse Java EE IDE for Web Developers.
+Version: Neon Release (4.6.0)Build id: 20160613-1800
+Line BreakpointLine Breakpoint是最简单的Eclipse断点，只要双击某行代码对应的左侧栏，就对该行设置上断点。断点的颜色为一个蓝色的实心点。">
+<meta property="og:image" content="http://yoursite.com/2016/09/24/eclipse-breakpoint-type/watchpoint.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/09/24/eclipse-breakpoint-type/method-breakpoint.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/09/24/eclipse-breakpoint-type/exception-breakpoint.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/09/24/eclipse-breakpoint-type/class-breakpoint.jpg">
+<meta property="og:updated_time" content="2016-09-24T08:47:20.880Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java Web开发--log4j">
-<meta name="twitter:description" content="isDebugEnabled在输出日志时，判断输出级别：
-123if(logger.isDebugEnabled()) &amp;#123;    logger.debug(&quot;通用处理，信息为：&quot; + JSON.toJSONString(vehicleLocationData));&amp;#125;
-当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于deb">
+<meta name="twitter:title" content="Eclipse断点类型">
+<meta name="twitter:description" content="本文的Eclipse版本为:Eclipse Java EE IDE for Web Developers.
+Version: Neon Release (4.6.0)Build id: 20160613-1800
+Line BreakpointLine Breakpoint是最简单的Eclipse断点，只要双击某行代码对应的左侧栏，就对该行设置上断点。断点的颜色为一个蓝色的实心点。">
+<meta name="twitter:image" content="http://yoursite.com/2016/09/24/eclipse-breakpoint-type/watchpoint.jpg">
 
 
 
@@ -126,9 +131,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/09/18/log4j/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/09/24/eclipse-breakpoint-type/"/>
 
-  <title> Java Web开发--log4j | 小强的博客 </title>
+  <title> Eclipse断点类型 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -257,7 +262,7 @@
             
             
               
-                Java Web开发--log4j
+                Eclipse断点类型
               
             
           </h1>
@@ -269,8 +274,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-18T08:54:34+08:00" content="2016-09-18">
-              2016-09-18
+            <time itemprop="dateCreated" datetime="2016-09-24T16:47:20+08:00" content="2016-09-24">
+              2016-09-24
             </time>
           </span>
 
@@ -280,8 +285,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/18/log4j/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/18/log4j/" itemprop="commentsCount"></span>
+                <a href="/2016/09/24/eclipse-breakpoint-type/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/24/eclipse-breakpoint-type/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -304,11 +309,23 @@
       
 
       
-        <h2 id="isDebugEnabled"><a href="#isDebugEnabled" class="headerlink" title="isDebugEnabled"></a>isDebugEnabled</h2><p>在输出日志时，判断输出级别：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(logger.isDebugEnabled()) &#123;</div><div class="line">    logger.debug(<span class="string">"通用处理，信息为："</span> + JSON.toJSONString(vehicleLocationData));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于debug，即不需要进行日志信息输出时：</p>
-<p>①假如debug方法中的参数比较简单时（比如直接就是写好的字符串），加不加这句if判断，在效率上也几乎没有什么差别；</p>
-<p>②假如debug方法中的参数比较复杂时（比如还要使用别的函数进行计算、或者还要进行字符串的拼接等等,如上代码片段所示，输出的内容需要序列化），在前面就加上这句if判断，会让效率提高（否则，开始大动干戈做了很多事情（比如字符串的拼接，序列化），后来才发现不需要进行输出日志信息），白白浪费了CPU资源，影响程序的运行效率。</p>
+        <p>本文的Eclipse版本为:Eclipse Java EE IDE for Web Developers.</p>
+<p>Version: Neon Release (4.6.0)<br>Build id: 20160613-1800</p>
+<h4 id="Line-Breakpoint"><a href="#Line-Breakpoint" class="headerlink" title="Line Breakpoint"></a>Line Breakpoint</h4><p>Line Breakpoint是最简单的Eclipse断点，只要双击某行代码对应的左侧栏，就对该行设置上断点。断点的颜色为一个蓝色的实心点。</p>
+<a id="more"></a>
+<h4 id="Watchpoint"><a href="#Watchpoint" class="headerlink" title="Watchpoint"></a>Watchpoint</h4><p>关注某个关键变量的变化或使用。此时，就可以为该变量设置一种特殊的断点–Watchpoint。</p>
+<img src="/2016/09/24/eclipse-breakpoint-type/watchpoint.jpg" alt="Watch Breakpoint" title="Watch Breakpoint">
+<h4 id="Method-Breakpoint"><a href="#Method-Breakpoint" class="headerlink" title="Method Breakpoint"></a>Method Breakpoint</h4><p>关注程序对某个方法的调用情况，即，可以设置Method Breakpoint。</p>
+<img src="/2016/09/24/eclipse-breakpoint-type/method-breakpoint.jpg" alt="Method Breakpoint" title="Method Breakpoint">
+<p>断点上的左右小箭头代表进入和退出方法时命中。</p>
+<h4 id="Exception-Breakpoint"><a href="#Exception-Breakpoint" class="headerlink" title="Exception Breakpoint"></a>Exception Breakpoint</h4><p>某个特定异常发生时程序能够被中断，以方便查看当时程序所处的状态。</p>
+<img src="/2016/09/24/eclipse-breakpoint-type/exception-breakpoint.jpg" alt="Exception Breakpoint" title="Exception Breakpoint">
+<h4 id="Class-Load-Breakpoint"><a href="#Class-Load-Breakpoint" class="headerlink" title="Class Load Breakpoint"></a>Class Load Breakpoint</h4><p>当某个类被加载时，通过该断点可以中断程序。</p>
+<img src="/2016/09/24/eclipse-breakpoint-type/class-breakpoint.jpg" alt="Class Breakpoint" title="Class Breakpoint">
+<p>来自：</p>
+<ul>
+<li><a href="http://www.blogjava.net/jiangshachina/archive/2011/11/20/364367.html" target="_blank" rel="external">详解Eclipse断点</a></li>
+</ul>
 
       
     </div>
@@ -329,22 +346,24 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Eclipse/" rel="tag">#Eclipse</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/17/springmvc-sourcecode-debugging/" rel="next" title="Spring MVC源码调试">
-                <i class="fa fa-chevron-left"></i> Spring MVC源码调试
+              <a href="/2016/09/23/phoenix-tutorial/" rel="next" title="Phoenix常用操作">
+                <i class="fa fa-chevron-left"></i> Phoenix常用操作
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/18/springmvc-dispatcherservlet/" rel="prev" title="Spring MVC-DispatcherServlet处理请求过程">
-                Spring MVC-DispatcherServlet处理请求过程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -469,7 +488,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#isDebugEnabled"><span class="nav-number">1.</span> <span class="nav-text">isDebugEnabled</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Line-Breakpoint"><span class="nav-number">1.</span> <span class="nav-text">Line Breakpoint</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Watchpoint"><span class="nav-number">2.</span> <span class="nav-text">Watchpoint</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Method-Breakpoint"><span class="nav-number">3.</span> <span class="nav-text">Method Breakpoint</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Exception-Breakpoint"><span class="nav-number">4.</span> <span class="nav-text">Exception Breakpoint</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Class-Load-Breakpoint"><span class="nav-number">5.</span> <span class="nav-text">Class Load Breakpoint</span></a></li></ol></div>
             
           </div>
         </section>
@@ -596,9 +615,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'jiangxiaoqiang';
-      var disqus_identifier = '2016/09/18/log4j/';
-      var disqus_title = "Java Web开发--log4j";
-      var disqus_url = 'http://yoursite.com/2016/09/18/log4j/';
+      var disqus_identifier = '2016/09/24/eclipse-breakpoint-type/';
+      var disqus_title = "Eclipse断点类型";
+      var disqus_url = 'http://yoursite.com/2016/09/24/eclipse-breakpoint-type/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
