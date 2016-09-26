@@ -250,6 +250,110 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/20/launching-and-debugging-tomcat-extra/" itemprop="url">
+                  在Eclipse中启动和调试Tomcat（二）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-20T17:13:52+08:00" content="2016-09-20">
+              2016-09-20
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/20/launching-and-debugging-tomcat-extra/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/20/launching-and-debugging-tomcat-extra/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>在Eclipse中启动和调试Tomcat（一）中，断点只能在自定义Servlet中命中，如果想观察详细的Tomcat运行过程，还需要从Tomcat的入口开始进行调试。详细步骤如下(未完全通过，暂勿参考)：</p>
+<h4 id="引入Tomcat8-0-37jar包"><a href="#引入Tomcat8-0-37jar包" class="headerlink" title="引入Tomcat8.0.37jar包"></a>引入Tomcat8.0.37jar包</h4><p>由于Tomcat的入口类JIoEndPoint实现在tomcat-coyote.jar包中，入口org.apache.tomcat.util.net.JIoEndpoint，该类用来处理传递进来的TCP连接，它实现了一个简单的服务器模式：一个监听线程用来接收socket以及为每个进来的连接创建一个worker来处理。更加高级的功能会涉及到线程重用，如队列等。所以需要引入Tomcat8.0.37中的tomcat-coyote.jar包，在Tomcat8项目的lib目录中。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/20/launching-and-debugging-tomcat-extra/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/20/launching-and-debugging-tomcat/" itemprop="url">
                   在Eclipse中启动和调试Tomcat（一）
                 </a>
@@ -682,111 +786,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/18/log4j/" itemprop="url">
-                  Java Web开发--log4j
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-18T08:54:34+08:00" content="2016-09-18">
-              2016-09-18
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/18/log4j/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/18/log4j/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="isDebugEnabled"><a href="#isDebugEnabled" class="headerlink" title="isDebugEnabled"></a>isDebugEnabled</h2><p>在输出日志时，判断输出级别：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(logger.isDebugEnabled()) &#123;</div><div class="line">    logger.debug(<span class="string">"通用处理，信息为："</span> + JSON.toJSONString(vehicleLocationData));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于debug，即不需要进行日志信息输出时：</p>
-<p>①假如debug方法中的参数比较简单时（比如直接就是写好的字符串），加不加这句if判断，在效率上也几乎没有什么差别；</p>
-<p>②假如debug方法中的参数比较复杂时（比如还要使用别的函数进行计算、或者还要进行字符串的拼接等等,如上代码片段所示，输出的内容需要序列化），在前面就加上这句if判断，会让效率提高（否则，开始大动干戈做了很多事情（比如字符串的拼接，序列化），后来才发现不需要进行输出日志信息），白白浪费了CPU资源，影响程序的运行效率。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -832,7 +831,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -842,7 +841,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
