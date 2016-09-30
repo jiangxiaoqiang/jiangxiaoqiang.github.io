@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Phoenix," />
+  <meta name="keywords" content="小强, 学习" />
 
 
 
@@ -90,18 +90,37 @@
 
 
 
-<meta name="description" content="简介Phoenix本意是凤凰的意思，Apache Phoenix是构建在HBase之上的关系型数据库层，作为内嵌的客户端JDBC驱动用以对HBase中的数据进行低延迟访问。Apache Phoenix会将用户编写的sql查询编译为一系列的scan操作，最终产生通用的JDBC结果集返回给客户端。数据表的元数据存储在HBase的表中被会标记版本号，所以进行查询的时候会自动选择正确的schema。直接使">
+<meta name="description" content="免密登录原理SSH之所以能够保证安全，原因在于它采用了公钥加密。过程如下：
+
+远程主机收到用户的登录请求，把自己的公钥发给用户；
+用户使用这个公钥，将登录密码加密后，发送回来；
+远程主机用自己的私钥，解密登录密码，如果密码正确，就同意用户登录。
+
+配置SSH免密登陆首先，运行ssh localhost来产生/home/用户名/.ssh目录，然后执行下面命令。
+1ssh-keygen -t rsa">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Phoenix常用操作">
-<meta property="og:url" content="http://jiangxiaoqiang.com/2016/09/23/phoenix-tutorial/index.html">
+<meta property="og:title" content="cluster-ssh-login">
+<meta property="og:url" content="http://jiangxiaoqiang.com/2016/09/30/cluster-ssh-login/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="简介Phoenix本意是凤凰的意思，Apache Phoenix是构建在HBase之上的关系型数据库层，作为内嵌的客户端JDBC驱动用以对HBase中的数据进行低延迟访问。Apache Phoenix会将用户编写的sql查询编译为一系列的scan操作，最终产生通用的JDBC结果集返回给客户端。数据表的元数据存储在HBase的表中被会标记版本号，所以进行查询的时候会自动选择正确的schema。直接使">
-<meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/23/phoenix-tutorial/phoenix-position.jpg">
-<meta property="og:updated_time" content="2016-09-27T09:45:36.743Z">
+<meta property="og:description" content="免密登录原理SSH之所以能够保证安全，原因在于它采用了公钥加密。过程如下：
+
+远程主机收到用户的登录请求，把自己的公钥发给用户；
+用户使用这个公钥，将登录密码加密后，发送回来；
+远程主机用自己的私钥，解密登录密码，如果密码正确，就同意用户登录。
+
+配置SSH免密登陆首先，运行ssh localhost来产生/home/用户名/.ssh目录，然后执行下面命令。
+1ssh-keygen -t rsa">
+<meta property="og:updated_time" content="2016-09-30T08:41:35.297Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Phoenix常用操作">
-<meta name="twitter:description" content="简介Phoenix本意是凤凰的意思，Apache Phoenix是构建在HBase之上的关系型数据库层，作为内嵌的客户端JDBC驱动用以对HBase中的数据进行低延迟访问。Apache Phoenix会将用户编写的sql查询编译为一系列的scan操作，最终产生通用的JDBC结果集返回给客户端。数据表的元数据存储在HBase的表中被会标记版本号，所以进行查询的时候会自动选择正确的schema。直接使">
-<meta name="twitter:image" content="http://jiangxiaoqiang.com/2016/09/23/phoenix-tutorial/phoenix-position.jpg">
+<meta name="twitter:title" content="cluster-ssh-login">
+<meta name="twitter:description" content="免密登录原理SSH之所以能够保证安全，原因在于它采用了公钥加密。过程如下：
+
+远程主机收到用户的登录请求，把自己的公钥发给用户；
+用户使用这个公钥，将登录密码加密后，发送回来；
+远程主机用自己的私钥，解密登录密码，如果密码正确，就同意用户登录。
+
+配置SSH免密登陆首先，运行ssh localhost来产生/home/用户名/.ssh目录，然后执行下面命令。
+1ssh-keygen -t rsa">
 
 
 
@@ -122,9 +141,9 @@
 
 
 
-  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/09/23/phoenix-tutorial/"/>
+  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/09/30/cluster-ssh-login/"/>
 
-  <title> Phoenix常用操作 | 小强的博客 </title>
+  <title> cluster-ssh-login | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -263,7 +282,7 @@
             
             
               
-                Phoenix常用操作
+                cluster-ssh-login
               
             
           </h1>
@@ -275,8 +294,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-23T16:57:30+08:00" content="2016-09-23">
-              2016-09-23
+            <time itemprop="dateCreated" datetime="2016-09-30T16:41:35+08:00" content="2016-09-30">
+              2016-09-30
             </time>
           </span>
 
@@ -286,8 +305,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/23/phoenix-tutorial/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/23/phoenix-tutorial/" itemprop="commentsCount"></span>
+                <a href="/2016/09/30/cluster-ssh-login/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/30/cluster-ssh-login/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -310,26 +329,23 @@
       
 
       
-        <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>Phoenix本意是凤凰的意思，<a href="http://phoenix.apache.org/" target="_blank" rel="external">Apache Phoenix</a>是构建在HBase之上的关系型数据库层，作为内嵌的客户端JDBC驱动用以对HBase中的数据进行低延迟访问。Apache Phoenix会将用户编写的sql查询编译为一系列的scan操作，最终产生通用的JDBC结果集返回给客户端。数据表的元数据存储在HBase的表中被会标记版本号，所以进行查询的时候会自动选择正确的schema。直接使用HBase的API，结合协处理器（coprocessor）和自定义的过滤器的话，小范围的查询在毫秒级响应，千万数据的话响应速度为秒级。</p>
-<a id="more"></a>
-<img src="/2016/09/23/phoenix-tutorial/phoenix-position.jpg" alt="Phoenix的定位" title="Phoenix的定位">
-<h4 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h4><p>Phoenix可以用SQL语句来查询Hbase，且只能查Hbase，别的类型比如查询文本文件等都不支持！如果要查文本文件等，可以使用Hive和Impala，Phoenix在Hbase上查询的性能较Hive和Impala具有优势。</p>
-<h4 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h4><p>登录。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./sqlline.py localhost</div></pre></td></tr></table></figure>
-<p>查看HBase所有表。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">!tables</div></pre></td></tr></table></figure>
-<p>table schema为system的是系统表。</p>
-<p>查看HBase中表名为test的所有列。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">!columns <span class="built_in">test</span></div></pre></td></tr></table></figure>
-<p>表名不用加引号。</p>
-<p>查询表数据。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">test</span>;</div><div class="line"><span class="keyword">select</span> <span class="keyword">name</span> <span class="keyword">from</span> <span class="keyword">test</span>;//查询指定列</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">test</span> <span class="keyword">where</span> <span class="keyword">name</span> = <span class="string">'jiangxiaoqiang'</span>;//条件查询</div></pre></td></tr></table></figure>
-<p>删除表数据。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">delete</span> <span class="keyword">from</span> <span class="keyword">test</span> <span class="keyword">where</span> condition;//语法</div><div class="line"><span class="keyword">delete</span> <span class="keyword">from</span> <span class="keyword">test</span> <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">is</span> <span class="literal">null</span>;//例子</div></pre></td></tr></table></figure>
-<p>condition是过滤条件，注意结尾需要有分号，表示SQL语句已经结束，可以提交给引擎执行。</p>
-<h4 id="函数-Function"><a href="#函数-Function" class="headerlink" title="函数(Function)"></a>函数(Function)</h4><p>substr函数用于截取字符串。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">substr</span>(<span class="keyword">time</span>,<span class="number">0</span>,<span class="number">11</span>) <span class="keyword">from</span> <span class="keyword">test</span> <span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">substr</span>(<span class="keyword">time</span>,<span class="number">0</span>,<span class="number">11</span>);</div></pre></td></tr></table></figure>
-<p>time为需要截取的字符串，从第0位开始截取11位长度。</p>
+        <h4 id="免密登录原理"><a href="#免密登录原理" class="headerlink" title="免密登录原理"></a>免密登录原理</h4><p>SSH之所以能够保证安全，原因在于它采用了公钥加密。过程如下：</p>
+<ol>
+<li>远程主机收到用户的登录请求，把自己的公钥发给用户；</li>
+<li>用户使用这个公钥，将登录密码加密后，发送回来；</li>
+<li>远程主机用自己的私钥，解密登录密码，如果密码正确，就同意用户登录。</li>
+</ol>
+<h4 id="配置SSH免密登陆"><a href="#配置SSH免密登陆" class="headerlink" title="配置SSH免密登陆"></a>配置SSH免密登陆</h4><p>首先，运行<code>ssh localhost</code>来产生<code>/home/用户名/.ssh</code>目录，然后执行下面命令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa</div></pre></td></tr></table></figure>
+<p>生成RSA公钥和私钥。将生成的”id_rsa.pub”追加（这里切记是追加，不是覆盖）到授权的key里面去。这样的效果是实现了当前用户无密SSH登陆到自己：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#将id_rsa.pub追加到authorized_keys</span></div><div class="line">cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</div></pre></td></tr></table></figure>
+<p>如果要实现无密登陆到其它的主机，只需将生成的”id_rsa.pub”追加到其它主机的”~/.ssh/authorized_keys”中去。这里我们使用的方法是先将本机的”~/.ssh/id_rsa.pub”拷贝到你想无密登陆的主机上，再在相应的主机上使用”cat”命令将”~/.ssh/id_rsa.pub”追加到该主机的 “~/.ssh/authorized_keys”中。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp id_rsa.pub root@192.168.24.136:/tmp</div></pre></td></tr></table></figure>
+<h4 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h4><p>当再使用如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp id_rsa.pub root@192.168.24.136:/tmp</div></pre></td></tr></table></figure>
+<p>从A服务器向192.168.24.136服务器拷贝时，不再提示输入密码时，则说明A服务器到192.168.24.136服务器可以免密钥登录,说明A服务器到192.168.24.136服务器的免密钥登录配置OK。</p>
+<p>来自：</p>
+<p><a href="http://www.cnblogs.com/lijingchn/p/5580263.html" target="_blank" rel="external">SSH无密码验证配置</a></p>
 
       
     </div>
@@ -350,28 +366,18 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Phoenix/" rel="tag">#Phoenix</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/22/tomcat-http/" rel="next" title="Tomcat 8.0 HTTP请求流程">
-                <i class="fa fa-chevron-left"></i> Tomcat 8.0 HTTP请求流程
+              <a href="/2016/09/28/hashcode-and-equals/" rel="next" title="hashcode和equals的理解">
+                <i class="fa fa-chevron-left"></i> hashcode和equals的理解
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/24/eclipse-breakpoint-type/" rel="prev" title="Eclipse断点类型">
-                Eclipse断点类型 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -503,7 +509,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特性"><span class="nav-number">2.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用操作"><span class="nav-number">3.</span> <span class="nav-text">常用操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数-Function"><span class="nav-number">4.</span> <span class="nav-text">函数(Function)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#免密登录原理"><span class="nav-number">1.</span> <span class="nav-text">免密登录原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置SSH免密登陆"><span class="nav-number">2.</span> <span class="nav-text">配置SSH免密登陆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#验证"><span class="nav-number">3.</span> <span class="nav-text">验证</span></a></li></ol></div>
             
           </div>
         </section>
@@ -630,9 +636,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'jiangxiaoqiang';
-      var disqus_identifier = '2016/09/23/phoenix-tutorial/';
-      var disqus_title = "Phoenix常用操作";
-      var disqus_url = 'http://jiangxiaoqiang.com/2016/09/23/phoenix-tutorial/';
+      var disqus_identifier = '2016/09/30/cluster-ssh-login/';
+      var disqus_title = "cluster-ssh-login";
+      var disqus_url = 'http://jiangxiaoqiang.com/2016/09/30/cluster-ssh-login/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
