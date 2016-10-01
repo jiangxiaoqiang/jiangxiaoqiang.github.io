@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/01/hadoop-cluster-deploy/</loc>
+    
+    <lastmod>2016-10-01T04:30:42.131Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/09/30/cluster-ssh-login/</loc>
     
-    <lastmod>2016-09-30T08:44:40.758Z</lastmod>
+    <lastmod>2016-10-01T03:25:49.085Z</lastmod>
     
   </url>
   

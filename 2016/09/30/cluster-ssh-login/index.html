@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Cluster,SSH," />
+  <meta name="keywords" content="SSH,Cluster," />
 
 
 
@@ -96,8 +96,7 @@
 用户使用这个公钥，将登录密码加密后，发送回来；
 远程主机用自己的私钥，解密登录密码，如果密码正确，就同意用户登录。
 
-配置SSH免密登陆首先，运行ssh localhost来产生/home/用户名/.ssh目录，然后执行下面命令。
-1ssh-keygen -t rsa">
+配置SSH免密登陆首先，运行ssh localhost来产生/home/用户名/.ssh目录，然后执行下面命令。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hadoop集群SSH免密钥登录">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/09/30/cluster-ssh-login/index.html">
@@ -108,9 +107,8 @@
 用户使用这个公钥，将登录密码加密后，发送回来；
 远程主机用自己的私钥，解密登录密码，如果密码正确，就同意用户登录。
 
-配置SSH免密登陆首先，运行ssh localhost来产生/home/用户名/.ssh目录，然后执行下面命令。
-1ssh-keygen -t rsa">
-<meta property="og:updated_time" content="2016-09-30T08:44:40.758Z">
+配置SSH免密登陆首先，运行ssh localhost来产生/home/用户名/.ssh目录，然后执行下面命令。">
+<meta property="og:updated_time" content="2016-10-01T03:25:49.085Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hadoop集群SSH免密钥登录">
 <meta name="twitter:description" content="免密登录原理SSH之所以能够保证安全，原因在于它采用了公钥加密。过程如下：
@@ -119,8 +117,7 @@
 用户使用这个公钥，将登录密码加密后，发送回来；
 远程主机用自己的私钥，解密登录密码，如果密码正确，就同意用户登录。
 
-配置SSH免密登陆首先，运行ssh localhost来产生/home/用户名/.ssh目录，然后执行下面命令。
-1ssh-keygen -t rsa">
+配置SSH免密登陆首先，运行ssh localhost来产生/home/用户名/.ssh目录，然后执行下面命令。">
 
 
 
@@ -336,6 +333,7 @@
 <li>远程主机用自己的私钥，解密登录密码，如果密码正确，就同意用户登录。</li>
 </ol>
 <h4 id="配置SSH免密登陆"><a href="#配置SSH免密登陆" class="headerlink" title="配置SSH免密登陆"></a>配置SSH免密登陆</h4><p>首先，运行<code>ssh localhost</code>来产生<code>/home/用户名/.ssh</code>目录，然后执行下面命令。</p>
+<a id="more"></a>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa</div></pre></td></tr></table></figure>
 <p>生成RSA公钥和私钥。将生成的”id_rsa.pub”追加（这里切记是追加，不是覆盖）到授权的key里面去。这样的效果是实现了当前用户无密SSH登陆到自己：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#将id_rsa.pub追加到authorized_keys</span></div><div class="line">cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</div></pre></td></tr></table></figure>
@@ -368,9 +366,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Cluster/" rel="tag">#Cluster</a>
-          
             <a href="/tags/SSH/" rel="tag">#SSH</a>
+          
+            <a href="/tags/Cluster/" rel="tag">#Cluster</a>
           
         </div>
       
@@ -386,6 +384,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/01/hadoop-cluster-deploy/" rel="prev" title="Hadoop 2.7.1集群部署(不断更新...)">
+                Hadoop 2.7.1集群部署(不断更新...) <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -460,7 +462,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

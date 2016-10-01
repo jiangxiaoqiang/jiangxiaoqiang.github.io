@@ -260,6 +260,137 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/01/hadoop-cluster-deploy/" itemprop="url">
+                  Hadoop 2.7.1集群部署(不断更新...)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-01T11:29:09+08:00" content="2016-10-01">
+              2016-10-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/01/hadoop-cluster-deploy/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/01/hadoop-cluster-deploy/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>所用软件版本：</p>
+<ul>
+<li><p>Java 1.8.0_60</p>
+</li>
+<li><p>Hadoop 2.7.1.2.4.3.0-227</p>
+</li>
+</ul>
+<p>HBase集群建立在hadoop集群基础之上，所以在搭建HBase集群之前需要把Hadoop集群搭建起来，并且要考虑二者的兼容性。</p>
+<p>下载JDK8u60安装包，输入如下命令进行安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -ivh jdk-8u60-linux-x64.rpm</div></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/10/01/hadoop-cluster-deploy/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/30/cluster-ssh-login/" itemprop="url">
                   Hadoop集群SSH免密钥登录
                 </a>
@@ -310,26 +441,18 @@
 
       
         
-          
-            <h4 id="免密登录原理"><a href="#免密登录原理" class="headerlink" title="免密登录原理"></a>免密登录原理</h4><p>SSH之所以能够保证安全，原因在于它采用了公钥加密。过程如下：</p>
+          <h4 id="免密登录原理"><a href="#免密登录原理" class="headerlink" title="免密登录原理"></a>免密登录原理</h4><p>SSH之所以能够保证安全，原因在于它采用了公钥加密。过程如下：</p>
 <ol>
 <li>远程主机收到用户的登录请求，把自己的公钥发给用户；</li>
 <li>用户使用这个公钥，将登录密码加密后，发送回来；</li>
 <li>远程主机用自己的私钥，解密登录密码，如果密码正确，就同意用户登录。</li>
 </ol>
 <h4 id="配置SSH免密登陆"><a href="#配置SSH免密登陆" class="headerlink" title="配置SSH免密登陆"></a>配置SSH免密登陆</h4><p>首先，运行<code>ssh localhost</code>来产生<code>/home/用户名/.ssh</code>目录，然后执行下面命令。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa</div></pre></td></tr></table></figure>
-<p>生成RSA公钥和私钥。将生成的”id_rsa.pub”追加（这里切记是追加，不是覆盖）到授权的key里面去。这样的效果是实现了当前用户无密SSH登陆到自己：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#将id_rsa.pub追加到authorized_keys</span></div><div class="line">cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</div></pre></td></tr></table></figure>
-<p>如果要实现无密登陆到其它的主机，只需将生成的”id_rsa.pub”追加到其它主机的”~/.ssh/authorized_keys”中去。这里我们使用的方法是先将本机的”~/.ssh/id_rsa.pub”拷贝到你想无密登陆的主机上，再在相应的主机上使用”cat”命令将”~/.ssh/id_rsa.pub”追加到该主机的 “~/.ssh/authorized_keys”中。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp id_rsa.pub root@192.168.24.136:/tmp</div></pre></td></tr></table></figure>
-<h4 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h4><p>当再使用如下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp id_rsa.pub root@192.168.24.136:/tmp</div></pre></td></tr></table></figure>
-<p>从A服务器向192.168.24.136服务器拷贝时，不再提示输入密码时，则说明A服务器到192.168.24.136服务器可以免密钥登录,说明A服务器到192.168.24.136服务器的免密钥登录配置OK。</p>
-<p>来自：</p>
-<p><a href="http://www.cnblogs.com/lijingchn/p/5580263.html" target="_blank" rel="external">SSH无密码验证配置</a></p>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/30/cluster-ssh-login/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -702,109 +825,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/25/spring-ioc/" itemprop="url">
-                  Spring step by step(一)--依赖注入(Dependency Injection)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-25T16:08:20+08:00" content="2016-09-25">
-              2016-09-25
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/25/spring-ioc/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/25/spring-ioc/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="为什么要依赖注入"><a href="#为什么要依赖注入" class="headerlink" title="为什么要依赖注入"></a>为什么要依赖注入</h4><p>依赖注入(Dependency Injection)所要达到的目标是实现程序间的松耦合。将服务的调用者和服务的提供者分离。DI提供一种机制，在运行时绑定服务的提供者和调用者。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/25/spring-ioc/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -850,7 +870,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
