@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Tomcat," />
+  <meta name="keywords" content="ambari," />
 
 
 
@@ -90,45 +90,16 @@
 
 
 
-<meta name="description" content="在Eclipse中调试Tomcat可以分析HTTP请求从Tomcat捕获到Servlet的过程。这个是调试Tomcat的目的。调试的环境是：
-
-IDE：Eclipse Java EE IDE for Web Developers.Version: Neon Release (4.6.0) Build id: 20160613-1800
-
-
-Tomcat 8.0（8.0.37）
-
-
-JDK 1.8">
+<meta name="description" content="Ambari是一款用于部署、管理、监控Hadoop集群的开源工具，通过Ambari用户可以更方便地管理大规模Hadoop集群。Ambari架构采用的是Server/Client的模式，主要由两部分组成：ambari-agent和ambari-server。ambari依赖其它已经成熟的工具，例如其ambari-server就依赖python，而ambari-agent还同时依赖ruby, pupp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在Eclipse中启动和调试Tomcat（一）">
-<meta property="og:url" content="http://jiangxiaoqiang.com/2016/09/20/launching-and-debugging-tomcat/index.html">
+<meta property="og:title" content="Apache-Ambari 2.2.2.0 Agent手动安装">
+<meta property="og:url" content="http://jiangxiaoqiang.com/2016/10/02/apache-ambari-using/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="在Eclipse中调试Tomcat可以分析HTTP请求从Tomcat捕获到Servlet的过程。这个是调试Tomcat的目的。调试的环境是：
-
-IDE：Eclipse Java EE IDE for Web Developers.Version: Neon Release (4.6.0) Build id: 20160613-1800
-
-
-Tomcat 8.0（8.0.37）
-
-
-JDK 1.8">
-<meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/20/launching-and-debugging-tomcat/create-new-java-project.jpg">
-<meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/20/launching-and-debugging-tomcat/tomcat8-tree-structure.jpg">
-<meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/20/launching-and-debugging-tomcat/add-custom-servlet.jpg">
-<meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/20/launching-and-debugging-tomcat/config-workspace.jpg">
-<meta property="og:updated_time" content="2016-09-20T09:16:26.575Z">
+<meta property="og:description" content="Ambari是一款用于部署、管理、监控Hadoop集群的开源工具，通过Ambari用户可以更方便地管理大规模Hadoop集群。Ambari架构采用的是Server/Client的模式，主要由两部分组成：ambari-agent和ambari-server。ambari依赖其它已经成熟的工具，例如其ambari-server就依赖python，而ambari-agent还同时依赖ruby, pupp">
+<meta property="og:updated_time" content="2016-10-02T04:01:51.264Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在Eclipse中启动和调试Tomcat（一）">
-<meta name="twitter:description" content="在Eclipse中调试Tomcat可以分析HTTP请求从Tomcat捕获到Servlet的过程。这个是调试Tomcat的目的。调试的环境是：
-
-IDE：Eclipse Java EE IDE for Web Developers.Version: Neon Release (4.6.0) Build id: 20160613-1800
-
-
-Tomcat 8.0（8.0.37）
-
-
-JDK 1.8">
-<meta name="twitter:image" content="http://jiangxiaoqiang.com/2016/09/20/launching-and-debugging-tomcat/create-new-java-project.jpg">
+<meta name="twitter:title" content="Apache-Ambari 2.2.2.0 Agent手动安装">
+<meta name="twitter:description" content="Ambari是一款用于部署、管理、监控Hadoop集群的开源工具，通过Ambari用户可以更方便地管理大规模Hadoop集群。Ambari架构采用的是Server/Client的模式，主要由两部分组成：ambari-agent和ambari-server。ambari依赖其它已经成熟的工具，例如其ambari-server就依赖python，而ambari-agent还同时依赖ruby, pupp">
 
 
 
@@ -149,9 +120,9 @@ JDK 1.8">
 
 
 
-  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/09/20/launching-and-debugging-tomcat/"/>
+  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/10/02/apache-ambari-using/"/>
 
-  <title> 在Eclipse中启动和调试Tomcat（一） | 小强的博客 </title>
+  <title> Apache-Ambari 2.2.2.0 Agent手动安装 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -290,7 +261,7 @@ JDK 1.8">
             
             
               
-                在Eclipse中启动和调试Tomcat（一）
+                Apache-Ambari 2.2.2.0 Agent手动安装
               
             
           </h1>
@@ -302,19 +273,38 @@ JDK 1.8">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-20T12:15:42+08:00" content="2016-09-20">
-              2016-09-20
+            <time itemprop="dateCreated" datetime="2016-10-02T11:59:53+08:00" content="2016-10-02">
+              2016-10-02
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/20/launching-and-debugging-tomcat/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/20/launching-and-debugging-tomcat/" itemprop="commentsCount"></span>
+                <a href="/2016/10/02/apache-ambari-using/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/02/apache-ambari-using/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -337,41 +327,15 @@ JDK 1.8">
       
 
       
-        <p>在Eclipse中调试Tomcat可以分析HTTP请求从Tomcat捕获到Servlet的过程。这个是调试Tomcat的目的。调试的环境是：</p>
-<ul>
-<li>IDE：Eclipse Java EE IDE for Web Developers.Version: Neon Release (4.6.0) Build id: 20160613-1800</li>
-</ul>
-<ul>
-<li>Tomcat 8.0（8.0.37）</li>
-</ul>
-<ul>
-<li><p>JDK 1.8</p>
-</li>
-<li><p>OS：Windows 7 Ultimate x64</p>
-</li>
-</ul>
+        <p>Ambari是一款用于部署、管理、监控Hadoop集群的开源工具，通过Ambari用户可以更方便地管理大规模Hadoop集群。Ambari架构采用的是Server/Client的模式，主要由两部分组成：ambari-agent和ambari-server。ambari依赖其它已经成熟的工具，例如其ambari-server就依赖python，而ambari-agent还同时依赖ruby, puppet，facter等工具，还有它也依赖一些监控工具nagios和ganglia用于监控集群状况。目前能找到2种，一种是Apache Ambari，一种是Hortonworks Ambari，两者区别不大，这里安装的是Apache Ambari。</p>
 <a id="more"></a>
-<h4 id="创建项目Tomcat8"><a href="#创建项目Tomcat8" class="headerlink" title="创建项目Tomcat8"></a>创建项目Tomcat8</h4><p>创建一个新的Java类型项目，项目名称为“Tomcat8”，如下如所示。</p>
-<img src="/2016/09/20/launching-and-debugging-tomcat/create-new-java-project.jpg" alt="新建项目Tomcat8" title="新建项目Tomcat8">
-<h4 id="下载Tomcat-8-0-37二进制包"><a href="#下载Tomcat-8-0-37二进制包" class="headerlink" title="下载Tomcat 8.0.37二进制包"></a>下载Tomcat 8.0.37二进制包</h4><p>下载<a href="https://tomcat.apache.org/download-80.cgi" target="_blank" rel="external">Tomcat 8.0.37</a>对应的二进制文件。将之拷贝到项目Tomcat8项目的根目录。拷贝之后Tomcat项目的目录结构如下图所示。</p>
-<img src="/2016/09/20/launching-and-debugging-tomcat/tomcat8-tree-structure.jpg" alt="Tomcat8项目目录树结构" title="Tomcat8项目目录树结构">
-<h4 id="创建另一个项目test"><a href="#创建另一个项目test" class="headerlink" title="创建另一个项目test"></a>创建另一个项目test</h4><p>创建一个Maven的webapp项目,名字为“test”。</p>
-<h4 id="新建自定义Servlet"><a href="#新建自定义Servlet" class="headerlink" title="新建自定义Servlet"></a>新建自定义Servlet</h4><p>在test项目下新建一个自定义Servlet,名字为“TestServlet”，如图所示：</p>
-<img src="/2016/09/20/launching-and-debugging-tomcat/add-custom-servlet.jpg" alt="添加自定义Servlet" title="添加自定义Servlet">
-<p>由于TestServlet实现HttpServlet接口，HttpServlet接口的定义在servlet-api.jar包中，所以在test项目的Library中需要引用Tomcat8项目目录下的servlet-api.jar包。新建自定义Servlet完成后在Tomcat8项目中配置servlet映射(/webapps/examples/WEB-INF)：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>test<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/demo/test<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>以上映射说明从/demo/test发送的请求由名为test的Servlet来处理。在Tomcat8项目中配置servlet(/webapps/examples/WEB-INF)：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>test<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>demo.TestServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>以上配置指明名为test的Servlet处理的类的完整路径为：demo.TestServlet。</p>
-<h4 id="配置调试参数"><a href="#配置调试参数" class="headerlink" title="配置调试参数"></a>配置调试参数</h4><p>配置test项目，创建调试配置，配置Main Class为Tomcat的启动类：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">org.apache.catalina.startup.Bootstrap</div></pre></td></tr></table></figure>
-<p>配置test项目的工作空间为Tomcat8的工作空间，如图所示：</p>
-<img src="/2016/09/20/launching-and-debugging-tomcat/config-workspace.jpg" alt="配置test项目工作空间" title="配置test项目工作空间">
-<h4 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h4><p>在自定义的Servlet的doGet方法上打断点，打开浏览器访问<a href="http://localhost:9090/examples/demo/test" target="_blank" rel="external">链接</a>即可命中自定义Servlet。从这里可以加深理解HTTP请求到自定义Servlet处理的过程，可以理解Spring MVC和Tomcat是如何联系起来的。</p>
-<p>源自：</p>
-<ul>
-<li><a href="http://andreas.haufler.info/2012/01/launching-and-debugging-tomcat-from.html" target="_blank" rel="external">Launching and Debugging Tomcat from Eclipse without complex plugins</a></li>
-</ul>
+<p>下载Ambari repository。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /etc/yum.repos.d/</div><div class="line"><span class="comment">#(Redhat/CentOS/Oracle) 6:http://public-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.2.2.0/ambari.repo</span></div><div class="line">wget &lt;ambari-repo-url&gt;</div></pre></td></tr></table></figure>
+<p>安装ambari-agent。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install ambari-agent</div></pre></td></tr></table></figure>
+<p>启动Agent：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ambari-agent start</div></pre></td></tr></table></figure>
+<p>至此，Ambari Agent安装完毕。</p>
 
       
     </div>
@@ -394,7 +358,7 @@ JDK 1.8">
       
         <div class="post-tags">
           
-            <a href="/tags/Tomcat/" rel="tag">#Tomcat</a>
+            <a href="/tags/ambari/" rel="tag">#ambari</a>
           
         </div>
       
@@ -403,17 +367,13 @@ JDK 1.8">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/19/java-string-not-null/" rel="next" title="Java中String非空判断">
-                <i class="fa fa-chevron-left"></i> Java中String非空判断
+              <a href="/2016/10/01/hadoop-cluster-deploy/" rel="next" title="Hadoop 2.7.1集群部署(不断更新...)">
+                <i class="fa fa-chevron-left"></i> Hadoop 2.7.1集群部署(不断更新...)
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/20/launching-and-debugging-tomcat-extra/" rel="prev" title="在Eclipse中启动和调试Tomcat（二）">
-                在Eclipse中启动和调试Tomcat（二） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -563,7 +523,7 @@ JDK 1.8">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建项目Tomcat8"><span class="nav-number">1.</span> <span class="nav-text">创建项目Tomcat8</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载Tomcat-8-0-37二进制包"><span class="nav-number">2.</span> <span class="nav-text">下载Tomcat 8.0.37二进制包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建另一个项目test"><span class="nav-number">3.</span> <span class="nav-text">创建另一个项目test</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新建自定义Servlet"><span class="nav-number">4.</span> <span class="nav-text">新建自定义Servlet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置调试参数"><span class="nav-number">5.</span> <span class="nav-text">配置调试参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调试"><span class="nav-number">6.</span> <span class="nav-text">调试</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
@@ -690,9 +650,9 @@ JDK 1.8">
 
     <script type="text/javascript">
       var disqus_shortname = 'jiangxiaoqiang';
-      var disqus_identifier = '2016/09/20/launching-and-debugging-tomcat/';
-      var disqus_title = "在Eclipse中启动和调试Tomcat（一）";
-      var disqus_url = 'http://jiangxiaoqiang.com/2016/09/20/launching-and-debugging-tomcat/';
+      var disqus_identifier = '2016/10/02/apache-ambari-using/';
+      var disqus_title = "Apache-Ambari 2.2.2.0 Agent手动安装";
+      var disqus_url = 'http://jiangxiaoqiang.com/2016/10/02/apache-ambari-using/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
