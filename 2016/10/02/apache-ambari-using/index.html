@@ -90,16 +90,31 @@
 
 
 
-<meta name="description" content="Ambari是一款用于部署、管理、监控Hadoop集群的开源工具，通过Ambari用户可以更方便地管理大规模Hadoop集群。Ambari架构采用的是Server/Client的模式，主要由两部分组成：ambari-agent和ambari-server。ambari依赖其它已经成熟的工具，例如其ambari-server就依赖python，而ambari-agent还同时依赖ruby, pupp">
+<meta name="description" content="Apache-Ambari 2.2.2.0
+
+CentOS 7.0
+
+
+Ambari是一款用于部署、管理、监控Hadoop集群的开源工具，通过Ambari用户可以更方便地管理大规模Hadoop集群。Ambari架构采用的是Server/Client的模式，主要由两部分组成：ambari-agent和ambari-server。ambari依赖其它已经成熟的工具，例如其ambari-server就">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Apache-Ambari 2.2.2.0 Agent手动安装">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/10/02/apache-ambari-using/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="Ambari是一款用于部署、管理、监控Hadoop集群的开源工具，通过Ambari用户可以更方便地管理大规模Hadoop集群。Ambari架构采用的是Server/Client的模式，主要由两部分组成：ambari-agent和ambari-server。ambari依赖其它已经成熟的工具，例如其ambari-server就依赖python，而ambari-agent还同时依赖ruby, pupp">
-<meta property="og:updated_time" content="2016-10-02T04:01:51.264Z">
+<meta property="og:description" content="Apache-Ambari 2.2.2.0
+
+CentOS 7.0
+
+
+Ambari是一款用于部署、管理、监控Hadoop集群的开源工具，通过Ambari用户可以更方便地管理大规模Hadoop集群。Ambari架构采用的是Server/Client的模式，主要由两部分组成：ambari-agent和ambari-server。ambari依赖其它已经成熟的工具，例如其ambari-server就">
+<meta property="og:updated_time" content="2016-10-02T04:04:27.823Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Apache-Ambari 2.2.2.0 Agent手动安装">
-<meta name="twitter:description" content="Ambari是一款用于部署、管理、监控Hadoop集群的开源工具，通过Ambari用户可以更方便地管理大规模Hadoop集群。Ambari架构采用的是Server/Client的模式，主要由两部分组成：ambari-agent和ambari-server。ambari依赖其它已经成熟的工具，例如其ambari-server就依赖python，而ambari-agent还同时依赖ruby, pupp">
+<meta name="twitter:description" content="Apache-Ambari 2.2.2.0
+
+CentOS 7.0
+
+
+Ambari是一款用于部署、管理、监控Hadoop集群的开源工具，通过Ambari用户可以更方便地管理大规模Hadoop集群。Ambari架构采用的是Server/Client的模式，主要由两部分组成：ambari-agent和ambari-server。ambari依赖其它已经成熟的工具，例如其ambari-server就">
 
 
 
@@ -327,7 +342,13 @@
       
 
       
-        <p>Ambari是一款用于部署、管理、监控Hadoop集群的开源工具，通过Ambari用户可以更方便地管理大规模Hadoop集群。Ambari架构采用的是Server/Client的模式，主要由两部分组成：ambari-agent和ambari-server。ambari依赖其它已经成熟的工具，例如其ambari-server就依赖python，而ambari-agent还同时依赖ruby, puppet，facter等工具，还有它也依赖一些监控工具nagios和ganglia用于监控集群状况。目前能找到2种，一种是Apache Ambari，一种是Hortonworks Ambari，两者区别不大，这里安装的是Apache Ambari。</p>
+        <ul>
+<li><p>Apache-Ambari 2.2.2.0</p>
+</li>
+<li><p>CentOS 7.0</p>
+</li>
+</ul>
+<p>Ambari是一款用于部署、管理、监控Hadoop集群的开源工具，通过Ambari用户可以更方便地管理大规模Hadoop集群。Ambari架构采用的是Server/Client的模式，主要由两部分组成：ambari-agent和ambari-server。ambari依赖其它已经成熟的工具，例如其ambari-server就依赖python，而ambari-agent还同时依赖ruby, puppet，facter等工具，还有它也依赖一些监控工具nagios和ganglia用于监控集群状况。目前能找到2种，一种是Apache Ambari，一种是Hortonworks Ambari，两者区别不大，这里安装的是Apache Ambari。</p>
 <a id="more"></a>
 <p>下载Ambari repository。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /etc/yum.repos.d/</div><div class="line"><span class="comment">#(Redhat/CentOS/Oracle) 6:http://public-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.2.2.0/ambari.repo</span></div><div class="line">wget &lt;ambari-repo-url&gt;</div></pre></td></tr></table></figure>
@@ -374,6 +395,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/02/install-chrome-in-fedora/" rel="prev" title="install-chrome-in-fedora">
+                install-chrome-in-fedora <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -448,7 +473,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">20</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -465,7 +490,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -491,6 +516,12 @@
         </div>
 
         
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
         
 
         

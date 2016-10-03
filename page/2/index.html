@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="小强, 学习" />
+  <meta name="keywords" content="Learning,summarize" />
 
 
 
@@ -118,7 +118,7 @@
 
   <link rel="canonical" href="http://jiangxiaoqiang.com/page/2/"/>
 
-  <title> 小强, 学习 - 小强的博客 </title>
+  <title> Learning,summarize - 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -238,6 +238,126 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/27/spring-mybatis-integrete/" itemprop="url">
+                  Spring step by step(二)--持久化
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-27T13:11:34+08:00" content="2016-09-27">
+              2016-09-27
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/27/spring-mybatis-integrete/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/27/spring-mybatis-integrete/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>环境：</p>
+<ul>
+<li><p>Windows 7 X64 Ultimate</p>
+</li>
+<li><p>JDK 1.8</p>
+</li>
+<li><p>Spring-Framework 4.2.3.RELEASE</p>
+</li>
+<li><p>MyBatis 3.3.1</p>
+</li>
+<li><p>Eclipse Java EE IDE for Web Developers.Version: Neon Release (4.6.0)Build id:20160613-1800</p>
+</li>
+<li><p>Maven 3.3.9</p>
+</li>
+<li><p>MySQL 5.7</p>
+</li>
+</ul>
+<h4 id="MyBatis简介"><a href="#MyBatis简介" class="headerlink" title="MyBatis简介"></a>MyBatis简介</h4><p>MyBatis是一个可以自定义SQL、存储过程和高级映射的持久层框架。MyBatis摒除了大部分的JDBC代码、手工设置参数和结果集重获。MyBatis只使用简单的XML和注解来配置和映射基本数据类型、Map 接口和POJO(Plain Ordinary Java Object)到数据库记录。相对Hibernate和Apache OJB等“一站式”ORM(Object Relational Mapping)解决方案而言，Mybatis是一种“半自动化”的ORM实现。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/27/spring-mybatis-integrete/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -673,113 +793,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/22/tomcat-http/" itemprop="url">
-                  Tomcat 8.0 HTTP请求流程
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-22T22:11:14+08:00" content="2016-09-22">
-              2016-09-22
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/22/tomcat-http/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/22/tomcat-http/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>假设来自浏览器的请求为：<a href="http://localhost:8080/test/index.jsp">http://localhost:8080/test/index.jsp</a></p>
-<h4 id="Connector获取请求"><a href="#Connector获取请求" class="headerlink" title="Connector获取请求"></a>Connector获取请求</h4><p>请求被发送到Apache Tomcat服务器端口8080，被在那里侦听的Coyote HTTP/1.1 Connector(org.apache.tomcat.util.net.NioEndpoint)获得。Tomcat源码中与connector相关的类位于org.apache.coyote包中，Connector分为以下几类：</p>
-<ul>
-<li><strong>Http Connector</strong> 基于HTTP协议，负责建立HTTP连接。它又分为BIO Http Connector与NIO Http Connector(org.apache.tomcat.util.net.NioEndpoint)两种。BIO(blocking I/O)，顾名思义，即阻塞式I/O操作，表示Tomcat使用的是传统的Java I/O操作(即java.io包 及其子包)。一般而言，bio模式是三种运行模式中性能最低的一种。NIO为Network IO，后者提供非阻塞IO与长连接Comet支持。NIO(new I/O)，是Java SE 1.4及后续版本提供的一种新的I/O操作方式(即java.nio包及其子包)。Java nio是一个基于缓冲区、并能提供非阻塞I/O操作的Java API，因此nio也被看成是non-blocking I/O的缩写。它拥有比传统I/O操作(bio)更好的并发运行性能。</li>
-</ul>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/22/tomcat-http/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -825,7 +838,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">20</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -842,7 +855,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -868,6 +881,12 @@
         </div>
 
         
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
         
 
         

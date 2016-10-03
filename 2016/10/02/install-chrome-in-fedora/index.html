@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Eclipse," />
+  <meta name="keywords" content="Chrome,Fedora," />
 
 
 
@@ -90,27 +90,25 @@
 
 
 
-<meta name="description" content="本文的Eclipse版本为:Eclipse Java EE IDE for Web Developers.
-Version: Neon Release (4.6.0)Build id: 20160613-1800
-Line BreakpointLine Breakpoint是最简单的Eclipse断点，只要双击某行代码对应的左侧栏，就对该行设置上断点。断点的颜色为一个蓝色的实心点。">
+<meta name="description" content="创建Repo在目录/etc/yum.repos.d下新建google-chrome.repo文件。
+1vi /etc/yum.repos.d/google-chrome.repo
+32位操作系统写入如下代码：
+123456[google-chrome]name=google-chrome - 32-bitbaseurl=http://dl.google.com/linux/chrome/rpm/s">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Eclipse断点类型">
-<meta property="og:url" content="http://jiangxiaoqiang.com/2016/09/24/eclipse-breakpoint-type/index.html">
+<meta property="og:title" content="install-chrome-in-fedora">
+<meta property="og:url" content="http://jiangxiaoqiang.com/2016/10/02/install-chrome-in-fedora/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="本文的Eclipse版本为:Eclipse Java EE IDE for Web Developers.
-Version: Neon Release (4.6.0)Build id: 20160613-1800
-Line BreakpointLine Breakpoint是最简单的Eclipse断点，只要双击某行代码对应的左侧栏，就对该行设置上断点。断点的颜色为一个蓝色的实心点。">
-<meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/24/eclipse-breakpoint-type/watchpoint.jpg">
-<meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/24/eclipse-breakpoint-type/method-breakpoint.jpg">
-<meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/24/eclipse-breakpoint-type/exception-breakpoint.jpg">
-<meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/24/eclipse-breakpoint-type/class-breakpoint.jpg">
-<meta property="og:updated_time" content="2016-10-03T03:34:36.508Z">
+<meta property="og:description" content="创建Repo在目录/etc/yum.repos.d下新建google-chrome.repo文件。
+1vi /etc/yum.repos.d/google-chrome.repo
+32位操作系统写入如下代码：
+123456[google-chrome]name=google-chrome - 32-bitbaseurl=http://dl.google.com/linux/chrome/rpm/s">
+<meta property="og:updated_time" content="2016-10-02T15:02:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Eclipse断点类型">
-<meta name="twitter:description" content="本文的Eclipse版本为:Eclipse Java EE IDE for Web Developers.
-Version: Neon Release (4.6.0)Build id: 20160613-1800
-Line BreakpointLine Breakpoint是最简单的Eclipse断点，只要双击某行代码对应的左侧栏，就对该行设置上断点。断点的颜色为一个蓝色的实心点。">
-<meta name="twitter:image" content="http://jiangxiaoqiang.com/2016/09/24/eclipse-breakpoint-type/watchpoint.jpg">
+<meta name="twitter:title" content="install-chrome-in-fedora">
+<meta name="twitter:description" content="创建Repo在目录/etc/yum.repos.d下新建google-chrome.repo文件。
+1vi /etc/yum.repos.d/google-chrome.repo
+32位操作系统写入如下代码：
+123456[google-chrome]name=google-chrome - 32-bitbaseurl=http://dl.google.com/linux/chrome/rpm/s">
 
 
 
@@ -131,9 +129,9 @@ Line BreakpointLine Breakpoint是最简单的Eclipse断点，只要双击某行�
 
 
 
-  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/09/24/eclipse-breakpoint-type/"/>
+  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/10/02/install-chrome-in-fedora/"/>
 
-  <title> Eclipse断点类型 | 小强的博客 </title>
+  <title> install-chrome-in-fedora | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -272,7 +270,7 @@ Line BreakpointLine Breakpoint是最简单的Eclipse断点，只要双击某行�
             
             
               
-                Eclipse断点类型
+                install-chrome-in-fedora
               
             
           </h1>
@@ -284,8 +282,8 @@ Line BreakpointLine Breakpoint是最简单的Eclipse断点，只要双击某行�
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-24T16:47:20+08:00" content="2016-09-24">
-              2016-09-24
+            <time itemprop="dateCreated" datetime="2016-10-02T23:02:56+08:00" content="2016-10-02">
+              2016-10-02
             </time>
           </span>
 
@@ -295,8 +293,8 @@ Line BreakpointLine Breakpoint是最简单的Eclipse断点，只要双击某行�
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/24/eclipse-breakpoint-type/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/24/eclipse-breakpoint-type/" itemprop="commentsCount"></span>
+                <a href="/2016/10/02/install-chrome-in-fedora/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/02/install-chrome-in-fedora/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -319,23 +317,13 @@ Line BreakpointLine Breakpoint是最简单的Eclipse断点，只要双击某行�
       
 
       
-        <p>本文的Eclipse版本为:Eclipse Java EE IDE for Web Developers.</p>
-<p>Version: Neon Release (4.6.0)<br>Build id: 20160613-1800</p>
-<h4 id="Line-Breakpoint"><a href="#Line-Breakpoint" class="headerlink" title="Line Breakpoint"></a>Line Breakpoint</h4><p>Line Breakpoint是最简单的Eclipse断点，只要双击某行代码对应的左侧栏，就对该行设置上断点。断点的颜色为一个蓝色的实心点。</p>
-<a id="more"></a>
-<h4 id="Watchpoint"><a href="#Watchpoint" class="headerlink" title="Watchpoint"></a>Watchpoint</h4><p>关注某个关键变量的变化或使用。此时，就可以为该变量设置一种特殊的断点–Watchpoint。</p>
-<img src="/2016/09/24/eclipse-breakpoint-type/watchpoint.jpg" alt="Watch Breakpoint" title="Watch Breakpoint">
-<h4 id="Method-Breakpoint"><a href="#Method-Breakpoint" class="headerlink" title="Method Breakpoint"></a>Method Breakpoint</h4><p>关注程序对某个方法的调用情况，即，可以设置Method Breakpoint。</p>
-<img src="/2016/09/24/eclipse-breakpoint-type/method-breakpoint.jpg" alt="Method Breakpoint" title="Method Breakpoint">
-<p>断点上的左右小箭头代表进入和退出方法时命中。</p>
-<h4 id="Exception-Breakpoint"><a href="#Exception-Breakpoint" class="headerlink" title="Exception Breakpoint"></a>Exception Breakpoint</h4><p>某个特定异常发生时程序能够被中断，以方便查看当时程序所处的状态。</p>
-<img src="/2016/09/24/eclipse-breakpoint-type/exception-breakpoint.jpg" alt="Exception Breakpoint" title="Exception Breakpoint">
-<h4 id="Class-Load-Breakpoint"><a href="#Class-Load-Breakpoint" class="headerlink" title="Class Load Breakpoint"></a>Class Load Breakpoint</h4><p>当某个类被加载时，通过该断点可以中断程序。</p>
-<img src="/2016/09/24/eclipse-breakpoint-type/class-breakpoint.jpg" alt="Class Breakpoint" title="Class Breakpoint">
-<p>来自：</p>
-<ul>
-<li><a href="http://www.blogjava.net/jiangshachina/archive/2011/11/20/364367.html" target="_blank" rel="external">详解Eclipse断点</a></li>
-</ul>
+        <h4 id="创建Repo"><a href="#创建Repo" class="headerlink" title="创建Repo"></a>创建Repo</h4><p>在目录/etc/yum.repos.d下新建google-chrome.repo文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/yum.repos.d/google-chrome.repo</div></pre></td></tr></table></figure>
+<p>32位操作系统写入如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[google-chrome]</div><div class="line">name=google-chrome - 32-bit</div><div class="line">baseurl=http://dl.google.com/linux/chrome/rpm/stable/i386</div><div class="line">enabled=1</div><div class="line">gpgcheck=1</div><div class="line">gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub</div></pre></td></tr></table></figure>
+<p>64位操作系统写入如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[google-chrome]</div><div class="line">name=google-chrome - 64-bit</div><div class="line">baseurl=http://dl.google.com/linux/chrome/rpm/stable/x86_64</div><div class="line">enabled=1</div><div class="line">gpgcheck=1</div><div class="line">gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub</div></pre></td></tr></table></figure>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install google-chrome-stable</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -358,7 +346,9 @@ Line BreakpointLine Breakpoint是最简单的Eclipse断点，只要双击某行�
       
         <div class="post-tags">
           
-            <a href="/tags/Eclipse/" rel="tag">#Eclipse</a>
+            <a href="/tags/Chrome/" rel="tag">#Chrome</a>
+          
+            <a href="/tags/Fedora/" rel="tag">#Fedora</a>
           
         </div>
       
@@ -367,17 +357,13 @@ Line BreakpointLine Breakpoint是最简单的Eclipse断点，只要双击某行�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/23/phoenix-tutorial/" rel="next" title="Phoenix常用操作">
-                <i class="fa fa-chevron-left"></i> Phoenix常用操作
+              <a href="/2016/10/02/apache-ambari-using/" rel="next" title="Apache-Ambari 2.2.2.0 Agent手动安装">
+                <i class="fa fa-chevron-left"></i> Apache-Ambari 2.2.2.0 Agent手动安装
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/25/spring-ioc/" rel="prev" title="Spring step by step(一)--依赖注入(Dependency Injection)">
-                Spring step by step(一)--依赖注入(Dependency Injection) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -533,7 +519,7 @@ Line BreakpointLine Breakpoint是最简单的Eclipse断点，只要双击某行�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Line-Breakpoint"><span class="nav-number">1.</span> <span class="nav-text">Line Breakpoint</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Watchpoint"><span class="nav-number">2.</span> <span class="nav-text">Watchpoint</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Method-Breakpoint"><span class="nav-number">3.</span> <span class="nav-text">Method Breakpoint</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Exception-Breakpoint"><span class="nav-number">4.</span> <span class="nav-text">Exception Breakpoint</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Class-Load-Breakpoint"><span class="nav-number">5.</span> <span class="nav-text">Class Load Breakpoint</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建Repo"><span class="nav-number">1.</span> <span class="nav-text">创建Repo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li></ol></div>
             
           </div>
         </section>
@@ -660,9 +646,9 @@ Line BreakpointLine Breakpoint是最简单的Eclipse断点，只要双击某行�
 
     <script type="text/javascript">
       var disqus_shortname = 'jiangxiaoqiang';
-      var disqus_identifier = '2016/09/24/eclipse-breakpoint-type/';
-      var disqus_title = "Eclipse断点类型";
-      var disqus_url = 'http://jiangxiaoqiang.com/2016/09/24/eclipse-breakpoint-type/';
+      var disqus_identifier = '2016/10/02/install-chrome-in-fedora/';
+      var disqus_title = "install-chrome-in-fedora";
+      var disqus_url = 'http://jiangxiaoqiang.com/2016/10/02/install-chrome-in-fedora/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
