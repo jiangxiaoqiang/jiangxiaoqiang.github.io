@@ -4,8 +4,46 @@
 
     
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/03/fedora-20-install-input-method/</loc>
+    <lastmod>2016-10-04T01:46:14.276Z</lastmod>
+    <data>
+        <display>
+        <title>Fedora 20安装中文输入法</title>
+        <pubTime>2016-10-03T03:08:51.000Z</pubTime>
+        
+        <tag>Fedora</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/02/apache-ambari-using/</loc>
+    <lastmod>2016-10-03T12:40:27.295Z</lastmod>
+    <data>
+        <display>
+        <title>Apache-Ambari 2.2.2.0 Agent手动安装</title>
+        <pubTime>2016-10-02T03:59:53.000Z</pubTime>
+        
+        <tag>ambari</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/</loc>
-    <lastmod>2016-10-03T08:59:16.692Z</lastmod>
+    <lastmod>2016-10-03T09:31:24.728Z</lastmod>
     <data>
         <display>
         <title>IntelliJ Idea技巧分享</title>
@@ -24,7 +62,6 @@
     </data>
     </url>
 
-    
     
     
   <url>
@@ -126,12 +163,12 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/14/maven-private-service/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/18/log4j/</loc>
     <lastmod>2016-10-03T03:34:36.516Z</lastmod>
     <data>
         <display>
-        <title>Windows下用Nexus搭建Maven私服</title>
-        <pubTime>2016-09-14T00:42:48.289Z</pubTime>
+        <title>Java Web开发--log4j</title>
+        <pubTime>2016-09-18T00:54:34.701Z</pubTime>
         
          
            
@@ -158,12 +195,12 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/18/log4j/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/14/maven-private-service/</loc>
     <lastmod>2016-10-03T03:34:36.516Z</lastmod>
     <data>
         <display>
-        <title>Java Web开发--log4j</title>
-        <pubTime>2016-09-18T00:54:34.701Z</pubTime>
+        <title>Windows下用Nexus搭建Maven私服</title>
+        <pubTime>2016-09-14T00:42:48.289Z</pubTime>
         
          
            
@@ -330,26 +367,6 @@
          
          
            
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/02/apache-ambari-using/</loc>
-    <lastmod>2016-10-02T04:04:27.823Z</lastmod>
-    <data>
-        <display>
-        <title>Apache-Ambari 2.2.2.0 Agent手动安装</title>
-        <pubTime>2016-10-02T03:59:53.000Z</pubTime>
-        
-        <tag>ambari</tag>
-         
-         
-           
-             
-              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
-          
         </display>
     </data>
     </url>

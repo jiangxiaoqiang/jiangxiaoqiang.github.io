@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/03/fedora-20-install-input-method/</loc>
+    
+    <lastmod>2016-10-04T01:46:14.276Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/about/index.html</loc>
+    
+    <lastmod>2016-10-03T12:48:09.816Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/02/apache-ambari-using/</loc>
+    
+    <lastmod>2016-10-03T12:40:27.295Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/</loc>
     
-    <lastmod>2016-10-03T08:59:16.692Z</lastmod>
+    <lastmod>2016-10-03T09:31:24.728Z</lastmod>
     
   </url>
   
@@ -12,13 +33,6 @@
     <loc>http://jiangxiaoqiang.com/tags/index.html</loc>
     
     <lastmod>2016-10-03T03:34:36.532Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jiangxiaoqiang.com/about/index.html</loc>
-    
-    <lastmod>2016-10-03T03:34:36.531Z</lastmod>
     
   </url>
   
@@ -65,7 +79,7 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/14/maven-private-service/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/18/log4j/</loc>
     
     <lastmod>2016-10-03T03:34:36.516Z</lastmod>
     
@@ -79,7 +93,7 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/18/log4j/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/14/maven-private-service/</loc>
     
     <lastmod>2016-10-03T03:34:36.516Z</lastmod>
     
@@ -152,13 +166,6 @@
     <loc>http://jiangxiaoqiang.com/2016/10/02/install-chrome-in-fedora/</loc>
     
     <lastmod>2016-10-02T15:02:56.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/02/apache-ambari-using/</loc>
-    
-    <lastmod>2016-10-02T04:04:27.823Z</lastmod>
     
   </url>
   
