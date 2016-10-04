@@ -4,8 +4,28 @@
 
     
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/04/delete-ambari-service/</loc>
+    <lastmod>2016-10-04T13:08:18.249Z</lastmod>
+    <data>
+        <display>
+        <title>删除Apache Ambari服务</title>
+        <pubTime>2016-10-04T13:04:27.000Z</pubTime>
+        
+        <tag>Ambari</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/03/fedora-20-install-input-method/</loc>
-    <lastmod>2016-10-04T01:46:14.276Z</lastmod>
+    <lastmod>2016-10-04T13:05:56.023Z</lastmod>
     <data>
         <display>
         <title>Fedora 20安装中文输入法</title>
@@ -163,6 +183,23 @@
 
     
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/23/phoenix-tutorial/</loc>
+    <lastmod>2016-10-03T03:34:36.516Z</lastmod>
+    <data>
+        <display>
+        <title>Phoenix常用操作</title>
+        <pubTime>2016-09-23T08:57:30.000Z</pubTime>
+        
+        <tag>Phoenix</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/09/18/log4j/</loc>
     <lastmod>2016-10-03T03:34:36.516Z</lastmod>
     <data>
@@ -210,14 +247,14 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/23/phoenix-tutorial/</loc>
-    <lastmod>2016-10-03T03:34:36.516Z</lastmod>
+    <loc>http://jiangxiaoqiang.com/2016/09/20/launching-and-debugging-tomcat/</loc>
+    <lastmod>2016-10-03T03:34:36.514Z</lastmod>
     <data>
         <display>
-        <title>Phoenix常用操作</title>
-        <pubTime>2016-09-23T08:57:30.000Z</pubTime>
+        <title>在Eclipse中启动和调试Tomcat（一）</title>
+        <pubTime>2016-09-20T04:15:42.000Z</pubTime>
         
-        <tag>Phoenix</tag>
+        <tag>Tomcat</tag>
          
          
            
@@ -227,12 +264,12 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/20/launching-and-debugging-tomcat/</loc>
-    <lastmod>2016-10-03T03:34:36.514Z</lastmod>
+    <loc>http://jiangxiaoqiang.com/2016/09/20/launching-and-debugging-tomcat-extra/</loc>
+    <lastmod>2016-10-03T03:34:36.513Z</lastmod>
     <data>
         <display>
-        <title>在Eclipse中启动和调试Tomcat（一）</title>
-        <pubTime>2016-09-20T04:15:42.000Z</pubTime>
+        <title>在Eclipse中启动和调试Tomcat（二）</title>
+        <pubTime>2016-09-20T09:13:52.000Z</pubTime>
         
         <tag>Tomcat</tag>
          
@@ -261,17 +298,22 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/20/launching-and-debugging-tomcat-extra/</loc>
-    <lastmod>2016-10-03T03:34:36.513Z</lastmod>
+    <loc>http://jiangxiaoqiang.com/2016/10/01/hadoop-cluster-deploy/</loc>
+    <lastmod>2016-10-03T03:34:36.509Z</lastmod>
     <data>
         <display>
-        <title>在Eclipse中启动和调试Tomcat（二）</title>
-        <pubTime>2016-09-20T09:13:52.000Z</pubTime>
+        <title>Hadoop 2.7.1集群部署(不断更新...)</title>
+        <pubTime>2016-10-01T03:29:09.000Z</pubTime>
         
-        <tag>Tomcat</tag>
+        <tag>Cluster</tag>
+         
+        <tag>Hadoop.HBase</tag>
          
          
            
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
         </display>
     </data>
     </url>
@@ -289,28 +331,6 @@
          
          
            
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/01/hadoop-cluster-deploy/</loc>
-    <lastmod>2016-10-03T03:34:36.509Z</lastmod>
-    <data>
-        <display>
-        <title>Hadoop 2.7.1集群部署(不断更新...)</title>
-        <pubTime>2016-10-01T03:29:09.000Z</pubTime>
-        
-        <tag>Cluster</tag>
-         
-        <tag>Hadoop.HBase</tag>
-         
-         
-           
-             
-              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
-          
         </display>
     </data>
     </url>

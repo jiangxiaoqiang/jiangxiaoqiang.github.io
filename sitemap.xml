@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/04/delete-ambari-service/</loc>
+    
+    <lastmod>2016-10-04T13:08:18.249Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/03/fedora-20-install-input-method/</loc>
     
-    <lastmod>2016-10-04T01:46:14.276Z</lastmod>
+    <lastmod>2016-10-04T13:05:56.023Z</lastmod>
     
   </url>
   
@@ -79,6 +86,13 @@
   </url>
   
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/23/phoenix-tutorial/</loc>
+    
+    <lastmod>2016-10-03T03:34:36.516Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/09/18/log4j/</loc>
     
     <lastmod>2016-10-03T03:34:36.516Z</lastmod>
@@ -100,23 +114,9 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/23/phoenix-tutorial/</loc>
-    
-    <lastmod>2016-10-03T03:34:36.516Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://jiangxiaoqiang.com/2016/09/20/launching-and-debugging-tomcat/</loc>
     
     <lastmod>2016-10-03T03:34:36.514Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/19/java-string-not-null/</loc>
-    
-    <lastmod>2016-10-03T03:34:36.513Z</lastmod>
     
   </url>
   
@@ -128,14 +128,21 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/28/hashcode-and-equals/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/19/java-string-not-null/</loc>
+    
+    <lastmod>2016-10-03T03:34:36.513Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/01/hadoop-cluster-deploy/</loc>
     
     <lastmod>2016-10-03T03:34:36.509Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/01/hadoop-cluster-deploy/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/28/hashcode-and-equals/</loc>
     
     <lastmod>2016-10-03T03:34:36.509Z</lastmod>
     

@@ -4,10 +4,23 @@
   
     
     <entry>
+      <title><![CDATA[删除Apache Ambari服务]]></title>
+      <url>http://jiangxiaoqiang.com/2016/10/04/delete-ambari-service/</url>
+      <content type="html"><![CDATA[<p>删除删除Apache Ambari服务可调用Apache Ambari REST接口：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移除ZooKeeper服务</span></div><div class="line">curl -u admin:admin -H <span class="string">"X-Requested-By: ambari"</span> -X DELETE http://192.168.24.226:8080/api/v1/clusters/zwlbs/services/ZooKeeper</div><div class="line"></div><div class="line"><span class="comment">#移除MapReduce服务</span></div><div class="line">curl -u admin:admin -H <span class="string">"X-Requested-By: ambari"</span> -X DELETE http://192.168.24.226:8080/api/v1/clusters/zwlbs/services/ZooKeeper/MAPREDUCE2</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>注意服务的名称要大写。有时删除服务时会提示如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;status&quot; : 500,</div><div class="line">  &quot;message&quot; : &quot;org.apache.ambari.server.controller.spi.SystemException: An internal system exception occurred: Cannot remove ZOOKEEPER. Desired state STARTED is not removable.  Service must be stopped or disabled.&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>此时可以先改变服务状态再执行删除命令。改变服务状态命令为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -i -H <span class="string">"X-Requested-By: ambari"</span> -u admin:admin -X PUT <span class="_">-d</span> <span class="string">'&#123;"RequestInfo":&#123;"context":"Stop Service"&#125;,"Body":&#123;"ServiceInfo":&#123;"state":"INSTALLED"&#125;&#125;&#125;'</span> http://192.168.24.226:8080/api/v1/clusters/CLUSTER_NAME/services/SERVICE_NAME</div></pre></td></tr></table></figure>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Fedora 20安装中文输入法]]></title>
       <url>http://jiangxiaoqiang.com/2016/10/03/fedora-20-install-input-method/</url>
       <content type="html"><![CDATA[<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum install scim</div><div class="line">yum install scim-pinyin</div></pre></td></tr></table></figure>
-<p>SCIM(Smart Common Input Method)是基于GTK引擎，为GNOME/GTK环境下非英文/ASCII字符提供的输入。SCIM is a GTK-based input method engine for inputting non-English / non-ASCII characters in a GNOME/GTK environment. There is a KDE frontend called skim.<br>它本身自带拼音、内码等输入法，同时提供简单的程序接口，方便程序员便捷的对其进行扩充。</p>
+<p>SCIM(Smart Common Input Method)是基于GTK引擎，为GNOME/GTK环境下非英文/ASCII字符提供的输入。SCIM is a GTK-based input method engine for inputting non-English / non-ASCII characters in a GNOME/GTK environment. There is a KDE frontend called skim.它本身自带拼音、内码等输入法，同时提供简单的程序接口，方便程序员便捷的对其进行扩充。</p>
+<a id="more"></a>
 <h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>在系统配置中添加安装的输入法，</p>
 <img src="/2016/10/03/fedora-20-install-input-method/setting-add-input-method.png" alt="配置里添加输入法" title="配置里添加输入法">
 <p>选择输入法生效。</p>
