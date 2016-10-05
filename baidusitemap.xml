@@ -4,6 +4,47 @@
 
     
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/05/fedora-20-install-nodejs/</loc>
+    <lastmod>2016-10-05T01:54:56.072Z</lastmod>
+    <data>
+        <display>
+        <title>Fedora 20 安装NodeJs</title>
+        <pubTime>2016-10-05T01:52:08.000Z</pubTime>
+        
+        <tag>Fedora</tag>
+         
+        <tag>NodeJs</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/02/install-chrome-in-fedora/</loc>
+    <lastmod>2016-10-05T01:44:06.668Z</lastmod>
+    <data>
+        <display>
+        <title>install-chrome-in-fedora</title>
+        <pubTime>2016-10-02T15:02:56.000Z</pubTime>
+        
+        <tag>Chrome</tag>
+         
+        <tag>Fedora</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/04/delete-ambari-service/</loc>
     <lastmod>2016-10-04T13:08:18.249Z</lastmod>
     <data>
@@ -119,12 +160,12 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/18/springmvc-dispatcherservlet/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/13/spring/</loc>
     <lastmod>2016-10-03T03:34:36.520Z</lastmod>
     <data>
         <display>
-        <title>Spring MVC-DispatcherServlet处理请求过程</title>
-        <pubTime>2016-09-18T01:04:36.713Z</pubTime>
+        <title>Spring框架搭建</title>
+        <pubTime>2016-09-13T10:53:05.804Z</pubTime>
         
          
            
@@ -134,12 +175,12 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/13/spring/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/18/springmvc-dispatcherservlet/</loc>
     <lastmod>2016-10-03T03:34:36.520Z</lastmod>
     <data>
         <display>
-        <title>Spring框架搭建</title>
-        <pubTime>2016-09-13T10:53:05.804Z</pubTime>
+        <title>Spring MVC-DispatcherServlet处理请求过程</title>
+        <pubTime>2016-09-18T01:04:36.713Z</pubTime>
         
          
            
@@ -183,38 +224,6 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/23/phoenix-tutorial/</loc>
-    <lastmod>2016-10-03T03:34:36.516Z</lastmod>
-    <data>
-        <display>
-        <title>Phoenix常用操作</title>
-        <pubTime>2016-09-23T08:57:30.000Z</pubTime>
-        
-        <tag>Phoenix</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/18/log4j/</loc>
-    <lastmod>2016-10-03T03:34:36.516Z</lastmod>
-    <data>
-        <display>
-        <title>Java Web开发--log4j</title>
-        <pubTime>2016-09-18T00:54:34.701Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://jiangxiaoqiang.com/2016/09/19/lombok/</loc>
     <lastmod>2016-10-03T03:34:36.516Z</lastmod>
     <data>
@@ -239,6 +248,38 @@
         <title>Windows下用Nexus搭建Maven私服</title>
         <pubTime>2016-09-14T00:42:48.289Z</pubTime>
         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/18/log4j/</loc>
+    <lastmod>2016-10-03T03:34:36.516Z</lastmod>
+    <data>
+        <display>
+        <title>Java Web开发--log4j</title>
+        <pubTime>2016-09-18T00:54:34.701Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/23/phoenix-tutorial/</loc>
+    <lastmod>2016-10-03T03:34:36.516Z</lastmod>
+    <data>
+        <display>
+        <title>Phoenix常用操作</title>
+        <pubTime>2016-09-23T08:57:30.000Z</pubTime>
+        
+        <tag>Phoenix</tag>
+         
          
            
         </display>
@@ -372,23 +413,4 @@
     </url>
 
     
-    
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/02/install-chrome-in-fedora/</loc>
-    <lastmod>2016-10-02T15:02:56.000Z</lastmod>
-    <data>
-        <display>
-        <title>install-chrome-in-fedora</title>
-        <pubTime>2016-10-02T15:02:56.000Z</pubTime>
-        
-        <tag>Chrome</tag>
-         
-        <tag>Fedora</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
 </urlset>

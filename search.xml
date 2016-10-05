@@ -4,6 +4,32 @@
   
     
     <entry>
+      <title><![CDATA[Fedora 20 安装NodeJs]]></title>
+      <url>http://jiangxiaoqiang.com/2016/10/05/fedora-20-install-nodejs/</url>
+      <content type="html"><![CDATA[<p>安装环境：</p>
+<ul>
+<li><p>Fedora 20 i386</p>
+</li>
+<li><p>nodejs 6.7.0</p>
+</li>
+</ul>
+<p>使用Hexo写博客需要安装NodeJs,更新系统</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum update -y</div></pre></td></tr></table></figure>
+<p>安装GCC编译环境</p>
+<a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install g++ curl openssl openssl-devel make gcc-c++ glibc-devel -y</div></pre></td></tr></table></figure>
+<p>下载NodeJS</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mkdir /root/temp ; <span class="built_in">cd</span> /root</div><div class="line">wget http://nodejs.org/dist/node-latest.tar.gz</div><div class="line">tar -xvpzf node-latest.tar.gz</div><div class="line"><span class="built_in">cd</span> node-v*</div></pre></td></tr></table></figure>
+<p>编译安装,编译安装的时间较长，需要耐心等待，编译大概在15分钟左右。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">./configure</div><div class="line">make install</div></pre></td></tr></table></figure>
+<p>安装NPM</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl http://npmjs.org/install.sh | sh</div></pre></td></tr></table></figure>
+<p>查看安装的NodeJs版本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node --version</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[删除Apache Ambari服务]]></title>
       <url>http://jiangxiaoqiang.com/2016/10/04/delete-ambari-service/</url>
       <content type="html"><![CDATA[<p>删除删除Apache Ambari服务可调用Apache Ambari REST接口：</p>
@@ -31,13 +57,21 @@
     <entry>
       <title><![CDATA[install-chrome-in-fedora]]></title>
       <url>http://jiangxiaoqiang.com/2016/10/02/install-chrome-in-fedora/</url>
-      <content type="html"><![CDATA[<h4 id="创建Repo"><a href="#创建Repo" class="headerlink" title="创建Repo"></a>创建Repo</h4><p>在目录/etc/yum.repos.d下新建google-chrome.repo文件。</p>
+      <content type="html"><![CDATA[<p>一种方法是通过yum安装。yum（全称为 Yellow dog Updater, Modified）是一个在Fedora和RedHat以及SUSE中的Shell前端软件包管理器。基於RPM包管理，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软体包，无须繁琐地一次次下载、安装。yum提供了查找、安装、删除某一个、一组甚至全部软件包的命令，而且命令简洁而又好记。</p>
+<h4 id="创建Repo"><a href="#创建Repo" class="headerlink" title="创建Repo"></a>创建Repo</h4><p>在目录/etc/yum.repos.d下新建google-chrome.repo文件。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/yum.repos.d/google-chrome.repo</div></pre></td></tr></table></figure>
 <p>32位操作系统写入如下代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[google-chrome]</div><div class="line">name=google-chrome - 32-bit</div><div class="line">baseurl=http://dl.google.com/linux/chrome/rpm/stable/i386</div><div class="line">enabled=1</div><div class="line">gpgcheck=1</div><div class="line">gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub</div></pre></td></tr></table></figure>
 <p>64位操作系统写入如下代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[google-chrome]</div><div class="line">name=google-chrome - 64-bit</div><div class="line">baseurl=http://dl.google.com/linux/chrome/rpm/stable/x86_64</div><div class="line">enabled=1</div><div class="line">gpgcheck=1</div><div class="line">gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub</div></pre></td></tr></table></figure>
 <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install google-chrome-stable</div></pre></td></tr></table></figure>
+<p>也可以直接下载rpm包进行安装。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -ivh google-chrome-stable_current_i386.rpm</div></pre></td></tr></table></figure>
+<p>提示错误如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">warning: google-chrome-stable_current_i386.rpm: Header V4 DSA/SHA1 Signature, key ID 7fac5991: NOKEY</div><div class="line">error: Failed dependencies:</div><div class="line">	lsb &gt;= 4.0 is needed by google-chrome-stable-19.0.1084.56-140965.i386</div><div class="line">	libXss.so.1 is needed by google-chrome-stable-19.0.1084.56-140965.i386</div></pre></td></tr></table></figure>
+<p>安装依赖包。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yum install redhat-lsb -y</div><div class="line">yum install wget -y</div><div class="line">yum install libXScrnSaver -y</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Transaction check error:</div><div class="line">  file /usr/bin from install of google-chrome-stable-19.0.1084.56-140965.i386 conflicts with file from package filesystem-3.2-19.fc20.i686</div></pre></td></tr></table></figure>
 ]]></content>
     </entry>
     
