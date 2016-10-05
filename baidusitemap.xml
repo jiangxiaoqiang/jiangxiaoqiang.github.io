@@ -4,6 +4,68 @@
 
     
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/05/ambari-offline-install/</loc>
+    <lastmod>2016-10-05T09:17:43.440Z</lastmod>
+    <data>
+        <display>
+        <title>Ambari与HDP离线安装</title>
+        <pubTime>2016-10-05T08:52:34.000Z</pubTime>
+        
+        <tag>Ambari</tag>
+         
+        <tag>HDP</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/02/apache-ambari-using/</loc>
+    <lastmod>2016-10-05T03:20:58.619Z</lastmod>
+    <data>
+        <display>
+        <title>Apache-Ambari 2.2.2.0 Agent手动安装</title>
+        <pubTime>2016-10-02T03:59:53.000Z</pubTime>
+        
+        <tag>ambari</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/04/delete-ambari-service/</loc>
+    <lastmod>2016-10-05T02:57:04.791Z</lastmod>
+    <data>
+        <display>
+        <title>删除Apache Ambari服务</title>
+        <pubTime>2016-10-04T13:04:27.000Z</pubTime>
+        
+        <tag>Ambari</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/05/fedora-20-install-nodejs/</loc>
     <lastmod>2016-10-05T01:54:56.072Z</lastmod>
     <data>
@@ -45,26 +107,6 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/04/delete-ambari-service/</loc>
-    <lastmod>2016-10-04T13:08:18.249Z</lastmod>
-    <data>
-        <display>
-        <title>删除Apache Ambari服务</title>
-        <pubTime>2016-10-04T13:04:27.000Z</pubTime>
-        
-        <tag>Ambari</tag>
-         
-         
-           
-             
-              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/03/fedora-20-install-input-method/</loc>
     <lastmod>2016-10-04T13:05:56.023Z</lastmod>
     <data>
@@ -81,26 +123,6 @@
     </url>
 
     
-    
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/02/apache-ambari-using/</loc>
-    <lastmod>2016-10-03T12:40:27.295Z</lastmod>
-    <data>
-        <display>
-        <title>Apache-Ambari 2.2.2.0 Agent手动安装</title>
-        <pubTime>2016-10-02T03:59:53.000Z</pubTime>
-        
-        <tag>ambari</tag>
-         
-         
-           
-             
-              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
   <url>
     <loc>http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/</loc>
@@ -224,6 +246,38 @@
 
     
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/23/phoenix-tutorial/</loc>
+    <lastmod>2016-10-03T03:34:36.516Z</lastmod>
+    <data>
+        <display>
+        <title>Phoenix常用操作</title>
+        <pubTime>2016-09-23T08:57:30.000Z</pubTime>
+        
+        <tag>Phoenix</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/18/log4j/</loc>
+    <lastmod>2016-10-03T03:34:36.516Z</lastmod>
+    <data>
+        <display>
+        <title>Java Web开发--log4j</title>
+        <pubTime>2016-09-18T00:54:34.701Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/09/19/lombok/</loc>
     <lastmod>2016-10-03T03:34:36.516Z</lastmod>
     <data>
@@ -248,38 +302,6 @@
         <title>Windows下用Nexus搭建Maven私服</title>
         <pubTime>2016-09-14T00:42:48.289Z</pubTime>
         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/18/log4j/</loc>
-    <lastmod>2016-10-03T03:34:36.516Z</lastmod>
-    <data>
-        <display>
-        <title>Java Web开发--log4j</title>
-        <pubTime>2016-09-18T00:54:34.701Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/23/phoenix-tutorial/</loc>
-    <lastmod>2016-10-03T03:34:36.516Z</lastmod>
-    <data>
-        <display>
-        <title>Phoenix常用操作</title>
-        <pubTime>2016-09-23T08:57:30.000Z</pubTime>
-        
-        <tag>Phoenix</tag>
-         
          
            
         </display>
@@ -339,6 +361,23 @@
 
     
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/28/hashcode-and-equals/</loc>
+    <lastmod>2016-10-03T03:34:36.509Z</lastmod>
+    <data>
+        <display>
+        <title>hashcode和equals的理解</title>
+        <pubTime>2016-09-28T14:12:51.000Z</pubTime>
+        
+        <tag>hashcode</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/01/hadoop-cluster-deploy/</loc>
     <lastmod>2016-10-03T03:34:36.509Z</lastmod>
     <data>
@@ -355,23 +394,6 @@
              
               <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/28/hashcode-and-equals/</loc>
-    <lastmod>2016-10-03T03:34:36.509Z</lastmod>
-    <data>
-        <display>
-        <title>hashcode和equals的理解</title>
-        <pubTime>2016-09-28T14:12:51.000Z</pubTime>
-        
-        <tag>hashcode</tag>
-         
-         
-           
         </display>
     </data>
     </url>

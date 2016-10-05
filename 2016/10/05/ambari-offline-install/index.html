@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Learning,summarize" />
+  <meta name="keywords" content="Ambari,HDP," />
 
 
 
@@ -90,12 +90,19 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="小强的博客">
-<meta property="og:url" content="http://jiangxiaoqiang.com/tags/IntelliJ/index.html">
+<meta name="description" content="Ambari安装包大概有400MB，HDP所包含的所有的服务(HDFS/ZooKeeper/Kafka/Flume)大概在7GB+，采用yum安装时速度在10KB以内，简直是让人绝望的速度。所以采用离线安装，为了速度，掏出无耻的迅雷(wget下载是假的，不过可以试一试，速度不理想换迅雷)，搭建本地YUM服务。
+下载包如果不知道应该下载哪个版本，可以到Repository的配置文件中查看当前版本。路">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ambari与HDP离线安装">
+<meta property="og:url" content="http://jiangxiaoqiang.com/2016/10/05/ambari-offline-install/index.html">
 <meta property="og:site_name" content="小强的博客">
+<meta property="og:description" content="Ambari安装包大概有400MB，HDP所包含的所有的服务(HDFS/ZooKeeper/Kafka/Flume)大概在7GB+，采用yum安装时速度在10KB以内，简直是让人绝望的速度。所以采用离线安装，为了速度，掏出无耻的迅雷(wget下载是假的，不过可以试一试，速度不理想换迅雷)，搭建本地YUM服务。
+下载包如果不知道应该下载哪个版本，可以到Repository的配置文件中查看当前版本。路">
+<meta property="og:updated_time" content="2016-10-05T09:17:43.440Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小强的博客">
+<meta name="twitter:title" content="Ambari与HDP离线安装">
+<meta name="twitter:description" content="Ambari安装包大概有400MB，HDP所包含的所有的服务(HDFS/ZooKeeper/Kafka/Flume)大概在7GB+，采用yum安装时速度在10KB以内，简直是让人绝望的速度。所以采用离线安装，为了速度，掏出无耻的迅雷(wget下载是假的，不过可以试一试，速度不理想换迅雷)，搭建本地YUM服务。
+下载包如果不知道应该下载哪个版本，可以到Repository的配置文件中查看当前版本。路">
 
 
 
@@ -116,9 +123,9 @@
 
 
 
-  <link rel="canonical" href="http://jiangxiaoqiang.com/tags/IntelliJ/"/>
+  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/10/05/ambari-offline-install/"/>
 
-  <title> 标签: IntelliJ | 小强的博客 </title>
+  <title> Ambari与HDP离线安装 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -148,7 +155,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -259,46 +266,169 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        IntelliJ
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Ambari与HDP离线安装
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-05T16:52:34+08:00" content="2016-10-05">
+              2016-10-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/05/ambari-offline-install/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/05/ambari-offline-install/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>Ambari安装包大概有400MB，HDP所包含的所有的服务(HDFS/ZooKeeper/Kafka/Flume)大概在7GB+，采用yum安装时速度在10KB以内，简直是让人绝望的速度。所以采用离线安装，为了速度，掏出无耻的迅雷(wget下载是假的，不过可以试一试，速度不理想换迅雷)，搭建本地YUM服务。</p>
+<h4 id="下载包"><a href="#下载包" class="headerlink" title="下载包"></a>下载包</h4><p>如果不知道应该下载哪个版本，可以到Repository的配置文件中查看当前版本。路径为：<code>/etc/yum.repo.d/</code>，查看文件ambari.repo、HDP.rep和HDP-UTILS.repo即可。</p>
+<a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#下载HDP-UTILS包</span></div><div class="line">wget http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.20/repos/centos7/HDP-UTILS-1.1.0.20-centos7.tar.gz</div><div class="line"></div><div class="line"><span class="comment">#下载HDP包</span></div><div class="line">wget http://public-repo-1.hortonworks.com/HDP/centos7/2.x/updates/2.4.3.0/HDP-2.4.3.0-centos7-rpm.tar.gz</div></pre></td></tr></table></figure>
+<p>HDP-UTILS-1.1.0.20-centos6.tar.gz包有600多MB，HDP-2.4.3.0-centos6-rpm.tar.gz包有9GB之巨。包含很多服务，瞬间理解安装的时候超时是怎么回事了。下载完毕之后将包Copy到服务器上：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">scp HDP-UTILS-1.1.0.20-centos6.tar.gzip root@192.168.24.226:/data/<span class="built_in">source</span></div><div class="line">scp ambari-2.2.2.0-centos7.tar.gz root@192.168.24.226:/data/<span class="built_in">source</span></div></pre></td></tr></table></figure>
+<h4 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -xvf HDP-UTILS-1.1.0.20-centos6.tar.gzip -C /data/<span class="built_in">source</span>/</div></pre></td></tr></table></figure>
+<p>切换到目录(/data/source)下,使用Python搭建一个简单的服务器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python -mSimpleHTTPServer &amp;</div></pre></td></tr></table></figure>
+<p>解压之后，会有HDP，HDP-UTILS-1.1.0.20的目录生成。HDP目录：包含Hadoop的生态圈的组件，比如hdfs，hive，hbase，mahout等。HDP-UTILS-1.1.0.17目录：包含HDP平台所包含的工具组件等，比如nagios，ganglia，puppet等。</p>
+<h4 id="修改Repo"><a href="#修改Repo" class="headerlink" title="修改Repo"></a>修改Repo</h4><p>切换到Repository配置目录下，编辑文件ambari.repo，将源地址修改为本地地址，yum将从本地地址下载安装包进行安装。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#VERSION_NUMBER=2.2.2.0-460</div><div class="line"></div><div class="line">[Updates-ambari-2.2.2.0]</div><div class="line">name=ambari-2.2.2.0 - Updates</div><div class="line">baseurl=http://192.168.24.226:8000/AMBARI-2.2.2.0/centos7/2.2.2.0-460/</div><div class="line">gpgcheck=1</div><div class="line">gpgkey=http://192.168.24.226:8000/AMBARI-2.2.2.0/centos7/2.2.2.0-460/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins</div><div class="line">enabled=1</div><div class="line">priority=1</div></pre></td></tr></table></figure>
+<h4 id="安装Ambari-Server"><a href="#安装Ambari-Server" class="headerlink" title="安装Ambari Server"></a>安装Ambari Server</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#安装Ambari Server</span></div><div class="line">yum install ambari-server -y</div><div class="line"><span class="comment">#启动Ambari Server</span></div><div class="line">ambari-server start</div></pre></td></tr></table></figure>
+<p>下载速度40MB/s，与6.7KB/s的速度对比，幸福感油然而生。</p>
+<h4 id="配置Ambari-Server"><a href="#配置Ambari-Server" class="headerlink" title="配置Ambari Server"></a>配置Ambari Server</h4><p>输入如下命令配置Ambari Server：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ambari-server setup</div></pre></td></tr></table></figure>
+<p>数据库这里使用默认的内嵌数据库PostgreSQL。</p>
+<h4 id="启动Ambari"><a href="#启动Ambari" class="headerlink" title="启动Ambari"></a>启动Ambari</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#启动Ambari Server</span></div><div class="line">ambari-server start</div></pre></td></tr></table></figure>
+<p>注：</p>
+<p><strong>etc目录解释</strong>：Host-specific system-wide configuration files There has been controversy over the meaning of the name itself. In early versions of the UNIX Implementation Document from Bell labs, /etc is referred to as the etcetera(n. 等等；附加物；附加的人；以及其它) directory, as this directory historically held everything that did not belong elsewhere (however, the FHS restricts /etc to static configuration files and may not contain binaries). Since the publication of early documentation, the directory name has been re-designated in various ways. Recent interpretations include backronyms such as “Editable Text Configuration” or “Extended Tool Chest”.</p>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/09/26/intllij-idea-encoding/" itemprop="url">
-              
-                <span itemprop="name">IntelliJ Idea技巧分享</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-26T14:23:24+08:00"
-              content="2016-09-26" >
-          09-26
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Ambari/" rel="tag">#Ambari</a>
+          
+            <a href="/tags/HDP/" rel="tag">#HDP</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/05/fedora-20-install-nodejs/" rel="next" title="Fedora 20 安装NodeJs">
+                <i class="fa fa-chevron-left"></i> Fedora 20 安装NodeJs
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -306,6 +436,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -325,8 +466,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -411,6 +561,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#下载包"><span class="nav-number">1.</span> <span class="nav-text">下载包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解压"><span class="nav-number">2.</span> <span class="nav-text">解压</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改Repo"><span class="nav-number">3.</span> <span class="nav-text">修改Repo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Ambari-Server"><span class="nav-number">4.</span> <span class="nav-text">安装Ambari Server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置Ambari-Server"><span class="nav-number">5.</span> <span class="nav-text">配置Ambari Server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动Ambari"><span class="nav-number">6.</span> <span class="nav-text">启动Ambari</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -514,6 +675,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
@@ -530,9 +695,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'jiangxiaoqiang';
-      var disqus_identifier = 'tags/IntelliJ/index.html';
-      var disqus_title = "";
-      var disqus_url = '';
+      var disqus_identifier = '2016/10/05/ambari-offline-install/';
+      var disqus_title = "Ambari与HDP离线安装";
+      var disqus_url = 'http://jiangxiaoqiang.com/2016/10/05/ambari-offline-install/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
@@ -543,6 +708,8 @@
       }
 
       run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
       
     </script>
   

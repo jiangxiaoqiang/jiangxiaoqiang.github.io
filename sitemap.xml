@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/05/ambari-offline-install/</loc>
+    
+    <lastmod>2016-10-05T09:17:43.440Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/02/apache-ambari-using/</loc>
+    
+    <lastmod>2016-10-05T03:20:58.619Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/04/delete-ambari-service/</loc>
+    
+    <lastmod>2016-10-05T02:57:04.791Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/05/fedora-20-install-nodejs/</loc>
     
     <lastmod>2016-10-05T01:54:56.072Z</lastmod>
@@ -16,13 +37,6 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/04/delete-ambari-service/</loc>
-    
-    <lastmod>2016-10-04T13:08:18.249Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/03/fedora-20-install-input-method/</loc>
     
     <lastmod>2016-10-04T13:05:56.023Z</lastmod>
@@ -33,13 +47,6 @@
     <loc>http://jiangxiaoqiang.com/about/index.html</loc>
     
     <lastmod>2016-10-03T12:48:09.816Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/02/apache-ambari-using/</loc>
-    
-    <lastmod>2016-10-03T12:40:27.295Z</lastmod>
     
   </url>
   
@@ -100,14 +107,7 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/19/lombok/</loc>
-    
-    <lastmod>2016-10-03T03:34:36.516Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/14/maven-private-service/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/23/phoenix-tutorial/</loc>
     
     <lastmod>2016-10-03T03:34:36.516Z</lastmod>
     
@@ -121,7 +121,14 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/23/phoenix-tutorial/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/19/lombok/</loc>
+    
+    <lastmod>2016-10-03T03:34:36.516Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/14/maven-private-service/</loc>
     
     <lastmod>2016-10-03T03:34:36.516Z</lastmod>
     
@@ -149,14 +156,14 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/01/hadoop-cluster-deploy/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/28/hashcode-and-equals/</loc>
     
     <lastmod>2016-10-03T03:34:36.509Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/28/hashcode-and-equals/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/10/01/hadoop-cluster-deploy/</loc>
     
     <lastmod>2016-10-03T03:34:36.509Z</lastmod>
     

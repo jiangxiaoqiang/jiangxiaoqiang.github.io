@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="删除删除Apache Ambari服务可调用Apache Ambari REST接口：
 12345#移除ZooKeeper服务curl -u admin:admin -H &quot;X-Requested-By: ambari&quot; -X DELETE http://192.168.24.226:8080/api/v1/clusters/zwlbs/services/ZooKeeper#移除MapReduce">
-<meta property="og:updated_time" content="2016-10-04T13:08:18.249Z">
+<meta property="og:updated_time" content="2016-10-05T02:57:04.791Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="删除Apache Ambari服务">
 <meta name="twitter:description" content="删除删除Apache Ambari服务可调用Apache Ambari REST接口：
@@ -359,7 +359,7 @@
 <p>注意服务的名称要大写。有时删除服务时会提示如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;status&quot; : 500,</div><div class="line">  &quot;message&quot; : &quot;org.apache.ambari.server.controller.spi.SystemException: An internal system exception occurred: Cannot remove ZOOKEEPER. Desired state STARTED is not removable.  Service must be stopped or disabled.&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>此时可以先改变服务状态再执行删除命令。改变服务状态命令为：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -i -H <span class="string">"X-Requested-By: ambari"</span> -u admin:admin -X PUT <span class="_">-d</span> <span class="string">'&#123;"RequestInfo":&#123;"context":"Stop Service"&#125;,"Body":&#123;"ServiceInfo":&#123;"state":"INSTALLED"&#125;&#125;&#125;'</span> http://192.168.24.226:8080/api/v1/clusters/CLUSTER_NAME/services/SERVICE_NAME</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">curl -i -H <span class="string">"X-Requested-By: ambari"</span> -u admin:admin -X PUT <span class="_">-d</span> <span class="string">'&#123;"RequestInfo":&#123;"context":"Stop Service"&#125;,"Body":&#123;"ServiceInfo":&#123;"state":"INSTALLED"&#125;&#125;&#125;'</span> http://192.168.24.226:8080/api/v1/clusters/CLUSTER_NAME/services/SERVICE_NAME</div><div class="line"></div><div class="line"><span class="comment">#修改ZooKeeper的状态</span></div><div class="line">curl -i -H <span class="string">"X-Requested-By: ambari"</span> -u admin:admin -X PUT <span class="_">-d</span> <span class="string">'&#123;"RequestInfo":&#123;"context":"Stop Service"&#125;,"Body":&#123;"ServiceInfo":&#123;"state":"INSTALLED"&#125;&#125;&#125;'</span> http://192.168.24.226:8080/api/v1/clusters/zwlbs/services/ZOOKEEPER</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -475,7 +475,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-count">24</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -492,7 +492,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
