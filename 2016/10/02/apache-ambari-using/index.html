@@ -106,7 +106,7 @@ CentOS 7.0
 
 
 Ambari是一款用于部署、管理、监控Hadoop集群的开源工具，通过Ambari用户可以更方便地管理大规模Hadoop集群。Ambari架构采用的是Server/Client的模式，主要由两部分组成：ambari-agent和ambari-server。ambari依赖其它已经成熟的工具，例如其ambari-server就">
-<meta property="og:updated_time" content="2016-10-05T03:20:58.619Z">
+<meta property="og:updated_time" content="2016-10-06T05:43:56.654Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Apache-Ambari 2.2.2.0 Agent手动安装">
 <meta name="twitter:description" content="Apache-Ambari 2.2.2.0
@@ -382,9 +382,14 @@ Ambari是一款用于部署、管理、监控Hadoop集群的开源工具，通�
 <p>查看Agent运行状态：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ambari-agent status</div></pre></td></tr></table></figure>
 <p>至此，Ambari Agent安装完毕。Apache Agent的日志在目录<code>/var/log/ambari-agent/</code>下，配置文件是<code>/etc/ambari-agent/conf/ambari-agent.ini</code>。</p>
-<h4 id="清除"><a href="#清除" class="headerlink" title="清除"></a>清除</h4><h5 id="运行HostCleanup-py脚本"><a href="#运行HostCleanup-py脚本" class="headerlink" title="运行HostCleanup.py脚本"></a>运行HostCleanup.py脚本</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">python /usr/lib/python2.6/site-packages/ambari_agent/HostCleanup.py \</div><div class="line">--silent --skip=users \</div><div class="line">-o /tmp/cleanup.log</div></pre></td></tr></table></figure>
-<h5 id="移除-Ambari-RPM、目录和符号链接"><a href="#移除-Ambari-RPM、目录和符号链接" class="headerlink" title="移除 Ambari RPM、目录和符号链接"></a>移除 Ambari RPM、目录和符号链接</h5><p>在每个 Ambari 节点上，运行以下命令：<br>yum erase -y ambari-*<br>在Ambari服务器节点上，运行以下命令：<br>rm -rf /usr/lib/ambari-server<br>在每个 Ambari 代理程序节点上，运行以下命令：</p>
-<p>rm -rf /usr/lib/python2.6/site-packages/ambari_agent</p>
+<h4 id="清除"><a href="#清除" class="headerlink" title="清除"></a>清除</h4><p>停止Ambari Agent：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ambari-agent status</div></pre></td></tr></table></figure>
+<h5 id="运行HostCleanup-py脚本"><a href="#运行HostCleanup-py脚本" class="headerlink" title="运行HostCleanup.py脚本"></a>运行HostCleanup.py脚本</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">python /usr/lib/python2.6/site-packages/ambari_agent/HostCleanup.py \</div><div class="line">--silent --skip=users \</div><div class="line">-o /tmp/cleanup.log</div></pre></td></tr></table></figure>
+<h5 id="移除-Ambari-RPM、目录和符号链接"><a href="#移除-Ambari-RPM、目录和符号链接" class="headerlink" title="移除 Ambari RPM、目录和符号链接"></a>移除 Ambari RPM、目录和符号链接</h5><p>在每个 Ambari 节点上，运行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum erase -y ambari-*</div></pre></td></tr></table></figure>
+<p>在Ambari服务器节点上，运行以下命令：Bash<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm -rf /usr/lib/ambari-server</div></pre></td></tr></table></figure></p>
+<p>在每个 Ambari 代理程序节点上，运行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm -rf /usr/lib/python2.6/site-packages/ambari_agent</div></pre></td></tr></table></figure>
 <p>可使用以下代码移除已损坏链接：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm -rvf /usr/lib/python2.6/site-packages/ambari* /usr/lib/python2.6/site-packages/resource-management</div></pre></td></tr></table></figure></p>
 
       
@@ -502,7 +507,7 @@ Ambari是一款用于部署、管理、监控Hadoop集群的开源工具，通�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">24</span>
+              <span class="site-state-item-count">26</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -510,7 +515,7 @@ Ambari是一款用于部署、管理、监控Hadoop集群的开源工具，通�
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -519,7 +524,7 @@ Ambari是一款用于部署、管理、监控Hadoop集群的开源工具，通�
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-count">35</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

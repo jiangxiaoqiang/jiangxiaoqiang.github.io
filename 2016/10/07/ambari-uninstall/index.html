@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hashcode," />
+  <meta name="keywords" content="Ambari,HDP," />
 
 
 
@@ -90,16 +90,19 @@
 
 
 
-<meta name="description" content="hashcode作用hashcode提供了一种更加高效的寻找方式，在Set集合中的元素是无序不可重复的，要保证不重复，一种方式是在添加新数据时，逐一比较集合中已经存在的所有元素，如果当前集合的元素增多，效率是非常低的。hashcode可以解决这个问题，当向一个集合中添加某个元素，集合会首先调用hashCode方法，这样就可以直接定位它所存储的位置，若该处没有其他元素，则直接保存。若该处已经有元素存">
+<meta name="description" content="移除Ambari服务依次运行如下命令：
+1rpm -qa | grep ambari">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hashcode和equals的理解">
-<meta property="og:url" content="http://jiangxiaoqiang.com/2016/09/28/hashcode-and-equals/index.html">
+<meta property="og:title" content="卸载HDP和Ambari">
+<meta property="og:url" content="http://jiangxiaoqiang.com/2016/10/07/ambari-uninstall/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="hashcode作用hashcode提供了一种更加高效的寻找方式，在Set集合中的元素是无序不可重复的，要保证不重复，一种方式是在添加新数据时，逐一比较集合中已经存在的所有元素，如果当前集合的元素增多，效率是非常低的。hashcode可以解决这个问题，当向一个集合中添加某个元素，集合会首先调用hashCode方法，这样就可以直接定位它所存储的位置，若该处没有其他元素，则直接保存。若该处已经有元素存">
-<meta property="og:updated_time" content="2016-10-03T03:34:36.509Z">
+<meta property="og:description" content="移除Ambari服务依次运行如下命令：
+1rpm -qa | grep ambari">
+<meta property="og:updated_time" content="2016-10-07T05:01:59.280Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hashcode和equals的理解">
-<meta name="twitter:description" content="hashcode作用hashcode提供了一种更加高效的寻找方式，在Set集合中的元素是无序不可重复的，要保证不重复，一种方式是在添加新数据时，逐一比较集合中已经存在的所有元素，如果当前集合的元素增多，效率是非常低的。hashcode可以解决这个问题，当向一个集合中添加某个元素，集合会首先调用hashCode方法，这样就可以直接定位它所存储的位置，若该处没有其他元素，则直接保存。若该处已经有元素存">
+<meta name="twitter:title" content="卸载HDP和Ambari">
+<meta name="twitter:description" content="移除Ambari服务依次运行如下命令：
+1rpm -qa | grep ambari">
 
 
 
@@ -120,9 +123,9 @@
 
 
 
-  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/09/28/hashcode-and-equals/"/>
+  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/10/07/ambari-uninstall/"/>
 
-  <title> hashcode和equals的理解 | 小强的博客 </title>
+  <title> 卸载HDP和Ambari | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -284,7 +287,7 @@
             
             
               
-                hashcode和equals的理解
+                卸载HDP和Ambari
               
             
           </h1>
@@ -296,19 +299,38 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-28T22:12:51+08:00" content="2016-09-28">
-              2016-09-28
+            <time itemprop="dateCreated" datetime="2016-10-07T12:35:59+08:00" content="2016-10-07">
+              2016-10-07
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/28/hashcode-and-equals/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/28/hashcode-and-equals/" itemprop="commentsCount"></span>
+                <a href="/2016/10/07/ambari-uninstall/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/07/ambari-uninstall/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -331,33 +353,15 @@
       
 
       
-        <h4 id="hashcode作用"><a href="#hashcode作用" class="headerlink" title="hashcode作用"></a>hashcode作用</h4><p>hashcode提供了一种更加高效的寻找方式，在Set集合中的元素是无序不可重复的，要保证不重复，一种方式是在添加新数据时，逐一比较集合中已经存在的所有元素，如果当前集合的元素增多，效率是非常低的。hashcode可以解决这个问题，当向一个集合中添加某个元素，集合会首先调用hashCode方法，这样就可以直接定位它所存储的位置，若该处没有其他元素，则直接保存。若该处已经有元素存在，就调用equals方法来匹配这两个元素是否相同，相同则不存，不同则进行其他处理，比如散列到其他位置或者以链表的形式存储到当前已经存放的元素的尾部。hashcode此时作用是快速寻找处当前元素在集合中的位置，hashCode可以将集合分成若干个区域，每个对象都可以计算出他们的hash码，可以将hash码分组，每个分组对应着某个存储区域，根据一个对象的hash码就可以确定该对象所存储区域，这样就大大减少查询匹配元素的数量，提高了查询效率。</p>
+        <h4 id="移除Ambari服务"><a href="#移除Ambari服务" class="headerlink" title="移除Ambari服务"></a>移除Ambari服务</h4><p>依次运行如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -qa | grep ambari</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<h4 id="hashCode与equals"><a href="#hashCode与equals" class="headerlink" title="hashCode与equals"></a>hashCode与equals</h4><p>在Java中hashCode的实现总是伴随着equals，他们是紧密配合的，你要是自己设计了其中一个，就要设计另外一个。当然在多数情况下，这两个方法是不用我们考虑的，直接使用默认方法就可以帮助我们解决很多问题。但是在有些情况，我们必须要自己动手来实现它，才能确保程序更好的运作。</p>
-<p>对于equals，我们必须遵循如下规则：</p>
-<p>对称性：如果x.equals(y)返回是“true”，那么y.equals(x)也应该返回是“true”。</p>
-<p>反射性：x.equals(x)必须返回是“true”。</p>
-<p>类推性：如果x.equals(y)返回是“true”，而且y.equals(z)返回是“true”，那么z.equals(x)也应该返回是“true”。</p>
-<p>一致性：如果x.equals(y)返回是“true”，只要x和y内容一直不变，不管你重复x.equals(y)多少次，返回都是“true”。</p>
-<p>任何情况下，x.equals(null)，永远返回是“false”；x.equals(和x不同类型的对象)永远返回是“false”。</p>
-<p>对于hashCode，我们应该遵循如下规则：</p>
-<ol>
-<li><p>在一个应用程序执行期间，如果一个对象的equals方法做比较所用到的信息没有被修改的话，则对该对象调用hashCode方法多次，它必须始终如一地返回同一个整数。</p>
-</li>
-<li><p>如果两个对象根据equals(Object o)方法是相等的，则调用这两个对象中任一对象的hashCode方法必须产生相同的整数结果。</p>
-</li>
-<li><p>如果两个对象根据equals(Object o)方法是不相等的，则调用这两个对象中任一个对象的hashCode方法，不要求产生不同的整数结果。但如果能不同，则可能提高散列表的性能。</p>
-</li>
-</ol>
-<p>至于两者之间的关联关系，我们只需要记住如下即可：</p>
-<p>如果x.equals(y)返回“true”，那么x和y的hashCode()必须相等。</p>
-<p>如果x.equals(y)返回“false”，那么x和y的hashCode()有可能相等，也有可能不等。</p>
-<p>判断对象相等的整个处理流程是：</p>
-<p>1、判断两个对象的hashcode是否相等，若不等，则认为两个对象不等，完毕，若相等，则比较equals。</p>
-<p>2、若两个对象的equals不等，则可以认为两个对象不等，否则认为他们相等。</p>
-<p>参考：</p>
-<p><a href="http://www.cnblogs.com/chenssy/p/3651218.html" target="_blank" rel="external">Java提高篇（二六）—–hashCode</a></p>
-
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">ambari-server stop</div><div class="line">ambari-server reset</div><div class="line">ambari-agent stop</div><div class="line">rpm -qa | grep ambari</div><div class="line"><span class="comment">#移除Ambari Server安装包</span></div><div class="line">yum erase ambari-server -y</div><div class="line">rm -rf /var/lib/ambari-server</div><div class="line">rm -rf /var/run/ambari-server</div><div class="line">rm -rf /usr/lib/amrbari-server</div><div class="line">rm -rf /etc/ambari-server</div><div class="line">rm -rf /var/<span class="built_in">log</span>/ambari-server</div><div class="line">rm -rf /usr/lib/python2.6/site-packages/ambari*</div></pre></td></tr></table></figure>
+<h4 id="Ambari-Agent-Cleanup-Script"><a href="#Ambari-Agent-Cleanup-Script" class="headerlink" title="Ambari Agent Cleanup Script"></a>Ambari Agent Cleanup Script</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python /usr/lib/python2.6/site-packages/ambari_agent/HostCleanup.py <span class="_">-s</span> -k users</div></pre></td></tr></table></figure>
+<h4 id="Remove-Packages"><a href="#Remove-Packages" class="headerlink" title="Remove Packages"></a>Remove Packages</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum erase -y `yum list | grep @HDP-2 | awk <span class="string">'&#123; print $1 &#125;'</span>`</div><div class="line">yum erase -y `yum list | grep 2_3_ | awk <span class="string">'&#123; print $1&#125;'</span>`</div></pre></td></tr></table></figure>
+<h4 id="移除文件夹-Clean-Folders"><a href="#移除文件夹-Clean-Folders" class="headerlink" title="移除文件夹(Clean Folders)"></a>移除文件夹(Clean Folders)</h4><p>移除文件夹(Clean Folders)脚本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div></pre></td><td class="code"><pre><div class="line">rm -rf</div><div class="line"><span class="comment"># Log dirs</span></div><div class="line">/var/<span class="built_in">log</span>/ambari-metrics-monitor</div><div class="line">/var/<span class="built_in">log</span>/hadoop</div><div class="line">/var/<span class="built_in">log</span>/hbase</div><div class="line">/var/<span class="built_in">log</span>/hadoop-yarn</div><div class="line">/var/<span class="built_in">log</span>/hadoop-mapreduce</div><div class="line">/var/<span class="built_in">log</span>/hive</div><div class="line">/var/<span class="built_in">log</span>/oozie</div><div class="line">/var/<span class="built_in">log</span>/zookeeper</div><div class="line">/var/<span class="built_in">log</span>/flume</div><div class="line">/var/<span class="built_in">log</span>/hive-hcatalog</div><div class="line">/var/<span class="built_in">log</span>/falcon</div><div class="line">/var/<span class="built_in">log</span>/knox</div><div class="line">/var/lib/hive</div><div class="line">/var/lib/oozie</div><div class="line"></div><div class="line"><span class="comment"># DataNode HDFS dirs</span></div><div class="line">/grid*/hadoop</div><div class="line"></div><div class="line"><span class="comment"># Hadoop dirs</span></div><div class="line">/usr/hdp</div><div class="line">/usr/bin/hadoop</div><div class="line">/tmp/hadoop</div><div class="line">/var/hadoop</div><div class="line">/hadoop/*</div><div class="line">/<span class="built_in">local</span>/opt/hadoop</div><div class="line"></div><div class="line"><span class="comment"># Config dirs</span></div><div class="line">/etc/hadoop</div><div class="line">/etc/hbase</div><div class="line">/etc/oozie</div><div class="line">/etc/phoenix</div><div class="line">/etc/hive</div><div class="line">/etc/zookeeper</div><div class="line">/etc/flume</div><div class="line">/etc/hive-hcatalog</div><div class="line">/etc/tez</div><div class="line">/etc/falcon</div><div class="line">/etc/knox</div><div class="line">/etc/hive-webhcat</div><div class="line">/etc/mahout</div><div class="line">/etc/pig</div><div class="line">/etc/hadoop-httpfs</div><div class="line"></div><div class="line"><span class="comment"># PIDs</span></div><div class="line">/var/run/hadoop</div><div class="line">/var/run/hbase</div><div class="line">/var/run/hadoop-yarn</div><div class="line">/var/run/hadoop-mapreduce</div><div class="line">/var/run/hive</div><div class="line">/var/run/oozie</div><div class="line">/var/run/zookeeper</div><div class="line">/var/run/flume</div><div class="line">/var/run/hive-hcatalog</div><div class="line">/var/run/falcon</div><div class="line">/var/run/webhcat</div><div class="line">/var/run/knox</div><div class="line"></div><div class="line"><span class="comment"># ZK db files</span></div><div class="line">/<span class="built_in">local</span>/home/zookeeper/*</div><div class="line"></div><div class="line"><span class="comment"># libs</span></div><div class="line">/usr/lib/flume</div><div class="line">/usr/lib/storm</div><div class="line">/var/lib/hadoop-hdfs</div><div class="line">/var/lib/hadoop-yarn</div><div class="line">/var/lib/hadoop-mapreduce</div><div class="line">/var/lib/flume</div><div class="line">/var/lib/knox</div><div class="line"></div><div class="line"><span class="comment">#Ambari Metrics</span></div><div class="line">/usr/lib/ambari-metrics-grafana</div><div class="line">/usr/lib/ambari-metrics-hadoop-sink</div><div class="line">/usr/lib/ambari-metrics-kafka-sink</div><div class="line">/var/lib/ambari-metrics-collector</div><div class="line">/var/lib/ambari-metrics-grafana</div><div class="line">/var/run/ambari-metrics-collector</div><div class="line">/var/run/ambari-metrics-monitor</div><div class="line">/var/run/ambari-metrics-grafana</div><div class="line">/var/<span class="built_in">log</span>/ambari-metrics-collector</div><div class="line">/var/<span class="built_in">log</span>/ambari-metrics-monitor</div><div class="line">/var/<span class="built_in">log</span>/ambari-metrics-grafana</div><div class="line">/etc/ambari-metrics-collector</div><div class="line">/etc/ambari-metrics-monitor</div><div class="line">/etc/ambari-metrics-grafana</div><div class="line"></div><div class="line"><span class="comment"># other</span></div><div class="line">/var/tmp/oozie</div></pre></td></tr></table></figure>
+<h4 id="Clean-Repository"><a href="#Clean-Repository" class="headerlink" title="Clean Repository"></a>Clean Repository</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum clean all</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -379,7 +383,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hashcode/" rel="tag">#hashcode</a>
+            <a href="/tags/Ambari/" rel="tag">#Ambari</a>
+          
+            <a href="/tags/HDP/" rel="tag">#HDP</a>
           
         </div>
       
@@ -388,17 +394,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/27/spring-mybatis-integrete/" rel="next" title="Spring step by step(二)--持久化">
-                <i class="fa fa-chevron-left"></i> Spring step by step(二)--持久化
+              <a href="/2016/10/05/dnf-vs-yum/" rel="next" title="dnf与yum">
+                <i class="fa fa-chevron-left"></i> dnf与yum
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/30/cluster-ssh-login/" rel="prev" title="Hadoop集群SSH免密钥登录">
-                Hadoop集群SSH免密钥登录 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -554,7 +556,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#hashcode作用"><span class="nav-number">1.</span> <span class="nav-text">hashcode作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hashCode与equals"><span class="nav-number">2.</span> <span class="nav-text">hashCode与equals</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#移除Ambari服务"><span class="nav-number">1.</span> <span class="nav-text">移除Ambari服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ambari-Agent-Cleanup-Script"><span class="nav-number">2.</span> <span class="nav-text">Ambari Agent Cleanup Script</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Remove-Packages"><span class="nav-number">3.</span> <span class="nav-text">Remove Packages</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#移除文件夹-Clean-Folders"><span class="nav-number">4.</span> <span class="nav-text">移除文件夹(Clean Folders)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Clean-Repository"><span class="nav-number">5.</span> <span class="nav-text">Clean Repository</span></a></li></ol></div>
             
           </div>
         </section>
@@ -681,9 +683,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'jiangxiaoqiang';
-      var disqus_identifier = '2016/09/28/hashcode-and-equals/';
-      var disqus_title = "hashcode和equals的理解";
-      var disqus_url = 'http://jiangxiaoqiang.com/2016/09/28/hashcode-and-equals/';
+      var disqus_identifier = '2016/10/07/ambari-uninstall/';
+      var disqus_title = "卸载HDP和Ambari";
+      var disqus_url = 'http://jiangxiaoqiang.com/2016/10/07/ambari-uninstall/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

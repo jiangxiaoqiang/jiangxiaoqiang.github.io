@@ -4,12 +4,12 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/05/ambari-offline-install/</loc>
-    <lastmod>2016-10-05T09:17:43.440Z</lastmod>
+    <loc>http://jiangxiaoqiang.com/2016/10/07/ambari-uninstall/</loc>
+    <lastmod>2016-10-07T05:01:59.280Z</lastmod>
     <data>
         <display>
-        <title>Ambari与HDP离线安装</title>
-        <pubTime>2016-10-05T08:52:34.000Z</pubTime>
+        <title>卸载HDP和Ambari</title>
+        <pubTime>2016-10-07T04:35:59.000Z</pubTime>
         
         <tag>Ambari</tag>
          
@@ -26,14 +26,116 @@
 
     
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/05/dnf-vs-yum/</loc>
+    <lastmod>2016-10-07T04:37:56.565Z</lastmod>
+    <data>
+        <display>
+        <title>dnf与yum</title>
+        <pubTime>2016-10-05T12:44:41.000Z</pubTime>
+        
+        <tag>dnf</tag>
+         
+        <tag>yum</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/02/install-chrome-in-fedora/</loc>
+    <lastmod>2016-10-07T03:53:37.332Z</lastmod>
+    <data>
+        <display>
+        <title>install-chrome-in-fedora</title>
+        <pubTime>2016-10-02T15:02:56.000Z</pubTime>
+        
+        <tag>Chrome</tag>
+         
+        <tag>Fedora</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/03/fedora-20-install-input-method/</loc>
+    <lastmod>2016-10-07T03:53:37.332Z</lastmod>
+    <data>
+        <display>
+        <title>Fedora 20安装中文输入法</title>
+        <pubTime>2016-10-03T03:08:51.000Z</pubTime>
+        
+        <tag>Fedora</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/05/fedora-20-install-nodejs/</loc>
+    <lastmod>2016-10-07T03:53:37.332Z</lastmod>
+    <data>
+        <display>
+        <title>Fedora 20 安装NodeJs</title>
+        <pubTime>2016-10-05T01:52:08.000Z</pubTime>
+        
+        <tag>Fedora</tag>
+         
+        <tag>NodeJs</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/02/apache-ambari-using/</loc>
-    <lastmod>2016-10-05T03:20:58.619Z</lastmod>
+    <lastmod>2016-10-06T05:43:56.654Z</lastmod>
     <data>
         <display>
         <title>Apache-Ambari 2.2.2.0 Agent手动安装</title>
         <pubTime>2016-10-02T03:59:53.000Z</pubTime>
         
         <tag>ambari</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/05/ambari-offline-install/</loc>
+    <lastmod>2016-10-06T03:12:29.139Z</lastmod>
+    <data>
+        <display>
+        <title>Ambari与HDP离线安装</title>
+        <pubTime>2016-10-05T08:52:34.000Z</pubTime>
+        
+        <tag>Ambari</tag>
+         
+        <tag>HDP</tag>
          
          
            
@@ -60,64 +162,6 @@
              
               <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/05/fedora-20-install-nodejs/</loc>
-    <lastmod>2016-10-05T01:54:56.072Z</lastmod>
-    <data>
-        <display>
-        <title>Fedora 20 安装NodeJs</title>
-        <pubTime>2016-10-05T01:52:08.000Z</pubTime>
-        
-        <tag>Fedora</tag>
-         
-        <tag>NodeJs</tag>
-         
-         
-           
-             
-              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/02/install-chrome-in-fedora/</loc>
-    <lastmod>2016-10-05T01:44:06.668Z</lastmod>
-    <data>
-        <display>
-        <title>install-chrome-in-fedora</title>
-        <pubTime>2016-10-02T15:02:56.000Z</pubTime>
-        
-        <tag>Chrome</tag>
-         
-        <tag>Fedora</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/03/fedora-20-install-input-method/</loc>
-    <lastmod>2016-10-04T13:05:56.023Z</lastmod>
-    <data>
-        <display>
-        <title>Fedora 20安装中文输入法</title>
-        <pubTime>2016-10-03T03:08:51.000Z</pubTime>
-        
-        <tag>Fedora</tag>
-         
-         
-           
         </display>
     </data>
     </url>
@@ -246,6 +290,23 @@
 
     
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/19/lombok/</loc>
+    <lastmod>2016-10-03T03:34:36.516Z</lastmod>
+    <data>
+        <display>
+        <title>Lombok精简Java代码</title>
+        <pubTime>2016-09-19T01:15:45.091Z</pubTime>
+        
+        <tag>lombok</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/09/23/phoenix-tutorial/</loc>
     <lastmod>2016-10-03T03:34:36.516Z</lastmod>
     <data>
@@ -270,23 +331,6 @@
         <title>Java Web开发--log4j</title>
         <pubTime>2016-09-18T00:54:34.701Z</pubTime>
         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/19/lombok/</loc>
-    <lastmod>2016-10-03T03:34:36.516Z</lastmod>
-    <data>
-        <display>
-        <title>Lombok精简Java代码</title>
-        <pubTime>2016-09-19T01:15:45.091Z</pubTime>
-        
-        <tag>lombok</tag>
-         
          
            
         </display>
@@ -361,23 +405,6 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/28/hashcode-and-equals/</loc>
-    <lastmod>2016-10-03T03:34:36.509Z</lastmod>
-    <data>
-        <display>
-        <title>hashcode和equals的理解</title>
-        <pubTime>2016-09-28T14:12:51.000Z</pubTime>
-        
-        <tag>hashcode</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/01/hadoop-cluster-deploy/</loc>
     <lastmod>2016-10-03T03:34:36.509Z</lastmod>
     <data>
@@ -394,6 +421,23 @@
              
               <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/28/hashcode-and-equals/</loc>
+    <lastmod>2016-10-03T03:34:36.509Z</lastmod>
+    <data>
+        <display>
+        <title>hashcode和equals的理解</title>
+        <pubTime>2016-09-28T14:12:51.000Z</pubTime>
+        
+        <tag>hashcode</tag>
+         
+         
+           
         </display>
     </data>
     </url>

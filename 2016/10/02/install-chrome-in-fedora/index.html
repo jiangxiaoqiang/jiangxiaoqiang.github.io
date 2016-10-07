@@ -96,7 +96,7 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/10/02/install-chrome-in-fedora/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="一种方法是通过yum安装。yum（全称为 Yellow dog Updater, Modified）是一个在Fedora和RedHat以及SUSE中的Shell前端软件包管理器。基於RPM包管理，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软体包，无须繁琐地一次次下载、安装。yum提供了查找、安装、删除某一个、一组甚至全部软件包的命令，而且命令简洁而又">
-<meta property="og:updated_time" content="2016-10-05T01:44:06.668Z">
+<meta property="og:updated_time" content="2016-10-07T03:53:37.332Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="install-chrome-in-fedora">
 <meta name="twitter:description" content="一种方法是通过yum安装。yum（全称为 Yellow dog Updater, Modified）是一个在Fedora和RedHat以及SUSE中的Shell前端软件包管理器。基於RPM包管理，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软体包，无须繁琐地一次次下载、安装。yum提供了查找、安装、删除某一个、一组甚至全部软件包的命令，而且命令简洁而又">
@@ -344,7 +344,7 @@
 <p>提示错误如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">warning: google-chrome-stable_current_i386.rpm: Header V4 DSA/SHA1 Signature, key ID 7fac5991: NOKEY</div><div class="line">error: Failed dependencies:</div><div class="line">	lsb &gt;= 4.0 is needed by google-chrome-stable-19.0.1084.56-140965.i386</div><div class="line">	libXss.so.1 is needed by google-chrome-stable-19.0.1084.56-140965.i386</div></pre></td></tr></table></figure>
 <p>安装依赖包。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yum install redhat-lsb -y</div><div class="line">yum install wget -y</div><div class="line">yum install libXScrnSaver -y</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">yum install redhat-lsb -y</div><div class="line">yum install wget -y</div><div class="line">yum install libXScrnSaver -y</div><div class="line">yum install libgcrypt.so.11</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Transaction check error:</div><div class="line">  file /usr/bin from install of google-chrome-stable-19.0.1084.56-140965.i386 conflicts with file from package filesystem-3.2-19.fc20.i686</div></pre></td></tr></table></figure>
 
       
@@ -464,7 +464,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">24</span>
+              <span class="site-state-item-count">26</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -472,7 +472,7 @@
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -481,7 +481,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-count">35</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
