@@ -4,8 +4,28 @@
 
     
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/07/ambari-metrics-reinstall/</loc>
+    <lastmod>2016-10-07T07:19:09.754Z</lastmod>
+    <data>
+        <display>
+        <title>Ambari Metrics重装</title>
+        <pubTime>2016-10-07T07:19:09.000Z</pubTime>
+        
+        <tag>Ambari</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/07/ambari-uninstall/</loc>
-    <lastmod>2016-10-07T05:01:59.280Z</lastmod>
+    <lastmod>2016-10-07T05:40:49.301Z</lastmod>
     <data>
         <display>
         <title>卸载HDP和Ambari</title>
@@ -48,25 +68,6 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/02/install-chrome-in-fedora/</loc>
-    <lastmod>2016-10-07T03:53:37.332Z</lastmod>
-    <data>
-        <display>
-        <title>install-chrome-in-fedora</title>
-        <pubTime>2016-10-02T15:02:56.000Z</pubTime>
-        
-        <tag>Chrome</tag>
-         
-        <tag>Fedora</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/03/fedora-20-install-input-method/</loc>
     <lastmod>2016-10-07T03:53:37.332Z</lastmod>
     <data>
@@ -100,6 +101,25 @@
              
               <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/02/install-chrome-in-fedora/</loc>
+    <lastmod>2016-10-07T03:53:37.332Z</lastmod>
+    <data>
+        <display>
+        <title>install-chrome-in-fedora</title>
+        <pubTime>2016-10-02T15:02:56.000Z</pubTime>
+        
+        <tag>Chrome</tag>
+         
+        <tag>Fedora</tag>
+         
+         
+           
         </display>
     </data>
     </url>
@@ -226,12 +246,12 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/13/spring/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/18/springmvc-dispatcherservlet/</loc>
     <lastmod>2016-10-03T03:34:36.520Z</lastmod>
     <data>
         <display>
-        <title>Spring框架搭建</title>
-        <pubTime>2016-09-13T10:53:05.804Z</pubTime>
+        <title>Spring MVC-DispatcherServlet处理请求过程</title>
+        <pubTime>2016-09-18T01:04:36.713Z</pubTime>
         
          
            
@@ -241,12 +261,12 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/18/springmvc-dispatcherservlet/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/13/spring/</loc>
     <lastmod>2016-10-03T03:34:36.520Z</lastmod>
     <data>
         <display>
-        <title>Spring MVC-DispatcherServlet处理请求过程</title>
-        <pubTime>2016-09-18T01:04:36.713Z</pubTime>
+        <title>Spring框架搭建</title>
+        <pubTime>2016-09-13T10:53:05.804Z</pubTime>
         
          
            
@@ -290,15 +310,13 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/19/lombok/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/14/maven-private-service/</loc>
     <lastmod>2016-10-03T03:34:36.516Z</lastmod>
     <data>
         <display>
-        <title>Lombok精简Java代码</title>
-        <pubTime>2016-09-19T01:15:45.091Z</pubTime>
+        <title>Windows下用Nexus搭建Maven私服</title>
+        <pubTime>2016-09-14T00:42:48.289Z</pubTime>
         
-        <tag>lombok</tag>
-         
          
            
         </display>
@@ -307,14 +325,14 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/23/phoenix-tutorial/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/19/lombok/</loc>
     <lastmod>2016-10-03T03:34:36.516Z</lastmod>
     <data>
         <display>
-        <title>Phoenix常用操作</title>
-        <pubTime>2016-09-23T08:57:30.000Z</pubTime>
+        <title>Lombok精简Java代码</title>
+        <pubTime>2016-09-19T01:15:45.091Z</pubTime>
         
-        <tag>Phoenix</tag>
+        <tag>lombok</tag>
          
          
            
@@ -339,13 +357,15 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/14/maven-private-service/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/23/phoenix-tutorial/</loc>
     <lastmod>2016-10-03T03:34:36.516Z</lastmod>
     <data>
         <display>
-        <title>Windows下用Nexus搭建Maven私服</title>
-        <pubTime>2016-09-14T00:42:48.289Z</pubTime>
+        <title>Phoenix常用操作</title>
+        <pubTime>2016-09-23T08:57:30.000Z</pubTime>
         
+        <tag>Phoenix</tag>
+         
          
            
         </display>
@@ -444,6 +464,23 @@
 
     
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/24/eclipse-breakpoint-type/</loc>
+    <lastmod>2016-10-03T03:34:36.508Z</lastmod>
+    <data>
+        <display>
+        <title>Eclipse断点类型</title>
+        <pubTime>2016-09-24T08:47:20.000Z</pubTime>
+        
+        <tag>Eclipse</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/09/30/cluster-ssh-login/</loc>
     <lastmod>2016-10-03T03:34:36.508Z</lastmod>
     <data>
@@ -454,23 +491,6 @@
         <tag>SSH</tag>
          
         <tag>Cluster</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/24/eclipse-breakpoint-type/</loc>
-    <lastmod>2016-10-03T03:34:36.508Z</lastmod>
-    <data>
-        <display>
-        <title>Eclipse断点类型</title>
-        <pubTime>2016-09-24T08:47:20.000Z</pubTime>
-        
-        <tag>Eclipse</tag>
          
          
            

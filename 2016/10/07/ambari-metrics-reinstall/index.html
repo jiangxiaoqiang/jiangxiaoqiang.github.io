@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Learning,summarize" />
+  <meta name="keywords" content="Ambari," />
 
 
 
@@ -90,12 +90,19 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="小强的博客">
-<meta property="og:url" content="http://jiangxiaoqiang.com/index.html">
+<meta name="description" content="移除服务采用Ambari REST API移除相关服务。
+123456#停止服务curl -i -H &quot;X-Requested-By: ambari&quot; -u admin:admin -X PUT -d &apos;&amp;#123;&quot;RequestInfo&quot;:&amp;#123;&quot;context&quot;:&quot;Stop Service&quot;&amp;#125;,&quot;Body&quot;:&amp;#123;&quot;ServiceInfo&quot;:&amp;#123;&quot;state&quot;:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ambari Metrics重装">
+<meta property="og:url" content="http://jiangxiaoqiang.com/2016/10/07/ambari-metrics-reinstall/index.html">
 <meta property="og:site_name" content="小强的博客">
+<meta property="og:description" content="移除服务采用Ambari REST API移除相关服务。
+123456#停止服务curl -i -H &quot;X-Requested-By: ambari&quot; -u admin:admin -X PUT -d &apos;&amp;#123;&quot;RequestInfo&quot;:&amp;#123;&quot;context&quot;:&quot;Stop Service&quot;&amp;#125;,&quot;Body&quot;:&amp;#123;&quot;ServiceInfo&quot;:&amp;#123;&quot;state&quot;:">
+<meta property="og:updated_time" content="2016-10-07T07:19:09.754Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小强的博客">
+<meta name="twitter:title" content="Ambari Metrics重装">
+<meta name="twitter:description" content="移除服务采用Ambari REST API移除相关服务。
+123456#停止服务curl -i -H &quot;X-Requested-By: ambari&quot; -u admin:admin -X PUT -d &apos;&amp;#123;&quot;RequestInfo&quot;:&amp;#123;&quot;context&quot;:&quot;Stop Service&quot;&amp;#125;,&quot;Body&quot;:&amp;#123;&quot;ServiceInfo&quot;:&amp;#123;&quot;state&quot;:">
 
 
 
@@ -116,9 +123,9 @@
 
 
 
-  <link rel="canonical" href="http://jiangxiaoqiang.com/"/>
+  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/10/07/ambari-metrics-reinstall/"/>
 
-  <title> Learning,summarize - 小强的博客 </title>
+  <title> Ambari Metrics重装 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -148,9 +155,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -260,9 +265,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -282,10 +287,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/10/07/ambari-metrics-reinstall/" itemprop="url">
-                  Ambari Metrics重装
-                </a>
+                Ambari Metrics重装
               
             
           </h1>
@@ -351,546 +353,70 @@
       
 
       
-        
-          <h4 id="移除服务"><a href="#移除服务" class="headerlink" title="移除服务"></a>移除服务</h4><p>采用Ambari REST API移除相关服务。</p>
+        <h4 id="移除服务"><a href="#移除服务" class="headerlink" title="移除服务"></a>移除服务</h4><p>采用Ambari REST API移除相关服务。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#停止服务</span></div><div class="line">curl -i -H <span class="string">"X-Requested-By: ambari"</span> -u admin:admin -X PUT <span class="_">-d</span> <span class="string">'&#123;"RequestInfo":&#123;"context":"Stop Service"&#125;,"Body":&#123;"ServiceInfo":&#123;"state":"INSTALLED"&#125;&#125;&#125;'</span> http://192.168.24.226:8080/api/v1/clusters/zwlbs/services/AMBARI_METRICS</div><div class="line"><span class="comment">#查看服务状态</span></div><div class="line">curl -u admin:admin -H <span class="string">"X-Requested-by:ambari"</span> -i -k -X GET http://192.168.24.226:8080/api/v1/clusters/zwlbs/services/AMBARI_METRICS/</div><div class="line"><span class="comment">#移除服务</span></div><div class="line">curl -u admin:admin -H <span class="string">"X-Requested-By: ambari"</span> -X DELETE http://192.168.24.226:8080/api/v1/clusters/zwlbs/services/AMBARI_METRICS</div></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/07/ambari-metrics-reinstall/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+<a id="more"></a>
+<p>cURL是一个命令行工具，通过不同的协议传输数据，1997年首次发布。cURL is a computer software project providing a library and command-line tool for transferring data using various protocols. The cURL project produces two products, libcurl and cURL. It was first released in 1997. The name originally stood for “see URL”.curl支持的协议有FTP, FTPS, HTTP, HTTPS, SCP, SFTP, TFTP, TELNET, DICT, LDAP, LDAPS, FILE, POP3, IMAP, SMTP and RTSP at the time of this writing. Wget支持HTTP, HTTPS and FTP三种协议.</p>
+<h4 id="移除包"><a href="#移除包" class="headerlink" title="移除包"></a>移除包</h4><p>移除各个节点啊上安装的包。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#主节点</span></div><div class="line">yum remove ambari-metrics-hadoop-sink-2.2.2.0-460.x86_64 -y</div><div class="line">yum remove ambari-metrics-monitor-2.2.2.0-460.x86_64 -y</div><div class="line">yum remove ambari-metrics-grafana-2.2.2.0-460.x86_64 -y</div><div class="line">yum remove ambari-metrics-collector-2.2.2.0-460.x86_64 -y</div><div class="line"><span class="comment">#从节点</span></div><div class="line">yum remove ambari-metrics-monitor-2.2.2.0-460.x86_64 -y</div><div class="line">yum remove ambari-metrics-hadoop-sink-2.2.2.0-460.x86_64 -y</div></pre></td></tr></table></figure>
+<h4 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h4><p>删除与Ambari Metrics相关的文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">rm -rf</div><div class="line"><span class="comment">#Ambari Metrics</span></div><div class="line">/usr/lib/ambari-metrics-grafana</div><div class="line">/usr/lib/ambari-metrics-hadoop-sink</div><div class="line">/usr/lib/ambari-metrics-kafka-sink</div><div class="line">/var/lib/ambari-metrics-collector</div><div class="line">/var/lib/ambari-metrics-grafana</div><div class="line">/var/run/ambari-metrics-collector</div><div class="line">/var/run/ambari-metrics-monitor</div><div class="line">/var/run/ambari-metrics-grafana</div><div class="line">/var/<span class="built_in">log</span>/ambari-metrics-collector</div><div class="line">/var/<span class="built_in">log</span>/ambari-metrics-monitor</div><div class="line">/var/<span class="built_in">log</span>/ambari-metrics-grafana</div><div class="line">/etc/ambari-metrics-collector</div><div class="line">/etc/ambari-metrics-monitor</div><div class="line">/etc/ambari-metrics-grafana</div></pre></td></tr></table></figure>
+<p>可将以上代码写入Shell脚本，执行即可。</p>
+<h4 id="添加服务"><a href="#添加服务" class="headerlink" title="添加服务"></a>添加服务</h4><p>以上步骤完成后，重新到Ambari UI界面添加Ambari Metrics服务即可。如果哪个服务实在无法修复，最无奈的方法，重装此服务。</p>
+
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/07/ambari-uninstall/" itemprop="url">
-                  卸载HDP和Ambari
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-07T12:35:59+08:00" content="2016-10-07">
-              2016-10-07
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Programming/" itemprop="url" rel="index">
-                    <span itemprop="name">Programming</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/07/ambari-uninstall/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/07/ambari-uninstall/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
+            <a href="/tags/Ambari/" rel="tag">#Ambari</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h4 id="移除Ambari服务"><a href="#移除Ambari服务" class="headerlink" title="移除Ambari服务"></a>移除Ambari服务</h4><p>依次运行如下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -qa | grep ambari</div></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/07/ambari-uninstall/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/07/ambari-uninstall/" rel="next" title="卸载HDP和Ambari">
+                <i class="fa fa-chevron-left"></i> 卸载HDP和Ambari
+              </a>
+            
           </div>
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/05/dnf-vs-yum/" itemprop="url">
-                  dnf与yum
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-05T20:44:41+08:00" content="2016-10-05">
-              2016-10-05
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Programming/" itemprop="url" rel="index">
-                    <span itemprop="name">Programming</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/05/dnf-vs-yum/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/05/dnf-vs-yum/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>Fedora 24使用yum命令时标记为过期，推荐使用dnf安装。想了解一下Fedora为什么要从yum转移到dnf。大致有如下几个原因：</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/05/dnf-vs-yum/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/05/ambari-offline-install/" itemprop="url">
-                  Ambari与HDP离线安装
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-05T16:52:34+08:00" content="2016-10-05">
-              2016-10-05
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Programming/" itemprop="url" rel="index">
-                    <span itemprop="name">Programming</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/05/ambari-offline-install/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/05/ambari-offline-install/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Ambari安装包大概有400MB，HDP所包含的所有的服务(HDFS/ZooKeeper/Kafka/Flume)大概在7GB+，采用yum安装时速度在10KB以内，简直是让人绝望的速度。所以采用离线安装，为了速度，掏出无耻的迅雷(wget下载是假的，不过可以试一试，速度不理想换迅雷)，搭建本地YUM服务。</p>
-<h4 id="下载包"><a href="#下载包" class="headerlink" title="下载包"></a>下载包</h4><p>如果不知道应该下载哪个版本，可以到Repository的配置文件中查看当前版本。路径为：<code>/etc/yum.repo.d/</code>，查看文件ambari.repo、HDP.rep和HDP-UTILS.repo即可。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/05/ambari-offline-install/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
+    <div class="post-spread">
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/05/fedora-20-install-nodejs/" itemprop="url">
-                  Fedora 20 安装NodeJs
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-05T09:52:08+08:00" content="2016-10-05">
-              2016-10-05
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Programming/" itemprop="url" rel="index">
-                    <span itemprop="name">Programming</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/05/fedora-20-install-nodejs/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/05/fedora-20-install-nodejs/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>安装环境：</p>
-<ul>
-<li><p>Fedora 20 i386</p>
-</li>
-<li><p>nodejs 6.7.0</p>
-</li>
-</ul>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>使用Hexo写博客需要安装NodeJs,更新系统</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum update -y</div></pre></td></tr></table></figure>
-<p>安装GCC编译环境</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/05/fedora-20-install-nodejs/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
+  </div>
 
 
           </div>
@@ -898,6 +424,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -917,8 +454,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -1003,6 +549,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#移除服务"><span class="nav-number">1.</span> <span class="nav-text">移除服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#移除包"><span class="nav-number">2.</span> <span class="nav-text">移除包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除文件"><span class="nav-number">3.</span> <span class="nav-text">删除文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加服务"><span class="nav-number">4.</span> <span class="nav-text">添加服务</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -1106,6 +663,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
@@ -1122,9 +683,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'jiangxiaoqiang';
-      var disqus_identifier = 'index.html';
-      var disqus_title = "";
-      var disqus_url = '';
+      var disqus_identifier = '2016/10/07/ambari-metrics-reinstall/';
+      var disqus_title = "Ambari Metrics重装";
+      var disqus_url = 'http://jiangxiaoqiang.com/2016/10/07/ambari-metrics-reinstall/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
@@ -1135,6 +696,8 @@
       }
 
       run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
       
     </script>
   
