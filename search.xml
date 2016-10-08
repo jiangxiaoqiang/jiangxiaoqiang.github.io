@@ -6,7 +6,8 @@
     <entry>
       <title><![CDATA[rm命令安全]]></title>
       <url>http://jiangxiaoqiang.com/2016/10/08/rm-command/</url>
-      <content type="html"><![CDATA[<p>rm命令是一个非常危险的命令，由于这个命令引发的事故不少，最近也是深深的体会到了。在此记录下如何将rm命令变为安全的命令。对于需要在Linux下开发的朋友来说，这一步(屏蔽rm危险操作)觉得是必须的，非常、非常、非常重要。怎么强调都不为过。</p>
+      <content type="html"><![CDATA[<p>rm命令是一个非常危险的命令，由于这个命令引发的事故不少，最近也是深深的体会到了。在此记录下如何将rm命令变为安全的命令。对于需要在Linux下开发的朋友来说，这一步(屏蔽rm危险操作)觉得是必须的，非常、非常、非常重要。怎么强调都不为过。一定要花时间做rm命令的安全工作。</p>
+<a id="more"></a>
 <h4 id="建立回收站机制"><a href="#建立回收站机制" class="headerlink" title="建立回收站机制"></a>建立回收站机制</h4><h5 id="回收站机制-建立新命令"><a href="#回收站机制-建立新命令" class="headerlink" title="回收站机制-建立新命令"></a>回收站机制-建立新命令</h5><p>在/usr/bin目录下建立文件erase：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /usr/bin</div><div class="line">touch erase</div></pre></td></tr></table></figure>
 <p>拷贝如下Shell脚本到文件中：</p>

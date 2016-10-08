@@ -352,17 +352,12 @@
 
       
         
-          
-            <p>rm命令是一个非常危险的命令，由于这个命令引发的事故不少，最近也是深深的体会到了。在此记录下如何将rm命令变为安全的命令。对于需要在Linux下开发的朋友来说，这一步(屏蔽rm危险操作)觉得是必须的，非常、非常、非常重要。怎么强调都不为过。</p>
-<h4 id="建立回收站机制"><a href="#建立回收站机制" class="headerlink" title="建立回收站机制"></a>建立回收站机制</h4><h5 id="回收站机制-建立新命令"><a href="#回收站机制-建立新命令" class="headerlink" title="回收站机制-建立新命令"></a>回收站机制-建立新命令</h5><p>在/usr/bin目录下建立文件erase：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /usr/bin</div><div class="line">touch erase</div></pre></td></tr></table></figure>
-<p>拷贝如下Shell脚本到文件中：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#! /bin/bash</span></div><div class="line">RecycleB<span class="keyword">in</span>=~/.temp</div><div class="line"></div><div class="line">((<span class="variable">$#</span>==0)) &amp;&amp; &#123; <span class="built_in">echo</span> <span class="string">"No paraments!"</span>;<span class="built_in">exit</span> 1; &#125;</div><div class="line"></div><div class="line"><span class="keyword">if</span> [ ! <span class="_">-d</span> <span class="variable">$RecycleBin</span> ]; <span class="keyword">then</span></div><div class="line">    mkdir <span class="variable">$RecycleBin</span></div><div class="line"><span class="keyword">fi</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> $*</div><div class="line"><span class="keyword">do</span></div><div class="line">    <span class="keyword">if</span> <span class="built_in">test</span> <span class="_">-e</span> <span class="variable">$i</span></div><div class="line">        <span class="keyword">then</span></div><div class="line">            <span class="built_in">cd</span> $(dirname <span class="variable">$i</span>)</div><div class="line">            mv <span class="_">-f</span> $(basename <span class="variable">$i</span>) <span class="variable">$RecycleBin</span>/$(find $(<span class="built_in">pwd</span>) -maxdepth 1 -name $(basename <span class="variable">$i</span>) | tr <span class="string">"/"</span> <span class="string">"="</span>)</div><div class="line">            <span class="built_in">cd</span> -</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="built_in">echo</span> <span class="string">"<span class="variable">$i</span>:No such file or directory!"</span></div><div class="line">    <span class="keyword">fi</span></div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
-<p>添加执行权限：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod 777 erase</div></pre></td></tr></table></figure>
-<p>此脚本会在用户目录下新建一个隐藏的temp文件夹，将删除的文件移动到此文件夹下。命名为：<code>=用户名=删除的文件名=</code>。</p>
-
-          
+          <p>rm命令是一个非常危险的命令，由于这个命令引发的事故不少，最近也是深深的体会到了。在此记录下如何将rm命令变为安全的命令。对于需要在Linux下开发的朋友来说，这一步(屏蔽rm危险操作)觉得是必须的，非常、非常、非常重要。怎么强调都不为过。一定要花时间做rm命令的安全工作。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/10/08/rm-command/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
