@@ -4,6 +4,17 @@
   
     
     <entry>
+      <title><![CDATA[Intellij IDEA推荐插件]]></title>
+      <url>http://jiangxiaoqiang.com/2016/10/08/intelli-idea-plugin/</url>
+      <content type="html"><![CDATA[<h4 id="presentation-assistant"><a href="#presentation-assistant" class="headerlink" title="presentation assistant"></a>presentation assistant</h4><p>这款插件可以实时的在Intellij屏幕底部展示当前按下的快捷键，包括Windows的快捷键和Mac的快捷键，可以帮助您记忆快捷键，清楚当前的行为(Action)。效果如下图所示。</p>
+<a id="more"></a>
+<img src="/2016/10/08/intelli-idea-plugin/presentation-assistant-tips.jpg" alt="Presentation Assistant提示" title="Presentation Assistant提示">
+<h4 id="Grep-Console"><a href="#Grep-Console" class="headerlink" title="Grep Console"></a>Grep Console</h4><p>允许你定义一系列将通过控制台输出或文件测试的正则表达式。匹配代码行的每个表达式将会影响整行的样式，或播放声音。例如，错误消息可以被设置在一个红色的背景中显示。例如错误(ERROR)输出为红色，报警(WARNING)输出为黄色，信息(INFO)输出为绿色。</p>
+<h4 id="JRebel-for-IntelliJ-Commercial"><a href="#JRebel-for-IntelliJ-Commercial" class="headerlink" title="JRebel for IntelliJ(Commercial)"></a>JRebel for IntelliJ(Commercial)</h4><p>JRebel的热部署可以让你修改代码以后不用重新启动项目即可加载效果，即所谓的热部署，可以大大提高开发效率。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[rm命令安全]]></title>
       <url>http://jiangxiaoqiang.com/2016/10/08/rm-command/</url>
       <content type="html"><![CDATA[<p>rm命令是一个非常危险的命令，由于这个命令引发的事故不少，最近也是深深的体会到了。在此记录下如何将rm命令变为安全的命令。对于需要在Linux下开发的朋友来说，这一步(屏蔽rm危险操作)觉得是必须的，非常、非常、非常重要。怎么强调都不为过。一定要花时间做rm命令的安全工作。</p>
@@ -398,7 +409,7 @@
 </tr>
 <tr>
 <td>Alt + 1</td>
-<td style="text-align:center">打开项目树视图</td>
+<td style="text-align:center">打开项目树视图,并将光标定位到当前编辑文件在项目树上的位置</td>
 </tr>
 <tr>
 <td>Alt + Home</td>
@@ -450,7 +461,27 @@
 </tr>
 <tr>
 <td>Ctrl + X</td>
-<td style="text-align:center">删除行</td>
+<td style="text-align:center">删除行，剪切(Cut)</td>
+</tr>
+<tr>
+<td>Ctrl + Alt + F12</td>
+<td style="text-align:center">显示当前项目树结构文件/文件夹所在目录，可以快速打开文件夹</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + T(Test)</td>
+<td style="text-align:center">选中类名，按下快捷键,创建一个新的测试Case</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + 数字键(NumPad)+</td>
+<td style="text-align:center">展开所有</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + 数字键(NumPad)-</td>
+<td style="text-align:center">折叠所有</td>
+</tr>
+<tr>
+<td>Ctrl +  数字键(NumPad)-</td>
+<td style="text-align:center">在项目树上应用此快捷键可以折叠所有展开的文件夹</td>
 </tr>
 </tbody>
 </table>
@@ -761,6 +792,12 @@
     </entry>
     
     <entry>
+      <title><![CDATA[tags]]></title>
+      <url>http://jiangxiaoqiang.com/tags/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[关于]]></title>
       <url>http://jiangxiaoqiang.com/about/index.html</url>
       <content type="html"><![CDATA[<p>这里是dolphin的部落格，若此分享能够作为您的参考，是我的荣幸。</p>
@@ -769,12 +806,6 @@
 <li>Mail:jiangtingqiang@gmal.com</li>
 </ul>
 ]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[tags]]></title>
-      <url>http://jiangxiaoqiang.com/tags/index.html</url>
-      <content type="html"></content>
     </entry>
     
   
