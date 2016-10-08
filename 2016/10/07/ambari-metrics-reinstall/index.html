@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="移除服务采用Ambari REST API移除相关服务。
 123456#停止服务curl -i -H &quot;X-Requested-By: ambari&quot; -u admin:admin -X PUT -d &apos;&amp;#123;&quot;RequestInfo&quot;:&amp;#123;&quot;context&quot;:&quot;Stop Service&quot;&amp;#125;,&quot;Body&quot;:&amp;#123;&quot;ServiceInfo&quot;:&amp;#123;&quot;state&quot;:">
-<meta property="og:updated_time" content="2016-10-07T07:19:09.754Z">
+<meta property="og:updated_time" content="2016-10-07T07:23:19.430Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ambari Metrics重装">
 <meta name="twitter:description" content="移除服务采用Ambari REST API移除相关服务。
@@ -363,6 +363,8 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">rm -rf</div><div class="line"><span class="comment">#Ambari Metrics</span></div><div class="line">/usr/lib/ambari-metrics-grafana</div><div class="line">/usr/lib/ambari-metrics-hadoop-sink</div><div class="line">/usr/lib/ambari-metrics-kafka-sink</div><div class="line">/var/lib/ambari-metrics-collector</div><div class="line">/var/lib/ambari-metrics-grafana</div><div class="line">/var/run/ambari-metrics-collector</div><div class="line">/var/run/ambari-metrics-monitor</div><div class="line">/var/run/ambari-metrics-grafana</div><div class="line">/var/<span class="built_in">log</span>/ambari-metrics-collector</div><div class="line">/var/<span class="built_in">log</span>/ambari-metrics-monitor</div><div class="line">/var/<span class="built_in">log</span>/ambari-metrics-grafana</div><div class="line">/etc/ambari-metrics-collector</div><div class="line">/etc/ambari-metrics-monitor</div><div class="line">/etc/ambari-metrics-grafana</div></pre></td></tr></table></figure>
 <p>可将以上代码写入Shell脚本，执行即可。</p>
 <h4 id="添加服务"><a href="#添加服务" class="headerlink" title="添加服务"></a>添加服务</h4><p>以上步骤完成后，重新到Ambari UI界面添加Ambari Metrics服务即可。如果哪个服务实在无法修复，最无奈的方法，重装此服务。</p>
+<p>参考文章：</p>
+<p><a href="http://henning.kropponline.de/2015/06/07/services-and-state-with-ambari-rest-api/" target="_blank" rel="external">Services and State with Ambari REST API</a></p>
 
       
     </div>
@@ -401,6 +403,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/08/rm-command/" rel="prev" title="rm命令安全">
+                rm命令安全 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -475,7 +481,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-count">28</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -492,7 +498,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

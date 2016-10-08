@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Learning,summarize" />
+  <meta name="keywords" content="Linux,rm," />
 
 
 
@@ -90,12 +90,25 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="小强的博客">
-<meta property="og:url" content="http://jiangxiaoqiang.com/archives/index.html">
+<meta name="description" content="rm命令是一个非常危险的命令，由于这个命令引发的事故不少，最近也是深深的体会到了。在此记录下如何将rm命令变为安全的命令。对于需要在Linux下开发的朋友来说，这一步(屏蔽rm危险操作)觉得是必须的，非常、非常、非常重要。怎么强调都不为过。
+建立回收站机制回收站机制-建立新命令在/usr/bin目录下建立文件erase：
+12cd /usr/bintouch erase
+拷贝如下Shell脚本到文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rm命令安全">
+<meta property="og:url" content="http://jiangxiaoqiang.com/2016/10/08/rm-command/index.html">
 <meta property="og:site_name" content="小强的博客">
+<meta property="og:description" content="rm命令是一个非常危险的命令，由于这个命令引发的事故不少，最近也是深深的体会到了。在此记录下如何将rm命令变为安全的命令。对于需要在Linux下开发的朋友来说，这一步(屏蔽rm危险操作)觉得是必须的，非常、非常、非常重要。怎么强调都不为过。
+建立回收站机制回收站机制-建立新命令在/usr/bin目录下建立文件erase：
+12cd /usr/bintouch erase
+拷贝如下Shell脚本到文">
+<meta property="og:updated_time" content="2016-10-08T03:25:38.033Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小强的博客">
+<meta name="twitter:title" content="rm命令安全">
+<meta name="twitter:description" content="rm命令是一个非常危险的命令，由于这个命令引发的事故不少，最近也是深深的体会到了。在此记录下如何将rm命令变为安全的命令。对于需要在Linux下开发的朋友来说，这一步(屏蔽rm危险操作)觉得是必须的，非常、非常、非常重要。怎么强调都不为过。
+建立回收站机制回收站机制-建立新命令在/usr/bin目录下建立文件erase：
+12cd /usr/bintouch erase
+拷贝如下Shell脚本到文">
 
 
 
@@ -116,9 +129,9 @@
 
 
 
-  <link rel="canonical" href="http://jiangxiaoqiang.com/archives/"/>
+  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/10/08/rm-command/"/>
 
-  <title> 归档 | 小强的博客 </title>
+  <title> rm命令安全 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -148,7 +161,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -259,773 +272,157 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 28 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/08/rm-command/" itemprop="url">
-              
-                <span itemprop="name">rm命令安全</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-08T11:25:38+08:00"
-              content="2016-10-08" >
-          10-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/07/ambari-metrics-reinstall/" itemprop="url">
-              
-                <span itemprop="name">Ambari Metrics重装</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-07T15:19:09+08:00"
-              content="2016-10-07" >
-          10-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/07/ambari-uninstall/" itemprop="url">
-              
-                <span itemprop="name">卸载HDP和Ambari</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-07T12:35:59+08:00"
-              content="2016-10-07" >
-          10-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/05/dnf-vs-yum/" itemprop="url">
-              
-                <span itemprop="name">dnf与yum</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-05T20:44:41+08:00"
-              content="2016-10-05" >
-          10-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/05/ambari-offline-install/" itemprop="url">
-              
-                <span itemprop="name">Ambari与HDP离线安装</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-05T16:52:34+08:00"
-              content="2016-10-05" >
-          10-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/05/fedora-20-install-nodejs/" itemprop="url">
-              
-                <span itemprop="name">Fedora 20 安装NodeJs</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-05T09:52:08+08:00"
-              content="2016-10-05" >
-          10-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/04/delete-ambari-service/" itemprop="url">
-              
-                <span itemprop="name">删除Apache Ambari服务</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-04T21:04:27+08:00"
-              content="2016-10-04" >
-          10-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/03/fedora-20-install-input-method/" itemprop="url">
-              
-                <span itemprop="name">Fedora 20安装中文输入法</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-03T11:08:51+08:00"
-              content="2016-10-03" >
-          10-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/02/install-chrome-in-fedora/" itemprop="url">
-              
-                <span itemprop="name">install-chrome-in-fedora</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-02T23:02:56+08:00"
-              content="2016-10-02" >
-          10-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/02/apache-ambari-using/" itemprop="url">
-              
-                <span itemprop="name">Apache-Ambari 2.2.2.0 Agent手动安装</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-02T11:59:53+08:00"
-              content="2016-10-02" >
-          10-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/01/hadoop-cluster-deploy/" itemprop="url">
-              
-                <span itemprop="name">Hadoop 2.7.1集群部署(不断更新...)</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-01T11:29:09+08:00"
-              content="2016-10-01" >
-          10-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/30/cluster-ssh-login/" itemprop="url">
-              
-                <span itemprop="name">Hadoop集群SSH免密钥登录</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-30T16:41:35+08:00"
-              content="2016-09-30" >
-          09-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/28/hashcode-and-equals/" itemprop="url">
-              
-                <span itemprop="name">hashcode和equals的理解</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-28T22:12:51+08:00"
-              content="2016-09-28" >
-          09-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/27/spring-mybatis-integrete/" itemprop="url">
-              
-                <span itemprop="name">Spring step by step(二)--持久化</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-27T13:11:34+08:00"
-              content="2016-09-27" >
-          09-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/26/intllij-idea-encoding/" itemprop="url">
-              
-                <span itemprop="name">IntelliJ Idea技巧分享</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-26T14:23:24+08:00"
-              content="2016-09-26" >
-          09-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/25/spring-ioc/" itemprop="url">
-              
-                <span itemprop="name">Spring step by step(一)--依赖注入(Dependency Injection)</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-25T16:08:20+08:00"
-              content="2016-09-25" >
-          09-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/24/eclipse-breakpoint-type/" itemprop="url">
-              
-                <span itemprop="name">Eclipse断点类型</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-24T16:47:20+08:00"
-              content="2016-09-24" >
-          09-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/23/phoenix-tutorial/" itemprop="url">
-              
-                <span itemprop="name">Phoenix常用操作</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-23T16:57:30+08:00"
-              content="2016-09-23" >
-          09-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/22/tomcat-http/" itemprop="url">
-              
-                <span itemprop="name">Tomcat 8.0 HTTP请求流程</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-22T22:11:14+08:00"
-              content="2016-09-22" >
-          09-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/20/launching-and-debugging-tomcat-extra/" itemprop="url">
-              
-                <span itemprop="name">在Eclipse中启动和调试Tomcat（二）</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-20T17:13:52+08:00"
-              content="2016-09-20" >
-          09-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
 
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                rm命令安全
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-08T11:25:38+08:00" content="2016-10-08">
+              2016-10-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/08/rm-command/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/08/rm-command/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
 
 
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>rm命令是一个非常危险的命令，由于这个命令引发的事故不少，最近也是深深的体会到了。在此记录下如何将rm命令变为安全的命令。对于需要在Linux下开发的朋友来说，这一步(屏蔽rm危险操作)觉得是必须的，非常、非常、非常重要。怎么强调都不为过。</p>
+<h4 id="建立回收站机制"><a href="#建立回收站机制" class="headerlink" title="建立回收站机制"></a>建立回收站机制</h4><h5 id="回收站机制-建立新命令"><a href="#回收站机制-建立新命令" class="headerlink" title="回收站机制-建立新命令"></a>回收站机制-建立新命令</h5><p>在/usr/bin目录下建立文件erase：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /usr/bin</div><div class="line">touch erase</div></pre></td></tr></table></figure>
+<p>拷贝如下Shell脚本到文件中：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#! /bin/bash</span></div><div class="line">RecycleB<span class="keyword">in</span>=~/.temp</div><div class="line"></div><div class="line">((<span class="variable">$#</span>==0)) &amp;&amp; &#123; <span class="built_in">echo</span> <span class="string">"No paraments!"</span>;<span class="built_in">exit</span> 1; &#125;</div><div class="line"></div><div class="line"><span class="keyword">if</span> [ ! <span class="_">-d</span> <span class="variable">$RecycleBin</span> ]; <span class="keyword">then</span></div><div class="line">    mkdir <span class="variable">$RecycleBin</span></div><div class="line"><span class="keyword">fi</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> $*</div><div class="line"><span class="keyword">do</span></div><div class="line">    <span class="keyword">if</span> <span class="built_in">test</span> <span class="_">-e</span> <span class="variable">$i</span></div><div class="line">        <span class="keyword">then</span></div><div class="line">            <span class="built_in">cd</span> $(dirname <span class="variable">$i</span>)</div><div class="line">            mv <span class="_">-f</span> $(basename <span class="variable">$i</span>) <span class="variable">$RecycleBin</span>/$(find $(<span class="built_in">pwd</span>) -maxdepth 1 -name $(basename <span class="variable">$i</span>) | tr <span class="string">"/"</span> <span class="string">"="</span>)</div><div class="line">            <span class="built_in">cd</span> -</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="built_in">echo</span> <span class="string">"<span class="variable">$i</span>:No such file or directory!"</span></div><div class="line">    <span class="keyword">fi</span></div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
+<p>添加执行权限：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod 777 erase</div></pre></td></tr></table></figure>
+<p>此脚本会在用户目录下新建一个隐藏的temp文件夹，将删除的文件移动到此文件夹下。命名为：<code>=用户名=删除的文件名=</code>。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag">#Linux</a>
+          
+            <a href="/tags/rm/" rel="tag">#rm</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/07/ambari-metrics-reinstall/" rel="next" title="Ambari Metrics重装">
+                <i class="fa fa-chevron-left"></i> Ambari Metrics重装
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -1033,6 +430,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -1052,8 +460,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -1138,6 +555,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#建立回收站机制"><span class="nav-number">1.</span> <span class="nav-text">建立回收站机制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#回收站机制-建立新命令"><span class="nav-number">1.1.</span> <span class="nav-text">回收站机制-建立新命令</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -1241,11 +669,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   
@@ -1263,9 +689,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'jiangxiaoqiang';
-      var disqus_identifier = 'archives/index.html';
-      var disqus_title = "";
-      var disqus_url = '';
+      var disqus_identifier = '2016/10/08/rm-command/';
+      var disqus_title = "rm命令安全";
+      var disqus_url = 'http://jiangxiaoqiang.com/2016/10/08/rm-command/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
@@ -1276,6 +702,8 @@
       }
 
       run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
       
     </script>
   
