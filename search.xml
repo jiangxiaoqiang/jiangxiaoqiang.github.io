@@ -372,10 +372,10 @@
     <entry>
       <title><![CDATA[IntelliJ Idea技巧分享]]></title>
       <url>http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/</url>
-      <content type="html"><![CDATA[<h4 id="输入乱码"><a href="#输入乱码" class="headerlink" title="输入乱码"></a>输入乱码</h4><p>输入时显示乱码，如图所示。</p>
+      <content type="html"><![CDATA[<h4 id="输入乱码"><a href="#输入乱码" class="headerlink" title="输入乱码"></a>输入乱码</h4><p>在控制台输入中文时显示的不是输入的汉字，而是显示正方形符号，此时输入的汉字显示乱码，如图所示。</p>
 <img src="/2016/09/26/intllij-idea-encoding/intelli-idea-input-encode.jpg" alt="输入时乱码" title="输入时乱码">
 <a id="more"></a>
-<p>使用支持中文较好的字体，覆盖默认字体，在File-Settings-Appearance&amp;Behavior-Appearance。如图所示。</p>
+<p>解决此问题，可使用支持中文较好的字体，覆盖默认字体，在Intellig Idea中的File-Settings-Appearance&amp;Behavior-Appearance中(Ctrl + Alt + S)。如下图所示。</p>
 <img src="/2016/09/26/intllij-idea-encoding/intelli-idea-override-default-font.jpg" alt="覆盖默认字体" title="覆盖默认字体">
 <h4 id="智能提示敏感调整"><a href="#智能提示敏感调整" class="headerlink" title="智能提示敏感调整"></a>智能提示敏感调整</h4><p>在智能提示时默认大小写敏感，比如String的智能提示就必须首字母大写才能够准确定位，经常大小写切换，不是特别方便。在settings-Editor-General-Code Completion里设置后，可以省去大小写切换操作。</p>
 <img src="/2016/09/26/intllij-idea-encoding/code-completion-case-sensitive.jpg" alt="智能提示大小写敏感调整" title="智能提示大小写敏感调整">
@@ -457,7 +457,7 @@
 </tr>
 <tr>
 <td>Ctrl + J</td>
-<td style="text-align:center">a执行一些你记不起来的Live Template缩写</td>
+<td style="text-align:center">如果记不住Live Template的缩写，使用此快捷键可以弹出所有Live Template的缩写</td>
 </tr>
 <tr>
 <td>Ctrl + X</td>
@@ -482,6 +482,10 @@
 <tr>
 <td>Ctrl +  数字键(NumPad)-</td>
 <td style="text-align:center">在项目树上应用此快捷键可以折叠所有展开的文件夹</td>
+</tr>
+<tr>
+<td>Ctrl + F12</td>
+<td style="text-align:center">打开Intellij中嵌入的终端(Terminal)</td>
 </tr>
 </tbody>
 </table>
