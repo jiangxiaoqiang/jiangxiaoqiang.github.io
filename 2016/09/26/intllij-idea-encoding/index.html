@@ -101,7 +101,7 @@
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/code-completion-case-sensitive.jpg">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/change-theme.jpg">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/specify-maven-addr.jpg">
-<meta property="og:updated_time" content="2016-10-09T03:23:28.845Z">
+<meta property="og:updated_time" content="2016-10-10T09:19:04.418Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IntelliJ Idea技巧分享">
 <meta name="twitter:description" content="输入乱码在控制台输入中文时显示的不是输入的汉字，而是显示正方形符号，此时输入的汉字显示乱码，如图所示。">
@@ -372,7 +372,7 @@
 <h4 id="重构-Reflactor"><a href="#重构-Reflactor" class="headerlink" title="重构(Reflactor)"></a>重构(Reflactor)</h4><h5 id="重命名-Rename"><a href="#重命名-Rename" class="headerlink" title="重命名(Rename)"></a>重命名(Rename)</h5><p>Shift + F6,可以重命名你的类、方法、变量等等。</p>
 <h4 id="主题-Theme"><a href="#主题-Theme" class="headerlink" title="主题(Theme)"></a>主题(Theme)</h4><p>更换默认主题在settings(Ctrl + Alt + S) –&gt; editor –&gt; colors &amp; fonts –&gt; general，如下图所示，如果需要修改主题的字体等是默认是不允许的，需要复制一个新的主题，再自定义修改相应的参数。</p>
 <img src="/2016/09/26/intllij-idea-encoding/change-theme.jpg" alt="修改默认主题" title="修改默认主题">
-<h4 id="Maven配置"><a href="#Maven配置" class="headerlink" title="Maven配置"></a>Maven配置</h4><p>使用Maven最头疼的就是从中央库下载jar包超级慢，等待下载jar包的感觉用重庆话讲：肚肠子把把逗紧了。解决办法就是使用私服地址，私服可以使用本地配置的Maven(不是Intellij Idea里面的boundle Maven)，修改Intellj Maven采用本机安装Maven如下图所示。</p>
+<h4 id="Maven配置"><a href="#Maven配置" class="headerlink" title="Maven配置"></a>Maven配置</h4><p>使用Maven最头疼的就是从中央库下载jar包超级慢，等待下载jar包的感觉用重庆话讲：肚肠子把把逗紧了。解决办法就是使用私服地址，私服可以使用本地配置的Maven(不是Intellij Idea里面的boundle Maven)，修改Intellj Maven采用本机安装Maven在设置(Ctrl + Alt + S)中输入Maven，修改地址(例如：<code>D:\Source\zwnewplatform\javasoftware\runtime\apache-maven-3.3.9</code>)即可，如下图所示。</p>
 <img src="/2016/09/26/intllij-idea-encoding/specify-maven-addr.jpg" alt="修改Maven地址" title="修改Maven地址">
 <h4 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h4><p>Intellij Idea可以完全丢掉键盘工作，有点早期Vim和Emacs编辑器的味道。善用Intellij Idea编辑器可以大幅提高工作效率，用快捷键有一种装逼的感觉，装逼人士必备。</p>
 <table>
@@ -478,6 +478,34 @@
 <tr>
 <td>Ctrl + F8</td>
 <td style="text-align:center">设置断点和取消设置断点</td>
+</tr>
+<tr>
+<td>Alt + Up/Down</td>
+<td style="text-align:center">跳转到下一个方法或者属性</td>
+</tr>
+<tr>
+<td>Ctrl + Tab</td>
+<td style="text-align:center">编辑窗口切换(切换Debug视图、编辑区类文件等)</td>
+</tr>
+<tr>
+<td>Shift + F2/F2</td>
+<td style="text-align:center">跳到上/下一个错误处</td>
+</tr>
+<tr>
+<td>Alt + F1</td>
+<td style="text-align:center">选中目标，可以定位到文件等各种对象，Alt + F1弹出的界面中选择需要定位的对象，也可以理解成对象导航</td>
+</tr>
+<tr>
+<td>Shift + F6</td>
+<td style="text-align:center">重构、重命名</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + F10</td>
+<td style="text-align:center">运行测试，注意运行测试时界面需要切换到测试类的界面</td>
+</tr>
+<tr>
+<td>Alt + F8</td>
+<td style="text-align:center">计算变量值</td>
 </tr>
 </tbody>
 </table>
@@ -620,7 +648,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

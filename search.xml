@@ -4,25 +4,26 @@
   
     
     <entry>
-      <title><![CDATA[fedora-openvpn-client]]></title>
+      <title><![CDATA[Fedora 24 OpenVPN客户端配置]]></title>
       <url>http://jiangxiaoqiang.com/2016/10/09/fedora-openvpn-client/</url>
-      <content type="html"><![CDATA[<p>这里介绍在Fedora中如何设置OpenVPN客户端。将生成的客户端文件拷贝到Fedora的<code>/etc/openvpn</code>配置目录中即可。</p>
+      <content type="html"><![CDATA[<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>这里介绍在Fedora中如何设置OpenVPN客户端。将生成的客户端文件拷贝到Fedora的<code>/etc/openvpn</code>配置目录中即可，生成的客户端文件有：</p>
 <ul>
 <li>ca.crt</li>
 <li>client.crt</li>
 <li>client.key</li>
 <li>client.ovpn</li>
 </ul>
-<p>在Fedora中将client.ovpn改为client.conf即可。</p>
+<p>在Fedora中将client.ovpn改为client.conf即可。启动OpenVPN客户端(root权限):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">openvpn client.conf</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <h4 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h4><p>在Fedora 24中运行<code>openvpn client.conf</code>后提示如下错误：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Sat Oct  8 23:32:19 2016 Socket Buffers: R=[87380-&gt;87380] S=[16384-&gt;16384]</div><div class="line">Sat Oct  8 23:32:19 2016 Attempting to establish TCP connection with [AF_INET]114.24.5.55:1194 [nonblock]</div><div class="line">Sat Oct  8 23:32:20 2016 TCP connection established with [AF_INET]114.24.5.55:1194</div><div class="line">Sat Oct  8 23:32:20 2016 TCPv4_CLIENT link local: [undef]</div><div class="line">Sat Oct  8 23:32:20 2016 TCPv4_CLIENT link remote: [AF_INET]114.24.5.55:1194</div><div class="line">Sat Oct  8 23:32:20 2016 TLS: Initial packet from [AF_INET]114.24.5.55:1194, sid=efc00936 581068f2</div><div class="line">Sat Oct  8 23:32:20 2016 VERIFY OK: depth=1, C=US, ST=CA, L=SanFrancisco, O=OpenVPN, OU=changeme, CN=OpenVPN_CA, name=changeme, emailAddress=mail@host.domain</div><div class="line">Sat Oct  8 23:32:20 2016 VERIFY ERROR: depth=0, error=certificate signature failure: C=US, ST=CA, L=SanFrancisco, O=OpenVPN, OU=changeme, CN=server, name=changeme, emailAddress=mail@host.domain</div><div class="line">Sat Oct  8 23:32:20 2016 OpenSSL: error:14090086:SSL routines:ssl3_get_server_certificate:certificate verify failed</div><div class="line">Sat Oct  8 23:32:20 2016 TLS_ERROR: BIO read tls_read_plaintext error</div><div class="line">Sat Oct  8 23:32:20 2016 TLS Error: TLS object -&gt; incoming plaintext read error</div><div class="line">Sat Oct  8 23:32:20 2016 TLS Error: TLS handshake failed</div><div class="line">Sat Oct  8 23:32:20 2016 Fatal TLS error (check_tls_errors_co), restarting</div><div class="line">Sat Oct  8 23:32:20 2016 SIGUSR1[soft,tls-error] received, process restarting</div><div class="line">Sat Oct  8 23:32:20 2016 Restart pause, 5 second(s)</div></pre></td></tr></table></figure>
-<p>发生此错误的原因是OpenSSL包中，当前使用的OpenSSL(OpenSSL 1.0.0e 6 Sep 2011)默认的摘要算法为MD5。而MD5算法在目前是非常不安全的(Hash碰撞攻击等)，较大的彩虹表可以轻易的找出Hash对应值。所以在较新的操作系统(这里是Fedora 24)已经默认不使用MD5算法，所以会有此错误(Windows 7支持MD5)。解决此问题的思路不外乎2种，使用sha256、sha512等摘要算法(MD)，启用操作系统对MD5的支持,推荐前者。</p>
-<h4 id="修改加密方式-推荐"><a href="#修改加密方式-推荐" class="headerlink" title="修改加密方式(推荐)"></a>修改加密方式(推荐)</h4><p>修改加密方式在OpenVPN目录的文件中(我的是在C:\Program Files (x86)\OpenVPN\easy-rsa\openssl-1.0.0.cnf)。将</p>
+<p>发生此错误的原因是OpenSSL包中，当前使用的OpenSSL(版本：OpenSSL 1.0.0e 6 Sep 2011)默认的摘要算法为MD5。而MD5算法在目前是非常不安全的(Hash碰撞攻击等)，较大的彩虹表可以轻易的找出Hash对应值。所以在较新的操作系统(这里是Fedora 24)已经默认不使用MD5算法，所以会有此错误(Windows 7支持MD5)。解决此问题的思路不外乎2种，一种是使用sha256、sha512等摘要算法(MD)，另一种就是启用操作系统对MD5的支持,推荐前者。</p>
+<h5 id="修改加密方式-推荐"><a href="#修改加密方式-推荐" class="headerlink" title="修改加密方式(推荐)"></a>修改加密方式(推荐)</h5><p>修改加密方式在OpenVPN目录的文件中(我的是在C:\Program Files (x86)\OpenVPN\easy-rsa\openssl-1.0.0.cnf)。将</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">default_md    = md5            # use public key default MD</div></pre></td></tr></table></figure>
 <p>改为</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">default_md    = sha256            # use public key default MD</div></pre></td></tr></table></figure>
-<h4 id="启用操作系统MD5支持"><a href="#启用操作系统MD5支持" class="headerlink" title="启用操作系统MD5支持"></a>启用操作系统MD5支持</h4><p>Temporally enable it.</p>
+<h5 id="启用操作系统MD5支持"><a href="#启用操作系统MD5支持" class="headerlink" title="启用操作系统MD5支持"></a>启用操作系统MD5支持</h5><p>Temporally enable it.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> NSS_HASH_ALG_SUPPORT=+MD5</div><div class="line"><span class="built_in">export</span> OPENSSL_ENABLE_MD5_VERIFY=1</div></pre></td></tr></table></figure>
 <p>Enable MD5 support through NetworkManager</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo vim /usr/lib/systemd/system/NetworkManager.service</div></pre></td></tr></table></figure>
@@ -422,7 +423,7 @@
 <h4 id="重构-Reflactor"><a href="#重构-Reflactor" class="headerlink" title="重构(Reflactor)"></a>重构(Reflactor)</h4><h5 id="重命名-Rename"><a href="#重命名-Rename" class="headerlink" title="重命名(Rename)"></a>重命名(Rename)</h5><p>Shift + F6,可以重命名你的类、方法、变量等等。</p>
 <h4 id="主题-Theme"><a href="#主题-Theme" class="headerlink" title="主题(Theme)"></a>主题(Theme)</h4><p>更换默认主题在settings(Ctrl + Alt + S) –&gt; editor –&gt; colors &amp; fonts –&gt; general，如下图所示，如果需要修改主题的字体等是默认是不允许的，需要复制一个新的主题，再自定义修改相应的参数。</p>
 <img src="/2016/09/26/intllij-idea-encoding/change-theme.jpg" alt="修改默认主题" title="修改默认主题">
-<h4 id="Maven配置"><a href="#Maven配置" class="headerlink" title="Maven配置"></a>Maven配置</h4><p>使用Maven最头疼的就是从中央库下载jar包超级慢，等待下载jar包的感觉用重庆话讲：肚肠子把把逗紧了。解决办法就是使用私服地址，私服可以使用本地配置的Maven(不是Intellij Idea里面的boundle Maven)，修改Intellj Maven采用本机安装Maven如下图所示。</p>
+<h4 id="Maven配置"><a href="#Maven配置" class="headerlink" title="Maven配置"></a>Maven配置</h4><p>使用Maven最头疼的就是从中央库下载jar包超级慢，等待下载jar包的感觉用重庆话讲：肚肠子把把逗紧了。解决办法就是使用私服地址，私服可以使用本地配置的Maven(不是Intellij Idea里面的boundle Maven)，修改Intellj Maven采用本机安装Maven在设置(Ctrl + Alt + S)中输入Maven，修改地址(例如：<code>D:\Source\zwnewplatform\javasoftware\runtime\apache-maven-3.3.9</code>)即可，如下图所示。</p>
 <img src="/2016/09/26/intllij-idea-encoding/specify-maven-addr.jpg" alt="修改Maven地址" title="修改Maven地址">
 <h4 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h4><p>Intellij Idea可以完全丢掉键盘工作，有点早期Vim和Emacs编辑器的味道。善用Intellij Idea编辑器可以大幅提高工作效率，用快捷键有一种装逼的感觉，装逼人士必备。</p>
 <table>
@@ -528,6 +529,34 @@
 <tr>
 <td>Ctrl + F8</td>
 <td style="text-align:center">设置断点和取消设置断点</td>
+</tr>
+<tr>
+<td>Alt + Up/Down</td>
+<td style="text-align:center">跳转到下一个方法或者属性</td>
+</tr>
+<tr>
+<td>Ctrl + Tab</td>
+<td style="text-align:center">编辑窗口切换(切换Debug视图、编辑区类文件等)</td>
+</tr>
+<tr>
+<td>Shift + F2/F2</td>
+<td style="text-align:center">跳到上/下一个错误处</td>
+</tr>
+<tr>
+<td>Alt + F1</td>
+<td style="text-align:center">选中目标，可以定位到文件等各种对象，Alt + F1弹出的界面中选择需要定位的对象，也可以理解成对象导航</td>
+</tr>
+<tr>
+<td>Shift + F6</td>
+<td style="text-align:center">重构、重命名</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + F10</td>
+<td style="text-align:center">运行测试，注意运行测试时界面需要切换到测试类的界面</td>
+</tr>
+<tr>
+<td>Alt + F8</td>
+<td style="text-align:center">计算变量值</td>
 </tr>
 </tbody>
 </table>

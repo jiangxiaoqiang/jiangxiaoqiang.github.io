@@ -284,7 +284,7 @@
               
                 
                 <a class="post-title-link" href="/2016/10/09/fedora-openvpn-client/" itemprop="url">
-                  fedora-openvpn-client
+                  Fedora 24 OpenVPN客户端配置
                 </a>
               
             
@@ -352,14 +352,15 @@
 
       
         
-          <p>这里介绍在Fedora中如何设置OpenVPN客户端。将生成的客户端文件拷贝到Fedora的<code>/etc/openvpn</code>配置目录中即可。</p>
+          <h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>这里介绍在Fedora中如何设置OpenVPN客户端。将生成的客户端文件拷贝到Fedora的<code>/etc/openvpn</code>配置目录中即可，生成的客户端文件有：</p>
 <ul>
 <li>ca.crt</li>
 <li>client.crt</li>
 <li>client.key</li>
 <li>client.ovpn</li>
 </ul>
-<p>在Fedora中将client.ovpn改为client.conf即可。</p>
+<p>在Fedora中将client.ovpn改为client.conf即可。启动OpenVPN客户端(root权限):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">openvpn client.conf</div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/10/09/fedora-openvpn-client/#more" rel="contents">
               阅读全文 &raquo;
@@ -943,7 +944,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
