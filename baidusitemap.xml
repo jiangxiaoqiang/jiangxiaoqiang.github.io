@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/09/fedora-openvpn-client/</loc>
+    <lastmod>2016-10-11T09:06:46.673Z</lastmod>
+    <data>
+        <display>
+        <title>Fedora 24 OpenVPN客户端配置</title>
+        <pubTime>2016-10-09T03:55:08.000Z</pubTime>
+        
+        <tag>Fedora</tag>
+         
+        <tag>openvpn</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/09/23/phoenix-tutorial/</loc>
     <lastmod>2016-10-11T06:37:56.799Z</lastmod>
     <data>
@@ -31,28 +53,6 @@
         <tag>IDE</tag>
          
         <tag>IntelliJ</tag>
-         
-         
-           
-             
-              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/09/fedora-openvpn-client/</loc>
-    <lastmod>2016-10-11T05:08:56.528Z</lastmod>
-    <data>
-        <display>
-        <title>Fedora 24 OpenVPN客户端配置</title>
-        <pubTime>2016-10-09T03:55:08.000Z</pubTime>
-        
-        <tag>Fedora</tag>
-         
-        <tag>openvpn</tag>
          
          
            

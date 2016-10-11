@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/09/fedora-openvpn-client/</loc>
+    
+    <lastmod>2016-10-11T09:06:46.673Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/09/23/phoenix-tutorial/</loc>
     
     <lastmod>2016-10-11T06:37:56.799Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/</loc>
     
     <lastmod>2016-10-11T06:03:33.576Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/09/fedora-openvpn-client/</loc>
-    
-    <lastmod>2016-10-11T05:08:56.528Z</lastmod>
     
   </url>
   
