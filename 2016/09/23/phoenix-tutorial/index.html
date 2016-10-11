@@ -97,7 +97,7 @@
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="简介Phoenix本意是凤凰的意思，Apache Phoenix是构建在HBase之上的关系型数据库层，作为内嵌的客户端JDBC驱动用以对HBase中的数据进行低延迟访问。Apache Phoenix会将用户编写的sql查询编译为一系列的scan操作，最终产生通用的JDBC结果集返回给客户端。数据表的元数据存储在HBase的表中被会标记版本号，所以进行查询的时候会自动选择正确的schema。直接使">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/23/phoenix-tutorial/phoenix-position.jpg">
-<meta property="og:updated_time" content="2016-10-08T01:26:38.565Z">
+<meta property="og:updated_time" content="2016-10-11T06:37:56.799Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Phoenix常用操作">
 <meta name="twitter:description" content="简介Phoenix本意是凤凰的意思，Apache Phoenix是构建在HBase之上的关系型数据库层，作为内嵌的客户端JDBC驱动用以对HBase中的数据进行低延迟访问。Apache Phoenix会将用户编写的sql查询编译为一系列的scan操作，最终产生通用的JDBC结果集返回给客户端。数据表的元数据存储在HBase的表中被会标记版本号，所以进行查询的时候会自动选择正确的schema。直接使">
@@ -350,6 +350,9 @@
 <p>删除表数据。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">delete</span> <span class="keyword">from</span> <span class="keyword">test</span> <span class="keyword">where</span> condition;//语法</div><div class="line"><span class="keyword">delete</span> <span class="keyword">from</span> <span class="keyword">test</span> <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">is</span> <span class="literal">null</span>;//例子</div></pre></td></tr></table></figure>
 <p>condition是过滤条件，注意结尾需要有分号，表示SQL语句已经结束，可以提交给引擎执行。</p>
+<p>清除表的重复数据。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">delete</span> <span class="keyword">from</span> tablename <span class="keyword">where</span> vtime <span class="keyword">in</span> ( <span class="keyword">select</span> vtime <span class="keyword">from</span> tablename <span class="keyword">group</span> <span class="keyword">by</span> vtime <span class="keyword">having</span> <span class="keyword">count</span>(*)&gt;<span class="number">1</span>) <span class="keyword">and</span> <span class="keyword">id</span> <span class="keyword">not</span> <span class="keyword">in</span> (<span class="keyword">select</span> top <span class="number">1</span> <span class="keyword">id</span> <span class="keyword">from</span> tablename <span class="keyword">group</span> <span class="keyword">by</span> vtime <span class="keyword">having</span> <span class="keyword">count</span>(*)&gt;<span class="number">1</span> );</div></pre></td></tr></table></figure>
+<p>清除同一时间重复的数据（同一时刻只能有1条数据）。</p>
 <h4 id="函数-Function"><a href="#函数-Function" class="headerlink" title="函数(Function)"></a>函数(Function)</h4><p>substr函数用于截取字符串。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">substr</span>(<span class="keyword">time</span>,<span class="number">0</span>,<span class="number">11</span>) <span class="keyword">from</span> <span class="keyword">test</span> <span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">substr</span>(<span class="keyword">time</span>,<span class="number">0</span>,<span class="number">11</span>);</div></pre></td></tr></table></figure>
 <p>time为需要截取的字符串，从第0位开始截取11位长度。</p>
@@ -469,7 +472,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">31</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -486,7 +489,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
