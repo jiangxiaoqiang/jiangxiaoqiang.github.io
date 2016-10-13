@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Learning,summarize" />
+  <meta name="keywords" content="linux,chkconfig,systemctl," />
 
 
 
@@ -90,12 +90,19 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="小强的博客">
-<meta property="og:url" content="http://jiangxiaoqiang.com/categories/Linux/index.html">
+<meta name="description" content="最近在Fedora里使用开机自动启动命令时，提示如下：
+1234567Note: This output shows SysV services only and does not include native      systemd services. SysV configuration data might be overridden by native      systemd conf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux中的chkconfig、service和systemctl">
+<meta property="og:url" content="http://jiangxiaoqiang.com/2016/10/13/linux-chkconfig-service-systemctl/index.html">
 <meta property="og:site_name" content="小强的博客">
+<meta property="og:description" content="最近在Fedora里使用开机自动启动命令时，提示如下：
+1234567Note: This output shows SysV services only and does not include native      systemd services. SysV configuration data might be overridden by native      systemd conf">
+<meta property="og:updated_time" content="2016-10-13T01:04:58.956Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小强的博客">
+<meta name="twitter:title" content="linux中的chkconfig、service和systemctl">
+<meta name="twitter:description" content="最近在Fedora里使用开机自动启动命令时，提示如下：
+1234567Note: This output shows SysV services only and does not include native      systemd services. SysV configuration data might be overridden by native      systemd conf">
 
 
 
@@ -116,9 +123,9 @@
 
 
 
-  <link rel="canonical" href="http://jiangxiaoqiang.com/categories/Linux/"/>
+  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/10/13/linux-chkconfig-service-systemctl/"/>
 
-  <title> 分类: Linux | 小强的博客 </title>
+  <title> linux中的chkconfig、service和systemctl | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -148,7 +155,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -259,47 +266,163 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        Linux
-        <small>分类</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                linux中的chkconfig、service和systemctl
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-13T09:04:58+08:00" content="2016-10-13">
+              2016-10-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/13/linux-chkconfig-service-systemctl/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/13/linux-chkconfig-service-systemctl/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>最近在Fedora里使用开机自动启动命令时，提示如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Note: This output shows SysV services only and does not include native</div><div class="line">      systemd services. SysV configuration data might be overridden by native</div><div class="line">      systemd configuration.</div><div class="line"></div><div class="line">      If you want to list systemd services use &apos;systemctl list-unit-files&apos;.</div><div class="line">      To see services enabled on particular target use</div><div class="line">      &apos;systemctl list-dependencies [target]&apos;.</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>原来是systemctl命令要逐渐取代原来的chkconfig和services命令。在目前很多linux的新发行版本里，系统对于daemon的启动管理方法不再采用SystemV形式，而是使用了sytemd的架构来管理daemon的启动。UpStart\SystemV\systemd三种形式。Linux 操作系统的启动首先从 BIOS 开始，接下来进入 boot loader，由 bootloader 载入内核，进行内核初始化。内核初始化的最后一步就是启动 pid 为 1 的 init 进程。这个进程是系统的第一个进程。它负责产生其他所有用户进程。大多数 Linux 发行版的 init 系统是和 System V 相兼容的，被称为 sysvinit。这是人们最熟悉的 init 系统。一些发行版如 Slackware 采用的是 BSD 风格 Init 系统，这种风格使用较少。其他的发行版如 Gentoo 是自己定制的。Ubuntu 和 RHEL 采用 upstart 替代了传统的 sysvinit。而 Fedora 从版本 15 开始使用了一个被称为 systemd 的新 init 系统。如果需要服务随计算机启动时启用，在Fedora 24中，以SSH服务为例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl enable sshd.service</div></pre></td></tr></table></figure>
+<p>这样SSH守护进程就会在开机时自动启动了。<br>输出的执行结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Created symlink from /etc/systemd/system/multi-user.target.wants/sshd.service to /usr/lib/systemd/system/sshd.service.</div></pre></td></tr></table></figure>
+<p>查看SSH守护进程当前的状态。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl start sshd.service</div></pre></td></tr></table></figure>
+<p>在 Linux 主要应用于服务器和 PC 机的时代，SysVinit 运行非常良好，概念简单清晰。它主要依赖于 Shell 脚本，这就决定了它的最大弱点：启动太慢。在很少重新启动的 Server 上，这个缺点并不重要。而当 Linux 被应用到移动终端设备的时候，启动慢就成了一个大问题。为了更快地启动，人们开始改进 sysvinit，先后出现了 upstart 和 systemd 这两个主要的新一代 init 系统。Upstart 已经开发了 8 年多，在不少系统中已经替换 sysvinit。Systemd 出现较晚，但发展更快，大有取代 upstart 的趋势。而SystemV对应的是service、UpStart对应的是chkconfig、systemd对应的是systemctl命令。</p>
+<p>参考来源：</p>
+<p><a href="https://www.ibm.com/developerworks/cn/linux/1407_liuming_init1/" target="_blank" rel="external">浅析 Linux 初始化 init 系统，第 1 部分: sysvinit</a></p>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/10/08/rm-command/" itemprop="url">
-              
-                <span itemprop="name">rm命令安全</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-08T11:25:38+08:00"
-              content="2016-10-08" >
-          10-08
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag">#linux</a>
+          
+            <a href="/tags/chkconfig/" rel="tag">#chkconfig</a>
+          
+            <a href="/tags/systemctl/" rel="tag">#systemctl</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/12/fedora-desktop-icon/" rel="next" title="Fedora 24添加桌面图标">
+                <i class="fa fa-chevron-left"></i> Fedora 24添加桌面图标
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </section>
 
-  
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -307,6 +430,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -326,8 +460,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -412,6 +555,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -515,6 +669,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
@@ -531,9 +689,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'jiangxiaoqiang';
-      var disqus_identifier = 'categories/Linux/index.html';
-      var disqus_title = "";
-      var disqus_url = '';
+      var disqus_identifier = '2016/10/13/linux-chkconfig-service-systemctl/';
+      var disqus_title = "linux中的chkconfig、service和systemctl";
+      var disqus_url = 'http://jiangxiaoqiang.com/2016/10/13/linux-chkconfig-service-systemctl/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
@@ -544,6 +702,8 @@
       }
 
       run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
       
     </script>
   

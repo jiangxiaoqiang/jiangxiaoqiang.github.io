@@ -4,6 +4,24 @@
   
     
     <entry>
+      <title><![CDATA[linux中的chkconfig、service和systemctl]]></title>
+      <url>http://jiangxiaoqiang.com/2016/10/13/linux-chkconfig-service-systemctl/</url>
+      <content type="html"><![CDATA[<p>最近在Fedora里使用开机自动启动命令时，提示如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Note: This output shows SysV services only and does not include native</div><div class="line">      systemd services. SysV configuration data might be overridden by native</div><div class="line">      systemd configuration.</div><div class="line"></div><div class="line">      If you want to list systemd services use &apos;systemctl list-unit-files&apos;.</div><div class="line">      To see services enabled on particular target use</div><div class="line">      &apos;systemctl list-dependencies [target]&apos;.</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>原来是systemctl命令要逐渐取代原来的chkconfig和services命令。在目前很多linux的新发行版本里，系统对于daemon的启动管理方法不再采用SystemV形式，而是使用了sytemd的架构来管理daemon的启动。UpStart\SystemV\systemd三种形式。Linux 操作系统的启动首先从 BIOS 开始，接下来进入 boot loader，由 bootloader 载入内核，进行内核初始化。内核初始化的最后一步就是启动 pid 为 1 的 init 进程。这个进程是系统的第一个进程。它负责产生其他所有用户进程。大多数 Linux 发行版的 init 系统是和 System V 相兼容的，被称为 sysvinit。这是人们最熟悉的 init 系统。一些发行版如 Slackware 采用的是 BSD 风格 Init 系统，这种风格使用较少。其他的发行版如 Gentoo 是自己定制的。Ubuntu 和 RHEL 采用 upstart 替代了传统的 sysvinit。而 Fedora 从版本 15 开始使用了一个被称为 systemd 的新 init 系统。如果需要服务随计算机启动时启用，在Fedora 24中，以SSH服务为例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl enable sshd.service</div></pre></td></tr></table></figure>
+<p>这样SSH守护进程就会在开机时自动启动了。<br>输出的执行结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Created symlink from /etc/systemd/system/multi-user.target.wants/sshd.service to /usr/lib/systemd/system/sshd.service.</div></pre></td></tr></table></figure>
+<p>查看SSH守护进程当前的状态。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl start sshd.service</div></pre></td></tr></table></figure>
+<p>在 Linux 主要应用于服务器和 PC 机的时代，SysVinit 运行非常良好，概念简单清晰。它主要依赖于 Shell 脚本，这就决定了它的最大弱点：启动太慢。在很少重新启动的 Server 上，这个缺点并不重要。而当 Linux 被应用到移动终端设备的时候，启动慢就成了一个大问题。为了更快地启动，人们开始改进 sysvinit，先后出现了 upstart 和 systemd 这两个主要的新一代 init 系统。Upstart 已经开发了 8 年多，在不少系统中已经替换 sysvinit。Systemd 出现较晚，但发展更快，大有取代 upstart 的趋势。而SystemV对应的是service、UpStart对应的是chkconfig、systemd对应的是systemctl命令。</p>
+<p>参考来源：</p>
+<p><a href="https://www.ibm.com/developerworks/cn/linux/1407_liuming_init1/" target="_blank" rel="external">浅析 Linux 初始化 init 系统，第 1 部分: sysvinit</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Fedora 24添加桌面图标]]></title>
       <url>http://jiangxiaoqiang.com/2016/10/12/fedora-desktop-icon/</url>
       <content type="html"><![CDATA[<p>安装好了Google Chrome和Intellij Idea之后没有桌面图标，也没有快速启动图标，每次启动都要打开终端，甚是麻烦。故将图标放在桌面能够节省不少时间，同时也更加方便。首先安装gnome-tweak-tool:</p>
@@ -14,7 +32,24 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /home/dolphin/Desktop</div></pre></td></tr></table></figure>
 <p>dolphin是当前用户名。新建Google-Chrome.desktop文件。内容为：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env xdg-open</span></div><div class="line"></div><div class="line">[Desktop Entry]</div><div class="line">Encoding=UTF-8</div><div class="line">Name=Google Chrome</div><div class="line">GenericName=Web Browser</div><div class="line">Exec=<span class="string">'/opt/google/chrome/google-chrome'</span></div><div class="line">Icon=/opt/google/chrome/product_logo_256.png</div><div class="line">Terminal=<span class="literal">false</span></div><div class="line">Type=Application</div><div class="line">Categories=Network;</div><div class="line">Name[en_US]=Google Chrome.desktop</div></pre></td></tr></table></figure>
-<p>保存之后双击打开，一定要双击打开哟，否则启动图标不会出现，会出现一个确认界面。提示需要授权启动项，选择授权即可。配置好图标后的效果如图所示。</p>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD:source/_drafts/fedora-desktop-icon.md<br>如下是Intellij Idea的桌面图标配置文件:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env xdg-open</span></div><div class="line"></div><div class="line">[Desktop Entry]</div><div class="line">Encoding=UTF-8</div><div class="line">Name=Intellij Idea</div><div class="line">GenericName=IDE</div><div class="line">Exec=<span class="string">'/opt/idea/idea-IC-162.2032.8/bin/idea.sh'</span></div><div class="line">Icon=/opt/idea/idea-IC-162.2032.8/bin/idea.png</div><div class="line">Terminal=<span class="literal">false</span></div><div class="line">Type=Application</div><div class="line">Categories=IDE;</div><div class="line">Name[en_US]=Intellij Idea</div></pre></td></tr></table></figure>
+<h1 id="保存之后双击打开，一定要双击打开哟，否则启动图标不会出现，会出现一个确认界面。提示需要授权启动项，选择授权即可。效果如图所示。"><a href="#保存之后双击打开，一定要双击打开哟，否则启动图标不会出现，会出现一个确认界面。提示需要授权启动项，选择授权即可。效果如图所示。" class="headerlink" title="保存之后双击打开，一定要双击打开哟，否则启动图标不会出现，会出现一个确认界面。提示需要授权启动项，选择授权即可。效果如图所示。"></a>保存之后双击打开，一定要双击打开哟，否则启动图标不会出现，会出现一个确认界面。提示需要授权启动项，选择授权即可。效果如图所示。</h1><p>保存之后双击打开，一定要双击打开哟，否则启动图标不会出现，会出现一个确认界面。提示需要授权启动项，选择授权即可。配置好图标后的效果如图所示。</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>4e99d314059278a3e0d98003e12a343d3ef83143:source/_posts/fedora-desktop-icon.md</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 <img src="/2016/10/12/fedora-desktop-icon/google-chrome-fedora-desktop-launcher.png" alt="Google-Chrome手动添加桌面图标" title="Google-Chrome手动添加桌面图标">
 <h4 id="快速启动图标"><a href="#快速启动图标" class="headerlink" title="快速启动图标"></a>快速启动图标</h4><p>要让图标在快速启动栏里出现，直接将刚才新建Google-Chrome.desktop文件复制到<code>/usr/share/application</code>目录下即可。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp Google-Chrome.desktop /usr/share/application</div></pre></td></tr></table></figure>
@@ -453,7 +488,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[IntelliJ Idea技巧分享]]></title>
+      <title><![CDATA[IntelliJ Idea快捷键技巧分享]]></title>
       <url>http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/</url>
       <content type="html"><![CDATA[<h4 id="输入乱码"><a href="#输入乱码" class="headerlink" title="输入乱码"></a>输入乱码</h4><p>在控制台输入中文时显示的不是输入的汉字，而是显示正方形符号，此时输入的汉字显示乱码，如图所示。</p>
 <img src="/2016/09/26/intllij-idea-encoding/intelli-idea-input-encode.jpg" alt="输入时乱码" title="输入时乱码">
@@ -610,6 +645,10 @@
 <td>Ctrl + F10</td>
 <td style="text-align:center">更新资源和类文件，热部署(需要配置，部署时选择Exploded模式)</td>
 </tr>
+<tr>
+<td>Ctrl + Shift + T</td>
+<td style="text-align:center">新建测试类，在测试类与被测试类之间跳转</td>
+</tr>
 </tbody>
 </table>
 <h5 id="进入退出全屏"><a href="#进入退出全屏" class="headerlink" title="进入退出全屏"></a>进入退出全屏</h5><p>使用快捷键<code>Alt + V</code>打开View菜单，移动上下键选择<code>Enter Full Screen</code>即可。也可以自定义快捷键。</p>
@@ -695,6 +734,9 @@
 <p>清除表的重复数据。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">delete</span> <span class="keyword">from</span> tablename <span class="keyword">where</span> vtime <span class="keyword">in</span> ( <span class="keyword">select</span> vtime <span class="keyword">from</span> tablename <span class="keyword">group</span> <span class="keyword">by</span> vtime <span class="keyword">having</span> <span class="keyword">count</span>(*)&gt;<span class="number">1</span>) <span class="keyword">and</span> <span class="keyword">id</span> <span class="keyword">not</span> <span class="keyword">in</span> (<span class="keyword">select</span> <span class="keyword">max</span>(<span class="keyword">id</span>) <span class="keyword">from</span> tablename <span class="keyword">group</span> <span class="keyword">by</span> vtime <span class="keyword">having</span> <span class="keyword">count</span>(*)&gt;<span class="number">1</span> );</div></pre></td></tr></table></figure>
 <p>清除同一时间重复的数据（同一时刻只能有1条数据）。</p>
+<p>连接查询。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> P.id <span class="keyword">as</span> <span class="keyword">id</span>, vtime, A.description <span class="keyword">FROM</span> 表P P <span class="keyword">left</span> <span class="keyword">join</span> 表A A <span class="keyword">on</span> P.id=A.positional_Id <span class="keyword">WHERE</span> P.vehicle_id=<span class="string">'cae21196-cb66-4256-88a6-7cdfb23e2c78'</span> <span class="keyword">and</span> P.vtime &gt;= <span class="string">'2016-10-10 00:00:00'</span> <span class="keyword">and</span> P.vtime &lt;= <span class="string">'2016-10-13 23:59:59'</span> <span class="keyword">and</span> P.alarm <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">and</span> P.alarm != <span class="string">'0'</span> <span class="keyword">order</span> <span class="keyword">by</span> P.vtime;</div></pre></td></tr></table></figure>
+<p>注意在做MyBatis映射时，P.id列需要一个别名，对应定义的实体字段。</p>
 <h4 id="函数-Function"><a href="#函数-Function" class="headerlink" title="函数(Function)"></a>函数(Function)</h4><p>substr函数用于截取字符串。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">substr</span>(<span class="keyword">time</span>,<span class="number">0</span>,<span class="number">11</span>) <span class="keyword">from</span> <span class="keyword">test</span> <span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">substr</span>(<span class="keyword">time</span>,<span class="number">0</span>,<span class="number">11</span>);</div></pre></td></tr></table></figure>
 <p>time为需要截取的字符串，从第0位开始截取11位长度。</p>

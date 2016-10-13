@@ -102,7 +102,7 @@
 运行gnome-tweak-tool命令，在弹出的窗口的Desktop选项卡中打开Icons on Desk">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/10/12/fedora-desktop-icon/google-chrome-fedora-desktop-launcher.png">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/10/12/fedora-desktop-icon/google-chrome-startup-icon.png">
-<meta property="og:updated_time" content="2016-10-12T01:06:20.424Z">
+<meta property="og:updated_time" content="2016-10-13T00:43:12.984Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fedora 24添加桌面图标">
 <meta name="twitter:description" content="安装好了Google Chrome和Intellij Idea之后没有桌面图标，也没有快速启动图标，每次启动都要打开终端，甚是麻烦。故将图标放在桌面能够节省不少时间，同时也更加方便。首先安装gnome-tweak-tool:
@@ -367,7 +367,24 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /home/dolphin/Desktop</div></pre></td></tr></table></figure>
 <p>dolphin是当前用户名。新建Google-Chrome.desktop文件。内容为：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env xdg-open</span></div><div class="line"></div><div class="line">[Desktop Entry]</div><div class="line">Encoding=UTF-8</div><div class="line">Name=Google Chrome</div><div class="line">GenericName=Web Browser</div><div class="line">Exec=<span class="string">'/opt/google/chrome/google-chrome'</span></div><div class="line">Icon=/opt/google/chrome/product_logo_256.png</div><div class="line">Terminal=<span class="literal">false</span></div><div class="line">Type=Application</div><div class="line">Categories=Network;</div><div class="line">Name[en_US]=Google Chrome.desktop</div></pre></td></tr></table></figure>
-<p>保存之后双击打开，一定要双击打开哟，否则启动图标不会出现，会出现一个确认界面。提示需要授权启动项，选择授权即可。配置好图标后的效果如图所示。</p>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD:source/_drafts/fedora-desktop-icon.md<br>如下是Intellij Idea的桌面图标配置文件:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env xdg-open</span></div><div class="line"></div><div class="line">[Desktop Entry]</div><div class="line">Encoding=UTF-8</div><div class="line">Name=Intellij Idea</div><div class="line">GenericName=IDE</div><div class="line">Exec=<span class="string">'/opt/idea/idea-IC-162.2032.8/bin/idea.sh'</span></div><div class="line">Icon=/opt/idea/idea-IC-162.2032.8/bin/idea.png</div><div class="line">Terminal=<span class="literal">false</span></div><div class="line">Type=Application</div><div class="line">Categories=IDE;</div><div class="line">Name[en_US]=Intellij Idea</div></pre></td></tr></table></figure>
+<h1 id="保存之后双击打开，一定要双击打开哟，否则启动图标不会出现，会出现一个确认界面。提示需要授权启动项，选择授权即可。效果如图所示。"><a href="#保存之后双击打开，一定要双击打开哟，否则启动图标不会出现，会出现一个确认界面。提示需要授权启动项，选择授权即可。效果如图所示。" class="headerlink" title="保存之后双击打开，一定要双击打开哟，否则启动图标不会出现，会出现一个确认界面。提示需要授权启动项，选择授权即可。效果如图所示。"></a>保存之后双击打开，一定要双击打开哟，否则启动图标不会出现，会出现一个确认界面。提示需要授权启动项，选择授权即可。效果如图所示。</h1><p>保存之后双击打开，一定要双击打开哟，否则启动图标不会出现，会出现一个确认界面。提示需要授权启动项，选择授权即可。配置好图标后的效果如图所示。</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>4e99d314059278a3e0d98003e12a343d3ef83143:source/_posts/fedora-desktop-icon.md</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 <img src="/2016/10/12/fedora-desktop-icon/google-chrome-fedora-desktop-launcher.png" alt="Google-Chrome手动添加桌面图标" title="Google-Chrome手动添加桌面图标">
 <h4 id="快速启动图标"><a href="#快速启动图标" class="headerlink" title="快速启动图标"></a>快速启动图标</h4><p>要让图标在快速启动栏里出现，直接将刚才新建Google-Chrome.desktop文件复制到<code>/usr/share/application</code>目录下即可。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp Google-Chrome.desktop /usr/share/application</div></pre></td></tr></table></figure>
@@ -415,6 +432,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/13/linux-chkconfig-service-systemctl/" rel="prev" title="linux中的chkconfig、service和systemctl">
+                linux中的chkconfig、service和systemctl <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -489,7 +510,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-count">33</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -506,7 +527,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">52</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -570,7 +591,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#桌面图标"><span class="nav-number">1.</span> <span class="nav-text">桌面图标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快速启动图标"><span class="nav-number">2.</span> <span class="nav-text">快速启动图标</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#桌面图标"><span class="nav-number">1.</span> <span class="nav-text">桌面图标</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#保存之后双击打开，一定要双击打开哟，否则启动图标不会出现，会出现一个确认界面。提示需要授权启动项，选择授权即可。效果如图所示。"><span class="nav-number"></span> <span class="nav-text">保存之后双击打开，一定要双击打开哟，否则启动图标不会出现，会出现一个确认界面。提示需要授权启动项，选择授权即可。效果如图所示。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#快速启动图标"><span class="nav-number">1.</span> <span class="nav-text">快速启动图标</span></a></li></ol></div>
             
           </div>
         </section>
