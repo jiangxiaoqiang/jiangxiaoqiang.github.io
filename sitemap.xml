@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/14/script-startup-with-linux/</loc>
+    
+    <lastmod>2016-10-14T09:48:00.686Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/14/java-8-using-stream-api/</loc>
     
     <lastmod>2016-10-14T07:28:51.480Z</lastmod>
@@ -156,14 +163,14 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/13/spring/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/18/springmvc-dispatcherservlet/</loc>
     
     <lastmod>2016-10-03T03:34:36.520Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/18/springmvc-dispatcherservlet/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/13/spring/</loc>
     
     <lastmod>2016-10-03T03:34:36.520Z</lastmod>
     
@@ -191,14 +198,14 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/14/maven-private-service/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/19/lombok/</loc>
     
     <lastmod>2016-10-03T03:34:36.516Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/19/lombok/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/14/maven-private-service/</loc>
     
     <lastmod>2016-10-03T03:34:36.516Z</lastmod>
     
@@ -226,14 +233,14 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/28/hashcode-and-equals/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/10/01/hadoop-cluster-deploy/</loc>
     
     <lastmod>2016-10-03T03:34:36.509Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/01/hadoop-cluster-deploy/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/28/hashcode-and-equals/</loc>
     
     <lastmod>2016-10-03T03:34:36.509Z</lastmod>
     

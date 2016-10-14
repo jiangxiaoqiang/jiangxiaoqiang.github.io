@@ -4,6 +4,32 @@
   
     
     <entry>
+      <title><![CDATA[Linux自动启动]]></title>
+      <url>http://jiangxiaoqiang.com/2016/10/14/script-startup-with-linux/</url>
+      <content type="html"><![CDATA[<h4 id="开机时自动运行"><a href="#开机时自动运行" class="headerlink" title="开机时自动运行"></a>开机时自动运行</h4><p>一般有守护进程的服务在Fedora 24中都可以通过systemctl命令自动运行。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl <span class="built_in">enable</span> ServiceName</div></pre></td></tr></table></figure>
+<p>对于没有服务的程序，如果想在开机时随系统启动可以通过脚本来实现。</p>
+<a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nohup openvpn /etc/openvpn/client.conf</div></pre></td></tr></table></figure>
+<p>添加nohup后台启动，避免父进程结束的时候一并结束子进程。在<code>/etc/rc.d/rc.local</code>脚本中加入如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/etc/openvpn/startopenvpn.sh</div></pre></td></tr></table></figure>
+<ul>
+<li>0:Halt</li>
+<li>1:Single-user mode</li>
+<li>2:Multi-user mode</li>
+<li>3:Multi-user mode with networking</li>
+<li>4:Not used/user-definable</li>
+<li>5:Start the system normally with appropriate display manager (with GUI)</li>
+<li>6:Reboot</li>
+</ul>
+<h4 id="登录后自动运行程序"><a href="#登录后自动运行程序" class="headerlink" title="登录后自动运行程序"></a>登录后自动运行程序</h4><p>用户登录时，bash首先自动执行系统管理员建立的全局登录script ：/etc/profile。然后bash在用户起始目录下按顺序查找三个特殊文件中的一个：/.bash_profile、/.bash_login、/.profile，但只执行最先找到的 一个。因此，只需根据实际需要在上述文件中加入命令就可以实现用户登录时自动运行某些程序（类似于DOS下的 Autoexec.bat）。简单的方法,在/etc/inittab 结尾加上你要启动的程序。/etc/profile： 此文件为系统的每个用户设置环境信息,当用户第一次登录时,该文件被执行。/etc/bashrc: 为每一个运行bash shell的用户执行此文件。~/.bashrc: 当登录时以及每次打开新的shell时,该该文件被执行。</p>
+<h4 id="联网后自动运行程序"><a href="#联网后自动运行程序" class="headerlink" title="联网后自动运行程序"></a>联网后自动运行程序</h4><p>网络连接建立后运行的脚本可以实现诸多实用功能，如动态域名绑定、连接VPN、上网认证等。实现这一目标的大体思路有两种：在基于NetworkManager的系统中，可配置其dispatcher脚本；Fedora对这一功能支持的不是很好，只能在网络连接建立后运行一个脚本，即/sbin/ifup-local。这个文件默认不存在，需要手动创建。下面的例子用vi编辑/创建这个文件，并添加执行权限。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vi /sbin/ifup-local</div><div class="line">chmod 755 /sbin/ifup-local</div></pre></td></tr></table></figure>
+<p><a href="https://en.wikipedia.org/wiki/Runlevel" target="_blank" rel="external">Runlevel</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Java 8 使用Stream API]]></title>
       <url>http://jiangxiaoqiang.com/2016/10/14/java-8-using-stream-api/</url>
       <content type="html"><![CDATA[<h4 id="遍历集合中的列"><a href="#遍历集合中的列" class="headerlink" title="遍历集合中的列"></a>遍历集合中的列</h4><p>Stream是Java8中，操作集合的一个重要特性。这里要遍历集合中对象的某一个属性，并取出来用“，”拼接成字符串，传统的写法是写循环遍历每个对象，从中取出某一个属性，进行拼接操作。在Java 8里可以使用Stream API只需要一行代码，非常简洁。</p>
@@ -979,6 +1005,12 @@
     </entry>
     
     <entry>
+      <title><![CDATA[tags]]></title>
+      <url>http://jiangxiaoqiang.com/tags/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[关于]]></title>
       <url>http://jiangxiaoqiang.com/about/index.html</url>
       <content type="html"><![CDATA[<p>这里是dolphin的部落格，若此分享能够作为您的参考，是我的荣幸。</p>
@@ -987,12 +1019,6 @@
 <li>Mail:jiangtingqiang@gmal.com</li>
 </ul>
 ]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[tags]]></title>
-      <url>http://jiangxiaoqiang.com/tags/index.html</url>
-      <content type="html"></content>
     </entry>
     
   
