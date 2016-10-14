@@ -104,7 +104,7 @@
 配置生成客户端文件到OpenVPN服务端easy-rsa目录下，输入如下命令生成客户端key：
 1build-key client
 这里介绍在Fedora中如何设置Open">
-<meta property="og:updated_time" content="2016-10-11T10:22:38.676Z">
+<meta property="og:updated_time" content="2016-10-13T01:54:25.145Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fedora 24 OpenVPN客户端配置">
 <meta name="twitter:description" content="安装输入如下命令安装。
@@ -397,7 +397,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo systemctl daemon-reload</div><div class="line">$ sudo systemctl restart NetworkManager.service</div></pre></td></tr></table></figure>
 <p>提示如下错误：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">Sun Oct 09 11:33:22 2016 OpenVPN 2.2.2 Win32-MSVC++ [SSL] [LZO2] [PKCS11] built on Dec 15 2011</div><div class="line">Sun Oct 09 11:33:22 2016 NOTE: OpenVPN 2.1 requires &apos;--script-security 2&apos; or higher to call user-defined scripts or executables</div><div class="line">Sun Oct 09 11:33:22 2016 LZO compression initialized</div><div class="line">Sun Oct 09 11:33:22 2016 Control Channel MTU parms [ L:1544 D:140 EF:40 EB:0 ET:0 EL:0 ]</div><div class="line">Sun Oct 09 11:33:22 2016 Socket Buffers: R=[8192-&gt;8192] S=[8192-&gt;8192]</div><div class="line">Sun Oct 09 11:33:22 2016 Data Channel MTU parms [ L:1544 D:1450 EF:44 EB:135 ET:0 EL:0 AF:3/1 ]</div><div class="line">Sun Oct 09 11:33:22 2016 Local Options hash (VER=V4): &apos;69109d17&apos;</div><div class="line">Sun Oct 09 11:33:22 2016 Expected Remote Options hash (VER=V4): &apos;c0103fa8&apos;</div><div class="line">Sun Oct 09 11:33:22 2016 Attempting to establish TCP connection with 113.204.5.58:1194</div><div class="line">Sun Oct 09 11:33:23 2016 TCP: connect to 113.204.5.58:1194 failed, will try again in 5 seconds: Connection refused (WSAECONNREFUSED)</div><div class="line">Sun Oct 09 11:33:29 2016 TCP: connect to 113.204.5.58:1194 failed, will try again in 5 seconds: Connection refused (WSAECONNREFUSED)</div><div class="line">Sun Oct 09 11:33:35 2016 TCP: connect to 113.204.5.58:1194 failed, will try again in 5 seconds: Connection refused (WSAECONNREFUSED)</div><div class="line">Sun Oct 09 11:33:41 2016 TCP: connect to 113.204.5.58:1194 failed, will try again in 5 seconds: Connection refused (WSAECONNREFUSED)</div></pre></td></tr></table></figure>
-<p>检查服务端的配置文件无误，这里是将位数由1024改为2048后在服务端的配置文件没有修改为2048pem。</p>
+<p>首先检查服务端OpenVPN是否已经启动；其次检查服务端的配置文件无误，这里是将位数由1024改为2048后在服务端的配置文件没有修改为2048pem。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># Diffie hellman parameters.</div><div class="line"># Generate your own with:</div><div class="line">#   openssl dhparam -out dh1024.pem 1024</div><div class="line"># Substitute 2048 for 1024 if you are using</div><div class="line"># 2048 bit keys.</div><div class="line">dh dh2048.pem #将此处由dh1024.pem修改为dh2048.pem即可</div></pre></td></tr></table></figure>
 <p>出现如下错误：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Tue Oct 11 12:44:00 2016 Socket Buffers: R=[124928-&gt;124928] S=[124928-&gt;124928]</div><div class="line">Tue Oct 11 12:44:00 2016 UDPv4 link local: [undef]</div><div class="line">Tue Oct 11 12:44:00 2016 UDPv4 link remote: [AF_INET]192.168.24.243:1194</div><div class="line">Tue Oct 11 12:45:00 2016 TLS Error: TLS key negotiation failed to occur within 60 seconds (check your network connectivity)</div><div class="line">Tue Oct 11 12:45:00 2016 TLS Error: TLS handshake failed</div><div class="line">Tue Oct 11 12:45:00 2016 SIGUSR1[soft,tls-error] received, process restarting</div><div class="line">Tue Oct 11 12:45:00 2016 Restart pause, 2 second(s)</div></pre></td></tr></table></figure>
@@ -522,7 +522,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -539,7 +539,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

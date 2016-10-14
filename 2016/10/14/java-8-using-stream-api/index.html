@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Ambari,HDP," />
+  <meta name="keywords" content="Java 8,Stream API," />
 
 
 
@@ -90,19 +90,16 @@
 
 
 
-<meta name="description" content="移除Ambari服务依次运行如下命令：
-1rpm -qa | grep ambari">
+<meta name="description" content="遍历集合中的列Stream是Java8中，操作集合的一个重要特性。这里要遍历集合中对象的某一个属性，并取出来用“，”拼接成字符串，传统的写法是写循环遍历每个对象，从中取出某一个属性，进行拼接操作。在Java 8里可以使用Stream API只需要一行代码，非常简洁。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="卸载HDP和Ambari">
-<meta property="og:url" content="http://jiangxiaoqiang.com/2016/10/07/ambari-uninstall/index.html">
+<meta property="og:title" content="Java 8 使用Stream API">
+<meta property="og:url" content="http://jiangxiaoqiang.com/2016/10/14/java-8-using-stream-api/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="移除Ambari服务依次运行如下命令：
-1rpm -qa | grep ambari">
-<meta property="og:updated_time" content="2016-10-07T05:40:49.301Z">
+<meta property="og:description" content="遍历集合中的列Stream是Java8中，操作集合的一个重要特性。这里要遍历集合中对象的某一个属性，并取出来用“，”拼接成字符串，传统的写法是写循环遍历每个对象，从中取出某一个属性，进行拼接操作。在Java 8里可以使用Stream API只需要一行代码，非常简洁。">
+<meta property="og:updated_time" content="2016-10-14T07:25:32.258Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="卸载HDP和Ambari">
-<meta name="twitter:description" content="移除Ambari服务依次运行如下命令：
-1rpm -qa | grep ambari">
+<meta name="twitter:title" content="Java 8 使用Stream API">
+<meta name="twitter:description" content="遍历集合中的列Stream是Java8中，操作集合的一个重要特性。这里要遍历集合中对象的某一个属性，并取出来用“，”拼接成字符串，传统的写法是写循环遍历每个对象，从中取出某一个属性，进行拼接操作。在Java 8里可以使用Stream API只需要一行代码，非常简洁。">
 
 
 
@@ -123,9 +120,9 @@
 
 
 
-  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/10/07/ambari-uninstall/"/>
+  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/10/14/java-8-using-stream-api/"/>
 
-  <title> 卸载HDP和Ambari | 小强的博客 </title>
+  <title> Java 8 使用Stream API | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -287,7 +284,7 @@
             
             
               
-                卸载HDP和Ambari
+                Java 8 使用Stream API
               
             
           </h1>
@@ -299,8 +296,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-07T12:35:59+08:00" content="2016-10-07">
-              2016-10-07
+            <time itemprop="dateCreated" datetime="2016-10-14T15:25:32+08:00" content="2016-10-14">
+              2016-10-14
             </time>
           </span>
 
@@ -329,8 +326,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/07/ambari-uninstall/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/07/ambari-uninstall/" itemprop="commentsCount"></span>
+                <a href="/2016/10/14/java-8-using-stream-api/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/14/java-8-using-stream-api/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -353,20 +350,11 @@
       
 
       
-        <h4 id="移除Ambari服务"><a href="#移除Ambari服务" class="headerlink" title="移除Ambari服务"></a>移除Ambari服务</h4><p>依次运行如下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -qa | grep ambari</div></pre></td></tr></table></figure>
+        <h4 id="遍历集合中的列"><a href="#遍历集合中的列" class="headerlink" title="遍历集合中的列"></a>遍历集合中的列</h4><p>Stream是Java8中，操作集合的一个重要特性。这里要遍历集合中对象的某一个属性，并取出来用“，”拼接成字符串，传统的写法是写循环遍历每个对象，从中取出某一个属性，进行拼接操作。在Java 8里可以使用Stream API只需要一行代码，非常简洁。</p>
 <a id="more"></a>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">ambari-server stop</div><div class="line">ambari-server reset</div><div class="line">ambari-agent stop</div><div class="line">rpm -qa | grep ambari</div><div class="line"><span class="comment">#移除Ambari Server安装包</span></div><div class="line">yum erase ambari-server -y</div><div class="line">rm -rf /var/lib/ambari-server</div><div class="line">rm -rf /var/run/ambari-server</div><div class="line">rm -rf /usr/lib/amrbari-server</div><div class="line">rm -rf /etc/ambari-server</div><div class="line">rm -rf /var/<span class="built_in">log</span>/ambari-server</div><div class="line">rm -rf /usr/lib/python2.6/site-packages/ambari*</div></pre></td></tr></table></figure>
-<h4 id="Ambari-Agent-Cleanup-Script"><a href="#Ambari-Agent-Cleanup-Script" class="headerlink" title="Ambari Agent Cleanup Script"></a>Ambari Agent Cleanup Script</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python /usr/lib/python2.6/site-packages/ambari_agent/HostCleanup.py <span class="_">-s</span> -k users</div></pre></td></tr></table></figure>
-<h4 id="Remove-Packages"><a href="#Remove-Packages" class="headerlink" title="Remove Packages"></a>Remove Packages</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum erase -y `yum list | grep @HDP-2 | awk <span class="string">'&#123; print $1 &#125;'</span>`</div><div class="line">yum erase -y `yum list | grep 2_3_ | awk <span class="string">'&#123; print $1&#125;'</span>`</div></pre></td></tr></table></figure>
-<h4 id="移除文件夹-Clean-Folders"><a href="#移除文件夹-Clean-Folders" class="headerlink" title="移除文件夹(Clean Folders)"></a>移除文件夹(Clean Folders)</h4><p>移除文件夹(Clean Folders)脚本：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div></pre></td><td class="code"><pre><div class="line">rm -rf</div><div class="line"><span class="comment"># Log dirs</span></div><div class="line">/var/<span class="built_in">log</span>/ambari-metrics-monitor</div><div class="line">/var/<span class="built_in">log</span>/hadoop</div><div class="line">/var/<span class="built_in">log</span>/hbase</div><div class="line">/var/<span class="built_in">log</span>/hadoop-yarn</div><div class="line">/var/<span class="built_in">log</span>/hadoop-mapreduce</div><div class="line">/var/<span class="built_in">log</span>/hive</div><div class="line">/var/<span class="built_in">log</span>/oozie</div><div class="line">/var/<span class="built_in">log</span>/zookeeper</div><div class="line">/var/<span class="built_in">log</span>/flume</div><div class="line">/var/<span class="built_in">log</span>/hive-hcatalog</div><div class="line">/var/<span class="built_in">log</span>/falcon</div><div class="line">/var/<span class="built_in">log</span>/knox</div><div class="line">/var/lib/hive</div><div class="line">/var/lib/oozie</div><div class="line"></div><div class="line"><span class="comment"># DataNode HDFS dirs</span></div><div class="line">/grid*/hadoop</div><div class="line"></div><div class="line"><span class="comment"># Hadoop dirs</span></div><div class="line">/usr/hdp</div><div class="line">/usr/bin/hadoop</div><div class="line">/tmp/hadoop</div><div class="line">/var/hadoop</div><div class="line">/hadoop/*</div><div class="line">/<span class="built_in">local</span>/opt/hadoop</div><div class="line"></div><div class="line"><span class="comment"># Config dirs</span></div><div class="line">/etc/hadoop</div><div class="line">/etc/hbase</div><div class="line">/etc/oozie</div><div class="line">/etc/phoenix</div><div class="line">/etc/hive</div><div class="line">/etc/zookeeper</div><div class="line">/etc/flume</div><div class="line">/etc/hive-hcatalog</div><div class="line">/etc/tez</div><div class="line">/etc/falcon</div><div class="line">/etc/knox</div><div class="line">/etc/hive-webhcat</div><div class="line">/etc/mahout</div><div class="line">/etc/pig</div><div class="line">/etc/hadoop-httpfs</div><div class="line"></div><div class="line"><span class="comment"># PIDs</span></div><div class="line">/var/run/hadoop</div><div class="line">/var/run/hbase</div><div class="line">/var/run/hadoop-yarn</div><div class="line">/var/run/hadoop-mapreduce</div><div class="line">/var/run/hive</div><div class="line">/var/run/oozie</div><div class="line">/var/run/zookeeper</div><div class="line">/var/run/flume</div><div class="line">/var/run/hive-hcatalog</div><div class="line">/var/run/falcon</div><div class="line">/var/run/webhcat</div><div class="line">/var/run/knox</div><div class="line"></div><div class="line"><span class="comment"># ZK db files</span></div><div class="line">/<span class="built_in">local</span>/home/zookeeper/*</div><div class="line"></div><div class="line"><span class="comment"># libs</span></div><div class="line">/usr/lib/flume</div><div class="line">/usr/lib/storm</div><div class="line">/var/lib/hadoop-hdfs</div><div class="line">/var/lib/hadoop-yarn</div><div class="line">/var/lib/hadoop-mapreduce</div><div class="line">/var/lib/flume</div><div class="line">/var/lib/knox</div><div class="line"></div><div class="line"><span class="comment">#Ambari Metrics</span></div><div class="line">/usr/lib/ambari-metrics-grafana</div><div class="line">/usr/lib/ambari-metrics-hadoop-sink</div><div class="line">/usr/lib/ambari-metrics-kafka-sink</div><div class="line">/var/lib/ambari-metrics-collector</div><div class="line">/var/lib/ambari-metrics-grafana</div><div class="line">/var/run/ambari-metrics-collector</div><div class="line">/var/run/ambari-metrics-monitor</div><div class="line">/var/run/ambari-metrics-grafana</div><div class="line">/var/<span class="built_in">log</span>/ambari-metrics-collector</div><div class="line">/var/<span class="built_in">log</span>/ambari-metrics-monitor</div><div class="line">/var/<span class="built_in">log</span>/ambari-metrics-grafana</div><div class="line">/etc/ambari-metrics-collector</div><div class="line">/etc/ambari-metrics-monitor</div><div class="line">/etc/ambari-metrics-grafana</div><div class="line"></div><div class="line"><span class="comment"># other</span></div><div class="line">/var/tmp/oozie</div></pre></td></tr></table></figure>
-<h4 id="Clean-Repository"><a href="#Clean-Repository" class="headerlink" title="Clean Repository"></a>Clean Repository</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum clean all</div></pre></td></tr></table></figure>
-<p>在重装之前一定要移除干净。</p>
-<p>各个服务的目录位置如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">/etc/&lt;service_name&gt;</div><div class="line">/usr/lib/&lt;service_name&gt;</div><div class="line">/var/lib/&lt;service_name&gt;</div><div class="line">/var/log/&lt;service_name&gt;</div><div class="line">/var/run/&lt;service_name&gt;</div><div class="line">/var/tmp/&lt;service_name&gt;</div><div class="line">/tmp/&lt;service_name&gt;</div></pre></td></tr></table></figure>
-<p>参考资料来自：</p>
-<p><a href="http://henning.kropponline.de/2016/04/24/uninstalling-and-cleaning-a-hdp-node/" target="_blank" rel="external">Uninstalling and Cleaning a HDP Node</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">List&lt;WorkDayDataInfo&gt; workDayDataInfo = workDayInfos.get(currentWorkDay).getDatas();</div><div class="line">String assignmentIdStream = assignments.stream().map(p -&gt; p.getId()).collect(Collectors.joining(<span class="string">","</span>));</div></pre></td></tr></table></figure>
+<p>对于基本数据类型的拼接：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">List&lt;Integer&gt; numbers = Arrays.asList( <span class="number">4</span>, <span class="number">8</span>, <span class="number">15</span>, <span class="number">16</span>, <span class="number">23</span>, <span class="number">42</span> );</div><div class="line"><span class="keyword">return</span> numbers.stream().map( n -&gt; n.toString() ).collect( Collectors.joining( <span class="string">","</span> ) );</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -389,9 +377,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Ambari/" rel="tag">#Ambari</a>
+            <a href="/tags/Java-8/" rel="tag">#Java 8</a>
           
-            <a href="/tags/HDP/" rel="tag">#HDP</a>
+            <a href="/tags/Stream-API/" rel="tag">#Stream API</a>
           
         </div>
       
@@ -400,17 +388,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/05/dnf-vs-yum/" rel="next" title="dnf与yum">
-                <i class="fa fa-chevron-left"></i> dnf与yum
+              <a href="/2016/10/13/linux-chkconfig-service-systemctl/" rel="next" title="linux中的chkconfig、service和systemctl">
+                <i class="fa fa-chevron-left"></i> linux中的chkconfig、service和systemctl
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/07/ambari-metrics-reinstall/" rel="prev" title="Ambari Metrics重装">
-                Ambari Metrics重装 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -566,7 +550,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#移除Ambari服务"><span class="nav-number">1.</span> <span class="nav-text">移除Ambari服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ambari-Agent-Cleanup-Script"><span class="nav-number">2.</span> <span class="nav-text">Ambari Agent Cleanup Script</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Remove-Packages"><span class="nav-number">3.</span> <span class="nav-text">Remove Packages</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#移除文件夹-Clean-Folders"><span class="nav-number">4.</span> <span class="nav-text">移除文件夹(Clean Folders)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Clean-Repository"><span class="nav-number">5.</span> <span class="nav-text">Clean Repository</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#遍历集合中的列"><span class="nav-number">1.</span> <span class="nav-text">遍历集合中的列</span></a></li></ol></div>
             
           </div>
         </section>
@@ -693,9 +677,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'jiangxiaoqiang';
-      var disqus_identifier = '2016/10/07/ambari-uninstall/';
-      var disqus_title = "卸载HDP和Ambari";
-      var disqus_url = 'http://jiangxiaoqiang.com/2016/10/07/ambari-uninstall/';
+      var disqus_identifier = '2016/10/14/java-8-using-stream-api/';
+      var disqus_title = "Java 8 使用Stream API";
+      var disqus_url = 'http://jiangxiaoqiang.com/2016/10/14/java-8-using-stream-api/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
