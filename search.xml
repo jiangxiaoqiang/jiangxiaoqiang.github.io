@@ -4,7 +4,58 @@
   
     
     <entry>
-      <title><![CDATA[Linux自动启动]]></title>
+      <title><![CDATA[Fedora 24搭建Git Server]]></title>
+      <url>http://jiangxiaoqiang.com/2016/10/16/fedora-git-server/</url>
+      <content type="html"><![CDATA[<p>想将代码拷贝到家里的电脑，在安静的时刻可以阅读消化。每天用U盘拷贝也是比较麻烦，本来Github挺好用的，但是闭源的托管需要费用。刚好办公电脑和家里的电脑安装了OpenVPN,所以就想在家里的电脑搭建一个Git Server，通过OpenVPN将家里的电脑和办公电脑相连(相当于局域网)。这样就可以随时提交代码了。同时也想以SSH连接家里的电脑，所以同时也安装了OpenSSH。也可以SSH远程Copy，但是无法增量Copy，Copy一次大概需要2-3个小时。遂放弃SSH Copy的方案。</p>
+<a id="more"></a>
+<h4 id="启动SSH服务"><a href="#启动SSH服务" class="headerlink" title="启动SSH服务"></a>启动SSH服务</h4><p>确定是否已经安装SSH服务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -qa | grep openssh-server</div></pre></td></tr></table></figure>
+<p>如果没有安装服务，输入如下命令安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dnf install openssh-server -y</div></pre></td></tr></table></figure>
+<p>修改配置文件:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/ssh/sshd_config</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#Port 22  监听的端口号，默认是22，可以自定义。</span></div><div class="line"><span class="comment">#Protocol 2  支持的协议，默认就好，不用修改</span></div><div class="line"><span class="comment">#PermitRootLogin yes 是否允许root直接登录，最好设置为no</span></div><div class="line"><span class="comment">#MMaxAuthTries 6 最大登录数，默认是6，建议设置为3，防止别人密码穷举。</span></div></pre></td></tr></table></figure>
+<p>修改完配置后，重启SSH服务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service ssh restart</div></pre></td></tr></table></figure>
+<p>查看SSH服务状态:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service sshd status</div></pre></td></tr></table></figure>
+<p>允许此端口（22）访问：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">iptables -A INPUT -p tcp --dport 22 -j ACCEPT</div></pre></td></tr></table></figure>
+<h4 id="初始化Git仓库"><a href="#初始化Git仓库" class="headerlink" title="初始化Git仓库"></a>初始化Git仓库</h4><p>先在Fedora机器上，选定一个目录作为Git仓库，这里选择的是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/home/dolphin/dolphin/source/zwlbs/plateform3.0/zwlbs.git</div></pre></td></tr></table></figure>
+<p>在目录下输入命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo git init --bare zwlbs.git</div></pre></td></tr></table></figure>
+<h4 id="签出Git库"><a href="#签出Git库" class="headerlink" title="签出Git库"></a>签出Git库</h4><p>在办公的电脑上输入如下命令签出Git仓库：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> dolphin@10.0.0.6:/home/dolphin/dolphin/<span class="built_in">source</span>/zwlbs/plateform3.0/zwlbs.git</div></pre></td></tr></table></figure>
+<p>签出时会提示确定指纹，选择yes，同时需要输入用户dolphin的密码，输入即可。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[在Fedora 24中使用xx-net]]></title>
+      <url>http://jiangxiaoqiang.com/2016/10/15/Fedora-24-using-xxnet/</url>
+      <content type="html"><![CDATA[<p>虽然此处实际在Linux平台进行的配置，但是XX-Net是跨平台的，在Windows、Mac OS下一样可以使用，在其他的操作系统下配置类似。在Fedora 24中安装完Google Chrome之后，还需要同步在Windows平台上保存的Google Chrome的书签（里面有好多收藏的好网站）、Cookie(不用每次登陆网页输入用户名和密码，记忆用户名和密码非常具有迷惑性，目前注册的用户名密码真的太多了，根本记不住，现在都是借助KeePass来记忆)等等数据。平时的搜索还是需要用Google，Google相比于百度，搜索出的结果更加精确，内容对于用户更加有意义。当你迫切想要知道某个问题的思路时，如果搜索出来一些无关痛痒的内容，是非常浪费时间的，消磨你的意志，会让你有一种被掏空了的感觉，对就是那种感觉。极大的降低了效率，想想如此庞大的用户基数，如果搜索出的内容不精准、没有意义所造成的资源浪费（时间、精力、意志力等）是非常恐怖的。所以这也是为什么费尽心思要使用Google，当你顺利的找到自己想要的内容并快速完成任务时，会深刻的体会到前期在科学上网里花费的时间是值得的。要做到以上两点，就需要借助XX-Net。</p>
+<a id="more"></a>
+<h4 id="xx-net简介"><a href="#xx-net简介" class="headerlink" title="xx-net简介"></a>xx-net简介</h4><p>XX-Net是一款让你可以让你提高工作效率的工具，它通过让你可以获取到更多的信息的方式达到。<!--比如家里的娃娃晚上总是不睡觉啊，大人也是天天熊猫眼，可以向朋友取经（限于朋友圈子），如果单身狗比较多，就只能自己摸索了，但是有了xx-net,你可以向任何一个国家的人求助阿，提高了寻找到解决方案的概率。-->XX-Net is a free desktop application that delivers fast, reliable and secure access to the open Internet for users in censored regions. It uses google app engine (GAE:Google App Engine) as a proxy server through the firewall.截至目前，xx-net在Github上(全球最大的同性交友网站)已经有10000+的star和1000+的watch。</p>
+<h4 id="下载xx-net"><a href="#下载xx-net" class="headerlink" title="下载xx-net"></a>下载xx-net</h4><p>下载在<a href="https://github.com/XX-net/XX-Net/blob/master/code/default/download.md" target="_blank" rel="external">Github</a>.这里下载的是稳定版(Stable Version).</p>
+<h4 id="启动xx-net"><a href="#启动xx-net" class="headerlink" title="启动xx-net"></a>启动xx-net</h4><p>下载完毕后,解压文件夹，在终端中切换到解压的文件夹下，运行启动命令。如果是在Windows下，运行<code>start.vbs</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./start</div></pre></td></tr></table></figure>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>配置主要分为两步，第一步是安装代理自动切换插件，第二步是导入证书。</p>
+<h5 id="安装代理切换插件"><a href="#安装代理切换插件" class="headerlink" title="安装代理切换插件"></a>安装代理切换插件</h5><p>打开Google Chrome浏览器，切换到插件管理页面,可以选择Settings-Extensions,也可以访问链接：<code>chrome://extensions/</code>，将文件<code>/opt/xx-net/SwitchyOmega/SwitchyOmega.crx</code>托放到浏览器中，即可安装代理自动切换插件SwitchyOmega。</p>
+<h5 id="导入证书"><a href="#导入证书" class="headerlink" title="导入证书"></a>导入证书</h5><p>在Google Chrome浏览器中，访问地址：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chrome://settings/certificates</div></pre></td></tr></table></figure>
+<p>选择Authorities选项卡，选择导入(Import)证书。如下图所示。</p>
+<img src="/2016/10/15/Fedora-24-using-xxnet/import-authorize.png" alt="Google-Chrome导入证书" title="Google-Chrome导入证书">
+<p>证书导入完成后在浏览器中访问地址：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">localhost:8085</div></pre></td></tr></table></figure>
+<p>出现如下图所示页面表示导入成功。</p>
+<img src="/2016/10/15/Fedora-24-using-xxnet/configuration-success.png" alt="Google-Chrome导入证书" title="Google-Chrome导入证书">
+<h4 id="验证配置并使用"><a href="#验证配置并使用" class="headerlink" title="验证配置并使用"></a>验证配置并使用</h4><p>访问Google搜索引擎，如果能够成功访问Google,代表配置成功。如果首次无法访问，可以待后台程序多运行一些时间，几十分钟到几小时不等。一段时间之后再次尝试。需要注意的是XX-Net代理上网不具有匿名性，或者说匿名性很弱。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Linux开机自动启动程序]]></title>
       <url>http://jiangxiaoqiang.com/2016/10/14/script-startup-with-linux/</url>
       <content type="html"><![CDATA[<h4 id="开机时自动运行"><a href="#开机时自动运行" class="headerlink" title="开机时自动运行"></a>开机时自动运行</h4><p>一般有守护进程的服务在Fedora 24中都可以通过systemctl命令自动运行。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl <span class="built_in">enable</span> ServiceName</div></pre></td></tr></table></figure>
@@ -22,7 +73,11 @@
 <li>5:Start the system normally with appropriate display manager (with GUI)</li>
 <li>6:Reboot</li>
 </ul>
-<h4 id="登录后自动运行程序"><a href="#登录后自动运行程序" class="headerlink" title="登录后自动运行程序"></a>登录后自动运行程序</h4><p>用户登录时，bash首先自动执行系统管理员建立的全局登录script ：/etc/profile。然后bash在用户起始目录下按顺序查找三个特殊文件中的一个：/.bash_profile、/.bash_login、/.profile，但只执行最先找到的 一个。因此，只需根据实际需要在上述文件中加入命令就可以实现用户登录时自动运行某些程序（类似于DOS下的 Autoexec.bat）。简单的方法,在/etc/inittab 结尾加上你要启动的程序。/etc/profile： 此文件为系统的每个用户设置环境信息,当用户第一次登录时,该文件被执行。/etc/bashrc: 为每一个运行bash shell的用户执行此文件。~/.bashrc: 当登录时以及每次打开新的shell时,该该文件被执行。</p>
+<h4 id="登录后自动运行程序"><a href="#登录后自动运行程序" class="headerlink" title="登录后自动运行程序"></a>登录后自动运行程序</h4><p>用户登录时，bash首先自动执行系统管理员建立的全局登录script ：/etc/profile。然后bash在用户起始目录下按顺序查找三个特殊文件中的一个：/.bash_profile、/.bash_login、/.profile，但只执行最先找到的 一个。因此，只需根据实际需要在上述文件中加入命令就可以实现用户登录时自动运行某些程序（类似于DOS下的 Autoexec.bat）。简单的方法,在/etc/inittab 结尾加上你要启动的程序。/etc/profile： 此文件为系统的每个用户设置环境信息,当用户第一次登录时,该文件被执行。/etc/bashrc: 为每一个运行bash shell的用户执行此文件。~/.bashrc: 当登录时以及每次打开新的shell时,该文件被执行。设置登陆时启动OpenVPN,在<code>/etc/profile</code>文件中添加执行脚本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/etc/openvpn/startopenvpn.sh &amp; &gt;&gt; /tmp/openvpn.log</div></pre></td></tr></table></figure>
+<p>其中startopenvpn.sh脚本中：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /etc/openvpn</div><div class="line">nohup openvpn /etc/openvpn/client.conf</div></pre></td></tr></table></figure>
+<p>需要注意的是，执行时需要切换到<code>/etc/openvpn</code>目录，默认的配置文件例如key等默认在当前目录下寻找。OpenVPN启动时需要root权限。需要成功启动OpenVPN客户端首次登陆时需要以root用户登陆。</p>
 <h4 id="联网后自动运行程序"><a href="#联网后自动运行程序" class="headerlink" title="联网后自动运行程序"></a>联网后自动运行程序</h4><p>网络连接建立后运行的脚本可以实现诸多实用功能，如动态域名绑定、连接VPN、上网认证等。实现这一目标的大体思路有两种：在基于NetworkManager的系统中，可配置其dispatcher脚本；Fedora对这一功能支持的不是很好，只能在网络连接建立后运行一个脚本，即/sbin/ifup-local。这个文件默认不存在，需要手动创建。下面的例子用vi编辑/创建这个文件，并添加执行权限。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vi /sbin/ifup-local</div><div class="line">chmod 755 /sbin/ifup-local</div></pre></td></tr></table></figure>
 <p><a href="https://en.wikipedia.org/wiki/Runlevel" target="_blank" rel="external">Runlevel</a></p>
@@ -967,7 +1022,14 @@
     <entry>
       <title><![CDATA[Windows下用Nexus搭建Maven私服]]></title>
       <url>http://jiangxiaoqiang.com/2016/09/14/maven-private-service/</url>
-      <content type="html"><![CDATA[<h4 id="Nexus简介"><a href="#Nexus简介" class="headerlink" title="Nexus简介"></a>Nexus简介</h4><p>Nexus 是Maven仓库管理器，如果你使用Maven，你可以从Maven中央仓库下载所需要的构件（artifact），但这通常不是一个好的做法，你应该在本地架设一个Maven仓库服务器，在代理远程仓库的同时维护本地仓库，以节省带宽和时间，Nexus就可以满足这样的需要。此外，他还提供了强大的仓库管理功能，构件搜索功能，它基于REST，友好的UI是一个extjs的REST客户端，它占用较少的内存，基于简单文件系统而非数据库。这些优点使其日趋成为最流行的Maven仓库管理器。下载Nexus（nexus-3.0.1-01-win64.exe），安装完毕后访问<a href="http://192.168.1.102:8081/" target="_blank" rel="external">本地Maven私服主页</a>。</p>
+      <content type="html"><![CDATA[<h4 id="Nexus简介"><a href="#Nexus简介" class="headerlink" title="Nexus简介"></a>Nexus简介</h4><p>使用Maven的中央仓库存在如下问题：</p>
+<ul>
+<li>Maven自己的中央库访问速度非常慢，外加GFW，基本没法用。</li>
+<li>有些jar包由于版权原因，maven中央仓库没有，比如oracle JDBC驱动。另外也会有一些项目中用到的比较老的开源jar包， 中央仓库也没有。这种情况我们需要把jar包手动上传到私服。</li>
+<li>公司自己开发的jar包并不开源，不能上传到maven中央仓库，只能部署到私服上面。</li>
+</ul>
+<a id="more"></a>
+<p>Nexus 是Maven仓库管理器，如果你使用Maven，你可以从Maven中央仓库下载所需要的构件（artifact），但这通常不是一个好的做法，你应该在本地架设一个Maven仓库服务器，在代理远程仓库的同时维护本地仓库，以节省带宽和时间，Nexus就可以满足这样的需要。此外，他还提供了强大的仓库管理功能，构件搜索功能，它基于REST，友好的UI是一个extjs的REST客户端，它占用较少的内存，基于简单文件系统而非数据库。这些优点使其日趋成为最流行的Maven仓库管理器。下载Nexus（nexus-3.0.1-01-win64.exe），安装完毕后访问<a href="http://192.168.1.102:8081/" target="_blank" rel="external">本地Maven私服主页</a>。</p>
 <h4 id="配置单个项目"><a href="#配置单个项目" class="headerlink" title="配置单个项目"></a>配置单个项目</h4><p>安装完毕后需要登录，默认的用户名密码是：<code>admin/admin123</code>。登录之后才会显示设置图标，才能添加repositories。将<a href="http://192.168.1.102:8081/repository/maven-public/" target="_blank" rel="external">本地Maven私服路径</a>配置到项目的pom.xml中即可。如下代码片段所示。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">repositories</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">repository</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>my-nexus-repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://192.168.1.102:8081/repository/maven-public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">releases</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">releases</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">pluginRepositories</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">pluginRepository</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>my-nexus-repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://192.168.1.102:8081/repository/maven-public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">releases</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">releases</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">pluginRepository</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">pluginRepositories</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>如果在本地私服没有的jar包，会自动从中心服务器下载。至此，最简单的Maven私服搭建完毕。</p>
