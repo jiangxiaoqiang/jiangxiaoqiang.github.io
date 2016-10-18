@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title><![CDATA[Spring线程中Bean注入问题]]></title>
+      <url>http://jiangxiaoqiang.com/2016/10/18/spring-get-bean/</url>
+      <content type="html"><![CDATA[<h4 id="实现ApplicationContextAware"><a href="#实现ApplicationContextAware" class="headerlink" title="实现ApplicationContextAware"></a>实现ApplicationContextAware</h4><p>在Spring中开启线程时，无法使用Bean的自动注入，此时需要手动获取Bean。方法如下：</p>
+<a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">public class SpringApplicationContextHolder implements ApplicationContextAware &#123;</div><div class="line">	private static ApplicationContext context;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void <span class="built_in">set</span>ApplicationContext(ApplicationContext context) throws BeansException &#123;</div><div class="line">		SpringApplicationContextHolder.context = context;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public static Object getSpringBean(String beanName) &#123;</div><div class="line">		<span class="built_in">return</span> context == null ? null : context.getBean(beanName);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public static String[] <span class="function"><span class="title">getBeanDefinitionNames</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> context.getBeanDefinitionNames();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="配置文件注册"><a href="#配置文件注册" class="headerlink" title="配置文件注册"></a>配置文件注册</h4><p>在Spring中注册工具类的bean：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"com.zw.socket.service.kafka.comsumer.SpringApplicationContextHolder"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="获取Bean"><a href="#获取Bean" class="headerlink" title="获取Bean"></a>获取Bean</h4><p>获取Bean实例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ClientMessageTransfer clientMessageTransfer=(ClientMessageTransfer)SpringApplicationContextHolder.getSpringBean(<span class="string">"clientMessageTransfer"</span>);</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[port aready in use]]></title>
       <url>http://jiangxiaoqiang.com/2016/10/17/port-aready-in-use/</url>
       <content type="html"><![CDATA[<p>在使用Intellij Idea调试时，以Application方式启动程序时提示：</p>
@@ -301,7 +314,7 @@
 <li>No support for extensions other than Python.</li>
 <li>Lower memory reduction and less automatic synchronization of metadata – a time taking process.</li>
 </ul>
-<p>DNF包管理器克服了YUM包管理器的一些瓶颈，提升了包括用户体验，内存占用，依赖分析，运行速度等多方面的内容。DNF使用 RPM, libsolv 和 hawkey 库进行包管理操作。</p>
+<p>DNF包管理器克服了YUM包管理器的一些瓶颈，提升了包括用户体验，内存占用，依赖分析，运行速度等多方面的内容。DNF使用 RPM, libsolv 和 hawkey库进行包管理操作。DNF从Yum分支出来，使用专注于性能的C语言库hawkey进行依赖关系解析工作，大幅度提升包管理操作效率并降低内存消耗。Yum不能“Python 3 as default”，而DNF支持Python 2和Python 3。（Python 3分支自2008年发布以来积极开发了五年，已经成熟和稳定，而目前仍在维护的Python 2分支不增加新特性，只接受bug和安全修正，它最早的版本是在2000年发布的。）</p>
 <p>参考资料来自：</p>
 <p><a href="http://www.tecmint.com/dnf-next-generation-package-management-utility-for-linux/" target="_blank" rel="external">DNF – The Next Generation Package Management Utility for RPM Based Distributions</a></p>
 ]]></content>
@@ -1080,12 +1093,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[tags]]></title>
-      <url>http://jiangxiaoqiang.com/tags/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[关于]]></title>
       <url>http://jiangxiaoqiang.com/about/index.html</url>
       <content type="html"><![CDATA[<p>这里是dolphin的部落格，若此分享能够作为您的参考，是我的荣幸。</p>
@@ -1094,6 +1101,12 @@
 <li>Mail:jiangtingqiang@gmal.com</li>
 </ul>
 ]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[tags]]></title>
+      <url>http://jiangxiaoqiang.com/tags/index.html</url>
+      <content type="html"></content>
     </entry>
     
   

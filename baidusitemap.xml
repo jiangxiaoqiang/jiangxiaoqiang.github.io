@@ -4,6 +4,50 @@
 
     
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/18/spring-get-bean/</loc>
+    <lastmod>2016-10-18T09:20:11.979Z</lastmod>
+    <data>
+        <display>
+        <title>Spring线程中Bean注入问题</title>
+        <pubTime>2016-10-18T09:20:11.000Z</pubTime>
+        
+        <tag>Spring</tag>
+         
+        <tag>Bean</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/05/dnf-vs-yum/</loc>
+    <lastmod>2016-10-18T00:36:47.647Z</lastmod>
+    <data>
+        <display>
+        <title>dnf与yum</title>
+        <pubTime>2016-10-05T12:44:41.000Z</pubTime>
+        
+        <tag>dnf</tag>
+         
+        <tag>yum</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/17/port-aready-in-use/</loc>
     <lastmod>2016-10-17T08:17:06.212Z</lastmod>
     <data>
@@ -79,9 +123,9 @@
         <title>IntelliJ Idea快捷键技巧分享</title>
         <pubTime>2016-09-26T06:23:24.000Z</pubTime>
         
-        <tag>IDE</tag>
-         
         <tag>IntelliJ</tag>
+         
+        <tag>IDE</tag>
          
          
            
@@ -276,9 +320,9 @@
         <title>Intellij IDEA推荐插件</title>
         <pubTime>2016-10-08T05:46:41.000Z</pubTime>
         
-        <tag>Intellij</tag>
-         
         <tag>Plugin</tag>
+         
+        <tag>Intellij</tag>
          
          
            
@@ -355,41 +399,22 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/05/dnf-vs-yum/</loc>
-    <lastmod>2016-10-07T04:37:56.565Z</lastmod>
+    <loc>http://jiangxiaoqiang.com/2016/10/05/fedora-20-install-nodejs/</loc>
+    <lastmod>2016-10-07T03:53:37.332Z</lastmod>
     <data>
         <display>
-        <title>dnf与yum</title>
-        <pubTime>2016-10-05T12:44:41.000Z</pubTime>
+        <title>Fedora 20 安装NodeJs</title>
+        <pubTime>2016-10-05T01:52:08.000Z</pubTime>
         
-        <tag>dnf</tag>
+        <tag>Fedora</tag>
          
-        <tag>yum</tag>
+        <tag>NodeJs</tag>
          
          
            
              
               <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/02/install-chrome-in-fedora/</loc>
-    <lastmod>2016-10-07T03:53:37.332Z</lastmod>
-    <data>
-        <display>
-        <title>install-chrome-in-fedora</title>
-        <pubTime>2016-10-02T15:02:56.000Z</pubTime>
-        
-        <tag>Chrome</tag>
-         
-        <tag>Fedora</tag>
-         
-         
-           
         </display>
     </data>
     </url>
@@ -413,22 +438,19 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/05/fedora-20-install-nodejs/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/10/02/install-chrome-in-fedora/</loc>
     <lastmod>2016-10-07T03:53:37.332Z</lastmod>
     <data>
         <display>
-        <title>Fedora 20 安装NodeJs</title>
-        <pubTime>2016-10-05T01:52:08.000Z</pubTime>
+        <title>install-chrome-in-fedora</title>
+        <pubTime>2016-10-02T15:02:56.000Z</pubTime>
         
         <tag>Fedora</tag>
          
-        <tag>NodeJs</tag>
+        <tag>Chrome</tag>
          
          
            
-             
-              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
-          
         </display>
     </data>
     </url>
@@ -597,21 +619,6 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/18/log4j/</loc>
-    <lastmod>2016-10-03T03:34:36.516Z</lastmod>
-    <data>
-        <display>
-        <title>Java Web开发--log4j</title>
-        <pubTime>2016-09-18T00:54:34.701Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://jiangxiaoqiang.com/2016/09/19/lombok/</loc>
     <lastmod>2016-10-03T03:34:36.516Z</lastmod>
     <data>
@@ -621,6 +628,21 @@
         
         <tag>lombok</tag>
          
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/18/log4j/</loc>
+    <lastmod>2016-10-03T03:34:36.516Z</lastmod>
+    <data>
+        <display>
+        <title>Java Web开发--log4j</title>
+        <pubTime>2016-09-18T00:54:34.701Z</pubTime>
+        
          
            
         </display>
@@ -719,14 +741,16 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/24/eclipse-breakpoint-type/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/30/cluster-ssh-login/</loc>
     <lastmod>2016-10-03T03:34:36.508Z</lastmod>
     <data>
         <display>
-        <title>Eclipse断点类型</title>
-        <pubTime>2016-09-24T08:47:20.000Z</pubTime>
+        <title>Hadoop集群SSH免密钥登录</title>
+        <pubTime>2016-09-30T08:41:35.000Z</pubTime>
         
-        <tag>Eclipse</tag>
+        <tag>Cluster</tag>
+         
+        <tag>SSH</tag>
          
          
            
@@ -736,16 +760,14 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/30/cluster-ssh-login/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/24/eclipse-breakpoint-type/</loc>
     <lastmod>2016-10-03T03:34:36.508Z</lastmod>
     <data>
         <display>
-        <title>Hadoop集群SSH免密钥登录</title>
-        <pubTime>2016-09-30T08:41:35.000Z</pubTime>
+        <title>Eclipse断点类型</title>
+        <pubTime>2016-09-24T08:47:20.000Z</pubTime>
         
-        <tag>SSH</tag>
-         
-        <tag>Cluster</tag>
+        <tag>Eclipse</tag>
          
          
            

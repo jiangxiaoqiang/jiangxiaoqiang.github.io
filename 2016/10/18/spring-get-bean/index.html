@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Spring," />
+  <meta name="keywords" content="Spring,Bean," />
 
 
 
@@ -90,21 +90,16 @@
 
 
 
-<meta name="description" content="为什么要依赖注入依赖注入(Dependency Injection)所要达到的目标是实现程序间的松耦合。将服务的调用者和服务的提供者分离。DI提供一种机制，在运行时绑定服务的提供者和调用者。">
+<meta name="description" content="实现ApplicationContextAware在Spring中开启线程时，无法使用Bean的自动注入，此时需要手动获取Bean。方法如下：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring step by step(一)--依赖注入(Dependency Injection)">
-<meta property="og:url" content="http://jiangxiaoqiang.com/2016/09/25/spring-ioc/index.html">
+<meta property="og:title" content="Spring线程中Bean注入问题">
+<meta property="og:url" content="http://jiangxiaoqiang.com/2016/10/18/spring-get-bean/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="为什么要依赖注入依赖注入(Dependency Injection)所要达到的目标是实现程序间的松耦合。将服务的调用者和服务的提供者分离。DI提供一种机制，在运行时绑定服务的提供者和调用者。">
-<meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/25/spring-ioc/maven-initial-content-structure.jpg">
-<meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/25/spring-ioc/add-servlet-api-content-structure.jpg">
-<meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/25/spring-ioc/spring-context-dependency-hierarchy.jpg">
-<meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/25/spring-ioc/spring-di-result.jpg">
-<meta property="og:updated_time" content="2016-10-03T03:34:36.518Z">
+<meta property="og:description" content="实现ApplicationContextAware在Spring中开启线程时，无法使用Bean的自动注入，此时需要手动获取Bean。方法如下：">
+<meta property="og:updated_time" content="2016-10-18T09:20:11.979Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring step by step(一)--依赖注入(Dependency Injection)">
-<meta name="twitter:description" content="为什么要依赖注入依赖注入(Dependency Injection)所要达到的目标是实现程序间的松耦合。将服务的调用者和服务的提供者分离。DI提供一种机制，在运行时绑定服务的提供者和调用者。">
-<meta name="twitter:image" content="http://jiangxiaoqiang.com/2016/09/25/spring-ioc/maven-initial-content-structure.jpg">
+<meta name="twitter:title" content="Spring线程中Bean注入问题">
+<meta name="twitter:description" content="实现ApplicationContextAware在Spring中开启线程时，无法使用Bean的自动注入，此时需要手动获取Bean。方法如下：">
 
 
 
@@ -125,9 +120,9 @@
 
 
 
-  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/09/25/spring-ioc/"/>
+  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/10/18/spring-get-bean/"/>
 
-  <title> Spring step by step(一)--依赖注入(Dependency Injection) | 小强的博客 </title>
+  <title> Spring线程中Bean注入问题 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -289,7 +284,7 @@
             
             
               
-                Spring step by step(一)--依赖注入(Dependency Injection)
+                Spring线程中Bean注入问题
               
             
           </h1>
@@ -301,19 +296,38 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-25T16:08:20+08:00" content="2016-09-25">
-              2016-09-25
+            <time itemprop="dateCreated" datetime="2016-10-18T17:20:11+08:00" content="2016-10-18">
+              2016-10-18
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/25/spring-ioc/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/25/spring-ioc/" itemprop="commentsCount"></span>
+                <a href="/2016/10/18/spring-get-bean/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/18/spring-get-bean/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -336,30 +350,13 @@
       
 
       
-        <h4 id="为什么要依赖注入"><a href="#为什么要依赖注入" class="headerlink" title="为什么要依赖注入"></a>为什么要依赖注入</h4><p>依赖注入(Dependency Injection)所要达到的目标是实现程序间的松耦合。将服务的调用者和服务的提供者分离。DI提供一种机制，在运行时绑定服务的提供者和调用者。</p>
+        <h4 id="实现ApplicationContextAware"><a href="#实现ApplicationContextAware" class="headerlink" title="实现ApplicationContextAware"></a>实现ApplicationContextAware</h4><p>在Spring中开启线程时，无法使用Bean的自动注入，此时需要手动获取Bean。方法如下：</p>
 <a id="more"></a>
-<h4 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h4><p>新建一个Web项目，目录结构如下。</p>
-<img src="/2016/09/25/spring-ioc/maven-initial-content-structure.jpg" alt="Maven项目目录树结构" title="Maven项目目录树结构">
-<h4 id="引入包"><a href="#引入包" class="headerlink" title="引入包"></a>引入包</h4><p>引入servlet-api.jar包，目录结构如下。</p>
-<img src="/2016/09/25/spring-ioc/add-servlet-api-content-structure.jpg" alt="Maven项目目录树结构" title="Maven项目目录树结构">
-<p>注意引入servlet-api.jar包后，多了src/main/java目录和src/test/java目录。servlet-api.jar包中，实现了Sevlet规范，在Apache Tomcat 8.0.37中实现的是Servlet Specification 3.1，JSP Specification 2.3。版本之间详细的对应关系可以看<a href="http://tomcat.apache.org/whichversion.html" target="_blank" rel="external"><strong>Apache Tomcat Versions</strong></a>。</p>
-<h4 id="添加Spring依赖包"><a href="#添加Spring依赖包" class="headerlink" title="添加Spring依赖包"></a>添加Spring依赖包</h4><p>在Maven的POM文件中添加spring-context依赖。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-context<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.3.3.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>此处虽然只添加了一个jar包，Maven会自动下载此jar包相关的依赖包。在Maven的Dependency Hierarchy中查看包与包之间的依赖关系如下图所示。</p>
-<img src="/2016/09/25/spring-ioc/spring-context-dependency-hierarchy.jpg" alt="Spring-Context包依赖关系" title="Spring-Context包依赖关系">
-<h4 id="添加类"><a href="#添加类" class="headerlink" title="添加类"></a>添加类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MessageService</span> </span>&#123;</div><div class="line">   <span class="function">String <span class="title">getMessage</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Component</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MessagePrinter</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">final</span> <span class="keyword">private</span> MessageService service;</div><div class="line"></div><div class="line">    <span class="meta">@Autowired</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MessagePrinter</span><span class="params">(MessageService service)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.service = service;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printMessage</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="keyword">this</span>.service.getMessage());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>带有 @Configuration 的注解类表示这个类可以使用 Spring IoC 容器作为 bean 定义的来源。@Bean 注解告诉 Spring，一个带有 @Bean 的注解方法将返回一个对象，该对象应该被注册为在 Spring 应用程序上下文中的 bean。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Configuration</span></div><div class="line"><span class="meta">@ComponentScan</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</div><div class="line">    <span class="meta">@Bean</span></div><div class="line">    <span class="function">MessageService <span class="title">mockMessageService</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> MessageService() &#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> String <span class="title">getMessage</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="string">"Hello World!"</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        ApplicationContext context = <span class="keyword">new</span> AnnotationConfigApplicationContext(Application.class);</div><div class="line">        MessagePrinter printer = context.getBean(MessagePrinter.class);</div><div class="line">        printer.printMessage();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>上面的代码(排除Main函数)等同于:</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">beans</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"mockMessageService"</span> <span class="attr">class</span>=<span class="string">"dolphin.MessageService"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>带有 @Bean 注解的方法名称作为 bean 的 ID，它创建并返回实际的 bean。配置类可以声明多个 @Bean。一旦定义了配置类，你就可以使用 AnnotationConfigApplicationContext 来加载并把他们提供给 Spring 容器(Main方法中即是)。</p>
-<h4 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h4><p>结果如图所示。</p>
-<img src="/2016/09/25/spring-ioc/spring-di-result.jpg" alt="Dependency Injection结果示例" title="Dependency Injection结果示例">
-<p>来自：</p>
-<ul>
-<li><a href="https://projects.spring.io/spring-framework/#quick-start" target="_blank" rel="external">spring-framework-quick-start</a></li>
-</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">public class SpringApplicationContextHolder implements ApplicationContextAware &#123;</div><div class="line">	private static ApplicationContext context;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void <span class="built_in">set</span>ApplicationContext(ApplicationContext context) throws BeansException &#123;</div><div class="line">		SpringApplicationContextHolder.context = context;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public static Object getSpringBean(String beanName) &#123;</div><div class="line">		<span class="built_in">return</span> context == null ? null : context.getBean(beanName);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public static String[] <span class="function"><span class="title">getBeanDefinitionNames</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> context.getBeanDefinitionNames();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="配置文件注册"><a href="#配置文件注册" class="headerlink" title="配置文件注册"></a>配置文件注册</h4><p>在Spring中注册工具类的bean：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"com.zw.socket.service.kafka.comsumer.SpringApplicationContextHolder"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="获取Bean"><a href="#获取Bean" class="headerlink" title="获取Bean"></a>获取Bean</h4><p>获取Bean实例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ClientMessageTransfer clientMessageTransfer=(ClientMessageTransfer)SpringApplicationContextHolder.getSpringBean(<span class="string">"clientMessageTransfer"</span>);</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -384,6 +381,8 @@
           
             <a href="/tags/Spring/" rel="tag">#Spring</a>
           
+            <a href="/tags/Bean/" rel="tag">#Bean</a>
+          
         </div>
       
 
@@ -391,17 +390,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/24/eclipse-breakpoint-type/" rel="next" title="Eclipse断点类型">
-                <i class="fa fa-chevron-left"></i> Eclipse断点类型
+              <a href="/2016/10/17/port-aready-in-use/" rel="next" title="port aready in use">
+                <i class="fa fa-chevron-left"></i> port aready in use
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/26/intllij-idea-encoding/" rel="prev" title="IntelliJ Idea快捷键技巧分享">
-                IntelliJ Idea快捷键技巧分享 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -557,7 +552,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么要依赖注入"><span class="nav-number">1.</span> <span class="nav-text">为什么要依赖注入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新建项目"><span class="nav-number">2.</span> <span class="nav-text">新建项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引入包"><span class="nav-number">3.</span> <span class="nav-text">引入包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加Spring依赖包"><span class="nav-number">4.</span> <span class="nav-text">添加Spring依赖包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加类"><span class="nav-number">5.</span> <span class="nav-text">添加类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行"><span class="nav-number">6.</span> <span class="nav-text">运行</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现ApplicationContextAware"><span class="nav-number">1.</span> <span class="nav-text">实现ApplicationContextAware</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置文件注册"><span class="nav-number">2.</span> <span class="nav-text">配置文件注册</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取Bean"><span class="nav-number">3.</span> <span class="nav-text">获取Bean</span></a></li></ol></div>
             
           </div>
         </section>
@@ -684,9 +679,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'jiangxiaoqiang';
-      var disqus_identifier = '2016/09/25/spring-ioc/';
-      var disqus_title = "Spring step by step(一)--依赖注入(Dependency Injection)";
-      var disqus_url = 'http://jiangxiaoqiang.com/2016/09/25/spring-ioc/';
+      var disqus_identifier = '2016/10/18/spring-get-bean/';
+      var disqus_title = "Spring线程中Bean注入问题";
+      var disqus_url = 'http://jiangxiaoqiang.com/2016/10/18/spring-get-bean/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

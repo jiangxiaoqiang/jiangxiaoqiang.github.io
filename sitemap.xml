@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/18/spring-get-bean/</loc>
+    
+    <lastmod>2016-10-18T09:20:11.979Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/05/dnf-vs-yum/</loc>
+    
+    <lastmod>2016-10-18T00:36:47.647Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/17/port-aready-in-use/</loc>
     
     <lastmod>2016-10-17T08:17:06.212Z</lastmod>
@@ -114,14 +128,7 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/05/dnf-vs-yum/</loc>
-    
-    <lastmod>2016-10-07T04:37:56.565Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/02/install-chrome-in-fedora/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/10/05/fedora-20-install-nodejs/</loc>
     
     <lastmod>2016-10-07T03:53:37.332Z</lastmod>
     
@@ -135,7 +142,7 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/05/fedora-20-install-nodejs/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/10/02/install-chrome-in-fedora/</loc>
     
     <lastmod>2016-10-07T03:53:37.332Z</lastmod>
     
@@ -219,14 +226,14 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/18/log4j/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/19/lombok/</loc>
     
     <lastmod>2016-10-03T03:34:36.516Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/19/lombok/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/18/log4j/</loc>
     
     <lastmod>2016-10-03T03:34:36.516Z</lastmod>
     
@@ -268,14 +275,14 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/24/eclipse-breakpoint-type/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/30/cluster-ssh-login/</loc>
     
     <lastmod>2016-10-03T03:34:36.508Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/30/cluster-ssh-login/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/24/eclipse-breakpoint-type/</loc>
     
     <lastmod>2016-10-03T03:34:36.508Z</lastmod>
     
