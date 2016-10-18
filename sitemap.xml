@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/</loc>
+    
+    <lastmod>2016-10-18T09:39:38.846Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/18/spring-get-bean/</loc>
     
     <lastmod>2016-10-18T09:20:11.979Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://jiangxiaoqiang.com/2016/09/14/maven-private-service/</loc>
     
     <lastmod>2016-10-17T00:52:22.856Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/</loc>
-    
-    <lastmod>2016-10-17T00:52:22.854Z</lastmod>
     
   </url>
   

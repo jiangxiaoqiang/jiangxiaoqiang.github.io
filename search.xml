@@ -771,6 +771,10 @@
 <td>Ctrl + Shift +F</td>
 <td style="text-align:center">全文查找，类似于Eclipse的Ctrl + H</td>
 </tr>
+<tr>
+<td>Ctrl + Shift + Alt + N</td>
+<td style="text-align:center">全文搜索，包含Maven引用的jar包里面的内容，在搜索界面中，需要勾选Include non-project symbols</td>
+</tr>
 </tbody>
 </table>
 <h5 id="进入退出全屏"><a href="#进入退出全屏" class="headerlink" title="进入退出全屏"></a>进入退出全屏</h5><p>使用快捷键<code>Alt + V</code>打开View菜单，移动上下键选择<code>Enter Full Screen</code>即可。也可以自定义快捷键。</p>
