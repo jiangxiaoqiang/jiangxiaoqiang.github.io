@@ -4,6 +4,50 @@
 
     
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/20/spring-encount-error/</loc>
+    <lastmod>2016-10-20T04:54:22.423Z</lastmod>
+    <data>
+        <display>
+        <title>expected single matching bean but found 2</title>
+        <pubTime>2016-10-20T04:51:20.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Spring</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/18/spring-bean-registered/</loc>
+    <lastmod>2016-10-19T00:47:00.067Z</lastmod>
+    <data>
+        <display>
+        <title>Spring Bean是否注册判断</title>
+        <pubTime>2016-10-18T13:31:26.000Z</pubTime>
+        
+        <tag>Spring</tag>
+         
+        <tag>Bean</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/</loc>
     <lastmod>2016-10-18T09:39:38.846Z</lastmod>
     <data>
@@ -421,23 +465,6 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/03/fedora-20-install-input-method/</loc>
-    <lastmod>2016-10-07T03:53:37.332Z</lastmod>
-    <data>
-        <display>
-        <title>Fedora 20安装中文输入法</title>
-        <pubTime>2016-10-03T03:08:51.000Z</pubTime>
-        
-        <tag>Fedora</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/02/install-chrome-in-fedora/</loc>
     <lastmod>2016-10-07T03:53:37.332Z</lastmod>
     <data>
@@ -448,6 +475,23 @@
         <tag>Fedora</tag>
          
         <tag>Chrome</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/03/fedora-20-install-input-method/</loc>
+    <lastmod>2016-10-07T03:53:37.332Z</lastmod>
+    <data>
+        <display>
+        <title>Fedora 20安装中文输入法</title>
+        <pubTime>2016-10-03T03:08:51.000Z</pubTime>
+        
+        <tag>Fedora</tag>
          
          
            
@@ -555,12 +599,12 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/13/spring/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/18/springmvc-dispatcherservlet/</loc>
     <lastmod>2016-10-03T03:34:36.520Z</lastmod>
     <data>
         <display>
-        <title>Spring框架搭建</title>
-        <pubTime>2016-09-13T10:53:05.804Z</pubTime>
+        <title>Spring MVC-DispatcherServlet处理请求过程</title>
+        <pubTime>2016-09-18T01:04:36.713Z</pubTime>
         
          
            
@@ -570,12 +614,12 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/18/springmvc-dispatcherservlet/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/13/spring/</loc>
     <lastmod>2016-10-03T03:34:36.520Z</lastmod>
     <data>
         <display>
-        <title>Spring MVC-DispatcherServlet处理请求过程</title>
-        <pubTime>2016-09-18T01:04:36.713Z</pubTime>
+        <title>Spring框架搭建</title>
+        <pubTime>2016-09-13T10:53:05.804Z</pubTime>
         
          
            
@@ -668,14 +712,14 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/20/launching-and-debugging-tomcat-extra/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/19/java-string-not-null/</loc>
     <lastmod>2016-10-03T03:34:36.513Z</lastmod>
     <data>
         <display>
-        <title>在Eclipse中启动和调试Tomcat（二）</title>
-        <pubTime>2016-09-20T09:13:52.000Z</pubTime>
+        <title>Java中String非空判断</title>
+        <pubTime>2016-09-19T10:18:13.000Z</pubTime>
         
-        <tag>Tomcat</tag>
+        <tag>java</tag>
          
          
            
@@ -685,14 +729,14 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/19/java-string-not-null/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/20/launching-and-debugging-tomcat-extra/</loc>
     <lastmod>2016-10-03T03:34:36.513Z</lastmod>
     <data>
         <display>
-        <title>Java中String非空判断</title>
-        <pubTime>2016-09-19T10:18:13.000Z</pubTime>
+        <title>在Eclipse中启动和调试Tomcat（二）</title>
+        <pubTime>2016-09-20T09:13:52.000Z</pubTime>
         
-        <tag>java</tag>
+        <tag>Tomcat</tag>
          
          
            
@@ -748,9 +792,9 @@
         <title>Hadoop集群SSH免密钥登录</title>
         <pubTime>2016-09-30T08:41:35.000Z</pubTime>
         
-        <tag>Cluster</tag>
-         
         <tag>SSH</tag>
+         
+        <tag>Cluster</tag>
          
          
            
