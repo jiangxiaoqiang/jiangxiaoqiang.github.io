@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Phoenix," />
+  <meta name="keywords" content="stomp,WebSocket,url route," />
 
 
 
@@ -90,18 +90,16 @@
 
 
 
-<meta name="description" content="简介Phoenix本意是凤凰的意思，Apache Phoenix是构建在HBase之上的关系型数据库层，作为内嵌的客户端JDBC驱动用以对HBase中的数据进行低延迟访问。Apache Phoenix会将用户编写的sql查询编译为一系列的scan操作，最终产生通用的JDBC结果集返回给客户端。数据表的元数据存储在HBase的表中被会标记版本号，所以进行查询的时候会自动选择正确的schema。直接使">
+<meta name="description" content="STOMP即Simple (or Streaming) Text Orientated Messaging Protocol，简单(流)文本定向消息协议，它提供了一个可互操作的连接格式，允许STOMP客户端与任意STOMP消息代理（Broker）进行交互。STOMP协议由于设计简单，易于开发客户端，因此在多种语言和多种平台上得到广泛地应用。WebSocket协议的应用层子协议STOMP（流文本定向">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Phoenix常用操作">
-<meta property="og:url" content="http://jiangxiaoqiang.com/2016/09/23/phoenix-tutorial/index.html">
+<meta property="og:title" content="Stomp WebSocket路由">
+<meta property="og:url" content="http://jiangxiaoqiang.com/2016/10/20/stomp-url-route/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="简介Phoenix本意是凤凰的意思，Apache Phoenix是构建在HBase之上的关系型数据库层，作为内嵌的客户端JDBC驱动用以对HBase中的数据进行低延迟访问。Apache Phoenix会将用户编写的sql查询编译为一系列的scan操作，最终产生通用的JDBC结果集返回给客户端。数据表的元数据存储在HBase的表中被会标记版本号，所以进行查询的时候会自动选择正确的schema。直接使">
-<meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/23/phoenix-tutorial/phoenix-position.jpg">
-<meta property="og:updated_time" content="2016-10-12T09:47:48.088Z">
+<meta property="og:description" content="STOMP即Simple (or Streaming) Text Orientated Messaging Protocol，简单(流)文本定向消息协议，它提供了一个可互操作的连接格式，允许STOMP客户端与任意STOMP消息代理（Broker）进行交互。STOMP协议由于设计简单，易于开发客户端，因此在多种语言和多种平台上得到广泛地应用。WebSocket协议的应用层子协议STOMP（流文本定向">
+<meta property="og:updated_time" content="2016-10-20T15:03:46.809Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Phoenix常用操作">
-<meta name="twitter:description" content="简介Phoenix本意是凤凰的意思，Apache Phoenix是构建在HBase之上的关系型数据库层，作为内嵌的客户端JDBC驱动用以对HBase中的数据进行低延迟访问。Apache Phoenix会将用户编写的sql查询编译为一系列的scan操作，最终产生通用的JDBC结果集返回给客户端。数据表的元数据存储在HBase的表中被会标记版本号，所以进行查询的时候会自动选择正确的schema。直接使">
-<meta name="twitter:image" content="http://jiangxiaoqiang.com/2016/09/23/phoenix-tutorial/phoenix-position.jpg">
+<meta name="twitter:title" content="Stomp WebSocket路由">
+<meta name="twitter:description" content="STOMP即Simple (or Streaming) Text Orientated Messaging Protocol，简单(流)文本定向消息协议，它提供了一个可互操作的连接格式，允许STOMP客户端与任意STOMP消息代理（Broker）进行交互。STOMP协议由于设计简单，易于开发客户端，因此在多种语言和多种平台上得到广泛地应用。WebSocket协议的应用层子协议STOMP（流文本定向">
 
 
 
@@ -122,9 +120,9 @@
 
 
 
-  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/09/23/phoenix-tutorial/"/>
+  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/10/20/stomp-url-route/"/>
 
-  <title> Phoenix常用操作 | 小强的博客 </title>
+  <title> Stomp WebSocket路由 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -286,7 +284,7 @@
             
             
               
-                Phoenix常用操作
+                Stomp WebSocket路由
               
             
           </h1>
@@ -298,19 +296,38 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-23T16:57:30+08:00" content="2016-09-23">
-              2016-09-23
+            <time itemprop="dateCreated" datetime="2016-10-20T22:28:40+08:00" content="2016-10-20">
+              2016-10-20
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/23/phoenix-tutorial/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/23/phoenix-tutorial/" itemprop="commentsCount"></span>
+                <a href="/2016/10/20/stomp-url-route/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/20/stomp-url-route/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -333,32 +350,20 @@
       
 
       
-        <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>Phoenix本意是凤凰的意思，<a href="http://phoenix.apache.org/" target="_blank" rel="external">Apache Phoenix</a>是构建在HBase之上的关系型数据库层，作为内嵌的客户端JDBC驱动用以对HBase中的数据进行低延迟访问。Apache Phoenix会将用户编写的sql查询编译为一系列的scan操作，最终产生通用的JDBC结果集返回给客户端。数据表的元数据存储在HBase的表中被会标记版本号，所以进行查询的时候会自动选择正确的schema。直接使用HBase的API，结合协处理器（coprocessor）和自定义的过滤器的话，小范围的查询在毫秒级响应，千万数据的话响应速度为秒级。</p>
+        <p>STOMP即Simple (or Streaming) Text Orientated Messaging Protocol，简单(流)文本定向消息协议，它提供了一个可互操作的连接格式，允许STOMP客户端与任意STOMP消息代理（Broker）进行交互。STOMP协议由于设计简单，易于开发客户端，因此在多种语言和多种平台上得到广泛地应用。WebSocket协议的应用层子协议STOMP（流文本定向消息协议）。在应用中直接使用WebSocket API显得有些低端，直到统一标准规范时也只有一小部分框架可以解析信息或通过注解方式使用它。这正是考虑在应用中运用子协议和产生基于WebSocket支持的Spring的STOMP的原因。当运用一个上层协议，WebSocket API的细节就显得不那么重要了，正如运用了HTTP后TCP的通信细节不再暴漏在应用中一样。STOMP是为了简单而创建的一种消息协议。它基于模仿HTTP协议的帧。帧由一个命令、可选的头和可选的体组成。</p>
 <a id="more"></a>
-<img src="/2016/09/23/phoenix-tutorial/phoenix-position.jpg" alt="Phoenix的定位" title="Phoenix的定位">
-<h4 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h4><p>Phoenix可以用SQL语句来查询Hbase，且只能查Hbase，别的类型比如查询文本文件等都不支持！如果要查文本文件等，可以使用Hive和Impala，Phoenix在Hbase上查询的性能较Hive和Impala具有优势。</p>
-<h4 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h4><p>登录。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./sqlline.py localhost</div></pre></td></tr></table></figure>
-<p>查看HBase所有表。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">!tables</div></pre></td></tr></table></figure>
-<p>table schema为system的是系统表。</p>
-<p>查看HBase中表名为test的所有列。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">!columns <span class="built_in">test</span></div></pre></td></tr></table></figure>
-<p>表名不用加引号。</p>
-<p>查询表数据。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">test</span>;</div><div class="line"><span class="keyword">select</span> <span class="keyword">name</span> <span class="keyword">from</span> <span class="keyword">test</span>;//查询指定列</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">test</span> <span class="keyword">where</span> <span class="keyword">name</span> = <span class="string">'jiangxiaoqiang'</span>;//条件查询</div></pre></td></tr></table></figure>
-<p>删除表数据。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">delete</span> <span class="keyword">from</span> <span class="keyword">test</span> <span class="keyword">where</span> condition;//语法</div><div class="line"><span class="keyword">delete</span> <span class="keyword">from</span> <span class="keyword">test</span> <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">is</span> <span class="literal">null</span>;//例子</div></pre></td></tr></table></figure>
-<p>condition是过滤条件，注意结尾需要有分号，表示SQL语句已经结束，可以提交给引擎执行。</p>
-<p>清除表的重复数据。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">delete</span> <span class="keyword">from</span> tablename <span class="keyword">where</span> vtime <span class="keyword">in</span> ( <span class="keyword">select</span> vtime <span class="keyword">from</span> tablename <span class="keyword">group</span> <span class="keyword">by</span> vtime <span class="keyword">having</span> <span class="keyword">count</span>(*)&gt;<span class="number">1</span>) <span class="keyword">and</span> <span class="keyword">id</span> <span class="keyword">not</span> <span class="keyword">in</span> (<span class="keyword">select</span> <span class="keyword">max</span>(<span class="keyword">id</span>) <span class="keyword">from</span> tablename <span class="keyword">group</span> <span class="keyword">by</span> vtime <span class="keyword">having</span> <span class="keyword">count</span>(*)&gt;<span class="number">1</span> );</div></pre></td></tr></table></figure>
-<p>清除同一时间重复的数据（同一时刻只能有1条数据）。</p>
-<p>连接查询。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> P.id <span class="keyword">as</span> <span class="keyword">id</span>, vtime, A.description <span class="keyword">FROM</span> 表P P <span class="keyword">left</span> <span class="keyword">join</span> 表A A <span class="keyword">on</span> P.id=A.positional_Id <span class="keyword">WHERE</span> P.vehicle_id=<span class="string">'cae21196-cb66-4256-88a6-7cdfb23e2c78'</span> <span class="keyword">and</span> P.vtime &gt;= <span class="string">'2016-10-10 00:00:00'</span> <span class="keyword">and</span> P.vtime &lt;= <span class="string">'2016-10-13 23:59:59'</span> <span class="keyword">and</span> P.alarm <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">and</span> P.alarm != <span class="string">'0'</span> <span class="keyword">order</span> <span class="keyword">by</span> P.vtime;</div></pre></td></tr></table></figure>
-<p>注意在做MyBatis映射时，P.id列需要一个别名，对应定义的实体字段。</p>
-<h4 id="函数-Function"><a href="#函数-Function" class="headerlink" title="函数(Function)"></a>函数(Function)</h4><p>substr函数用于截取字符串。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">substr</span>(<span class="keyword">time</span>,<span class="number">0</span>,<span class="number">11</span>) <span class="keyword">from</span> <span class="keyword">test</span> <span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">substr</span>(<span class="keyword">time</span>,<span class="number">0</span>,<span class="number">11</span>);</div></pre></td></tr></table></figure>
-<p>time为需要截取的字符串，从第0位开始截取11位长度。</p>
+<p>业务中需要实现不同的消息类别分发，在客户端进行不同的处理。此时想到Stomp的路由。</p>
+<h4 id="服务端启动代理中继"><a href="#服务端启动代理中继" class="headerlink" title="服务端启动代理中继"></a>服务端启动代理中继</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Configuration</span></div><div class="line"><span class="meta">@EnableWebSocketMessageBroker</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebSocketConfig</span> <span class="keyword">extends</span> <span class="title">AbstractWebSocketMessageBrokerConfigurer</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">configureMessageBroker</span><span class="params">(MessageBrokerRegistry config)</span> </span>&#123;</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 启用了STOMP代理中继功能：并将其目的地前缀设置为 "/topic"；</div><div class="line">         * spring就能知道 所有目的地前缀为"/topic" 的消息都会发送到STOMP代理中；</div><div class="line">         */</div><div class="line">        config.enableSimpleBroker(<span class="string">"/topic"</span>);</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 设置了应用的前缀为"app"：所有目的地以"/app"打头的消息（发送消息url not连接url）</div><div class="line">         * 都会路由到带有<span class="doctag">@MessageMapping</span>注解的方法中，而不会发布到代理队列或主题中；</div><div class="line">         */</div><div class="line">        config.setApplicationDestinationPrefixes(<span class="string">"/app"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerStompEndpoints</span><span class="params">(StompEndpointRegistry registry)</span> </span>&#123;</div><div class="line">        registry.addEndpoint(<span class="string">"/gs-guide-websocket"</span>).withSockJS();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>或者以XML文件的方式进行配置，两者是等价的：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></div><div class="line">    <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">    <span class="attr">xmlns:websocket</span>=<span class="string">"http://www.springframework.org/schema/websocket"</span></div><div class="line">    <span class="attr">xsi:schemaLocation</span>=<span class="string">"</span></div><div class="line">        http://www.springframework.org/schema/beans</div><div class="line">        http://www.springframework.org/schema/beans/spring-beans.xsd</div><div class="line">        http://www.springframework.org/schema/websocket</div><div class="line">        http://www.springframework.org/schema/websocket/spring-websocket.xsd"&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">websocket:message-broker</span> <span class="attr">application-destination-prefix</span>=<span class="string">"/app"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">websocket:stomp-endpoint</span> <span class="attr">path</span>=<span class="string">"/gs-guide-websocket"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">websocket:sockjs</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">websocket:stomp-endpoint</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">websocket:simple-broker</span> <span class="attr">prefix</span>=<span class="string">"/topic, /queue"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">websocket:message-broker</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="服务端添加Controller"><a href="#服务端添加Controller" class="headerlink" title="服务端添加Controller"></a>服务端添加Controller</h4><p>Spring官方的例子演示了Send-Response模型，如果需要请求之后，服务端多次推送消息，主动推送消息，可采用如下方式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Controller</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GreetingController</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> SimpMessagingTemplate template;</div><div class="line"></div><div class="line">    <span class="meta">@Autowired</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">GreetingController</span><span class="params">(SimpMessagingTemplate template)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.template = template;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@MessageMapping</span>(<span class="string">"/hello"</span>)</div><div class="line">    <span class="meta">@SendTo</span>(<span class="string">"/topic/greetings"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">greeting</span><span class="params">(HelloMessage message)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        template.convertAndSend(<span class="string">"/topic/greetings"</span>, <span class="string">"aaaaaaa"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>SimpMessagingTemplate是Spring实现的一个发送模板类，直接自动注入获取相应实例即可。SimpMessagingTemplate实例可以实现服务端主动向客户端订阅的Url推送消息。第一个参数为推送地址，第二个参数为需要推送的消息内容。</p>
+<h4 id="浏览器端"><a href="#浏览器端" class="headerlink" title="浏览器端"></a>浏览器端</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">connect</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> socket = <span class="keyword">new</span> SockJS(<span class="string">'/clbs/gs-guide-websocket'</span>);</div><div class="line">    stompClient = Stomp.over(socket);</div><div class="line">    stompClient.connect(&#123;&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">frame</span>) </span>&#123;</div><div class="line">        setConnected(<span class="literal">true</span>);</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'Connected: '</span> + frame);</div><div class="line">        stompClient.subscribe(<span class="string">'/topic/greetings'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">greeting</span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(greeting.body);</div><div class="line">        &#125;);        </div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>clbs是项目名称，gs-guide-websocket是终结点名称。greeting.body是取出服务端响应的消息体(Message Body)。Stomp协议与HTTP协议有许多相似之处，命令 + 消息头 + 空行 + 消息体。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stompClient.send(<span class="string">"/app/gs-guide-websocket/location"</span>,&#123;&#125;,<span class="built_in">JSON</span>.stringify(requestStr));</div></pre></td></tr></table></figure>
+<p><a href="http://jmesnil.net/stomp-websocket/doc/" target="_blank" rel="external">STOMP Over WebSocket</a></p>
+<p><a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/websocket.html" target="_blank" rel="external">WebSocket Support</a></p>
 
       
     </div>
@@ -381,7 +386,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Phoenix/" rel="tag">#Phoenix</a>
+            <a href="/tags/stomp/" rel="tag">#stomp</a>
+          
+            <a href="/tags/WebSocket/" rel="tag">#WebSocket</a>
+          
+            <a href="/tags/url-route/" rel="tag">#url route</a>
           
         </div>
       
@@ -390,17 +399,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/22/tomcat-http/" rel="next" title="Tomcat 8.0 HTTP请求流程">
-                <i class="fa fa-chevron-left"></i> Tomcat 8.0 HTTP请求流程
+              <a href="/2016/10/20/spring-encount-error/" rel="next" title="expected single matching bean but found 2">
+                <i class="fa fa-chevron-left"></i> expected single matching bean but found 2
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/24/eclipse-breakpoint-type/" rel="prev" title="Eclipse断点类型">
-                Eclipse断点类型 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -556,7 +561,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特性"><span class="nav-number">2.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用操作"><span class="nav-number">3.</span> <span class="nav-text">常用操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数-Function"><span class="nav-number">4.</span> <span class="nav-text">函数(Function)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#服务端启动代理中继"><span class="nav-number">1.</span> <span class="nav-text">服务端启动代理中继</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#服务端添加Controller"><span class="nav-number">2.</span> <span class="nav-text">服务端添加Controller</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器端"><span class="nav-number">3.</span> <span class="nav-text">浏览器端</span></a></li></ol></div>
             
           </div>
         </section>
@@ -683,9 +688,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'jiangxiaoqiang';
-      var disqus_identifier = '2016/09/23/phoenix-tutorial/';
-      var disqus_title = "Phoenix常用操作";
-      var disqus_url = 'http://jiangxiaoqiang.com/2016/09/23/phoenix-tutorial/';
+      var disqus_identifier = '2016/10/20/stomp-url-route/';
+      var disqus_title = "Stomp WebSocket路由";
+      var disqus_url = 'http://jiangxiaoqiang.com/2016/10/20/stomp-url-route/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

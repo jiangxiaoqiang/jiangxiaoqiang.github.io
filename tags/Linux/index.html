@@ -92,7 +92,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="小强的博客">
-<meta property="og:url" content="http://jiangxiaoqiang.com/tags/Linux/index.html">
+<meta property="og:url" content="http://jiangxiaoqiang.com/tags/linux/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小强的博客">
@@ -116,9 +116,9 @@
 
 
 
-  <link rel="canonical" href="http://jiangxiaoqiang.com/tags/Linux/"/>
+  <link rel="canonical" href="http://jiangxiaoqiang.com/tags/linux/"/>
 
-  <title> 标签: Linux | 小强的博客 </title>
+  <title> 标签: linux | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -262,7 +262,7 @@
   <div id="posts" class="posts-collapse">
     <div class="collection-title">
       <h2 >
-        Linux
+        linux
         <small>标签</small>
       </h2>
     </div>
@@ -275,37 +275,9 @@
 
       <h1 class="post-title">
         
-            <a class="post-title-link" href="/2016/10/14/script-startup-with-linux/" itemprop="url">
+            <a class="post-title-link" href="/2016/10/13/linux-chkconfig-service-systemctl/" itemprop="url">
               
-                <span itemprop="name">Linux开机自动启动程序</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-14T17:45:50+08:00"
-              content="2016-10-14" >
-          10-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/08/rm-command/" itemprop="url">
-              
-                <span itemprop="name">rm命令安全</span>
+                <span itemprop="name">linux中的chkconfig、service和systemctl</span>
               
             </a>
         
@@ -313,9 +285,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-08T11:25:38+08:00"
-              content="2016-10-08" >
-          10-08
+              datetime="2016-10-13T09:04:58+08:00"
+              content="2016-10-13" >
+          10-13
         </time>
       </div>
 
@@ -365,7 +337,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">41</span>
+              <span class="site-state-item-count">42</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -382,7 +354,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">69</span>
+                <span class="site-state-item-count">70</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -558,7 +530,7 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'jiangxiaoqiang';
-      var disqus_identifier = 'tags/Linux/index.html';
+      var disqus_identifier = 'tags/linux/index.html';
       var disqus_title = "";
       var disqus_url = '';
 
@@ -689,6 +661,39 @@
     });}
 
     // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>
+handle and trigger popup window;
     $('.popup-trigger').click(function(e) {
       e.stopPropagation();
       if (isfetched == false) {
