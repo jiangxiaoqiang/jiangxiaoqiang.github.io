@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/</loc>
+    
+    <lastmod>2016-10-24T01:59:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/21/spring-module-config/</loc>
+    
+    <lastmod>2016-10-24T01:59:11.993Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/21/Fedora-shortkey/</loc>
+    
+    <lastmod>2016-10-24T01:59:11.988Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/20/stomp-url-route/</loc>
     
     <lastmod>2016-10-20T15:03:46.809Z</lastmod>
@@ -19,13 +40,6 @@
     <loc>http://jiangxiaoqiang.com/2016/10/18/spring-bean-registered/</loc>
     
     <lastmod>2016-10-19T00:47:00.067Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/</loc>
-    
-    <lastmod>2016-10-18T09:39:38.846Z</lastmod>
     
   </url>
   
@@ -282,14 +296,14 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/01/hadoop-cluster-deploy/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/28/hashcode-and-equals/</loc>
     
     <lastmod>2016-10-03T03:34:36.509Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/28/hashcode-and-equals/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/10/01/hadoop-cluster-deploy/</loc>
     
     <lastmod>2016-10-03T03:34:36.509Z</lastmod>
     

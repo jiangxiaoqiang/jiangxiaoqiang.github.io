@@ -4,6 +4,62 @@
   
     
     <entry>
+      <title><![CDATA[Fedora快捷键]]></title>
+      <url>http://jiangxiaoqiang.com/2016/10/21/Fedora-shortkey/</url>
+      <content type="html"><![CDATA[<p>如下是我在使用Fedora的时候整理的快捷键，网络上有许多快捷键版本，下表是经过测试可用并一直在使用的快捷键。</p>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows + A</td>
+<td style="text-align:center">显示软件列表</td>
+</tr>
+<tr>
+<td>Windows + H</td>
+<td style="text-align:center">隐藏当前窗口</td>
+</tr>
+<tr>
+<td>Alt + F10</td>
+<td style="text-align:center">最大化、还原当前窗口</td>
+</tr>
+<tr>
+<td>Ctrl + Alt + Up/Down</td>
+<td style="text-align:center">切换当前窗口</td>
+</tr>
+<tr>
+<td>Alt + Tab</td>
+<td style="text-align:center">应用程序之间进行切换</td>
+</tr>
+<tr>
+<td>Windows + Left/Right/Up/Down</td>
+<td style="text-align:center">将窗口移向左右、最大化、还原</td>
+</tr>
+<tr>
+<td>Windows + PageUp/PageDown</td>
+<td style="text-align:center">切换工作区</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Spring模块化配置]]></title>
+      <url>http://jiangxiaoqiang.com/2016/10/21/spring-module-config/</url>
+      <content type="html"><![CDATA[<p>Spring的一大缺点就是配置文件非常多，想象如果没有注解扫描Bean，所有的Bean都配置在XML文件中，将会是一个噩梦，项目中会充斥着大量的配置文件。这也是Spring-Boot项目所要避免的问题之一，在做项目开发时，为了使配置显得有条理化，易于理解，可以采用Spring Import配置文件，项目中需要一个Spring的主文件，在Web.xml中指定Spring的主文件位置，主文件再Import各类配置文件。指定主文件如下代码片段所示：</p>
+<a id="more"></a>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:spring-config/spring-main-config.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>其中<code>spring-main-config.xml</code>即是项目的Spring配置主文件。classpath是指WEB-INF文件夹下的classes目录,classpath 和 classpath<em> 区别是：classpath：只会到你的class路径中查找找文件;classpath</em>：不仅包含class路径，还包括jar文件中(class路径)进行查找.在部署完毕的WEB项目中，一般包含WEB-INF和META-INF文件夹。META-INF相当于一个信息包，目录中的文件和目录获得Java 2平台的认可与解释，用来配置应用程序、扩展程序、类加载器和服务manifest.mf文件，在用jar打包时自动生成。其中主配置文件中使用Import Resource如下代码片段所示：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></div><div class="line">	<span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xmlns:aop</span>=<span class="string">"http://www.springframework.org/schema/aop"</span></div><div class="line">	<span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></div><div class="line">	<span class="attr">xmlns:util</span>=<span class="string">"http://www.springframework.org/schema/util"</span></div><div class="line">	<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></div><div class="line">    http://www.springframework.org/schema/beans/spring-beans.xsd</div><div class="line">    http://www.springframework.org/schema/aop</div><div class="line">    http://www.springframework.org/schema/aop/spring-aop.xsd  </div><div class="line">    http://www.springframework.org/schema/util</div><div class="line">    http://www.springframework.org/schema/util/spring-util.xsd</div><div class="line">    http://www.springframework.org/schema/context</div><div class="line">    http://www.springframework.org/schema/context/spring-context.xsd"&gt;</div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">description</span>&gt;</span>spring主配置文件<span class="tag">&lt;/<span class="name">description</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="comment">&lt;!-- 属性和配置文件读入 ,多个用逗号隔开 数据库参数和系统参数 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">util:properties</span> <span class="attr">id</span>=<span class="string">"applicationProperties"</span> <span class="attr">location</span>=<span class="string">"classpath:application.properties"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">context:property-placeholder</span> <span class="attr">properties-ref</span>=<span class="string">"applicationProperties"</span> <span class="attr">ignore-resource-not-found</span>=<span class="string">"true"</span> /&gt;</span></div><div class="line"></div><div class="line">	<span class="comment">&lt;!-- 扫描注解@Component , @Service , @Repository。--&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">context:component-scan</span></span></div><div class="line">		<span class="attr">base-package</span>=<span class="string">"main.src.*"</span>&gt;</div><div class="line">		<span class="tag">&lt;<span class="name">context:include-filter</span> <span class="attr">type</span>=<span class="string">"annotation"</span></span></div><div class="line">			<span class="attr">expression</span>=<span class="string">"org.aspectj.lang.annotation.Aspect"</span> /&gt;</div><div class="line">		<span class="tag">&lt;<span class="name">context:exclude-filter</span> <span class="attr">type</span>=<span class="string">"annotation"</span></span></div><div class="line">			<span class="attr">expression</span>=<span class="string">"org.springframework.stereotype.Controller"</span> /&gt;</div><div class="line">		<span class="tag">&lt;<span class="name">context:exclude-filter</span> <span class="attr">type</span>=<span class="string">"annotation"</span></span></div><div class="line">			<span class="attr">expression</span>=<span class="string">"org.springframework.web.bind.annotation.RestController"</span> /&gt;</div><div class="line">		<span class="tag">&lt;<span class="name">context:exclude-filter</span> <span class="attr">type</span>=<span class="string">"annotation"</span></span></div><div class="line">			<span class="attr">expression</span>=<span class="string">"org.springframework.web.bind.annotation.ControllerAdvice"</span> /&gt;</div><div class="line">	<span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="comment">&lt;!--aop 注解风格支持 proxy-targer-class默认false,用jdk动态代理,true是cglib .expose-proxy当前代理是否为可暴露状态,值是"ture",则为可访问。 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">aop:aspectj-autoproxy</span> <span class="attr">expose-proxy</span>=<span class="string">"true"</span></span></div><div class="line">		<span class="attr">proxy-target-class</span>=<span class="string">"true"</span> /&gt;</div><div class="line">	<span class="comment">&lt;!--aop xml风格支持 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">aop:config</span> <span class="attr">expose-proxy</span>=<span class="string">"true"</span> <span class="attr">proxy-target-class</span>=<span class="string">"true"</span> /&gt;</span></div><div class="line"></div><div class="line">	<span class="comment">&lt;!-- 导入其它spring配置文件 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">"classpath:spring-config/spring-filters.xml"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">"classpath:spring-config/spring-datasource.xml"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">"classpath:spring-config/spring-mybatis.xml"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">"classpath:spring-config/spring-cache.xml"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">"classpath:spring-config/spring-i18n.xml"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">"classpath:spring-config/spring-json.xml"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">"classpath:spring-config/spring-security.xml"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">"classpath:spring-config/spring-exception.xml"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">"classpath:spring-config/spring-log.xml"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">"classpath:spring-config/spring-validator.xml"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">"classpath:spring-config/spring-quartz.xml"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">"classpath:spring-config/spring-socket-servlet.xml"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Stomp WebSocket路由]]></title>
       <url>http://jiangxiaoqiang.com/2016/10/20/stomp-url-route/</url>
       <content type="html"><![CDATA[<p>STOMP即Simple (or Streaming) Text Orientated Messaging Protocol，简单(流)文本定向消息协议，它提供了一个可互操作的连接格式，允许STOMP客户端与任意STOMP消息代理（Broker）进行交互。STOMP协议由于设计简单，易于开发客户端，因此在多种语言和多种平台上得到广泛地应用。WebSocket协议的应用层子协议STOMP（流文本定向消息协议）。在应用中直接使用WebSocket API显得有些低端，直到统一标准规范时也只有一小部分框架可以解析信息或通过注解方式使用它。这正是考虑在应用中运用子协议和产生基于WebSocket支持的Spring的STOMP的原因。当运用一个上层协议，WebSocket API的细节就显得不那么重要了，正如运用了HTTP后TCP的通信细节不再暴漏在应用中一样。STOMP是为了简单而创建的一种消息协议。它基于模仿HTTP协议的帧。帧由一个命令、可选的头和可选的体组成。</p>
@@ -822,9 +878,17 @@
 <td>Ctrl + Shift + Alt + N</td>
 <td style="text-align:center">全文搜索，包含Maven引用的jar包里面的内容，在搜索界面中，需要勾选Include non-project symbols</td>
 </tr>
+<tr>
+<td>Ctrl + Alt + Left/Right</td>
+<td style="text-align:center">到上一次/下一次编辑的位置</td>
+</tr>
 </tbody>
 </table>
 <h5 id="进入退出全屏"><a href="#进入退出全屏" class="headerlink" title="进入退出全屏"></a>进入退出全屏</h5><p>使用快捷键<code>Alt + V</code>打开View菜单，移动上下键选择<code>Enter Full Screen</code>即可。也可以自定义快捷键。</p>
+<h4 id="properties显示中文"><a href="#properties显示中文" class="headerlink" title="properties显示中文"></a>properties显示中文</h4><p>使用IntelliJ Idea打开属性文件时，如果包含中文，显示为原始的编码，正确显示中文需要做如下设置，到设置(settings)中,可以使用快捷键Ctrl + Alt + S打开设置界面，找到<code>File Encoding</code>选项卡，选中<code>Default encoding for properties file</code>即可，如下图所示.</p>
+<img src="/2016/09/26/intllij-idea-encoding/intellij-properties-encoding.png" alt="属性文件编码设置" title="属性文件编码设置">
+<h4 id="限制编辑器Tab页个数"><a href="#限制编辑器Tab页个数" class="headerlink" title="限制编辑器Tab页个数"></a>限制编辑器Tab页个数</h4><p>有时我们并不习惯在编辑器中打开太多的Tab页，如果不小心点开了7个以上的Tab页，在Tab页面中切换也蛮让人晕眩的，设置Tab页最大个数在Settings(Ctrl + Alt + S),Editor-General-Editor Tabs中，如下图如所示。</p>
+<img src="/2016/09/26/intllij-idea-encoding/intellij-tabs-number-setting.png" alt="IntelliJ Idea编辑器Tab页设置" title="IntelliJ Idea编辑器Tab页设置">
 <h4 id="注释模板"><a href="#注释模板" class="headerlink" title="注释模板"></a>注释模板</h4><p>参考：</p>
 <p><a href="http://www.hollischuang.com/archives/966" target="_blank" rel="external">Java开发必装的IntelliJ IDEA插件</a></p>
 <p><a href="https://www.jetbrains.com/help/idea/2016.2/surrounding-blocks-of-code-with-language-constructs.html" target="_blank" rel="external">Surrounding Blocks of Code with Language Constructs</a></p>

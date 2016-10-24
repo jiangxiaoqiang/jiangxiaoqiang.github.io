@@ -4,6 +4,72 @@
 
     
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/</loc>
+    <lastmod>2016-10-24T01:59:12.000Z</lastmod>
+    <data>
+        <display>
+        <title>IntelliJ Idea快捷键技巧分享</title>
+        <pubTime>2016-09-26T06:23:24.000Z</pubTime>
+        
+        <tag>IDE</tag>
+         
+        <tag>IntelliJ</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/21/spring-module-config/</loc>
+    <lastmod>2016-10-24T01:59:11.993Z</lastmod>
+    <data>
+        <display>
+        <title>Spring模块化配置</title>
+        <pubTime>2016-10-21T15:51:37.000Z</pubTime>
+        
+        <tag>Spring</tag>
+         
+        <tag>Configuration</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/21/Fedora-shortkey/</loc>
+    <lastmod>2016-10-24T01:59:11.988Z</lastmod>
+    <data>
+        <display>
+        <title>Fedora快捷键</title>
+        <pubTime>2016-10-21T15:53:36.000Z</pubTime>
+        
+        <tag>Fedora</tag>
+         
+        <tag>Gnome</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/20/stomp-url-route/</loc>
     <lastmod>2016-10-20T15:03:46.809Z</lastmod>
     <data>
@@ -60,28 +126,6 @@
         <tag>Spring</tag>
          
         <tag>Bean</tag>
-         
-         
-           
-             
-              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/</loc>
-    <lastmod>2016-10-18T09:39:38.846Z</lastmod>
-    <data>
-        <display>
-        <title>IntelliJ Idea快捷键技巧分享</title>
-        <pubTime>2016-09-26T06:23:24.000Z</pubTime>
-        
-        <tag>IDE</tag>
-         
-        <tag>IntelliJ</tag>
          
          
            
@@ -770,6 +814,23 @@
 
     
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/28/hashcode-and-equals/</loc>
+    <lastmod>2016-10-03T03:34:36.509Z</lastmod>
+    <data>
+        <display>
+        <title>hashcode和equals的理解</title>
+        <pubTime>2016-09-28T14:12:51.000Z</pubTime>
+        
+        <tag>hashcode</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/01/hadoop-cluster-deploy/</loc>
     <lastmod>2016-10-03T03:34:36.509Z</lastmod>
     <data>
@@ -786,23 +847,6 @@
              
               <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/28/hashcode-and-equals/</loc>
-    <lastmod>2016-10-03T03:34:36.509Z</lastmod>
-    <data>
-        <display>
-        <title>hashcode和equals的理解</title>
-        <pubTime>2016-09-28T14:12:51.000Z</pubTime>
-        
-        <tag>hashcode</tag>
-         
-         
-           
         </display>
     </data>
     </url>
