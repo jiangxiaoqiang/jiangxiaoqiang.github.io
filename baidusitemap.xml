@@ -4,6 +4,74 @@
 
     
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/25/stomp-spring-message-push/</loc>
+    <lastmod>2016-10-25T13:40:58.484Z</lastmod>
+    <data>
+        <display>
+        <title>Stomp + WebSocket消息实时推送</title>
+        <pubTime>2016-10-25T13:40:58.000Z</pubTime>
+        
+        <tag>spring</tag>
+         
+        <tag>stomp</tag>
+         
+        <tag>websocket</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/</loc>
+    <lastmod>2016-10-25T01:44:00.546Z</lastmod>
+    <data>
+        <display>
+        <title>SQuirreL GUI客户端集成Phoenix配置</title>
+        <pubTime>2016-10-25T01:24:13.000Z</pubTime>
+        
+        <tag>Phoenix</tag>
+         
+        <tag>SQuirreL</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/21/Fedora-shortkey/</loc>
+    <lastmod>2016-10-24T05:15:26.216Z</lastmod>
+    <data>
+        <display>
+        <title>Fedora快捷键</title>
+        <pubTime>2016-10-21T15:53:36.000Z</pubTime>
+        
+        <tag>Fedora</tag>
+         
+        <tag>Gnome</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/</loc>
     <lastmod>2016-10-24T01:59:12.000Z</lastmod>
     <data>
@@ -36,28 +104,6 @@
         <tag>Spring</tag>
          
         <tag>Configuration</tag>
-         
-         
-           
-             
-              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/21/Fedora-shortkey/</loc>
-    <lastmod>2016-10-24T01:59:11.988Z</lastmod>
-    <data>
-        <display>
-        <title>Fedora快捷键</title>
-        <pubTime>2016-10-21T15:53:36.000Z</pubTime>
-        
-        <tag>Fedora</tag>
-         
-        <tag>Gnome</tag>
          
          
            
@@ -528,25 +574,6 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/02/install-chrome-in-fedora/</loc>
-    <lastmod>2016-10-07T03:53:37.332Z</lastmod>
-    <data>
-        <display>
-        <title>install-chrome-in-fedora</title>
-        <pubTime>2016-10-02T15:02:56.000Z</pubTime>
-        
-        <tag>Chrome</tag>
-         
-        <tag>Fedora</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/05/fedora-20-install-nodejs/</loc>
     <lastmod>2016-10-07T03:53:37.332Z</lastmod>
     <data>
@@ -563,6 +590,25 @@
              
               <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/02/install-chrome-in-fedora/</loc>
+    <lastmod>2016-10-07T03:53:37.332Z</lastmod>
+    <data>
+        <display>
+        <title>install-chrome-in-fedora</title>
+        <pubTime>2016-10-02T15:02:56.000Z</pubTime>
+        
+        <tag>Chrome</tag>
+         
+        <tag>Fedora</tag>
+         
+         
+           
         </display>
     </data>
     </url>
@@ -667,12 +713,12 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/13/spring/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/18/springmvc-dispatcherservlet/</loc>
     <lastmod>2016-10-03T03:34:36.520Z</lastmod>
     <data>
         <display>
-        <title>Spring框架搭建</title>
-        <pubTime>2016-09-13T10:53:05.804Z</pubTime>
+        <title>Spring MVC-DispatcherServlet处理请求过程</title>
+        <pubTime>2016-09-18T01:04:36.713Z</pubTime>
         
          
            
@@ -682,12 +728,12 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/18/springmvc-dispatcherservlet/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/13/spring/</loc>
     <lastmod>2016-10-03T03:34:36.520Z</lastmod>
     <data>
         <display>
-        <title>Spring MVC-DispatcherServlet处理请求过程</title>
-        <pubTime>2016-09-18T01:04:36.713Z</pubTime>
+        <title>Spring框架搭建</title>
+        <pubTime>2016-09-13T10:53:05.804Z</pubTime>
         
          
            
@@ -853,23 +899,6 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/24/eclipse-breakpoint-type/</loc>
-    <lastmod>2016-10-03T03:34:36.508Z</lastmod>
-    <data>
-        <display>
-        <title>Eclipse断点类型</title>
-        <pubTime>2016-09-24T08:47:20.000Z</pubTime>
-        
-        <tag>Eclipse</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://jiangxiaoqiang.com/2016/09/30/cluster-ssh-login/</loc>
     <lastmod>2016-10-03T03:34:36.508Z</lastmod>
     <data>
@@ -880,6 +909,23 @@
         <tag>SSH</tag>
          
         <tag>Cluster</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/24/eclipse-breakpoint-type/</loc>
+    <lastmod>2016-10-03T03:34:36.508Z</lastmod>
+    <data>
+        <display>
+        <title>Eclipse断点类型</title>
+        <pubTime>2016-09-24T08:47:20.000Z</pubTime>
+        
+        <tag>Eclipse</tag>
          
          
            
