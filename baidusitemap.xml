@@ -4,6 +4,50 @@
 
     
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/27/new-keyboard/</loc>
+    <lastmod>2016-10-27T05:13:31.902Z</lastmod>
+    <data>
+        <display>
+        <title>HP KU 1158键盘</title>
+        <pubTime>2016-10-27T05:08:21.000Z</pubTime>
+        
+        <tag>keyboard</tag>
+         
+        <tag>KU 1158</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programmming" url="http://jiangxiaoqiang.com/categories/Programmming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/14/java-8-using-stream-api/</loc>
+    <lastmod>2016-10-27T04:02:21.681Z</lastmod>
+    <data>
+        <display>
+        <title>Java 8 使用Stream API</title>
+        <pubTime>2016-10-14T07:25:32.000Z</pubTime>
+        
+        <tag>Java 8</tag>
+         
+        <tag>Stream API</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/27/websocket-event/</loc>
     <lastmod>2016-10-27T02:51:45.827Z</lastmod>
     <data>
@@ -31,11 +75,11 @@
         <title>Stomp + WebSocket消息实时推送</title>
         <pubTime>2016-10-25T13:40:58.000Z</pubTime>
         
-        <tag>spring</tag>
-         
         <tag>stomp</tag>
          
         <tag>websocket</tag>
+         
+        <tag>spring</tag>
          
          
            
@@ -99,9 +143,9 @@
         <title>IntelliJ Idea快捷键技巧分享</title>
         <pubTime>2016-09-26T06:23:24.000Z</pubTime>
         
-        <tag>IDE</tag>
-         
         <tag>IntelliJ</tag>
+         
+        <tag>IDE</tag>
          
          
            
@@ -362,28 +406,6 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/14/java-8-using-stream-api/</loc>
-    <lastmod>2016-10-14T07:28:51.480Z</lastmod>
-    <data>
-        <display>
-        <title>Java 8 使用Stream API</title>
-        <pubTime>2016-10-14T07:25:32.000Z</pubTime>
-        
-        <tag>Java 8</tag>
-         
-        <tag>Stream API</tag>
-         
-         
-           
-             
-              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/09/fedora-openvpn-client/</loc>
     <lastmod>2016-10-13T01:54:25.145Z</lastmod>
     <data>
@@ -498,9 +520,9 @@
         <title>Intellij IDEA推荐插件</title>
         <pubTime>2016-10-08T05:46:41.000Z</pubTime>
         
-        <tag>Intellij</tag>
-         
         <tag>Plugin</tag>
+         
+        <tag>Intellij</tag>
          
          
            
@@ -577,23 +599,6 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/03/fedora-20-install-input-method/</loc>
-    <lastmod>2016-10-07T03:53:37.332Z</lastmod>
-    <data>
-        <display>
-        <title>Fedora 20安装中文输入法</title>
-        <pubTime>2016-10-03T03:08:51.000Z</pubTime>
-        
-        <tag>Fedora</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/02/install-chrome-in-fedora/</loc>
     <lastmod>2016-10-07T03:53:37.332Z</lastmod>
     <data>
@@ -601,9 +606,9 @@
         <title>install-chrome-in-fedora</title>
         <pubTime>2016-10-02T15:02:56.000Z</pubTime>
         
-        <tag>Chrome</tag>
-         
         <tag>Fedora</tag>
+         
+        <tag>Chrome</tag>
          
          
            
@@ -629,6 +634,23 @@
              
               <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/03/fedora-20-install-input-method/</loc>
+    <lastmod>2016-10-07T03:53:37.332Z</lastmod>
+    <data>
+        <display>
+        <title>Fedora 20安装中文输入法</title>
+        <pubTime>2016-10-03T03:08:51.000Z</pubTime>
+        
+        <tag>Fedora</tag>
+         
+         
+           
         </display>
     </data>
     </url>
@@ -797,21 +819,6 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/18/log4j/</loc>
-    <lastmod>2016-10-03T03:34:36.516Z</lastmod>
-    <data>
-        <display>
-        <title>Java Web开发--log4j</title>
-        <pubTime>2016-09-18T00:54:34.701Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://jiangxiaoqiang.com/2016/09/19/lombok/</loc>
     <lastmod>2016-10-03T03:34:36.516Z</lastmod>
     <data>
@@ -829,6 +836,21 @@
 
     
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/18/log4j/</loc>
+    <lastmod>2016-10-03T03:34:36.516Z</lastmod>
+    <data>
+        <display>
+        <title>Java Web开发--log4j</title>
+        <pubTime>2016-09-18T00:54:34.701Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/09/20/launching-and-debugging-tomcat/</loc>
     <lastmod>2016-10-03T03:34:36.514Z</lastmod>
     <data>
@@ -837,6 +859,23 @@
         <pubTime>2016-09-20T04:15:42.000Z</pubTime>
         
         <tag>Tomcat</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/19/java-string-not-null/</loc>
+    <lastmod>2016-10-03T03:34:36.513Z</lastmod>
+    <data>
+        <display>
+        <title>Java中String非空判断</title>
+        <pubTime>2016-09-19T10:18:13.000Z</pubTime>
+        
+        <tag>java</tag>
          
          
            
@@ -863,14 +902,14 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/19/java-string-not-null/</loc>
-    <lastmod>2016-10-03T03:34:36.513Z</lastmod>
+    <loc>http://jiangxiaoqiang.com/2016/09/28/hashcode-and-equals/</loc>
+    <lastmod>2016-10-03T03:34:36.509Z</lastmod>
     <data>
         <display>
-        <title>Java中String非空判断</title>
-        <pubTime>2016-09-19T10:18:13.000Z</pubTime>
+        <title>hashcode和equals的理解</title>
+        <pubTime>2016-09-28T14:12:51.000Z</pubTime>
         
-        <tag>java</tag>
+        <tag>hashcode</tag>
          
          
            
@@ -902,14 +941,16 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/28/hashcode-and-equals/</loc>
-    <lastmod>2016-10-03T03:34:36.509Z</lastmod>
+    <loc>http://jiangxiaoqiang.com/2016/09/30/cluster-ssh-login/</loc>
+    <lastmod>2016-10-03T03:34:36.508Z</lastmod>
     <data>
         <display>
-        <title>hashcode和equals的理解</title>
-        <pubTime>2016-09-28T14:12:51.000Z</pubTime>
+        <title>Hadoop集群SSH免密钥登录</title>
+        <pubTime>2016-09-30T08:41:35.000Z</pubTime>
         
-        <tag>hashcode</tag>
+        <tag>SSH</tag>
+         
+        <tag>Cluster</tag>
          
          
            
@@ -927,25 +968,6 @@
         <pubTime>2016-09-24T08:47:20.000Z</pubTime>
         
         <tag>Eclipse</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/30/cluster-ssh-login/</loc>
-    <lastmod>2016-10-03T03:34:36.508Z</lastmod>
-    <data>
-        <display>
-        <title>Hadoop集群SSH免密钥登录</title>
-        <pubTime>2016-09-30T08:41:35.000Z</pubTime>
-        
-        <tag>SSH</tag>
-         
-        <tag>Cluster</tag>
          
          
            

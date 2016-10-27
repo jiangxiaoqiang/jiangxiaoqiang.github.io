@@ -4,6 +4,17 @@
   
     
     <entry>
+      <title><![CDATA[HP KU 1158键盘]]></title>
+      <url>http://jiangxiaoqiang.com/2016/10/27/new-keyboard/</url>
+      <content type="html"><![CDATA[<p>以前的旧键盘打字的声音有点大，中午打字都担心吵到旁边休息的同学，而且按键比较生硬，今天特意请飞哥换了一款键盘HP KU 1158，确实好用不少。一直在找一款适合长时间输入的键盘，而且要求声音要尽量小一些，价格平民化一些(Realforce一千多也还蛮贵的)。这款键盘符合要求。</p>
+<a id="more"></a>
+<img src="/2016/10/27/new-keyboard/new-keyboard-overview.jpg" alt="键盘正面" title="键盘正面">
+<img src="/2016/10/27/new-keyboard/new-keyboard-detail.jpg" alt="键盘参数信息" title="键盘参数信息">
+<p><a href="https://www.amazon.com/HP-black-keyboard-KU-1156-672647-003/dp/B00LLK88IE" target="_blank" rel="external">Amaozn购买链接</a>.</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[WebSocket连接(SessionConnectEvent)、断开连接(SessionDisconnectEvent)事件]]></title>
       <url>http://jiangxiaoqiang.com/2016/10/27/websocket-event/</url>
       <content type="html"><![CDATA[<p>WebSocket事件：SessionConnectEvent(连接时), SessionConnectedEvent(连接后), SessionDisconnectEvent(断开连接)。</p>
@@ -258,6 +269,9 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">List&lt;WorkDayDataInfo&gt; workDayDataInfo = workDayInfos.get(currentWorkDay).getDatas();</div><div class="line">String assignmentIdStream = assignments.stream()</div><div class="line">                        .map(p -&gt; p.getId())</div><div class="line">                        .collect(Collectors.joining(<span class="string">","</span>));</div></pre></td></tr></table></figure>
 <p>对于基本数据类型的拼接：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">List&lt;Integer&gt; numbers = Arrays.asList( <span class="number">4</span>, <span class="number">8</span>, <span class="number">15</span>, <span class="number">16</span>, <span class="number">23</span>, <span class="number">42</span> );</div><div class="line"><span class="keyword">return</span> numbers.stream().map( n -&gt; n.toString() ).collect( Collectors.joining( <span class="string">","</span> ) );</div></pre></td></tr></table></figure>
+<h4 id="去除重复数据"><a href="#去除重复数据" class="headerlink" title="去除重复数据"></a>去除重复数据</h4><p>去除List中对象的重复数据。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">List&lt;ClientVehicleInfo&gt; distinctVehicles = clientVehicleInfos.stream().distinct().collect(Collectors.toList());</div></pre></td></tr></table></figure>
+<p>对于Stream中包含的元素进行去重操作（去重逻辑依赖元素的equals方法），新生成的Stream中没有重复的元素。（根据.equals行为排除所有重复的元素。）</p>
 ]]></content>
     </entry>
     
