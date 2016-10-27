@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="消息广播消息广播将消息发送给所有用户。
 12345678/* * 推送给所有用户 */private void pushInfoImpl(String url, String content) &amp;#123;    if (simpMessagingTemplate != null) &amp;#123;        simpMessagingTemplate.convertAndSend(url, co">
-<meta property="og:updated_time" content="2016-10-25T13:40:58.484Z">
+<meta property="og:updated_time" content="2016-10-25T13:52:15.476Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Stomp + WebSocket消息实时推送">
 <meta name="twitter:description" content="消息广播消息广播将消息发送给所有用户。
@@ -355,6 +355,7 @@
       
         <h4 id="消息广播"><a href="#消息广播" class="headerlink" title="消息广播"></a>消息广播</h4><p>消息广播将消息发送给所有用户。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"> * 推送给所有用户</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">pushInfoImpl</span><span class="params">(String url, String content)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (simpMessagingTemplate != <span class="keyword">null</span>) &#123;</div><div class="line">        simpMessagingTemplate.convertAndSend(url, content);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h4 id="推送给指定用户"><a href="#推送给指定用户" class="headerlink" title="推送给指定用户"></a>推送给指定用户</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"> * 推送给指定用户</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">pushInfoImpl</span><span class="params">(String user, String url, String content)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (simpMessagingTemplate != <span class="keyword">null</span>) &#123;</div><div class="line">        simpMessagingTemplate.convertAndSendToUser(user, url, content);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>url直接为<code>/location</code>，在发给客户端的时，会自动添加user前缀和用户名，客户端订阅的url像这样：<code>/user/admin/location</code>，订阅的url中，不包含topic。content为需要发送的消息的内容。</p>
 <h4 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h4><p>客户端订阅消息如下代码片段所示：</p>
@@ -402,6 +403,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/27/websocket-event/" rel="prev" title="WebSocket连接(SessionConnectEvent)、断开连接(SessionDisconnectEvent)事件">
+                WebSocket连接(SessionConnectEvent)、断开连接(SessionDisconnectEvent)事件 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -476,7 +481,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">46</span>
+              <span class="site-state-item-count">47</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

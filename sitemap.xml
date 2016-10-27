@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/27/websocket-event/</loc>
+    
+    <lastmod>2016-10-27T02:51:45.827Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/25/stomp-spring-message-push/</loc>
     
-    <lastmod>2016-10-25T13:40:58.484Z</lastmod>
+    <lastmod>2016-10-25T13:52:15.476Z</lastmod>
     
   </url>
   
@@ -184,14 +191,14 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/05/fedora-20-install-nodejs/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/10/02/install-chrome-in-fedora/</loc>
     
     <lastmod>2016-10-07T03:53:37.332Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/02/install-chrome-in-fedora/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/10/05/fedora-20-install-nodejs/</loc>
     
     <lastmod>2016-10-07T03:53:37.332Z</lastmod>
     
@@ -247,14 +254,14 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/18/springmvc-dispatcherservlet/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/13/spring/</loc>
     
     <lastmod>2016-10-03T03:34:36.520Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/13/spring/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/18/springmvc-dispatcherservlet/</loc>
     
     <lastmod>2016-10-03T03:34:36.520Z</lastmod>
     
@@ -275,14 +282,14 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/19/lombok/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/18/log4j/</loc>
     
     <lastmod>2016-10-03T03:34:36.516Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/18/log4j/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/19/lombok/</loc>
     
     <lastmod>2016-10-03T03:34:36.516Z</lastmod>
     
@@ -296,13 +303,6 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/19/java-string-not-null/</loc>
-    
-    <lastmod>2016-10-03T03:34:36.513Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://jiangxiaoqiang.com/2016/09/20/launching-and-debugging-tomcat-extra/</loc>
     
     <lastmod>2016-10-03T03:34:36.513Z</lastmod>
@@ -310,9 +310,9 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/28/hashcode-and-equals/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/19/java-string-not-null/</loc>
     
-    <lastmod>2016-10-03T03:34:36.509Z</lastmod>
+    <lastmod>2016-10-03T03:34:36.513Z</lastmod>
     
   </url>
   
@@ -324,14 +324,21 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/30/cluster-ssh-login/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/28/hashcode-and-equals/</loc>
+    
+    <lastmod>2016-10-03T03:34:36.509Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/24/eclipse-breakpoint-type/</loc>
     
     <lastmod>2016-10-03T03:34:36.508Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/24/eclipse-breakpoint-type/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/30/cluster-ssh-login/</loc>
     
     <lastmod>2016-10-03T03:34:36.508Z</lastmod>
     
