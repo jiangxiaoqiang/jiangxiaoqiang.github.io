@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Learning,summarize" />
+  <meta name="keywords" content="Kafka," />
 
 
 
@@ -90,12 +90,25 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="小强的博客">
-<meta property="og:url" content="http://jiangxiaoqiang.com/tags/Bean/index.html">
+<meta name="description" content="创建主题：
+1./kafka-topics.sh --zookeeper localhost:2181 --create --topic test1 --partitions 1 --replication-factor 1 --config max.message.bytes=64000 --config flush.messages=1
+查看所有主题：
+1./kafka-topics.sh -">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kafka常用操作">
+<meta property="og:url" content="http://jiangxiaoqiang.com/2016/10/29/kafka-common-operation/index.html">
 <meta property="og:site_name" content="小强的博客">
+<meta property="og:description" content="创建主题：
+1./kafka-topics.sh --zookeeper localhost:2181 --create --topic test1 --partitions 1 --replication-factor 1 --config max.message.bytes=64000 --config flush.messages=1
+查看所有主题：
+1./kafka-topics.sh -">
+<meta property="og:updated_time" content="2016-10-29T09:12:12.137Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小强的博客">
+<meta name="twitter:title" content="Kafka常用操作">
+<meta name="twitter:description" content="创建主题：
+1./kafka-topics.sh --zookeeper localhost:2181 --create --topic test1 --partitions 1 --replication-factor 1 --config max.message.bytes=64000 --config flush.messages=1
+查看所有主题：
+1./kafka-topics.sh -">
 
 
 
@@ -116,9 +129,9 @@
 
 
 
-  <link rel="canonical" href="http://jiangxiaoqiang.com/tags/Bean/"/>
+  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/10/29/kafka-common-operation/"/>
 
-  <title> 标签: Bean | 小强的博客 </title>
+  <title> Kafka常用操作 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -148,7 +161,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -259,74 +272,156 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        Bean
-        <small>标签</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/18/spring-bean-registered/" itemprop="url">
-              
-                <span itemprop="name">Spring Bean是否注册判断</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-18T21:31:26+08:00"
-              content="2016-10-18" >
-          10-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/18/spring-get-bean/" itemprop="url">
-              
-                <span itemprop="name">Spring线程中Bean注入问题</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-18T17:20:11+08:00"
-              content="2016-10-18" >
-          10-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </div>
 
   
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Kafka常用操作
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-29T17:11:35+08:00" content="2016-10-29">
+              2016-10-29
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/29/kafka-common-operation/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/29/kafka-common-operation/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>创建主题：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./kafka-topics.sh --zookeeper localhost:2181 --create --topic <span class="built_in">test</span>1 --partitions 1 --replication-factor 1 --config max.message.bytes=64000 --config flush.messages=1</div></pre></td></tr></table></figure>
+<p>查看所有主题：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./kafka-topics.sh --list --zookeeper 192.168.24.11:2181</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>删除主题：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./kafka-topics.sh --zookeeper 192.168.24.244:2181 --delete --topic 0085000</div></pre></td></tr></table></figure>
+<p>消费主题：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./kafka-console-consumer.sh --zookeeper localhost:2181 --from-beginning --topic 0085000</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Kafka/" rel="tag">#Kafka</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/29/kafka-delete-topic/" rel="next" title="Kafka彻底删除主题">
+                <i class="fa fa-chevron-left"></i> Kafka彻底删除主题
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -334,6 +429,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -353,8 +459,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -439,6 +554,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -535,6 +661,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
@@ -551,9 +681,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'jiangxiaoqiang';
-      var disqus_identifier = 'tags/Bean/index.html';
-      var disqus_title = "";
-      var disqus_url = '';
+      var disqus_identifier = '2016/10/29/kafka-common-operation/';
+      var disqus_title = "Kafka常用操作";
+      var disqus_url = 'http://jiangxiaoqiang.com/2016/10/29/kafka-common-operation/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
@@ -564,6 +694,8 @@
       }
 
       run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
       
     </script>
   
