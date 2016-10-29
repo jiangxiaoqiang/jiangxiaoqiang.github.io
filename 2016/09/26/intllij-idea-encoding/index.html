@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="IntelliJ,IDE," />
+  <meta name="keywords" content="IDE,IntelliJ," />
 
 
 
@@ -103,7 +103,7 @@
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/specify-maven-addr.jpg">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/intellij-properties-encoding.png">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/intellij-tabs-number-setting.png">
-<meta property="og:updated_time" content="2016-10-24T01:59:12.000Z">
+<meta property="og:updated_time" content="2016-10-29T05:22:57.202Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IntelliJ Idea快捷键技巧分享">
 <meta name="twitter:description" content="输入乱码在控制台输入中文时显示的不是输入的汉字，而是显示正方形符号，此时输入的汉字显示乱码，如图所示。">
@@ -363,6 +363,7 @@
 <a id="more"></a>
 <p>解决此问题，可使用支持中文较好的字体，覆盖默认字体，在Intellig Idea中的File-Settings-Appearance&amp;Behavior-Appearance中(Ctrl + Alt + S)。如下图所示。</p>
 <img src="/2016/09/26/intllij-idea-encoding/intelli-idea-override-default-font.jpg" alt="覆盖默认字体" title="覆盖默认字体">
+<p>在Debug控制台中Tomcat中输出乱码，可以打开Run/Debug Configuration,选择你的tomcat。在Server &gt; VM options设置为<code>-Dfile.encoding=UTF-8</code> ，重启tomcat。</p>
 <h4 id="智能提示敏感调整"><a href="#智能提示敏感调整" class="headerlink" title="智能提示敏感调整"></a>智能提示敏感调整</h4><p>在智能提示时默认大小写敏感，比如String的智能提示就必须首字母大写才能够准确定位，经常大小写切换，不是特别方便。在settings-Editor-General-Code Completion里设置后，可以省去大小写切换操作。</p>
 <img src="/2016/09/26/intllij-idea-encoding/code-completion-case-sensitive.jpg" alt="智能提示大小写敏感调整" title="智能提示大小写敏感调整">
 <h4 id="Live-Templates"><a href="#Live-Templates" class="headerlink" title="Live Templates"></a>Live Templates</h4><p>Live templates帮助你快速、高效、精准的输入经常使用的或者自定义的代码片段(Live templates let you insert frequently-used or custom code constructs into your source code file quickly, efficiently, and accurately).相当于一个代码块的缩写，输入<code>Ctrl + J</code>会显示当前上下文中所有可用的模板。快速输入foreach，在方法内(一定要在方法里敲)输入iter + TAB。</p>
@@ -561,9 +562,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/IntelliJ/" rel="tag">#IntelliJ</a>
-          
             <a href="/tags/IDE/" rel="tag">#IDE</a>
+          
+            <a href="/tags/IntelliJ/" rel="tag">#IntelliJ</a>
           
         </div>
       
@@ -657,7 +658,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">48</span>
+              <span class="site-state-item-count">50</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -674,7 +675,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">78</span>
+                <span class="site-state-item-count">83</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

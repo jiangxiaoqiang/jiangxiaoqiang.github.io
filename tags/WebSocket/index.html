@@ -92,7 +92,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="小强的博客">
-<meta property="og:url" content="http://jiangxiaoqiang.com/tags/websocket/index.html">
+<meta property="og:url" content="http://jiangxiaoqiang.com/tags/WebSocket/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小强的博客">
@@ -116,9 +116,9 @@
 
 
 
-  <link rel="canonical" href="http://jiangxiaoqiang.com/tags/websocket/"/>
+  <link rel="canonical" href="http://jiangxiaoqiang.com/tags/WebSocket/"/>
 
-  <title> 标签: websocket | 小强的博客 </title>
+  <title> 标签: WebSocket | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -262,7 +262,7 @@
   <div id="posts" class="posts-collapse">
     <div class="collection-title">
       <h2 >
-        websocket
+        WebSocket
         <small>标签</small>
       </h2>
     </div>
@@ -275,9 +275,9 @@
 
       <h1 class="post-title">
         
-            <a class="post-title-link" href="/2016/10/25/stomp-spring-message-push/" itemprop="url">
+            <a class="post-title-link" href="/2016/10/27/websocket-event/" itemprop="url">
               
-                <span itemprop="name">Stomp + WebSocket消息实时推送</span>
+                <span itemprop="name">WebSocket连接(SessionConnectEvent)、断开连接(SessionDisconnectEvent)事件</span>
               
             </a>
         
@@ -285,9 +285,37 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-25T21:40:58+08:00"
-              content="2016-10-25" >
-          10-25
+              datetime="2016-10-27T10:51:45+08:00"
+              content="2016-10-27" >
+          10-27
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2016/10/20/stomp-url-route/" itemprop="url">
+              
+                <span itemprop="name">Stomp WebSocket路由</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-10-20T22:28:40+08:00"
+              content="2016-10-20" >
+          10-20
         </time>
       </div>
 
@@ -337,7 +365,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">48</span>
+              <span class="site-state-item-count">50</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -354,7 +382,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">78</span>
+                <span class="site-state-item-count">83</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -523,7 +551,7 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'jiangxiaoqiang';
-      var disqus_identifier = 'tags/websocket/index.html';
+      var disqus_identifier = 'tags/WebSocket/index.html';
       var disqus_title = "";
       var disqus_url = '';
 
@@ -649,44 +677,6 @@
                 if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
                 $resultContent.innerHTML = str;
             });
-            proceedsearch();
-        }
-    });}
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched == false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-
-    });
-
-    $('.popup-btn-close').click(function(e){
-      $('.popup').hide();
-      $(".popoverlay").remove();
-      $('body').css('overflow', '');
-    });
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-  </script>
-
-
-  
-
-  
-
-  
-<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
-</script>
-
-
-</body>
-</html>
-         });
             proceedsearch();
         }
     });}

@@ -4,6 +4,68 @@
 
     
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/29/kafka-delete-topic/</loc>
+    <lastmod>2016-10-29T06:29:26.313Z</lastmod>
+    <data>
+        <display>
+        <title>Kafka彻底删除主题</title>
+        <pubTime>2016-10-29T06:24:15.000Z</pubTime>
+        
+        <tag>Kafka</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/</loc>
+    <lastmod>2016-10-29T05:22:57.202Z</lastmod>
+    <data>
+        <display>
+        <title>IntelliJ Idea快捷键技巧分享</title>
+        <pubTime>2016-09-26T06:23:24.000Z</pubTime>
+        
+        <tag>IDE</tag>
+         
+        <tag>IntelliJ</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/28/kafka-error/</loc>
+    <lastmod>2016-10-28T09:06:23.387Z</lastmod>
+    <data>
+        <display>
+        <title>Kafka常见错误</title>
+        <pubTime>2016-10-28T09:06:23.000Z</pubTime>
+        
+        <tag>Kafka</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/27/new-keyboard/</loc>
     <lastmod>2016-10-27T05:13:31.902Z</lastmod>
     <data>
@@ -75,11 +137,11 @@
         <title>Stomp + WebSocket消息实时推送</title>
         <pubTime>2016-10-25T13:40:58.000Z</pubTime>
         
+        <tag>spring</tag>
+         
         <tag>stomp</tag>
          
         <tag>websocket</tag>
-         
-        <tag>spring</tag>
          
          
            
@@ -124,28 +186,6 @@
         <tag>Fedora</tag>
          
         <tag>Gnome</tag>
-         
-         
-           
-             
-              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/</loc>
-    <lastmod>2016-10-24T01:59:12.000Z</lastmod>
-    <data>
-        <display>
-        <title>IntelliJ Idea快捷键技巧分享</title>
-        <pubTime>2016-09-26T06:23:24.000Z</pubTime>
-        
-        <tag>IntelliJ</tag>
-         
-        <tag>IDE</tag>
          
          
            
@@ -520,9 +560,9 @@
         <title>Intellij IDEA推荐插件</title>
         <pubTime>2016-10-08T05:46:41.000Z</pubTime>
         
-        <tag>Plugin</tag>
-         
         <tag>Intellij</tag>
+         
+        <tag>Plugin</tag>
          
          
            
@@ -606,9 +646,26 @@
         <title>install-chrome-in-fedora</title>
         <pubTime>2016-10-02T15:02:56.000Z</pubTime>
         
+        <tag>Chrome</tag>
+         
         <tag>Fedora</tag>
          
-        <tag>Chrome</tag>
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/03/fedora-20-install-input-method/</loc>
+    <lastmod>2016-10-07T03:53:37.332Z</lastmod>
+    <data>
+        <display>
+        <title>Fedora 20安装中文输入法</title>
+        <pubTime>2016-10-03T03:08:51.000Z</pubTime>
+        
+        <tag>Fedora</tag>
          
          
            
@@ -634,23 +691,6 @@
              
               <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/03/fedora-20-install-input-method/</loc>
-    <lastmod>2016-10-07T03:53:37.332Z</lastmod>
-    <data>
-        <display>
-        <title>Fedora 20安装中文输入法</title>
-        <pubTime>2016-10-03T03:08:51.000Z</pubTime>
-        
-        <tag>Fedora</tag>
-         
-         
-           
         </display>
     </data>
     </url>
@@ -868,23 +908,6 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/19/java-string-not-null/</loc>
-    <lastmod>2016-10-03T03:34:36.513Z</lastmod>
-    <data>
-        <display>
-        <title>Java中String非空判断</title>
-        <pubTime>2016-09-19T10:18:13.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://jiangxiaoqiang.com/2016/09/20/launching-and-debugging-tomcat-extra/</loc>
     <lastmod>2016-10-03T03:34:36.513Z</lastmod>
     <data>
@@ -902,14 +925,14 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/28/hashcode-and-equals/</loc>
-    <lastmod>2016-10-03T03:34:36.509Z</lastmod>
+    <loc>http://jiangxiaoqiang.com/2016/09/19/java-string-not-null/</loc>
+    <lastmod>2016-10-03T03:34:36.513Z</lastmod>
     <data>
         <display>
-        <title>hashcode和equals的理解</title>
-        <pubTime>2016-09-28T14:12:51.000Z</pubTime>
+        <title>Java中String非空判断</title>
+        <pubTime>2016-09-19T10:18:13.000Z</pubTime>
         
-        <tag>hashcode</tag>
+        <tag>java</tag>
          
          
            
@@ -935,6 +958,23 @@
              
               <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/28/hashcode-and-equals/</loc>
+    <lastmod>2016-10-03T03:34:36.509Z</lastmod>
+    <data>
+        <display>
+        <title>hashcode和equals的理解</title>
+        <pubTime>2016-09-28T14:12:51.000Z</pubTime>
+        
+        <tag>hashcode</tag>
+         
+         
+           
         </display>
     </data>
     </url>
