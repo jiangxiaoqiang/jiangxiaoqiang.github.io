@@ -352,7 +352,9 @@
 
       
         
-          <p>创建主题：</p>
+          <p>启动kafka：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./kafka-server-start.sh ../config/server.properties &amp;</div></pre></td></tr></table></figure>
+<p>创建主题：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./kafka-topics.sh --zookeeper localhost:2181 --create --topic <span class="built_in">test</span>1 --partitions 1 --replication-factor 1 --config max.message.bytes=64000 --config flush.messages=1</div></pre></td></tr></table></figure>
 <p>查看所有主题：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./kafka-topics.sh --list --zookeeper 192.168.24.11:2181</div></pre></td></tr></table></figure>

@@ -102,7 +102,7 @@
 1./kafka-topics.sh --describe --zookeeper 192.168.244.11:2181
 删除主题：
 1./kafka-topics.sh --zookeeper 192.168.24.244:2181 --delete --topic 0085000">
-<meta property="og:updated_time" content="2016-10-29T06:29:26.313Z">
+<meta property="og:updated_time" content="2016-10-30T09:07:34.489Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kafka彻底删除主题">
 <meta name="twitter:description" content="这里的Kafka的版本是0.9.0.1，查看所有Topics和分区：
@@ -367,7 +367,7 @@
 <p>删除主题并不是真正的删除，仅仅是标记为删除(marked for deletion)，如果想彻底删除主题，可以修改kafka的配置：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">delete.topic.enable=<span class="literal">true</span></div></pre></td></tr></table></figure>
 <p>删除Kafka存储目录(server.properties文件log.dirs配置，默认为”/tmp/kafka-logs”)相关topic目录。配置了<code>delete.topic.enable=true</code>直接通过命令删除，如果命令删除不掉，直接通过zookeeper-client删除掉broker下的topic即可。登录ZooKeeper客户端：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#切换到ZooKeeper目录</span></div><div class="line"><span class="built_in">cd</span> /usr/hdp/2.4.3.0-227/zookeeper/bin</div><div class="line"></div><div class="line"><span class="comment">#登录ZooKeeper客户端</span></div><div class="line">./zookeeper-client</div><div class="line"></div><div class="line"><span class="comment">#找到topic所在的目录</span></div><div class="line">ls /brokers/topics</div><div class="line"></div><div class="line"><span class="comment">#彻底删除topic</span></div><div class="line">rmr /brokers/topics/0085000</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#切换到ZooKeeper目录</span></div><div class="line"><span class="built_in">cd</span> /usr/hdp/2.4.3.0-227/zookeeper/bin</div><div class="line"></div><div class="line"><span class="comment">#登录ZooKeeper客户端</span></div><div class="line">./zookeeper-client</div><div class="line"></div><div class="line"><span class="comment">#找到topic所在的目录</span></div><div class="line">ls /brokers/topics</div><div class="line"></div><div class="line"><span class="comment">#彻底删除topic(remove recursively)</span></div><div class="line">rmr /brokers/topics/0085000</div></pre></td></tr></table></figure>
 <p>如果不知道ZooKeeper客户端的目录，可以通过如下命令找到。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find / -name zookeeper-client</div></pre></td></tr></table></figure>
 

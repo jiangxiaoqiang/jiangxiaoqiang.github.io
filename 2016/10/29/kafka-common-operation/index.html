@@ -90,25 +90,25 @@
 
 
 
-<meta name="description" content="创建主题：
-1./kafka-topics.sh --zookeeper localhost:2181 --create --topic test1 --partitions 1 --replication-factor 1 --config max.message.bytes=64000 --config flush.messages=1
-查看所有主题：
-1./kafka-topics.sh -">
+<meta name="description" content="启动kafka：
+1./kafka-server-start.sh ../config/server.properties &amp;amp;
+创建主题：
+1./kafka-topics.sh --zookeeper localhost:2181 --create --topic test1 --partitions 1 --replication-factor 1 --config max.messag">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kafka常用操作">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/10/29/kafka-common-operation/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="创建主题：
-1./kafka-topics.sh --zookeeper localhost:2181 --create --topic test1 --partitions 1 --replication-factor 1 --config max.message.bytes=64000 --config flush.messages=1
-查看所有主题：
-1./kafka-topics.sh -">
-<meta property="og:updated_time" content="2016-10-29T09:12:12.137Z">
+<meta property="og:description" content="启动kafka：
+1./kafka-server-start.sh ../config/server.properties &amp;amp;
+创建主题：
+1./kafka-topics.sh --zookeeper localhost:2181 --create --topic test1 --partitions 1 --replication-factor 1 --config max.messag">
+<meta property="og:updated_time" content="2016-10-30T09:38:01.577Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kafka常用操作">
-<meta name="twitter:description" content="创建主题：
-1./kafka-topics.sh --zookeeper localhost:2181 --create --topic test1 --partitions 1 --replication-factor 1 --config max.message.bytes=64000 --config flush.messages=1
-查看所有主题：
-1./kafka-topics.sh -">
+<meta name="twitter:description" content="启动kafka：
+1./kafka-server-start.sh ../config/server.properties &amp;amp;
+创建主题：
+1./kafka-topics.sh --zookeeper localhost:2181 --create --topic test1 --partitions 1 --replication-factor 1 --config max.messag">
 
 
 
@@ -359,7 +359,9 @@
       
 
       
-        <p>创建主题：</p>
+        <p>启动kafka：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./kafka-server-start.sh ../config/server.properties &amp;</div></pre></td></tr></table></figure>
+<p>创建主题：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./kafka-topics.sh --zookeeper localhost:2181 --create --topic <span class="built_in">test</span>1 --partitions 1 --replication-factor 1 --config max.message.bytes=64000 --config flush.messages=1</div></pre></td></tr></table></figure>
 <p>查看所有主题：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./kafka-topics.sh --list --zookeeper 192.168.24.11:2181</div></pre></td></tr></table></figure>
