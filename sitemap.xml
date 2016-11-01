@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/29/kafka-delete-topic/</loc>
+    
+    <lastmod>2016-11-01T05:50:10.205Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/11/01/she/</loc>
+    
+    <lastmod>2016-11-01T04:59:46.138Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/11/01/redis/</loc>
     
     <lastmod>2016-11-01T03:40:12.305Z</lastmod>
@@ -23,13 +37,6 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/11/01/she/</loc>
-    
-    <lastmod>2016-11-01T01:23:13.180Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/28/kafka-error/</loc>
     
     <lastmod>2016-10-31T01:56:03.713Z</lastmod>
@@ -47,13 +54,6 @@
     <loc>http://jiangxiaoqiang.com/2016/10/29/kafka-common-operation/</loc>
     
     <lastmod>2016-10-30T09:38:01.577Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/29/kafka-delete-topic/</loc>
-    
-    <lastmod>2016-10-30T09:07:34.489Z</lastmod>
     
   </url>
   
@@ -233,14 +233,14 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/02/install-chrome-in-fedora/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/10/03/fedora-20-install-input-method/</loc>
     
     <lastmod>2016-10-07T03:53:37.332Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/03/fedora-20-install-input-method/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/10/02/install-chrome-in-fedora/</loc>
     
     <lastmod>2016-10-07T03:53:37.332Z</lastmod>
     
@@ -359,14 +359,14 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/01/hadoop-cluster-deploy/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/28/hashcode-and-equals/</loc>
     
     <lastmod>2016-10-03T03:34:36.509Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/28/hashcode-and-equals/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/10/01/hadoop-cluster-deploy/</loc>
     
     <lastmod>2016-10-03T03:34:36.509Z</lastmod>
     
