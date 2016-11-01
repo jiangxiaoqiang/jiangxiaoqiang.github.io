@@ -4,8 +4,112 @@
 
     
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/11/01/redis/</loc>
+    <lastmod>2016-11-01T03:40:12.305Z</lastmod>
+    <data>
+        <display>
+        <title>Redis在Windows下配置</title>
+        <pubTime>2016-11-01T03:22:57.000Z</pubTime>
+        
+        <tag>Redis</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/12/fedora-desktop-icon/</loc>
+    <lastmod>2016-11-01T03:13:28.604Z</lastmod>
+    <data>
+        <display>
+        <title>Fedora 24添加桌面图标</title>
+        <pubTime>2016-10-12T00:51:47.000Z</pubTime>
+        
+        <tag>Fedora</tag>
+         
+        <tag>Desktop Icon</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/</loc>
+    <lastmod>2016-11-01T02:31:33.203Z</lastmod>
+    <data>
+        <display>
+        <title>IntelliJ Idea快捷键技巧分享</title>
+        <pubTime>2016-09-26T06:23:24.000Z</pubTime>
+        
+        <tag>IntelliJ</tag>
+         
+        <tag>IDE</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/11/01/she/</loc>
+    <lastmod>2016-11-01T01:23:13.180Z</lastmod>
+    <data>
+        <display>
+        <title>she</title>
+        <pubTime>2016-11-01T01:23:13.000Z</pubTime>
+        
+        <tag>she</tag>
+         
+         
+           
+             
+              <breadCrumb title="She" url="http://jiangxiaoqiang.com/categories/She/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/28/kafka-error/</loc>
+    <lastmod>2016-10-31T01:56:03.713Z</lastmod>
+    <data>
+        <display>
+        <title>Kafka常见错误</title>
+        <pubTime>2016-10-28T09:06:23.000Z</pubTime>
+        
+        <tag>Kafka</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/09/22/tomcat-http/</loc>
-    <lastmod>2016-10-30T10:05:10.985Z</lastmod>
+    <lastmod>2016-10-30T10:07:32.657Z</lastmod>
     <data>
         <display>
         <title>Tomcat 8.0 HTTP请求流程</title>
@@ -49,48 +153,6 @@
         <pubTime>2016-10-29T06:24:15.000Z</pubTime>
         
         <tag>Kafka</tag>
-         
-         
-           
-             
-              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/28/kafka-error/</loc>
-    <lastmod>2016-10-29T11:13:11.965Z</lastmod>
-    <data>
-        <display>
-        <title>Kafka常见错误</title>
-        <pubTime>2016-10-28T09:06:23.000Z</pubTime>
-        
-        <tag>Kafka</tag>
-         
-         
-           
-             
-              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/</loc>
-    <lastmod>2016-10-29T05:22:57.202Z</lastmod>
-    <data>
-        <display>
-        <title>IntelliJ Idea快捷键技巧分享</title>
-        <pubTime>2016-09-26T06:23:24.000Z</pubTime>
-        
-        <tag>IntelliJ</tag>
-         
-        <tag>IDE</tag>
          
          
            
@@ -198,9 +260,9 @@
         <title>SQuirreL GUI客户端集成Phoenix配置</title>
         <pubTime>2016-10-25T01:24:13.000Z</pubTime>
         
-        <tag>Phoenix</tag>
-         
         <tag>SQuirreL</tag>
+         
+        <tag>Phoenix</tag>
          
          
            
@@ -517,28 +579,6 @@
         <tag>chkconfig</tag>
          
         <tag>systemctl</tag>
-         
-         
-           
-             
-              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/12/fedora-desktop-icon/</loc>
-    <lastmod>2016-10-13T00:43:12.984Z</lastmod>
-    <data>
-        <display>
-        <title>Fedora 24添加桌面图标</title>
-        <pubTime>2016-10-12T00:51:47.000Z</pubTime>
-        
-        <tag>Fedora</tag>
-         
-        <tag>Desktop Icon</tag>
          
          
            
@@ -879,6 +919,21 @@
 
     
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/18/log4j/</loc>
+    <lastmod>2016-10-03T03:34:36.516Z</lastmod>
+    <data>
+        <display>
+        <title>Java Web开发--log4j</title>
+        <pubTime>2016-09-18T00:54:34.701Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/09/19/lombok/</loc>
     <lastmod>2016-10-03T03:34:36.516Z</lastmod>
     <data>
@@ -896,44 +951,12 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/18/log4j/</loc>
-    <lastmod>2016-10-03T03:34:36.516Z</lastmod>
-    <data>
-        <display>
-        <title>Java Web开发--log4j</title>
-        <pubTime>2016-09-18T00:54:34.701Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://jiangxiaoqiang.com/2016/09/20/launching-and-debugging-tomcat/</loc>
     <lastmod>2016-10-03T03:34:36.514Z</lastmod>
     <data>
         <display>
         <title>在Eclipse中启动和调试Tomcat（一）</title>
         <pubTime>2016-09-20T04:15:42.000Z</pubTime>
-        
-        <tag>Tomcat</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/20/launching-and-debugging-tomcat-extra/</loc>
-    <lastmod>2016-10-03T03:34:36.513Z</lastmod>
-    <data>
-        <display>
-        <title>在Eclipse中启动和调试Tomcat（二）</title>
-        <pubTime>2016-09-20T09:13:52.000Z</pubTime>
         
         <tag>Tomcat</tag>
          
@@ -962,14 +985,14 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/28/hashcode-and-equals/</loc>
-    <lastmod>2016-10-03T03:34:36.509Z</lastmod>
+    <loc>http://jiangxiaoqiang.com/2016/09/20/launching-and-debugging-tomcat-extra/</loc>
+    <lastmod>2016-10-03T03:34:36.513Z</lastmod>
     <data>
         <display>
-        <title>hashcode和equals的理解</title>
-        <pubTime>2016-09-28T14:12:51.000Z</pubTime>
+        <title>在Eclipse中启动和调试Tomcat（二）</title>
+        <pubTime>2016-09-20T09:13:52.000Z</pubTime>
         
-        <tag>hashcode</tag>
+        <tag>Tomcat</tag>
          
          
            
@@ -995,6 +1018,23 @@
              
               <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/28/hashcode-and-equals/</loc>
+    <lastmod>2016-10-03T03:34:36.509Z</lastmod>
+    <data>
+        <display>
+        <title>hashcode和equals的理解</title>
+        <pubTime>2016-09-28T14:12:51.000Z</pubTime>
+        
+        <tag>hashcode</tag>
+         
+         
+           
         </display>
     </data>
     </url>

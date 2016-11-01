@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="Invalid partition given with record在Kafka生产者里写入消息时，提示写入失败，详细的错误信息如下所示：
 123456789[ERROR]-[2016年-10月-28日16:17:35.083]-[Thread-25]-[com.zw.socket.service.kafka.producer.ClientKafkaProducer]-&amp;#123;生产者发送消息">
-<meta property="og:updated_time" content="2016-10-29T11:13:11.965Z">
+<meta property="og:updated_time" content="2016-10-31T01:56:03.713Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kafka常见错误">
 <meta name="twitter:description" content="Invalid partition given with record在Kafka生产者里写入消息时，提示写入失败，详细的错误信息如下所示：
@@ -361,6 +361,10 @@
 <h4 id="The-group-coordinator-is-not-available"><a href="#The-group-coordinator-is-not-available" class="headerlink" title="The group coordinator is not available"></a>The group coordinator is not available</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">2016-10-29 14:52:56.387 INFO [nioEventLoopGroup-3-1][org.apache.kafka.common.utils.AppInfoParser$AppInfo:82] - Kafka version : 0.9.0.1</div><div class="line">2016-10-29 14:52:56.387 INFO [nioEventLoopGroup-3-1][org.apache.kafka.common.utils.AppInfoParser$AppInfo:83] - Kafka commitId : 23c69d62a0cabf06</div><div class="line">2016-10-29 14:52:56.409 ERROR [nioEventLoopGroup-3-1][org.apache.kafka.clients.consumer.internals.ConsumerCoordinator$DefaultOffsetCommitCallback:489] - Offset commit failed.</div><div class="line">org.apache.kafka.common.errors.GroupCoordinatorNotAvailableException: The group coordinator is not available.</div><div class="line">2016-10-29 14:52:56.519 WARN [kafka-producer-network-thread | producer-1][org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater:582] - Error while fetching metadata with correlation id 0 : &#123;0085000=LEADER_NOT_AVAILABLE&#125;</div><div class="line">2016-10-29 14:52:56.612 WARN [pool-6-thread-1][org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater:582] - Error while fetching metadata with correlation id 1 : &#123;0085000=LEADER_NOT_AVAILABLE&#125;</div></pre></td></tr></table></figure>
 <p>产生问题具体原因不详，可能是修改了默认分区导致的，解决方法：停止Kafka Broker，登录ZooKeeper客户端，删除所有主题即可。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#切换到ZooKeeper目录</span></div><div class="line"><span class="built_in">cd</span> /usr/hdp/2.4.3.0-227/zookeeper/bin</div><div class="line"></div><div class="line"><span class="comment">#登录ZooKeeper客户端</span></div><div class="line">./zookeeper-client</div><div class="line"></div><div class="line"><span class="comment">#找到topic所在的目录</span></div><div class="line">ls /brokers/topics</div><div class="line"></div><div class="line"><span class="comment">#彻底删除topic</span></div><div class="line">rmr /brokers/topics/0085000</div></pre></td></tr></table></figure>
+<h4 id="无法往集群中写入数据"><a href="#无法往集群中写入数据" class="headerlink" title="无法往集群中写入数据"></a>无法往集群中写入数据</h4><p>检查部署服务器节点<code>/etc/hosts</code>配置文件是否有到集群的映射。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/hosts</div></pre></td></tr></table></figure>
+<p>配置如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4</div><div class="line">::1         localhost localhost.localdomain localhost6 localhost6.localdomain6</div><div class="line">192.168.24.136 节点1主机名</div><div class="line">192.168.24.137 节点2主机名</div><div class="line">192.168.24.244 localhost</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -477,7 +481,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">51</span>
+              <span class="site-state-item-count">53</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -485,7 +489,7 @@
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -494,7 +498,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">83</span>
+                <span class="site-state-item-count">86</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -558,7 +562,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Invalid-partition-given-with-record"><span class="nav-number">1.</span> <span class="nav-text">Invalid partition given with record</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-group-coordinator-is-not-available"><span class="nav-number">2.</span> <span class="nav-text">The group coordinator is not available</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Invalid-partition-given-with-record"><span class="nav-number">1.</span> <span class="nav-text">Invalid partition given with record</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-group-coordinator-is-not-available"><span class="nav-number">2.</span> <span class="nav-text">The group coordinator is not available</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#无法往集群中写入数据"><span class="nav-number">3.</span> <span class="nav-text">无法往集群中写入数据</span></a></li></ol></div>
             
           </div>
         </section>
