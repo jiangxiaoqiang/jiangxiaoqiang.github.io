@@ -4,6 +4,48 @@
 
     
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/</loc>
+    <lastmod>2016-11-02T00:46:18.312Z</lastmod>
+    <data>
+        <display>
+        <title>SQuirreL GUI客户端集成Phoenix配置</title>
+        <pubTime>2016-10-25T01:24:13.000Z</pubTime>
+        
+        <tag>Phoenix</tag>
+         
+        <tag>SQuirreL</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/28/kafka-error/</loc>
+    <lastmod>2016-11-01T08:38:54.001Z</lastmod>
+    <data>
+        <display>
+        <title>Kafka常见错误</title>
+        <pubTime>2016-10-28T09:06:23.000Z</pubTime>
+        
+        <tag>Kafka</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/29/kafka-delete-topic/</loc>
     <lastmod>2016-11-01T05:50:10.205Z</lastmod>
     <data>
@@ -96,26 +138,6 @@
         <tag>IDE</tag>
          
         <tag>IntelliJ</tag>
-         
-         
-           
-             
-              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/28/kafka-error/</loc>
-    <lastmod>2016-10-31T01:56:03.713Z</lastmod>
-    <data>
-        <display>
-        <title>Kafka常见错误</title>
-        <pubTime>2016-10-28T09:06:23.000Z</pubTime>
-        
-        <tag>Kafka</tag>
          
          
            
@@ -241,28 +263,6 @@
         <tag>stomp</tag>
          
         <tag>websocket</tag>
-         
-         
-           
-             
-              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/</loc>
-    <lastmod>2016-10-25T01:44:00.546Z</lastmod>
-    <data>
-        <display>
-        <title>SQuirreL GUI客户端集成Phoenix配置</title>
-        <pubTime>2016-10-25T01:24:13.000Z</pubTime>
-        
-        <tag>Phoenix</tag>
-         
-        <tag>SQuirreL</tag>
          
          
            
