@@ -2,9 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jiangxiaoqiang.com/2016/11/01/redis/</loc>
+    
+    <lastmod>2016-11-03T08:13:21.226Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/11/03/intellij-idea-tips/</loc>
+    
+    <lastmod>2016-11-03T02:08:08.033Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/</loc>
+    
+    <lastmod>2016-11-03T00:57:26.704Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/11/02/kafka-consume-position/</loc>
+    
+    <lastmod>2016-11-02T10:22:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/</loc>
     
-    <lastmod>2016-11-02T03:57:47.536Z</lastmod>
+    <lastmod>2016-11-02T07:27:31.608Z</lastmod>
     
   </url>
   
@@ -30,23 +58,9 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/11/01/redis/</loc>
-    
-    <lastmod>2016-11-01T03:40:12.305Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/12/fedora-desktop-icon/</loc>
     
     <lastmod>2016-11-01T03:13:28.604Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/</loc>
-    
-    <lastmod>2016-11-01T02:31:33.203Z</lastmod>
     
   </url>
   
@@ -233,13 +247,6 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/03/fedora-20-install-input-method/</loc>
-    
-    <lastmod>2016-10-07T03:53:37.332Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/02/install-chrome-in-fedora/</loc>
     
     <lastmod>2016-10-07T03:53:37.332Z</lastmod>
@@ -248,6 +255,13 @@
   
   <url>
     <loc>http://jiangxiaoqiang.com/2016/10/05/fedora-20-install-nodejs/</loc>
+    
+    <lastmod>2016-10-07T03:53:37.332Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/03/fedora-20-install-input-method/</loc>
     
     <lastmod>2016-10-07T03:53:37.332Z</lastmod>
     
@@ -345,14 +359,14 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/19/java-string-not-null/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/20/launching-and-debugging-tomcat-extra/</loc>
     
     <lastmod>2016-10-03T03:34:36.513Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/20/launching-and-debugging-tomcat-extra/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/09/19/java-string-not-null/</loc>
     
     <lastmod>2016-10-03T03:34:36.513Z</lastmod>
     

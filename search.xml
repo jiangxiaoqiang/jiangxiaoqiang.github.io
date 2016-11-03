@@ -4,17 +4,41 @@
   
     
     <entry>
+      <title><![CDATA[intellij idea小技巧(tips)]]></title>
+      <url>http://jiangxiaoqiang.com/2016/11/03/intellij-idea-tips/</url>
+      <content type="html"><![CDATA[<h4 id="键盘调整Debug窗口的大小"><a href="#键盘调整Debug窗口的大小" class="headerlink" title="键盘调整Debug窗口的大小"></a>键盘调整Debug窗口的大小</h4><p>键盘调整Debug窗口的大小快捷键是<code>Ctrl + Shift + Up/Down</code>，注意一定要定位到Debug视图，也就是Debug视图但是当前窗口的活跃(Active)视图才会生效。</p>
+<a id="more"></a>
+<p>同理，在调整项目树宽度时，可以使用快捷键<code>Ctrl + Alt + Left/Right</code>。</p>
+<p>####Debug视图Tab页切换</p>
+<p>快捷键是Shift + Tab，如下图所示。</p>
+<img src="/2016/11/03/intellij-idea-tips/intelli-idea-debug-view-convert.jpg" alt="Intellij Idea的Debug视图Tab页切换" title="Intellij Idea的Debug视图Tab页切换">
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Kafka消费position]]></title>
+      <url>http://jiangxiaoqiang.com/2016/11/02/kafka-consume-position/</url>
+      <content type="html"><![CDATA[<p>kafka允许通过seek(TopicPartition，long)指定新的位置，或者seekToBeginning，seekToEnd定位到最早或最近的offset。注意seek重置offsets只对当前消费者起作用，它并不会触发consumer的rebalance，或者影响其他消费者的fetchOffsets。在大多数情况下，消费者消费记录只是简单地从一开始到结束，并且定时地提交它的位置(不管是自动的还是手动的)。不过新的API也允许消费者手动控制它的位置，消费者可以在一个partition钟随意地往前或者往后移动位置。这就意味着消费者可以重新消费旧的记录(多次读取相同的记录)，或者直接跳到最近的记录，忽略掉中间的记录。</p>
+<a id="more"></a>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"> * 得到分区</div><div class="line"> *</div><div class="line"> * @param topics</div><div class="line"> * @return void</div><div class="line"> * @throws @author Jiangxiaoqiang</div><div class="line"> * @Title: initialTopicsPartitions</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initialTopicsPartitions</span><span class="params">(String[] topics)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (topics != <span class="keyword">null</span> &amp;&amp; topics.length &gt; <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">for</span> (String topic : topics) &#123;</div><div class="line">            <span class="keyword">if</span> (!Converter.toBlank(topic).equals(<span class="string">""</span>)) &#123;</div><div class="line">                topicPartitions.add(<span class="keyword">new</span> TopicPartition(topic, PublicVariable.KAFKA_COMSUME_PARTION));</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//从最新的位置开始消费</span></div><div class="line">        consumer.seekToEnd();</div><div class="line">        consumer.assign(topicPartitions);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Redis在Windows下配置]]></title>
       <url>http://jiangxiaoqiang.com/2016/11/01/redis/</url>
-      <content type="html"><![CDATA[<p>安装Redis的目录<code>D:\Program Files\Redis</code>。启动Redis Service服务:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">redis-server.exe redis.windows-service.conf</div></pre></td></tr></table></figure>
+      <content type="html"><![CDATA[<p>####简介</p>
+<p>Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API，其实当前最热门的NoSQL数据库之一，NoSQL还包括了Memcached和mongodb。</p>
 <a id="more"></a>
+<h4 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h4><p>下载在<a href="https://github.com/MSOpenTech/redis/releases" target="_blank" rel="external">这里</a>，这里下载的版本是：<code>Redis-x64-3.2.100.msi</code>。下载完毕后安装即可。安装Redis的目录<code>D:\Program Files\Redis</code>。启动Redis Service服务:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#切换到Redis目录</span></div><div class="line"><span class="built_in">cd</span> /d D:\Program Files\Redis</div><div class="line"><span class="comment">#启动Redis服务</span></div><div class="line">redis-server.exe redis.windows-service.conf</div></pre></td></tr></table></figure>
 <p>双击打开 redis-cli.exe , 如果不报错,则连接上了本地服务器,然后测试，比如 set命令，get命令，如下图所示。</p>
 <img src="/2016/11/01/redis/redis-client-test.jpg" alt="Redis客户端" title="Redis客户端">
 <h4 id="Java连接Redis"><a href="#Java连接Redis" class="headerlink" title="Java连接Redis"></a>Java连接Redis</h4><p>引入Client jar包，在Maven中引入配置：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;redis.clients&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;jedis&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;2.8.1&lt;/version&gt;</div><div class="line">    &lt;type&gt;jar&lt;/type&gt;</div><div class="line">    &lt;scope&gt;compile&lt;/scope&gt;</div><div class="line">&lt;/dependency&gt;</div></pre></td></tr></table></figure>
 <p>编写Java测试代码：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com;</div><div class="line"></div><div class="line"><span class="keyword">import</span> redis.clients.jedis.Jedis;</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"> * Created by jiangxiaoqiang on 2016/11/1.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisServiceTest</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="comment">//连接本地的 Redis 服务</span></div><div class="line">        Jedis jedis = <span class="keyword">new</span> Jedis(<span class="string">"localhost"</span>);</div><div class="line">        System.out.println(<span class="string">"Connection to server sucessfully"</span>);</div><div class="line">        <span class="comment">//查看服务是否运行</span></div><div class="line">        System.out.println(<span class="string">"Server is running: "</span>+jedis.ping());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> &#123;</div><div class="line">    JedisPoolConfig config = <span class="keyword">new</span> JedisPoolConfig();</div><div class="line">    config.setMaxIdle(<span class="number">2</span>);</div><div class="line">    config.setMaxTotal(<span class="number">10</span>);</div><div class="line">    config.setTestOnBorrow(<span class="keyword">true</span>);</div><div class="line">    config.setMaxWaitMillis(<span class="number">2000</span>);</div><div class="line">    <span class="comment">//循环创建16个redis数据库连接池,存放在字典里面</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">16</span>; i++) &#123;</div><div class="line">        JedisPool item  = <span class="keyword">new</span> JedisPool(config, <span class="string">"127.0.0.1"</span>, <span class="number">6379</span>,<span class="number">10</span>*<span class="number">1000</span>);</div><div class="line">        pools.put(i, item);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 ]]></content>
     </entry>
     
@@ -135,7 +159,7 @@
 <p>注意顺序，先拷贝jar包，在启动SQuirreL添加驱动，如果是拷贝jar包时已经启动了SQuirreL，那么SQuirreL需要重启一下，拷贝的jar包才生效，这个是需要注意的地方，可以参见<a href="http://stackoverflow.com/questions/40215921/squirrel-configure-could-not-initial-class-org-apache-phoenix-jdbc-phoenixdrive/40225765#40225765" target="_blank" rel="external">SQuirreL Configure: could not initial class org.apache.phoenix.jdbc.PhoenixDriver</a>。</p>
 <h4 id="添加Driver"><a href="#添加Driver" class="headerlink" title="添加Driver"></a>添加Driver</h4><p>添加Driver如下图所示。</p>
 <img src="/2016/10/25/squirrel-phoenix-configuration/sphonix-driver-configuration.jpg" alt="Sphonix增加驱动" title="Sphonix增加驱动">
-<p>Name填写用户自定义名称。Example URL填写ZooKepper地址。</p>
+<p>Name填写用户自定义名称。Example URL填写ZooKepper地址。Class Name填写：<code>org.apache.phoenix.jdbc.PhoenixDriver</code>。</p>
 <h4 id="添加Alias连接Hbase"><a href="#添加Alias连接Hbase" class="headerlink" title="添加Alias连接Hbase"></a>添加Alias连接Hbase</h4><p>如下图所示。</p>
 <img src="/2016/10/25/squirrel-phoenix-configuration/addAlias.jpg" alt="增加Alias" title="增加Alias">
 <p>Name是Alias的名字，可以填写自定义名称。Driver选择上一步配置好的Driver名称，这里是Phoenix。url填写Phoenix连接串：<code>jdbc:phoenix:192.168.24.226,192.168.24.195:2181:/hbase-unsecure</code>。UserName和Password填写操作系统的登录用户和登录密码。</p>
@@ -1027,6 +1051,10 @@
 <tr>
 <td>Ctrl + Q</td>
 <td style="text-align:center">光标所在的变量/类名/方法名等上面（也可以在提示补充的时候按），显示文档内容</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Up/Down</td>
+<td style="text-align:center">代码行上下移动</td>
 </tr>
 </tbody>
 </table>
