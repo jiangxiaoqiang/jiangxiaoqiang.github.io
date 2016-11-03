@@ -2,30 +2,359 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/11/01/she/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/10/27/websocket-event/</loc>
     
-    <lastmod>2016-11-01T04:59:46.138Z</lastmod>
+    <lastmod>2016-10-27T12:41:06.915Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/25/stomp-spring-message-push/</loc>
+    
+    <lastmod>2016-10-27T12:41:06.915Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/</loc>
+    
+    <lastmod>2016-10-27T12:41:06.914Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/14/java-8-using-stream-api/</loc>
+    
+    <lastmod>2016-10-27T12:41:06.911Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/</loc>
+    
+    <lastmod>2016-10-27T12:41:06.911Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/27/new-keyboard/</loc>
+    
+    <lastmod>2016-10-27T12:41:06.911Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/21/Fedora-shortkey/</loc>
+    
+    <lastmod>2016-10-27T12:41:06.898Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/21/spring-module-config/</loc>
+    
+    <lastmod>2016-10-21T15:56:14.488Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/20/stomp-url-route/</loc>
+    
+    <lastmod>2016-10-20T14:58:35.904Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/20/spring-encount-error/</loc>
+    
+    <lastmod>2016-10-20T13:04:43.631Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/18/spring-bean-registered/</loc>
+    
+    <lastmod>2016-10-18T13:33:51.768Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/18/spring-get-bean/</loc>
+    
+    <lastmod>2016-10-18T11:42:48.606Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/17/port-aready-in-use/</loc>
+    
+    <lastmod>2016-10-17T12:00:15.077Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/14/script-startup-with-linux/</loc>
+    
+    <lastmod>2016-10-17T12:00:15.077Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/05/dnf-vs-yum/</loc>
+    
+    <lastmod>2016-10-16T14:50:23.708Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/16/fedora-git-server/</loc>
+    
+    <lastmod>2016-10-16T13:47:23.784Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/15/Fedora-24-using-xxnet/</loc>
+    
+    <lastmod>2016-10-16T13:28:35.495Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/23/maven-private-service/</loc>
+    
+    <lastmod>2016-10-14T14:59:06.977Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/13/linux-chkconfig-service-systemctl/</loc>
+    
+    <lastmod>2016-10-14T11:53:00.730Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/23/phoenix-tutorial/</loc>
+    
+    <lastmod>2016-10-14T11:53:00.730Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/09/fedora-openvpn-client/</loc>
+    
+    <lastmod>2016-10-14T11:53:00.729Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/12/fedora-desktop-icon/</loc>
+    
+    <lastmod>2016-10-12T12:45:45.297Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/10/intellij-hot-deply/</loc>
+    
+    <lastmod>2016-10-12T12:45:45.278Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/08/rm-command/</loc>
+    
+    <lastmod>2016-10-09T13:02:15.923Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/07/ambari-metrics-reinstall/</loc>
+    
+    <lastmod>2016-10-09T13:02:15.922Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/07/ambari-uninstall/</loc>
+    
+    <lastmod>2016-10-09T13:02:15.922Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/08/intelli-idea-plugin/</loc>
+    
+    <lastmod>2016-10-09T13:02:15.922Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/02/install-chrome-in-fedora/</loc>
+    
+    <lastmod>2016-10-07T14:20:15.812Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/05/fedora-20-install-nodejs/</loc>
+    
+    <lastmod>2016-10-07T14:20:15.812Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/03/fedora-20-install-input-method/</loc>
+    
+    <lastmod>2016-10-07T14:20:15.812Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://jiangxiaoqiang.com/about/index.html</loc>
     
-    <lastmod>2016-10-03T12:48:09.816Z</lastmod>
+    <lastmod>2016-10-06T15:30:49.155Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://jiangxiaoqiang.com/tags/index.html</loc>
     
-    <lastmod>2016-10-03T03:34:36.532Z</lastmod>
+    <lastmod>2016-10-06T15:30:49.155Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/22/tomcat-http/</loc>
+    
+    <lastmod>2016-10-06T15:30:49.150Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/17/springmvc-sourcecode-debugging/</loc>
+    
+    <lastmod>2016-10-06T15:30:49.149Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/23/spring/</loc>
+    
+    <lastmod>2016-10-06T15:30:49.140Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/27/spring-mybatis-integrete/</loc>
+    
+    <lastmod>2016-10-06T15:30:49.140Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/23/springmvc-dispatcherservlet/</loc>
+    
+    <lastmod>2016-10-06T15:30:49.140Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/25/spring-ioc/</loc>
+    
+    <lastmod>2016-10-06T15:30:49.138Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/23/lombok/</loc>
+    
+    <lastmod>2016-10-06T15:30:49.136Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/23/log4j/</loc>
+    
+    <lastmod>2016-10-06T15:30:49.136Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/20/launching-and-debugging-tomcat/</loc>
+    
+    <lastmod>2016-10-06T15:30:49.135Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/20/launching-and-debugging-tomcat-extra/</loc>
+    
+    <lastmod>2016-10-06T15:30:49.134Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/19/java-string-not-null/</loc>
+    
+    <lastmod>2016-10-06T15:30:49.134Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/01/hadoop-cluster-deploy/</loc>
+    
+    <lastmod>2016-10-06T15:30:49.130Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/28/hashcode-and-equals/</loc>
+    
+    <lastmod>2016-10-06T15:30:49.130Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/05/ambari-offline-install/</loc>
+    
+    <lastmod>2016-10-06T15:30:49.128Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/04/delete-ambari-service/</loc>
+    
+    <lastmod>2016-10-06T15:30:49.128Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/30/cluster-ssh-login/</loc>
+    
+    <lastmod>2016-10-06T15:30:49.128Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/02/apache-ambari-using/</loc>
+    
+    <lastmod>2016-10-06T15:30:49.128Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/24/eclipse-breakpoint-type/</loc>
+    
+    <lastmod>2016-10-06T15:30:49.128Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://jiangxiaoqiang.com/404/index.html</loc>
     
-    <lastmod>2016-10-03T03:34:36.505Z</lastmod>
+    <lastmod>2016-10-06T15:30:49.125Z</lastmod>
     
   </url>
   

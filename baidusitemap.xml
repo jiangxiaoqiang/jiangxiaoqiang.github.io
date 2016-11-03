@@ -4,25 +4,976 @@
 
     
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/11/01/she/</loc>
-    <lastmod>2016-11-01T04:59:46.138Z</lastmod>
+    <loc>http://jiangxiaoqiang.com/2016/10/27/websocket-event/</loc>
+    <lastmod>2016-10-27T12:41:06.915Z</lastmod>
     <data>
         <display>
-        <title>she</title>
-        <pubTime>2016-11-01T01:23:13.000Z</pubTime>
+        <title>WebSocket连接(SessionConnectEvent)、断开连接(SessionDisconnectEvent)事件</title>
+        <pubTime>2016-10-27T02:51:45.000Z</pubTime>
         
-        <tag>she</tag>
+        <tag>WebSocket</tag>
          
          
            
              
-              <breadCrumb title="She" url="http://jiangxiaoqiang.com/categories/She/"/>
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
           
         </display>
     </data>
     </url>
 
     
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/25/stomp-spring-message-push/</loc>
+    <lastmod>2016-10-27T12:41:06.915Z</lastmod>
+    <data>
+        <display>
+        <title>Stomp + WebSocket消息实时推送</title>
+        <pubTime>2016-10-25T13:40:58.000Z</pubTime>
+        
+        <tag>stomp</tag>
+         
+        <tag>websocket</tag>
+         
+        <tag>spring</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/</loc>
+    <lastmod>2016-10-27T12:41:06.914Z</lastmod>
+    <data>
+        <display>
+        <title>SQuirreL GUI客户端集成Phoenix配置</title>
+        <pubTime>2016-10-25T01:24:13.000Z</pubTime>
+        
+        <tag>Phoenix</tag>
+         
+        <tag>SQuirreL</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/14/java-8-using-stream-api/</loc>
+    <lastmod>2016-10-27T12:41:06.911Z</lastmod>
+    <data>
+        <display>
+        <title>Java 8 使用Stream API</title>
+        <pubTime>2016-10-14T07:25:32.000Z</pubTime>
+        
+        <tag>Java 8</tag>
+         
+        <tag>Stream API</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/</loc>
+    <lastmod>2016-10-27T12:41:06.911Z</lastmod>
+    <data>
+        <display>
+        <title>IntelliJ Idea快捷键技巧分享</title>
+        <pubTime>2016-09-26T06:23:24.000Z</pubTime>
+        
+        <tag>IntelliJ</tag>
+         
+        <tag>IDE</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/27/new-keyboard/</loc>
+    <lastmod>2016-10-27T12:41:06.911Z</lastmod>
+    <data>
+        <display>
+        <title>HP KU 1158键盘</title>
+        <pubTime>2016-10-27T05:08:21.000Z</pubTime>
+        
+        <tag>keyboard</tag>
+         
+        <tag>KU 1158</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programmming" url="http://jiangxiaoqiang.com/categories/Programmming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/21/Fedora-shortkey/</loc>
+    <lastmod>2016-10-27T12:41:06.898Z</lastmod>
+    <data>
+        <display>
+        <title>Fedora快捷键</title>
+        <pubTime>2016-10-21T15:53:36.000Z</pubTime>
+        
+        <tag>Fedora</tag>
+         
+        <tag>Gnome</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/21/spring-module-config/</loc>
+    <lastmod>2016-10-21T15:56:14.488Z</lastmod>
+    <data>
+        <display>
+        <title>Spring模块化配置</title>
+        <pubTime>2016-10-21T15:51:37.000Z</pubTime>
+        
+        <tag>Spring</tag>
+         
+        <tag>Configuration</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/20/stomp-url-route/</loc>
+    <lastmod>2016-10-20T14:58:35.904Z</lastmod>
+    <data>
+        <display>
+        <title>Stomp WebSocket路由</title>
+        <pubTime>2016-10-20T14:28:40.000Z</pubTime>
+        
+        <tag>stomp</tag>
+         
+        <tag>WebSocket</tag>
+         
+        <tag>url route</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/20/spring-encount-error/</loc>
+    <lastmod>2016-10-20T13:04:43.631Z</lastmod>
+    <data>
+        <display>
+        <title>expected single matching bean but found 2</title>
+        <pubTime>2016-10-20T04:51:20.000Z</pubTime>
+        
+        <tag>Spring</tag>
+         
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/18/spring-bean-registered/</loc>
+    <lastmod>2016-10-18T13:33:51.768Z</lastmod>
+    <data>
+        <display>
+        <title>Spring Bean是否注册判断</title>
+        <pubTime>2016-10-18T13:31:26.000Z</pubTime>
+        
+        <tag>Spring</tag>
+         
+        <tag>Bean</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/18/spring-get-bean/</loc>
+    <lastmod>2016-10-18T11:42:48.606Z</lastmod>
+    <data>
+        <display>
+        <title>Spring线程中Bean注入问题</title>
+        <pubTime>2016-10-18T09:20:11.000Z</pubTime>
+        
+        <tag>Spring</tag>
+         
+        <tag>Bean</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/17/port-aready-in-use/</loc>
+    <lastmod>2016-10-17T12:00:15.077Z</lastmod>
+    <data>
+        <display>
+        <title>port aready in use</title>
+        <pubTime>2016-10-17T08:15:02.000Z</pubTime>
+        
+        <tag>Intellij Idea</tag>
+         
+        <tag>Spring Boot</tag>
+         
+        <tag>Stomp</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/14/script-startup-with-linux/</loc>
+    <lastmod>2016-10-17T12:00:15.077Z</lastmod>
+    <data>
+        <display>
+        <title>Linux开机自动启动程序</title>
+        <pubTime>2016-10-14T09:45:50.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>Startup Script</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/05/dnf-vs-yum/</loc>
+    <lastmod>2016-10-16T14:50:23.708Z</lastmod>
+    <data>
+        <display>
+        <title>dnf与yum</title>
+        <pubTime>2016-10-05T12:44:41.000Z</pubTime>
+        
+        <tag>dnf</tag>
+         
+        <tag>yum</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/16/fedora-git-server/</loc>
+    <lastmod>2016-10-16T13:47:23.784Z</lastmod>
+    <data>
+        <display>
+        <title>Fedora 24搭建Git Server</title>
+        <pubTime>2016-10-16T13:03:39.000Z</pubTime>
+        
+        <tag>Fedora</tag>
+         
+        <tag>Git</tag>
+         
+        <tag>Git Server</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/15/Fedora-24-using-xxnet/</loc>
+    <lastmod>2016-10-16T13:28:35.495Z</lastmod>
+    <data>
+        <display>
+        <title>在Fedora 24中使用xx-net</title>
+        <pubTime>2016-10-15T13:30:14.000Z</pubTime>
+        
+        <tag>Fedora-24</tag>
+         
+        <tag>xx-net</tag>
+         
+         
+           
+             
+              <breadCrumb title="Software" url="http://jiangxiaoqiang.com/categories/Software/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/23/maven-private-service/</loc>
+    <lastmod>2016-10-14T14:59:06.977Z</lastmod>
+    <data>
+        <display>
+        <title>Windows下用Nexus搭建Maven私服</title>
+        <pubTime>2016-10-23T14:31:17.836Z</pubTime>
+        
+        <tag>Maven</tag>
+         
+        <tag>Nexus</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/13/linux-chkconfig-service-systemctl/</loc>
+    <lastmod>2016-10-14T11:53:00.730Z</lastmod>
+    <data>
+        <display>
+        <title>linux中的chkconfig、service和systemctl</title>
+        <pubTime>2016-10-13T01:04:58.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>chkconfig</tag>
+         
+        <tag>systemctl</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/23/phoenix-tutorial/</loc>
+    <lastmod>2016-10-14T11:53:00.730Z</lastmod>
+    <data>
+        <display>
+        <title>Phoenix常用操作</title>
+        <pubTime>2016-09-23T08:57:30.000Z</pubTime>
+        
+        <tag>Phoenix</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/09/fedora-openvpn-client/</loc>
+    <lastmod>2016-10-14T11:53:00.729Z</lastmod>
+    <data>
+        <display>
+        <title>Fedora 24 OpenVPN客户端配置</title>
+        <pubTime>2016-10-09T03:55:08.000Z</pubTime>
+        
+        <tag>Fedora</tag>
+         
+        <tag>openvpn</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/12/fedora-desktop-icon/</loc>
+    <lastmod>2016-10-12T12:45:45.297Z</lastmod>
+    <data>
+        <display>
+        <title>Fedora 24添加桌面图标</title>
+        <pubTime>2016-10-12T00:51:47.000Z</pubTime>
+        
+        <tag>Fedora</tag>
+         
+        <tag>Desktop Icon</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/10/intellij-hot-deply/</loc>
+    <lastmod>2016-10-12T12:45:45.278Z</lastmod>
+    <data>
+        <display>
+        <title>Intellij Idea热部署</title>
+        <pubTime>2016-10-10T10:55:23.000Z</pubTime>
+        
+        <tag>Intellij Idea</tag>
+         
+        <tag>Hot Deploy</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/08/rm-command/</loc>
+    <lastmod>2016-10-09T13:02:15.923Z</lastmod>
+    <data>
+        <display>
+        <title>rm命令安全</title>
+        <pubTime>2016-10-08T03:25:38.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>rm</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://jiangxiaoqiang.com/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/07/ambari-metrics-reinstall/</loc>
+    <lastmod>2016-10-09T13:02:15.922Z</lastmod>
+    <data>
+        <display>
+        <title>Ambari Metrics重装</title>
+        <pubTime>2016-10-07T07:19:09.000Z</pubTime>
+        
+        <tag>Ambari</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/07/ambari-uninstall/</loc>
+    <lastmod>2016-10-09T13:02:15.922Z</lastmod>
+    <data>
+        <display>
+        <title>卸载HDP和Ambari</title>
+        <pubTime>2016-10-07T04:35:59.000Z</pubTime>
+        
+        <tag>Ambari</tag>
+         
+        <tag>HDP</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/08/intelli-idea-plugin/</loc>
+    <lastmod>2016-10-09T13:02:15.922Z</lastmod>
+    <data>
+        <display>
+        <title>Intellij IDEA推荐插件</title>
+        <pubTime>2016-10-08T05:46:41.000Z</pubTime>
+        
+        <tag>Plugin</tag>
+         
+        <tag>Intellij</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/02/install-chrome-in-fedora/</loc>
+    <lastmod>2016-10-07T14:20:15.812Z</lastmod>
+    <data>
+        <display>
+        <title>install-chrome-in-fedora</title>
+        <pubTime>2016-10-02T15:02:56.000Z</pubTime>
+        
+        <tag>Fedora</tag>
+         
+        <tag>Chrome</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/05/fedora-20-install-nodejs/</loc>
+    <lastmod>2016-10-07T14:20:15.812Z</lastmod>
+    <data>
+        <display>
+        <title>Fedora 20 安装NodeJs</title>
+        <pubTime>2016-10-05T01:52:08.000Z</pubTime>
+        
+        <tag>Fedora</tag>
+         
+        <tag>NodeJs</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/03/fedora-20-install-input-method/</loc>
+    <lastmod>2016-10-07T14:20:15.812Z</lastmod>
+    <data>
+        <display>
+        <title>Fedora 20安装中文输入法</title>
+        <pubTime>2016-10-03T03:08:51.000Z</pubTime>
+        
+        <tag>Fedora</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/22/tomcat-http/</loc>
+    <lastmod>2016-10-06T15:30:49.150Z</lastmod>
+    <data>
+        <display>
+        <title>Tomcat 8.0 HTTP请求流程</title>
+        <pubTime>2016-09-22T14:11:14.000Z</pubTime>
+        
+        <tag>HTTP</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/17/springmvc-sourcecode-debugging/</loc>
+    <lastmod>2016-10-06T15:30:49.149Z</lastmod>
+    <data>
+        <display>
+        <title>Spring MVC源码调试</title>
+        <pubTime>2016-09-17T05:55:08.000Z</pubTime>
+        
+        <tag>Spring</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/23/spring/</loc>
+    <lastmod>2016-10-06T15:30:49.140Z</lastmod>
+    <data>
+        <display>
+        <title>Spring框架搭建</title>
+        <pubTime>2016-10-23T14:31:17.836Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/27/spring-mybatis-integrete/</loc>
+    <lastmod>2016-10-06T15:30:49.140Z</lastmod>
+    <data>
+        <display>
+        <title>Spring step by step(二)--持久化</title>
+        <pubTime>2016-09-27T05:11:34.000Z</pubTime>
+        
+        <tag>MyBatis</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/23/springmvc-dispatcherservlet/</loc>
+    <lastmod>2016-10-06T15:30:49.140Z</lastmod>
+    <data>
+        <display>
+        <title>Spring MVC-DispatcherServlet处理请求过程</title>
+        <pubTime>2016-10-23T14:31:17.836Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/25/spring-ioc/</loc>
+    <lastmod>2016-10-06T15:30:49.138Z</lastmod>
+    <data>
+        <display>
+        <title>Spring step by step(一)--依赖注入(Dependency Injection)</title>
+        <pubTime>2016-09-25T08:08:20.000Z</pubTime>
+        
+        <tag>Spring</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/23/lombok/</loc>
+    <lastmod>2016-10-06T15:30:49.136Z</lastmod>
+    <data>
+        <display>
+        <title>Lombok精简Java代码</title>
+        <pubTime>2016-10-23T14:31:17.836Z</pubTime>
+        
+        <tag>lombok</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/23/log4j/</loc>
+    <lastmod>2016-10-06T15:30:49.136Z</lastmod>
+    <data>
+        <display>
+        <title>Java Web开发--log4j</title>
+        <pubTime>2016-10-23T14:31:17.836Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/20/launching-and-debugging-tomcat/</loc>
+    <lastmod>2016-10-06T15:30:49.135Z</lastmod>
+    <data>
+        <display>
+        <title>在Eclipse中启动和调试Tomcat（一）</title>
+        <pubTime>2016-09-20T04:15:42.000Z</pubTime>
+        
+        <tag>Tomcat</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/20/launching-and-debugging-tomcat-extra/</loc>
+    <lastmod>2016-10-06T15:30:49.134Z</lastmod>
+    <data>
+        <display>
+        <title>在Eclipse中启动和调试Tomcat（二）</title>
+        <pubTime>2016-09-20T09:13:52.000Z</pubTime>
+        
+        <tag>Tomcat</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/19/java-string-not-null/</loc>
+    <lastmod>2016-10-06T15:30:49.134Z</lastmod>
+    <data>
+        <display>
+        <title>Java中String非空判断</title>
+        <pubTime>2016-09-19T10:18:13.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/01/hadoop-cluster-deploy/</loc>
+    <lastmod>2016-10-06T15:30:49.130Z</lastmod>
+    <data>
+        <display>
+        <title>Hadoop 2.7.1集群部署(不断更新...)</title>
+        <pubTime>2016-10-01T03:29:09.000Z</pubTime>
+        
+        <tag>Cluster</tag>
+         
+        <tag>Hadoop.HBase</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/28/hashcode-and-equals/</loc>
+    <lastmod>2016-10-06T15:30:49.130Z</lastmod>
+    <data>
+        <display>
+        <title>hashcode和equals的理解</title>
+        <pubTime>2016-09-28T14:12:51.000Z</pubTime>
+        
+        <tag>hashcode</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/05/ambari-offline-install/</loc>
+    <lastmod>2016-10-06T15:30:49.128Z</lastmod>
+    <data>
+        <display>
+        <title>Ambari与HDP离线安装</title>
+        <pubTime>2016-10-05T08:52:34.000Z</pubTime>
+        
+        <tag>Ambari</tag>
+         
+        <tag>HDP</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/04/delete-ambari-service/</loc>
+    <lastmod>2016-10-06T15:30:49.128Z</lastmod>
+    <data>
+        <display>
+        <title>删除Apache Ambari服务</title>
+        <pubTime>2016-10-04T13:04:27.000Z</pubTime>
+        
+        <tag>Ambari</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/30/cluster-ssh-login/</loc>
+    <lastmod>2016-10-06T15:30:49.128Z</lastmod>
+    <data>
+        <display>
+        <title>Hadoop集群SSH免密钥登录</title>
+        <pubTime>2016-09-30T08:41:35.000Z</pubTime>
+        
+        <tag>SSH</tag>
+         
+        <tag>Cluster</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/02/apache-ambari-using/</loc>
+    <lastmod>2016-10-06T15:30:49.128Z</lastmod>
+    <data>
+        <display>
+        <title>Apache-Ambari 2.2.2.0 Agent手动安装</title>
+        <pubTime>2016-10-02T03:59:53.000Z</pubTime>
+        
+        <tag>ambari</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://jiangxiaoqiang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/24/eclipse-breakpoint-type/</loc>
+    <lastmod>2016-10-06T15:30:49.128Z</lastmod>
+    <data>
+        <display>
+        <title>Eclipse断点类型</title>
+        <pubTime>2016-09-24T08:47:20.000Z</pubTime>
+        
+        <tag>Eclipse</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
     
 </urlset>
