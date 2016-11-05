@@ -91,7 +91,7 @@ Redis 是一个 key-value 的缓存(cache)和存储(store)系统（现在我们�
 
 提供">
 <meta property="og:type" content="article">
-<meta property="og:title" content="redis-client-connect">
+<meta property="og:title" content="Redis客户端连接">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/11/04/redis-client-connect/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="Redis特点
@@ -100,9 +100,9 @@ Redis 是一个 key-value 的缓存(cache)和存储(store)系统（现在我们�
 支持丰富的数据结构，List 就专门用于存储列表型数据，默认按操作时间排序。Sorted Set 可以按分数排序元素，分数是一种广义概念，可以是时间或评分。其次，其丰富的数据结构为日后扩展提供了很大的方便。
 
 提供">
-<meta property="og:updated_time" content="2016-11-04T05:10:45.570Z">
+<meta property="og:updated_time" content="2016-11-05T06:05:42.608Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="redis-client-connect">
+<meta name="twitter:title" content="Redis客户端连接">
 <meta name="twitter:description" content="Redis特点
 Redis 是一个 key-value 的缓存(cache)和存储(store)系统（现在我们只用它来做缓存，目前还未当作DB用，数据存放在 Cassandra 里）
 
@@ -132,7 +132,7 @@ Redis 是一个 key-value 的缓存(cache)和存储(store)系统（现在我们�
   <link rel="canonical" href="http://jiangxiaoqiang.com/2016/11/04/redis-client-connect/"/>
 
 
-  <title> redis-client-connect | 小强的博客 </title>
+  <title> Redis客户端连接 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -284,7 +284,7 @@ Redis 是一个 key-value 的缓存(cache)和存储(store)系统（现在我们�
             
             
               
-                redis-client-connect
+                Redis客户端连接
               
             
           </h1>
@@ -375,8 +375,12 @@ Redis 是一个 key-value 的缓存(cache)和存储(store)系统（现在我们�
 <li><p>“关闭集群链接时异常导致连接泄漏”问题</p>
 </li>
 </ul>
-<p>修改配置可以暂时解决：</p>
+<p>修改配置：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> Dictionary&lt;Integer, JedisPool&gt; pools = <span class="keyword">new</span> Hashtable();</div><div class="line"></div><div class="line"><span class="keyword">static</span> &#123;</div><div class="line">    JedisPoolConfig config = <span class="keyword">new</span> JedisPoolConfig();</div><div class="line">    config.setMaxIdle(<span class="number">2</span>);</div><div class="line">    config.setMaxTotal(<span class="number">100</span>);</div><div class="line">    config.setTestOnBorrow(<span class="keyword">true</span>);</div><div class="line">    config.setMinIdle(<span class="number">30</span>);</div><div class="line">    config.setLifo(<span class="keyword">true</span>);</div><div class="line">    config.setTimeBetweenEvictionRunsMillis(<span class="number">1</span>);</div><div class="line">    config.setNumTestsPerEvictionRun(<span class="number">10</span>);</div><div class="line">    config.setMinEvictableIdleTimeMillis(<span class="number">5</span>);</div><div class="line">    config.setMaxWaitMillis(<span class="number">2000</span>);</div><div class="line">    <span class="comment">//循环创建16个redis数据库连接池,存放在字典里面</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">16</span>; i++) &#123;</div><div class="line">        JedisPool item = <span class="keyword">new</span> JedisPool(config, <span class="string">"127.0.0.1"</span>, <span class="number">6379</span>, <span class="number">10</span> * <span class="number">1000</span>);</div><div class="line">        pools.put(i, item);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>原因是在打开了连接之后未关闭连接。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">/**</span></div><div class="line"> * 获取数据</div><div class="line"> *</div><div class="line"> * <span class="doctag">@param</span> key //key</div><div class="line"> * <span class="doctag">@param</span> db  //数据库序号</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">get</span><span class="params">(String key, Integer db)</span> </span>&#123;</div><div class="line">    JedisPool poolItem = pools.get(db);</div><div class="line">    Jedis jredis = <span class="keyword">null</span>;</div><div class="line">    String result = <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        jredis = poolItem.getResource();</div><div class="line">        result = jredis.get(key);</div><div class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">        log.error(<span class="string">"get value error"</span>, e);</div><div class="line">    &#125; <span class="keyword">finally</span> &#123;</div><div class="line">        <span class="keyword">if</span> (jredis != <span class="keyword">null</span>) &#123;</div><div class="line">        	<span class="comment">/*</span></div><div class="line">            关闭Redis连接，ReturnResource方法已经标记为Deprecated</div><div class="line">            新的关闭连接的方式为直接调用close方法</div><div class="line">            */</div><div class="line">            jredis.close();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>参考资料：</p>
+<p><a href="http://stackoverflow.com/questions/17082163/jedis-when-to-use-returnbrokenresource" target="_blank" rel="external">Jedis - When to use returnBrokenResource()</a></p>
 
       
     </div>
@@ -686,7 +690,7 @@ Redis 是一个 key-value 的缓存(cache)和存储(store)系统（现在我们�
     <script type="text/javascript">
       var disqus_shortname = 'jiangxiaoqiang';
       var disqus_identifier = '2016/11/04/redis-client-connect/';
-      var disqus_title = "redis-client-connect";
+      var disqus_title = "Redis客户端连接";
       var disqus_url = 'http://jiangxiaoqiang.com/2016/11/04/redis-client-connect/';
 
       function run_disqus_script(disqus_script){
