@@ -29,7 +29,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,7 +63,7 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
@@ -90,7 +90,8 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/11/02/kafka-consume-position/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="kafka允许通过seek(TopicPartition，long)指定新的位置，或者seekToBeginning，seekToEnd定位到最早或最近的offset。注意seek重置offsets只对当前消费者起作用，它并不会触发consumer的rebalance，或者影响其他消费者的fetchOffsets。在大多数情况下，消费者消费记录只是简单地从一开始到结束，并且定时地提交它的位置(不管">
-<meta property="og:updated_time" content="2016-11-02T10:22:21.000Z"><meta name="twitter:card" content="summary">
+<meta property="og:updated_time" content="2016-11-05T07:06:16.650Z">
+<meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kafka消费position">
 <meta name="twitter:description" content="kafka允许通过seek(TopicPartition，long)指定新的位置，或者seekToBeginning，seekToEnd定位到最早或最近的offset。注意seek重置offsets只对当前消费者起作用，它并不会触发consumer的rebalance，或者影响其他消费者的fetchOffsets。在大多数情况下，消费者消费记录只是简单地从一开始到结束，并且定时地提交它的位置(不管">
 
@@ -181,8 +182,6 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
             首页
           </a>
         </li>
@@ -190,8 +189,6 @@
         
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -201,9 +198,15 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
             标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+            日程
           </a>
         </li>
       
@@ -213,8 +216,6 @@
           
             <a href="javascript:;" class="popup-trigger">
           
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
             搜索
           </a>
@@ -336,8 +337,7 @@
       
         <p>kafka允许通过seek(TopicPartition，long)指定新的位置，或者seekToBeginning，seekToEnd定位到最早或最近的offset。注意seek重置offsets只对当前消费者起作用，它并不会触发consumer的rebalance，或者影响其他消费者的fetchOffsets。在大多数情况下，消费者消费记录只是简单地从一开始到结束，并且定时地提交它的位置(不管是自动的还是手动的)。不过新的API也允许消费者手动控制它的位置，消费者可以在一个partition钟随意地往前或者往后移动位置。这就意味着消费者可以重新消费旧的记录(多次读取相同的记录)，或者直接跳到最近的记录，忽略掉中间的记录。</p>
 <a id="more"></a>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"> * 得到分区</div><div class="line"> *</div><div class="line"> * @param topics</div><div class="line"> * @return void</div><div class="line"> * @throws @author Jiangxiaoqiang</div><div class="line"> * @Title: initialTopicsPartitions</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initialTopicsPartitions</span><span class="params">(String[] topics)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (topics != <span class="keyword">null</span> &amp;&amp; topics.length &gt; <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">for</span> (String topic : topics) &#123;</div><div class="line">            <span class="keyword">if</span> (!Converter.toBlank(topic).equals(<span class="string">""</span>)) &#123;</div><div class="line">                topicPartitions.add(<span class="keyword">new</span> TopicPartition(topic, PublicVariable.KAFKA_COMSUME_PARTION));</div><div class="line">            &#125;</div><div class="line">        &#125;                </div><div class="line">        consumer.assign(topicPartitions);</div><div class="line">        <span class="comment">/*</span></div><div class="line">        从最新的位置开始消费,Special methods for seeking to the earliest and latest offset the server maintains are also available ( seekToBeginning(TopicPartition...) and seekToEnd(TopicPartition...) respectively)</div><div class="line">        */</div><div class="line">        consumer.seekToEnd();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"> * 得到分区</div><div class="line"> *</div><div class="line"> * @param topics</div><div class="line"> * @return void</div><div class="line"> * @throws @author Jiangxiaoqiang</div><div class="line"> * @Title: initialTopicsPartitions</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initialTopicsPartitions</span><span class="params">(String[] topics)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (topics != <span class="keyword">null</span> &amp;&amp; topics.length &gt; <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">for</span> (String topic : topics) &#123;</div><div class="line">            <span class="keyword">if</span> (!Converter.toBlank(topic).equals(<span class="string">""</span>)) &#123;</div><div class="line">                topicPartitions.add(<span class="keyword">new</span> TopicPartition(topic, PublicVariable.KAFKA_COMSUME_PARTION));</div><div class="line">            &#125;</div><div class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//从最新的位置开始消费</span></div><div class="line">        consumer.seekToEnd();</div><div class="line">        consumer.assign(topicPartitions);</div><div class="line">=======</div><div class="line">        &#125;                </div><div class="line">        consumer.assign(topicPartitions);</div><div class="line">        <span class="comment">/*</span></div><div class="line">        从最新的位置开始消费,Special methods for seeking to the earliest and latest offset the server maintains are also available ( seekToBeginning(TopicPartition...) and seekToEnd(TopicPartition...) respectively)</div><div class="line">        */</div><div class="line">        consumer.seekToEnd();</div><div class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; <span class="number">2e811</span>b88860dc244827b13d566fed966b8243aaa</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -595,22 +595,22 @@
 
 
   
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
@@ -660,6 +660,11 @@
 
       run_disqus_script('count.js');
       
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
         run_disqus_script('embed.js');
       
     </script>
@@ -718,7 +723,7 @@
                     var content_index = [];
                     var data_title = data.title.trim().toLowerCase();
                     var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                    var data_url = data.url;
+                    var data_url = decodeURIComponent(data.url);
                     var index_title = -1;
                     var index_content = -1;
                     var first_occur = -1;
@@ -802,6 +807,9 @@
   
 
   
+
+  
+
 
 </body>
 </html>
