@@ -84,19 +84,20 @@
 
 
 
-<meta name="description" content="SQuirreL GUI客户端简介SQuirreL GUI客户端来连接Phoenix，就像MySQL使用Navicat for MySQL，Oracle使用PL/SQL Developer一样，在进行一些数据库操作的时候能够更加的直观和方便。">
+<meta name="description" content="SQuirreL GUI客户端简介SQuirreL GUI客户端来连接Phoenix，就像MySQL使用Navicat for MySQL，Oracle使用PL/SQL Developer一样，在进行一些数据库操作的时候能够更加的直观和方便。同时它还可以连接MySQL。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SQuirreL GUI客户端集成Phoenix配置">
+<meta property="og:title" content="SQuirreL GUI客户端集成Phoenix、MySQL配置">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="SQuirreL GUI客户端简介SQuirreL GUI客户端来连接Phoenix，就像MySQL使用Navicat for MySQL，Oracle使用PL/SQL Developer一样，在进行一些数据库操作的时候能够更加的直观和方便。">
+<meta property="og:description" content="SQuirreL GUI客户端简介SQuirreL GUI客户端来连接Phoenix，就像MySQL使用Navicat for MySQL，Oracle使用PL/SQL Developer一样，在进行一些数据库操作的时候能够更加的直观和方便。同时它还可以连接MySQL。">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/sphonix-driver-configuration.jpg">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/addAlias.jpg">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/configurationResult.jpg">
-<meta property="og:updated_time" content="2016-11-02T07:27:31.608Z">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/squirrel-connect-mysql.jpg">
+<meta property="og:updated_time" content="2016-11-07T05:02:24.751Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SQuirreL GUI客户端集成Phoenix配置">
-<meta name="twitter:description" content="SQuirreL GUI客户端简介SQuirreL GUI客户端来连接Phoenix，就像MySQL使用Navicat for MySQL，Oracle使用PL/SQL Developer一样，在进行一些数据库操作的时候能够更加的直观和方便。">
+<meta name="twitter:title" content="SQuirreL GUI客户端集成Phoenix、MySQL配置">
+<meta name="twitter:description" content="SQuirreL GUI客户端简介SQuirreL GUI客户端来连接Phoenix，就像MySQL使用Navicat for MySQL，Oracle使用PL/SQL Developer一样，在进行一些数据库操作的时候能够更加的直观和方便。同时它还可以连接MySQL。">
 <meta name="twitter:image" content="http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/sphonix-driver-configuration.jpg">
 
 
@@ -121,7 +122,7 @@
   <link rel="canonical" href="http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/"/>
 
 
-  <title> SQuirreL GUI客户端集成Phoenix配置 | 小强的博客 </title>
+  <title> SQuirreL GUI客户端集成Phoenix、MySQL配置 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -273,7 +274,7 @@
             
             
               
-                SQuirreL GUI客户端集成Phoenix配置
+                SQuirreL GUI客户端集成Phoenix、MySQL配置
               
             
           </h1>
@@ -339,7 +340,7 @@
       
 
       
-        <h4 id="SQuirreL-GUI客户端简介"><a href="#SQuirreL-GUI客户端简介" class="headerlink" title="SQuirreL GUI客户端简介"></a>SQuirreL GUI客户端简介</h4><p>SQuirreL GUI客户端来连接Phoenix，就像MySQL使用Navicat for MySQL，Oracle使用PL/SQL Developer一样，在进行一些数据库操作的时候能够更加的直观和方便。</p>
+        <h4 id="SQuirreL-GUI客户端简介"><a href="#SQuirreL-GUI客户端简介" class="headerlink" title="SQuirreL GUI客户端简介"></a>SQuirreL GUI客户端简介</h4><p>SQuirreL GUI客户端来连接Phoenix，就像MySQL使用Navicat for MySQL，Oracle使用PL/SQL Developer一样，在进行一些数据库操作的时候能够更加的直观和方便。同时它还可以连接MySQL。</p>
 <a id="more"></a>
 <h4 id="下载并安装SQuirreL-GUI"><a href="#下载并安装SQuirreL-GUI" class="headerlink" title="下载并安装SQuirreL GUI"></a>下载并安装SQuirreL GUI</h4><p>下载好的文件是一个压缩包(<code>squirrel-sql-3.7.1-standard.zip</code>)。不用解压缩，直接修改文件的后缀名为jar(<code>squirrel-sql-3.7.1-standard.jar</code>)，双击即可打开安装界面。</p>
 <h4 id="下载驱动"><a href="#下载驱动" class="headerlink" title="下载驱动"></a>下载驱动</h4><p>到Phoenix<a href="http://www.apache.org/dyn/closer.lua/phoenix/" target="_blank" rel="external">镜像站点</a>下载包，这里选择的是<code>apache-phoenix-4.8.0-HBase-1.2-bin.tar.gzip</code>，到解压的<code>apache-phoenix-4.8.0-HBase-1.2-bin.tar.gzip</code>包的主目录下，将如下几个jar包拷贝到SQuirreL安装目录的lib目录下，例如本机路径是<code>D:\Program Files\squirrel-sql-3.7.1\lib</code>。</p>
@@ -353,6 +354,9 @@
 <p>Name是Alias的名字，可以填写自定义名称。Driver选择上一步配置好的Driver名称，这里是Phoenix。url填写Phoenix连接串：<code>jdbc:phoenix:192.168.24.226,192.168.24.195:2181:/hbase-unsecure</code>。UserName和Password填写操作系统的登录用户和登录密码。</p>
 <h4 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h4><p>SQL查询如下图所示。</p>
 <img src="/2016/10/25/squirrel-phoenix-configuration/configurationResult.jpg" alt="SQL查询" title="SQL查询">
+<h4 id="连接MySQL"><a href="#连接MySQL" class="headerlink" title="连接MySQL"></a>连接MySQL</h4><p>将MySQL的驱动<code>mysql-connector-java-5.1.39.jar</code>拷贝到lib目录下。</p>
+<img src="/2016/10/25/squirrel-phoenix-configuration/squirrel-connect-mysql.jpg" alt="SQuirreL连接MySQL" title="SQuirreL连接MySQL">
+<p>驱动链接填写：jdbc:mysql://192.168.24.234:3306/clbs?useUnicode=true&amp;characterEncoding=utf-8。用户名和密码填写登录Linux主机的用户名和密码。</p>
 
       
     </div>
@@ -488,7 +492,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">89</span>
+                <span class="site-state-item-count">90</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -541,7 +545,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#SQuirreL-GUI客户端简介"><span class="nav-number">1.</span> <span class="nav-text">SQuirreL GUI客户端简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载并安装SQuirreL-GUI"><span class="nav-number">2.</span> <span class="nav-text">下载并安装SQuirreL GUI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载驱动"><span class="nav-number">3.</span> <span class="nav-text">下载驱动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加Driver"><span class="nav-number">4.</span> <span class="nav-text">添加Driver</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加Alias连接Hbase"><span class="nav-number">5.</span> <span class="nav-text">添加Alias连接Hbase</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询"><span class="nav-number">6.</span> <span class="nav-text">查询</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#SQuirreL-GUI客户端简介"><span class="nav-number">1.</span> <span class="nav-text">SQuirreL GUI客户端简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载并安装SQuirreL-GUI"><span class="nav-number">2.</span> <span class="nav-text">下载并安装SQuirreL GUI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载驱动"><span class="nav-number">3.</span> <span class="nav-text">下载驱动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加Driver"><span class="nav-number">4.</span> <span class="nav-text">添加Driver</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加Alias连接Hbase"><span class="nav-number">5.</span> <span class="nav-text">添加Alias连接Hbase</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询"><span class="nav-number">6.</span> <span class="nav-text">查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#连接MySQL"><span class="nav-number">7.</span> <span class="nav-text">连接MySQL</span></a></li></ol></div>
             
           </div>
         </section>
@@ -662,7 +666,7 @@
     <script type="text/javascript">
       var disqus_shortname = 'jiangxiaoqiang';
       var disqus_identifier = '2016/10/25/squirrel-phoenix-configuration/';
-      var disqus_title = "SQuirreL GUI客户端集成Phoenix配置";
+      var disqus_title = "SQuirreL GUI客户端集成Phoenix、MySQL配置";
       var disqus_url = 'http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/';
 
       function run_disqus_script(disqus_script){
