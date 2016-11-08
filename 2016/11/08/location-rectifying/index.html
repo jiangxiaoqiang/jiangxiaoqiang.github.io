@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Location," />
 
 
 
@@ -84,12 +84,16 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="小强的博客">
-<meta property="og:url" content="http://jiangxiaoqiang.com/page/5/index.html">
+<meta name="description" content="偏移的起因：天朝测绘局以国家安全为理由，用法律的形式对所有在天朝发行的地图类产品加了强制性规范，要求所有地图类产品都必须使用国家测绘局的一种加偏移的算法，对地图的真实坐标进行加偏移处理，之后才可能通过审批准许上市。因此，天朝的所有官方及商用地图的坐标都是偏移的，这种偏移属于非线性的，偏移量在300至500米不等，偏移方向也不定。这种加过偏移的地图坐标就是所谓“火星坐标”。GPS接收机本身接收卫星的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="地理位置纠偏">
+<meta property="og:url" content="http://jiangxiaoqiang.com/2016/11/08/location-rectifying/index.html">
 <meta property="og:site_name" content="小强的博客">
+<meta property="og:description" content="偏移的起因：天朝测绘局以国家安全为理由，用法律的形式对所有在天朝发行的地图类产品加了强制性规范，要求所有地图类产品都必须使用国家测绘局的一种加偏移的算法，对地图的真实坐标进行加偏移处理，之后才可能通过审批准许上市。因此，天朝的所有官方及商用地图的坐标都是偏移的，这种偏移属于非线性的，偏移量在300至500米不等，偏移方向也不定。这种加过偏移的地图坐标就是所谓“火星坐标”。GPS接收机本身接收卫星的">
+<meta property="og:updated_time" content="2016-11-08T00:53:10.835Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小强的博客">
+<meta name="twitter:title" content="地理位置纠偏">
+<meta name="twitter:description" content="偏移的起因：天朝测绘局以国家安全为理由，用法律的形式对所有在天朝发行的地图类产品加了强制性规范，要求所有地图类产品都必须使用国家测绘局的一种加偏移的算法，对地图的真实坐标进行加偏移处理，之后才可能通过审批准许上市。因此，天朝的所有官方及商用地图的坐标都是偏移的，这种偏移属于非线性的，偏移量在300至500米不等，偏移方向也不定。这种加过偏移的地图坐标就是所谓“火星坐标”。GPS接收机本身接收卫星的">
 
 
 
@@ -110,10 +114,10 @@
 
 
 
-  <link rel="canonical" href="http://jiangxiaoqiang.com/page/5/"/>
+  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/11/08/location-rectifying/"/>
 
 
-  <title> 小强的博客 </title>
+  <title> 地理位置纠偏 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -143,9 +147,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -245,9 +247,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -267,10 +269,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/10/20/stomp-url-route/" itemprop="url">
-                  Stomp WebSocket路由
-                </a>
+                地理位置纠偏
               
             
           </h1>
@@ -282,8 +281,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-20T22:28:40+08:00" content="2016-10-20">
-              2016-10-20
+            <time itemprop="dateCreated" datetime="2016-11-08T08:53:10+08:00" content="2016-11-08">
+              2016-11-08
             </time>
           </span>
 
@@ -312,8 +311,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/20/stomp-url-route/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/20/stomp-url-route/" itemprop="commentsCount"></span>
+                <a href="/2016/11/08/location-rectifying/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/08/location-rectifying/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -336,536 +335,65 @@
       
 
       
-        
-          <p>STOMP即Simple (or Streaming) Text Orientated Messaging Protocol，简单(流)文本定向消息协议，它提供了一个可互操作的连接格式，允许STOMP客户端与任意STOMP消息代理（Broker）进行交互。STOMP协议由于设计简单，易于开发客户端，因此在多种语言和多种平台上得到广泛地应用。WebSocket协议的应用层子协议STOMP（流文本定向消息协议）。在应用中直接使用WebSocket API显得有些低端，直到统一标准规范时也只有一小部分框架可以解析信息或通过注解方式使用它。这正是考虑在应用中运用子协议和产生基于WebSocket支持的Spring的STOMP的原因。当运用一个上层协议，WebSocket API的细节就显得不那么重要了，正如运用了HTTP后TCP的通信细节不再暴漏在应用中一样。STOMP是为了简单而创建的一种消息协议。它基于模仿HTTP协议的帧。帧由一个命令、可选的头和可选的体组成。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/20/stomp-url-route/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
+        <p>偏移的起因：天朝测绘局以国家安全为理由，用法律的形式对所有在天朝发行的地图类产品加了强制性规范，要求所有地图类产品都必须使用国家测绘局的一种加偏移的算法，对地图的真实坐标进行加偏移处理，之后才可能通过审批准许上市。因此，天朝的所有官方及商用地图的坐标都是偏移的，这种偏移属于非线性的，偏移量在300至500米不等，偏移方向也不定。这种加过偏移的地图坐标就是所谓“火星坐标”。GPS接收机本身接收卫星的信号，计算出本机所在位置的经纬度，在没有做特别处理的时候，这个经纬度是正确的。但是如果GPS支持加载地图的话，这个GPS中的地图就得受上述第一条法规的约束了，所以正式在天朝销售的行货GPS设备中的地图必须也得加偏移，处理成火星坐标。地理位置纠偏代码(处理成火星坐标)：</p>
+<a id="more"></a>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line">* Created by jiangxiaoqiang on 2016/11/7.</div><div class="line">* 适用于Google,高德体系的地图</div><div class="line">*/</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GpsDataTranslate</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 圆周率</div><div class="line">     */</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">double</span> PI = Math.PI;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 地球的半径(单位:米)</div><div class="line">     */</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">double</span> EARTH_RADIUS = <span class="number">6378245.0</span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * ee: 椭球的偏心率(eccentricity of ellipsoid)</div><div class="line">     */</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">double</span> ECCENTRICITY_OF_ELLIPSOID = <span class="number">0.0066934216229659433</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">IsOutOfChina</span><span class="params">(<span class="keyword">double</span> latitude, <span class="keyword">double</span> longitude)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> longitude &lt; <span class="number">72.004</span> || longitude &gt; <span class="number">137.8347</span> || (latitude &lt; <span class="number">0.8293</span> || latitude &gt; <span class="number">55.8271</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">TransformLat</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y)</span> </span>&#123;</div><div class="line">        <span class="keyword">double</span> num = -<span class="number">100.0</span> + <span class="number">2.0</span> * x + <span class="number">3.0</span> * y + <span class="number">0.2</span> * y * y + <span class="number">0.1</span> * x * y + <span class="number">0.2</span> * Math.sqrt(Math.abs(x));</div><div class="line">        num += (<span class="number">20.0</span> * Math.sin(<span class="number">6.0</span> * x * PI) + <span class="number">20.0</span> * Math.sin(<span class="number">2.0</span> * x * PI)) * <span class="number">2.0</span> / <span class="number">3.0</span>;</div><div class="line">        num += (<span class="number">20.0</span> * Math.sin(y * PI) + <span class="number">40.0</span> * Math.sin(y / <span class="number">3.0</span> * PI)) * <span class="number">2.0</span> / <span class="number">3.0</span>;</div><div class="line">        <span class="keyword">return</span> num + (<span class="number">160.0</span> * Math.sin(y / <span class="number">12.0</span> * PI) + <span class="number">320.0</span> * Math.sin(y * PI / <span class="number">30.0</span>)) * <span class="number">2.0</span> / <span class="number">3.0</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">TransformLon</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y)</span> </span>&#123;</div><div class="line">        <span class="keyword">double</span> num = <span class="number">300.0</span> + x + <span class="number">2.0</span> * y + <span class="number">0.1</span> * x * x + <span class="number">0.1</span> * x * y + <span class="number">0.1</span> * Math.sqrt(Math.abs(x));</div><div class="line">        num += (<span class="number">20.0</span> * Math.sin(<span class="number">6.0</span> * x * PI) + <span class="number">20.0</span> * Math.sin(<span class="number">2.0</span> * x * PI)) * <span class="number">2.0</span> / <span class="number">3.0</span>;</div><div class="line">        num += (<span class="number">20.0</span> * Math.sin(x * PI) + <span class="number">40.0</span> * Math.sin(x / <span class="number">3.0</span> * PI)) * <span class="number">2.0</span> / <span class="number">3.0</span>;</div><div class="line">        <span class="keyword">return</span> num + (<span class="number">150.0</span> * Math.sin(x / <span class="number">12.0</span> * PI) + <span class="number">300.0</span> * Math.sin(x / <span class="number">30.0</span> * PI)) * <span class="number">2.0</span> / <span class="number">3.0</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 地理位置纠偏</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> wgLat</div><div class="line">     * <span class="doctag">@param</span> wgLon</div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span>[] transform(<span class="keyword">double</span> wgLat, <span class="keyword">double</span> wgLon) &#123;</div><div class="line">        <span class="keyword">double</span>[] latlng = <span class="keyword">new</span> <span class="keyword">double</span>[<span class="number">2</span>];</div><div class="line">        <span class="keyword">if</span> (IsOutOfChina(wgLat, wgLon)) &#123;</div><div class="line">            latlng[<span class="number">0</span>] = wgLat;</div><div class="line">            latlng[<span class="number">1</span>] = wgLon;</div><div class="line">            <span class="keyword">return</span> latlng;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">double</span> dLat = TransformLat(wgLon - <span class="number">105.0</span>, wgLat - <span class="number">35.0</span>);</div><div class="line">        <span class="keyword">double</span> dLon = TransformLon(wgLon - <span class="number">105.0</span>, wgLat - <span class="number">35.0</span>);</div><div class="line">        <span class="keyword">double</span> radLat = wgLat / <span class="number">180.0</span> * PI;</div><div class="line">        <span class="keyword">double</span> magic = Math.sin(radLat);</div><div class="line">        magic = <span class="number">1</span> - ECCENTRICITY_OF_ELLIPSOID * magic * magic;</div><div class="line">        <span class="keyword">double</span> sqrtMagic = Math.sqrt(magic);</div><div class="line">        dLat = (dLat * <span class="number">180.0</span>) / ((EARTH_RADIUS * (<span class="number">1</span> - ECCENTRICITY_OF_ELLIPSOID)) / (magic * sqrtMagic) * PI);</div><div class="line">        dLon = (dLon * <span class="number">180.0</span>) / (EARTH_RADIUS / sqrtMagic * Math.cos(radLat) * PI);</div><div class="line">        latlng[<span class="number">0</span>] = (wgLat + dLat);</div><div class="line">        latlng[<span class="number">1</span>] = (wgLon + dLon);</div><div class="line">        <span class="keyword">return</span> latlng;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>一对纠偏的数据组示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">原始数据：</div><div class="line">29.54163(纬度)</div><div class="line">106.508188(经度)</div><div class="line"></div><div class="line">纠偏后数据：</div><div class="line">29.538885930651567(纬度)</div><div class="line">106.5120118854562(经度)</div></pre></td></tr></table></figure>
+
       
     </div>
 
     <div>
       
+        
+
+      
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/20/spring-encount-error/" itemprop="url">
-                  expected single matching bean but found 2
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-20T12:51:20+08:00" content="2016-10-20">
-              2016-10-20
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Programming/" itemprop="url" rel="index">
-                    <span itemprop="name">Programming</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/20/spring-encount-error/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/20/spring-encount-error/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
+            <a href="/tags/Location/" rel="tag">#Location</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>在WebSocket往客户端推送消息的开发过程中，获取推送消息实例<code>SimpMessagingTemplate</code>时，错误如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[ERROR]-[2016年-10月-19日17:53:25.026]-[RMI TCP Connection(2)-127.0.0.1]-[org.springframework.web.context.ContextLoader]-&#123;Context initialization failed&#125; org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name  &apos;com.zw.socket.service.controller.InstanceMessageController#0&apos; defined in class path resource [spring-config/spring-socket-servlet.xml]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type [org.springframework.messaging.simp.SimpMessagingTemplate] is defined: expected single matching bean but found 2:org.springframework.messaging.simp.SimpMessagingTemplate#0,brokerMessagingTemplate</div></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/20/spring-encount-error/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/04/springmvc-dispatcherservlet/" rel="next" title="Spring MVC-DispatcherServlet处理请求过程">
+                <i class="fa fa-chevron-left"></i> Spring MVC-DispatcherServlet处理请求过程
+              </a>
+            
           </div>
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/18/spring-bean-registered/" itemprop="url">
-                  Spring Bean是否注册判断
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-18T21:31:26+08:00" content="2016-10-18">
-              2016-10-18
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Programming/" itemprop="url" rel="index">
-                    <span itemprop="name">Programming</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/18/spring-bean-registered/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/18/spring-bean-registered/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>在项目的开发过程中有许多Bean，怎么判断一个Bean是否已经纳入容器管理了呢？当然最直接的方式是直接使用，如果不能用，那么肯定就未注册成功，但是也有的情况不是那么明显的，即使没有注册成功也不会有明显的错误。如何有效的鉴别和判断是否已经注册？</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/18/spring-bean-registered/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/18/spring-get-bean/" itemprop="url">
-                  Spring线程中Bean注入问题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-18T17:20:11+08:00" content="2016-10-18">
-              2016-10-18
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Programming/" itemprop="url" rel="index">
-                    <span itemprop="name">Programming</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/18/spring-get-bean/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/18/spring-get-bean/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="实现ApplicationContextAware"><a href="#实现ApplicationContextAware" class="headerlink" title="实现ApplicationContextAware"></a>实现ApplicationContextAware</h4><p>在Spring中开启线程时，无法使用Bean的自动注入，此时需要手动获取Bean。方法如下：</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/18/spring-get-bean/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
+    <div class="post-spread">
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/17/port-aready-in-use/" itemprop="url">
-                  port aready in use
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-17T16:15:02+08:00" content="2016-10-17">
-              2016-10-17
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Programming/" itemprop="url" rel="index">
-                    <span itemprop="name">Programming</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/17/port-aready-in-use/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/17/port-aready-in-use/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>在使用Intellij Idea调试时，以Application方式启动程序时提示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">2016-10-17 11:28:38.537 ERROR 23156 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : </div><div class="line"></div><div class="line">***************************</div><div class="line">APPLICATION FAILED TO START</div><div class="line">***************************</div><div class="line"></div><div class="line">Description:</div><div class="line"></div><div class="line">The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.</div><div class="line"></div><div class="line">Action:</div><div class="line"></div><div class="line">Verify the connector&apos;s configuration, identify and stop any process that&apos;s listening on port 8080, or configure this application to listen on another port.</div></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/17/port-aready-in-use/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
+  </div>
 
 
           </div>
@@ -873,6 +401,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/08/location-rectifying/"
+           data-title="地理位置纠偏" data-url="http://jiangxiaoqiang.com/2016/11/08/location-rectifying/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -892,8 +428,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -967,6 +512,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -1063,6 +619,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
 
   
 
