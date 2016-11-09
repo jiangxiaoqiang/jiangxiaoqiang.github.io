@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="Invalid partition given with record在Kafka生产者里写入消息时，提示写入失败，详细的错误信息如下所示：
 123456789[ERROR]-[2016年-10月-28日16:17:35.083]-[Thread-25]-[com.zw.socket.service.kafka.producer.ClientKafkaProducer]-&amp;#123;生产者发送消息">
-<meta property="og:updated_time" content="2016-11-01T08:38:54.001Z">
+<meta property="og:updated_time" content="2016-11-09T09:05:25.520Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kafka常见错误">
 <meta name="twitter:description" content="Invalid partition given with record在Kafka生产者里写入消息时，提示写入失败，详细的错误信息如下所示：
@@ -350,6 +350,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/hosts</div></pre></td></tr></table></figure>
 <p>配置如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4</div><div class="line">::1         localhost localhost.localdomain localhost6 localhost6.localdomain6</div><div class="line">192.168.24.136 节点1主机名</div><div class="line">192.168.24.137 节点2主机名</div><div class="line">192.168.24.244 localhost</div></pre></td></tr></table></figure>
+<h4 id="Consumer-Marking-the-coordinator-XXXXX-dead"><a href="#Consumer-Marking-the-coordinator-XXXXX-dead" class="headerlink" title="Consumer Marking the coordinator XXXXX dead"></a>Consumer Marking the coordinator XXXXX dead</h4><p>Marking the coordinator dead happens when there is a Network communication error between the Consumer Client and the Coordinator (Also this can happen when the Coordinator dies and the group needs to rebalance). There are a variety of situations (offset commit request, fetch offset, etc) that can cause this issue. I will suggest that you research what’s causing this situations。解决此问题，重新启动消费者/生产者。</p>
 
       
     </div>
@@ -480,7 +481,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">90</span>
+                <span class="site-state-item-count">92</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -533,7 +534,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Invalid-partition-given-with-record"><span class="nav-number">1.</span> <span class="nav-text">Invalid partition given with record</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-group-coordinator-is-not-available"><span class="nav-number">2.</span> <span class="nav-text">The group coordinator is not available</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#无法往集群中写入数据"><span class="nav-number">3.</span> <span class="nav-text">无法往集群中写入数据</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Invalid-partition-given-with-record"><span class="nav-number">1.</span> <span class="nav-text">Invalid partition given with record</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-group-coordinator-is-not-available"><span class="nav-number">2.</span> <span class="nav-text">The group coordinator is not available</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#无法往集群中写入数据"><span class="nav-number">3.</span> <span class="nav-text">无法往集群中写入数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Consumer-Marking-the-coordinator-XXXXX-dead"><span class="nav-number">4.</span> <span class="nav-text">Consumer Marking the coordinator XXXXX dead</span></a></li></ol></div>
             
           </div>
         </section>
