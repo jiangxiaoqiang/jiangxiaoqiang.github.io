@@ -96,7 +96,7 @@
 1./kafka-server-start.sh ../config/server.properties &amp;amp;
 创建主题：
 1./kafka-topics.sh --zookeeper localhost:2181 --create --topic test1 --partitions 1 --replication-factor 1 --config max.messag">
-<meta property="og:updated_time" content="2016-11-04T10:00:54.927Z">
+<meta property="og:updated_time" content="2016-11-10T03:46:45.536Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kafka常用操作">
 <meta name="twitter:description" content="启动kafka：
@@ -354,7 +354,7 @@
 <p>删除主题：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./kafka-topics.sh --zookeeper 192.168.24.244:2181 --delete --topic 0085000</div></pre></td></tr></table></figure>
 <p>消费主题：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./kafka-console-consumer.sh --zookeeper localhost:2181 --from-beginning --topic 0085000</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 从开始处消费主题</span></div><div class="line">./kafka-console-consumer.sh --zookeeper localhost:2181 --from-beginning --topic 0085000</div><div class="line"></div><div class="line"><span class="comment"># 从最新位置消费主题</span></div><div class="line">./kafka-console-consumer.sh --zookeeper localhost:2181 --topic 0085000</div></pre></td></tr></table></figure>
 <p>改变主题L000000的默认分区数：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/kafka-topics.sh  --zookeeper 192.168.24.238:2181,192.168.24.11:2181,192.168.24.71:2181 --alter --topic L000000 --partitions 2</div></pre></td></tr></table></figure>
 

@@ -94,7 +94,7 @@
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/addAlias.jpg">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/configurationResult.jpg">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/squirrel-connect-mysql.jpg">
-<meta property="og:updated_time" content="2016-11-07T05:02:24.751Z">
+<meta property="og:updated_time" content="2016-11-10T05:24:43.304Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQuirreL GUI客户端集成Phoenix、MySQL配置">
 <meta name="twitter:description" content="SQuirreL GUI客户端简介SQuirreL GUI客户端来连接Phoenix，就像MySQL使用Navicat for MySQL，Oracle使用PL/SQL Developer一样，在进行一些数据库操作的时候能够更加的直观和方便。同时它还可以连接MySQL。">
@@ -342,7 +342,8 @@
       
         <h4 id="SQuirreL-GUI客户端简介"><a href="#SQuirreL-GUI客户端简介" class="headerlink" title="SQuirreL GUI客户端简介"></a>SQuirreL GUI客户端简介</h4><p>SQuirreL GUI客户端来连接Phoenix，就像MySQL使用Navicat for MySQL，Oracle使用PL/SQL Developer一样，在进行一些数据库操作的时候能够更加的直观和方便。同时它还可以连接MySQL。</p>
 <a id="more"></a>
-<h4 id="下载并安装SQuirreL-GUI"><a href="#下载并安装SQuirreL-GUI" class="headerlink" title="下载并安装SQuirreL GUI"></a>下载并安装SQuirreL GUI</h4><p>下载好的文件是一个压缩包(<code>squirrel-sql-3.7.1-standard.zip</code>)。不用解压缩，直接修改文件的后缀名为jar(<code>squirrel-sql-3.7.1-standard.jar</code>)，双击即可打开安装界面。</p>
+<h4 id="下载并安装SQuirreL-GUI"><a href="#下载并安装SQuirreL-GUI" class="headerlink" title="下载并安装SQuirreL GUI"></a>下载并安装SQuirreL GUI</h4><p>下载好的文件是一个压缩包(<code>squirrel-sql-3.7.1-standard.zip</code>)。不用解压缩，直接修改文件的后缀名为jar(<code>squirrel-sql-3.7.1-standard.jar</code>)，双击即可打开安装界面。如果无法双击打开，则可以通过命令行的方式打开：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -jar squirrel-sql-3.7-standard.jar</div></pre></td></tr></table></figure>
 <h4 id="下载驱动"><a href="#下载驱动" class="headerlink" title="下载驱动"></a>下载驱动</h4><p>到Phoenix<a href="http://www.apache.org/dyn/closer.lua/phoenix/" target="_blank" rel="external">镜像站点</a>下载包，这里选择的是<code>apache-phoenix-4.8.0-HBase-1.2-bin.tar.gzip</code>，到解压的<code>apache-phoenix-4.8.0-HBase-1.2-bin.tar.gzip</code>包的主目录下，将如下几个jar包拷贝到SQuirreL安装目录的lib目录下，例如本机路径是<code>D:\Program Files\squirrel-sql-3.7.1\lib</code>。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">phoenix-4.8.0-HBase-1.2-client.jar</div></pre></td></tr></table></figure>
 <p>注意顺序，先拷贝jar包，在启动SQuirreL添加驱动，如果是拷贝jar包时已经启动了SQuirreL，那么SQuirreL需要重启一下，拷贝的jar包才生效，这个是需要注意的地方，可以参见<a href="http://stackoverflow.com/questions/40215921/squirrel-configure-could-not-initial-class-org-apache-phoenix-jdbc-phoenixdrive/40225765#40225765" target="_blank" rel="external">SQuirreL Configure: could not initial class org.apache.phoenix.jdbc.PhoenixDriver</a>。</p>
@@ -356,7 +357,7 @@
 <img src="/2016/10/25/squirrel-phoenix-configuration/configurationResult.jpg" alt="SQL查询" title="SQL查询">
 <h4 id="连接MySQL"><a href="#连接MySQL" class="headerlink" title="连接MySQL"></a>连接MySQL</h4><p>将MySQL的驱动<code>mysql-connector-java-5.1.39.jar</code>拷贝到lib目录下。</p>
 <img src="/2016/10/25/squirrel-phoenix-configuration/squirrel-connect-mysql.jpg" alt="SQuirreL连接MySQL" title="SQuirreL连接MySQL">
-<p>驱动链接填写：jdbc:mysql://192.168.24.234:3306/clbs?useUnicode=true&amp;characterEncoding=utf-8。用户名和密码填写登录Linux主机的用户名和密码。</p>
+<p>驱动链接填写：<code>jdbc:mysql://192.168.24.234:3306/clbs?useUnicode=true&amp;characterEncoding=utf-8</code>。用户名和密码填写登录Linux主机的用户名和密码。</p>
 
       
     </div>
