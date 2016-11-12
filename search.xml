@@ -3,7 +3,21 @@
   
     
     <entry>
-      <title><![CDATA[grep]]></title>
+      <title><![CDATA[Intellij-Idea远程调试]]></title>
+      <url>%2F2016%2F11%2F12%2Fintellij-idea-remote-debbuging%2F</url>
+      <content type="text"><![CDATA[因为我们用的是Tomcat，所以在IDEA中点击右上角那个“Edit Configurations”按钮，然后在弹出的界面中点击左上角的加号，选择tomcat server-&gt;remote。 服务器配置要让远程服务器运行的代码支持远程调试，则启动的时候必须加上特定的JVM参数，这些参数是： 1-Xdebug -Xrunjdwp:transport=dt_socket,suspend=n,server=y,address=$&#123;debug_port&#125; 其中的${debug_port}是用户自定义的，为debug端口，本例以53996端口为例。在Windows下到tomcat目录下的catalina.bat文件中，添加如下内容，设置catalina环境变量： 1set CATALINA_OPTS="-agentlib:jdwp=transport=dt_socket,address=53996,suspend=n,server=y" 运行如下命令启动Tomcat： 1catalina.bat start 使用如下命令查看是否配置成功： 1netstat -ano 查看是否有53996的端口处于监听状态。如下图所示： Intellij Idea配置Intellij Idea远程调试配置如下：]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Websocket数据查看]]></title>
+      <url>%2F2016%2F11%2F12%2Fwebsocket-check%2F</url>
+      <content type="text"><![CDATA[FireFox中查看WebSocket使用FireFox查看WebSocket内容需要安装一个WebSocket-Monitor插件。安装完毕后在FireFox的Web控制台(Ctrl + Shift + K)中。 Google Chrome中查看WebSocketGoogle Chrome自带查看模块，如下图所示。F12进入开发者页面，选择NetWork选项卡，选择WS(WebSocket)选项卡。 Fiddler中查看WebSocket在请求时选择任意WebSocket Session，即可出现WebSocket流量数据画面，不过是乱码，未找到合适的解决乱码的方案。]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[grep使用]]></title>
       <url>%2F2016%2F11%2F12%2Fgrep%2F</url>
       <content type="text"><![CDATA[grep (global search regular expression(RE) and print out the line,全面搜索正则表达式并把行打印出来)是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹配的行打印出来。 Unix的grep家族包括grep、egrep和fgrep。egrep和fgrep的命令只跟grep有很小不同。egrep是grep的扩展，支持更多的re元字符， fgrep就是fixed grep或fast grep，它们把所有的字母都看作单词，也就是说，正则表达式中的元字符表示回其自身的字面意义，不再特殊。linux使用GNU版本的grep。它功能更强，可以通过-G、-E、-F命令行选项来使用egrep和fgrep的功能。 多个匹配模式1tail -f catalina.out | grep -e "苏E22222" -e "服务器" 使用此命令可以过滤catalina.out文件中包含苏E22222且包含服务器的内容。使用grep匹配“与”或者“或”模式grep命令加-e参数，这一扩展允许使用扩展模式匹配。例如，要抽取城市代码为2 1 9或2 1 6，方法如下： 1grep –E '219|216' 还可以为匹配的内容增加高亮的颜色。 1tail -f catalina.out |grep --color=auto -E 'topic|0194592|0720724|512|0146636|S000099' 选出不包含512且不包含topic的行。 1tail -f catalina.out |grep -v -E '512|topic']]></content>
     </entry>
