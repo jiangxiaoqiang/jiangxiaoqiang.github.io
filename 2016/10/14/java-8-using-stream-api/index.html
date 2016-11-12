@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/10/14/java-8-using-stream-api/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="遍历集合中的列Stream是Java8中，操作集合的一个重要特性。这里要遍历集合中对象的某一个属性，并取出来用“，”拼接成字符串，传统的写法是写循环遍历每个对象，从中取出某一个属性，进行拼接操作。在Java 8里可以使用Stream API只需要一行代码，非常简洁。">
-<meta property="og:updated_time" content="2016-10-27T04:02:21.681Z">
+<meta property="og:updated_time" content="2016-11-10T08:16:56.669Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 8 使用Stream API">
 <meta name="twitter:description" content="遍历集合中的列Stream是Java8中，操作集合的一个重要特性。这里要遍历集合中对象的某一个属性，并取出来用“，”拼接成字符串，传统的写法是写循环遍历每个对象，从中取出某一个属性，进行拼接操作。在Java 8里可以使用Stream API只需要一行代码，非常简洁。">
@@ -340,9 +340,11 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">List&lt;WorkDayDataInfo&gt; workDayDataInfo = workDayInfos.get(currentWorkDay).getDatas();</div><div class="line">String assignmentIdStream = assignments.stream()</div><div class="line">                        .map(p -&gt; p.getId())</div><div class="line">                        .collect(Collectors.joining(<span class="string">","</span>));</div></pre></td></tr></table></figure>
 <p>对于基本数据类型的拼接：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">List&lt;Integer&gt; numbers = Arrays.asList( <span class="number">4</span>, <span class="number">8</span>, <span class="number">15</span>, <span class="number">16</span>, <span class="number">23</span>, <span class="number">42</span> );</div><div class="line"><span class="keyword">return</span> numbers.stream().map( n -&gt; n.toString() ).collect( Collectors.joining( <span class="string">","</span> ) );</div></pre></td></tr></table></figure>
-<h4 id="去除重复数据"><a href="#去除重复数据" class="headerlink" title="去除重复数据"></a>去除重复数据</h4><p>去除List中对象的重复数据。</p>
+<h4 id="去List除重复数据"><a href="#去List除重复数据" class="headerlink" title="去List除重复数据"></a>去List除重复数据</h4><p>去除List中对象的重复数据。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">List&lt;ClientVehicleInfo&gt; distinctVehicles = clientVehicleInfos.stream().distinct().collect(Collectors.toList());</div></pre></td></tr></table></figure>
 <p>对于Stream中包含的元素进行去重操作（去重逻辑依赖元素的equals方法），新生成的Stream中没有重复的元素。（根据.equals行为排除所有重复的元素。）</p>
+<h4 id="去除String数组重复数据"><a href="#去除String数组重复数据" class="headerlink" title="去除String数组重复数据"></a>去除String数组重复数据</h4><p>其中deviceNumbers为String类型的数组。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">deviceNumbers= <span class="keyword">new</span> HashSet&lt;&gt;(Arrays.asList(deviceNumbers)).toArray(<span class="keyword">new</span> String[<span class="number">0</span>]);</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -458,7 +460,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">57</span>
+              <span class="site-state-item-count">58</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -528,7 +530,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#遍历集合中的列"><span class="nav-number">1.</span> <span class="nav-text">遍历集合中的列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#去除重复数据"><span class="nav-number">2.</span> <span class="nav-text">去除重复数据</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#遍历集合中的列"><span class="nav-number">1.</span> <span class="nav-text">遍历集合中的列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#去List除重复数据"><span class="nav-number">2.</span> <span class="nav-text">去List除重复数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#去除String数组重复数据"><span class="nav-number">3.</span> <span class="nav-text">去除String数组重复数据</span></a></li></ol></div>
             
           </div>
         </section>
