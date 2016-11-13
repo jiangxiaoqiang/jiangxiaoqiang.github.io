@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[电影《恋恋风尘》(Dust in the Wind)]]></title>
+      <url>%2F2016%2F11%2F13%2Fdust-in-the-wind%2F</url>
+      <content type="text"><![CDATA[评价一部作品，它的真实性在心里占有相当的重量。而上映于1987年《恋恋风尘》(Dust in the Wind)所讲述的故事给自己的感觉是真实的，对观众来说它是仅仅一件小事。但有些地方会引起许多共鸣，那就是：初恋告吹。 第一次看《恋恋风尘》(Dust in the Wind)，还是在大二、大三的学生时期。当时只觉得非常新奇，电影拍的非常安静。往后参加工作后，反复观看，每一次观看感受都是如此相似。适合具有贫苦农村生活经验和当兵经历的人士观看。整部电影没有夸张的场景，都是一个个简单的回忆按时间顺序依次展现。 电影里有2个场景给我的印象最深： 一次是在台北时，阿远得了气管炎，阿云专程过来看他，当阿云过来时，恒春仔已经睡下了，说明已是很晚了，看到躺在床上无力的阿远，阿云遂用热水浸湿的帕子搭在阿远的额头上，没有对白。第二天早上一早去上班。当阿远送她出门时，电影的镜头拉到阿云离去的背影。这个离去的场景，我想阿远一生都不会忘记。 一次是在部队时，士兵们聚在一起打台球，一群人突然在讨论7号，说是和男朋友闹翻了，才出来做(应该是皮肉生意)。谈起阿远时，说他都不出去玩一玩，跟大家显得格格不入，遂嘲讽他“坚心为君，独守我青春”，说着一起大笑起来。镜头切到阿远呕吐的镜头，我想，他是由于太过于思念阿云的缘故。 当忙碌了一天的工作后，或者闲暇时刻，回到家打开电视看看这么一部简单轻松的电影，也不失为一种放松方式。 PS:优酷下面的群众的评论能发现很多细节。 恋恋风尘优酷播放地址 恋恋风豆瓣介绍页面 《恋恋风尘》影评]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Intellij-Idea远程调试]]></title>
       <url>%2F2016%2F11%2F12%2Fintellij-idea-remote-debbuging%2F</url>
       <content type="text"><![CDATA[因为我们用的是Tomcat，所以在IDEA中点击右上角那个“Edit Configurations”按钮，然后在弹出的界面中点击左上角的加号，选择tomcat server-&gt;remote。 服务器配置要让远程服务器运行的代码支持远程调试，则启动的时候必须加上特定的JVM参数，这些参数是： 1-Xdebug -Xrunjdwp:transport=dt_socket,suspend=n,server=y,address=$&#123;debug_port&#125; 其中的${debug_port}是用户自定义的，为debug端口，本例以53996端口为例。在Windows下到tomcat目录下的catalina.bat文件中，添加如下内容，设置catalina环境变量： 1set CATALINA_OPTS="-agentlib:jdwp=transport=dt_socket,address=53996,suspend=n,server=y" 运行如下命令启动Tomcat： 1catalina.bat start 使用如下命令查看是否配置成功： 1netstat -ano 查看是否有53996的端口处于监听状态。如下图所示： Intellij Idea配置Intellij Idea远程调试配置如下：]]></content>
@@ -52,16 +59,16 @@
 
     
     <entry>
-      <title><![CDATA[Lombok精简Java代码]]></title>
-      <url>%2F2016%2F11%2F04%2Flombok%2F</url>
-      <content type="text"><![CDATA[lombok提供了简单的注解的形式来帮助我们简化消除一些必须有但显得很臃肿的java代码,特别是相对于POJO(Plain Ordinary Java Object)。安装Lombok Plugin和引入Jar包之后方可使用。 常用的 lombok 注解： @Data：注解在类上；提供类所有属性的 getting 和 setting 方法，此外还提供了equals、canEqual、hashCode、toString 方法 @Setter：注解在属性上；为属性提供 setting 方法 @Getter：注解在属性上；为属性提供 getting 方法 @Log4j：注解在类上；为类提供一个 属性名为log 的 log4j 日志对象 @NoArgsConstructor：注解在类上；为类提供一个无参的构造方法 @AllArgsConstructor：注解在类上；为类提供一个全参的构造方法 如果不使用lombok注解，代码是这样： 1234567891011121314151617181920public class Person &#123; private String id; private Logger log = Logger.getLogger(Person.class); public Person() &#123; &#125; public Person(String id) &#123; this.id = id; &#125; public String getId() &#123; return id; &#125; public void setId(String id) &#123; this.id = id; &#125;&#125; 使用lombok注解，代码是这样： 1234567@Data@Log4j@NoArgsConstructor@AllArgsConstructorpublic class Person &#123; private String id;&#125; 一旦POJO字段较多时精简的代码就很明显了，而且使用Lombok的代码更加干净、易读，添加@Data注解之后，按Ctrl + O(Outline)可以看到生成了get和set方法。 @EqualsAndHashCode@EqualsAndHashCode注解实现equals()方法和hashCode()方法。hashcode是用于散列数据的快速存取，如利用HashSet/HashMap/Hashtable类来存储数据时，都是根据存储对象的hashcode值来进行判断是否相同的。]]></content>
+      <title><![CDATA[Java Web开发--log4j]]></title>
+      <url>%2F2016%2F11%2F04%2Flog4j%2F</url>
+      <content type="text"><![CDATA[isDebugEnabled在输出日志时，判断输出级别： 123if(logger.isDebugEnabled()) &#123; logger.debug("通用处理，信息为：" + JSON.toJSONString(vehicleLocationData));&#125; 当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于debug，即不需要进行日志信息输出时： ①假如debug方法中的参数比较简单时（比如直接就是写好的字符串），加不加这句if判断，在效率上也几乎没有什么差别； ②假如debug方法中的参数比较复杂时（比如还要使用别的函数进行计算、或者还要进行字符串的拼接等等,如上代码片段所示，输出的内容需要序列化），在前面就加上这句if判断，会让效率提高（否则，开始大动干戈做了很多事情（比如字符串的拼接，序列化），后来才发现不需要进行输出日志信息），白白浪费了CPU资源，影响程序的运行效率。]]></content>
     </entry>
 
     
     <entry>
-      <title><![CDATA[Java Web开发--log4j]]></title>
-      <url>%2F2016%2F11%2F04%2Flog4j%2F</url>
-      <content type="text"><![CDATA[isDebugEnabled在输出日志时，判断输出级别： 123if(logger.isDebugEnabled()) &#123; logger.debug("通用处理，信息为：" + JSON.toJSONString(vehicleLocationData));&#125; 当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于debug，即不需要进行日志信息输出时： ①假如debug方法中的参数比较简单时（比如直接就是写好的字符串），加不加这句if判断，在效率上也几乎没有什么差别； ②假如debug方法中的参数比较复杂时（比如还要使用别的函数进行计算、或者还要进行字符串的拼接等等,如上代码片段所示，输出的内容需要序列化），在前面就加上这句if判断，会让效率提高（否则，开始大动干戈做了很多事情（比如字符串的拼接，序列化），后来才发现不需要进行输出日志信息），白白浪费了CPU资源，影响程序的运行效率。]]></content>
+      <title><![CDATA[Lombok精简Java代码]]></title>
+      <url>%2F2016%2F11%2F04%2Flombok%2F</url>
+      <content type="text"><![CDATA[lombok提供了简单的注解的形式来帮助我们简化消除一些必须有但显得很臃肿的java代码,特别是相对于POJO(Plain Ordinary Java Object)。安装Lombok Plugin和引入Jar包之后方可使用。 常用的 lombok 注解： @Data：注解在类上；提供类所有属性的 getting 和 setting 方法，此外还提供了equals、canEqual、hashCode、toString 方法 @Setter：注解在属性上；为属性提供 setting 方法 @Getter：注解在属性上；为属性提供 getting 方法 @Log4j：注解在类上；为类提供一个 属性名为log 的 log4j 日志对象 @NoArgsConstructor：注解在类上；为类提供一个无参的构造方法 @AllArgsConstructor：注解在类上；为类提供一个全参的构造方法 如果不使用lombok注解，代码是这样： 1234567891011121314151617181920public class Person &#123; private String id; private Logger log = Logger.getLogger(Person.class); public Person() &#123; &#125; public Person(String id) &#123; this.id = id; &#125; public String getId() &#123; return id; &#125; public void setId(String id) &#123; this.id = id; &#125;&#125; 使用lombok注解，代码是这样： 1234567@Data@Log4j@NoArgsConstructor@AllArgsConstructorpublic class Person &#123; private String id;&#125; 一旦POJO字段较多时精简的代码就很明显了，而且使用Lombok的代码更加干净、易读，添加@Data注解之后，按Ctrl + O(Outline)可以看到生成了get和set方法。 @EqualsAndHashCode@EqualsAndHashCode注解实现equals()方法和hashCode()方法。hashcode是用于散列数据的快速存取，如利用HashSet/HashMap/Hashtable类来存储数据时，都是根据存储对象的hashcode值来进行判断是否相同的。]]></content>
     </entry>
 
     
@@ -96,7 +103,7 @@
     <entry>
       <title><![CDATA[she]]></title>
       <url>%2F2016%2F11%2F01%2Fshe%2F</url>
-      <content type="text"><![CDATA[like: 鱼(Fish) 节目 《真正男子漢》(Takes a Real man) dislike: 生食(日本料理),可以少量吃北极贝和甜虾]]></content>
+      <content type="text"><![CDATA[like: 鱼(Fish) 广味香肠 节目 《真正男子漢》(Takes a Real man) dislike: 生食(日本料理),可以少量吃北极贝和甜虾]]></content>
     </entry>
 
     
