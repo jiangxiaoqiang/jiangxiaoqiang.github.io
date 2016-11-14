@@ -94,7 +94,7 @@
 服务器配置要让远程服务器运行的代码支持远程调试，则启动的时候必须加上特定的JVM参数，这些参数是：">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/11/12/intellij-idea-remote-debbuging/tomcat-listening-port.png">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/11/12/intellij-idea-remote-debbuging/intellij-idea-remote-debugging.jpg">
-<meta property="og:updated_time" content="2016-11-12T09:40:00.784Z">
+<meta property="og:updated_time" content="2016-11-14T04:46:47.728Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Intellij-Idea远程调试">
 <meta name="twitter:description" content="因为我们用的是Tomcat，所以在IDEA中点击右上角那个“Edit Configurations”按钮，然后在弹出的界面中点击左上角的加号，选择tomcat server-&amp;gt;remote。
@@ -347,10 +347,12 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-Xdebug -Xrunjdwp:transport=dt_socket,<span class="built_in">suspend</span>=n,server=y,address=<span class="variable">$&#123;debug_port&#125;</span></div></pre></td></tr></table></figure>
 <p>其中的${debug_port}是用户自定义的，为debug端口，本例以53996端口为例。在Windows下到tomcat目录下的catalina.bat文件中，添加如下内容，设置catalina环境变量：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">set</span> CATALINA_OPTS=<span class="string">"-agentlib:jdwp=transport=dt_socket,address=53996,suspend=n,server=y"</span></div></pre></td></tr></table></figure>
+<p>如果是Linux，在catalina.sh文件中中，设置catalina环境变量：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> CATALINA_OPTS=<span class="string">"-agentlib:jdwp=transport=dt_socket,address=53996,suspend=n,server=y"</span></div></pre></td></tr></table></figure>
 <p>运行如下命令启动Tomcat：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">catalina.bat start</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#Windows下启动Tomcat</span></div><div class="line">catalina.bat start</div><div class="line"></div><div class="line"><span class="comment">#Linux下启动Tomcat</span></div><div class="line">catalina.sh start</div></pre></td></tr></table></figure>
 <p>使用如下命令查看是否配置成功：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">netstat -ano</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#Windows下用此命令查看</span></div><div class="line">netstat -ano</div><div class="line"></div><div class="line"><span class="comment">#Linux下用此命令查看</span></div><div class="line">lsof -i:53996</div></pre></td></tr></table></figure>
 <p>查看是否有53996的端口处于监听状态。如下图所示：</p>
 <img src="/2016/11/12/intellij-idea-remote-debbuging/tomcat-listening-port.png" alt="检查服务端配置是否正确" title="检查服务端配置是否正确">
 <h4 id="Intellij-Idea配置"><a href="#Intellij-Idea配置" class="headerlink" title="Intellij Idea配置"></a>Intellij Idea配置</h4><p>Intellij Idea远程调试配置如下：</p>
