@@ -100,7 +100,7 @@ Redis 是一个 key-value 的缓存(cache)和存储(store)系统（现在我们�
 支持丰富的数据结构，List 就专门用于存储列表型数据，默认按操作时间排序。Sorted Set 可以按分数排序元素，分数是一种广义概念，可以是时间或评分。其次，其丰富的数据结构为日后扩展提供了很大的方便。
 
 提供">
-<meta property="og:updated_time" content="2016-11-07T06:14:52.928Z">
+<meta property="og:updated_time" content="2016-11-15T06:48:48.792Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis客户端连接">
 <meta name="twitter:description" content="Redis特点
@@ -368,6 +368,9 @@ Redis 是一个 key-value 的缓存(cache)和存储(store)系统（现在我们�
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">D:\Program Files\Redis&gt;redis-cli.exe info clients</div></pre></td></tr></table></figure>
 <p>结果如下所示：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># Clients</div><div class="line">connected_clients:11</div><div class="line">client_longest_output_list:0</div><div class="line">client_biggest_input_buf:0</div><div class="line">blocked_clients:0</div></pre></td></tr></table></figure>
+<h4 id="Redis客户端连接"><a href="#Redis客户端连接" class="headerlink" title="Redis客户端连接"></a>Redis客户端连接</h4><p>在修改了Redis的绑定IP后，用客户端登录需要显示的指定IP和端口：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./redis-cli -h 192.168.24.252 -p 6379</div></pre></td></tr></table></figure>
+<p>h代表hostname，主机，p代表port，端口。</p>
 <h4 id="Redis是否正确关闭连接"><a href="#Redis是否正确关闭连接" class="headerlink" title="Redis是否正确关闭连接"></a>Redis是否正确关闭连接</h4><p>可以看出目前的客户端已经超出了最大的客户端数量(配置的是10个)。应该是没有释放连接导致的问题。明显一个请求一次连接是很不靠谱的。这个问题发生有两方面的原因：</p>
 <ul>
 <li><p>未正确使用对象池的空闲队列行为（LIFO“后进先出”栈方式）</p>
@@ -426,8 +429,8 @@ Redis 是一个 key-value 的缓存(cache)和存储(store)系统（现在我们�
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/04/lombok/" rel="prev" title="Lombok精简Java代码">
-                Lombok精简Java代码 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/04/log4j/" rel="prev" title="Java Web开发--log4j">
+                Java Web开发--log4j <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -500,7 +503,7 @@ Redis 是一个 key-value 的缓存(cache)和存储(store)系统（现在我们�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">61</span>
+              <span class="site-state-item-count">62</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -570,7 +573,7 @@ Redis 是一个 key-value 的缓存(cache)和存储(store)系统（现在我们�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Redis特点"><span class="nav-number">1.</span> <span class="nav-text">Redis特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redis是否正确关闭连接"><span class="nav-number">2.</span> <span class="nav-text">Redis是否正确关闭连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redis配置是否正确绑定"><span class="nav-number">3.</span> <span class="nav-text">Redis配置是否正确绑定</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Redis特点"><span class="nav-number">1.</span> <span class="nav-text">Redis特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redis客户端连接"><span class="nav-number">2.</span> <span class="nav-text">Redis客户端连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redis是否正确关闭连接"><span class="nav-number">3.</span> <span class="nav-text">Redis是否正确关闭连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redis配置是否正确绑定"><span class="nav-number">4.</span> <span class="nav-text">Redis配置是否正确绑定</span></a></li></ol></div>
             
           </div>
         </section>
