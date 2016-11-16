@@ -84,19 +84,16 @@
 
 
 
-<meta name="description" content="安装依赖包(Install pre-dependencies)使用如下命令安装依赖包。
-1yum -y install zlib-devel curl-devel openssl-devel httpd-devel apr-devel apr-util-devel mysql-devel">
+<meta name="description" content="Redmine简介Redmine 是一个网页界面的项目管理与缺陷跟踪管理系统的自由及开放源代码软件工具。它集成了项目管理所需的各项功能：日历、燃尽图和甘特图 以协助可视化表现项目与时间限制，问题跟踪和版本控制。此外，Redmine也可以同时处理多个项目。Redmine 是以 Ruby on Rails 撰写的架构，它横跨多个平台与数据库，它的设计很明显是受一些类似功能软件包的Trac所影响。此外，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redmine安装">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/11/15/redmine-install/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="安装依赖包(Install pre-dependencies)使用如下命令安装依赖包。
-1yum -y install zlib-devel curl-devel openssl-devel httpd-devel apr-devel apr-util-devel mysql-devel">
-<meta property="og:updated_time" content="2016-11-15T10:58:26.328Z">
+<meta property="og:description" content="Redmine简介Redmine 是一个网页界面的项目管理与缺陷跟踪管理系统的自由及开放源代码软件工具。它集成了项目管理所需的各项功能：日历、燃尽图和甘特图 以协助可视化表现项目与时间限制，问题跟踪和版本控制。此外，Redmine也可以同时处理多个项目。Redmine 是以 Ruby on Rails 撰写的架构，它横跨多个平台与数据库，它的设计很明显是受一些类似功能软件包的Trac所影响。此外，">
+<meta property="og:updated_time" content="2016-11-16T05:20:37.596Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redmine安装">
-<meta name="twitter:description" content="安装依赖包(Install pre-dependencies)使用如下命令安装依赖包。
-1yum -y install zlib-devel curl-devel openssl-devel httpd-devel apr-devel apr-util-devel mysql-devel">
+<meta name="twitter:description" content="Redmine简介Redmine 是一个网页界面的项目管理与缺陷跟踪管理系统的自由及开放源代码软件工具。它集成了项目管理所需的各项功能：日历、燃尽图和甘特图 以协助可视化表现项目与时间限制，问题跟踪和版本控制。此外，Redmine也可以同时处理多个项目。Redmine 是以 Ruby on Rails 撰写的架构，它横跨多个平台与数据库，它的设计很明显是受一些类似功能软件包的Trac所影响。此外，">
 
 
 
@@ -319,24 +316,39 @@
       
 
       
-        <h4 id="安装依赖包-Install-pre-dependencies"><a href="#安装依赖包-Install-pre-dependencies" class="headerlink" title="安装依赖包(Install pre-dependencies)"></a>安装依赖包(Install pre-dependencies)</h4><p>使用如下命令安装依赖包。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install zlib-devel curl-devel openssl-devel httpd-devel apr-devel apr-util-devel mysql-devel</div></pre></td></tr></table></figure>
+        <h4 id="Redmine简介"><a href="#Redmine简介" class="headerlink" title="Redmine简介"></a>Redmine简介</h4><p>Redmine 是一个网页界面的项目管理与缺陷跟踪管理系统的自由及开放源代码软件工具。它集成了项目管理所需的各项功能：日历、燃尽图和甘特图 以协助可视化表现项目与时间限制，问题跟踪和版本控制。此外，Redmine也可以同时处理多个项目。<br>Redmine 是以 Ruby on Rails 撰写的架构，它横跨多个平台与数据库，它的设计很明显是受一些类似功能软件包的Trac所影响。此外，它也是Bitnami 应用库的一部分。</p>
 <a id="more"></a>
+<p>安装的环境是CentOS 7.2，查看CentOS版本可以使用命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat /etc/redhat-release</div></pre></td></tr></table></figure>
+<p>安装前查看<a href="http://www.redmine.org/projects/redmine/wiki/RedmineInstall" target="_blank" rel="external">Redmine版本的对应关系</a>。</p>
+<h4 id="安装依赖包-Install-pre-dependencies"><a href="#安装依赖包-Install-pre-dependencies" class="headerlink" title="安装依赖包(Install pre-dependencies)"></a>安装依赖包(Install pre-dependencies)</h4><p>使用如下命令安装依赖包。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install zlib-devel curl-devel openssl-devel httpd-devel apr-devel apr-util-devel mysql-devel</div></pre></td></tr></table></figure>
 <h4 id="安装Ruby-Install-Ruby"><a href="#安装Ruby-Install-Ruby" class="headerlink" title="安装Ruby(Install Ruby)"></a>安装Ruby(Install Ruby)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~/Downloads  <span class="comment"># YOUR FOLDER OF CHOICE</span></div><div class="line">ftp ftp.ruby-lang.org</div></pre></td></tr></table></figure>
 <p>如果ftp未安装，输入如下命令安装ftp。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install -y ftp</div></pre></td></tr></table></figure>
 <p>从FTP上获取Ruby安装文件：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ftp&gt; Anonymous  <span class="comment"># USERLOGIN</span></div><div class="line">ftp&gt; <span class="string">'none'</span>, just hit Enter  <span class="comment"># NO PASSWORD</span></div><div class="line">ftp&gt; <span class="built_in">cd</span> /pub/ruby</div><div class="line">ftp&gt; get get ruby-1.8.7-p358.tar.gz  <span class="comment"># XXX is currently 358, as of 03/2012</span></div><div class="line">ftp&gt; <span class="built_in">bye</span></div></pre></td></tr></table></figure>
-<p>也可以使用wget下载安装文件：</p>
+<p>也可以使用wget下载安装文件，此处采用此种方式，使用wget命令下载能够看到文件下载的进度，FTP方式等了许久没有响应，遂放弃，采用wget下载：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget ftp://ftp.ruby-lang.org/pub/ruby/ruby-1.8.7-p358.tar.gz</div></pre></td></tr></table></figure>
 <p>解压安装文件：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar zxvf ruby-1.8.7-p358.tar.gz</div></pre></td></tr></table></figure>
 <p>安装：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ruby-1.8.7.p358</div><div class="line">./configure</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
+<p>编译Ruby源码需要GCC(GNU C Compiler)，如果编译时提示没有安装GCC，输入如下命令安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install gcc gcc-c++ kernel-devel</div></pre></td></tr></table></figure>
+<h4 id="安装Ruby-Install-Ruby-Option-2"><a href="#安装Ruby-Install-Ruby-Option-2" class="headerlink" title="安装Ruby(Install Ruby (Option 2))"></a>安装Ruby(Install Ruby (Option 2))</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install ruby</div></pre></td></tr></table></figure>
 <p>检查安装是否成功：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby -v</div></pre></td></tr></table></figure>
 <h4 id="安装RubyGems-1-4-2"><a href="#安装RubyGems-1-4-2" class="headerlink" title="安装RubyGems 1.4.2"></a>安装RubyGems 1.4.2</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">wget http://production.cf.rubygems.org/rubygems/rubygems-1.4.2.tgz</div><div class="line">tar zxvf rubygems-1.4.2.tgz</div><div class="line"><span class="built_in">cd</span> rubygems-1.4.2</div><div class="line">ruby setup.rb</div><div class="line">gem -v</div></pre></td></tr></table></figure>
-<p>参考资料：</p>
+<h4 id="安装Ruby-on-Rails"><a href="#安装Ruby-on-Rails" class="headerlink" title="安装Ruby on Rails"></a>安装Ruby on Rails</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem install rails -v=4.2</div></pre></td></tr></table></figure>
+<h4 id="安装Redmine"><a href="#安装Redmine" class="headerlink" title="安装Redmine"></a>安装Redmine</h4><p>下载安装包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget http://www.redmine.org/releases/redmine-3.3.1.tar.gz</div></pre></td></tr></table></figure>
+<p>解压缩：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar zxvf redmine-3.3.1.tar.gz</div></pre></td></tr></table></figure>
+<h4 id="数据库配置-Link-Redmine-to-the-Database"><a href="#数据库配置-Link-Redmine-to-the-Database" class="headerlink" title="数据库配置(Link Redmine to the Database)"></a>数据库配置(Link Redmine to the Database)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#登录数据库</span></div><div class="line">mysql -u root -p</div><div class="line"><span class="comment">#重置密码</span></div><div class="line">alter user root@localhost identified by <span class="string">'$zwkj123456ZWKJ'</span>;</div><div class="line"><span class="comment">#创建数据库</span></div><div class="line">create database redmine character <span class="built_in">set</span> utf8;</div><div class="line"><span class="comment">#创建用户</span></div><div class="line">create user <span class="string">'redmine'</span>@<span class="string">'localhost'</span> identified by <span class="string">'$zwkj123456ZWKJ'</span>;</div><div class="line"><span class="comment">#添加权限</span></div><div class="line">grant all privileges on redmine.* to <span class="string">'redmine'</span>@<span class="string">'localhost'</span>;</div></pre></td></tr></table></figure>
+<h5 id="Configure-database-yml"><a href="#Configure-database-yml" class="headerlink" title="Configure database.yml"></a>Configure database.yml</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /var/www/redmine/config</div><div class="line">cp database.yml.example database.yml</div><div class="line">nano database.yml</div></pre></td></tr></table></figure>
+<h4 id="Rails配置-Rails-Settings"><a href="#Rails配置-Rails-Settings" class="headerlink" title="Rails配置(Rails Settings)"></a>Rails配置(Rails Settings)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem install bundler --verbose</div></pre></td></tr></table></figure>
+<h4 id="启动Redmine"><a href="#启动Redmine" class="headerlink" title="启动Redmine"></a>启动Redmine</h4><p>参考资料：</p>
 <p><a href="http://www.redmine.org/projects/redmine/wiki/Redmine_on_CentOS_installation_HOWTO" target="_blank" rel="external">Redmine on CentOS installation HOWTO</a>。</p>
 
       
@@ -370,6 +382,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/16/migration-parse-service/" rel="prev" title="迁移解析服务">
+                迁移解析服务 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -441,7 +457,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">63</span>
+              <span class="site-state-item-count">64</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -458,7 +474,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">93</span>
+                <span class="site-state-item-count">94</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -511,7 +527,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装依赖包-Install-pre-dependencies"><span class="nav-number">1.</span> <span class="nav-text">安装依赖包(Install pre-dependencies)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Ruby-Install-Ruby"><span class="nav-number">2.</span> <span class="nav-text">安装Ruby(Install Ruby)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装RubyGems-1-4-2"><span class="nav-number">3.</span> <span class="nav-text">安装RubyGems 1.4.2</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Redmine简介"><span class="nav-number">1.</span> <span class="nav-text">Redmine简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装依赖包-Install-pre-dependencies"><span class="nav-number">2.</span> <span class="nav-text">安装依赖包(Install pre-dependencies)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Ruby-Install-Ruby"><span class="nav-number">3.</span> <span class="nav-text">安装Ruby(Install Ruby)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Ruby-Install-Ruby-Option-2"><span class="nav-number">4.</span> <span class="nav-text">安装Ruby(Install Ruby (Option 2))</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装RubyGems-1-4-2"><span class="nav-number">5.</span> <span class="nav-text">安装RubyGems 1.4.2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Ruby-on-Rails"><span class="nav-number">6.</span> <span class="nav-text">安装Ruby on Rails</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Redmine"><span class="nav-number">7.</span> <span class="nav-text">安装Redmine</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库配置-Link-Redmine-to-the-Database"><span class="nav-number">8.</span> <span class="nav-text">数据库配置(Link Redmine to the Database)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Configure-database-yml"><span class="nav-number">8.1.</span> <span class="nav-text">Configure database.yml</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Rails配置-Rails-Settings"><span class="nav-number">9.</span> <span class="nav-text">Rails配置(Rails Settings)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动Redmine"><span class="nav-number">10.</span> <span class="nav-text">启动Redmine</span></a></li></ol></div>
             
           </div>
         </section>
