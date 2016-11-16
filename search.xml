@@ -5,7 +5,7 @@
     <entry>
       <title><![CDATA[迁移解析服务]]></title>
       <url>%2F2016%2F11%2F16%2Fmigration-parse-service%2F</url>
-      <content type="text"><![CDATA[迁移解析服务是将服务在不同主机上部署。 启动服务在解析服务器上，使用如下命令启动Tomcat: 1./catalina.sh start 配置映射主机使用如下命令打开hosts文件： 1vim /etc/hosts 添加主机映射。 12192.168.24.195 hostname1192.168.24.226 hostname2 验证迁移部署完毕后一定要验证，因为在解析服务器上日志打印OK并不代表数据成功写入Kafka集群中，所以验证最后验证迁移是否成功，在Kafka服务器中，切换到Kafka的目录： 1cd /usr/hdp/2.4.3.0-227/kafka/bin 使用如下命令查看迁移是否成功： 1./kafka-console-consumer.sh --zookeeper localhost:2181 --topic 0720688 其中，0720688是需要消费的主题。启动解析服务后，将解析服务Tomcat日志中写入的主题拷贝进命令行中启动消费者，如果能够成功消费到数据，代表迁移成功。否则，迁移失败。]]></content>
+      <content type="text"><![CDATA[迁移解析服务是将服务在不同主机上部署。 启动服务在解析服务器上，使用如下命令启动Tomcat: 12cd /opt/tomcat/bin./catalina.sh start 查看输出日志，检查服务是否正常启动： 12cd /opt/tomcat/logstail -f catalina.out 配置映射主机使用如下命令打开hosts文件： 1vim /etc/hosts 添加主机映射。 12192.168.24.195 hostname1192.168.24.226 hostname2 验证迁移部署完毕后一定要验证，因为在解析服务器上日志打印OK并不代表数据成功写入Kafka集群中，所以验证最后验证迁移是否成功，在Kafka服务器中，切换到Kafka的目录： 1cd /usr/hdp/2.4.3.0-227/kafka/bin 使用如下命令查看迁移是否成功： 1./kafka-console-consumer.sh --zookeeper localhost:2181 --topic 0720688 其中，0720688是需要消费的主题。启动解析服务后，将解析服务Tomcat日志中写入的主题拷贝进命令行中启动消费者，如果能够成功消费到数据，代表迁移成功。否则，迁移失败。]]></content>
     </entry>
 
     

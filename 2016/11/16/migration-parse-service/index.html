@@ -86,20 +86,20 @@
 
 <meta name="description" content="迁移解析服务是将服务在不同主机上部署。
 启动服务在解析服务器上，使用如下命令启动Tomcat:
-1./catalina.sh start">
+12cd /opt/tomcat/bin./catalina.sh start">
 <meta property="og:type" content="article">
 <meta property="og:title" content="迁移解析服务">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/11/16/migration-parse-service/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="迁移解析服务是将服务在不同主机上部署。
 启动服务在解析服务器上，使用如下命令启动Tomcat:
-1./catalina.sh start">
-<meta property="og:updated_time" content="2016-11-16T07:14:01.748Z">
+12cd /opt/tomcat/bin./catalina.sh start">
+<meta property="og:updated_time" content="2016-11-16T07:17:55.496Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="迁移解析服务">
 <meta name="twitter:description" content="迁移解析服务是将服务在不同主机上部署。
 启动服务在解析服务器上，使用如下命令启动Tomcat:
-1./catalina.sh start">
+12cd /opt/tomcat/bin./catalina.sh start">
 
 
 
@@ -343,8 +343,10 @@
       
         <p>迁移解析服务是将服务在不同主机上部署。</p>
 <h4 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h4><p>在解析服务器上，使用如下命令启动Tomcat:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./catalina.sh start</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /opt/tomcat/bin</div><div class="line">./catalina.sh start</div></pre></td></tr></table></figure>
 <a id="more"></a>
+<p>查看输出日志，检查服务是否正常启动：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /opt/tomcat/logs</div><div class="line">tail <span class="_">-f</span> catalina.out</div></pre></td></tr></table></figure>
 <h4 id="配置映射主机"><a href="#配置映射主机" class="headerlink" title="配置映射主机"></a>配置映射主机</h4><p>使用如下命令打开hosts文件：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/hosts</div></pre></td></tr></table></figure>
 <p>添加主机映射。</p>
