@@ -84,12 +84,19 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="小强的博客">
-<meta property="og:url" content="http://jiangxiaoqiang.com/tags/Desktop-Icon/index.html">
+<meta name="description" content="安装依赖包(Install pre-dependencies)使用如下命令安装依赖包。
+1yum -y install zlib-devel curl-devel openssl-devel httpd-devel apr-devel apr-util-devel mysql-devel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redmine安装">
+<meta property="og:url" content="http://jiangxiaoqiang.com/2016/11/15/redmine-install/index.html">
 <meta property="og:site_name" content="小强的博客">
+<meta property="og:description" content="安装依赖包(Install pre-dependencies)使用如下命令安装依赖包。
+1yum -y install zlib-devel curl-devel openssl-devel httpd-devel apr-devel apr-util-devel mysql-devel">
+<meta property="og:updated_time" content="2016-11-15T10:58:26.328Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小强的博客">
+<meta name="twitter:title" content="Redmine安装">
+<meta name="twitter:description" content="安装依赖包(Install pre-dependencies)使用如下命令安装依赖包。
+1yum -y install zlib-devel curl-devel openssl-devel httpd-devel apr-devel apr-util-devel mysql-devel">
 
 
 
@@ -110,10 +117,10 @@
 
 
 
-  <link rel="canonical" href="http://jiangxiaoqiang.com/tags/Desktop-Icon/"/>
+  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/11/15/redmine-install/"/>
 
 
-  <title> 标签: Desktop Icon | 小强的博客 </title>
+  <title> Redmine安装 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -143,7 +150,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -244,46 +251,141 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        Desktop Icon
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Redmine安装
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-15T18:48:19+08:00" content="2016-11-15">
+              2016-11-15
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/15/redmine-install/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/15/redmine-install/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
+      
+        <h4 id="安装依赖包-Install-pre-dependencies"><a href="#安装依赖包-Install-pre-dependencies" class="headerlink" title="安装依赖包(Install pre-dependencies)"></a>安装依赖包(Install pre-dependencies)</h4><p>使用如下命令安装依赖包。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install zlib-devel curl-devel openssl-devel httpd-devel apr-devel apr-util-devel mysql-devel</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="安装Ruby-Install-Ruby"><a href="#安装Ruby-Install-Ruby" class="headerlink" title="安装Ruby(Install Ruby)"></a>安装Ruby(Install Ruby)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~/Downloads  <span class="comment"># YOUR FOLDER OF CHOICE</span></div><div class="line">ftp ftp.ruby-lang.org</div></pre></td></tr></table></figure>
+<p>如果ftp未安装，输入如下命令安装ftp。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install -y ftp</div></pre></td></tr></table></figure>
+<p>从FTP上获取Ruby安装文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ftp&gt; Anonymous  <span class="comment"># USERLOGIN</span></div><div class="line">ftp&gt; <span class="string">'none'</span>, just hit Enter  <span class="comment"># NO PASSWORD</span></div><div class="line">ftp&gt; <span class="built_in">cd</span> /pub/ruby</div><div class="line">ftp&gt; get get ruby-1.8.7-p358.tar.gz  <span class="comment"># XXX is currently 358, as of 03/2012</span></div><div class="line">ftp&gt; <span class="built_in">bye</span></div></pre></td></tr></table></figure>
+<p>也可以使用wget下载安装文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget ftp://ftp.ruby-lang.org/pub/ruby/ruby-1.8.7-p358.tar.gz</div></pre></td></tr></table></figure>
+<p>解压安装文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar zxvf ruby-1.8.7-p358.tar.gz</div></pre></td></tr></table></figure>
+<p>安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ruby-1.8.7.p358</div><div class="line">./configure</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
+<p>检查安装是否成功：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby -v</div></pre></td></tr></table></figure>
+<h4 id="安装RubyGems-1-4-2"><a href="#安装RubyGems-1-4-2" class="headerlink" title="安装RubyGems 1.4.2"></a>安装RubyGems 1.4.2</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">wget http://production.cf.rubygems.org/rubygems/rubygems-1.4.2.tgz</div><div class="line">tar zxvf rubygems-1.4.2.tgz</div><div class="line"><span class="built_in">cd</span> rubygems-1.4.2</div><div class="line">ruby setup.rb</div><div class="line">gem -v</div></pre></td></tr></table></figure>
+<p>参考资料：</p>
+<p><a href="http://www.redmine.org/projects/redmine/wiki/Redmine_on_CentOS_installation_HOWTO" target="_blank" rel="external">Redmine on CentOS installation HOWTO</a>。</p>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/10/12/fedora-desktop-icon/" itemprop="url">
-              
-                <span itemprop="name">Fedora 24添加桌面图标</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-12T08:51:47+08:00"
-              content="2016-10-12" >
-          10-12
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/15/redis-using/" rel="next" title="Redis使用">
+                <i class="fa fa-chevron-left"></i> Redis使用
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -291,6 +393,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/15/redmine-install/"
+           data-title="Redmine安装" data-url="http://jiangxiaoqiang.com/2016/11/15/redmine-install/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -310,8 +420,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -385,6 +504,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装依赖包-Install-pre-dependencies"><span class="nav-number">1.</span> <span class="nav-text">安装依赖包(Install pre-dependencies)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Ruby-Install-Ruby"><span class="nav-number">2.</span> <span class="nav-text">安装Ruby(Install Ruby)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装RubyGems-1-4-2"><span class="nav-number">3.</span> <span class="nav-text">安装RubyGems 1.4.2</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -481,6 +611,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
 
   
 

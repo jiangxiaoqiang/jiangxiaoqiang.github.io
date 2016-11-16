@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/11/15/redis-using/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="过期时间生存时间可以通过使用 DEL 命令来删除整个 key 来移除，或者被 SET 和 GETSET 命令覆写(overwrite)。">
-<meta property="og:updated_time" content="2016-11-15T10:24:45.591Z">
+<meta property="og:updated_time" content="2016-11-16T01:14:23.935Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis使用">
 <meta name="twitter:description" content="过期时间生存时间可以通过使用 DEL 命令来删除整个 key 来移除，或者被 SET 和 GETSET 命令覆写(overwrite)。">
@@ -321,6 +321,10 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 设置数据（永久有效）</div><div class="line"> *</div><div class="line"> * @param key     //key</div><div class="line"> * @param value   //值</div><div class="line"> * @param db      //数据库序号</div><div class="line"> */</div><div class="line">public static void <span class="built_in">set</span>(String key, String value, Integer db) &#123;</div><div class="line">    Jedis jredis = null;</div><div class="line">    try &#123;</div><div class="line">        JedisPool poolItem = pools.get(db);</div><div class="line">        jredis = poolItem.getResource();</div><div class="line">        jredis.set(key, value);</div><div class="line">    &#125; catch (Exception e) &#123;</div><div class="line">        log.error(<span class="string">"set value encount an error"</span>, e);</div><div class="line">    &#125; finally &#123;</div><div class="line">        <span class="keyword">if</span> (jredis != null) &#123;</div><div class="line">            jredis.close();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="取出包含指定规则的Key"><a href="#取出包含指定规则的Key" class="headerlink" title="取出包含指定规则的Key"></a>取出包含指定规则的Key</h4><p>从Redis中取出包含指定规则的Key的集合。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 取出包含指定key的集合</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pushCacheStatusInfo</span><span class="params">()</span> </span>&#123;</div><div class="line">    JedisPool jedisPool = RedisHelper.getRedisPool(<span class="number">0</span>);</div><div class="line">    Jedis jredis = <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        jredis = jedisPool.getResource();</div><div class="line">        <span class="comment">//找到包含指定Key的集合</span></div><div class="line">        Set keys = jredis.keys(<span class="string">"*websocketsession"</span>);</div><div class="line">        Iterator iteratorKeys = keys.iterator();</div><div class="line">        <span class="keyword">while</span> (iteratorKeys.hasNext()) &#123;</div><div class="line">            String redisKey = iteratorKeys.next().toString();</div><div class="line">            String session = jredis.get(redisKey);</div><div class="line">            <span class="comment">//do something</span></div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">catch</span> (Exception ex) &#123;</div><div class="line">        log.error(<span class="string">"推送信息出错"</span>, ex);</div><div class="line">    &#125; <span class="keyword">finally</span> &#123;</div><div class="line">    	<span class="keyword">if</span> (jredis != <span class="keyword">null</span>) &#123;</div><div class="line">        	jredis.close();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h4><p>登录Redis：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./redis-cli -h 192.168.24.252 -p 6379</div></pre></td></tr></table></figure>
+<p>查看客户端数量：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">192.168.24.252:6379&gt; info clients</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -353,6 +357,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/15/redmine-install/" rel="prev" title="Redmine安装">
+                Redmine安装 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -424,7 +432,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">62</span>
+              <span class="site-state-item-count">63</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -494,7 +502,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#过期时间"><span class="nav-number">1.</span> <span class="nav-text">过期时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#取出包含指定规则的Key"><span class="nav-number">2.</span> <span class="nav-text">取出包含指定规则的Key</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#过期时间"><span class="nav-number">1.</span> <span class="nav-text">过期时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#取出包含指定规则的Key"><span class="nav-number">2.</span> <span class="nav-text">取出包含指定规则的Key</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用指令"><span class="nav-number">3.</span> <span class="nav-text">常用指令</span></a></li></ol></div>
             
           </div>
         </section>
