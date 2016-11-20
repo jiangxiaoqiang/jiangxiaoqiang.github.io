@@ -3,6 +3,20 @@
   
     
     <entry>
+      <title><![CDATA[HBase重复数据问题解决思路]]></title>
+      <url>%2F2016%2F11%2F19%2Fhbase-dulplicate-data%2F</url>
+      <content type="text"><![CDATA[解决思路1可以设计消息主键，每次插入数据时，查询判断此消息是否已经写入，可以排除重复写入数据问题。但是此种手段需要查询HBase，由于写入并发量相对较高&gt;1000条/s。会影响写入速度。由于此时有单点的Redis,由于数据到达的时间相隔不会太长，可以考虑将数据持久化到Redis中，插入时，到Redis中查询，Redis中查询复杂度为常数，基本可以忽略查询对性能的影响。判断是否已经写入。而写入到Redis中的数据可以设置过期时间，可以自动清除。 采用此种方式，需要考虑，新的消费者不能消费数据from beginning。如果新消费者从头开始消费数据，此时Redis缓存已经清除，也会重复写入数据。需要在写入时作相应判断，超过Redis缓存到达的数据不用写入。]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[curl使用]]></title>
+      <url>%2F2016%2F11%2F19%2Fcurl-using%2F</url>
+      <content type="text"><![CDATA[简介curl is a tool to transfer data from or to a server, using one of the supported protocols (DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, SMB, SMBS, SMTP, SMTPS, TELNET and TFTP). The command is designed to work without user interaction. curl offers a busload of useful tricks like proxy support, user authentication, FTP upload, HTTP post, SSL connections, cookies, file transfer resume, Metalink, and more. As you will see below, the number of features will make your head spin! 查看网页源码直接在curl命令后加上网址，就可以看到网页源码。我们以网址www.jiangxiaoqiang.com为例： curl www.jiangxiaoqiang.com 1234567&lt;html&gt;&lt;head&gt;&lt;title&gt;301 Moved Permanently&lt;/title&gt;&lt;/head&gt;&lt;body bgcolor="white"&gt;&lt;center&gt;&lt;h1&gt;301 Moved Permanently&lt;/h1&gt;&lt;/center&gt;&lt;hr&gt;&lt;center&gt;nginx&lt;/center&gt;&lt;/body&gt;&lt;/html&gt;]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[迁移解析服务]]></title>
       <url>%2F2016%2F11%2F16%2Fmigration-parse-service%2F</url>
       <content type="text"><![CDATA[迁移解析服务是将服务在不同主机上部署。 启动服务在解析服务器上，使用如下命令启动Tomcat: 12cd /opt/tomcat/bin./catalina.sh start 查看输出日志，检查服务是否正常启动： 12cd /opt/tomcat/logstail -f catalina.out 配置映射主机使用如下命令打开hosts文件： 1vim /etc/hosts 添加主机映射。 12192.168.24.195 hostname1192.168.24.226 hostname2 验证迁移部署完毕后一定要验证，因为在解析服务器上日志打印OK并不代表数据成功写入Kafka集群中，所以验证最后验证迁移是否成功，在Kafka服务器中，切换到Kafka的目录： 1cd /usr/hdp/2.4.3.0-227/kafka/bin 使用如下命令查看迁移是否成功： 1./kafka-console-consumer.sh --zookeeper localhost:2181 --topic 0720688 其中，0720688是需要消费的主题。启动解析服务后，将解析服务Tomcat日志中写入的主题拷贝进命令行中启动消费者，如果能够成功消费到数据，代表迁移成功。否则，迁移失败。]]></content>
