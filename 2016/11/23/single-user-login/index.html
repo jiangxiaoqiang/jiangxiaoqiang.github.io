@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="single user," />
 
 
 
@@ -84,12 +84,19 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="小强的博客">
-<meta property="og:url" content="http://jiangxiaoqiang.com/tags/hashcode/index.html">
+<meta name="description" content="在web.xml文件的配置如下：
+12345&amp;lt;listener&amp;gt;    &amp;lt;listener-class&amp;gt;        org.springframework.security.web.session.HttpSessionEventPublisher    &amp;lt;/listener-class&amp;gt;&amp;lt;/listener&amp;gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring中单用户登录">
+<meta property="og:url" content="http://jiangxiaoqiang.com/2016/11/23/single-user-login/index.html">
 <meta property="og:site_name" content="小强的博客">
+<meta property="og:description" content="在web.xml文件的配置如下：
+12345&amp;lt;listener&amp;gt;    &amp;lt;listener-class&amp;gt;        org.springframework.security.web.session.HttpSessionEventPublisher    &amp;lt;/listener-class&amp;gt;&amp;lt;/listener&amp;gt;">
+<meta property="og:updated_time" content="2016-11-23T08:34:17.546Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小强的博客">
+<meta name="twitter:title" content="Spring中单用户登录">
+<meta name="twitter:description" content="在web.xml文件的配置如下：
+12345&amp;lt;listener&amp;gt;    &amp;lt;listener-class&amp;gt;        org.springframework.security.web.session.HttpSessionEventPublisher    &amp;lt;/listener-class&amp;gt;&amp;lt;/listener&amp;gt;">
 
 
 
@@ -110,10 +117,10 @@
 
 
 
-  <link rel="canonical" href="http://jiangxiaoqiang.com/tags/hashcode/"/>
+  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/11/23/single-user-login/"/>
 
 
-  <title> 标签: hashcode | 小强的博客 </title>
+  <title> Spring中单用户登录 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -143,7 +150,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -244,46 +251,153 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        hashcode
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Spring中单用户登录
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-23T16:32:04+08:00" content="2016-11-23">
+              2016-11-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/23/single-user-login/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/23/single-user-login/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
+      
+        <p>在<code>web.xml</code>文件的配置如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">listener</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">listener-class</span>&gt;</span></div><div class="line">        org.springframework.security.web.session.HttpSessionEventPublisher</div><div class="line">    <span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">listener</span>&gt;</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>单用户登录，当其他用户登录时，自动退出，在<code>Spring-Security.xml</code>中作如下配置：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 配置SpringSecurity的http安全服务 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">sec:session-management</span> <span class="attr">invalid-session-url</span>=<span class="string">"/login?type=expired"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 单用户登陆  --&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 仅配置max-sessions="1",则第二次登录会让第一次登录失效。 --&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 同时配置max-sessions="1" error-if-maximum-exceeded="true"，则可以防止第二次登录--&gt;</span></div><div class="line">    <span class="comment">&lt;!-- max-sessions="1" 其中1表示一个帐号可同时登录的次数  --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">sec:concurrency-control</span> <span class="attr">max-sessions</span>=<span class="string">"1"</span> <span class="attr">error-if-maximum-exceeded</span>=<span class="string">"false"</span> <span class="attr">expired-url</span>=<span class="string">"/login?type=expired"</span></span></div><div class="line">    /&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">sec:session-management</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>在标签中加入concurrency-control配置，设置max-sessions=1。当另一个用户登录之后，当前用户操作时会自动跳转到登录页面。</p>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/09/28/hashcode-and-equals/" itemprop="url">
-              
-                <span itemprop="name">hashcode和equals的理解</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-28T22:12:51+08:00"
-              content="2016-09-28" >
-          09-28
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/single-user/" rel="tag">#single user</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/20/paper-searching/" rel="next" title="使用Google查找资料">
+                <i class="fa fa-chevron-left"></i> 使用Google查找资料
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -291,6 +405,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/23/single-user-login/"
+           data-title="Spring中单用户登录" data-url="http://jiangxiaoqiang.com/2016/11/23/single-user-login/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -310,8 +432,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -385,6 +516,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -481,6 +623,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
 
   
 

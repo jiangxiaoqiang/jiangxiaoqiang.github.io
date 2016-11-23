@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[Spring中单用户登录]]></title>
+      <url>%2F2016%2F11%2F23%2Fsingle-user-login%2F</url>
+      <content type="text"><![CDATA[在web.xml文件的配置如下： 12345&lt;listener&gt; &lt;listener-class&gt; org.springframework.security.web.session.HttpSessionEventPublisher &lt;/listener-class&gt;&lt;/listener&gt; 单用户登录，当其他用户登录时，自动退出，在Spring-Security.xml中作如下配置： 123456789&lt;!-- 配置SpringSecurity的http安全服务 --&gt;&lt;sec:session-management invalid-session-url="/login?type=expired"&gt; &lt;!-- 单用户登陆 --&gt; &lt;!-- 仅配置max-sessions="1",则第二次登录会让第一次登录失效。 --&gt; &lt;!-- 同时配置max-sessions="1" error-if-maximum-exceeded="true"，则可以防止第二次登录--&gt; &lt;!-- max-sessions="1" 其中1表示一个帐号可同时登录的次数 --&gt; &lt;sec:concurrency-control max-sessions="1" error-if-maximum-exceeded="false" expired-url="/login?type=expired" /&gt;&lt;/sec:session-management&gt; 在标签中加入concurrency-control配置，设置max-sessions=1。当另一个用户登录之后，当前用户操作时会自动跳转到登录页面。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[使用Google查找资料]]></title>
       <url>%2F2016%2F11%2F20%2Fpaper-searching%2F</url>
       <content type="text"><![CDATA[今天需要了解关于静脉可视化技术的发展状况。查找资料的工作就由我来。首先明确中文关键字是：静脉可视化，英文关键字是：Intravenous visualization。 根据文件类型搜索搜索所有关于静脉可视化的doc文档，在Google中输入如下查询关键字。 1静脉 可视化 filetype:pdf 总共有3600个符合条件的结果。 搜索所有关于静脉可视化的pdf文档。 1静脉 可视化 filetype:doc 仿佛没有什么值得挖掘的内容，有一篇《静脉可视化装置减少静脉被重复扎针的痛苦 - 后花园网文》勉强符合要求。此时可以精确搜索，全字匹配，缩小搜索范围。 1&quot;静脉可视化&quot; filetype:pdf 其中双引号表示精确匹配，共出来有3条结果，都不是想要的。看来不应该那么学术化，学术资料都被某一帮人锁起来了，必须要给钱才能看，个人认为是非常不合理的。此时直接放弃学术资料。直接在搜索框里输入如下关键字： 1静脉可视化 共有58500个结果，如下图所示。这些才是想要的结果。]]></content>
