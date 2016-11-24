@@ -92,7 +92,7 @@ Unix的grep家族包括grep、egrep和fgrep。egrep和fgrep的命令只跟grep�
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="grep (global search regular expression(RE) and print out the line,全面搜索正则表达式并把行打印出来)是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹配的行打印出来。
 Unix的grep家族包括grep、egrep和fgrep。egrep和fgrep的命令只跟grep有很小不同。egrep是grep的扩展，支持更多的re元">
-<meta property="og:updated_time" content="2016-11-14T03:19:31.584Z">
+<meta property="og:updated_time" content="2016-11-24T00:46:38.515Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="grep使用">
 <meta name="twitter:description" content="grep (global search regular expression(RE) and print out the line,全面搜索正则表达式并把行打印出来)是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹配的行打印出来。
@@ -350,6 +350,22 @@ Unix的grep家族包括grep、egrep和fgrep。egrep和fgrep的命令只跟grep�
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">vim ~/.bashrc</div><div class="line"><span class="built_in">alias</span> grep=<span class="string">'grep --color'</span></div><div class="line"><span class="built_in">source</span> ~/.bashrc</div></pre></td></tr></table></figure>
 <p>选出不包含512且不包含topic的行。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tail <span class="_">-f</span> catalina.out |grep -v -E <span class="string">'512|topic'</span></div></pre></td></tr></table></figure>
+<h4 id="Grep正则表达式"><a href="#Grep正则表达式" class="headerlink" title="Grep正则表达式"></a>Grep正则表达式</h4><p>^  锚定行的开始 如：’^grep’匹配所有以grep开头的行。如下语句匹配Tomcat日志输出所有开始为2016的行。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tail <span class="_">-f</span> catalina.out |grep -E <span class="string">"^2016"</span></div></pre></td></tr></table></figure>
+<p>过滤所有结尾为”}}”的行。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tail <span class="_">-f</span> catalina.out |grep -E <span class="string">"&#125;&#125;$"</span></div></pre></td></tr></table></figure>
+<p>.   匹配一个非换行符的字符 如：’gr.p’匹配gr后接一个任意字符，然后是p。</p>
+<p>*  匹配零个或多个先前字符 如：’ <em>grep’匹配所有一个或多个空格后紧跟grep的行。 .</em>一起用代表任意字符。</p>
+<p>[] 匹配一个指定范围内的字符，如’[Gg]rep’匹配Grep和grep。</p>
+<p>[^]  匹配一个不在指定范围内的字符，如：’[^A-FH-Z]rep’匹配不包含A-F和H-Z的一个字母开头，紧跟rep的行。</p>
+<p>(..)  标记匹配字符，如：’(love)’，love被标记为1。</p>
+<p>>  锚定单词的结束，如’grep&gt;’匹配包含以grep结尾的单词的行。</p>
+<p>x{m} 连续重复字符x，m次，如：’o{5}’匹配包含连续5个o的行。</p>
+<p>x{m,} 连续重复字符x,至少m次，如：’o{5,}’匹配至少连续有5个o的行。</p>
+<p>x{m,n} 连续重复字符x，至少m次，不多于n次，如：’o{5,10}’匹配连续5–10个o的行。</p>
+<p>w  匹配一个文字和数字字符，也就是[A-Za-z0-9]，如：’Gw*p’匹配以G后跟零个或多个文字或数字字符，然后是p。</p>
+<p>W  w的反置形式，匹配一个非单词字符，如点号句号等。W*则可匹配多个。</p>
+<p>b  单词锁定符，如: ‘bgrepb’只匹配grep，即只能是grep这个单词，两边均为空格。</p>
 
       
     </div>
@@ -465,7 +481,7 @@ Unix的grep家族包括grep、egrep和fgrep。egrep和fgrep的命令只跟grep�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">68</span>
+              <span class="site-state-item-count">69</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -535,7 +551,7 @@ Unix的grep家族包括grep、egrep和fgrep。egrep和fgrep的命令只跟grep�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#多个匹配模式"><span class="nav-number">1.</span> <span class="nav-text">多个匹配模式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#多个匹配模式"><span class="nav-number">1.</span> <span class="nav-text">多个匹配模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Grep正则表达式"><span class="nav-number">2.</span> <span class="nav-text">Grep正则表达式</span></a></li></ol></div>
             
           </div>
         </section>
