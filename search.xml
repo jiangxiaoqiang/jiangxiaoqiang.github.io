@@ -75,7 +75,7 @@
     <entry>
       <title><![CDATA[Websocket数据查看]]></title>
       <url>%2F2016%2F11%2F12%2Fwebsocket-check%2F</url>
-      <content type="text"><![CDATA[FireFox中查看WebSocket使用FireFox查看WebSocket内容需要安装一个WebSocket-Monitor插件。安装完毕后在FireFox的Web控制台(Ctrl + Shift + K)中。 Google Chrome中查看WebSocketGoogle Chrome自带查看模块，如下图所示。F12进入开发者页面，选择NetWork选项卡，选择WS(WebSocket)选项卡。 Fiddler中查看WebSocket在请求时选择任意WebSocket Session，即可出现WebSocket流量数据画面，不过是乱码，未找到合适的解决乱码的方案。]]></content>
+      <content type="text"><![CDATA[FireFox中查看WebSocket使用FireFox查看WebSocket内容需要安装一个WebSocket-Monitor插件。安装完毕后在FireFox的Web控制台(Ctrl + Shift + K)中。 Google Chrome中查看WebSocketGoogle Chrome自带查看模块，如下图所示。F12进入开发者页面，选择NetWork选项卡，选择WS(WebSocket)选项卡。 Fiddler中查看WebSocket在请求时选择任意WebSocket Session，即可出现WebSocket流量数据画面，不过是乱码，未找到合适的解决乱码的方案。 Fiddler中的WebSocket显示乱码是因为数据已经被压缩(Compressed),要查看乱码的内容，在Response中添加头信息。按下F2按钮后，即可在Response中手动添加头信息(Add Headers)。 1Content-Encoding: deflate 添加头信息之后，点击TextView会出现黄色的Decode提示框。 点击之后即可看到原始的Json数据。]]></content>
     </entry>
 
     
