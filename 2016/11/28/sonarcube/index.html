@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Sonarcube," />
 
 
 
@@ -84,12 +84,16 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="小强的博客">
-<meta property="og:url" content="http://jiangxiaoqiang.com/tags/curl/index.html">
+<meta name="description" content="Generic exceptions should never be thrownUsing such generic exceptions as Error, RuntimeException, Throwable, and Exception prevents calling methods from handling true, system-generated exceptions dif">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sonarcube代码优化">
+<meta property="og:url" content="http://jiangxiaoqiang.com/2016/11/28/sonarcube/index.html">
 <meta property="og:site_name" content="小强的博客">
+<meta property="og:description" content="Generic exceptions should never be thrownUsing such generic exceptions as Error, RuntimeException, Throwable, and Exception prevents calling methods from handling true, system-generated exceptions dif">
+<meta property="og:updated_time" content="2016-11-28T09:01:11.812Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小强的博客">
+<meta name="twitter:title" content="Sonarcube代码优化">
+<meta name="twitter:description" content="Generic exceptions should never be thrownUsing such generic exceptions as Error, RuntimeException, Throwable, and Exception prevents calling methods from handling true, system-generated exceptions dif">
 
 
 
@@ -110,10 +114,10 @@
 
 
 
-  <link rel="canonical" href="http://jiangxiaoqiang.com/tags/curl/"/>
+  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/11/28/sonarcube/"/>
 
 
-  <title> 标签: curl | 小强的博客 </title>
+  <title> Sonarcube代码优化 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -143,7 +147,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -244,46 +248,163 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        curl
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Sonarcube代码优化
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-28T15:51:23+08:00" content="2016-11-28">
+              2016-11-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/28/sonarcube/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/28/sonarcube/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
+      
+        <h4 id="Generic-exceptions-should-never-be-thrown"><a href="#Generic-exceptions-should-never-be-thrown" class="headerlink" title="Generic exceptions should never be thrown"></a>Generic exceptions should never be thrown</h4><p>Using such generic exceptions as Error, RuntimeException, Throwable, and Exception prevents calling methods from handling true, system-generated exceptions differently than application-generated errors.</p>
+<a id="more"></a>
+<p>不应该写成如下方式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">(String bar)</span> <span class="keyword">throws</span> Throwable </span>&#123;  <span class="comment">// Noncompliant</span></div><div class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"My Message"</span>);     <span class="comment">// Noncompliant</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>应该写成如下方式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">(String bar)</span> </span>&#123;</div><div class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> MyOwnRuntimeException(<span class="string">"My Message"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Instance-methods-should-not-write-to-“static”-fields"><a href="#Instance-methods-should-not-write-to-“static”-fields" class="headerlink" title="Instance methods should not write to “static” fields"></a>Instance methods should not write to “static” fields</h4><p>实例化方法不写静态字段。</p>
+<p>优化前：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setApplicationContext</span><span class="params">(ApplicationContext context)</span> <span class="keyword">throws</span> BeansException </span>&#123;</div><div class="line">     SpringApplicationContextHolder.context = context;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>优化后：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setApplicationContextImpl</span><span class="params">(ApplicationContext context)</span> </span>&#123;</div><div class="line">    SpringApplicationContextHolder.context = context;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setApplicationContext</span><span class="params">(ApplicationContext context)</span> <span class="keyword">throws</span> BeansException </span>&#123;</div><div class="line">    setApplicationContextImpl(context);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Neither-“Math-abs”-nor-negation-should-be-used-on-numbers-that-could-be-“MIN-VALUE”"><a href="#Neither-“Math-abs”-nor-negation-should-be-used-on-numbers-that-could-be-“MIN-VALUE”" class="headerlink" title="Neither “Math.abs” nor negation should be used on numbers that could be “MIN_VALUE”"></a>Neither “Math.abs” nor negation should be used on numbers that could be “MIN_VALUE”</h4><p>Math.abs(Integer.MIN_VALUE)的值还是其本身。通过查阅Java的API文档，我们看到对abs(int a)运算，“如果参数等于 Integer.MIN_VALUE 的值（即能够表示的最小负 int 值），那么结果与该值相同且为负。</p>
+<p>优化前：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> newlineId = Math.abs(randomPointId.replaceAll(<span class="string">"-"</span>, <span class="string">""</span>).hashCode());</div></pre></td></tr></table></figure>
+<p>优化后：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">String hashedSourceId = sourceId.replaceAll(<span class="string">"-"</span>, <span class="string">""</span>);</div><div class="line"><span class="keyword">if</span> (hashedSourceId.hashCode() != Integer.MIN_VALUE) &#123;</div><div class="line">    Integer hashedId = Math.abs(hashedSourceId.hashCode());</div><div class="line">    hashedIds.add(hashedId.toString());</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    hashedIds.add(String.valueOf(Integer.MAX_VALUE));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/11/19/curl-using/" itemprop="url">
-              
-                <span itemprop="name">curl使用</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-19T02:02:32+08:00"
-              content="2016-11-19" >
-          11-19
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Sonarcube/" rel="tag">#Sonarcube</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/27/code-complete/" rel="next" title="推荐书《代码大全》(Code Complete)">
+                <i class="fa fa-chevron-left"></i> 推荐书《代码大全》(Code Complete)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -291,6 +412,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/28/sonarcube/"
+           data-title="Sonarcube代码优化" data-url="http://jiangxiaoqiang.com/2016/11/28/sonarcube/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -310,8 +439,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -385,6 +523,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Generic-exceptions-should-never-be-thrown"><span class="nav-number">1.</span> <span class="nav-text">Generic exceptions should never be thrown</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Instance-methods-should-not-write-to-“static”-fields"><span class="nav-number">2.</span> <span class="nav-text">Instance methods should not write to “static” fields</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Neither-“Math-abs”-nor-negation-should-be-used-on-numbers-that-could-be-“MIN-VALUE”"><span class="nav-number">3.</span> <span class="nav-text">Neither “Math.abs” nor negation should be used on numbers that could be “MIN_VALUE”</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -481,6 +630,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
 
   
 
