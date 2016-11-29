@@ -98,7 +98,7 @@
 如果使用的Java运行时版本是Java SE 1.6及之后版本，可以这样判断字符串非空：
 1if(str != null &amp;amp;&amp;amp; !str.isEmpty())
 使用org.apache.commons.lan">
-<meta property="og:updated_time" content="2016-10-03T03:34:36.513Z">
+<meta property="og:updated_time" content="2016-11-29T02:48:42.962Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java中String非空判断">
 <meta name="twitter:description" content="如果使用的Java运行时版本在Java SE 1.6之前，可以这样判断字符串非空：
@@ -336,9 +336,14 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.apache.commons.lang.StringUtils;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (StringUtils.isNotBlank(str)) &#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>如下方式也可：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> com.google.common.base.Strings;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (!Strings.isNullOrEmpty(myString)) &#123;</div><div class="line">       <span class="keyword">return</span> myString;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="非空默认值"><a href="#非空默认值" class="headerlink" title="非空默认值"></a>非空默认值</h4><p>有时在值为null时，会给一个默认值，有如下方式。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">String alarmType = vehicleMessageHandler.parseAlarm(kafkaRecievedLocationMessageBody.getAlarm());</div><div class="line"><span class="comment">//使用三元运算符</span></div><div class="line">positional.setAlarm(StringUtils.isBlank(alarmType) ? <span class="string">"0"</span> : alarmType);</div><div class="line"><span class="comment">//com.google.common.base</span></div><div class="line">Objects.firstNonNull(alarmType, <span class="string">"0"</span>);</div><div class="line"><span class="comment">//java.util</span></div><div class="line">Optional.ofNullable(alarmType).orElse(<span class="string">"0"</span>);</div></pre></td></tr></table></figure>
 <p>源自：</p>
 <ul>
 <li><a href="http://stackoverflow.com/questions/3598770/java-check-whether-a-string-is-not-null-and-not-empty" target="_blank" rel="external">Java, check whether a string is not null and not empty?</a></li>
+</ul>
+<ul>
+<li><a href="http://stackoverflow.com/questions/8039504/how-to-convert-a-possible-null-value-to-a-default-value-using-guava" target="_blank" rel="external">How to convert a possible null-value to a default value using Guava?</a></li>
 </ul>
 
       
@@ -453,7 +458,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">72</span>
+              <span class="site-state-item-count">73</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -523,7 +528,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#非空默认值"><span class="nav-number">1.</span> <span class="nav-text">非空默认值</span></a></li></ol></div>
             
           </div>
         </section>

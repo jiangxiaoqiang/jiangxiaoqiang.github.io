@@ -4,6 +4,18 @@
   
     
     <entry>
+      <title><![CDATA[Java单元测试]]></title>
+      <url>http://jiangxiaoqiang.com/2016/11/29/java-unit-test/</url>
+      <content type="html"><![CDATA[<p>在Intellij Idea中按下快捷键:Ctrl + Alt + T(Test)，弹出如下界面，选择需要创建测试的方法。</p>
+<a id="more"></a>
+<img src="/2016/11/29/java-unit-test/choose-test-function.jpg" alt="选择创建测试的方法" title="选择创建测试的方法">
+<p>选择完毕后会自动生成一个测试类，编写相应的测试代码即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by jiangxiaoqiang on 2016/11/29.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VehicleMessageHandlerTest</span> </span>&#123;</div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">parseAlarm</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        VehicleMessageHandler vehicleMessageHandler = <span class="keyword">new</span> VehicleMessageHandler();</div><div class="line">        String result = vehicleMessageHandler.parseAlarm(<span class="number">1232131</span>);</div><div class="line">        System.out.print(result);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在代码编辑器中右键，选择<code>Debug ‘parseAlarm’</code>菜单即可进行单元测试。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Sonarcube代码优化]]></title>
       <url>http://jiangxiaoqiang.com/2016/11/28/sonarcube/</url>
       <content type="html"><![CDATA[<h4 id="Generic-exceptions-should-never-be-thrown"><a href="#Generic-exceptions-should-never-be-thrown" class="headerlink" title="Generic exceptions should never be thrown"></a>Generic exceptions should never be thrown</h4><p>Using such generic exceptions as Error, RuntimeException, Throwable, and Exception prevents calling methods from handling true, system-generated exceptions differently than application-generated errors.</p>
@@ -413,17 +425,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[Java Web开发--log4j]]></title>
-      <url>http://jiangxiaoqiang.com/2016/11/04/log4j/</url>
-      <content type="html"><![CDATA[<h2 id="isDebugEnabled"><a href="#isDebugEnabled" class="headerlink" title="isDebugEnabled"></a>isDebugEnabled</h2><p>在输出日志时，判断输出级别：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(logger.isDebugEnabled()) &#123;</div><div class="line">    logger.debug(<span class="string">"通用处理，信息为："</span> + JSON.toJSONString(vehicleLocationData));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于debug，即不需要进行日志信息输出时：</p>
-<p>①假如debug方法中的参数比较简单时（比如直接就是写好的字符串），加不加这句if判断，在效率上也几乎没有什么差别；</p>
-<p>②假如debug方法中的参数比较复杂时（比如还要使用别的函数进行计算、或者还要进行字符串的拼接等等,如上代码片段所示，输出的内容需要序列化），在前面就加上这句if判断，会让效率提高（否则，开始大动干戈做了很多事情（比如字符串的拼接，序列化），后来才发现不需要进行输出日志信息），白白浪费了CPU资源，影响程序的运行效率。</p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[Lombok精简Java代码]]></title>
       <url>http://jiangxiaoqiang.com/2016/11/04/lombok/</url>
       <content type="html"><![CDATA[<p><a href="https://projectlombok.org/" target="_blank" rel="external">lombok</a>提供了简单的注解的形式来帮助我们简化消除一些必须有但显得很臃肿的java代码,特别是相对于POJO(Plain Ordinary Java Object)。安装Lombok Plugin和引入Jar包之后方可使用。</p>
@@ -443,6 +444,17 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Data</span></div><div class="line"><span class="meta">@Log</span>4j</div><div class="line"><span class="meta">@NoArgsConstructor</span></div><div class="line"><span class="meta">@AllArgsConstructor</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> String id;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>一旦POJO字段较多时精简的代码就很明显了，而且使用Lombok的代码更加干净、易读，添加<strong>@Data</strong>注解之后，按Ctrl + O(Outline)可以看到生成了get和set方法。</p>
 <h4 id="EqualsAndHashCode"><a href="#EqualsAndHashCode" class="headerlink" title="@EqualsAndHashCode"></a>@EqualsAndHashCode</h4><p>@EqualsAndHashCode注解实现equals()方法和hashCode()方法。hashcode是用于散列数据的快速存取，如利用HashSet/HashMap/Hashtable类来存储数据时，都是根据存储对象的hashcode值来进行判断是否相同的。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Java Web开发--log4j]]></title>
+      <url>http://jiangxiaoqiang.com/2016/11/04/log4j/</url>
+      <content type="html"><![CDATA[<h2 id="isDebugEnabled"><a href="#isDebugEnabled" class="headerlink" title="isDebugEnabled"></a>isDebugEnabled</h2><p>在输出日志时，判断输出级别：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(logger.isDebugEnabled()) &#123;</div><div class="line">    logger.debug(<span class="string">"通用处理，信息为："</span> + JSON.toJSONString(vehicleLocationData));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于debug，即不需要进行日志信息输出时：</p>
+<p>①假如debug方法中的参数比较简单时（比如直接就是写好的字符串），加不加这句if判断，在效率上也几乎没有什么差别；</p>
+<p>②假如debug方法中的参数比较复杂时（比如还要使用别的函数进行计算、或者还要进行字符串的拼接等等,如上代码片段所示，输出的内容需要序列化），在前面就加上这句if判断，会让效率提高（否则，开始大动干戈做了很多事情（比如字符串的拼接，序列化），后来才发现不需要进行输出日志信息），白白浪费了CPU资源，影响程序的运行效率。</p>
 ]]></content>
     </entry>
     
@@ -1766,9 +1778,14 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.apache.commons.lang.StringUtils;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (StringUtils.isNotBlank(str)) &#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>如下方式也可：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> com.google.common.base.Strings;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (!Strings.isNullOrEmpty(myString)) &#123;</div><div class="line">       <span class="keyword">return</span> myString;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="非空默认值"><a href="#非空默认值" class="headerlink" title="非空默认值"></a>非空默认值</h4><p>有时在值为null时，会给一个默认值，有如下方式。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">String alarmType = vehicleMessageHandler.parseAlarm(kafkaRecievedLocationMessageBody.getAlarm());</div><div class="line"><span class="comment">//使用三元运算符</span></div><div class="line">positional.setAlarm(StringUtils.isBlank(alarmType) ? <span class="string">"0"</span> : alarmType);</div><div class="line"><span class="comment">//com.google.common.base</span></div><div class="line">Objects.firstNonNull(alarmType, <span class="string">"0"</span>);</div><div class="line"><span class="comment">//java.util</span></div><div class="line">Optional.ofNullable(alarmType).orElse(<span class="string">"0"</span>);</div></pre></td></tr></table></figure>
 <p>源自：</p>
 <ul>
 <li><a href="http://stackoverflow.com/questions/3598770/java-check-whether-a-string-is-not-null-and-not-empty" target="_blank" rel="external">Java, check whether a string is not null and not empty?</a></li>
+</ul>
+<ul>
+<li><a href="http://stackoverflow.com/questions/8039504/how-to-convert-a-possible-null-value-to-a-default-value-using-guava" target="_blank" rel="external">How to convert a possible null-value to a default value using Guava?</a></li>
 </ul>
 ]]></content>
     </entry>
