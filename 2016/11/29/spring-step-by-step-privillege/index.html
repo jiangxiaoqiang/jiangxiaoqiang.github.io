@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Spring,Bean," />
+  <meta name="keywords" content="Spring," />
 
 
 
@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="在项目的开发过程中有许多Bean，怎么判断一个Bean是否已经纳入容器管理了呢？当然最直接的方式是直接使用，如果不能用，那么肯定就未注册成功，但是也有的情况不是那么明显的，即使没有注册成功也不会有明显的错误。如何有效的鉴别和判断是否已经注册？">
+<meta name="description" content="配置过滤器为了在项目中使用Spring Security控制权限，在项目的web.xml文件中，添加过滤器，就可以控制对这个项目的每个请求了。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring Bean是否注册判断">
-<meta property="og:url" content="http://jiangxiaoqiang.com/2016/10/18/spring-bean-registered/index.html">
+<meta property="og:title" content="spring-step-by-step（三）-权限管理">
+<meta property="og:url" content="http://jiangxiaoqiang.com/2016/11/29/spring-step-by-step-privillege/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="在项目的开发过程中有许多Bean，怎么判断一个Bean是否已经纳入容器管理了呢？当然最直接的方式是直接使用，如果不能用，那么肯定就未注册成功，但是也有的情况不是那么明显的，即使没有注册成功也不会有明显的错误。如何有效的鉴别和判断是否已经注册？">
-<meta property="og:updated_time" content="2016-10-19T00:47:00.067Z">
+<meta property="og:description" content="配置过滤器为了在项目中使用Spring Security控制权限，在项目的web.xml文件中，添加过滤器，就可以控制对这个项目的每个请求了。">
+<meta property="og:updated_time" content="2016-11-29T08:16:45.367Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring Bean是否注册判断">
-<meta name="twitter:description" content="在项目的开发过程中有许多Bean，怎么判断一个Bean是否已经纳入容器管理了呢？当然最直接的方式是直接使用，如果不能用，那么肯定就未注册成功，但是也有的情况不是那么明显的，即使没有注册成功也不会有明显的错误。如何有效的鉴别和判断是否已经注册？">
+<meta name="twitter:title" content="spring-step-by-step（三）-权限管理">
+<meta name="twitter:description" content="配置过滤器为了在项目中使用Spring Security控制权限，在项目的web.xml文件中，添加过滤器，就可以控制对这个项目的每个请求了。">
 
 
 
@@ -114,10 +114,10 @@
 
 
 
-  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/10/18/spring-bean-registered/"/>
+  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/11/29/spring-step-by-step-privillege/"/>
 
 
-  <title> Spring Bean是否注册判断 | 小强的博客 </title>
+  <title> spring-step-by-step（三）-权限管理 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -269,7 +269,7 @@
             
             
               
-                Spring Bean是否注册判断
+                spring-step-by-step（三）-权限管理
               
             
           </h1>
@@ -281,8 +281,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-18T21:31:26+08:00" content="2016-10-18">
-              2016-10-18
+            <time itemprop="dateCreated" datetime="2016-11-29T16:16:45+08:00" content="2016-11-29">
+              2016-11-29
             </time>
           </span>
 
@@ -295,8 +295,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Programming/" itemprop="url" rel="index">
-                    <span itemprop="name">Programming</span>
+                  <a href="/categories/Programmming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programmming</span>
                   </a>
                 </span>
 
@@ -311,8 +311,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/18/spring-bean-registered/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/18/spring-bean-registered/" itemprop="commentsCount"></span>
+                <a href="/2016/11/29/spring-step-by-step-privillege/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/29/spring-step-by-step-privillege/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -335,13 +335,11 @@
       
 
       
-        <p>在项目的开发过程中有许多Bean，怎么判断一个Bean是否已经纳入容器管理了呢？当然最直接的方式是直接使用，如果不能用，那么肯定就未注册成功，但是也有的情况不是那么明显的，即使没有注册成功也不会有明显的错误。如何有效的鉴别和判断是否已经注册？</p>
+        <h4 id="配置过滤器"><a href="#配置过滤器" class="headerlink" title="配置过滤器"></a>配置过滤器</h4><p>为了在项目中使用Spring Security控制权限，在项目的web.xml文件中，添加过滤器，就可以控制对这个项目的每个请求了。</p>
 <a id="more"></a>
-<h4 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h4><p>在项目启动时会输出日志，提示注册了哪些Bean，那么只需要使用Bean的名称，在日志里面搜索一遍，即可知晓Bean是否已经注册，如果有相关注册成功输出提示，那么代表注册OK，如果没有相关日志，此时就需要排查Bean的配置了。</p>
-<h4 id="方法获取Bean"><a href="#方法获取Bean" class="headerlink" title="方法获取Bean"></a>方法获取Bean</h4><p>可以通过如下方法获取特定注解的Bean的集合：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Map&lt;String,Object&gt; beans = applicationContext.getBeansWithAnnotation(Foo.class);</div></pre></td></tr></table></figure>
-<p>其中Foo代表@Autowired、@Controller等等注解。</p>
-<p><a href="http://stackoverflow.com/questions/40108153/is-there-any-way-to-query-bean-of-spring-container?noredirect=1#comment67489885_40108153" target="_blank" rel="external">Is there any way to query bean of spring container</a></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>springSecurityFilterChain<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.springframework.web.filter.DelegatingFilterProxy<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>springSecurityFilterChain<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="Spring-Security数据库表"><a href="#Spring-Security数据库表" class="headerlink" title="Spring Security数据库表"></a>Spring Security数据库表</h4><p>Spring Security默认情况下需要两张表，用户表和权限表。以下是mysql中的建表语句：</p>
+<p><a href="http://www.mossle.com:8080/docs/auth/html/ch001-helloworld.html" target="_blank" rel="external">一个简单的HelloWorld</a></p>
 
       
     </div>
@@ -366,8 +364,6 @@
           
             <a href="/tags/Spring/" rel="tag">#Spring</a>
           
-            <a href="/tags/Bean/" rel="tag">#Bean</a>
-          
         </div>
       
 
@@ -375,17 +371,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/18/spring-get-bean/" rel="next" title="Spring线程中Bean注入问题">
-                <i class="fa fa-chevron-left"></i> Spring线程中Bean注入问题
+              <a href="/2016/11/29/websocket-sending-config/" rel="next" title="Websocket发送消息长度设置">
+                <i class="fa fa-chevron-left"></i> Websocket发送消息长度设置
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/20/spring-encount-error/" rel="prev" title="expected single matching bean but found 2">
-                expected single matching bean but found 2 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -411,8 +403,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/18/spring-bean-registered/"
-           data-title="Spring Bean是否注册判断" data-url="http://jiangxiaoqiang.com/2016/10/18/spring-bean-registered/">
+      <div class="ds-thread" data-thread-key="2016/11/29/spring-step-by-step-privillege/"
+           data-title="spring-step-by-step（三）-权限管理" data-url="http://jiangxiaoqiang.com/2016/11/29/spring-step-by-step-privillege/">
       </div>
     
   </div>
@@ -527,7 +519,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#日志"><span class="nav-number">1.</span> <span class="nav-text">日志</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法获取Bean"><span class="nav-number">2.</span> <span class="nav-text">方法获取Bean</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置过滤器"><span class="nav-number">1.</span> <span class="nav-text">配置过滤器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring-Security数据库表"><span class="nav-number">2.</span> <span class="nav-text">Spring Security数据库表</span></a></li></ol></div>
             
           </div>
         </section>

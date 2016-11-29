@@ -3,9 +3,16 @@
   
     
     <entry>
+      <title><![CDATA[spring-step-by-step（三）-权限管理]]></title>
+      <url>%2F2016%2F11%2F29%2Fspring-step-by-step-privillege%2F</url>
+      <content type="text"><![CDATA[配置过滤器为了在项目中使用Spring Security控制权限，在项目的web.xml文件中，添加过滤器，就可以控制对这个项目的每个请求了。 12345678&lt;filter&gt; &lt;filter-name&gt;springSecurityFilterChain&lt;/filter-name&gt; &lt;filter-class&gt;org.springframework.web.filter.DelegatingFilterProxy&lt;/filter-class&gt;&lt;/filter&gt;&lt;filter-mapping&gt; &lt;filter-name&gt;springSecurityFilterChain&lt;/filter-name&gt; &lt;url-pattern&gt;/*&lt;/url-pattern&gt;&lt;/filter-mapping&gt; Spring Security数据库表Spring Security默认情况下需要两张表，用户表和权限表。以下是mysql中的建表语句： 一个简单的HelloWorld]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Websocket发送消息长度设置]]></title>
       <url>%2F2016%2F11%2F29%2Fwebsocket-sending-config%2F</url>
-      <content type="text"><![CDATA[项目中用到WebSocket技术，发送文本字节比较多时出现异常，立即断开了连接。项目在Tomcat上运行，Tomcat默认的文本大小为8192。 1If the application does not define a MessageHandler.Partial for incoming text messages, any incoming text messages must be buffered so the entire message can be delivered in a single call to the registered MessageHandler.Whole for text messages. The default buffer size for text messages is 8192 bytes. This may be changed for a web application by setting the servlet context initialization parameter org.apache.tomcat.websocket.textBufferSize to the desired value in bytes. 在项目web.xml添加如下配置（注意单位为byte）。 12345678&lt;context-param&gt; &lt;param-name&gt;org.apache.tomcat.websocket.textBufferSize&lt;/param-name&gt; &lt;param-value&gt;327680&lt;/param-value&gt;&lt;/context-param&gt;&lt;context-param&gt; &lt;param-name&gt;org.apache.tomcat.websocket.binaryBufferSize&lt;/param-name&gt; &lt;param-value&gt;327680&lt;/param-value&gt;&lt;/context-param&gt;]]></content>
+      <content type="text"><![CDATA[项目中用到WebSocket技术，发送文本字节比较多时出现异常，立即断开了连接。项目在Tomcat上运行，Tomcat默认的文本大小为8192。 1If the application does not define a MessageHandler.Partial for incoming text messages, any incoming text messages must be buffered so the entire message can be delivered in a single call to the registered MessageHandler.Whole for text messages. The default buffer size for text messages is 8192 bytes. This may be changed for a web application by setting the servlet context initialization parameter org.apache.tomcat.websocket.textBufferSize to the desired value in bytes. 在项目Tomcat的web.xml(D:\Source\zwnewplatform\javasoftware\runtime\apache-tomcat-8.0.36\apache-tomcat-8.0.36\conf\web.xml)中添加如下配置（注意单位为byte）。 12345678&lt;context-param&gt; &lt;param-name&gt;org.apache.tomcat.websocket.textBufferSize&lt;/param-name&gt; &lt;param-value&gt;327680&lt;/param-value&gt;&lt;/context-param&gt;&lt;context-param&gt; &lt;param-name&gt;org.apache.tomcat.websocket.binaryBufferSize&lt;/param-name&gt; &lt;param-value&gt;327680&lt;/param-value&gt;&lt;/context-param&gt; 如果是Eclipse，则直接在Eclipse中配置，如下图所示：]]></content>
     </entry>
 
     
@@ -150,16 +157,16 @@
 
     
     <entry>
-      <title><![CDATA[Lombok精简Java代码]]></title>
-      <url>%2F2016%2F11%2F04%2Flombok%2F</url>
-      <content type="text"><![CDATA[lombok提供了简单的注解的形式来帮助我们简化消除一些必须有但显得很臃肿的java代码,特别是相对于POJO(Plain Ordinary Java Object)。安装Lombok Plugin和引入Jar包之后方可使用。 常用的 lombok 注解： @Data：注解在类上；提供类所有属性的 getting 和 setting 方法，此外还提供了equals、canEqual、hashCode、toString 方法 @Setter：注解在属性上；为属性提供 setting 方法 @Getter：注解在属性上；为属性提供 getting 方法 @Log4j：注解在类上；为类提供一个 属性名为log 的 log4j 日志对象 @NoArgsConstructor：注解在类上；为类提供一个无参的构造方法 @AllArgsConstructor：注解在类上；为类提供一个全参的构造方法 如果不使用lombok注解，代码是这样： 1234567891011121314151617181920public class Person &#123; private String id; private Logger log = Logger.getLogger(Person.class); public Person() &#123; &#125; public Person(String id) &#123; this.id = id; &#125; public String getId() &#123; return id; &#125; public void setId(String id) &#123; this.id = id; &#125;&#125; 使用lombok注解，代码是这样： 1234567@Data@Log4j@NoArgsConstructor@AllArgsConstructorpublic class Person &#123; private String id;&#125; 一旦POJO字段较多时精简的代码就很明显了，而且使用Lombok的代码更加干净、易读，添加@Data注解之后，按Ctrl + O(Outline)可以看到生成了get和set方法。 @EqualsAndHashCode@EqualsAndHashCode注解实现equals()方法和hashCode()方法。hashcode是用于散列数据的快速存取，如利用HashSet/HashMap/Hashtable类来存储数据时，都是根据存储对象的hashcode值来进行判断是否相同的。]]></content>
+      <title><![CDATA[Java Web开发--log4j]]></title>
+      <url>%2F2016%2F11%2F04%2Flog4j%2F</url>
+      <content type="text"><![CDATA[isDebugEnabled在输出日志时，判断输出级别： 123if(logger.isDebugEnabled()) &#123; logger.debug("通用处理，信息为：" + JSON.toJSONString(vehicleLocationData));&#125; 当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于debug，即不需要进行日志信息输出时： ①假如debug方法中的参数比较简单时（比如直接就是写好的字符串），加不加这句if判断，在效率上也几乎没有什么差别； ②假如debug方法中的参数比较复杂时（比如还要使用别的函数进行计算、或者还要进行字符串的拼接等等,如上代码片段所示，输出的内容需要序列化），在前面就加上这句if判断，会让效率提高（否则，开始大动干戈做了很多事情（比如字符串的拼接，序列化），后来才发现不需要进行输出日志信息），白白浪费了CPU资源，影响程序的运行效率。]]></content>
     </entry>
 
     
     <entry>
-      <title><![CDATA[Java Web开发--log4j]]></title>
-      <url>%2F2016%2F11%2F04%2Flog4j%2F</url>
-      <content type="text"><![CDATA[isDebugEnabled在输出日志时，判断输出级别： 123if(logger.isDebugEnabled()) &#123; logger.debug("通用处理，信息为：" + JSON.toJSONString(vehicleLocationData));&#125; 当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于debug，即不需要进行日志信息输出时： ①假如debug方法中的参数比较简单时（比如直接就是写好的字符串），加不加这句if判断，在效率上也几乎没有什么差别； ②假如debug方法中的参数比较复杂时（比如还要使用别的函数进行计算、或者还要进行字符串的拼接等等,如上代码片段所示，输出的内容需要序列化），在前面就加上这句if判断，会让效率提高（否则，开始大动干戈做了很多事情（比如字符串的拼接，序列化），后来才发现不需要进行输出日志信息），白白浪费了CPU资源，影响程序的运行效率。]]></content>
+      <title><![CDATA[Lombok精简Java代码]]></title>
+      <url>%2F2016%2F11%2F04%2Flombok%2F</url>
+      <content type="text"><![CDATA[lombok提供了简单的注解的形式来帮助我们简化消除一些必须有但显得很臃肿的java代码,特别是相对于POJO(Plain Ordinary Java Object)。安装Lombok Plugin和引入Jar包之后方可使用。 常用的 lombok 注解： @Data：注解在类上；提供类所有属性的 getting 和 setting 方法，此外还提供了equals、canEqual、hashCode、toString 方法 @Setter：注解在属性上；为属性提供 setting 方法 @Getter：注解在属性上；为属性提供 getting 方法 @Log4j：注解在类上；为类提供一个 属性名为log 的 log4j 日志对象 @NoArgsConstructor：注解在类上；为类提供一个无参的构造方法 @AllArgsConstructor：注解在类上；为类提供一个全参的构造方法 如果不使用lombok注解，代码是这样： 1234567891011121314151617181920public class Person &#123; private String id; private Logger log = Logger.getLogger(Person.class); public Person() &#123; &#125; public Person(String id) &#123; this.id = id; &#125; public String getId() &#123; return id; &#125; public void setId(String id) &#123; this.id = id; &#125;&#125; 使用lombok注解，代码是这样： 1234567@Data@Log4j@NoArgsConstructor@AllArgsConstructorpublic class Person &#123; private String id;&#125; 一旦POJO字段较多时精简的代码就很明显了，而且使用Lombok的代码更加干净、易读，添加@Data注解之后，按Ctrl + O(Outline)可以看到生成了get和set方法。 @EqualsAndHashCode@EqualsAndHashCode注解实现equals()方法和hashCode()方法。hashcode是用于散列数据的快速存取，如利用HashSet/HashMap/Hashtable类来存储数据时，都是根据存储对象的hashcode值来进行判断是否相同的。]]></content>
     </entry>
 
     
