@@ -29,7 +29,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,7 +63,7 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
@@ -84,20 +84,20 @@
 
 
 
-<meta name="description" content="SQuirreL GUI客户端简介SQuirreL GUI客户端来连接Phoenix，就像MySQL使用Navicat for MySQL，Oracle使用PL/SQL Developer一样，在进行一些数据库操作的时候能够更加的直观和方便。同时它还可以连接MySQL。">
+<meta name="description" content="SQuirreL GUI客户端简介SQuirreL GUI(下载地址)客户端来连接Phoenix，就像MySQL使用Navicat for MySQL，Oracle使用PL/SQL Developer一样，在进行一些数据库操作的时候能够更加的直观和方便。同时它还可以连接MySQL。它可以运行在Windows、Linux、Mac OS操作系统上。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQuirreL GUI客户端集成Phoenix、MySQL配置">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="SQuirreL GUI客户端简介SQuirreL GUI客户端来连接Phoenix，就像MySQL使用Navicat for MySQL，Oracle使用PL/SQL Developer一样，在进行一些数据库操作的时候能够更加的直观和方便。同时它还可以连接MySQL。">
+<meta property="og:description" content="SQuirreL GUI客户端简介SQuirreL GUI(下载地址)客户端来连接Phoenix，就像MySQL使用Navicat for MySQL，Oracle使用PL/SQL Developer一样，在进行一些数据库操作的时候能够更加的直观和方便。同时它还可以连接MySQL。它可以运行在Windows、Linux、Mac OS操作系统上。">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/sphonix-driver-configuration.jpg">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/addAlias.jpg">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/configurationResult.jpg">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/squirrel-connect-mysql.jpg">
-<meta property="og:updated_time" content="2016-11-17T07:53:53.723Z">
+<meta property="og:updated_time" content="2016-12-02T07:44:38.240Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQuirreL GUI客户端集成Phoenix、MySQL配置">
-<meta name="twitter:description" content="SQuirreL GUI客户端简介SQuirreL GUI客户端来连接Phoenix，就像MySQL使用Navicat for MySQL，Oracle使用PL/SQL Developer一样，在进行一些数据库操作的时候能够更加的直观和方便。同时它还可以连接MySQL。">
+<meta name="twitter:description" content="SQuirreL GUI客户端简介SQuirreL GUI(下载地址)客户端来连接Phoenix，就像MySQL使用Navicat for MySQL，Oracle使用PL/SQL Developer一样，在进行一些数据库操作的时候能够更加的直观和方便。同时它还可以连接MySQL。它可以运行在Windows、Linux、Mac OS操作系统上。">
 <meta name="twitter:image" content="http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/sphonix-driver-configuration.jpg">
 
 
@@ -187,13 +187,27 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
         
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -203,15 +217,9 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-schedule">
-          <a href="/schedule" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            日程
+            标签
           </a>
         </li>
       
@@ -221,6 +229,8 @@
           
             <a href="javascript:;" class="popup-trigger">
           
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
             搜索
           </a>
@@ -340,7 +350,7 @@
       
 
       
-        <h4 id="SQuirreL-GUI客户端简介"><a href="#SQuirreL-GUI客户端简介" class="headerlink" title="SQuirreL GUI客户端简介"></a>SQuirreL GUI客户端简介</h4><p>SQuirreL GUI客户端来连接Phoenix，就像MySQL使用Navicat for MySQL，Oracle使用PL/SQL Developer一样，在进行一些数据库操作的时候能够更加的直观和方便。同时它还可以连接MySQL。</p>
+        <h4 id="SQuirreL-GUI客户端简介"><a href="#SQuirreL-GUI客户端简介" class="headerlink" title="SQuirreL GUI客户端简介"></a>SQuirreL GUI客户端简介</h4><p>SQuirreL GUI(<a href="https://sourceforge.net/projects/squirrel-sql/?source=typ_redirect" target="_blank" rel="external">下载地址</a>)客户端来连接Phoenix，就像MySQL使用Navicat for MySQL，Oracle使用PL/SQL Developer一样，在进行一些数据库操作的时候能够更加的直观和方便。同时它还可以连接MySQL。它可以运行在Windows、Linux、Mac OS操作系统上。</p>
 <a id="more"></a>
 <h4 id="下载并安装SQuirreL-GUI"><a href="#下载并安装SQuirreL-GUI" class="headerlink" title="下载并安装SQuirreL GUI"></a>下载并安装SQuirreL GUI</h4><p>下载好的文件是一个压缩包(<code>squirrel-sql-3.7.1-standard.zip</code>)。不用解压缩，直接修改文件的后缀名为jar(<code>squirrel-sql-3.7.1-standard.jar</code>)，双击即可打开安装界面。如果无法双击打开，则可以通过命令行的方式打开：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -jar squirrel-sql-3.7-standard.jar</div></pre></td></tr></table></figure>
@@ -391,8 +401,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/21/Fedora-shortkey/" rel="next" title="Fedora快捷键">
-                <i class="fa fa-chevron-left"></i> Fedora快捷键
+              <a href="/2016/10/23/log4j/" rel="next" title="Java Web开发--log4j">
+                <i class="fa fa-chevron-left"></i> Java Web开发--log4j
               </a>
             
           </div>
@@ -473,7 +483,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">75</span>
+              <span class="site-state-item-count">77</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -612,22 +622,22 @@
 
 
   
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
@@ -676,7 +686,7 @@
 
   
     
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
 
@@ -735,7 +745,7 @@
                     var content_index = [];
                     var data_title = data.title.trim().toLowerCase();
                     var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                    var data_url = decodeURIComponent(data.url);
+                    var data_url = data.url;
                     var index_title = -1;
                     var index_content = -1;
                     var first_occur = -1;
@@ -819,9 +829,6 @@
   
 
   
-
-  
-
 
 </body>
 </html>

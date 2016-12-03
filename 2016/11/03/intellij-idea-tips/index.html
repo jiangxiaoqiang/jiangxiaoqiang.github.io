@@ -29,7 +29,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,7 +63,7 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
@@ -91,7 +91,8 @@
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="键盘调整Debug窗口的大小键盘调整Debug窗口的大小快捷键是Ctrl + Shift + Up/Down，注意一定要定位到Debug视图，也就是Debug视图但是当前窗口的活跃(Active)视图才会生效。">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/11/03/intellij-idea-tips/intelli-idea-debug-view-convert.jpg">
-<meta property="og:updated_time" content="2016-11-07T01:25:48.111Z">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2016/11/03/intellij-idea-tips/search-folder.jpg">
+<meta property="og:updated_time" content="2016-12-03T10:08:33.607Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Intellij Idea小技巧(tips)">
 <meta name="twitter:description" content="键盘调整Debug窗口的大小键盘调整Debug窗口的大小快捷键是Ctrl + Shift + Up/Down，注意一定要定位到Debug视图，也就是Debug视图但是当前窗口的活跃(Active)视图才会生效。">
@@ -184,13 +185,27 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
         
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -200,15 +215,9 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-schedule">
-          <a href="/schedule" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            日程
+            标签
           </a>
         </li>
       
@@ -218,6 +227,8 @@
           
             <a href="javascript:;" class="popup-trigger">
           
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
             搜索
           </a>
@@ -344,6 +355,9 @@
 <img src="/2016/11/03/intellij-idea-tips/intelli-idea-debug-view-convert.jpg" alt="Intellij Idea的Debug视图Tab页切换" title="Intellij Idea的Debug视图Tab页切换">
 <h4 id="Debug视图日志滚动到末尾"><a href="#Debug视图日志滚动到末尾" class="headerlink" title="Debug视图日志滚动到末尾"></a>Debug视图日志滚动到末尾</h4><p>如果想在Debug视图中将日志始终定位到末尾，可以点击左侧的Scroll To End按钮，也可以使用快捷键<code>Ctrl + End</code>。</p>
 <h4 id="Debug视图清空日志"><a href="#Debug视图清空日志" class="headerlink" title="Debug视图清空日志"></a>Debug视图清空日志</h4><p>清空日志没有快捷键，但是可以使用键盘上的鼠标右键来做到。</p>
+<h4 id="关闭Editor-Tabs"><a href="#关闭Editor-Tabs" class="headerlink" title="关闭Editor Tabs"></a>关闭Editor Tabs</h4><p>在Editor Tabs中切换比较耗费时间，可以尝试关闭Editor Tabs功能，关闭掉Editor Tabs功能还有一个好处是加载的时候会变快，因为不用加载Editor Tabs里打开的页面的内容了。关闭Editor Tabs功能按下Ctrl + Alt + S快捷键。搜索Editor Tabs关键字即可，在右侧Tab Appearence中选择None即可。关闭掉后直接可以通过Ctrl + E快捷键或者Ctrl + Shift + E快捷键访问文件。</p>
+<h4 id="跳转到特定文件夹"><a href="#跳转到特定文件夹" class="headerlink" title="跳转到特定文件夹"></a>跳转到特定文件夹</h4><p>在Intellij Idea中可以跳转到特定的文件夹，只需要按下两次Shift之后，在搜索的关键字前面加一个斜杠即可，如下图所示。</p>
+<img src="/2016/11/03/intellij-idea-tips/search-folder.jpg" alt="Intellij Idea跳转到指定文件夹" title="Intellij Idea跳转到指定文件夹">
 
       
     </div>
@@ -459,7 +473,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">75</span>
+              <span class="site-state-item-count">77</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -529,7 +543,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#键盘调整Debug窗口的大小"><span class="nav-number">1.</span> <span class="nav-text">键盘调整Debug窗口的大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Debug视图Tab页切换"><span class="nav-number">2.</span> <span class="nav-text">Debug视图Tab页切换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Debug视图日志滚动到末尾"><span class="nav-number">3.</span> <span class="nav-text">Debug视图日志滚动到末尾</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Debug视图清空日志"><span class="nav-number">4.</span> <span class="nav-text">Debug视图清空日志</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#键盘调整Debug窗口的大小"><span class="nav-number">1.</span> <span class="nav-text">键盘调整Debug窗口的大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Debug视图Tab页切换"><span class="nav-number">2.</span> <span class="nav-text">Debug视图Tab页切换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Debug视图日志滚动到末尾"><span class="nav-number">3.</span> <span class="nav-text">Debug视图日志滚动到末尾</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Debug视图清空日志"><span class="nav-number">4.</span> <span class="nav-text">Debug视图清空日志</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关闭Editor-Tabs"><span class="nav-number">5.</span> <span class="nav-text">关闭Editor Tabs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#跳转到特定文件夹"><span class="nav-number">6.</span> <span class="nav-text">跳转到特定文件夹</span></a></li></ol></div>
             
           </div>
         </section>
@@ -598,22 +612,22 @@
 
 
   
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
@@ -662,7 +676,7 @@
 
   
     
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
 
@@ -721,7 +735,7 @@
                     var content_index = [];
                     var data_title = data.title.trim().toLowerCase();
                     var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                    var data_url = decodeURIComponent(data.url);
+                    var data_url = data.url;
                     var index_title = -1;
                     var index_content = -1;
                     var first_occur = -1;
@@ -805,9 +819,6 @@
   
 
   
-
-  
-
 
 </body>
 </html>

@@ -29,7 +29,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,7 +63,7 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
@@ -180,13 +180,27 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
         
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -196,15 +210,9 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-schedule">
-          <a href="/schedule" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            日程
+            标签
           </a>
         </li>
       
@@ -214,6 +222,8 @@
           
             <a href="javascript:;" class="popup-trigger">
           
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
             搜索
           </a>
@@ -246,6 +256,218 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/30/cluster-ssh-login/" itemprop="url">
+                  Hadoop集群SSH免密钥登录
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-30T16:41:35+08:00" content="2016-09-30">
+              2016-09-30
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/30/cluster-ssh-login/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/30/cluster-ssh-login/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="免密登录原理"><a href="#免密登录原理" class="headerlink" title="免密登录原理"></a>免密登录原理</h4><p>SSH之所以能够保证安全，原因在于它采用了公钥加密。过程如下：</p>
+<ol>
+<li>远程主机收到用户的登录请求，把自己的公钥发给用户；</li>
+<li>用户使用这个公钥，将登录密码加密后，发送回来；</li>
+<li>远程主机用自己的私钥，解密登录密码，如果密码正确，就同意用户登录。</li>
+</ol>
+<h4 id="配置SSH免密登陆"><a href="#配置SSH免密登陆" class="headerlink" title="配置SSH免密登陆"></a>配置SSH免密登陆</h4><p>首先，运行<code>ssh localhost</code>来产生<code>/home/用户名/.ssh</code>目录，然后执行下面命令。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/30/cluster-ssh-login/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/28/hashcode-and-equals/" itemprop="url">
+                  hashcode和equals的理解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-28T22:12:51+08:00" content="2016-09-28">
+              2016-09-28
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/28/hashcode-and-equals/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/28/hashcode-and-equals/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="hashcode作用"><a href="#hashcode作用" class="headerlink" title="hashcode作用"></a>hashcode作用</h4><p>hashcode提供了一种更加高效的寻找方式，在Set集合中的元素是无序不可重复的，要保证不重复，一种方式是在添加新数据时，逐一比较集合中已经存在的所有元素，如果当前集合的元素增多，效率是非常低的。hashcode可以解决这个问题，当向一个集合中添加某个元素，集合会首先调用hashCode方法，这样就可以直接定位它所存储的位置，若该处没有其他元素，则直接保存。若该处已经有元素存在，就调用equals方法来匹配这两个元素是否相同，相同则不存，不同则进行其他处理，比如散列到其他位置或者以链表的形式存储到当前已经存放的元素的尾部。hashcode此时作用是快速寻找处当前元素在集合中的位置，hashCode可以将集合分成若干个区域，每个对象都可以计算出他们的hash码，可以将hash码分组，每个分组对应着某个存储区域，根据一个对象的hash码就可以确定该对象所存储区域，这样就大大减少查询匹配元素的数量，提高了查询效率。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/28/hashcode-and-equals/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -593,219 +815,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/24/eclipse-breakpoint-type/" itemprop="url">
-                  Eclipse断点类型
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-24T16:47:20+08:00" content="2016-09-24">
-              2016-09-24
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/24/eclipse-breakpoint-type/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/24/eclipse-breakpoint-type/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>本文的Eclipse版本为:Eclipse Java EE IDE for Web Developers.</p>
-<p>Version: Neon Release (4.6.0)<br>Build id: 20160613-1800</p>
-<h4 id="Line-Breakpoint"><a href="#Line-Breakpoint" class="headerlink" title="Line Breakpoint"></a>Line Breakpoint</h4><p>Line Breakpoint是最简单的Eclipse断点，只要双击某行代码对应的左侧栏，就对该行设置上断点。断点的颜色为一个蓝色的实心点。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/24/eclipse-breakpoint-type/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/23/phoenix-tutorial/" itemprop="url">
-                  Phoenix常用操作
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-23T16:57:30+08:00" content="2016-09-23">
-              2016-09-23
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/23/phoenix-tutorial/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/23/phoenix-tutorial/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>Phoenix本意是凤凰的意思，<a href="http://phoenix.apache.org/">Apache Phoenix</a>是构建在HBase之上的关系型数据库层，作为内嵌的客户端JDBC驱动用以对HBase中的数据进行低延迟访问。Apache Phoenix会将用户编写的sql查询编译为一系列的scan操作，最终产生通用的JDBC结果集返回给客户端。数据表的元数据存储在HBase的表中被会标记版本号，所以进行查询的时候会自动选择正确的schema。直接使用HBase的API，结合协处理器（coprocessor）和自定义的过滤器的话，小范围的查询在毫秒级响应，千万数据的话响应速度为秒级。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/23/phoenix-tutorial/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -846,7 +860,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">75</span>
+              <span class="site-state-item-count">77</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -974,22 +988,22 @@
 
 
   
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
@@ -1034,7 +1048,7 @@
 
   
     
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
 
@@ -1093,7 +1107,7 @@
                     var content_index = [];
                     var data_title = data.title.trim().toLowerCase();
                     var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                    var data_url = decodeURIComponent(data.url);
+                    var data_url = data.url;
                     var index_title = -1;
                     var index_content = -1;
                     var first_occur = -1;
@@ -1177,9 +1191,6 @@
   
 
   
-
-  
-
 
 </body>
 </html>

@@ -29,7 +29,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,7 +63,7 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
@@ -180,13 +180,27 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
         
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -196,15 +210,9 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-schedule">
-          <a href="/schedule" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            日程
+            标签
           </a>
         </li>
       
@@ -214,6 +222,8 @@
           
             <a href="javascript:;" class="popup-trigger">
           
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
             搜索
           </a>
@@ -246,6 +256,373 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/23/single-user-login/" itemprop="url">
+                  Spring中单用户登录
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-23T16:32:04+08:00" content="2016-11-23">
+              2016-11-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/23/single-user-login/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/23/single-user-login/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>在<code>web.xml</code>文件的配置如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">listener</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">listener-class</span>&gt;</span></div><div class="line">        org.springframework.security.web.session.HttpSessionEventPublisher</div><div class="line">    <span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">listener</span>&gt;</span></div></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/23/single-user-login/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/20/paper-searching/" itemprop="url">
+                  使用Google查找资料
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-20T14:03:45+08:00" content="2016-11-20">
+              2016-11-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/20/paper-searching/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/20/paper-searching/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>今天需要了解关于<strong>静脉可视化技术的发展</strong>状况。查找资料的工作就由我来。首先明确中文关键字是：<strong>静脉可视化</strong>，英文关键字是：<strong>Intravenous visualization</strong>。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/20/paper-searching/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/19/hbase-dulplicate-data/" itemprop="url">
+                  HBase重复数据问题解决思路
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-19T21:59:43+08:00" content="2016-11-19">
+              2016-11-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/19/hbase-dulplicate-data/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/19/hbase-dulplicate-data/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>解决思路1可以设计消息主键，每次插入数据时，查询判断此消息是否已经写入，可以排除重复写入数据问题。但是此种手段需要查询HBase，由于写入并发量相对较高&gt;1000条/s。会影响写入速度。由于此时有单点的Redis,由于数据到达的时间相隔不会太长，可以考虑将数据持久化到Redis中，插入时，到Redis中查询，Redis中查询复杂度为常数，基本可以忽略查询对性能的影响。判断是否已经写入。而写入到Redis中的数据可以设置过期时间，可以自动清除。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/19/hbase-dulplicate-data/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -494,340 +871,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/15/redmine-install/" itemprop="url">
-                  Redmine安装
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-15T18:48:19+08:00" content="2016-11-15">
-              2016-11-15
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/15/redmine-install/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/15/redmine-install/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="Redmine简介"><a href="#Redmine简介" class="headerlink" title="Redmine简介"></a>Redmine简介</h4><p>Redmine 是一个网页界面的项目管理与缺陷跟踪管理系统的自由及开放源代码软件工具。它集成了项目管理所需的各项功能：日历、燃尽图和甘特图 以协助可视化表现项目与时间限制，问题跟踪和版本控制。此外，Redmine也可以同时处理多个项目。<br>Redmine 是以 Ruby on Rails 撰写的架构，它横跨多个平台与数据库，它的设计很明显是受一些类似功能软件包的Trac所影响。此外，它也是Bitnami 应用库的一部分。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/15/redmine-install/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/15/redis-using/" itemprop="url">
-                  Redis使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-15T18:21:31+08:00" content="2016-11-15">
-              2016-11-15
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/15/redis-using/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/15/redis-using/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="过期时间"><a href="#过期时间" class="headerlink" title="过期时间"></a>过期时间</h4><p>生存时间可以通过使用 DEL 命令来删除整个 key 来移除，或者被 SET 和 GETSET 命令覆写(overwrite)。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/15/redis-using/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/13/dust-in-the-wind/" itemprop="url">
-                  电影《恋恋风尘》(Dust in the Wind)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-13T13:17:49+08:00" content="2016-11-13">
-              2016-11-13
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Movie/" itemprop="url" rel="index">
-                    <span itemprop="name">Movie</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/13/dust-in-the-wind/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/13/dust-in-the-wind/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>评价一部作品，它的真实性在心里占有相当的重量。而上映于1987年《恋恋风尘》(Dust in the Wind)所讲述的故事给自己的感觉是真实的，对观众来说它是仅仅一件小事。但对当时亲身经历的主人公来说，这些都是刻骨铭心的回忆，相信许多人也会有相似的感受，那就是：初恋告吹。</p>
-<p>第一次看《恋恋风尘》(Dust in the Wind)，还是在大二、大三的学生时期。当时只觉得非常新奇，电影原来可以拍的这样安静和特别。往后参加工作，反复观看，每一次观看感受都是如此相似。久远的记忆仿佛就在昨天，具有贫苦农村生活经验和当兵经历的人士观看效果更佳。整部电影没有夸张的剧情和场景，都是一个个简单的回忆按时间顺序依次展现。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/13/dust-in-the-wind/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -868,7 +916,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">75</span>
+              <span class="site-state-item-count">77</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -996,22 +1044,22 @@
 
 
   
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
@@ -1056,7 +1104,7 @@
 
   
     
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
 
@@ -1115,7 +1163,7 @@
                     var content_index = [];
                     var data_title = data.title.trim().toLowerCase();
                     var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                    var data_url = decodeURIComponent(data.url);
+                    var data_url = data.url;
                     var index_title = -1;
                     var index_content = -1;
                     var first_occur = -1;
@@ -1199,9 +1247,6 @@
   
 
   
-
-  
-
 
 </body>
 </html>
