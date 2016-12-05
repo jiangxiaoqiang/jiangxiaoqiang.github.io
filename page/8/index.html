@@ -268,8 +268,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/25/squirrel-phoenix-configuration/" itemprop="url">
-                  SQuirreL GUI客户端集成Phoenix、MySQL配置
+                <a class="post-title-link" href="/2016/11/01/she/" itemprop="url">
+                  she
                 </a>
               
             
@@ -282,8 +282,139 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-25T09:24:13+08:00" content="2016-10-25">
-              2016-10-25
+            <time itemprop="dateCreated" datetime="2016-11-01T09:23:13+08:00" content="2016-11-01">
+              2016-11-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/She/" itemprop="url" rel="index">
+                    <span itemprop="name">She</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/01/she/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/01/she/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>like:</p>
+<ul>
+<li>鱼(Fish)</li>
+<li>广味香肠</li>
+</ul>
+<h4 id="节目"><a href="#节目" class="headerlink" title="节目"></a>节目</h4><ul>
+<li>《真正男子漢》(Takes a Real man)</li>
+</ul>
+<p>dislike:</p>
+<ul>
+<li>生食(日本料理),可以少量吃北极贝和甜虾</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/29/kafka-common-operation/" itemprop="url">
+                  Kafka常用操作
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-29T17:11:35+08:00" content="2016-10-29">
+              2016-10-29
             </time>
           </span>
 
@@ -312,8 +443,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/25/squirrel-phoenix-configuration/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/25/squirrel-phoenix-configuration/" itemprop="commentsCount"></span>
+                <a href="/2016/10/29/kafka-common-operation/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/29/kafka-common-operation/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -337,9 +468,14 @@
 
       
         
-          <h4 id="SQuirreL-GUI客户端简介"><a href="#SQuirreL-GUI客户端简介" class="headerlink" title="SQuirreL GUI客户端简介"></a>SQuirreL GUI客户端简介</h4><p>SQuirreL GUI客户端来连接Phoenix，就像MySQL使用Navicat for MySQL，Oracle使用PL/SQL Developer一样，在进行一些数据库操作的时候能够更加的直观和方便。同时它还可以连接MySQL。</p>
+          <p>启动kafka：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./kafka-server-start.sh ../config/server.properties &amp;</div></pre></td></tr></table></figure>
+<p>创建主题：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./kafka-topics.sh --zookeeper localhost:2181 --create --topic <span class="built_in">test</span>1 --partitions 1 --replication-factor 1 --config max.message.bytes=64000 --config flush.messages=1</div></pre></td></tr></table></figure>
+<p>查看所有主题：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./kafka-topics.sh --list --zookeeper 192.168.24.11:2181</div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/25/squirrel-phoenix-configuration/#more" rel="contents">
+            <a class="btn" href="/2016/10/29/kafka-common-operation/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -390,8 +526,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/21/Fedora-shortkey/" itemprop="url">
-                  Fedora快捷键
+                <a class="post-title-link" href="/2016/10/29/kafka-delete-topic/" itemprop="url">
+                  Kafka彻底删除主题
                 </a>
               
             
@@ -404,8 +540,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-21T23:53:36+08:00" content="2016-10-21">
-              2016-10-21
+            <time itemprop="dateCreated" datetime="2016-10-29T14:24:15+08:00" content="2016-10-29">
+              2016-10-29
             </time>
           </span>
 
@@ -434,8 +570,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/21/Fedora-shortkey/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/21/Fedora-shortkey/" itemprop="commentsCount"></span>
+                <a href="/2016/10/29/kafka-delete-topic/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/29/kafka-delete-topic/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -459,167 +595,14 @@
 
       
         
-          
-            <p>如下是我在使用Fedora的时候整理的快捷键，网络上有许多快捷键版本，下表是经过测试可用并一直在使用的快捷键。</p>
-<table>
-<thead>
-<tr>
-<th>快捷键</th>
-<th style="text-align:center">作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Windows + A</td>
-<td style="text-align:center">显示软件列表</td>
-</tr>
-<tr>
-<td>Windows + H</td>
-<td style="text-align:center">隐藏当前窗口</td>
-</tr>
-<tr>
-<td>Alt + F10</td>
-<td style="text-align:center">最大化、还原当前窗口</td>
-</tr>
-<tr>
-<td>Ctrl + Alt + Up/Down</td>
-<td style="text-align:center">切换当前窗口</td>
-</tr>
-<tr>
-<td>Alt + Tab</td>
-<td style="text-align:center">应用程序之间进行切换</td>
-</tr>
-<tr>
-<td>Windows + Left/Right/Up/Down</td>
-<td style="text-align:center">将窗口移向左右、最大化、还原</td>
-</tr>
-<tr>
-<td>Windows + PageUp/PageDown</td>
-<td style="text-align:center">切换工作区</td>
-</tr>
-</tbody>
-</table>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/21/spring-module-config/" itemprop="url">
-                  Spring模块化配置
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-21T23:51:37+08:00" content="2016-10-21">
-              2016-10-21
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Programming/" itemprop="url" rel="index">
-                    <span itemprop="name">Programming</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/21/spring-module-config/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/21/spring-module-config/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Spring的一大缺点就是配置文件非常多，想象如果没有注解扫描Bean，所有的Bean都配置在XML文件中，将会是一个噩梦，项目中会充斥着大量的配置文件。这也是Spring-Boot项目所要避免的问题之一，在做项目开发时，为了使配置显得有条理化，易于理解，可以采用Spring Import配置文件，项目中需要一个Spring的主文件，在Web.xml中指定Spring的主文件位置，主文件再Import各类配置文件。指定主文件如下代码片段所示：</p>
+          <p>这里的Kafka的版本是0.9.0.1，查看所有Topics和分区：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./kafka-topics.sh --describe --zookeeper 192.168.244.11:2181</div></pre></td></tr></table></figure>
+<p>只查看所有Topic：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./kafka-topics.sh --list --zookeeper 192.168.24.244:2181</div></pre></td></tr></table></figure>
+<p>删除主题：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./kafka-topics.sh --zookeeper 192.168.24.244:2181 --delete --topic 0085000</div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/21/spring-module-config/#more" rel="contents">
+            <a class="btn" href="/2016/10/29/kafka-delete-topic/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -670,8 +653,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/20/stomp-url-route/" itemprop="url">
-                  Stomp WebSocket路由
+                <a class="post-title-link" href="/2016/10/28/kafka-error/" itemprop="url">
+                  Kafka常见错误
                 </a>
               
             
@@ -684,8 +667,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-20T22:28:40+08:00" content="2016-10-20">
-              2016-10-20
+            <time itemprop="dateCreated" datetime="2016-10-28T17:06:23+08:00" content="2016-10-28">
+              2016-10-28
             </time>
           </span>
 
@@ -714,8 +697,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/20/stomp-url-route/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/20/stomp-url-route/" itemprop="commentsCount"></span>
+                <a href="/2016/10/28/kafka-error/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/28/kafka-error/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -739,9 +722,10 @@
 
       
         
-          <p>STOMP即Simple (or Streaming) Text Orientated Messaging Protocol，简单(流)文本定向消息协议，它提供了一个可互操作的连接格式，允许STOMP客户端与任意STOMP消息代理（Broker）进行交互。STOMP协议由于设计简单，易于开发客户端，因此在多种语言和多种平台上得到广泛地应用。WebSocket协议的应用层子协议STOMP（流文本定向消息协议）。在应用中直接使用WebSocket API显得有些低端，直到统一标准规范时也只有一小部分框架可以解析信息或通过注解方式使用它。这正是考虑在应用中运用子协议和产生基于WebSocket支持的Spring的STOMP的原因。当运用一个上层协议，WebSocket API的细节就显得不那么重要了，正如运用了HTTP后TCP的通信细节不再暴漏在应用中一样。STOMP是为了简单而创建的一种消息协议。它基于模仿HTTP协议的帧。帧由一个命令、可选的头和可选的体组成。</p>
+          <h4 id="Invalid-partition-given-with-record"><a href="#Invalid-partition-given-with-record" class="headerlink" title="Invalid partition given with record"></a>Invalid partition given with record</h4><p>在Kafka生产者里写入消息时，提示写入失败，详细的错误信息如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[ERROR]-[2016年-10月-28日16:17:35.083]-[Thread-25]-[com.zw.socket.service.kafka.producer.ClientKafkaProducer]-&#123;生产者发送消息出错&#125;java.lang.IllegalArgumentException: Invalid partition given with record: 1 is not in the range [0...1].</div><div class="line">	at org.apache.kafka.clients.producer.KafkaProducer.partition(KafkaProducer.java:671) ~[kafka-clients-0.9.0.1.jar:?]</div><div class="line">	at org.apache.kafka.clients.producer.KafkaProducer.send(KafkaProducer.java:430) ~[kafka-clients-0.9.0.1.jar:?]</div><div class="line">	at org.apache.kafka.clients.producer.KafkaProducer.send(KafkaProducer.java:339) ~[kafka-clients-0.9.0.1.jar:?]</div><div class="line">	at com.zw.socket.service.kafka.producer.ClientKafkaProducer.sendMessage(ClientKafkaProducer.java:102) [classes/:?]</div><div class="line">	at com.zw.socket.service.handler.common.CommonCommandHandler.commonMessageWriteIntoKafka(CommonCommandHandler.java:95) [classes/:?]</div><div class="line">	at com.zw.socket.service.handler.device.DeviceMessageHandler.sendRegisterResult(DeviceMessageHandler.java:175) [classes/:?]</div><div class="line">	at com.zw.socket.service.handler.device.DeviceMessageHandler.isAllowRegisted(DeviceMessageHandler.java:161) [classes/:?]</div><div class="line">	at com.zw.socket.service.handler.device.DeviceMessageHandler.saveDeviceInfo(DeviceMessageHandler.java:216) [classes/:?]</div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/20/stomp-url-route/#more" rel="contents">
+            <a class="btn" href="/2016/10/28/kafka-error/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -792,8 +776,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/20/spring-encount-error/" itemprop="url">
-                  expected single matching bean but found 2
+                <a class="post-title-link" href="/2016/10/27/new-keyboard/" itemprop="url">
+                  HP KU 1158键盘
                 </a>
               
             
@@ -806,8 +790,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-20T12:51:20+08:00" content="2016-10-20">
-              2016-10-20
+            <time itemprop="dateCreated" datetime="2016-10-27T13:08:21+08:00" content="2016-10-27">
+              2016-10-27
             </time>
           </span>
 
@@ -820,8 +804,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Programming/" itemprop="url" rel="index">
-                    <span itemprop="name">Programming</span>
+                  <a href="/categories/Programmming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programmming</span>
                   </a>
                 </span>
 
@@ -836,8 +820,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/20/spring-encount-error/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/20/spring-encount-error/" itemprop="commentsCount"></span>
+                <a href="/2016/10/27/new-keyboard/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/27/new-keyboard/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -861,10 +845,9 @@
 
       
         
-          <p>在WebSocket往客户端推送消息的开发过程中，获取推送消息实例<code>SimpMessagingTemplate</code>时，错误如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[ERROR]-[2016年-10月-19日17:53:25.026]-[RMI TCP Connection(2)-127.0.0.1]-[org.springframework.web.context.ContextLoader]-&#123;Context initialization failed&#125; org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name  &apos;com.zw.socket.service.controller.InstanceMessageController#0&apos; defined in class path resource [spring-config/spring-socket-servlet.xml]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type [org.springframework.messaging.simp.SimpMessagingTemplate] is defined: expected single matching bean but found 2:org.springframework.messaging.simp.SimpMessagingTemplate#0,brokerMessagingTemplate</div></pre></td></tr></table></figure>
+          <p>以前的旧键盘打字的声音有点大，中午打字都担心吵到旁边休息的同学，而且按键比较生硬，今天特意请飞哥换了一款键盘HP KU 1158，确实好用不少。一直在找一款适合长时间输入的键盘，而且要求声音要尽量小一些，价格平民化一些(Realforce一千多也还蛮贵的)。这款键盘符合要求。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/20/spring-encount-error/#more" rel="contents">
+            <a class="btn" href="/2016/10/27/new-keyboard/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -898,7 +881,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -939,7 +922,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">75</span>
+              <span class="site-state-item-count">82</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -956,7 +939,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">104</span>
+                <span class="site-state-item-count">106</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

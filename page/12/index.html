@@ -268,8 +268,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/05/dnf-vs-yum/" itemprop="url">
-                  dnf与yum
+                <a class="post-title-link" href="/2016/10/12/fedora-desktop-icon/" itemprop="url">
+                  Fedora 24添加桌面图标
                 </a>
               
             
@@ -282,8 +282,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-05T20:44:41+08:00" content="2016-10-05">
-              2016-10-05
+            <time itemprop="dateCreated" datetime="2016-10-12T08:51:47+08:00" content="2016-10-12">
+              2016-10-12
             </time>
           </span>
 
@@ -312,8 +312,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/05/dnf-vs-yum/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/05/dnf-vs-yum/" itemprop="commentsCount"></span>
+                <a href="/2016/10/12/fedora-desktop-icon/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/12/fedora-desktop-icon/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -337,9 +337,11 @@
 
       
         
-          <p>Fedora 24使用yum命令时标记为过期，推荐使用dnf安装。想了解一下Fedora为什么要从yum转移到dnf。大致有如下几个原因：</p>
+          <p>安装好了Google Chrome和Intellij Idea之后没有桌面图标，也没有快速启动图标，每次启动都要打开终端，甚是麻烦。故将图标放在桌面能够节省不少时间，同时也更加方便。首先安装gnome-tweak-tool:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dnf install gnome-tweak-tool -y</div></pre></td></tr></table></figure>
+<p>运行<code>gnome-tweak-tool</code>命令，在弹出的窗口的Desktop选项卡中打开Icons on Desktop.</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/05/dnf-vs-yum/#more" rel="contents">
+            <a class="btn" href="/2016/10/12/fedora-desktop-icon/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -390,8 +392,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/05/ambari-offline-install/" itemprop="url">
-                  Ambari与HDP离线安装
+                <a class="post-title-link" href="/2016/10/10/intellij-hot-deply/" itemprop="url">
+                  Intellij Idea热部署
                 </a>
               
             
@@ -404,8 +406,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-05T16:52:34+08:00" content="2016-10-05">
-              2016-10-05
+            <time itemprop="dateCreated" datetime="2016-10-10T18:55:23+08:00" content="2016-10-10">
+              2016-10-10
             </time>
           </span>
 
@@ -434,8 +436,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/05/ambari-offline-install/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/05/ambari-offline-install/" itemprop="commentsCount"></span>
+                <a href="/2016/10/10/intellij-hot-deply/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/10/intellij-hot-deply/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -459,10 +461,9 @@
 
       
         
-          <p>Ambari安装包大概有400MB，HDP所包含的所有的服务(HDFS/ZooKeeper/Kafka/Flume)大概在7GB+，采用yum安装时速度在10KB以内，简直是让人绝望的速度。所以采用离线安装，为了速度，掏出无耻的迅雷(wget下载是假的，不过可以试一试，速度不理想换迅雷)，搭建本地YUM服务。</p>
-<h4 id="下载包"><a href="#下载包" class="headerlink" title="下载包"></a>下载包</h4><p>如果不知道应该下载哪个版本，可以到Repository的配置文件中查看当前版本。路径为：<code>/etc/yum.repo.d/</code>，查看文件ambari.repo、HDP.rep和HDP-UTILS.repo即可。</p>
+          <p>下午遇到一个问题，在开发时，HTML修改后浏览器刷新始终不显示修改后的效果。经过朋友的指导，原来是要选择Exploded包进行部署。如图所示。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/05/ambari-offline-install/#more" rel="contents">
+            <a class="btn" href="/2016/10/10/intellij-hot-deply/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -513,8 +514,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/05/fedora-20-install-nodejs/" itemprop="url">
-                  Fedora 20 安装NodeJs
+                <a class="post-title-link" href="/2016/10/09/fedora-openvpn-client/" itemprop="url">
+                  Fedora 24 OpenVPN客户端配置
                 </a>
               
             
@@ -527,8 +528,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-05T09:52:08+08:00" content="2016-10-05">
-              2016-10-05
+            <time itemprop="dateCreated" datetime="2016-10-09T11:55:08+08:00" content="2016-10-09">
+              2016-10-09
             </time>
           </span>
 
@@ -557,8 +558,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/05/fedora-20-install-nodejs/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/05/fedora-20-install-nodejs/" itemprop="commentsCount"></span>
+                <a href="/2016/10/09/fedora-openvpn-client/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/09/fedora-openvpn-client/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -582,18 +583,21 @@
 
       
         
-          <p>安装环境：</p>
+          <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>输入如下命令安装。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#Fedora 24安装命令</span></div><div class="line">dnf install openvpn -y</div><div class="line"><span class="comment">#CentOS 6.8安装命令(可输入lsb_release -a命令查看版本)</span></div><div class="line">yum intall openvpn -y</div></pre></td></tr></table></figure>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><h5 id="生成客户端文件"><a href="#生成客户端文件" class="headerlink" title="生成客户端文件"></a>生成客户端文件</h5><p>到OpenVPN服务端<code>easy-rsa</code>目录下，输入如下命令生成客户端key：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">build-key client</div></pre></td></tr></table></figure>
+<p>这里介绍在Fedora中如何设置OpenVPN客户端。将生成的客户端文件拷贝到Fedora的<code>/etc/openvpn</code>配置目录中即可，生成的客户端文件有：</p>
 <ul>
-<li><p>Fedora 20 i386</p>
-</li>
-<li><p>nodejs 6.7.0</p>
-</li>
+<li>ca.crt</li>
+<li>client.crt</li>
+<li>client.key</li>
+<li>client.ovpn</li>
 </ul>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>使用Hexo写博客需要安装NodeJs,更新系统</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum update -y</div></pre></td></tr></table></figure>
-<p>安装GCC编译环境</p>
+<p>在Fedora中将client.ovpn改为client.conf即可。启动OpenVPN客户端(root权限):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">openvpn client.conf</div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/05/fedora-20-install-nodejs/#more" rel="contents">
+            <a class="btn" href="/2016/10/09/fedora-openvpn-client/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -644,8 +648,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/04/delete-ambari-service/" itemprop="url">
-                  删除Apache Ambari服务
+                <a class="post-title-link" href="/2016/10/08/intelli-idea-plugin/" itemprop="url">
+                  Intellij IDEA推荐插件
                 </a>
               
             
@@ -658,8 +662,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-04T21:04:27+08:00" content="2016-10-04">
-              2016-10-04
+            <time itemprop="dateCreated" datetime="2016-10-08T13:46:41+08:00" content="2016-10-08">
+              2016-10-08
             </time>
           </span>
 
@@ -688,8 +692,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/04/delete-ambari-service/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/04/delete-ambari-service/" itemprop="commentsCount"></span>
+                <a href="/2016/10/08/intelli-idea-plugin/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/intelli-idea-plugin/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -713,10 +717,9 @@
 
       
         
-          <p>删除删除Apache Ambari服务可调用Apache Ambari REST接口：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移除ZooKeeper服务</span></div><div class="line">curl -u admin:admin -H <span class="string">"X-Requested-By: ambari"</span> -X DELETE http://192.168.24.226:8080/api/v1/clusters/zwlbs/services/ZooKeeper</div><div class="line"></div><div class="line"><span class="comment">#移除MapReduce服务</span></div><div class="line">curl -u admin:admin -H <span class="string">"X-Requested-By: ambari"</span> -X DELETE http://192.168.24.226:8080/api/v1/clusters/zwlbs/services/ZooKeeper/MAPREDUCE2</div></pre></td></tr></table></figure>
+          <h4 id="presentation-assistant"><a href="#presentation-assistant" class="headerlink" title="presentation assistant"></a>presentation assistant</h4><p>这款插件可以实时的在Intellij屏幕底部展示当前按下的快捷键，包括Windows的快捷键和Mac的快捷键，可以帮助您记忆快捷键，清楚当前的行为(Action)。效果如下图所示。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/04/delete-ambari-service/#more" rel="contents">
+            <a class="btn" href="/2016/10/08/intelli-idea-plugin/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -767,8 +770,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/03/fedora-20-install-input-method/" itemprop="url">
-                  Fedora 20安装中文输入法
+                <a class="post-title-link" href="/2016/10/08/rm-command/" itemprop="url">
+                  rm命令安全
                 </a>
               
             
@@ -781,19 +784,38 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-03T11:08:51+08:00" content="2016-10-03">
-              2016-10-03
+            <time itemprop="dateCreated" datetime="2016-10-08T11:25:38+08:00" content="2016-10-08">
+              2016-10-08
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/03/fedora-20-install-input-method/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/03/fedora-20-install-input-method/" itemprop="commentsCount"></span>
+                <a href="/2016/10/08/rm-command/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/rm-command/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -817,10 +839,9 @@
 
       
         
-          <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum install scim -y</div><div class="line">yum install scim-pinyin -y</div></pre></td></tr></table></figure>
-<p>SCIM(Smart Common Input Method)是基于GTK引擎，为GNOME/GTK环境下非英文/ASCII字符提供的输入。SCIM is a GTK-based input method engine for inputting non-English / non-ASCII characters in a GNOME/GTK environment. There is a KDE frontend called skim.它本身自带拼音、内码等输入法，同时提供简单的程序接口，方便程序员便捷的对其进行扩充。</p>
+          <p>rm命令是一个非常危险的命令，由于这个命令引发的事故不少，最近也是深深的体会到了。在此记录下如何将rm命令变为安全的命令。对于需要在Linux下开发的朋友来说，这一步(屏蔽rm危险操作)觉得是必须的，非常、非常、非常重要。怎么强调都不为过。一定要花时间做rm命令的安全工作。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/03/fedora-20-install-input-method/#more" rel="contents">
+            <a class="btn" href="/2016/10/08/rm-command/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -854,7 +875,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -895,7 +916,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">75</span>
+              <span class="site-state-item-count">82</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -912,7 +933,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">104</span>
+                <span class="site-state-item-count">106</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

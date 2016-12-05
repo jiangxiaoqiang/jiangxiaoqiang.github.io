@@ -268,8 +268,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/29/kafka-delete-topic/" itemprop="url">
-                  Kafka彻底删除主题
+                <a class="post-title-link" href="/2016/11/04/log4j/" itemprop="url">
+                  Java Web开发--log4j
                 </a>
               
             
@@ -282,8 +282,113 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-29T14:24:15+08:00" content="2016-10-29">
-              2016-10-29
+            <time itemprop="dateCreated" datetime="2016-11-04T21:10:08+08:00" content="2016-11-04">
+              2016-11-04
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/04/log4j/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/04/log4j/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="isDebugEnabled"><a href="#isDebugEnabled" class="headerlink" title="isDebugEnabled"></a>isDebugEnabled</h2><p>在输出日志时，判断输出级别：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(logger.isDebugEnabled()) &#123;</div><div class="line">    logger.debug(<span class="string">"通用处理，信息为："</span> + JSON.toJSONString(vehicleLocationData));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于debug，即不需要进行日志信息输出时：</p>
+<p>①假如debug方法中的参数比较简单时（比如直接就是写好的字符串），加不加这句if判断，在效率上也几乎没有什么差别；</p>
+<p>②假如debug方法中的参数比较复杂时（比如还要使用别的函数进行计算、或者还要进行字符串的拼接等等,如上代码片段所示，输出的内容需要序列化），在前面就加上这句if判断，会让效率提高（否则，开始大动干戈做了很多事情（比如字符串的拼接，序列化），后来才发现不需要进行输出日志信息），白白浪费了CPU资源，影响程序的运行效率。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/04/redis-client-connect/" itemprop="url">
+                  Redis客户端连接
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-04T13:10:45+08:00" content="2016-11-04">
+              2016-11-04
             </time>
           </span>
 
@@ -312,8 +417,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/29/kafka-delete-topic/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/29/kafka-delete-topic/" itemprop="commentsCount"></span>
+                <a href="/2016/11/04/redis-client-connect/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/04/redis-client-connect/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -337,14 +442,166 @@
 
       
         
-          <p>这里的Kafka的版本是0.9.0.1，查看所有Topics和分区：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./kafka-topics.sh --describe --zookeeper 192.168.244.11:2181</div></pre></td></tr></table></figure>
-<p>只查看所有Topic：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./kafka-topics.sh --list --zookeeper 192.168.24.244:2181</div></pre></td></tr></table></figure>
-<p>删除主题：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./kafka-topics.sh --zookeeper 192.168.24.244:2181 --delete --topic 0085000</div></pre></td></tr></table></figure>
+          
+            <h4 id="Redis特点"><a href="#Redis特点" class="headerlink" title="Redis特点"></a>Redis特点</h4><ul>
+<li><p>Redis 是一个 key-value 的缓存(cache)和存储(store)系统（现在我们只用它来做缓存，目前还未当作DB用，数据存放在 Cassandra 里）</p>
+</li>
+<li><p>支持丰富的数据结构，List 就专门用于存储列表型数据，默认按操作时间排序。Sorted Set 可以按分数排序元素，分数是一种广义概念，可以是时间或评分。其次，其丰富的数据结构为日后扩展提供了很大的方便。</p>
+</li>
+<li><p>提供的所有操作都是原子操作，为并发天然保驾护航。</p>
+</li>
+<li><p>超快的性能，见其官方性能测试《How fast is Redis?》。</p>
+</li>
+<li><p>拥有比较成熟的Java客户端 - Jedis，像新浪微博都是使用它作为客户端。（官方推荐的Clients）</p>
+</li>
+</ul>
+<p>Redis运行一段时间后，出现错误，无法获得连接：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">redis.clients.jedis.exceptions.JedisException: Could not get a resource from the pool</div></pre></td></tr></table></figure>
+<p>使用命令查看客户端数量。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">D:\Program Files\Redis&gt;redis-cli.exe info clients</div></pre></td></tr></table></figure>
+<p>结果如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># Clients</div><div class="line">connected_clients:11</div><div class="line">client_longest_output_list:0</div><div class="line">client_biggest_input_buf:0</div><div class="line">blocked_clients:0</div></pre></td></tr></table></figure>
+<h4 id="Redis客户端连接"><a href="#Redis客户端连接" class="headerlink" title="Redis客户端连接"></a>Redis客户端连接</h4><p>在修改了Redis的绑定IP后，用客户端登录需要显示的指定IP和端口：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./redis-cli -h 192.168.24.252 -p 6379</div></pre></td></tr></table></figure>
+<p>h代表hostname，主机，p代表port，端口。</p>
+<h4 id="Redis是否正确关闭连接"><a href="#Redis是否正确关闭连接" class="headerlink" title="Redis是否正确关闭连接"></a>Redis是否正确关闭连接</h4><p>可以看出目前的客户端已经超出了最大的客户端数量(配置的是10个)。应该是没有释放连接导致的问题。明显一个请求一次连接是很不靠谱的。这个问题发生有两方面的原因：</p>
+<ul>
+<li><p>未正确使用对象池的空闲队列行为（LIFO“后进先出”栈方式）</p>
+</li>
+<li><p>“关闭集群链接时异常导致连接泄漏”问题</p>
+</li>
+</ul>
+<p>修改配置：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> Dictionary&lt;Integer, JedisPool&gt; pools = <span class="keyword">new</span> Hashtable();</div><div class="line"></div><div class="line"><span class="keyword">static</span> &#123;</div><div class="line">    JedisPoolConfig config = <span class="keyword">new</span> JedisPoolConfig();</div><div class="line">    config.setMaxTotal(<span class="number">200</span>);</div><div class="line">    config.setMaxIdle(<span class="number">50</span>);</div><div class="line">    <span class="comment">/*设置最小空闲数,在并发量不高时可以降低最小空闲数*/</span></div><div class="line">    config.setMinIdle(<span class="number">8</span>);</div><div class="line">    config.setMaxWaitMillis(<span class="number">10000</span>);</div><div class="line">    config.setTestOnBorrow(<span class="keyword">true</span>);</div><div class="line">    config.setTestOnReturn(<span class="keyword">true</span>); <span class="comment">//Idle时进行连接扫描</span></div><div class="line">    config.setTestWhileIdle(<span class="keyword">true</span>); <span class="comment">//表示idle object evitor两次扫描之间要sleep的毫秒数</span></div><div class="line">    config.setTimeBetweenEvictionRunsMillis(<span class="number">30000</span>); <span class="comment">//表示idle object evitor每次扫描的最多的对象数</span></div><div class="line">    config.setNumTestsPerEvictionRun(<span class="number">10</span>); <span class="comment">//表示一个对象至少停留在idle状态的最短时间，然后才能被idle object evitor扫描并驱逐；这一项只有在timeBetweenEvictionRunsMillis大于0时才有意义</span></div><div class="line">    config.setMinEvictableIdleTimeMillis(<span class="number">60000</span>);</div><div class="line">    <span class="comment">//循环创建16个redis数据库连接池,存放在字典里面</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++) &#123;</div><div class="line">        JedisPool item = <span class="keyword">new</span> JedisPool(config, <span class="string">"127.0.0.1"</span>, <span class="number">6379</span>, <span class="number">0</span>);</div><div class="line">        pools.put(i, item);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用命令<code>client-cli.exe info clients</code>查看客户端的连接数量时，一般为最小空闲连接数量与客户端数量之和。比如查看客户端连接数量为17，设置的最小空闲连接数量是8，有2个连接池，即为16，加一个当前客户端的连接，刚好17个连接。此处<code>Could not get a resource from the pool</code>错误的原因是在打开了连接之后未关闭连接，此处使用的Redis版本为3.2.100 for Windows。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* 获取数据</div><div class="line">*</div><div class="line">* <span class="doctag">@param</span> key //key</div><div class="line">* <span class="doctag">@param</span> db  //数据库序号</div><div class="line">*/</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">get</span><span class="params">(String key, Integer db)</span> </span>&#123;</div><div class="line">    JedisPool poolItem = pools.get(db);</div><div class="line">    Jedis jredis = <span class="keyword">null</span>;</div><div class="line">    String result = <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        jredis = poolItem.getResource();</div><div class="line">        result = jredis.get(key);</div><div class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">        log.error(<span class="string">"get value error"</span>, e);</div><div class="line">    &#125; <span class="keyword">finally</span> &#123;</div><div class="line">        <span class="keyword">if</span> (jredis != <span class="keyword">null</span>) &#123;</div><div class="line">        	<span class="comment">/*</span></div><div class="line">            关闭Redis连接，ReturnResource方法已经标记为Deprecated</div><div class="line">            新的关闭连接的方式为直接调用close方法</div><div class="line">            */</div><div class="line">            jredis.close();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Redis配置是否正确绑定"><a href="#Redis配置是否正确绑定" class="headerlink" title="Redis配置是否正确绑定"></a>Redis配置是否正确绑定</h4><p>在Redis的配置文件中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#</div><div class="line"># ~~~ WARNING ~~~ If the computer running Redis is directly exposed to the</div><div class="line"># internet, binding to all the interfaces is dangerous and will expose the</div><div class="line"># instance to everybody on the internet. So by default we uncomment the</div><div class="line"># following bind directive, that will force Redis to listen only into</div><div class="line"># the IPv4 lookback interface address (this means Redis will be able to</div><div class="line"># accept connections only from clients running into the same computer it</div><div class="line"># is running).</div><div class="line">#</div><div class="line"># IF YOU ARE SURE YOU WANT YOUR INSTANCE TO LISTEN TO ALL THE INTERFACES</div><div class="line"># JUST COMMENT THE FOLLOWING LINE.</div><div class="line"># ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</div><div class="line">bind 192.168.24.252</div></pre></td></tr></table></figure>
+<p>bind的地址如果和程序中配置的地址不一致，也会提示此错误。在Linux里，如果没有指定配置文件，则会使用默认的配置文件，所以在修改了配置文件之后，启动Redis服务的时候显示的指定使用修改后的配置文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./redis-server ../redis.conf &amp;</div></pre></td></tr></table></figure>
+<p>参考资料：</p>
+<p><a href="http://stackoverflow.com/questions/17082163/jedis-when-to-use-returnbrokenresource" target="_blank" rel="external">Jedis - When to use returnBrokenResource()</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/03/intellij-idea-tips/" itemprop="url">
+                  Intellij Idea小技巧(tips)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-03T09:51:27+08:00" content="2016-11-03">
+              2016-11-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/03/intellij-idea-tips/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/03/intellij-idea-tips/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="键盘调整Debug窗口的大小"><a href="#键盘调整Debug窗口的大小" class="headerlink" title="键盘调整Debug窗口的大小"></a>键盘调整Debug窗口的大小</h4><p>键盘调整Debug窗口的大小快捷键是<code>Ctrl + Shift + Up/Down</code>，注意一定要定位到Debug视图，也就是Debug视图但是当前窗口的活跃(Active)视图才会生效。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/29/kafka-delete-topic/#more" rel="contents">
+            <a class="btn" href="/2016/11/03/intellij-idea-tips/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -395,8 +652,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/28/kafka-error/" itemprop="url">
-                  Kafka常见错误
+                <a class="post-title-link" href="/2016/11/02/kafka-consume-position/" itemprop="url">
+                  Kafka消费position
                 </a>
               
             
@@ -409,8 +666,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-28T17:06:23+08:00" content="2016-10-28">
-              2016-10-28
+            <time itemprop="dateCreated" datetime="2016-11-02T18:17:19+08:00" content="2016-11-02">
+              2016-11-02
             </time>
           </span>
 
@@ -439,8 +696,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/28/kafka-error/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/28/kafka-error/" itemprop="commentsCount"></span>
+                <a href="/2016/11/02/kafka-consume-position/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/02/kafka-consume-position/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -464,10 +721,9 @@
 
       
         
-          <h4 id="Invalid-partition-given-with-record"><a href="#Invalid-partition-given-with-record" class="headerlink" title="Invalid partition given with record"></a>Invalid partition given with record</h4><p>在Kafka生产者里写入消息时，提示写入失败，详细的错误信息如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[ERROR]-[2016年-10月-28日16:17:35.083]-[Thread-25]-[com.zw.socket.service.kafka.producer.ClientKafkaProducer]-&#123;生产者发送消息出错&#125;java.lang.IllegalArgumentException: Invalid partition given with record: 1 is not in the range [0...1].</div><div class="line">	at org.apache.kafka.clients.producer.KafkaProducer.partition(KafkaProducer.java:671) ~[kafka-clients-0.9.0.1.jar:?]</div><div class="line">	at org.apache.kafka.clients.producer.KafkaProducer.send(KafkaProducer.java:430) ~[kafka-clients-0.9.0.1.jar:?]</div><div class="line">	at org.apache.kafka.clients.producer.KafkaProducer.send(KafkaProducer.java:339) ~[kafka-clients-0.9.0.1.jar:?]</div><div class="line">	at com.zw.socket.service.kafka.producer.ClientKafkaProducer.sendMessage(ClientKafkaProducer.java:102) [classes/:?]</div><div class="line">	at com.zw.socket.service.handler.common.CommonCommandHandler.commonMessageWriteIntoKafka(CommonCommandHandler.java:95) [classes/:?]</div><div class="line">	at com.zw.socket.service.handler.device.DeviceMessageHandler.sendRegisterResult(DeviceMessageHandler.java:175) [classes/:?]</div><div class="line">	at com.zw.socket.service.handler.device.DeviceMessageHandler.isAllowRegisted(DeviceMessageHandler.java:161) [classes/:?]</div><div class="line">	at com.zw.socket.service.handler.device.DeviceMessageHandler.saveDeviceInfo(DeviceMessageHandler.java:216) [classes/:?]</div></pre></td></tr></table></figure>
+          <p>kafka允许通过seek(TopicPartition，long)指定新的位置，或者seekToBeginning，seekToEnd定位到最早或最近的offset。注意seek重置offsets只对当前消费者起作用，它并不会触发consumer的rebalance，或者影响其他消费者的fetchOffsets。在大多数情况下，消费者消费记录只是简单地从一开始到结束，并且定时地提交它的位置(不管是自动的还是手动的)。不过新的API也允许消费者手动控制它的位置，消费者可以在一个partition钟随意地往前或者往后移动位置。这就意味着消费者可以重新消费旧的记录(多次读取相同的记录)，或者直接跳到最近的记录，忽略掉中间的记录。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/28/kafka-error/#more" rel="contents">
+            <a class="btn" href="/2016/11/02/kafka-consume-position/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -518,8 +774,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/27/new-keyboard/" itemprop="url">
-                  HP KU 1158键盘
+                <a class="post-title-link" href="/2016/11/01/redis/" itemprop="url">
+                  Redis在Windows下配置
                 </a>
               
             
@@ -532,130 +788,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-27T13:08:21+08:00" content="2016-10-27">
-              2016-10-27
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Programmming/" itemprop="url" rel="index">
-                    <span itemprop="name">Programmming</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/27/new-keyboard/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/27/new-keyboard/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>以前的旧键盘打字的声音有点大，中午打字都担心吵到旁边休息的同学，而且按键比较生硬，今天特意请飞哥换了一款键盘HP KU 1158，确实好用不少。一直在找一款适合长时间输入的键盘，而且要求声音要尽量小一些，价格平民化一些(Realforce一千多也还蛮贵的)。这款键盘符合要求。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/27/new-keyboard/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/27/websocket-event/" itemprop="url">
-                  WebSocket连接(SessionConnectEvent)、断开连接(SessionDisconnectEvent)事件
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-27T10:51:45+08:00" content="2016-10-27">
-              2016-10-27
+            <time itemprop="dateCreated" datetime="2016-11-01T11:22:57+08:00" content="2016-11-01">
+              2016-11-01
             </time>
           </span>
 
@@ -684,8 +818,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/27/websocket-event/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/27/websocket-event/" itemprop="commentsCount"></span>
+                <a href="/2016/11/01/redis/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/01/redis/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -709,133 +843,9 @@
 
       
         
-          
-            <p>WebSocket事件：SessionConnectEvent(连接时), SessionConnectedEvent(连接后), SessionDisconnectEvent(断开连接)。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebSocketDisconnectHandler</span> <span class="keyword">implements</span> <span class="title">ApplicationListener</span>&lt;<span class="title">SessionDisconnectEvent</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onApplicationEvent</span><span class="params">(SessionDisconnectEvent sessionDisconnectEvent)</span> </span>&#123;</div><div class="line">        StompHeaderAccessor stompHeaderAccessor = StompHeaderAccessor.wrap(sessionDisconnectEvent.getMessage());</div><div class="line">        <span class="comment">//do something</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>添加了断开连接实现类后的逻辑后，还需要注入Bean，否则不会生效。在相关配置文件(<code>spring-socket-servlet.xml</code>)中增加如下配置即可。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"com.zw.socket.service.config.WebSocketDisconnectHandler"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/25/stomp-spring-message-push/" itemprop="url">
-                  Stomp + WebSocket消息实时推送
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-25T21:40:58+08:00" content="2016-10-25">
-              2016-10-25
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Programming/" itemprop="url" rel="index">
-                    <span itemprop="name">Programming</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/25/stomp-spring-message-push/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/25/stomp-spring-message-push/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="消息广播"><a href="#消息广播" class="headerlink" title="消息广播"></a>消息广播</h4><p>消息广播将消息发送给所有用户。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</div><div class="line"> * 推送给所有用户</div><div class="line"> */</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">pushInfoImpl</span><span class="params">(String url, String content)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (simpMessagingTemplate != <span class="keyword">null</span>) &#123;</div><div class="line">        simpMessagingTemplate.convertAndSend(url, content);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API，其实当前最热门的NoSQL数据库之一，NoSQL还包括了Memcached和mongodb。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/25/stomp-spring-message-push/#more" rel="contents">
+            <a class="btn" href="/2016/11/01/redis/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -869,7 +879,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -910,7 +920,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">75</span>
+              <span class="site-state-item-count">82</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -927,7 +937,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">104</span>
+                <span class="site-state-item-count">106</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

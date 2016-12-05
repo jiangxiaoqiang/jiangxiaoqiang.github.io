@@ -268,8 +268,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/12/intellij-idea-remote-debbuging/" itemprop="url">
-                  Intellij-Idea远程调试
+                <a class="post-title-link" href="/2016/11/20/paper-searching/" itemprop="url">
+                  使用Google查找资料
                 </a>
               
             
@@ -282,8 +282,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-12T17:28:17+08:00" content="2016-11-12">
-              2016-11-12
+            <time itemprop="dateCreated" datetime="2016-11-20T14:03:45+08:00" content="2016-11-20">
+              2016-11-20
             </time>
           </span>
 
@@ -312,8 +312,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/12/intellij-idea-remote-debbuging/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/12/intellij-idea-remote-debbuging/" itemprop="commentsCount"></span>
+                <a href="/2016/11/20/paper-searching/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/20/paper-searching/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -337,10 +337,9 @@
 
       
         
-          <p>因为我们用的是Tomcat，所以在IDEA中点击右上角那个“Edit Configurations”按钮，然后在弹出的界面中点击左上角的加号，选择tomcat server-&gt;remote。</p>
-<h4 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a>服务器配置</h4><p>要让远程服务器运行的代码支持远程调试，则启动的时候必须加上特定的JVM参数，这些参数是：</p>
+          <p>今天需要了解关于<strong>静脉可视化技术的发展</strong>状况。查找资料的工作就由我来。首先明确中文关键字是：<strong>静脉可视化</strong>，英文关键字是：<strong>Intravenous visualization</strong>。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/12/intellij-idea-remote-debbuging/#more" rel="contents">
+            <a class="btn" href="/2016/11/20/paper-searching/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -391,8 +390,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/12/websocket-check/" itemprop="url">
-                  Websocket数据查看
+                <a class="post-title-link" href="/2016/11/19/hbase-dulplicate-data/" itemprop="url">
+                  HBase重复数据问题解决思路
                 </a>
               
             
@@ -405,8 +404,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-12T13:09:00+08:00" content="2016-11-12">
-              2016-11-12
+            <time itemprop="dateCreated" datetime="2016-11-19T21:59:43+08:00" content="2016-11-19">
+              2016-11-19
             </time>
           </span>
 
@@ -435,8 +434,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/12/websocket-check/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/12/websocket-check/" itemprop="commentsCount"></span>
+                <a href="/2016/11/19/hbase-dulplicate-data/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/19/hbase-dulplicate-data/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -460,10 +459,9 @@
 
       
         
-          <h4 id="FireFox中查看WebSocket"><a href="#FireFox中查看WebSocket" class="headerlink" title="FireFox中查看WebSocket"></a>FireFox中查看WebSocket</h4><p>使用FireFox查看WebSocket内容需要安装一个<a href="https://addons.mozilla.org/en-US/firefox/addon/websocket-monitor/">WebSocket-Monitor</a>插件。安装完毕后在FireFox的Web控制台(Ctrl + Shift + K)中。</p>
-<img src="/2016/11/12/websocket-check/firefox-websocket.jpg" alt="FireFox查看WebSocket" title="FireFox查看WebSocket">
+          <p>解决思路1可以设计消息主键，每次插入数据时，查询判断此消息是否已经写入，可以排除重复写入数据问题。但是此种手段需要查询HBase，由于写入并发量相对较高&gt;1000条/s。会影响写入速度。由于此时有单点的Redis,由于数据到达的时间相隔不会太长，可以考虑将数据持久化到Redis中，插入时，到Redis中查询，Redis中查询复杂度为常数，基本可以忽略查询对性能的影响。判断是否已经写入。而写入到Redis中的数据可以设置过期时间，可以自动清除。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/12/websocket-check/#more" rel="contents">
+            <a class="btn" href="/2016/11/19/hbase-dulplicate-data/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -514,8 +512,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/12/grep/" itemprop="url">
-                  grep使用
+                <a class="post-title-link" href="/2016/11/19/curl-using/" itemprop="url">
+                  curl使用
                 </a>
               
             
@@ -528,8 +526,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-12T12:25:45+08:00" content="2016-11-12">
-              2016-11-12
+            <time itemprop="dateCreated" datetime="2016-11-19T02:02:32+08:00" content="2016-11-19">
+              2016-11-19
             </time>
           </span>
 
@@ -558,8 +556,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/12/grep/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/12/grep/" itemprop="commentsCount"></span>
+                <a href="/2016/11/19/curl-using/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/19/curl-using/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -583,10 +581,10 @@
 
       
         
-          <p>grep (global search regular expression(RE) and print out the line,全面搜索正则表达式并把行打印出来)是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹配的行打印出来。</p>
-<p>Unix的grep家族包括grep、egrep和fgrep。egrep和fgrep的命令只跟grep有很小不同。egrep是grep的扩展，支持更多的re元字符， fgrep就是fixed grep或fast grep，它们把所有的字母都看作单词，也就是说，正则表达式中的元字符表示回其自身的字面意义，不再特殊。linux使用GNU版本的grep。它功能更强，可以通过-G、-E、-F命令行选项来使用egrep和fgrep的功能。</p>
+          <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>curl is a tool to transfer data from or to a server, using one of the supported protocols (DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, SMB, SMBS, SMTP, SMTPS, TELNET and TFTP). The command is designed to work without user interaction.</p>
+<p>curl offers a busload of useful tricks like proxy support, user authentication, FTP upload, HTTP post, SSL connections, cookies, file transfer resume, Metalink, and more. As you will see below, the number of features will make your head spin!</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/12/grep/#more" rel="contents">
+            <a class="btn" href="/2016/11/19/curl-using/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -637,8 +635,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/08/location-rectifying/" itemprop="url">
-                  地理位置纠偏
+                <a class="post-title-link" href="/2016/11/16/migration-parse-service/" itemprop="url">
+                  迁移解析服务
                 </a>
               
             
@@ -651,8 +649,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-08T08:53:10+08:00" content="2016-11-08">
-              2016-11-08
+            <time itemprop="dateCreated" datetime="2016-11-16T14:58:30+08:00" content="2016-11-16">
+              2016-11-16
             </time>
           </span>
 
@@ -681,8 +679,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/08/location-rectifying/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/08/location-rectifying/" itemprop="commentsCount"></span>
+                <a href="/2016/11/16/migration-parse-service/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/16/migration-parse-service/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -706,9 +704,11 @@
 
       
         
-          <p>偏移的起因：天朝测绘局以国家安全为理由，用法律的形式对所有在天朝发行的地图类产品加了强制性规范，要求所有地图类产品都必须使用国家测绘局的一种加偏移的算法，对地图的真实坐标进行加偏移处理，之后才可能通过审批准许上市。因此，天朝的所有官方及商用地图的坐标都是偏移的，这种偏移属于非线性的，偏移量在300至500米不等，偏移方向也不定。这种加过偏移的地图坐标就是所谓“火星坐标”。GPS接收机本身接收卫星的信号，计算出本机所在位置的经纬度，在没有做特别处理的时候，这个经纬度是正确的。但是如果GPS支持加载地图的话，这个GPS中的地图就得受上述第一条法规的约束了，所以正式在天朝销售的行货GPS设备中的地图必须也得加偏移，处理成火星坐标。地理位置纠偏代码(处理成火星坐标)：</p>
+          <p>迁移解析服务是将服务在不同主机上部署。</p>
+<h4 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h4><p>在解析服务器上，使用如下命令启动Tomcat:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /opt/tomcat/bin</div><div class="line">./catalina.sh start</div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/08/location-rectifying/#more" rel="contents">
+            <a class="btn" href="/2016/11/16/migration-parse-service/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -759,8 +759,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/04/springmvc-dispatcherservlet/" itemprop="url">
-                  Spring MVC-DispatcherServlet处理请求过程
+                <a class="post-title-link" href="/2016/11/15/redmine-install/" itemprop="url">
+                  Redmine安装
                 </a>
               
             
@@ -773,8 +773,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-04T21:10:08+08:00" content="2016-11-04">
-              2016-11-04
+            <time itemprop="dateCreated" datetime="2016-11-15T18:48:19+08:00" content="2016-11-15">
+              2016-11-15
             </time>
           </span>
 
@@ -784,8 +784,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/04/springmvc-dispatcherservlet/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/04/springmvc-dispatcherservlet/" itemprop="commentsCount"></span>
+                <a href="/2016/11/15/redmine-install/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/15/redmine-install/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -809,9 +809,9 @@
 
       
         
-          <p>Spring MVC基于模型-视图-控制器(Model-View-Controller,MVC)模式，它能够帮助我们建立灵活和松耦合的Web程序.Spring MVC中用户请求如下图所示：</p>
+          <h4 id="Redmine简介"><a href="#Redmine简介" class="headerlink" title="Redmine简介"></a>Redmine简介</h4><p>Redmine 是一个网页界面的项目管理与缺陷跟踪管理系统的自由及开放源代码软件工具。它集成了项目管理所需的各项功能：日历、燃尽图和甘特图 以协助可视化表现项目与时间限制，问题跟踪和版本控制。此外，Redmine也可以同时处理多个项目。<br>Redmine 是以 Ruby on Rails 撰写的架构，它横跨多个平台与数据库，它的设计很明显是受一些类似功能软件包的Trac所影响。此外，它也是Bitnami 应用库的一部分。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/04/springmvc-dispatcherservlet/#more" rel="contents">
+            <a class="btn" href="/2016/11/15/redmine-install/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -845,7 +845,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -886,7 +886,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">75</span>
+              <span class="site-state-item-count">82</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -903,7 +903,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">104</span>
+                <span class="site-state-item-count">106</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

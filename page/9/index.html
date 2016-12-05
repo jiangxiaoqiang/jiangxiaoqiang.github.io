@@ -268,8 +268,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/18/spring-bean-registered/" itemprop="url">
-                  Spring Bean是否注册判断
+                <a class="post-title-link" href="/2016/10/27/websocket-event/" itemprop="url">
+                  WebSocket连接(SessionConnectEvent)、断开连接(SessionDisconnectEvent)事件
                 </a>
               
             
@@ -282,8 +282,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-18T21:31:26+08:00" content="2016-10-18">
-              2016-10-18
+            <time itemprop="dateCreated" datetime="2016-10-27T10:51:45+08:00" content="2016-10-27">
+              2016-10-27
             </time>
           </span>
 
@@ -312,8 +312,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/18/spring-bean-registered/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/18/spring-bean-registered/" itemprop="commentsCount"></span>
+                <a href="/2016/10/27/websocket-event/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/27/websocket-event/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -337,9 +337,133 @@
 
       
         
-          <p>在项目的开发过程中有许多Bean，怎么判断一个Bean是否已经纳入容器管理了呢？当然最直接的方式是直接使用，如果不能用，那么肯定就未注册成功，但是也有的情况不是那么明显的，即使没有注册成功也不会有明显的错误。如何有效的鉴别和判断是否已经注册？</p>
+          
+            <p>WebSocket事件：SessionConnectEvent(连接时), SessionConnectedEvent(连接后), SessionDisconnectEvent(断开连接)。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebSocketDisconnectHandler</span> <span class="keyword">implements</span> <span class="title">ApplicationListener</span>&lt;<span class="title">SessionDisconnectEvent</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onApplicationEvent</span><span class="params">(SessionDisconnectEvent sessionDisconnectEvent)</span> </span>&#123;</div><div class="line">        StompHeaderAccessor stompHeaderAccessor = StompHeaderAccessor.wrap(sessionDisconnectEvent.getMessage());</div><div class="line">        <span class="comment">//do something</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>添加了断开连接实现类后的逻辑后，还需要注入Bean，否则不会生效。在相关配置文件(<code>spring-socket-servlet.xml</code>)中增加如下配置即可。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"com.zw.socket.service.config.WebSocketDisconnectHandler"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/25/stomp-spring-message-push/" itemprop="url">
+                  Stomp + WebSocket消息实时推送
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-25T21:40:58+08:00" content="2016-10-25">
+              2016-10-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/25/stomp-spring-message-push/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/25/stomp-spring-message-push/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="消息广播"><a href="#消息广播" class="headerlink" title="消息广播"></a>消息广播</h4><p>消息广播将消息发送给所有用户。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</div><div class="line"> * 推送给所有用户</div><div class="line"> */</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">pushInfoImpl</span><span class="params">(String url, String content)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (simpMessagingTemplate != <span class="keyword">null</span>) &#123;</div><div class="line">        simpMessagingTemplate.convertAndSend(url, content);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/18/spring-bean-registered/#more" rel="contents">
+            <a class="btn" href="/2016/10/25/stomp-spring-message-push/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -390,8 +514,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/18/spring-get-bean/" itemprop="url">
-                  Spring线程中Bean注入问题
+                <a class="post-title-link" href="/2016/10/25/squirrel-phoenix-configuration/" itemprop="url">
+                  SQuirreL GUI客户端集成Phoenix、MySQL配置
                 </a>
               
             
@@ -404,8 +528,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-18T17:20:11+08:00" content="2016-10-18">
-              2016-10-18
+            <time itemprop="dateCreated" datetime="2016-10-25T09:24:13+08:00" content="2016-10-25">
+              2016-10-25
             </time>
           </span>
 
@@ -434,8 +558,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/18/spring-get-bean/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/18/spring-get-bean/" itemprop="commentsCount"></span>
+                <a href="/2016/10/25/squirrel-phoenix-configuration/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/25/squirrel-phoenix-configuration/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -459,9 +583,9 @@
 
       
         
-          <h4 id="实现ApplicationContextAware"><a href="#实现ApplicationContextAware" class="headerlink" title="实现ApplicationContextAware"></a>实现ApplicationContextAware</h4><p>在Spring中开启线程时，无法使用Bean的自动注入，此时需要手动获取Bean。方法如下：</p>
+          <h4 id="SQuirreL-GUI客户端简介"><a href="#SQuirreL-GUI客户端简介" class="headerlink" title="SQuirreL GUI客户端简介"></a>SQuirreL GUI客户端简介</h4><p>SQuirreL GUI(<a href="https://sourceforge.net/projects/squirrel-sql/?source=typ_redirect">下载地址</a>)客户端来连接Phoenix，就像MySQL使用Navicat for MySQL，Oracle使用PL/SQL Developer一样，在进行一些数据库操作的时候能够更加的直观和方便。同时它还可以连接MySQL。它可以运行在Windows、Linux、Mac OS操作系统上。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/18/spring-get-bean/#more" rel="contents">
+            <a class="btn" href="/2016/10/25/squirrel-phoenix-configuration/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -512,8 +636,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/17/port-aready-in-use/" itemprop="url">
-                  port aready in use
+                <a class="post-title-link" href="/2016/10/21/Fedora-shortkey/" itemprop="url">
+                  Fedora快捷键
                 </a>
               
             
@@ -526,8 +650,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-17T16:15:02+08:00" content="2016-10-17">
-              2016-10-17
+            <time itemprop="dateCreated" datetime="2016-10-21T23:53:36+08:00" content="2016-10-21">
+              2016-10-21
             </time>
           </span>
 
@@ -556,8 +680,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/17/port-aready-in-use/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/17/port-aready-in-use/" itemprop="commentsCount"></span>
+                <a href="/2016/10/21/Fedora-shortkey/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/21/Fedora-shortkey/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -581,13 +705,48 @@
 
       
         
-          <p>在使用Intellij Idea调试时，以Application方式启动程序时提示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">2016-10-17 11:28:38.537 ERROR 23156 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : </div><div class="line"></div><div class="line">***************************</div><div class="line">APPLICATION FAILED TO START</div><div class="line">***************************</div><div class="line"></div><div class="line">Description:</div><div class="line"></div><div class="line">The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.</div><div class="line"></div><div class="line">Action:</div><div class="line"></div><div class="line">Verify the connector&apos;s configuration, identify and stop any process that&apos;s listening on port 8080, or configure this application to listen on another port.</div></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/17/port-aready-in-use/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <p>如下是我在使用Fedora的时候整理的快捷键，网络上有许多快捷键版本，下表是经过测试可用并一直在使用的快捷键。</p>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows + A</td>
+<td style="text-align:center">显示软件列表</td>
+</tr>
+<tr>
+<td>Windows + H</td>
+<td style="text-align:center">隐藏当前窗口</td>
+</tr>
+<tr>
+<td>Alt + F10</td>
+<td style="text-align:center">最大化、还原当前窗口</td>
+</tr>
+<tr>
+<td>Ctrl + Alt + Up/Down</td>
+<td style="text-align:center">切换当前窗口</td>
+</tr>
+<tr>
+<td>Alt + Tab</td>
+<td style="text-align:center">应用程序之间进行切换</td>
+</tr>
+<tr>
+<td>Windows + Left/Right/Up/Down</td>
+<td style="text-align:center">将窗口移向左右、最大化、还原</td>
+</tr>
+<tr>
+<td>Windows + PageUp/PageDown</td>
+<td style="text-align:center">切换工作区</td>
+</tr>
+</tbody>
+</table>
+
+          
         
       
     </div>
@@ -635,8 +794,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/16/fedora-git-server/" itemprop="url">
-                  Fedora 24搭建Git Server
+                <a class="post-title-link" href="/2016/10/21/spring-module-config/" itemprop="url">
+                  Spring模块化配置
                 </a>
               
             
@@ -649,8 +808,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-16T21:03:39+08:00" content="2016-10-16">
-              2016-10-16
+            <time itemprop="dateCreated" datetime="2016-10-21T23:51:37+08:00" content="2016-10-21">
+              2016-10-21
             </time>
           </span>
 
@@ -679,8 +838,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/16/fedora-git-server/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/16/fedora-git-server/" itemprop="commentsCount"></span>
+                <a href="/2016/10/21/spring-module-config/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/21/spring-module-config/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -704,131 +863,9 @@
 
       
         
-          <p>想将代码拷贝到家里的电脑，在安静的时刻可以阅读消化。每天用U盘拷贝也是比较麻烦，本来Github挺好用的，但是闭源的托管需要费用。刚好办公电脑和家里的电脑安装了OpenVPN,所以就想在家里的电脑搭建一个Git Server，通过OpenVPN将家里的电脑和办公电脑相连(相当于局域网)。这样就可以随时提交代码了。同时也想以SSH连接家里的电脑，所以同时也安装了OpenSSH。也可以SSH远程Copy，但是无法增量Copy，Copy一次大概需要2-3个小时。遂放弃SSH Copy的方案。</p>
+          <p>Spring的一大缺点就是配置文件非常多，想象如果没有注解扫描Bean，所有的Bean都配置在XML文件中，将会是一个噩梦，项目中会充斥着大量的配置文件。这也是Spring-Boot项目所要避免的问题之一，在做项目开发时，为了使配置显得有条理化，易于理解，可以采用Spring Import配置文件，项目中需要一个Spring的主文件，在Web.xml中指定Spring的主文件位置，主文件再Import各类配置文件。指定主文件如下代码片段所示：</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/16/fedora-git-server/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/15/Fedora-24-using-xxnet/" itemprop="url">
-                  在Fedora 24中使用xx-net
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-15T21:30:14+08:00" content="2016-10-15">
-              2016-10-15
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Software/" itemprop="url" rel="index">
-                    <span itemprop="name">Software</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/15/Fedora-24-using-xxnet/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/15/Fedora-24-using-xxnet/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>虽然此处实际在Linux平台进行的配置，但是XX-Net是跨平台的，在Windows、Mac OS下一样可以使用，在其他的操作系统下配置类似。在Fedora 24中安装完Google Chrome之后，还需要同步在Windows平台上保存的Google Chrome的书签（里面有好多收藏的好网站）、Cookie(不用每次登陆网页输入用户名和密码，记忆用户名和密码非常具有迷惑性，目前注册的用户名密码真的太多了，根本记不住，现在都是借助KeePass来记忆)等等数据。平时的搜索还是需要用Google，Google相比于百度，搜索出的结果更加精确，内容对于用户更加有意义。当你迫切想要知道某个问题的思路时，如果搜索出来一些无关痛痒的内容，是非常浪费时间的，消磨你的意志，会让你有一种被掏空了的感觉，对就是那种感觉。极大的降低了效率，想想如此庞大的用户基数，如果搜索出的内容不精准、没有意义所造成的资源浪费（时间、精力、意志力等）是非常恐怖的。所以这也是为什么费尽心思要使用Google，当你顺利的找到自己想要的内容并快速完成任务时，会深刻的体会到前期在科学上网里花费的时间是值得的。要做到以上两点，就需要借助XX-Net。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/15/Fedora-24-using-xxnet/#more" rel="contents">
+            <a class="btn" href="/2016/10/21/spring-module-config/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -862,7 +899,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -903,7 +940,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">75</span>
+              <span class="site-state-item-count">82</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -920,7 +957,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">104</span>
+                <span class="site-state-item-count">106</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
