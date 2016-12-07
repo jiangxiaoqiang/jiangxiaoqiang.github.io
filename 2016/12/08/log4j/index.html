@@ -84,28 +84,22 @@
 
 
 
-<meta name="description" content="Spring的不足：
-
-配置太多
-
-常见问题Could not open ServletContext resource [/WEB-INF/applicationContext.xml]ContextLoaderListener has its own context which is shared by all servlets and filters. By default it will">
+<meta name="description" content="isDebugEnabled在输出日志时，判断输出级别：
+123if(logger.isDebugEnabled()) &amp;#123;    logger.debug(&quot;通用处理，信息为：&quot; + JSON.toJSONString(vehicleLocationData));&amp;#125;
+当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于deb">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring框架搭建">
-<meta property="og:url" content="http://jiangxiaoqiang.com/2016/10/23/spring/index.html">
+<meta property="og:title" content="Java Web开发--log4j">
+<meta property="og:url" content="http://jiangxiaoqiang.com/2016/12/08/log4j/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="Spring的不足：
-
-配置太多
-
-常见问题Could not open ServletContext resource [/WEB-INF/applicationContext.xml]ContextLoaderListener has its own context which is shared by all servlets and filters. By default it will">
-<meta property="og:updated_time" content="2016-10-06T15:30:49.140Z">
+<meta property="og:description" content="isDebugEnabled在输出日志时，判断输出级别：
+123if(logger.isDebugEnabled()) &amp;#123;    logger.debug(&quot;通用处理，信息为：&quot; + JSON.toJSONString(vehicleLocationData));&amp;#125;
+当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于deb">
+<meta property="og:updated_time" content="2016-10-06T15:30:49.136Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring框架搭建">
-<meta name="twitter:description" content="Spring的不足：
-
-配置太多
-
-常见问题Could not open ServletContext resource [/WEB-INF/applicationContext.xml]ContextLoaderListener has its own context which is shared by all servlets and filters. By default it will">
+<meta name="twitter:title" content="Java Web开发--log4j">
+<meta name="twitter:description" content="isDebugEnabled在输出日志时，判断输出级别：
+123if(logger.isDebugEnabled()) &amp;#123;    logger.debug(&quot;通用处理，信息为：&quot; + JSON.toJSONString(vehicleLocationData));&amp;#125;
+当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于deb">
 
 
 
@@ -126,10 +120,10 @@
 
 
 
-  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/10/23/spring/"/>
+  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/12/08/log4j/"/>
 
 
-  <title> Spring框架搭建 | 小强的博客 </title>
+  <title> Java Web开发--log4j | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -291,7 +285,7 @@
             
             
               
-                Spring框架搭建
+                Java Web开发--log4j
               
             
           </h1>
@@ -303,8 +297,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-23T22:31:17+08:00" content="2016-10-23">
-              2016-10-23
+            <time itemprop="dateCreated" datetime="2016-12-08T00:02:32+08:00" content="2016-12-08">
+              2016-12-08
             </time>
           </span>
 
@@ -314,8 +308,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/23/spring/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/23/spring/" itemprop="commentsCount"></span>
+                <a href="/2016/12/08/log4j/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/08/log4j/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -338,19 +332,11 @@
       
 
       
-        <p>Spring的不足：</p>
-<ul>
-<li>配置太多</li>
-</ul>
-<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="Could-not-open-ServletContext-resource-WEB-INF-applicationContext-xml"><a href="#Could-not-open-ServletContext-resource-WEB-INF-applicationContext-xml" class="headerlink" title="Could not open ServletContext resource [/WEB-INF/applicationContext.xml]"></a>Could not open ServletContext resource [/WEB-INF/applicationContext.xml]</h3><p>ContextLoaderListener has its own context which is shared by all servlets and filters. By default it will search /WEB-INF/applicationContext.xml。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>/WEB-INF/somewhere-else/root-context.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="Missing-artifact-org-aspectj-aspectjweaver-jar-1-8-0-M1"><a href="#Missing-artifact-org-aspectj-aspectjweaver-jar-1-8-0-M1" class="headerlink" title="Missing artifact org.aspectj:aspectjweaver:jar:1.8.0.M1"></a>Missing artifact org.aspectj:aspectjweaver:jar:1.8.0.M1</h3><p>According to a reported issue at springsource, aspectjweaver is “basically identical to AspectJ 1.7” except that it has early support for Java 8.As I don’t need Java 8 support, I basically added a compile dependency to the latest release version of aspectweaver:</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.aspectj<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>aspectjweaver<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>This ensures that the 1.7.4 is used instead of the milestone release, and is an acceptable workaround for me, for the time being.</p>
-<h5 id="Exception-java-lang-ClassNotFoundException-org-apache-commons-dbcp-BasicDataSource"><a href="#Exception-java-lang-ClassNotFoundException-org-apache-commons-dbcp-BasicDataSource" class="headerlink" title="Exception java.lang.ClassNotFoundException: org.apache.commons.dbcp.BasicDataSource"></a>Exception java.lang.ClassNotFoundException: org.apache.commons.dbcp.BasicDataSource</h5><p>在POM.xml中引入jar包。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-dbcp<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-dbcp<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
-<h5 id="java-lang-NoClassDefFoundError-org-apache-ibatis-session-SqlSessionFactory"><a href="#java-lang-NoClassDefFoundError-org-apache-ibatis-session-SqlSessionFactory" class="headerlink" title="java.lang.NoClassDefFoundError: org/apache/ibatis/session/SqlSessionFactory"></a>java.lang.NoClassDefFoundError: org/apache/ibatis/session/SqlSessionFactory</h5><p>引入jar包。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.ibatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>ibatis-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+        <h2 id="isDebugEnabled"><a href="#isDebugEnabled" class="headerlink" title="isDebugEnabled"></a>isDebugEnabled</h2><p>在输出日志时，判断输出级别：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(logger.isDebugEnabled()) &#123;</div><div class="line">    logger.debug(<span class="string">"通用处理，信息为："</span> + JSON.toJSONString(vehicleLocationData));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于debug，即不需要进行日志信息输出时：</p>
+<p>①假如debug方法中的参数比较简单时（比如直接就是写好的字符串），加不加这句if判断，在效率上也几乎没有什么差别；</p>
+<p>②假如debug方法中的参数比较复杂时（比如还要使用别的函数进行计算、或者还要进行字符串的拼接等等,如上代码片段所示，输出的内容需要序列化），在前面就加上这句if判断，会让效率提高（否则，开始大动干戈做了很多事情（比如字符串的拼接，序列化），后来才发现不需要进行输出日志信息），白白浪费了CPU资源，影响程序的运行效率。</p>
 
       
     </div>
@@ -376,16 +362,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/23/maven-private-service/" rel="next" title="Windows下用Nexus搭建Maven私服">
-                <i class="fa fa-chevron-left"></i> Windows下用Nexus搭建Maven私服
+              <a href="/2016/12/08/websocket-sending-config/" rel="next" title="Websocket发送消息长度设置">
+                <i class="fa fa-chevron-left"></i> Websocket发送消息长度设置
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/10/23/lombok/" rel="prev" title="Lombok精简Java代码">
-                Lombok精简Java代码 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/08/maven-private-service/" rel="prev" title="Windows下用Nexus搭建Maven私服">
+                Windows下用Nexus搭建Maven私服 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -412,8 +398,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/23/spring/"
-           data-title="Spring框架搭建" data-url="http://jiangxiaoqiang.com/2016/10/23/spring/">
+      <div class="ds-thread" data-thread-key="2016/12/08/log4j/"
+           data-title="Java Web开发--log4j" data-url="http://jiangxiaoqiang.com/2016/12/08/log4j/">
       </div>
     
   </div>
@@ -458,7 +444,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-count">82</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -475,7 +461,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">104</span>
+                <span class="site-state-item-count">108</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -528,7 +514,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常见问题"><span class="nav-number">1.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Could-not-open-ServletContext-resource-WEB-INF-applicationContext-xml"><span class="nav-number">1.1.</span> <span class="nav-text">Could not open ServletContext resource [/WEB-INF/applicationContext.xml]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Missing-artifact-org-aspectj-aspectjweaver-jar-1-8-0-M1"><span class="nav-number">1.2.</span> <span class="nav-text">Missing artifact org.aspectj:aspectjweaver:jar:1.8.0.M1</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Exception-java-lang-ClassNotFoundException-org-apache-commons-dbcp-BasicDataSource"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">Exception java.lang.ClassNotFoundException: org.apache.commons.dbcp.BasicDataSource</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#java-lang-NoClassDefFoundError-org-apache-ibatis-session-SqlSessionFactory"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">java.lang.NoClassDefFoundError: org/apache/ibatis/session/SqlSessionFactory</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#isDebugEnabled"><span class="nav-number">1.</span> <span class="nav-text">isDebugEnabled</span></a></li></ol></div>
             
           </div>
         </section>

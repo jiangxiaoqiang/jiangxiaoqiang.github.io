@@ -278,8 +278,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/03/spring-transaction/" itemprop="url">
-                  Spring事物管理
+                <a class="post-title-link" href="/2016/12/08/lombok/" itemprop="url">
+                  Lombok精简Java代码
                 </a>
               
             
@@ -292,38 +292,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-03T17:48:10+08:00" content="2016-12-03">
-              2016-12-03
+            <time itemprop="dateCreated" datetime="2016-12-08T00:02:58+08:00" content="2016-12-08">
+              2016-12-08
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Programming/" itemprop="url" rel="index">
-                    <span itemprop="name">Programming</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/12/03/spring-transaction/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/03/spring-transaction/" itemprop="commentsCount"></span>
+                <a href="/2016/12/08/lombok/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/08/lombok/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -347,129 +328,21 @@
 
       
         
-          
-            <p>#### </p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/02/mybatis-cache/" itemprop="url">
-                  MyBatis缓存
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-02T19:13:59+08:00" content="2016-12-02">
-              2016-12-02
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Programming/" itemprop="url" rel="index">
-                    <span itemprop="name">Programming</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/12/02/mybatis-cache/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/02/mybatis-cache/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>正如大多数持久层框架一样，MyBatis 同样提供了一级缓存和二级缓存的支持；</p>
+          <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p><a href="https://projectlombok.org/">lombok</a>提供了简单的注解的形式来帮助我们简化消除一些必须有但显得很臃肿的java代码,特别是相对于POJO(Plain Ordinary Java Object)。安装Lombok Plugin和引入Jar包之后方可使用。</p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>安装完毕lombok插件之后，添加如下包：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.16.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>常用的 lombok 注解：</p>
+<ul>
+<li><strong>@Data</strong>：注解在类上；提供类所有属性的 getting 和 setting 方法，此外还提供了equals、canEqual、hashCode、toString 方法</li>
+<li><strong>@Setter</strong>：注解在属性上；为属性提供 setting 方法</li>
+<li><strong>@Getter</strong>：注解在属性上；为属性提供 getting 方法</li>
+<li><strong>@Log4j</strong>：注解在类上；为类提供一个 属性名为log 的 log4j 日志对象</li>
+<li><strong>@NoArgsConstructor</strong>：注解在类上；为类提供一个无参的构造方法</li>
+<li><strong>@AllArgsConstructor</strong>：注解在类上；为类提供一个全参的构造方法</li>
+</ul>
+<p>如果不使用lombok注解，代码是这样：</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/02/mybatis-cache/#more" rel="contents">
+            <a class="btn" href="/2016/12/08/lombok/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -520,8 +393,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/02/spring-viewresolver/" itemprop="url">
-                  Spring视图解析器
+                <a class="post-title-link" href="/2016/12/08/maven-private-service/" itemprop="url">
+                  Windows下用Nexus搭建Maven私服
                 </a>
               
             
@@ -534,8 +407,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-02T17:32:27+08:00" content="2016-12-02">
-              2016-12-02
+            <time itemprop="dateCreated" datetime="2016-12-08T00:02:32+08:00" content="2016-12-08">
+              2016-12-08
             </time>
           </span>
 
@@ -564,8 +437,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/12/02/spring-viewresolver/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/02/spring-viewresolver/" itemprop="commentsCount"></span>
+                <a href="/2016/12/08/maven-private-service/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/08/maven-private-service/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -589,9 +462,14 @@
 
       
         
-          <h4 id="InternalResourceViewResolver"><a href="#InternalResourceViewResolver" class="headerlink" title="InternalResourceViewResolver"></a>InternalResourceViewResolver</h4><p>在Sprinng MVC中，Handler执行完成后，向DispatcherServlet返回一个ModelAndView对象。此时就需要调用视图解析器(View Resolver)来渲染视图了。</p>
+          <h4 id="Nexus简介"><a href="#Nexus简介" class="headerlink" title="Nexus简介"></a>Nexus简介</h4><p>使用Maven的中央仓库存在如下问题：</p>
+<ul>
+<li>Maven自己的中央库访问速度非常慢，外加GFW，基本没法用。</li>
+<li>有些jar包由于版权原因，maven中央仓库没有，比如oracle JDBC驱动。另外也会有一些项目中用到的比较老的开源jar包， 中央仓库也没有。这种情况我们需要把jar包手动上传到私服。</li>
+<li>公司自己开发的jar包并不开源，不能上传到maven中央仓库，只能部署到私服上面。</li>
+</ul>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/02/spring-viewresolver/#more" rel="contents">
+            <a class="btn" href="/2016/12/08/maven-private-service/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -642,8 +520,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/02/fedora-mysql-install/" itemprop="url">
-                  Fedora上MySQL安装
+                <a class="post-title-link" href="/2016/12/08/log4j/" itemprop="url">
+                  Java Web开发--log4j
                 </a>
               
             
@@ -656,8 +534,113 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-02T17:31:29+08:00" content="2016-12-02">
-              2016-12-02
+            <time itemprop="dateCreated" datetime="2016-12-08T00:02:32+08:00" content="2016-12-08">
+              2016-12-08
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/08/log4j/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/08/log4j/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="isDebugEnabled"><a href="#isDebugEnabled" class="headerlink" title="isDebugEnabled"></a>isDebugEnabled</h2><p>在输出日志时，判断输出级别：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(logger.isDebugEnabled()) &#123;</div><div class="line">    logger.debug(<span class="string">"通用处理，信息为："</span> + JSON.toJSONString(vehicleLocationData));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于debug，即不需要进行日志信息输出时：</p>
+<p>①假如debug方法中的参数比较简单时（比如直接就是写好的字符串），加不加这句if判断，在效率上也几乎没有什么差别；</p>
+<p>②假如debug方法中的参数比较复杂时（比如还要使用别的函数进行计算、或者还要进行字符串的拼接等等,如上代码片段所示，输出的内容需要序列化），在前面就加上这句if判断，会让效率提高（否则，开始大动干戈做了很多事情（比如字符串的拼接，序列化），后来才发现不需要进行输出日志信息），白白浪费了CPU资源，影响程序的运行效率。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/08/websocket-sending-config/" itemprop="url">
+                  Websocket发送消息长度设置
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-08T00:02:16+08:00" content="2016-12-08">
+              2016-12-08
             </time>
           </span>
 
@@ -686,8 +669,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/12/02/fedora-mysql-install/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/02/fedora-mysql-install/" itemprop="commentsCount"></span>
+                <a href="/2016/12/08/websocket-sending-config/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/08/websocket-sending-config/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -711,9 +694,9 @@
 
       
         
-          <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## Fedora 24 ##</span></div><div class="line">dnf install https://dev.mysql.com/get/mysql57-community-release-fc24-8.noarch.rpm</div></pre></td></tr></table></figure>
+          <p>项目中用到WebSocket技术，发送文本字节比较多时出现异常，立即断开了连接。项目在Tomcat上运行，Tomcat默认的文本大小为8192。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/02/fedora-mysql-install/#more" rel="contents">
+            <a class="btn" href="/2016/12/08/websocket-sending-config/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -764,7 +747,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/02/springmvc-dispatcherservlet/" itemprop="url">
+                <a class="post-title-link" href="/2016/12/08/springmvc-dispatcherservlet/" itemprop="url">
                   Spring MVC-DispatcherServlet处理请求过程
                 </a>
               
@@ -778,8 +761,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-02T17:29:07+08:00" content="2016-12-02">
-              2016-12-02
+            <time itemprop="dateCreated" datetime="2016-12-08T00:02:16+08:00" content="2016-12-08">
+              2016-12-08
             </time>
           </span>
 
@@ -789,8 +772,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/12/02/springmvc-dispatcherservlet/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/02/springmvc-dispatcherservlet/" itemprop="commentsCount"></span>
+                <a href="/2016/12/08/springmvc-dispatcherservlet/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/08/springmvc-dispatcherservlet/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -816,7 +799,7 @@
         
           <p>Spring MVC基于模型-视图-控制器(Model-View-Controller,MVC)模式，它能够帮助我们建立灵活和松耦合的Web程序.Spring MVC中用户请求如下图所示：</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/02/springmvc-dispatcherservlet/#more" rel="contents">
+            <a class="btn" href="/2016/12/08/springmvc-dispatcherservlet/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -850,7 +833,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -891,7 +874,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-count">82</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -908,7 +891,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">104</span>
+                <span class="site-state-item-count">108</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

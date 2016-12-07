@@ -278,8 +278,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/02/interview-summerize/" itemprop="url">
-                  面试总结
+                <a class="post-title-link" href="/2016/12/08/spring/" itemprop="url">
+                  Spring框架搭建
                 </a>
               
             
@@ -292,7 +292,242 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-02T15:52:52+08:00" content="2016-12-02">
+            <time itemprop="dateCreated" datetime="2016-12-08T00:02:16+08:00" content="2016-12-08">
+              2016-12-08
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/08/spring/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/08/spring/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Spring的不足：</p>
+<ul>
+<li>配置太多</li>
+</ul>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="Could-not-open-ServletContext-resource-WEB-INF-applicationContext-xml"><a href="#Could-not-open-ServletContext-resource-WEB-INF-applicationContext-xml" class="headerlink" title="Could not open ServletContext resource [/WEB-INF/applicationContext.xml]"></a>Could not open ServletContext resource [/WEB-INF/applicationContext.xml]</h3><p>ContextLoaderListener has its own context which is shared by all servlets and filters. By default it will search /WEB-INF/applicationContext.xml。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>/WEB-INF/somewhere-else/root-context.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="Missing-artifact-org-aspectj-aspectjweaver-jar-1-8-0-M1"><a href="#Missing-artifact-org-aspectj-aspectjweaver-jar-1-8-0-M1" class="headerlink" title="Missing artifact org.aspectj:aspectjweaver:jar:1.8.0.M1"></a>Missing artifact org.aspectj:aspectjweaver:jar:1.8.0.M1</h3><p>According to a reported issue at springsource, aspectjweaver is “basically identical to AspectJ 1.7” except that it has early support for Java 8.As I don’t need Java 8 support, I basically added a compile dependency to the latest release version of aspectweaver:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.aspectj<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>aspectjweaver<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>This ensures that the 1.7.4 is used instead of the milestone release, and is an acceptable workaround for me, for the time being.</p>
+<h5 id="Exception-java-lang-ClassNotFoundException-org-apache-commons-dbcp-BasicDataSource"><a href="#Exception-java-lang-ClassNotFoundException-org-apache-commons-dbcp-BasicDataSource" class="headerlink" title="Exception java.lang.ClassNotFoundException: org.apache.commons.dbcp.BasicDataSource"></a>Exception java.lang.ClassNotFoundException: org.apache.commons.dbcp.BasicDataSource</h5><p>在POM.xml中引入jar包。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-dbcp<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-dbcp<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<h5 id="java-lang-NoClassDefFoundError-org-apache-ibatis-session-SqlSessionFactory"><a href="#java-lang-NoClassDefFoundError-org-apache-ibatis-session-SqlSessionFactory" class="headerlink" title="java.lang.NoClassDefFoundError: org/apache/ibatis/session/SqlSessionFactory"></a>java.lang.NoClassDefFoundError: org/apache/ibatis/session/SqlSessionFactory</h5><p>引入jar包。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.ibatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>ibatis-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/03/spring-transaction/" itemprop="url">
+                  Spring事务管理
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-03T17:48:10+08:00" content="2016-12-03">
+              2016-12-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/03/spring-transaction/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/03/spring-transaction/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>事务最重要的两个特性，是事务的传播级别和数据隔离级别。传播级别定义的是事务的控制范围，事务隔离级别定义的是事务在数据库读写方面的控制范围。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/12/03/spring-transaction/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/02/mybatis-cache/" itemprop="url">
+                  MyBatis缓存
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-02T19:13:59+08:00" content="2016-12-02">
               2016-12-02
             </time>
           </span>
@@ -306,8 +541,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Interview/" itemprop="url" rel="index">
-                    <span itemprop="name">Interview</span>
+                  <a href="/categories/Programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
                   </a>
                 </span>
 
@@ -322,8 +557,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/12/02/interview-summerize/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/02/interview-summerize/" itemprop="commentsCount"></span>
+                <a href="/2016/12/02/mybatis-cache/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/02/mybatis-cache/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -347,9 +582,9 @@
 
       
         
-          <p>面试的过程也是气质是否和公司搭调的过程，每个公司都有自己的管理特色。找到价值观相对契合的企业非常重要。这里是面试时面试官问过的问题，虽然有的问题问得没什么意义。</p>
+          <p>正如大多数持久层框架一样，MyBatis 同样提供了一级缓存和二级缓存的支持；</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/02/interview-summerize/#more" rel="contents">
+            <a class="btn" href="/2016/12/02/mybatis-cache/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -400,8 +635,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/01/2016-summerize/" itemprop="url">
-                  2016年终总结与规划
+                <a class="post-title-link" href="/2016/12/02/spring-viewresolver/" itemprop="url">
+                  Spring视图解析器
                 </a>
               
             
@@ -414,8 +649,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-01T21:12:18+08:00" content="2016-12-01">
-              2016-12-01
+            <time itemprop="dateCreated" datetime="2016-12-02T17:32:27+08:00" content="2016-12-02">
+              2016-12-02
             </time>
           </span>
 
@@ -444,8 +679,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/12/01/2016-summerize/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/01/2016-summerize/" itemprop="commentsCount"></span>
+                <a href="/2016/12/02/spring-viewresolver/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/02/spring-viewresolver/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -469,9 +704,9 @@
 
       
         
-          <p>转眼之间一年又过去了，不得不感叹时间过的飞起。时光如梭一点不假，年底了做一个自我总结，也算是对自己的一个交代。这一年改变了什么，什么没有变，想想又忍不住狠狠的装了一把。</p>
+          <h4 id="InternalResourceViewResolver"><a href="#InternalResourceViewResolver" class="headerlink" title="InternalResourceViewResolver"></a>InternalResourceViewResolver</h4><p>在Sprinng MVC中，Handler执行完成后，向DispatcherServlet返回一个ModelAndView对象。此时就需要调用视图解析器(View Resolver)来渲染视图了。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/01/2016-summerize/#more" rel="contents">
+            <a class="btn" href="/2016/12/02/spring-viewresolver/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -522,8 +757,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/27/code-complete/" itemprop="url">
-                  推荐书《代码大全》(Code Complete)
+                <a class="post-title-link" href="/2016/12/02/fedora-mysql-install/" itemprop="url">
+                  Fedora上MySQL安装
                 </a>
               
             
@@ -536,256 +771,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-27T13:22:25+08:00" content="2016-11-27">
-              2016-11-27
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Book/" itemprop="url" rel="index">
-                    <span itemprop="name">Book</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/27/code-complete/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/27/code-complete/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>今天晚上下班时，朋友跟我讲：应该尽量使用局部变量，避免使用全局变量。</p>
-<p>我说：这是编程常识啊，怎么还不知道呢。在心里暗暗佩服自己，这个B装的真的是完美，完全找不到任何破绽。</p>
-<p>闲言少叙，如果想到知道更多关于编程的经验分享，那么我推荐你阅读《代码大全》(Code Complete)。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/27/code-complete/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/26/interview-experience/" itemprop="url">
-                  面试经历-重庆
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-26T16:14:07+08:00" content="2016-11-26">
-              2016-11-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Interview/" itemprop="url" rel="index">
-                    <span itemprop="name">Interview</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/26/interview-experience/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/26/interview-experience/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="重庆市宽景网络技术有限公司"><a href="#重庆市宽景网络技术有限公司" class="headerlink" title="重庆市宽景网络技术有限公司"></a>重庆市宽景网络技术有限公司</h4><p>公司地址在渝北区龙溪街道金山路18号中渝都会首站4幢12-5，嘉州路站下车3B出口步行500米即到。交通还是蛮方便的。这幢大厦是居民楼，但是大堂看起来又有点写字楼的味道(商住两用)，富丽堂皇，有点高端。</p>
-<p>进去后，由于早先已到了另一位面试者，等待了十几分钟左右。</p>
-<h4 id="重庆同方融达信息科技有限公司"><a href="#重庆同方融达信息科技有限公司" class="headerlink" title="重庆同方融达信息科技有限公司"></a>重庆同方融达信息科技有限公司</h4><p>面试过程大概持续了将近半个小时。两位面试官，其中一位年级稍长。</p>
-<h4 id="重庆致树网络科技有限公司"><a href="#重庆致树网络科技有限公司" class="headerlink" title="重庆致树网络科技有限公司"></a>重庆致树网络科技有限公司</h4><p>和公司的合伙人之一聊了将近2个小时，不得不说创业公司还是蛮有意思的,也非常诚恳。天，说起产品和前景来真的是停不下来阿。虽然在心里咆哮，兄弟，淡定淡定，公司还没有赚钱呢！但是表面还是表现的像：兄弟，好样的，咱这就橹起袖子干一票吧。</p>
-<p>公司主要做文化类产品的直播，直播一些手工艺品的制作过程。可能会衍生到更多品类的文化产品上，想法还是蛮新奇的‘【’。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/24/redis-expire-strategy/" itemprop="url">
-                  Redis主键失效原理
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-24T11:22:22+08:00" content="2016-11-24">
-              2016-11-24
+            <time itemprop="dateCreated" datetime="2016-12-02T17:31:29+08:00" content="2016-12-02">
+              2016-12-02
             </time>
           </span>
 
@@ -814,8 +801,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/24/redis-expire-strategy/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/24/redis-expire-strategy/" itemprop="commentsCount"></span>
+                <a href="/2016/12/02/fedora-mysql-install/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/02/fedora-mysql-install/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -839,15 +826,9 @@
 
       
         
-          <p>Redis 中的主键失效是如何实现的，即失效的主键是如何删除的？实际上，Redis 删除失效主键的方法主要有两种：</p>
-<ul>
-<li><p>消极方法（passive way），在主键被访问时如果发现它已经失效，那么就删除它</p>
-</li>
-<li><p>积极方法（active way），周期性地从设置了失效时间的主键中选择一部分失效的主键删除</p>
-</li>
-</ul>
+          <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## Fedora 24 ##</span></div><div class="line">dnf install https://dev.mysql.com/get/mysql57-community-release-fc24-8.noarch.rpm</div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/24/redis-expire-strategy/#more" rel="contents">
+            <a class="btn" href="/2016/12/02/fedora-mysql-install/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -881,7 +862,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -922,7 +903,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-count">82</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -939,7 +920,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">104</span>
+                <span class="site-state-item-count">108</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

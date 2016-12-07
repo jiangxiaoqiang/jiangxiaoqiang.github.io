@@ -92,7 +92,7 @@ Unix的grep家族包括grep、egrep和fgrep。egrep和fgrep的命令只跟grep�
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="grep (global search regular expression(RE) and print out the line,全面搜索正则表达式并把行打印出来)是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹配的行打印出来。
 Unix的grep家族包括grep、egrep和fgrep。egrep和fgrep的命令只跟grep有很小不同。egrep是grep的扩展，支持更多的re元">
-<meta property="og:updated_time" content="2016-12-01T13:32:55.447Z">
+<meta property="og:updated_time" content="2016-12-06T13:32:03.668Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="grep使用">
 <meta name="twitter:description" content="grep (global search regular expression(RE) and print out the line,全面搜索正则表达式并把行打印出来)是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹配的行打印出来。
@@ -376,6 +376,10 @@ Unix的grep家族包括grep、egrep和fgrep。egrep和fgrep的命令只跟grep�
 <p>w  匹配一个文字和数字字符，也就是[A-Za-z0-9]，如：’Gw*p’匹配以G后跟零个或多个文字或数字字符，然后是p。</p>
 <p>W  w的反置形式，匹配一个非单词字符，如点号句号等。W*则可匹配多个。</p>
 <p>b  单词锁定符，如: ‘bgrepb’只匹配grep，即只能是grep这个单词，两边均为空格。</p>
+<h4 id="匹配条件附近相关内容"><a href="#匹配条件附近相关内容" class="headerlink" title="匹配条件附近相关内容"></a>匹配条件附近相关内容</h4><p>有时日志较大时，需要查看日志中央的内容，那么可以使用-C参数。参数后附加一个数，代表日志前后的行数。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat catalina.out | grep -C 500 <span class="string">'16 11 28 11 00 00'</span> | grep <span class="string">'0720738'</span></div></pre></td></tr></table></figure>
+<p>以上命令查看满足日志中包含<code>16 11 28 11 00 00</code>且包含<code>0720738</code>的，前后500行的内容。如果是两个条件满足其中任意一个的话，使用如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat catalina.out | grep -C 500 -E <span class="string">'16 11 28 11 00 00|0720738'</span></div></pre></td></tr></table></figure>
 
       
     </div>
@@ -491,7 +495,7 @@ Unix的grep家族包括grep、egrep和fgrep。egrep和fgrep的命令只跟grep�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-count">82</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -508,7 +512,7 @@ Unix的grep家族包括grep、egrep和fgrep。egrep和fgrep的命令只跟grep�
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">104</span>
+                <span class="site-state-item-count">108</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -561,7 +565,7 @@ Unix的grep家族包括grep、egrep和fgrep。egrep和fgrep的命令只跟grep�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#多个匹配模式"><span class="nav-number">1.</span> <span class="nav-text">多个匹配模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Grep正则表达式"><span class="nav-number">2.</span> <span class="nav-text">Grep正则表达式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#多个匹配模式"><span class="nav-number">1.</span> <span class="nav-text">多个匹配模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Grep正则表达式"><span class="nav-number">2.</span> <span class="nav-text">Grep正则表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配条件附近相关内容"><span class="nav-number">3.</span> <span class="nav-text">匹配条件附近相关内容</span></a></li></ol></div>
             
           </div>
         </section>

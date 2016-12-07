@@ -4,9 +4,145 @@
   
     
     <entry>
-      <title><![CDATA[Spring事物管理]]></title>
+      <title><![CDATA[Lombok精简Java代码]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/08/lombok/</url>
+      <content type="html"><![CDATA[<h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p><a href="https://projectlombok.org/" target="_blank" rel="external">lombok</a>提供了简单的注解的形式来帮助我们简化消除一些必须有但显得很臃肿的java代码,特别是相对于POJO(Plain Ordinary Java Object)。安装Lombok Plugin和引入Jar包之后方可使用。</p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>安装完毕lombok插件之后，添加如下包：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.16.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>常用的 lombok 注解：</p>
+<ul>
+<li><strong>@Data</strong>：注解在类上；提供类所有属性的 getting 和 setting 方法，此外还提供了equals、canEqual、hashCode、toString 方法</li>
+<li><strong>@Setter</strong>：注解在属性上；为属性提供 setting 方法</li>
+<li><strong>@Getter</strong>：注解在属性上；为属性提供 getting 方法</li>
+<li><strong>@Log4j</strong>：注解在类上；为类提供一个 属性名为log 的 log4j 日志对象</li>
+<li><strong>@NoArgsConstructor</strong>：注解在类上；为类提供一个无参的构造方法</li>
+<li><strong>@AllArgsConstructor</strong>：注解在类上；为类提供一个全参的构造方法</li>
+</ul>
+<p>如果不使用lombok注解，代码是这样：</p>
+<a id="more"></a>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> String id;</div><div class="line">    <span class="keyword">private</span> Logger log = Logger.getLogger(Person.class);</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String id)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.id = id;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getId</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> id;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(String id)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.id = id;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用lombok注解，代码是这样：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Data</span></div><div class="line"><span class="meta">@Log</span>4j</div><div class="line"><span class="meta">@NoArgsConstructor</span></div><div class="line"><span class="meta">@AllArgsConstructor</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> String id;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>一旦POJO字段较多时精简的代码就很明显了，而且使用Lombok的代码更加干净、易读，添加<strong>@Data</strong>注解之后，按Ctrl + O(Outline)可以看到生成了get和set方法。</p>
+<h4 id="EqualsAndHashCode"><a href="#EqualsAndHashCode" class="headerlink" title="@EqualsAndHashCode"></a>@EqualsAndHashCode</h4><p>@EqualsAndHashCode注解实现equals()方法和hashCode()方法。hashcode是用于散列数据的快速存取，如利用HashSet/HashMap/Hashtable类来存储数据时，都是根据存储对象的hashcode值来进行判断是否相同的。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Windows下用Nexus搭建Maven私服]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/08/maven-private-service/</url>
+      <content type="html"><![CDATA[<h4 id="Nexus简介"><a href="#Nexus简介" class="headerlink" title="Nexus简介"></a>Nexus简介</h4><p>使用Maven的中央仓库存在如下问题：</p>
+<ul>
+<li>Maven自己的中央库访问速度非常慢，外加GFW，基本没法用。</li>
+<li>有些jar包由于版权原因，maven中央仓库没有，比如oracle JDBC驱动。另外也会有一些项目中用到的比较老的开源jar包， 中央仓库也没有。这种情况我们需要把jar包手动上传到私服。</li>
+<li>公司自己开发的jar包并不开源，不能上传到maven中央仓库，只能部署到私服上面。</li>
+</ul>
+<a id="more"></a>
+<p>Nexus 是Maven仓库管理器，如果你使用Maven，你可以从Maven中央仓库下载所需要的构件（artifact），但这通常不是一个好的做法，你应该在本地架设一个Maven仓库服务器，在代理远程仓库的同时维护本地仓库，以节省带宽和时间，Nexus就可以满足这样的需要。此外，他还提供了强大的仓库管理功能，构件搜索功能，它基于REST，友好的UI是一个extjs的REST客户端，它占用较少的内存，基于简单文件系统而非数据库。这些优点使其日趋成为最流行的Maven仓库管理器。下载Nexus（nexus-3.0.1-01-win64.exe），安装完毕后访问<a href="http://192.168.1.102:8081/" target="_blank" rel="external">本地Maven私服主页</a>。</p>
+<h4 id="配置单个项目"><a href="#配置单个项目" class="headerlink" title="配置单个项目"></a>配置单个项目</h4><p>安装完毕后需要登录，默认的用户名密码是：<code>admin/admin123</code>。登录之后才会显示设置图标，才能添加repositories。将<a href="http://192.168.1.102:8081/repository/maven-public/" target="_blank" rel="external">本地Maven私服路径</a>配置到项目的pom.xml中即可。如下代码片段所示。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">repositories</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">repository</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>my-nexus-repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://192.168.1.102:8081/repository/maven-public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">releases</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">releases</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">pluginRepositories</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">pluginRepository</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>my-nexus-repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://192.168.1.102:8081/repository/maven-public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">releases</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">releases</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">pluginRepository</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">pluginRepositories</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>如果在本地私服没有的jar包，会自动从中心服务器下载。至此，最简单的Maven私服搭建完毕。</p>
+<h4 id="配置全局应用"><a href="#配置全局应用" class="headerlink" title="配置全局应用"></a>配置全局应用</h4><p>在Maven的settings.xml中配置profile元素，这样就能让本机所有的Maven项目都使用自己的Maven私服。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>central<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>*<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>Human Readable Name for this Mirror.<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://localhost:8081/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">mirrors</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">profiles</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">profile</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">repositories</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">repository</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">name</span>&gt;</span>Nexus<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://localhost:8081/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">releases</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></div><div class="line">		  <span class="tag">&lt;/<span class="name">releases</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></div><div class="line">		  <span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">profiles</span>&gt;</span></div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Java Web开发--log4j]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/08/log4j/</url>
+      <content type="html"><![CDATA[<h2 id="isDebugEnabled"><a href="#isDebugEnabled" class="headerlink" title="isDebugEnabled"></a>isDebugEnabled</h2><p>在输出日志时，判断输出级别：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(logger.isDebugEnabled()) &#123;</div><div class="line">    logger.debug(<span class="string">"通用处理，信息为："</span> + JSON.toJSONString(vehicleLocationData));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于debug，即不需要进行日志信息输出时：</p>
+<p>①假如debug方法中的参数比较简单时（比如直接就是写好的字符串），加不加这句if判断，在效率上也几乎没有什么差别；</p>
+<p>②假如debug方法中的参数比较复杂时（比如还要使用别的函数进行计算、或者还要进行字符串的拼接等等,如上代码片段所示，输出的内容需要序列化），在前面就加上这句if判断，会让效率提高（否则，开始大动干戈做了很多事情（比如字符串的拼接，序列化），后来才发现不需要进行输出日志信息），白白浪费了CPU资源，影响程序的运行效率。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Websocket发送消息长度设置]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/08/websocket-sending-config/</url>
+      <content type="html"><![CDATA[<p>项目中用到WebSocket技术，发送文本字节比较多时出现异常，立即断开了连接。项目在Tomcat上运行，Tomcat默认的文本大小为8192。</p>
+<a id="more"></a>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">If the application does not define a MessageHandler.Partial for incoming text messages, any incoming text messages must be buffered so the entire message can be delivered in a single call to the registered MessageHandler.Whole for text messages. The default buffer size for text messages is 8192 bytes. This may be changed for a web application by setting the servlet context initialization parameter org.apache.tomcat.websocket.textBufferSize to the desired value in bytes.</div></pre></td></tr></table></figure>
+<p>在项目Tomcat的web.xml(<code>D:\Source\zwnewplatform\javasoftware\runtime\apache-tomcat-8.0.36\apache-tomcat-8.0.36\conf\web.xml</code>)中添加如下配置（注意单位为byte）。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>org.apache.tomcat.websocket.textBufferSize<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>327680<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>org.apache.tomcat.websocket.binaryBufferSize<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>327680<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>如果是Eclipse，则直接在Eclipse中配置，如下图所示：</p>
+
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Spring MVC-DispatcherServlet处理请求过程]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/08/springmvc-dispatcherservlet/</url>
+      <content type="html"><![CDATA[<p>Spring MVC基于模型-视图-控制器(Model-View-Controller,MVC)模式，它能够帮助我们建立灵活和松耦合的Web程序.Spring MVC中用户请求如下图所示：</p>
+<a id="more"></a>
+
+<h6 id="请求发出-HTTP-Resquest"><a href="#请求发出-HTTP-Resquest" class="headerlink" title="请求发出(HTTP Resquest)"></a>请求发出(HTTP Resquest)</h6><p>一个请求携带信息进入Spring MVC程序时，第一站是Spring的DispatcherServlet(在web.xml中配置)，它是接收所有用户请求的前端控制器Servlet。DispatcherServlet对请求URL进行解析，得到请求资源标识符（URI）。然后根据该URI，调用HandlerMapping获得该Handler配置的所有相关的对象（包括Handler对象以及Handler对象对应的拦截器），最后以HandlerExecutionChain对象的形式返回；DispatcherServlet的任务是将请求转发给Spring MVC控制器(Controller)，控制器是用于处理用户请求的Spring Bean。DispatcherServlet 根据获得的Handler，选择一个合适的HandlerAdapter。（如果成功获得HandlerAdapter后，此时将开始执行拦截器的preHandler()方法）</p>
+<h6 id="处理器映射-Handler-Mapping"><a href="#处理器映射-Handler-Mapping" class="headerlink" title="处理器映射(Handler Mapping)"></a>处理器映射(Handler Mapping)</h6><p>一般程序中会有不止一个控制器，那么DispatcherServlet需要知道将请求发送给哪个控制器，所以DispatcherServlet将会查询处理器映射(handler mapping)来确定请求的下一站，处理器映射会根据用户请求的URL来决定是哪个控制器。提取Request中的模型数据，填充Handler入参，开始执行Handler（Controller)。 在填充Handler的入参过程中，根据你的配置，Spring将帮你做一些额外的工作：</p>
+<ul>
+<li>HttpMessageConveter： 将请求消息（如Json、xml等数据）转换成一个对象，将对象转换为指定的响应信息</li>
+<li>数据转换：对请求消息进行数据转换。如String转换成Integer、Double等</li>
+<li>数据根式化：对请求消息进行数据格式化。 如将字符串转换成格式化数字或格式化日期等</li>
+<li>数据验证： 验证数据的有效性（长度、格式等），验证结果存储到BindingResult或Error中</li>
+</ul>
+<h6 id="控制器-Controller"><a href="#控制器-Controller" class="headerlink" title="控制器(Controller)"></a>控制器(Controller)</h6><p>DispatcherServlet选择了控制器之后，就会将请求发送给该控制器并等待控制器处理用户请求。控制器在完成了逻辑处理后，通常会返回处理结果并将这些结果在浏览器上显示，这些信息在Spring MVC中成为模型(Model)。Handler执行完成后，向DispatcherServlet 返回一个ModelAndView对象。</p>
+<h6 id="模型以及逻辑视图名称-Model"><a href="#模型以及逻辑视图名称-Model" class="headerlink" title="模型以及逻辑视图名称(Model)"></a>模型以及逻辑视图名称(Model)</h6><p>控制器仅仅返回模型信息往往是不够的，需要对模型信息进行格式化，生成用户友好的方式如html进行显示。所以模型信息将会被发送给一个视图(View，例如jsp视图。事实上，控制器同时产生了模型以及视图名称，将这些信息发送回DispatcherServlet。</p>
+<h6 id="视图解析器-View-Parser"><a href="#视图解析器-View-Parser" class="headerlink" title="视图解析器(View Parser)"></a>视图解析器(View Parser)</h6><p>DispatcherServlet收到控制器的视图名称并不直接表示某个特定的JSP，这个视图名称仅仅是个逻辑值，DispatcherServlet为了找到真正的视图，会使用视图解析器(view resolver)将视图名称匹配成一个具体的视图。根据返回的ModelAndView，选择一个适合的ViewResolver（必须是已经注册到Spring容器中的ViewResolver)返回给DispatcherServlet。</p>
+<h6 id="视图-View"><a href="#视图-View" class="headerlink" title="视图(View)"></a>视图(View)</h6><p>目前为止，DispatcherServlet知道了具体由哪个视图来显示模型信息，那么它就会将模型信息交付给视图，请求的任务到这里就完成了。ViewResolver 结合Model和View，来渲染视图。</p>
+<h6 id="响应-HTTP-Response"><a href="#响应-HTTP-Response" class="headerlink" title="响应(HTTP Response)"></a>响应(HTTP Response)</h6><p>视图渲染模型信息并输出，该输出最后会传递给用户端，展示给用户查看。从以上步骤可以看到，Spring MVC要处理很多过程，但是大部分过程是Spring框架内部处理的，事实上，我们可以十分方便利用Spring MVC框架的编写功能强大的Web应用程序，下一章我们将搭建一个基础的Spring MVC实例程序。</p>
+<p>原始地址：</p>
+<ul>
+<li><a href="http://wiki.jikexueyuan.com/project/spring/mvc-framework/spring-mvc-form-handling-example.html" target="_blank" rel="external">Spring MVC入门-DispatcherServlet处理请求过程</a></li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Spring框架搭建]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/08/spring/</url>
+      <content type="html"><![CDATA[<p>Spring的不足：</p>
+<ul>
+<li>配置太多</li>
+</ul>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="Could-not-open-ServletContext-resource-WEB-INF-applicationContext-xml"><a href="#Could-not-open-ServletContext-resource-WEB-INF-applicationContext-xml" class="headerlink" title="Could not open ServletContext resource [/WEB-INF/applicationContext.xml]"></a>Could not open ServletContext resource [/WEB-INF/applicationContext.xml]</h3><p>ContextLoaderListener has its own context which is shared by all servlets and filters. By default it will search /WEB-INF/applicationContext.xml。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>/WEB-INF/somewhere-else/root-context.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="Missing-artifact-org-aspectj-aspectjweaver-jar-1-8-0-M1"><a href="#Missing-artifact-org-aspectj-aspectjweaver-jar-1-8-0-M1" class="headerlink" title="Missing artifact org.aspectj:aspectjweaver:jar:1.8.0.M1"></a>Missing artifact org.aspectj:aspectjweaver:jar:1.8.0.M1</h3><p>According to a reported issue at springsource, aspectjweaver is “basically identical to AspectJ 1.7” except that it has early support for Java 8.As I don’t need Java 8 support, I basically added a compile dependency to the latest release version of aspectweaver:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.aspectj<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>aspectjweaver<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>This ensures that the 1.7.4 is used instead of the milestone release, and is an acceptable workaround for me, for the time being.</p>
+<h5 id="Exception-java-lang-ClassNotFoundException-org-apache-commons-dbcp-BasicDataSource"><a href="#Exception-java-lang-ClassNotFoundException-org-apache-commons-dbcp-BasicDataSource" class="headerlink" title="Exception java.lang.ClassNotFoundException: org.apache.commons.dbcp.BasicDataSource"></a>Exception java.lang.ClassNotFoundException: org.apache.commons.dbcp.BasicDataSource</h5><p>在POM.xml中引入jar包。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-dbcp<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-dbcp<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<h5 id="java-lang-NoClassDefFoundError-org-apache-ibatis-session-SqlSessionFactory"><a href="#java-lang-NoClassDefFoundError-org-apache-ibatis-session-SqlSessionFactory" class="headerlink" title="java.lang.NoClassDefFoundError: org/apache/ibatis/session/SqlSessionFactory"></a>java.lang.NoClassDefFoundError: org/apache/ibatis/session/SqlSessionFactory</h5><p>引入jar包。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.ibatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>ibatis-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Spring事务管理]]></title>
       <url>http://jiangxiaoqiang.com/2016/12/03/spring-transaction/</url>
-      <content type="html"><![CDATA[<p>#### </p>
+      <content type="html"><![CDATA[<p>事务最重要的两个特性，是事务的传播级别和数据隔离级别。传播级别定义的是事务的控制范围，事务隔离级别定义的是事务在数据库读写方面的控制范围。</p>
+<a id="more"></a>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 配置事务管理器 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"txManager"</span></span></div><div class="line">        <span class="attr">class</span>=<span class="string">"org.springframework.jdbc.datasource.DataSourceTransactionManager"</span></div><div class="line">        <span class="attr">p:dataSource-ref</span>=<span class="string">"dataSource"</span>&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- enables scanning for @Transactional annotations --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">tx:annotation-driven</span> <span class="attr">transaction-manager</span>=<span class="string">"txManager"</span> /&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="传播级别"><a href="#传播级别" class="headerlink" title="传播级别"></a>传播级别</h4><p>1） PROPAGATION_REQUIRED ，默认的spring事务传播级别，使用该级别的特点是，如果上下文中已经存在事务，那么就加入到事务中执行，如果当前上下文中不存在事务，则新建事务执行。所以这个级别通常能满足处理大多数的业务场景。</p>
+<p>2）PROPAGATION_SUPPORTS ，从字面意思就知道，supports，支持，该传播级别的特点是，如果上下文存在事务，则支持事务加入事务，如果没有事务，则使用非事务的方式执行。所以说，并非所有的包在transactionTemplate.execute中的代码都会有事务支持。这个通常是用来处理那些并非原子性的非核心业务逻辑操作。应用场景较少。</p>
+<p>3）PROPAGATION_MANDATORY ， 该级别的事务要求上下文中必须要存在事务，否则就会抛出异常！配置该方式的传播级别是有效的控制上下文调用代码遗漏添加事务控制的保证手段。比如一段代码不能单独被调用执行，但是一旦被调用，就必须有事务包含的情况，就可以使用这个传播级别。</p>
+<p>4）PROPAGATION_REQUIRES_NEW ，从字面即可知道，new，每次都要一个新事务，该传播级别的特点是，每次都会新建一个事务，并且同时将上下文中的事务挂起，执行当前新建事务完成以后，上下文事务恢复再执行。</p>
+<p>这是一个很有用的传播级别，举一个应用场景：现在有一个发送100个红包的操作，在发送之前，要做一些系统的初始化、验证、数据记录操作，然后发送100封红包，然后再记录发送日志，发送日志要求100%的准确，如果日志不准确，那么整个父事务逻辑需要回滚。<br>怎么处理整个业务需求呢？就是通过这个PROPAGATION_REQUIRES_NEW 级别的事务传播控制就可以完成。发送红包的子事务不会直接影响到父事务的提交和回滚。</p>
+<p>5）PROPAGATION_NOT_SUPPORTED ，这个也可以从字面得知，not supported ，不支持，当前级别的特点就是上下文中存在事务，则挂起事务，执行当前逻辑，结束后恢复上下文的事务。</p>
+<p>这个级别有什么好处？可以帮助你将事务极可能的缩小。我们知道一个事务越大，它存在的风险也就越多。所以在处理事务的过程中，要保证尽可能的缩小范围。比如一段代码，是每次逻辑操作都必须调用的，比如循环1000次的某个非核心业务逻辑操作。这样的代码如果包在事务中，势必造成事务太大，导致出现一些难以考虑周全的异常情况。所以这个事务这个级别的传播级别就派上用场了。用当前级别的事务模板抱起来就可以了。</p>
+<p>6）PROPAGATION_NEVER ，该事务更严格，上面一个事务传播级别只是不支持而已，有事务就挂起，而PROPAGATION_NEVER传播级别要求上下文中不能存在事务，一旦有事务，就抛出runtime异常，强制停止执行！这个级别上辈子跟事务有仇。</p>
+<p>7）PROPAGATION_NESTED ，字面也可知道，nested，嵌套级别事务。该传播级别特征是，如果上下文中存在事务，则嵌套事务执行，如果不存在事务，则新建事务。</p>
+<h4 id="隔离级别"><a href="#隔离级别" class="headerlink" title="隔离级别"></a>隔离级别</h4><p>1、Serializable ：最严格的级别，事务串行执行，资源消耗最大；</p>
+<p>2、REPEATABLE READ ：保证了一个事务不会修改已经由另一个事务读取但未提交（回滚）的数据。避免了“脏读取”和“不可重复读取”的情况，但是带来了更多的性能损失。</p>
+<p>3、READ COMMITTED :大多数主流数据库的默认事务等级，保证了一个事务不会读到另一个并行事务已修改但未提交的数据，避免了“脏读取”。该级别适用于大多数系统。</p>
+<p>4、Read Uncommitted ：保证了读取过程中不会读取到非法数据。</p>
+<p>上面的解释其实每个定义都有一些拗口，其中涉及到几个术语：脏读、不可重复读、幻读。<br>这里解释一下：</p>
+<p>脏读 :所谓的脏读，其实就是读到了别的事务回滚前的脏数据。比如事务B执行过程中修改了数据X，在未提交前，事务A读取了X，而事务B却回滚了，这样事务A就形成了脏读。</p>
+<p>不可重复读 ：不可重复读字面含义已经很明了了，比如事务A首先读取了一条数据，然后执行逻辑的时候，事务B将这条数据改变了，然后事务A再次读取的时候，发现数据不匹配了，就是所谓的不可重复读了。</p>
+<p>幻读 ：小的时候数手指，第一次数十10个，第二次数是11个，怎么回事？产生幻觉了？<br>幻读也是这样子，事务A首先根据条件索引得到10条数据，然后事务B改变了数据库一条数据，导致也符合事务A当时的搜索条件，这样事务A再次搜索发现有11条数据了，就产生了幻读。</p>
+<p>一个对照关系表：<br>                                       Dirty reads          non-repeatable reads            phantom reads<br>Serializable                          不会                        不会                                           不会<br>REPEATABLE READ             不会                        不会                                            会<br>READ COMMITTED             不会                        会                                                会<br>Read Uncommitted             会                           会                                                会</p>
+<p>所以最安全的，是Serializable，但是伴随而来也是高昂的性能开销。<br>另外，事务常用的两个属性：readonly和timeout<br>一个是设置事务为只读以提升性能。<br>另一个是设置事务的超时时间，一般用于防止大事务的发生。还是那句话，事务要尽可能的小！</p>
+<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><p>在需要事务管理的地方加@Transactional 注解。@Transactional 注解可以被应用于接口定义和接口方法、类定义和类的 public 方法上。<br>@Transactional 注解只能应用到 public 可见度的方法上。 如果你在 protected、private 或者 package-visible 的方法上使用 @Transactional 注解，它也不会报错， 但是这个被注解的方法将不会展示已配置的事务设置。<br>注意仅仅 @Transactional 注解的出现不足于开启事务行为，它仅仅 是一种元数据。必须在配置文件中使用配置元素，才真正开启了事务行为。<br>通过 元素的 “proxy-target-class” 属性值来控制是基于接口的还是基于类的代理被创建。如果 “proxy-target-class” 属值被设置为 “true”，那么基于类的代理将起作用（这时需要CGLIB库cglib.jar在CLASSPATH中）。如果 “proxy-target-class” 属值被设置为 “false” 或者这个属性被省略，那么标准的JDK基于接口的代理将起作用。<br>Spring团队建议在具体的类（或类的方法）上使用 @Transactional 注解，而不要使用在类所要实现的任何接口上。在接口上使用 @Transactional 注解，只能当你设置了基于接口的代理时它才生效。因为注解是 不能继承 的，这就意味着如果正在使用基于类的代理时，那么事务的设置将不能被基于类的代理所识别，而且对象也将不会被事务代理所包装。<br>@Transactional 的事务开启 ，或者是基于接口的 或者是基于类的代理被创建。所以在同一个类中一个方法调用另一个方法有事务的方法，事务是不会起作用的。</p>
 ]]></content>
     </entry>
     
@@ -15,13 +151,13 @@
       <url>http://jiangxiaoqiang.com/2016/12/02/mybatis-cache/</url>
       <content type="html"><![CDATA[<p>正如大多数持久层框架一样，MyBatis 同样提供了一级缓存和二级缓存的支持；</p>
 <a id="more"></a>
-<p>一级缓存基于 PerpetualCache 的 HashMap 本地缓存，其存储作用域为 Session，当 Session flush 或 close 之后，该Session中的所有 Cache 就将清空。<br>二级缓存与一级缓存其机制相同，默认也是采用 PerpetualCache，HashMap存储，不同在于其存储作用域为 Mapper(Namespace)，并且可自定义存储源，如 Ehcache、Hazelcast等。<br>对于缓存数据更新机制，当某一个作用域(一级缓存Session/二级缓存Namespaces)的进行了 C/U/D 操作后，默认该作用域下所有 select 中的缓存将被clear。<br>MyBatis 的缓存采用了delegate机制 及 装饰器模式设计，当put、get、remove时，其中会经过多层 delegate cache 处理，其Cache类别有：BaseCache(基础缓存)、EvictionCache(排除算法缓存) 、DecoratorCache(装饰器缓存)：</p>
+<p>一级缓存基于 PerpetualCache 的 HashMap 本地缓存，其存储作用域为 Session，当 Session flush 或 close 之后，该Session中的所有 Cache 就将清空。<br>二级缓存与一级缓存其机制相同，默认也是采用 PerpetualCache，HashMap存储，不同在于其存储作用域为 Mapper(Namespace)，并且可自定义存储源，如 Ehcache、Hazelcast等。<br>对于缓存数据更新机制，当某一个作用域(一级缓存Session/二级缓存Namespaces)的进行了 C/U/D 操作后，默认该作用域下所有 select 中的缓存将被clear。<br>MyBatis 的缓存采用了delegate机制 及 装饰器模式设计，当put、get、remove时，其中会经过多层 delegate cache 处理，其Cache类别有：BaseCache(基础缓存)、EvictionCache(排除算法缓存) 、DecoratorCache(装饰器缓存)：</p>
 <ul>
-<li>BaseCache         ：为缓存数据最终存储的处理类，默认为 PerpetualCache，基于Map存储；可自定义存储处理，如基于EhCache、Memcached等；</li>
-<li>EvictionCache    ：当缓存数量达到一定大小后，将通过算法对缓存数据进行清除。默认采用 Lru 算法(LruCache)，提供有 fifo 算法(FifoCache)等；</li>
+<li>BaseCache:为缓存数据最终存储的处理类，默认为 PerpetualCache，基于Map存储；可自定义存储处理，如基于EhCache、Memcached等；</li>
+<li>EvictionCache:当缓存数量达到一定大小后，将通过算法对缓存数据进行清除。默认采用 Lru 算法(LruCache)，提供有 fifo 算法(FifoCache)等；</li>
 <li>DecoratorCache：缓存put/get处理前后的装饰器，如使用 LoggingCache 输出缓存命中日志信息、使用 SerializedCache 对 Cache的数据 put或get 进行序列化及反序列化处理、当设置flushInterval(默认1/h)后，则使用 ScheduledCache 对缓存数据进行定时刷新等。</li>
 </ul>
-<p>一般缓存框架的数据结构基本上都是 Key-Value 方式存储，MyBatis 对于其 Key 的生成采取规则为：[hashcode : checksum : mappedStementId : offset : limit : executeSql : queryParams]。<br>对于并发 Read/Write 时缓存数据的同步问题，MyBatis 默认基于 JDK/concurrent中的ReadWriteLock，使用 ReentrantReadWriteLock 的实现，从而通过 Lock 机制防止在并发 Write Cache 过程中线程安全问题。</p>
+<p>一般缓存框架的数据结构基本上都是 Key-Value 方式存储，MyBatis 对于其 Key 的生成采取规则为：[hashcode : checksum : mappedStementId : offset : limit : executeSql : queryParams]。对于并发 Read/Write 时缓存数据的同步问题，MyBatis 默认基于 JDK/concurrent中的ReadWriteLock，使用 ReentrantReadWriteLock 的实现，从而通过 Lock 机制防止在并发 Write Cache 过程中线程安全问题。</p>
 ]]></content>
     </entry>
     
@@ -59,35 +195,9 @@
     </entry>
     
     <entry>
-      <title><![CDATA[Spring MVC-DispatcherServlet处理请求过程]]></title>
-      <url>http://jiangxiaoqiang.com/2016/12/02/springmvc-dispatcherservlet/</url>
-      <content type="html"><![CDATA[<p>Spring MVC基于模型-视图-控制器(Model-View-Controller,MVC)模式，它能够帮助我们建立灵活和松耦合的Web程序.Spring MVC中用户请求如下图所示：</p>
-<a id="more"></a>
-<img src="/2016/12/02/springmvc-dispatcherservlet/example.jpg" alt="DispatcherServlet处理请求过程" title="DispatcherServlet处理请求过程">
-<h6 id="请求发出-HTTP-Resquest"><a href="#请求发出-HTTP-Resquest" class="headerlink" title="请求发出(HTTP Resquest)"></a>请求发出(HTTP Resquest)</h6><p>一个请求携带信息进入Spring MVC程序时，第一站是Spring的DispatcherServlet(在web.xml中配置)，它是接收所有用户请求的前端控制器Servlet。DispatcherServlet对请求URL进行解析，得到请求资源标识符（URI）。然后根据该URI，调用HandlerMapping获得该Handler配置的所有相关的对象（包括Handler对象以及Handler对象对应的拦截器），最后以HandlerExecutionChain对象的形式返回；DispatcherServlet的任务是将请求转发给Spring MVC控制器(Controller)，控制器是用于处理用户请求的Spring Bean。DispatcherServlet 根据获得的Handler，选择一个合适的HandlerAdapter。（如果成功获得HandlerAdapter后，此时将开始执行拦截器的preHandler()方法）</p>
-<h6 id="处理器映射-Handler-Mapping"><a href="#处理器映射-Handler-Mapping" class="headerlink" title="处理器映射(Handler Mapping)"></a>处理器映射(Handler Mapping)</h6><p>一般程序中会有不止一个控制器，那么DispatcherServlet需要知道将请求发送给哪个控制器，所以DispatcherServlet将会查询处理器映射(handler mapping)来确定请求的下一站，处理器映射会根据用户请求的URL来决定是哪个控制器。提取Request中的模型数据，填充Handler入参，开始执行Handler（Controller)。 在填充Handler的入参过程中，根据你的配置，Spring将帮你做一些额外的工作：</p>
-<ul>
-<li>HttpMessageConveter： 将请求消息（如Json、xml等数据）转换成一个对象，将对象转换为指定的响应信息</li>
-<li>数据转换：对请求消息进行数据转换。如String转换成Integer、Double等</li>
-<li>数据根式化：对请求消息进行数据格式化。 如将字符串转换成格式化数字或格式化日期等</li>
-<li>数据验证： 验证数据的有效性（长度、格式等），验证结果存储到BindingResult或Error中</li>
-</ul>
-<h6 id="控制器-Controller"><a href="#控制器-Controller" class="headerlink" title="控制器(Controller)"></a>控制器(Controller)</h6><p>DispatcherServlet选择了控制器之后，就会将请求发送给该控制器并等待控制器处理用户请求。控制器在完成了逻辑处理后，通常会返回处理结果并将这些结果在浏览器上显示，这些信息在Spring MVC中成为模型(Model)。Handler执行完成后，向DispatcherServlet 返回一个ModelAndView对象。</p>
-<h6 id="模型以及逻辑视图名称-Model"><a href="#模型以及逻辑视图名称-Model" class="headerlink" title="模型以及逻辑视图名称(Model)"></a>模型以及逻辑视图名称(Model)</h6><p>控制器仅仅返回模型信息往往是不够的，需要对模型信息进行格式化，生成用户友好的方式如html进行显示。所以模型信息将会被发送给一个视图(View，例如jsp视图。事实上，控制器同时产生了模型以及视图名称，将这些信息发送回DispatcherServlet。</p>
-<h6 id="视图解析器-View-Parser"><a href="#视图解析器-View-Parser" class="headerlink" title="视图解析器(View Parser)"></a>视图解析器(View Parser)</h6><p>DispatcherServlet收到控制器的视图名称并不直接表示某个特定的JSP，这个视图名称仅仅是个逻辑值，DispatcherServlet为了找到真正的视图，会使用视图解析器(view resolver)将视图名称匹配成一个具体的视图。根据返回的ModelAndView，选择一个适合的ViewResolver（必须是已经注册到Spring容器中的ViewResolver)返回给DispatcherServlet。</p>
-<h6 id="视图-View"><a href="#视图-View" class="headerlink" title="视图(View)"></a>视图(View)</h6><p>目前为止，DispatcherServlet知道了具体由哪个视图来显示模型信息，那么它就会将模型信息交付给视图，请求的任务到这里就完成了。ViewResolver 结合Model和View，来渲染视图。</p>
-<h6 id="响应-HTTP-Response"><a href="#响应-HTTP-Response" class="headerlink" title="响应(HTTP Response)"></a>响应(HTTP Response)</h6><p>视图渲染模型信息并输出，该输出最后会传递给用户端，展示给用户查看。从以上步骤可以看到，Spring MVC要处理很多过程，但是大部分过程是Spring框架内部处理的，事实上，我们可以十分方便利用Spring MVC框架的编写功能强大的Web应用程序，下一章我们将搭建一个基础的Spring MVC实例程序。</p>
-<p>原始地址：</p>
-<ul>
-<li><a href="http://wiki.jikexueyuan.com/project/spring/mvc-framework/spring-mvc-form-handling-example.html" target="_blank" rel="external">Spring MVC入门-DispatcherServlet处理请求过程</a></li>
-</ul>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[面试总结]]></title>
       <url>http://jiangxiaoqiang.com/2016/12/02/interview-summerize/</url>
-      <content type="html"><![CDATA[<p>面试的过程也是气质是否和公司搭调的过程，每个公司都有自己的管理特色。找到价值观相对契合的企业非常重要。这里是面试时面试官问过的问题，虽然有的问题问得没什么意义。</p>
+      <content type="html"><![CDATA[<p>面试的过程也是气质是否和公司搭调的过程，每个公司都有自己的管理特色。找到价值观相对契合的企业非常重要。这里是面试时面试官问过的问题，或许平时开发中根本没有想过这些问题，但注意更多细节总是有益处的，总结如下。</p>
 <a id="more"></a>
 <h4 id="Java中线程安全的类"><a href="#Java中线程安全的类" class="headerlink" title="Java中线程安全的类"></a>Java中线程安全的类</h4><ul>
 <li>ArrayList线程不安全，Vector线程安全；</li>
@@ -104,6 +214,109 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">String S2 = “This is only a”;</div><div class="line">String S3 = “ simple”;</div><div class="line">String S4 = “ test”;</div><div class="line">String S1 = S2 +S3 + S4;</div></pre></td></tr></table></figure>
 <p>这时候 JVM 会规规矩矩的按照原来的方式去做</p>
 <p>在大部分情况下 StringBuffer 优于 String<br>StringBuffer<br>Java.lang.StringBuffer线程安全的可变字符序列。一个类似于 String 的字符串缓冲区，但不能修改。虽然在任意时间点上它都包含某种特定的字符序列，但通过某些方法调用可以改变该序列的长度和内容。<br>可将字符串缓冲区安全地用于多个线程。可以在必要时对这些方法进行同步，因此任意特定实例上的所有操作就好像是以串行顺序发生的，该顺序与所涉及的每个线程进行的方法调用顺序一致。<br>StringBuffer 上的主要操作是 append 和 insert 方法，可重载这些方法，以接受任意类型的数据。每个方法都能有效地将给定的数据转换成字符串，然后将该字符串的字符追加或插入到字符串缓冲区中。append 方法始终将这些字符添加到缓冲区的末端；而 insert 方法则在指定的点添加字符。<br>例如，如果 z 引用一个当前内容是“start”的字符串缓冲区对象，则此方法调用 z.append(“le”) 会使字符串缓冲区包含“startle”，而 z.insert(4, “le”) 将更改字符串缓冲区，使之包含“starlet”。<br>在大部分情况下 StringBuilder 优于 StringBuffer<br>java.lang.StringBuilde<br>java.lang.StringBuilder一个可变的字符序列是5.0新增的。此类提供一个与 StringBuffer 兼容的 API，但不保证同步。该类被设计用作 StringBuffer 的一个简易替换，用在字符串缓冲区被单个线程使用的时候（这种情况很普遍）。如果可能，建议优先采用该类，因为在大多数实现中，它比 StringBuffer 要快。两者的方法基本相同。</p>
+<h4 id="使用Spring框架的原因"><a href="#使用Spring框架的原因" class="headerlink" title="使用Spring框架的原因"></a>使用Spring框架的原因</h4><ul>
+<li><p>非侵入式：支持基于POJO的编程模式，不强制性的要求实现Spring框架中的接口或继承Spring框架中的类。</p>
+</li>
+<li><p>IoC容器：IoC容器帮助应用程序管理对象以及对象之间的依赖关系，对象之间的依赖关系如果发生了改变只需要修改配置文件而不是修改代码，因为代码的修改可能意味着项目的重新构建和完整的回归测试。有了IoC容器，程序员再也不需要自己编写工厂、单例，这一点特别符合Spring的精神”不要重复的发明轮子”。</p>
+</li>
+<li><p>AOP（面向切面编程）：将所有的横切关注功能封装到切面（aspect）中，通过配置的方式将横切关注功能动态添加到目标代码上，进一步实现了业务逻辑和系统服务之间的分离。另一方面，有了AOP程序员可以省去很多自己写代理类的工作。</p>
+</li>
+<li><p>MVC：Spring的MVC框架是非常优秀的，Spring MVC的配置相对于Struts 2来说较少，性能方面，Spring比Struts较快，开发效率Spring MVC确实比struts2高，Spring3 MVC更容易实现Restful URL。Struts更加很多新的技术点，比如拦截器、值栈及OGNL表达式，学习成本较高，springmvc 比较简单，很较少的时间都能上手。</p>
+</li>
+<li><p>事务管理：Spring以宽广的胸怀接纳多种持久层技术，并且为其提供了声明式的事务管理，在不需要任何一行代码的情况下就能够完成事务管理。</p>
+</li>
+<li><p>其他：选择Spring框架的原因还远不止于此，Spring为Java企业级开发提供了一站式选择，你可以在需要的时候使用它的部分和全部，更重要的是，你甚至可以在感觉不到Spring存在的情况下，在你的项目中使用Spring提供的各种优秀的功能。</p>
+</li>
+</ul>
+<h4 id="大型网站在架构上应当考虑哪些问题"><a href="#大型网站在架构上应当考虑哪些问题" class="headerlink" title="大型网站在架构上应当考虑哪些问题"></a>大型网站在架构上应当考虑哪些问题</h4><ul>
+<li><p>分层(Layer)：分层是处理任何复杂系统最常见的手段之一，将系统横向切分成若干个层面，每个层面只承担单一的职责，然后通过下层为上层提供的基础设施和服务以及上层对下层的调用来形成一个完整的复杂的系统。计算机网络的开放系统互联参考模型（OSI[Open Systems Interconnection]/RM）和Internet的TCP/IP模型都是分层结构，大型网站的软件系统也可以使用分层的理念将其分为持久层（提供数据存储和访问服务）、业务层（处理业务逻辑，系统中最核心的部分）和表示层（系统交互、视图展示）。需要指出的是：（1）分层是逻辑上的划分，在物理上可以位于同一设备上也可以在不同的设备上部署不同的功能模块，这样可以使用更多的计算资源来应对用户的并发访问；（2）层与层之间应当有清晰的边界，这样分层才有意义，才更利于软件的开发和维护。</p>
+</li>
+<li><p>分割(Split)：分割是对软件的纵向切分。我们可以将大型网站的不同功能和服务分割开，形成高内聚低耦合的功能模块（单元）。在设计初期可以做一个粗粒度的分割，将网站分割为若干个功能模块，后期还可以进一步对每个模块进行细粒度的分割，这样一方面有助于软件的开发和维护，另一方面有助于分布式的部署，提供网站的并发处理能力和功能的扩展。</p>
+</li>
+<li><p>分布式(Distribution)：除了上面提到的内容，网站的静态资源（JavaScript、CSS、图片等）也可以采用独立分布式部署并采用独立的域名，这样可以减轻应用服务器的负载压力，也使得浏览器对资源的加载更快。数据的存取也应该是分布式的，传统的商业级关系型数据库产品基本上都支持分布式部署，而新生的NoSQL产品几乎都是分布式的。当然，网站后台的业务处理也要使用分布式技术，例如查询索引的构建、数据分析等，这些业务计算规模庞大，可以使用Hadoop以及MapReduce分布式计算框架来处理。</p>
+</li>
+<li><p>集群(Cluster)：集群使得有更多的服务器提供相同的服务，可以更好的提供对并发的支持。</p>
+</li>
+<li><p>缓存(Cache)：所谓缓存就是用空间换取时间的技术，将数据尽可能放在距离计算最近的位置。使用缓存是网站优化的第一定律。我们通常说的CDN、反向代理、热点数据都是对缓存技术的使用。</p>
+</li>
+<li><p>异步(Async)：异步是实现软件实体之间解耦合的又一重要手段。异步架构是典型的生产者消费者模式，二者之间没有直接的调用关系，只要保持数据结构不变，彼此功能实现可以随意变化而不互相影响，这对网站的扩展非常有利。使用异步处理还可以提高系统可用性，加快网站的响应速度（用Ajax加载数据就是一种异步技术），同时还可以起到削峰作用（应对瞬时高并发）。能推迟处理的都要推迟处理”是网站优化的第二定律，而异步是践行网站优化第二定律的重要手段。</p>
+</li>
+<li><p>冗余(Redundancy)：各种服务器都要提供相应的冗余服务器以便在某台或某些服务器宕机时还能保证网站可以正常工作，同时也提供了灾难恢复的可能性。冗余是网站高可用性的重要保证。</p>
+</li>
+</ul>
+<h4 id="你使用过的应用服务器优化技术有哪些"><a href="#你使用过的应用服务器优化技术有哪些" class="headerlink" title="你使用过的应用服务器优化技术有哪些"></a>你使用过的应用服务器优化技术有哪些</h4><ul>
+<li><p>分布式缓存：缓存的本质就是内存中的哈希表，如果设计一个优质的哈希函数，那么理论上哈希表读写的渐近时间复杂度为O(1)。缓存主要用来存放那些读写比很高、变化很少的数据，这样应用程序读取数据时先到缓存中读取，如果没有或者数据已经失效再去访问数据库或文件系统，并根据拟定的规则将数据写入缓存。对网站数据的访问也符合二八定律（Pareto分布，幂律分布），即80%的访问都集中在20%的数据上，如果能够将这20%的数据缓存起来，那么系统的性能将得到显著的改善。当然，使用缓存需要解决以下几个问题：</p>
+<p>1.频繁修改的数据；<br>2.数据不一致与脏读；<br>3.缓存雪崩（可以采用分布式缓存服务器集群加以解决，memcached是广泛采用的解决方案）；<br>4.缓存预热；<br>5.缓存穿透（恶意持续请求不存在的数据）。</p>
+</li>
+<li><p>异步操作：可以使用消息队列将调用异步化，通过异步处理将短时间高并发产生的事件消息存储在消息队列中，从而起到削峰作用。电商网站在进行促销活动时，可以将用户的订单请求存入消息队列，这样可以抵御大量的并发订单请求对系统和数据库的冲击。目前，绝大多数的电商网站即便不进行促销活动，订单系统都采用了消息队列来处理。</p>
+</li>
+<li><p>使用集群。</p>
+</li>
+<li><p>代码优化：</p>
+<p>1.多线程：基于Java的Web开发基本上都通过多线程的方式响应用户的并发请求，使用多线程技术在编程上要解决线程安全问题，主要可以考虑以下几个方面：A. 将对象设计为无状态对象（这和面向对象的编程观点是矛盾的，在面向对象的世界中被视为不良设计），这样就不会存在并发访问时对象状态不一致的问题。B. 在方法内部创建对象，这样对象由进入方法的线程创建，不会出现多个线程访问同一对象的问题。使用ThreadLocal将对象与线程绑定也是很好的做法，这一点在前面已经探讨过了。C. 对资源进行并发访问时应当使用合理的锁机制。<br>2.非阻塞I/O： 使用单线程和非阻塞I/O是目前公认的比多线程的方式更能充分发挥服务器性能的应用模式，基于Node.js构建的服务器就采用了这样的方式。Java在JDK 1.4中就引入了NIO（Non-blocking I/O）,在Servlet 3规范中又引入了异步Servlet的概念，这些都为在服务器端采用非阻塞I/O提供了必要的基础。<br>3.资源复用：资源复用主要有两种方式，一是单例，二是对象池，我们使用的数据库连接池、线程池都是对象池化技术，这是典型的用空间换取时间的策略，另一方面也实现对资源的复用，从而避免了不必要的创建和释放资源所带来的开销。</p>
+</li>
+</ul>
+<h4 id="你用过的网站前端优化的技术有哪些"><a href="#你用过的网站前端优化的技术有哪些" class="headerlink" title="你用过的网站前端优化的技术有哪些"></a>你用过的网站前端优化的技术有哪些</h4><ul>
+<li>浏览器访问优化：</li>
+</ul>
+<ol>
+<li>减少HTTP请求数量：合并CSS、合并JavaScript、合并图片（CSS Sprite）</li>
+<li>使用浏览器缓存：通过设置HTTP响应头中的Cache-Control和Expires属性，将CSS、JavaScript、图片等在浏览器中缓存，当这些静态资源需要更新时，可以更新HTML文件中的引用来让浏览器重新请求新的资源</li>
+<li>启用压缩</li>
+<li>CSS前置，JavaScript后置</li>
+<li>减少Cookie传输</li>
+</ol>
+<ul>
+<li><p>CDN加速：CDN（Content Distribute Network）的本质仍然是缓存，将数据缓存在离用户最近的地方，CDN通常部署在网络运营商的机房，不仅可以提升响应速度，还可以减少应用服务器的压力。当然，CDN缓存的通常都是静态资源。</p>
+</li>
+<li><p>反向代理：反向代理相当于应用服务器的一个门面，可以保护网站的安全性，也可以实现负载均衡的功能，当然最重要的是它缓存了用户访问的热点资源，可以直接从反向代理将某些内容返回给用户浏览器。</p>
+</li>
+</ul>
+<h4 id="什么是XSS攻击？什么是SQL注入攻击？什么是CSRF攻击？"><a href="#什么是XSS攻击？什么是SQL注入攻击？什么是CSRF攻击？" class="headerlink" title="什么是XSS攻击？什么是SQL注入攻击？什么是CSRF攻击？"></a>什么是XSS攻击？什么是SQL注入攻击？什么是CSRF攻击？</h4><ul>
+<li><p>XSS（Cross Site Script，跨站脚本攻击）是向网页中注入恶意脚本在用户浏览网页时在用户浏览器中执行恶意脚本的攻击方式。跨站脚本攻击分有两种形式：反射型攻击（诱使用户点击一个嵌入恶意脚本的链接以达到攻击的目标，目前有很多攻击者利用论坛、微博发布含有恶意脚本的URL就属于这种方式）和持久型攻击（将恶意脚本提交到被攻击网站的数据库中，用户浏览网页时，恶意脚本从数据库中被加载到页面执行，QQ邮箱的早期版本就曾经被利用作为持久型跨站脚本攻击的平台）。XSS虽然不是什么新鲜玩意，但是攻击的手法却不断翻新，防范XSS主要有两方面：消毒（对危险字符进行转义）和HttpOnly（防范XSS攻击者窃取Cookie数据）。</p>
+</li>
+<li><p>SQL注入攻击是注入攻击最常见的形式（此外还有OS注入攻击（Struts 2的高危漏洞就是通过OGNL实施OS注入攻击导致的）），当服务器使用请求参数构造SQL语句时，恶意的SQL被嵌入到SQL中交给数据库执行。SQL注入攻击需要攻击者对数据库结构有所了解才能进行，攻击者想要获得表结构有多种方式：（1）如果使用开源系统搭建网站，数据库结构也是公开的（目前有很多现成的系统可以直接搭建论坛，电商网站，虽然方便快捷但是风险是必须要认真评估的）；（2）错误回显（如果将服务器的错误信息直接显示在页面上，攻击者可以通过非法参数引发页面错误从而通过错误信息了解数据库结构，Web应用应当设置友好的错误页，一方面符合最小惊讶原则，一方面屏蔽掉可能给系统带来危险的错误回显信息）；（3）盲注。防范SQL注入攻击也可以采用消毒的方式，通过正则表达式对请求参数进行验证，此外，参数绑定也是很好的手段，这样恶意的SQL会被当做SQL的参数而不是命令被执行，JDBC中的PreparedStatement就是支持参数绑定的语句对象，从性能和安全性上都明显优于Statement。</p>
+</li>
+<li><p>CSRF攻击（Cross Site Request Forgery，跨站请求伪造）是攻击者通过跨站请求，以合法的用户身份进行非法操作（如转账或发帖等）。CSRF的原理是利用浏览器的Cookie或服务器的Session，盗取用户身份，其原理如下图所示。防范CSRF的主要手段是识别请求者的身份，主要有以下几种方式：（1）在表单中添加令牌（token）；（2）验证码；（3）检查请求头中的Referer（前面提到防图片盗链接也是用的这种方式）。令牌和验证都具有一次消费性的特征，因此在原理上一致的，但是验证码是一种糟糕的用户体验，不是必要的情况下不要轻易使用验证码，目前很多网站的做法是如果在短时间内多次提交一个表单未获得成功后才要求提供验证码，这样会获得较好的用户体验。</p>
+</li>
+</ul>
+<h4 id="什么是领域模型-domain-model-？贫血模型-anaemic-domain-model-和充血模型-rich-domain-model-有什么区别？"><a href="#什么是领域模型-domain-model-？贫血模型-anaemic-domain-model-和充血模型-rich-domain-model-有什么区别？" class="headerlink" title="什么是领域模型(domain model)？贫血模型(anaemic domain model)和充血模型(rich domain model)有什么区别？"></a>什么是领域模型(domain model)？贫血模型(anaemic domain model)和充血模型(rich domain model)有什么区别？</h4><p>领域模型是领域内的概念类或现实世界中对象的可视化表示，又称为概念模型或分析对象模型，它专注于分析问题领域本身，发掘重要的业务领域概念，并建立业务领域概念之间的关系。贫血模型是指使用的领域对象中只有setter和getter方法（POJO），所有的业务逻辑都不包含在领域对象中而是放在业务逻辑层。有人将我们这里说的贫血模型进一步划分成失血模型（领域对象完全没有业务逻辑）和贫血模型（领域对象有少量的业务逻辑），我们这里就不对此加以区分了。充血模型将大多数业务逻辑和持久化放在领域对象中，业务逻辑（业务门面）只是完成对业务逻辑的封装、事务和权限等的处理。下面两张图分别展示了贫血模型和充血模型的分层架构。更加细粒度的有失血模型，贫血模型，充血模型，胀血模型。贫血模型就是domain ojbect包含了不依赖于持久化的领域逻辑，而那些依赖持久化的领域逻辑被分离到Service层。失血模型简单来说，就是domain object只有属性的getter/setter方法的纯数据类，所有的业务逻辑完全由business object来完成(又称Transaction Script)，这种模型下的domain object被Martin Fowler称之为“贫血的domain object”。充血模型和第二种模型差不多，所不同的就是如何划分业务逻辑，即认为，绝大多业务逻辑都应该被放在domain object里面(包括持久化逻辑)，而Service层应该是很薄的一层，仅仅封装事务和少量逻辑，不和DAO层打交道。</p>
+<h4 id="描述一下JVM加载class文件的原理机制"><a href="#描述一下JVM加载class文件的原理机制" class="headerlink" title="描述一下JVM加载class文件的原理机制"></a>描述一下JVM加载class文件的原理机制</h4><p>类加载的过程包括了加载、验证、准备、解析、初始化五个阶段。JVM中类的装载是由类加载器（ClassLoader）和它的子类来实现的，Java中的类加载器是一个重要的Java运行时系统组件，它负责在运行时查找和装入类文件中的类。<br>  由于Java的跨平台性，经过编译的Java源程序并不是一个可执行程序，而是一个或多个类文件。当Java程序需要使用某个类时，JVM会确保这个类已经被加载、连接（验证、准备和解析）和初始化。类的加载是指把类的.class文件中的数据读入到内存中，通常是创建一个字节数组读入.class文件，然后产生与所加载类对应的Class对象。加载完成后，Class对象还不完整，所以此时的类还不可用。当类被加载后就进入连接阶段，这一阶段包括验证、准备（为静态变量分配内存并设置默认的初始值）和解析（将符号引用替换为直接引用）三个步骤。最后JVM对类进行初始化，包括：A. 如果类存在直接的父类并且这个类还没有被初始化，那么就先初始化父类；B. 如果类中存在初始化语句，就依次执行这些初始化语句。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">编译 -&gt; 加载 -&gt; 链接（验证+准备+解析）-&gt;初始化（使用前的准备）-&gt;使用-&gt; 卸载</div></pre></td></tr></table></figure>
+<p>  类的加载是由类加载器完成的，类加载器包括：根加载器（BootStrap）、扩展加载器（Extension）、系统加载器（System）和用户自定义类加载器（java.lang.ClassLoader的子类）。从Java 2（JDK 1.2）开始，类加载过程采取了父亲委托机制(PDM[Parerent Delegate Mechanism])。PDM更好的保证了Java平台的安全性，在该机制中，JVM自带的Bootstrap是根加载器，其他的加载器都有且仅有一个父类加载器。类的加载首先请求父类加载器加载，父类加载器无能为力时才由其子类加载器自行加载。JVM不会向Java程序提供对Bootstrap的引用。下面是关于几个类加载器的说明：</p>
+<ul>
+<li>Bootstrap：一般用本地代码实现，负责加载JVM基础核心类库（rt.jar）；</li>
+<li>Extension：从java.ext.dirs系统属性所指定的目录中加载类库，它的父加载器是Bootstrap；</li>
+<li>System：又叫应用类加载器，其父类是Extension。它是应用最广泛的类加载器。它从环境变量classpath或者系统属性java.class.path所指定的目录中记载类，是用户自定义加载器的默认父加载器。</li>
+</ul>
+<h4 id="什么条件下会触发垃圾回收"><a href="#什么条件下会触发垃圾回收" class="headerlink" title="什么条件下会触发垃圾回收"></a>什么条件下会触发垃圾回收</h4><h5 id="触发Full-GC"><a href="#触发Full-GC" class="headerlink" title="触发Full GC"></a>触发Full GC</h5><p>除直接调用System.gc外，触发Full GC执行的情况有如下四种。</p>
+<ol>
+<li>旧生代空间不足</li>
+</ol>
+<p>旧生代空间只有在新生代对象转入及创建为大对象、大数组时才会出现不足的现象，当执行Full GC后空间仍然不足，则抛出如下错误：<code>java.lang.OutOfMemoryError: Java heap space</code>，为避免以上两种状况引起的Full GC，调优时应尽量做到让对象在Minor GC阶段被回收、让对象在新生代多存活一段时间及不要创建过大的对象及数组。</p>
+<ol>
+<li>Permanet Generation空间满</li>
+</ol>
+<p>Permanet Generation中存放的为一些class的信息等，当系统中要加载的类、反射的类和调用的方法较多时，Permanet Generation可能会被占满，在未配置为采用CMS GC的情况下会执行Full GC。如果经过Full GC仍然回收不了，那么JVM会抛出如下错误信息：<code>java.lang.OutOfMemoryError: PermGen space</code>。为避免Perm Gen占满造成Full GC现象，可采用的方法为增大Perm Gen空间或转为使用CMS GC。</p>
+<ol>
+<li>CMS GC时出现promotion failed和concurrent mode failure</li>
+</ol>
+<p>对于采用CMS进行旧生代GC的程序而言，尤其要注意GC日志中是否有promotion failed和concurrent mode failure两种状况，当这两种状况出现时可能会触发Full GC。</p>
+<p>promotion failed是在进行Minor GC时，survivor space放不下、对象只能放入旧生代，而此时旧生代也放不下造成的；concurrent mode failure是在执行CMS GC的过程中同时有对象要放入旧生代，而此时旧生代空间不足造成的。CMS(Concurrent Mark-Sweep)是以牺牲吞吐量为代价来获得最短回收停顿时间的垃圾回收器。对于要求服务器响应速度的应用上，这种垃圾回收器非常适合。</p>
+<p>应对措施为：增大survivor space、旧生代空间或调低触发并发GC的比率，但在JDK 5.0+、6.0+的版本中有可能会由于JDK的bug29导致CMS在remark完毕后很久才触发sweeping动作。对于这种状况，可通过设置-XX: CMSMaxAbortablePrecleanTime=5（单位为ms）来避免。</p>
+<ol>
+<li>统计得到的Minor GC晋升到旧生代的平均大小大于旧生代的剩余空间</li>
+</ol>
+<p>这是一个较为复杂的触发情况，Hotspot为了避免由于新生代对象晋升到旧生代导致旧生代空间不足的现象，在进行Minor GC时，做了一个判断，如果之前统计所得到的Minor GC晋升到旧生代的平均大小大于旧生代的剩余空间，那么就直接触发Full GC。</p>
+<p>例如程序第一次触发Minor GC后，有6MB的对象晋升到旧生代，那么当下一次Minor GC发生时，首先检查旧生代的剩余空间是否大于6MB，如果小于6MB，则执行Full GC。</p>
+<p>当新生代采用PS GC时，方式稍有不同，PS GC是在Minor GC后也会检查，例如上面的例子中第一次Minor GC后，PS GC会检查此时旧生代的剩余空间是否大于6MB，如小于，则触发对旧生代的回收。</p>
+<p>除了以上4种状况外，对于使用RMI来进行RPC或管理的Sun JDK应用而言，默认情况下会一小时执行一次Full GC。可通过在启动时通过- java -Dsun.rmi.dgc.client.gcInterval=3600000来设置Full GC执行的间隔时间或通过-XX:+ DisableExplicitGC来禁止RMI调用System.gc。</p>
+<p>对象分配规则</p>
+<p>1.对象优先分配在Eden区，如果Eden区没有足够的空间时，虚拟机执行一次Minor GC。</p>
+<p>2.大对象直接进入老年代（大对象是指需要大量连续内存空间的对象）。这样做的目的是避免在Eden区和两个Survivor区之间发生大量的内存拷贝（新生代采用复制算法收集内存）。</p>
+<p>3.长期存活的对象进入老年代。虚拟机为每个对象定义了一个年龄计数器，如果对象经过了1次Minor GC那么对象会进入Survivor区，之后每经过一次Minor GC那么对象的年龄加1，知道达到阀值对象进入老年区。</p>
+<p>4.动态判断对象的年龄。如果Survivor区中相同年龄的所有对象大小的总和大于Survivor空间的一半，年龄大于或等于该年龄的对象可以直接进入老年代。</p>
+<p>5.空间分配担保。每次进行Minor GC时，JVM会计算Survivor区移至老年区的对象的平均大小，如果这个值大于老年区的剩余值大小则进行一次Full GC，如果小于检查HandlePromotionFailure设置，如果true则只进行Monitor GC,如果false则进行Full GC。</p>
 ]]></content>
     </entry>
     
@@ -147,6 +360,66 @@
     </entry>
     
     <entry>
+      <title><![CDATA[Spring MVC拦截规则]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/01/springmvc-filter/</url>
+      <content type="html"><![CDATA[<p>在Spring MVC中，需要配置Mapping规则。</p>
+<a id="more"></a>
+<h4 id="拦截-do、-htm"><a href="#拦截-do、-htm" class="headerlink" title="拦截.do、.htm"></a>拦截<em>.do、</em>.htm</h4><p>这是最传统的方式，最简单也最实用。不会导致静态文件（jpg,js,css）被拦截。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>dolphin<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>*.do<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="拦截"><a href="#拦截" class="headerlink" title="拦截/"></a>拦截/</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>dolphin<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>可以实现现在很流行的REST风格。很多互联网类型的应用很喜欢这种风格的URL。</p>
+<p>弊端：会导致静态文件（jpg,js,css）被拦截后不能正常显示。想实现REST风格，事情就是麻烦一些。后面有解决办法还算简单。</p>
+<h4 id="拦截-1"><a href="#拦截-1" class="headerlink" title="拦截/*"></a>拦截/*</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>dolphin<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>这是一个错误的方式，请求可以通过DispatcherServlet走到Action中，但是返回的内容，如返回的jsp还会再次被拦截，这样导致404错误，即访问不到jsp，也无法访问到html静态页面。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[spring-step-by-step（三）-权限管理]]></title>
+      <url>http://jiangxiaoqiang.com/2016/11/29/spring-step-by-step-privillege/</url>
+      <content type="html"><![CDATA[<h4 id="配置过滤器"><a href="#配置过滤器" class="headerlink" title="配置过滤器"></a>配置过滤器</h4><p>为了在项目中使用Spring Security控制权限，在项目的web.xml文件中，添加过滤器，就可以控制对这个项目的每个请求了。</p>
+<a id="more"></a>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>springSecurityFilterChain<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.springframework.web.filter.DelegatingFilterProxy<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>springSecurityFilterChain<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="Spring-Security数据库表"><a href="#Spring-Security数据库表" class="headerlink" title="Spring Security数据库表"></a>Spring Security数据库表</h4><p>Spring Security默认情况下需要两张表，用户表和权限表。以下是mysql中的建表语句：</p>
+<p><a href="http://www.mossle.com:8080/docs/auth/html/ch001-helloworld.html" target="_blank" rel="external">一个简单的HelloWorld</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Java单元测试]]></title>
+      <url>http://jiangxiaoqiang.com/2016/11/29/java-unit-test/</url>
+      <content type="html"><![CDATA[<p>在Intellij Idea中按下快捷键:<code>Ctrl + Alt + T(Test)</code>，弹出如下界面，选择需要创建测试的方法。</p>
+<a id="more"></a>
+
+<p>选择完毕后会自动生成一个测试类，编写相应的测试代码即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by jiangxiaoqiang on 2016/11/29.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VehicleMessageHandlerTest</span> </span>&#123;</div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">parseAlarm</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        VehicleMessageHandler vehicleMessageHandler = <span class="keyword">new</span> VehicleMessageHandler();</div><div class="line">        String result = vehicleMessageHandler.parseAlarm(<span class="number">1232131</span>);</div><div class="line">        System.out.print(result);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在代码编辑器中右键，选择<code>Debug ‘parseAlarm’</code>菜单即可进行单元测试。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Sonarcube代码优化]]></title>
+      <url>http://jiangxiaoqiang.com/2016/11/28/sonarcube/</url>
+      <content type="html"><![CDATA[<h4 id="Generic-exceptions-should-never-be-thrown"><a href="#Generic-exceptions-should-never-be-thrown" class="headerlink" title="Generic exceptions should never be thrown"></a>Generic exceptions should never be thrown</h4><p>Using such generic exceptions as Error, RuntimeException, Throwable, and Exception prevents calling methods from handling true, system-generated exceptions differently than application-generated errors.</p>
+<a id="more"></a>
+<p>不应该写成如下方式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">(String bar)</span> <span class="keyword">throws</span> Throwable </span>&#123;  <span class="comment">// Noncompliant</span></div><div class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"My Message"</span>);     <span class="comment">// Noncompliant</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>应该写成如下方式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">(String bar)</span> </span>&#123;</div><div class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> MyOwnRuntimeException(<span class="string">"My Message"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Instance-methods-should-not-write-to-“static”-fields"><a href="#Instance-methods-should-not-write-to-“static”-fields" class="headerlink" title="Instance methods should not write to “static” fields"></a>Instance methods should not write to “static” fields</h4><p>实例化方法不写静态字段。</p>
+<p>优化前：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setApplicationContext</span><span class="params">(ApplicationContext context)</span> <span class="keyword">throws</span> BeansException </span>&#123;</div><div class="line">     SpringApplicationContextHolder.context = context;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>优化后：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setApplicationContextImpl</span><span class="params">(ApplicationContext context)</span> </span>&#123;</div><div class="line">    SpringApplicationContextHolder.context = context;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setApplicationContext</span><span class="params">(ApplicationContext context)</span> <span class="keyword">throws</span> BeansException </span>&#123;</div><div class="line">    setApplicationContextImpl(context);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Neither-“Math-abs”-nor-negation-should-be-used-on-numbers-that-could-be-“MIN-VALUE”"><a href="#Neither-“Math-abs”-nor-negation-should-be-used-on-numbers-that-could-be-“MIN-VALUE”" class="headerlink" title="Neither “Math.abs” nor negation should be used on numbers that could be “MIN_VALUE”"></a>Neither “Math.abs” nor negation should be used on numbers that could be “MIN_VALUE”</h4><p>Math.abs(Integer.MIN_VALUE)的值还是其本身。通过查阅Java的API文档，我们看到对abs(int a)运算，“如果参数等于 Integer.MIN_VALUE 的值（即能够表示的最小负 int 值），那么结果与该值相同且为负。</p>
+<p>优化前：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> newlineId = Math.abs(randomPointId.replaceAll(<span class="string">"-"</span>, <span class="string">""</span>).hashCode());</div></pre></td></tr></table></figure>
+<p>优化后：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">String hashedSourceId = sourceId.replaceAll(<span class="string">"-"</span>, <span class="string">""</span>);</div><div class="line"><span class="keyword">if</span> (hashedSourceId.hashCode() != Integer.MIN_VALUE) &#123;</div><div class="line">    Integer hashedId = Math.abs(hashedSourceId.hashCode());</div><div class="line">    hashedIds.add(hashedId.toString());</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    hashedIds.add(String.valueOf(Integer.MAX_VALUE));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[推荐书《代码大全》(Code Complete)]]></title>
       <url>http://jiangxiaoqiang.com/2016/11/27/code-complete/</url>
       <content type="html"><![CDATA[<p>今天晚上下班时，朋友跟我讲：应该尽量使用局部变量，避免使用全局变量。</p>
@@ -165,11 +438,20 @@
     <entry>
       <title><![CDATA[面试经历-重庆]]></title>
       <url>http://jiangxiaoqiang.com/2016/11/26/interview-experience/</url>
-      <content type="html"><![CDATA[<h4 id="重庆市宽景网络技术有限公司"><a href="#重庆市宽景网络技术有限公司" class="headerlink" title="重庆市宽景网络技术有限公司"></a>重庆市宽景网络技术有限公司</h4><p>公司地址在渝北区龙溪街道金山路18号中渝都会首站4幢12-5，嘉州路站下车3B出口步行500米即到。交通还是蛮方便的。这幢大厦是居民楼，但是大堂看起来又有点写字楼的味道(商住两用)，富丽堂皇，有点高端。</p>
-<p>进去后，由于早先已到了另一位面试者，等待了十几分钟左右。</p>
-<h4 id="重庆同方融达信息科技有限公司"><a href="#重庆同方融达信息科技有限公司" class="headerlink" title="重庆同方融达信息科技有限公司"></a>重庆同方融达信息科技有限公司</h4><p>面试过程大概持续了将近半个小时。两位面试官，其中一位年级稍长。</p>
+      <content type="html"><![CDATA[<p>最近有换工作的打算，把面试经历分享出来，希望可以给求职的朋友一个参考。工作就像婚姻，是一个双向选择的过程，不找最好的，要找最适合自己的。</p>
+<h4 id="重庆市宽景网络技术有限公司"><a href="#重庆市宽景网络技术有限公司" class="headerlink" title="重庆市宽景网络技术有限公司"></a>重庆市宽景网络技术有限公司</h4><p>公司地址在渝北区龙溪街道金山路18号中渝都会首站4幢12-5，嘉州路站下车3B出口步行500米即到。交通还是蛮方便的。这幢大厦是居民楼，但是大堂看起来又有点写字楼的味道(商住两用)，富丽堂皇，有点高端。</p>
+<p>进去后，由于早先已到了另一位面试者，等待了十几分钟左右。面试时，给看了一个后台相关的网页，大概问了一下做这样一个网页需要多长时间。是否熟悉Spring Boot，是否有自己的脚手架(开发框架，具备一些基础功能，如权限等)。面试官也反复强调需要招聘的一个技术经理级别的人。同时也强调，技术不是特别复杂，就是一些简单的增删改(CRUD)即可。公司需要找一个手头能有一个带有基础功能系统，或者能够在极短时间里搭建一个简单系统的人。由于没有脚手架，做到快速开发，开箱即用。最后的面试结果是被面试官婉拒了。</p>
+<a id="more"></a>
+<p>大致了解了宽景网络公司做的业务和技术要求，如果对技术追求不是特别苛刻，能够乐于且擅长做CRUD的同学，是一个不错的选择。</p>
+<p>官方网站：<a href="http://www.cqwv.net/" target="_blank" rel="external">这里</a></p>
+<p>面试评价：6</p>
+<h4 id="重庆同方融达信息科技有限公司"><a href="#重庆同方融达信息科技有限公司" class="headerlink" title="重庆同方融达信息科技有限公司"></a>重庆同方融达信息科技有限公司</h4><p>重庆同方融达信息科技有限公司系同方股份有限公司全资子公司，成立于2011年9月。面试过程大概持续了将近半个小时。两位面试官，其中一位年级稍长，年纪稍长的那位估计是领导罗，不停的发问，而且还打断说话。了解了以前做的项目的情况，问自己的优点，和缺点。优点就讲了：善于总结。缺点没有回答上来，有点套路的感觉。记得以前说的回答此类问题有固定套路的，一时想不起来了。比如什么工作必须追求完美什么的，总体思路就是把优点说成缺点。这个套路还没有玩转。本来想了解公司的业务情况的，面试官不愿意透露，也就作罢了。估计是政府项目比较多，项目和现在做的这一块还是比较匹配的。整体印象还是不错的。</p>
+<p>官方网站：<a href="http://rota.thtf.com.cn/tfrdqd/tPtTemplate/syFtl" target="_blank" rel="external">这里</a></p>
+<p>面试评价：6</p>
 <h4 id="重庆致树网络科技有限公司"><a href="#重庆致树网络科技有限公司" class="headerlink" title="重庆致树网络科技有限公司"></a>重庆致树网络科技有限公司</h4><p>和公司的合伙人之一聊了将近2个小时，不得不说创业公司还是蛮有意思的,也非常诚恳。天，说起产品和前景来真的是停不下来阿。虽然在心里咆哮，兄弟，淡定淡定，公司还没有赚钱呢！但是表面还是表现的像：兄弟，好样的，咱这就橹起袖子干一票吧。</p>
-<p>公司主要做文化类产品的直播，直播一些手工艺品的制作过程。可能会衍生到更多品类的文化产品上，想法还是蛮新奇的‘【’。</p>
+<p>公司主要做文化类产品的直播，直播一些手工艺品的制作过程。可能会衍生到更多品类的文化产品上，想法还是蛮新奇的。</p>
+<p>官方网站：无</p>
+<p>面试评价：7</p>
 ]]></content>
     </entry>
     
@@ -265,6 +547,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/hosts</div></pre></td></tr></table></figure>
 <p>添加主机映射。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">192.168.24.195 hostname1</div><div class="line">192.168.24.226 hostname2</div></pre></td></tr></table></figure>
+<p>添加主机映射之后，从新启动解析服务即可，不必重新启动计算机。</p>
 <h4 id="验证迁移"><a href="#验证迁移" class="headerlink" title="验证迁移"></a>验证迁移</h4><p>部署完毕后一定要验证，因为在解析服务器上日志打印OK并不代表数据成功写入Kafka集群中，所以验证最后验证迁移是否成功，在Kafka服务器中，切换到Kafka的目录：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /usr/hdp/2.4.3.0-227/kafka/bin</div></pre></td></tr></table></figure>
 <p>使用如下命令查看迁移是否成功：</p>
@@ -393,9 +676,9 @@
 <p>使用如下命令查看是否配置成功：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#Windows下用此命令查看</span></div><div class="line">netstat -ano</div><div class="line"></div><div class="line"><span class="comment">#Linux下用此命令查看</span></div><div class="line">lsof -i:53996</div></pre></td></tr></table></figure>
 <p>查看是否有53996的端口处于监听状态。如下图所示：</p>
-<img src="/2016/11/12/intellij-idea-remote-debbuging/tomcat-listening-port.png" alt="检查服务端配置是否正确" title="检查服务端配置是否正确">
+
 <h4 id="Intellij-Idea配置"><a href="#Intellij-Idea配置" class="headerlink" title="Intellij Idea配置"></a>Intellij Idea配置</h4><p>Intellij Idea远程调试配置如下：</p>
-<img src="/2016/11/12/intellij-idea-remote-debbuging/intellij-idea-remote-debugging.jpg" alt="Intellij Idea远程调试配置" title="Intellij Idea远程调试配置">
+
 ]]></content>
     </entry>
     
@@ -403,16 +686,16 @@
       <title><![CDATA[Websocket数据查看]]></title>
       <url>http://jiangxiaoqiang.com/2016/11/12/websocket-check/</url>
       <content type="html"><![CDATA[<h4 id="FireFox中查看WebSocket"><a href="#FireFox中查看WebSocket" class="headerlink" title="FireFox中查看WebSocket"></a>FireFox中查看WebSocket</h4><p>使用FireFox查看WebSocket内容需要安装一个<a href="https://addons.mozilla.org/en-US/firefox/addon/websocket-monitor/" target="_blank" rel="external">WebSocket-Monitor</a>插件。安装完毕后在FireFox的Web控制台(Ctrl + Shift + K)中。</p>
-<img src="/2016/11/12/websocket-check/firefox-websocket.jpg" alt="FireFox查看WebSocket" title="FireFox查看WebSocket">
+
 <a id="more"></a>
 <h4 id="Google-Chrome中查看WebSocket"><a href="#Google-Chrome中查看WebSocket" class="headerlink" title="Google Chrome中查看WebSocket"></a>Google Chrome中查看WebSocket</h4><p>Google Chrome自带查看模块，如下图所示。F12进入开发者页面，选择NetWork选项卡，选择WS(WebSocket)选项卡。</p>
-<img src="/2016/11/12/websocket-check/chrome-websocket.jpg" alt="Google Chrome查看WebSocket" title="Google Chrome查看WebSocket">
+
 <h4 id="Fiddler中查看WebSocket"><a href="#Fiddler中查看WebSocket" class="headerlink" title="Fiddler中查看WebSocket"></a>Fiddler中查看WebSocket</h4><p>在请求时选择任意WebSocket Session，即可出现WebSocket流量数据画面，不过是乱码，未找到合适的解决乱码的方案。</p>
-<img src="/2016/11/12/websocket-check/fiddler-websocket.jpg" alt="Fiddler查看WebSocket" title="Fiddler查看WebSocket">
+
 <p>Fiddler中的WebSocket显示乱码是因为数据已经被压缩(Compressed),要查看乱码的内容，在Response中添加头信息。按下F2按钮后，即可在Response中手动添加头信息(Add Headers)。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Content-Encoding: deflate</div></pre></td></tr></table></figure>
 <p>添加头信息之后，点击TextView会出现黄色的Decode提示框。</p>
-<img src="/2016/11/12/websocket-check/websocket-decode.jpg" alt="Fiddler查看WebSocket-Decode" title="Fiddler查看WebSocket-Decode">
+
 <p>点击之后即可看到原始的Json数据。</p>
 ]]></content>
     </entry>
@@ -448,6 +731,10 @@
 <p>w  匹配一个文字和数字字符，也就是[A-Za-z0-9]，如：’Gw*p’匹配以G后跟零个或多个文字或数字字符，然后是p。</p>
 <p>W  w的反置形式，匹配一个非单词字符，如点号句号等。W*则可匹配多个。</p>
 <p>b  单词锁定符，如: ‘bgrepb’只匹配grep，即只能是grep这个单词，两边均为空格。</p>
+<h4 id="匹配条件附近相关内容"><a href="#匹配条件附近相关内容" class="headerlink" title="匹配条件附近相关内容"></a>匹配条件附近相关内容</h4><p>有时日志较大时，需要查看日志中央的内容，那么可以使用-C参数。参数后附加一个数，代表日志前后的行数。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat catalina.out | grep -C 500 <span class="string">'16 11 28 11 00 00'</span> | grep <span class="string">'0720738'</span></div></pre></td></tr></table></figure>
+<p>以上命令查看满足日志中包含<code>16 11 28 11 00 00</code>且包含<code>0720738</code>的，前后500行的内容。如果是两个条件满足其中任意一个的话，使用如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat catalina.out | grep -C 500 -E <span class="string">'16 11 28 11 00 00|0720738'</span></div></pre></td></tr></table></figure>
 ]]></content>
     </entry>
     
@@ -513,12 +800,18 @@
 <a id="more"></a>
 <p>同理，在调整项目树宽度时，可以使用快捷键<code>Ctrl + Alt + Left/Right</code>。</p>
 <h4 id="Debug视图Tab页切换"><a href="#Debug视图Tab页切换" class="headerlink" title="Debug视图Tab页切换"></a>Debug视图Tab页切换</h4><p>快捷键是Shift + Tab，如下图所示。</p>
-<img src="/2016/11/03/intellij-idea-tips/intelli-idea-debug-view-convert.jpg" alt="Intellij Idea的Debug视图Tab页切换" title="Intellij Idea的Debug视图Tab页切换">
+
 <h4 id="Debug视图日志滚动到末尾"><a href="#Debug视图日志滚动到末尾" class="headerlink" title="Debug视图日志滚动到末尾"></a>Debug视图日志滚动到末尾</h4><p>如果想在Debug视图中将日志始终定位到末尾，可以点击左侧的Scroll To End按钮，也可以使用快捷键<code>Ctrl + End</code>。</p>
 <h4 id="Debug视图清空日志"><a href="#Debug视图清空日志" class="headerlink" title="Debug视图清空日志"></a>Debug视图清空日志</h4><p>清空日志没有快捷键，但是可以使用键盘上的鼠标右键来做到。</p>
-<h4 id="关闭Editor-Tabs"><a href="#关闭Editor-Tabs" class="headerlink" title="关闭Editor Tabs"></a>关闭Editor Tabs</h4><p>在Editor Tabs中切换比较耗费时间，可以尝试关闭Editor Tabs功能，关闭掉Editor Tabs功能还有一个好处是加载的时候会变快，因为不用加载Editor Tabs里打开的页面的内容了。关闭Editor Tabs功能按下Ctrl + Alt + S快捷键。搜索Editor Tabs关键字即可，在右侧Tab Appearence中选择None即可。关闭掉后直接可以通过Ctrl + E快捷键或者Ctrl + Shift + E快捷键访问文件。</p>
+<h4 id="关闭Editor-Tabs"><a href="#关闭Editor-Tabs" class="headerlink" title="关闭Editor Tabs"></a>关闭Editor Tabs</h4><p>在Editor Tabs中切换比较耗费时间，可以尝试关闭Editor Tabs功能，关闭掉Editor Tabs功能还有一个好处是加载的时候会变快，因为不用加载Editor Tabs里打开的页面的内容了。关闭Editor Tabs功能按下<code>Ctrl + Alt + S</code>快捷键。搜索Editor Tabs关键字即可，在右侧Tab Appearence中选择None即可。关闭掉后直接可以通过Ctrl + E快捷键或者<code>Ctrl + Shift + E</code>快捷键访问文件。</p>
 <h4 id="跳转到特定文件夹"><a href="#跳转到特定文件夹" class="headerlink" title="跳转到特定文件夹"></a>跳转到特定文件夹</h4><p>在Intellij Idea中可以跳转到特定的文件夹，只需要按下两次Shift之后，在搜索的关键字前面加一个斜杠即可，如下图所示。</p>
-<img src="/2016/11/03/intellij-idea-tips/search-folder.jpg" alt="Intellij Idea跳转到指定文件夹" title="Intellij Idea跳转到指定文件夹">
+
+<h4 id="自动补全分号"><a href="#自动补全分号" class="headerlink" title="自动补全分号"></a>自动补全分号</h4><p>在语句的结尾补全分号，可以使用快捷键<code>Ctrl + Shift + Enter</code>，注意光标需要移动到补全分号的行。</p>
+<h4 id="打开无快捷键的Tab"><a href="#打开无快捷键的Tab" class="headerlink" title="打开无快捷键的Tab"></a>打开无快捷键的Tab</h4><p>在Intellij Idea中有些Tab时没有快捷键的，比如Maven Projects。要打开可以使用快捷键<code>Ctrl + Alt + A</code>，输入Maven projects关键字即可。</p>
+<h4 id="粘贴版历史"><a href="#粘贴版历史" class="headerlink" title="粘贴版历史"></a>粘贴版历史</h4><p>如果使用过 Mac 里面的 Alfred 的话，可能大家早就习惯了 Alfred 的粘贴板历史的能力，真是复制粘贴的神器啊。其实 Intellij IDEA 里面也提供了这样的能力，我们可以直接通过<code>Command + Shift + V</code>来进行访问历史粘贴板：</p>
+
+<h4 id="Language-Injection"><a href="#Language-Injection" class="headerlink" title="Language Injection"></a>Language Injection</h4><p>在 Java 的 String 中编辑有 JSON 非常麻烦，在 Intellij IDEA 中，我们可以直接使用 Intellij IDEA 的 Language Injection 的功能（Alt + Enter）将一个字符串标记为 JSON，就可以非常方便地编写 JSON 了，再也不用担心转义的问题了：</p>
+
 ]]></content>
     </entry>
     
@@ -672,88 +965,16 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">phoenix-4.8.0-HBase-1.2-client.jar</div></pre></td></tr></table></figure>
 <p>注意顺序，先拷贝jar包，在启动SQuirreL添加驱动，如果是拷贝jar包时已经启动了SQuirreL，那么SQuirreL需要重启一下，拷贝的jar包才生效，这个是需要注意的地方，可以参见<a href="http://stackoverflow.com/questions/40215921/squirrel-configure-could-not-initial-class-org-apache-phoenix-jdbc-phoenixdrive/40225765#40225765" target="_blank" rel="external">SQuirreL Configure: could not initial class org.apache.phoenix.jdbc.PhoenixDriver</a>。在连接不同的HBase数据库时，需要注意驱动的版本，不同版本的驱动是无法正确连接的。高版本的驱动无法连接低版本的HBase。</p>
 <h4 id="添加Driver"><a href="#添加Driver" class="headerlink" title="添加Driver"></a>添加Driver</h4><p>添加Driver如下图所示。</p>
-<img src="/2016/10/25/squirrel-phoenix-configuration/sphonix-driver-configuration.jpg" alt="Sphonix增加驱动" title="Sphonix增加驱动">
+
 <p>Name填写用户自定义名称。Example URL填写ZooKepper地址。Class Name填写：<code>org.apache.phoenix.jdbc.PhoenixDriver</code>。</p>
 <h4 id="添加Alias连接Hbase"><a href="#添加Alias连接Hbase" class="headerlink" title="添加Alias连接Hbase"></a>添加Alias连接Hbase</h4><p>如下图所示。</p>
-<img src="/2016/10/25/squirrel-phoenix-configuration/addAlias.jpg" alt="增加Alias" title="增加Alias">
+
 <p>Name是Alias的名字，可以填写自定义名称。Driver选择上一步配置好的Driver名称，这里是Phoenix。url填写Phoenix连接串：<code>jdbc:phoenix:192.168.24.226,192.168.24.195:2181:/hbase-unsecure</code>。UserName和Password填写操作系统的登录用户和登录密码。</p>
 <h4 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h4><p>SQL查询如下图所示。</p>
-<img src="/2016/10/25/squirrel-phoenix-configuration/configurationResult.jpg" alt="SQL查询" title="SQL查询">
+
 <h4 id="连接MySQL"><a href="#连接MySQL" class="headerlink" title="连接MySQL"></a>连接MySQL</h4><p>将MySQL的驱动<code>mysql-connector-java-5.1.39.jar</code>拷贝到lib目录下。</p>
-<img src="/2016/10/25/squirrel-phoenix-configuration/squirrel-connect-mysql.jpg" alt="SQuirreL连接MySQL" title="SQuirreL连接MySQL">
+
 <p>驱动链接填写：<code>jdbc:mysql://192.168.24.234:3306/clbs?useUnicode=true&amp;characterEncoding=utf-8</code>。用户名和密码填写登录Linux主机的用户名和密码。</p>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Java Web开发--log4j]]></title>
-      <url>http://jiangxiaoqiang.com/2016/10/23/log4j/</url>
-      <content type="html"><![CDATA[<h2 id="isDebugEnabled"><a href="#isDebugEnabled" class="headerlink" title="isDebugEnabled"></a>isDebugEnabled</h2><p>在输出日志时，判断输出级别：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(logger.isDebugEnabled()) &#123;</div><div class="line">    logger.debug(<span class="string">"通用处理，信息为："</span> + JSON.toJSONString(vehicleLocationData));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于debug，即不需要进行日志信息输出时：</p>
-<p>①假如debug方法中的参数比较简单时（比如直接就是写好的字符串），加不加这句if判断，在效率上也几乎没有什么差别；</p>
-<p>②假如debug方法中的参数比较复杂时（比如还要使用别的函数进行计算、或者还要进行字符串的拼接等等,如上代码片段所示，输出的内容需要序列化），在前面就加上这句if判断，会让效率提高（否则，开始大动干戈做了很多事情（比如字符串的拼接，序列化），后来才发现不需要进行输出日志信息），白白浪费了CPU资源，影响程序的运行效率。</p>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Lombok精简Java代码]]></title>
-      <url>http://jiangxiaoqiang.com/2016/10/23/lombok/</url>
-      <content type="html"><![CDATA[<p><a href="https://projectlombok.org/" target="_blank" rel="external">lombok</a>提供了简单的注解的形式来帮助我们简化消除一些必须有但显得很臃肿的java代码,特别是相对于POJO(Plain Ordinary Java Object)。安装Lombok Plugin和引入Jar包之后方可使用。</p>
-<p>常用的 lombok 注解：</p>
-<ul>
-<li><strong>@Data</strong>：注解在类上；提供类所有属性的 getting 和 setting 方法，此外还提供了equals、canEqual、hashCode、toString 方法</li>
-<li><strong>@Setter</strong>：注解在属性上；为属性提供 setting 方法</li>
-<li><strong>@Getter</strong>：注解在属性上；为属性提供 getting 方法</li>
-<li><strong>@Log4j</strong>：注解在类上；为类提供一个 属性名为log 的 log4j 日志对象</li>
-<li><strong>@NoArgsConstructor</strong>：注解在类上；为类提供一个无参的构造方法</li>
-<li><strong>@AllArgsConstructor</strong>：注解在类上；为类提供一个全参的构造方法</li>
-</ul>
-<p>如果不使用lombok注解，代码是这样：</p>
-<a id="more"></a>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> String id;</div><div class="line">    <span class="keyword">private</span> Logger log = Logger.getLogger(Person.class);</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String id)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.id = id;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getId</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> id;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(String id)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.id = id;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>使用lombok注解，代码是这样：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Data</span></div><div class="line"><span class="meta">@Log</span>4j</div><div class="line"><span class="meta">@NoArgsConstructor</span></div><div class="line"><span class="meta">@AllArgsConstructor</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> String id;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>一旦POJO字段较多时精简的代码就很明显了，而且使用Lombok的代码更加干净、易读，添加<strong>@Data</strong>注解之后，按Ctrl + O(Outline)可以看到生成了get和set方法。</p>
-<h4 id="EqualsAndHashCode"><a href="#EqualsAndHashCode" class="headerlink" title="@EqualsAndHashCode"></a>@EqualsAndHashCode</h4><p>@EqualsAndHashCode注解实现equals()方法和hashCode()方法。hashcode是用于散列数据的快速存取，如利用HashSet/HashMap/Hashtable类来存储数据时，都是根据存储对象的hashcode值来进行判断是否相同的。</p>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Spring框架搭建]]></title>
-      <url>http://jiangxiaoqiang.com/2016/10/23/spring/</url>
-      <content type="html"><![CDATA[<p>Spring的不足：</p>
-<ul>
-<li>配置太多</li>
-</ul>
-<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="Could-not-open-ServletContext-resource-WEB-INF-applicationContext-xml"><a href="#Could-not-open-ServletContext-resource-WEB-INF-applicationContext-xml" class="headerlink" title="Could not open ServletContext resource [/WEB-INF/applicationContext.xml]"></a>Could not open ServletContext resource [/WEB-INF/applicationContext.xml]</h3><p>ContextLoaderListener has its own context which is shared by all servlets and filters. By default it will search /WEB-INF/applicationContext.xml。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>/WEB-INF/somewhere-else/root-context.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="Missing-artifact-org-aspectj-aspectjweaver-jar-1-8-0-M1"><a href="#Missing-artifact-org-aspectj-aspectjweaver-jar-1-8-0-M1" class="headerlink" title="Missing artifact org.aspectj:aspectjweaver:jar:1.8.0.M1"></a>Missing artifact org.aspectj:aspectjweaver:jar:1.8.0.M1</h3><p>According to a reported issue at springsource, aspectjweaver is “basically identical to AspectJ 1.7” except that it has early support for Java 8.As I don’t need Java 8 support, I basically added a compile dependency to the latest release version of aspectweaver:</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.aspectj<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>aspectjweaver<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>This ensures that the 1.7.4 is used instead of the milestone release, and is an acceptable workaround for me, for the time being.</p>
-<h5 id="Exception-java-lang-ClassNotFoundException-org-apache-commons-dbcp-BasicDataSource"><a href="#Exception-java-lang-ClassNotFoundException-org-apache-commons-dbcp-BasicDataSource" class="headerlink" title="Exception java.lang.ClassNotFoundException: org.apache.commons.dbcp.BasicDataSource"></a>Exception java.lang.ClassNotFoundException: org.apache.commons.dbcp.BasicDataSource</h5><p>在POM.xml中引入jar包。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-dbcp<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-dbcp<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
-<h5 id="java-lang-NoClassDefFoundError-org-apache-ibatis-session-SqlSessionFactory"><a href="#java-lang-NoClassDefFoundError-org-apache-ibatis-session-SqlSessionFactory" class="headerlink" title="java.lang.NoClassDefFoundError: org/apache/ibatis/session/SqlSessionFactory"></a>java.lang.NoClassDefFoundError: org/apache/ibatis/session/SqlSessionFactory</h5><p>引入jar包。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.ibatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>ibatis-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Windows下用Nexus搭建Maven私服]]></title>
-      <url>http://jiangxiaoqiang.com/2016/10/23/maven-private-service/</url>
-      <content type="html"><![CDATA[<h4 id="Nexus简介"><a href="#Nexus简介" class="headerlink" title="Nexus简介"></a>Nexus简介</h4><p>使用Maven的中央仓库存在如下问题：</p>
-<ul>
-<li>Maven自己的中央库访问速度非常慢，外加GFW，基本没法用。</li>
-<li>有些jar包由于版权原因，maven中央仓库没有，比如oracle JDBC驱动。另外也会有一些项目中用到的比较老的开源jar包， 中央仓库也没有。这种情况我们需要把jar包手动上传到私服。</li>
-<li>公司自己开发的jar包并不开源，不能上传到maven中央仓库，只能部署到私服上面。</li>
-</ul>
-<a id="more"></a>
-<p>Nexus 是Maven仓库管理器，如果你使用Maven，你可以从Maven中央仓库下载所需要的构件（artifact），但这通常不是一个好的做法，你应该在本地架设一个Maven仓库服务器，在代理远程仓库的同时维护本地仓库，以节省带宽和时间，Nexus就可以满足这样的需要。此外，他还提供了强大的仓库管理功能，构件搜索功能，它基于REST，友好的UI是一个extjs的REST客户端，它占用较少的内存，基于简单文件系统而非数据库。这些优点使其日趋成为最流行的Maven仓库管理器。下载Nexus（nexus-3.0.1-01-win64.exe），安装完毕后访问<a href="http://192.168.1.102:8081/" target="_blank" rel="external">本地Maven私服主页</a>。</p>
-<h4 id="配置单个项目"><a href="#配置单个项目" class="headerlink" title="配置单个项目"></a>配置单个项目</h4><p>安装完毕后需要登录，默认的用户名密码是：<code>admin/admin123</code>。登录之后才会显示设置图标，才能添加repositories。将<a href="http://192.168.1.102:8081/repository/maven-public/" target="_blank" rel="external">本地Maven私服路径</a>配置到项目的pom.xml中即可。如下代码片段所示。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">repositories</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">repository</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>my-nexus-repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://192.168.1.102:8081/repository/maven-public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">releases</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">releases</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">pluginRepositories</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">pluginRepository</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>my-nexus-repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://192.168.1.102:8081/repository/maven-public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">releases</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">releases</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">pluginRepository</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">pluginRepositories</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>如果在本地私服没有的jar包，会自动从中心服务器下载。至此，最简单的Maven私服搭建完毕。</p>
-<h4 id="配置全局应用"><a href="#配置全局应用" class="headerlink" title="配置全局应用"></a>配置全局应用</h4><p>在Maven的settings.xml中配置profile元素，这样就能让本机所有的Maven项目都使用自己的Maven私服。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>central<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>*<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>Human Readable Name for this Mirror.<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://localhost:8081/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">mirrors</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">profiles</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">profile</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">repositories</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">repository</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">name</span>&gt;</span>Nexus<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://localhost:8081/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">releases</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></div><div class="line">		  <span class="tag">&lt;/<span class="name">releases</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></div><div class="line">		  <span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">profiles</span>&gt;</span></div></pre></td></tr></table></figure>
 ]]></content>
     </entry>
     
@@ -1015,11 +1236,11 @@
 <p>如下是Intellij Idea的桌面图标配置文件:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env xdg-open</span></div><div class="line"></div><div class="line">[Desktop Entry]</div><div class="line">Encoding=UTF-8</div><div class="line">Name=Intellij Idea</div><div class="line">GenericName=IDE</div><div class="line">Exec=<span class="string">'/opt/idea/idea-IC-162.2032.8/bin/idea.sh'</span></div><div class="line">Icon=/opt/idea/idea-IC-162.2032.8/bin/idea.png</div><div class="line">Terminal=<span class="literal">false</span></div><div class="line">Type=Application</div><div class="line">Categories=IDE;</div><div class="line">Name[en_US]=Intellij Idea</div></pre></td></tr></table></figure>
 <p>保存之后双击打开，一定要双击打开哟，否则启动图标不会出现，会出现一个确认界面。提示需要授权启动项，选择授权即可。配置好图标后的效果如图所示。</p>
-<img src="/2016/10/12/fedora-desktop-icon/google-chrome-fedora-desktop-launcher.png" alt="Google-Chrome手动添加桌面图标" title="Google-Chrome手动添加桌面图标">
+
 <h4 id="快速启动图标"><a href="#快速启动图标" class="headerlink" title="快速启动图标"></a>快速启动图标</h4><p>要让图标在快速启动栏里出现，直接将刚才新建Google-Chrome.desktop文件复制到<code>/usr/share/application</code>目录下即可。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp Google-Chrome.desktop /usr/share/application</div></pre></td></tr></table></figure>
 <p>配置好快速启动图标后的效果如下如所示。</p>
-<img src="/2016/10/12/fedora-desktop-icon/google-chrome-startup-icon.png" alt="Google-Chrome快速启动图标" title="Google-Chrome快速启动图标">
+
 <p><code>/usr/share/application</code>目录是Gnome中所有用户启动的快捷方式存放的目录。局部的快捷方式存放的目录在：<code>~/.local/share/applications</code>。desktop文件的结构如下。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[Desktop Entry]</div><div class="line">Encoding=UTF-8 //字符编码</div><div class="line">Name=vim　　 //显示的名字</div><div class="line">MimeType=text/plain; //类型</div><div class="line">Exec=vim %f //运行的程序 %f表示一个参数</div><div class="line">Type=Application　 //类型</div><div class="line">Terminal=true //是否使用终端</div><div class="line">NoDisplay=true //是否显示在gnome菜单里</div></pre></td></tr></table></figure>
 ]]></content>
@@ -1030,7 +1251,7 @@
       <url>http://jiangxiaoqiang.com/2016/10/10/intellij-hot-deply/</url>
       <content type="html"><![CDATA[<p>下午遇到一个问题，在开发时，HTML修改后浏览器刷新始终不显示修改后的效果。经过朋友的指导，原来是要选择Exploded包进行部署。如图所示。</p>
 <a id="more"></a>
-<img src="/2016/10/10/intellij-hot-deply/war-exploded-deploy.jpg" alt="选择Exploded部署包" title="选择Exploded部署包">
+
 <p>在Intellij的官方文档上如此描述：To have the application deployed as a directory, choose Web Application: Exploded.To have the application deployed in the packed form, choose Web Application: Archive.大意是如果想以目录形式部署，选择Exploded(adj. 爆炸了的；分解的；被破除的)模式,如果想以打包模式部署，则选择Archive模式。Exploded模式带来的好处是支持热部署，这样不用在开发过程中每次修改了内容后(HTML\JSP)都重新部署，重启一次大概要1-3分钟，有此可见大大提高了开发效率。缺点是多次部署后，Tomcat可能内存溢出，此时就必须重启Tomcat。</p>
 <p>参考资料：</p>
 <p><a href="http://stackoverflow.com/questions/1289358/what-does-exploded-development-mean-in-java" target="_blank" rel="external">What does Exploded Development mean? (In Java)</a></p>
@@ -1091,7 +1312,7 @@
       <url>http://jiangxiaoqiang.com/2016/10/08/intelli-idea-plugin/</url>
       <content type="html"><![CDATA[<h4 id="presentation-assistant"><a href="#presentation-assistant" class="headerlink" title="presentation assistant"></a>presentation assistant</h4><p>这款插件可以实时的在Intellij屏幕底部展示当前按下的快捷键，包括Windows的快捷键和Mac的快捷键，可以帮助您记忆快捷键，清楚当前的行为(Action)。效果如下图所示。</p>
 <a id="more"></a>
-<img src="/2016/10/08/intelli-idea-plugin/presentation-assistant-tips.jpg" alt="Presentation Assistant提示" title="Presentation Assistant提示">
+
 <h4 id="Grep-Console"><a href="#Grep-Console" class="headerlink" title="Grep Console"></a>Grep Console</h4><p>允许你定义一系列将通过控制台输出或文件测试的正则表达式。匹配代码行的每个表达式将会影响整行的样式，或播放声音。例如，错误消息可以被设置在一个红色的背景中显示。例如错误(ERROR)输出为红色，报警(WARNING)输出为黄色，信息(INFO)输出为绿色。</p>
 <h4 id="JRebel-for-IntelliJ-Commercial"><a href="#JRebel-for-IntelliJ-Commercial" class="headerlink" title="JRebel for IntelliJ(Commercial)"></a>JRebel for IntelliJ(Commercial)</h4><p>JRebel的热部署可以让你修改代码以后不用重新启动项目即可加载效果，即所谓的热部署，可以大大提高开发效率。</p>
 ]]></content>
@@ -1446,7 +1667,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PageMapperTest</span> <span class="keyword">extends</span> <span class="title">BasicTest</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="meta">@Autowired</span></div><div class="line">	<span class="keyword">private</span> CountryService countryService;</div><div class="line"></div><div class="line">	<span class="meta">@Test</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			Country country = countryService.getCountyById(<span class="number">1</span>);</div><div class="line">			System.out.print(country.getId());</div><div class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">			<span class="comment">// TODO Auto-generated catch block</span></div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="新建数据库表"><a href="#新建数据库表" class="headerlink" title="新建数据库表"></a>新建数据库表</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">USE `test`;</div><div class="line"></div><div class="line">#</div><div class="line"># Table structure for table country</div><div class="line">#</div><div class="line"></div><div class="line">DROP TABLE IF EXISTS `country`;</div><div class="line">CREATE TABLE `country` (</div><div class="line">  `Id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',</div><div class="line">  `countryname` varchar(255) DEFAULT NULL COMMENT '名称',</div><div class="line">  `countrycode` varchar(255) DEFAULT NULL COMMENT '代码',</div><div class="line">  PRIMARY KEY (`Id`)</div><div class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='国家信息';</div><div class="line"></div><div class="line">INSERT INTO `country` VALUES (1,'Angola','AO');</div><div class="line">INSERT INTO `country` VALUES (2,'Afghanistan','AF');</div></pre></td></tr></table></figure>
 <h4 id="启动测试"><a href="#启动测试" class="headerlink" title="启动测试"></a>启动测试</h4><p>结果如下如所示。</p>
-<img src="/2016/09/27/spring-mybatis-integrete/spring-mybatis-running-result.jpg" alt="MyBatis读取数据" title="MyBatis读取数据">
+
 <p>引用文章：</p>
 <p><a href="http://www.ibm.com/developerworks/cn/opensource/os-cn-spring-iocannt/" target="_blank" rel="external">详解 Spring 3.0 基于 Annotation 的依赖注入实现</a></p>
 ]]></content>
@@ -1456,13 +1677,13 @@
       <title><![CDATA[IntelliJ Idea快捷键技巧分享]]></title>
       <url>http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/</url>
       <content type="html"><![CDATA[<h4 id="输入乱码"><a href="#输入乱码" class="headerlink" title="输入乱码"></a>输入乱码</h4><p>在控制台输入中文时显示的不是输入的汉字，而是显示正方形符号，此时输入的汉字显示乱码，如图所示。</p>
-<img src="/2016/09/26/intllij-idea-encoding/intelli-idea-input-encode.jpg" alt="输入时乱码" title="输入时乱码">
+
 <a id="more"></a>
 <p>解决此问题，可使用支持中文较好的字体，覆盖默认字体，在Intellig Idea中的File-Settings-Appearance&amp;Behavior-Appearance中(Ctrl + Alt + S)。如下图所示。</p>
-<img src="/2016/09/26/intllij-idea-encoding/intelli-idea-override-default-font.jpg" alt="覆盖默认字体" title="覆盖默认字体">
+
 <p>在Debug控制台中Tomcat中输出乱码，可以打开Run/Debug Configuration,选择你的tomcat。在Server &gt; VM options设置为<code>-Dfile.encoding=UTF-8</code> ，重启tomcat。</p>
 <h4 id="智能提示敏感调整"><a href="#智能提示敏感调整" class="headerlink" title="智能提示敏感调整"></a>智能提示敏感调整</h4><p>在智能提示时默认大小写敏感，比如String的智能提示就必须首字母大写才能够准确定位，经常大小写切换，不是特别方便。在settings-Editor-General-Code Completion里设置后，可以省去大小写切换操作。</p>
-<img src="/2016/09/26/intllij-idea-encoding/code-completion-case-sensitive.jpg" alt="智能提示大小写敏感调整" title="智能提示大小写敏感调整">
+
 <h4 id="Live-Templates"><a href="#Live-Templates" class="headerlink" title="Live Templates"></a>Live Templates</h4><p>Live templates帮助你快速、高效、精准的输入经常使用的或者自定义的代码片段(Live templates let you insert frequently-used or custom code constructs into your source code file quickly, efficiently, and accurately).相当于一个代码块的缩写，输入<code>Ctrl + J</code>会显示当前上下文中所有可用的模板。快速输入foreach，在方法内(一定要在方法里敲)输入iter + TAB。</p>
 <h5 id="快速进行空判断"><a href="#快速进行空判断" class="headerlink" title="快速进行空判断"></a>快速进行空判断</h5><p>输入<code>ifn</code>，按TAB即可。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (args == <span class="keyword">null</span>) &#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -1471,9 +1692,9 @@
 <h4 id="Surround-with"><a href="#Surround-with" class="headerlink" title="Surround with"></a>Surround with</h4><p>用于快速添加try catch等代码块，The Surround with feature allows you easily put expressions or statements within blocks or language constructs.快捷键为：<code>Ctrl + Alt + T</code>。</p>
 <h4 id="重构-Reflactor"><a href="#重构-Reflactor" class="headerlink" title="重构(Reflactor)"></a>重构(Reflactor)</h4><h5 id="重命名-Rename"><a href="#重命名-Rename" class="headerlink" title="重命名(Rename)"></a>重命名(Rename)</h5><p>Shift + F6,可以重命名你的类、方法、变量等等。</p>
 <h4 id="主题-Theme"><a href="#主题-Theme" class="headerlink" title="主题(Theme)"></a>主题(Theme)</h4><p>更换默认主题在settings(Ctrl + Alt + S) –&gt; editor –&gt; colors &amp; fonts –&gt; general，如下图所示，如果需要修改主题的字体等是默认是不允许的，需要复制一个新的主题，再自定义修改相应的参数。</p>
-<img src="/2016/09/26/intllij-idea-encoding/change-theme.jpg" alt="修改默认主题" title="修改默认主题">
+
 <h4 id="Maven配置"><a href="#Maven配置" class="headerlink" title="Maven配置"></a>Maven配置</h4><p>使用Maven最头疼的就是从中央库下载jar包超级慢，等待下载jar包的感觉用重庆话讲：肚肠子把把逗紧了。解决办法就是使用私服地址，私服可以使用本地配置的Maven(不是Intellij Idea里面的boundle Maven)，修改Intellj Maven采用本机安装Maven在设置(Ctrl + Alt + S)中输入Maven，修改地址(例如：<code>D:\Source\zwnewplatform\javasoftware\runtime\apache-maven-3.3.9</code>)即可，如下图所示。</p>
-<img src="/2016/09/26/intllij-idea-encoding/specify-maven-addr.jpg" alt="修改Maven地址" title="修改Maven地址">
+
 <h4 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h4><p>Intellij Idea可以完全丢掉键盘工作，有点早期Vim和Emacs编辑器的味道。善用Intellij Idea编辑器可以大幅提高工作效率，用快捷键有一种装逼的感觉，装逼人士必备。</p>
 <table>
 <thead>
@@ -1659,13 +1880,17 @@
 <td>Ctrl + Alt + O</td>
 <td style="text-align:center">优化(Optimization)类的Import</td>
 </tr>
+<tr>
+<td>Ctrl + H</td>
+<td style="text-align:center">显示类的层次结构(Hierarchy)</td>
+</tr>
 </tbody>
 </table>
 <h5 id="进入退出全屏"><a href="#进入退出全屏" class="headerlink" title="进入退出全屏"></a>进入退出全屏</h5><p>使用快捷键<code>Alt + V</code>打开View菜单，移动上下键选择<code>Enter Full Screen</code>即可。也可以自定义快捷键。</p>
 <h4 id="properties显示中文"><a href="#properties显示中文" class="headerlink" title="properties显示中文"></a>properties显示中文</h4><p>使用IntelliJ Idea打开属性文件时，如果包含中文，显示为原始的编码，正确显示中文需要做如下设置，到设置(settings)中,可以使用快捷键Ctrl + Alt + S打开设置界面，找到<code>File Encoding</code>选项卡，选中<code>Default encoding for properties file</code>即可，如下图所示.</p>
-<img src="/2016/09/26/intllij-idea-encoding/intellij-properties-encoding.png" alt="属性文件编码设置" title="属性文件编码设置">
+
 <h4 id="限制编辑器Tab页个数"><a href="#限制编辑器Tab页个数" class="headerlink" title="限制编辑器Tab页个数"></a>限制编辑器Tab页个数</h4><p>有时我们并不习惯在编辑器中打开太多的Tab页，如果不小心点开了7个以上的Tab页，在Tab页面中切换也蛮让人晕眩的，设置Tab页最大个数在Settings(Ctrl + Alt + S),Editor-General-Editor Tabs中，如下图如所示。</p>
-<img src="/2016/09/26/intllij-idea-encoding/intellij-tabs-number-setting.png" alt="IntelliJ Idea编辑器Tab页设置" title="IntelliJ Idea编辑器Tab页设置">
+
 <h4 id="注释模板"><a href="#注释模板" class="headerlink" title="注释模板"></a>注释模板</h4><p>参考：</p>
 <p><a href="http://www.hollischuang.com/archives/966" target="_blank" rel="external">Java开发必装的IntelliJ IDEA插件</a></p>
 <p><a href="https://www.jetbrains.com/help/idea/2016.2/surrounding-blocks-of-code-with-language-constructs.html" target="_blank" rel="external">Surrounding Blocks of Code with Language Constructs</a></p>
@@ -1678,14 +1903,14 @@
       <content type="html"><![CDATA[<h4 id="为什么要依赖注入"><a href="#为什么要依赖注入" class="headerlink" title="为什么要依赖注入"></a>为什么要依赖注入</h4><p>依赖注入(Dependency Injection)所要达到的目标是实现程序间的松耦合。将服务的调用者和服务的提供者分离。DI提供一种机制，在运行时绑定服务的提供者和调用者。</p>
 <a id="more"></a>
 <h4 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h4><p>新建一个Web项目，目录结构如下。</p>
-<img src="/2016/09/25/spring-ioc/maven-initial-content-structure.jpg" alt="Maven项目目录树结构" title="Maven项目目录树结构">
+
 <h4 id="引入包"><a href="#引入包" class="headerlink" title="引入包"></a>引入包</h4><p>引入servlet-api.jar包，目录结构如下。</p>
-<img src="/2016/09/25/spring-ioc/add-servlet-api-content-structure.jpg" alt="Maven项目目录树结构" title="Maven项目目录树结构">
+
 <p>注意引入servlet-api.jar包后，多了src/main/java目录和src/test/java目录。servlet-api.jar包中，实现了Sevlet规范，在Apache Tomcat 8.0.37中实现的是Servlet Specification 3.1，JSP Specification 2.3。版本之间详细的对应关系可以看<a href="http://tomcat.apache.org/whichversion.html" target="_blank" rel="external"><strong>Apache Tomcat Versions</strong></a>。</p>
 <h4 id="添加Spring依赖包"><a href="#添加Spring依赖包" class="headerlink" title="添加Spring依赖包"></a>添加Spring依赖包</h4><p>在Maven的POM文件中添加spring-context依赖。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-context<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.3.3.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>此处虽然只添加了一个jar包，Maven会自动下载此jar包相关的依赖包。在Maven的Dependency Hierarchy中查看包与包之间的依赖关系如下图所示。</p>
-<img src="/2016/09/25/spring-ioc/spring-context-dependency-hierarchy.jpg" alt="Spring-Context包依赖关系" title="Spring-Context包依赖关系">
+
 <h4 id="添加类"><a href="#添加类" class="headerlink" title="添加类"></a>添加类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MessageService</span> </span>&#123;</div><div class="line">   <span class="function">String <span class="title">getMessage</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Component</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MessagePrinter</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">final</span> <span class="keyword">private</span> MessageService service;</div><div class="line"></div><div class="line">    <span class="meta">@Autowired</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MessagePrinter</span><span class="params">(MessageService service)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.service = service;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printMessage</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="keyword">this</span>.service.getMessage());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>带有 @Configuration 的注解类表示这个类可以使用 Spring IoC 容器作为 bean 定义的来源。@Bean 注解告诉 Spring，一个带有 @Bean 的注解方法将返回一个对象，该对象应该被注册为在 Spring 应用程序上下文中的 bean。</p>
@@ -1694,7 +1919,7 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">beans</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"mockMessageService"</span> <span class="attr">class</span>=<span class="string">"dolphin.MessageService"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>带有 @Bean 注解的方法名称作为 bean 的 ID，它创建并返回实际的 bean。配置类可以声明多个 @Bean。一旦定义了配置类，你就可以使用 AnnotationConfigApplicationContext 来加载并把他们提供给 Spring 容器(Main方法中即是)。</p>
 <h4 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h4><p>结果如图所示。</p>
-<img src="/2016/09/25/spring-ioc/spring-di-result.jpg" alt="Dependency Injection结果示例" title="Dependency Injection结果示例">
+
 <p>来自：</p>
 <ul>
 <li><a href="https://projects.spring.io/spring-framework/#quick-start" target="_blank" rel="external">spring-framework-quick-start</a></li>
@@ -1773,7 +1998,7 @@
 </li>
 </ul>
 <p>Tomcat7和Tomcat8默认设置都是http1.1，Tomcat7默认使用BIO，Tomcat8根据情况自动选择BIO还是NIO，甚至NIO2.当前调试版本是Tomcat 8，默认进入的是NioEndpoint(其实这里已经到AbstractEndpoint的Processor了，在NioEndpoint的断点始终没有命中，不知何故)，如下图所示。</p>
-<img src="/2016/09/22/tomcat-http/nioendpoint-debug.jpg" alt="HTTP请求进入NioEndpoint" title="HTTP请求进入NioEndpoint">
+
 <h4 id="Engine处理请求"><a href="#Engine处理请求" class="headerlink" title="Engine处理请求"></a>Engine处理请求</h4><p>Connector把该请求交给它所在的Service的Engine(StandardEngine)来处理，并等待Engine的回应。Container 是容器的父接口，所有子容器都必须实现这个接口，Container 容器的设计用的是典型的责任链的设计模式，它有四个子容器组件构成，分别是：Engine、Host、Context、Wrapper，这四个组件不是平行的，而是父子关系，Engine 包含 Host,Host 包含 Context，Context 包含 Wrapper。通常一个 Servlet class 对应一个 Wrapper，如果有多个 Servlet 就可以定义多个 Wrapper，如果有多个 Wrapper 就要定义一个更高的Container。详细的关系在server.xml可以看出来：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Server</span>&gt;</span><span class="comment">&lt;!--顶层元素，代表一个服务器--&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">Service</span>&gt;</span><span class="comment">&lt;!--顶层元素，是Connector的集合，只有一个Engine--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">Connectior</span>/&gt;</span><span class="comment">&lt;!--连接器类元素，代表通信接口--&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">Engine</span>&gt;</span><span class="comment">&lt;!--容器类元素，为特定的Service组件处理所有客户请求，可包含多个Host--&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">Host</span>&gt;</span><span class="comment">&lt;!--为特定的虚拟主机处理所有客户请求--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">Context</span>&gt;</span><span class="comment">&lt;!--为特定的WEB应用处理所有客户请求--&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">Context</span>&gt;</span></div><div class="line">         <span class="tag">&lt;/<span class="name">Host</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">Engine</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">Service</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">Server</span>&gt;</span></div></pre></td></tr></table></figure>
 <h4 id="匹配Host"><a href="#匹配Host" class="headerlink" title="匹配Host"></a>匹配Host</h4><p>Engine获得请求localhost:8080/test/index.jsp，匹配它所有虚拟主机Host<br>Engine匹配到名为localhost的Host（即使匹配不到也把请求交给该Host处理，因为该Host被定义为该Engine的默认主机）</p>
@@ -1781,7 +2006,7 @@
 <h4 id="匹配Servlet"><a href="#匹配Servlet" class="headerlink" title="匹配Servlet"></a>匹配Servlet</h4><p>path=”/test”的Context获得请求/index.jsp，在它的mapping table中寻找对应的servlet<br>Context匹配到URL PATTERN为*.jsp的servlet，对应于JspServlet类<br>构造HttpServletRequest对象和HttpServletResponse对象，作为参数调用JspServlet的doGet或doPost方法</p>
 <h4 id="返回响应"><a href="#返回响应" class="headerlink" title="返回响应"></a>返回响应</h4><p>Context把执行完了之后的HttpServletResponse对象返回给Host<br>Host把HttpServletResponse对象返回给Engine<br>Engine把HttpServletResponse对象返回给Connector<br>Connector把HttpServletResponse对象返回给客户browser</p>
 <p>请求流程图(Graphiz绘制)：</p>
-<img src="/2016/09/22/tomcat-http/tomcat-handle-flow.jpg" alt="HTTP在Tomcat中的Handle流程" title="HTTP在Tomcat中的Handle流程">]]></content>
+]]></content>
     </entry>
     
     <entry>
@@ -1791,7 +2016,7 @@
 <h4 id="引入Tomcat8-0-37jar包"><a href="#引入Tomcat8-0-37jar包" class="headerlink" title="引入Tomcat8.0.37jar包"></a>引入Tomcat8.0.37jar包</h4><p>由于Tomcat的入口类JIoEndPoint实现在tomcat-coyote.jar包中，入口org.apache.tomcat.util.net.JIoEndpoint，该类用来处理传递进来的TCP连接，它实现了一个简单的服务器模式：一个监听线程用来接收socket以及为每个进来的连接创建一个worker来处理。更加高级的功能会涉及到线程重用，如队列等。所以需要引入Tomcat8.0.37中的tomcat-coyote.jar包，在Tomcat8项目的lib目录中。</p>
 <a id="more"></a>
 <h4 id="附加源码"><a href="#附加源码" class="headerlink" title="附加源码"></a>附加源码</h4><p>附加源码如下图所示。</p>
-<img src="/2016/09/20/launching-and-debugging-tomcat-extra/attach-tomcat-source.jpg" alt="Tomcat源码附加" title="Tomcat源码附加">
+
 <h4 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h4><p>在JIoEndPoint类中的processSocket方法上新建断点，在浏览器中请求<a href="http://localhost:9090/examples/demo/test" target="_blank" rel="external">地址</a>即可命中断点，单步跟踪调试即可。Tomcat中支持两种协议的连接器：HTTP/1.1与AJP/1.3。HTTP/1.1协议负责建立HTTP连接，web应用通过浏览器访问tomcat服务器用的就是这个连接器，默认监听的是8080端口；AJP/1.3协议负责和其他HTTP服务器建立连接，监听的是8009端口，比如tomcat和apache或者iis集成时需要用到这个连接器。<br>协议上有三种不同的实现方式：JIO、APR、NIO。</p>
 <ul>
 <li><strong>JIO(java.io)</strong>：用java.io纯JAVA编写的TCP模块，这是tomcat默认连接器实现方法；</li>
@@ -1819,12 +2044,12 @@
 </ul>
 <a id="more"></a>
 <h4 id="创建项目Tomcat8"><a href="#创建项目Tomcat8" class="headerlink" title="创建项目Tomcat8"></a>创建项目Tomcat8</h4><p>创建一个新的Java类型项目，项目名称为“Tomcat8”，如下如所示。</p>
-<img src="/2016/09/20/launching-and-debugging-tomcat/create-new-java-project.jpg" alt="新建项目Tomcat8" title="新建项目Tomcat8">
+
 <h4 id="下载Tomcat-8-0-37二进制包"><a href="#下载Tomcat-8-0-37二进制包" class="headerlink" title="下载Tomcat 8.0.37二进制包"></a>下载Tomcat 8.0.37二进制包</h4><p>下载<a href="https://tomcat.apache.org/download-80.cgi" target="_blank" rel="external">Tomcat 8.0.37</a>对应的二进制文件。将之拷贝到项目Tomcat8项目的根目录。拷贝之后Tomcat项目的目录结构如下图所示。</p>
-<img src="/2016/09/20/launching-and-debugging-tomcat/tomcat8-tree-structure.jpg" alt="Tomcat8项目目录树结构" title="Tomcat8项目目录树结构">
+
 <h4 id="创建另一个项目test"><a href="#创建另一个项目test" class="headerlink" title="创建另一个项目test"></a>创建另一个项目test</h4><p>创建一个Maven的webapp项目,名字为“test”。</p>
 <h4 id="新建自定义Servlet"><a href="#新建自定义Servlet" class="headerlink" title="新建自定义Servlet"></a>新建自定义Servlet</h4><p>在test项目下新建一个自定义Servlet,名字为“TestServlet”，如图所示：</p>
-<img src="/2016/09/20/launching-and-debugging-tomcat/add-custom-servlet.jpg" alt="添加自定义Servlet" title="添加自定义Servlet">
+
 <p>由于TestServlet实现HttpServlet接口，HttpServlet接口的定义在servlet-api.jar包中，所以在test项目的Library中需要引用Tomcat8项目目录下的servlet-api.jar包。新建自定义Servlet完成后在Tomcat8项目中配置servlet映射(/webapps/examples/WEB-INF)：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>test<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/demo/test<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>以上映射说明从/demo/test发送的请求由名为test的Servlet来处理。在Tomcat8项目中配置servlet(/webapps/examples/WEB-INF)：</p>
@@ -1833,7 +2058,7 @@
 <h4 id="配置调试参数"><a href="#配置调试参数" class="headerlink" title="配置调试参数"></a>配置调试参数</h4><p>配置test项目，创建调试配置，配置Main Class为Tomcat的启动类：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">org.apache.catalina.startup.Bootstrap</div></pre></td></tr></table></figure>
 <p>配置test项目的工作空间为Tomcat8的工作空间，如图所示：</p>
-<img src="/2016/09/20/launching-and-debugging-tomcat/config-workspace.jpg" alt="配置test项目工作空间" title="配置test项目工作空间">
+
 <h4 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h4><p>在自定义的Servlet的doGet方法上打断点，打开浏览器访问<a href="http://localhost:9090/examples/demo/test" target="_blank" rel="external">链接</a>即可命中自定义Servlet。从这里可以加深理解HTTP请求到自定义Servlet处理的过程，可以理解Spring MVC和Tomcat是如何联系起来的。</p>
 <p>源自：</p>
 <ul>
@@ -1853,9 +2078,14 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.apache.commons.lang.StringUtils;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (StringUtils.isNotBlank(str)) &#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>如下方式也可：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> com.google.common.base.Strings;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (!Strings.isNullOrEmpty(myString)) &#123;</div><div class="line">       <span class="keyword">return</span> myString;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="非空默认值"><a href="#非空默认值" class="headerlink" title="非空默认值"></a>非空默认值</h4><p>有时在值为null时，会给一个默认值，有如下方式。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">String alarmType = vehicleMessageHandler.parseAlarm(kafkaRecievedLocationMessageBody.getAlarm());</div><div class="line"><span class="comment">//使用三元运算符</span></div><div class="line">positional.setAlarm(StringUtils.isBlank(alarmType) ? <span class="string">"0"</span> : alarmType);</div><div class="line"><span class="comment">//com.google.common.base</span></div><div class="line">Objects.firstNonNull(alarmType, <span class="string">"0"</span>);</div><div class="line"><span class="comment">//java.util</span></div><div class="line">Optional.ofNullable(alarmType).orElse(<span class="string">"0"</span>);</div></pre></td></tr></table></figure>
 <p>源自：</p>
 <ul>
 <li><a href="http://stackoverflow.com/questions/3598770/java-check-whether-a-string-is-not-null-and-not-empty" target="_blank" rel="external">Java, check whether a string is not null and not empty?</a></li>
+</ul>
+<ul>
+<li><a href="http://stackoverflow.com/questions/8039504/how-to-convert-a-possible-null-value-to-a-default-value-using-guava" target="_blank" rel="external">How to convert a possible null-value to a default value using Guava?</a></li>
 </ul>
 ]]></content>
     </entry>
@@ -1879,7 +2109,7 @@
 <p>想了解平时学习的理论知识在实际的代码实现中是什么情况，比较好的方式是阅读源码，如果能在阅读过程中根据疑问动手调试源码验证猜想和疑问，那就更加完美了。这里想看Spring MVC一个HTTP请求从开始到结束到底是怎么运行的，Spring MVC怎么处理，选取了4.2.3版本的源码进行调试。</p>
 <a id="more"></a>
 <p>首先从GitHub上下载4.2.3版本的源码，在项目的Maven Dependencies找到名为spring-webmvc-4.2.3.REALEASE的jar包，单击右键build-path–&gt;Configure build path,在Libraries中找到对应的jar包，选中source attachment–&gt;Edit.</p>
-<img src="/2016/09/17/springmvc-sourcecode-debugging/springmvc-attach-source.png" alt="Spring MVC关联源码" title="Spring MVC关联源码">
+
 <p>在spring-webmvc-4.2.3.REALEASE.jar中找到dispatchservlet类，打断点即可进入调试。</p>
 ]]></content>
     </entry>

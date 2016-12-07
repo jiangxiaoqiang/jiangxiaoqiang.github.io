@@ -90,18 +90,10 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="输入乱码在控制台输入中文时显示的不是输入的汉字，而是显示正方形符号，此时输入的汉字显示乱码，如图所示。">
-<meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/intelli-idea-input-encode.jpg">
-<meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/intelli-idea-override-default-font.jpg">
-<meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/code-completion-case-sensitive.jpg">
-<meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/change-theme.jpg">
-<meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/specify-maven-addr.jpg">
-<meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/intellij-properties-encoding.png">
-<meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/intellij-tabs-number-setting.png">
-<meta property="og:updated_time" content="2016-11-18T16:25:05.328Z">
+<meta property="og:updated_time" content="2016-12-06T13:32:03.669Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IntelliJ Idea快捷键技巧分享">
 <meta name="twitter:description" content="输入乱码在控制台输入中文时显示的不是输入的汉字，而是显示正方形符号，此时输入的汉字显示乱码，如图所示。">
-<meta name="twitter:image" content="http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/intelli-idea-input-encode.jpg">
 
 
 
@@ -354,13 +346,13 @@
 
       
         <h4 id="输入乱码"><a href="#输入乱码" class="headerlink" title="输入乱码"></a>输入乱码</h4><p>在控制台输入中文时显示的不是输入的汉字，而是显示正方形符号，此时输入的汉字显示乱码，如图所示。</p>
-<img src="/2016/09/26/intllij-idea-encoding/intelli-idea-input-encode.jpg" alt="输入时乱码" title="输入时乱码">
+
 <a id="more"></a>
 <p>解决此问题，可使用支持中文较好的字体，覆盖默认字体，在Intellig Idea中的File-Settings-Appearance&amp;Behavior-Appearance中(Ctrl + Alt + S)。如下图所示。</p>
-<img src="/2016/09/26/intllij-idea-encoding/intelli-idea-override-default-font.jpg" alt="覆盖默认字体" title="覆盖默认字体">
+
 <p>在Debug控制台中Tomcat中输出乱码，可以打开Run/Debug Configuration,选择你的tomcat。在Server &gt; VM options设置为<code>-Dfile.encoding=UTF-8</code> ，重启tomcat。</p>
 <h4 id="智能提示敏感调整"><a href="#智能提示敏感调整" class="headerlink" title="智能提示敏感调整"></a>智能提示敏感调整</h4><p>在智能提示时默认大小写敏感，比如String的智能提示就必须首字母大写才能够准确定位，经常大小写切换，不是特别方便。在settings-Editor-General-Code Completion里设置后，可以省去大小写切换操作。</p>
-<img src="/2016/09/26/intllij-idea-encoding/code-completion-case-sensitive.jpg" alt="智能提示大小写敏感调整" title="智能提示大小写敏感调整">
+
 <h4 id="Live-Templates"><a href="#Live-Templates" class="headerlink" title="Live Templates"></a>Live Templates</h4><p>Live templates帮助你快速、高效、精准的输入经常使用的或者自定义的代码片段(Live templates let you insert frequently-used or custom code constructs into your source code file quickly, efficiently, and accurately).相当于一个代码块的缩写，输入<code>Ctrl + J</code>会显示当前上下文中所有可用的模板。快速输入foreach，在方法内(一定要在方法里敲)输入iter + TAB。</p>
 <h5 id="快速进行空判断"><a href="#快速进行空判断" class="headerlink" title="快速进行空判断"></a>快速进行空判断</h5><p>输入<code>ifn</code>，按TAB即可。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (args == <span class="keyword">null</span>) &#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -369,9 +361,9 @@
 <h4 id="Surround-with"><a href="#Surround-with" class="headerlink" title="Surround with"></a>Surround with</h4><p>用于快速添加try catch等代码块，The Surround with feature allows you easily put expressions or statements within blocks or language constructs.快捷键为：<code>Ctrl + Alt + T</code>。</p>
 <h4 id="重构-Reflactor"><a href="#重构-Reflactor" class="headerlink" title="重构(Reflactor)"></a>重构(Reflactor)</h4><h5 id="重命名-Rename"><a href="#重命名-Rename" class="headerlink" title="重命名(Rename)"></a>重命名(Rename)</h5><p>Shift + F6,可以重命名你的类、方法、变量等等。</p>
 <h4 id="主题-Theme"><a href="#主题-Theme" class="headerlink" title="主题(Theme)"></a>主题(Theme)</h4><p>更换默认主题在settings(Ctrl + Alt + S) –&gt; editor –&gt; colors &amp; fonts –&gt; general，如下图所示，如果需要修改主题的字体等是默认是不允许的，需要复制一个新的主题，再自定义修改相应的参数。</p>
-<img src="/2016/09/26/intllij-idea-encoding/change-theme.jpg" alt="修改默认主题" title="修改默认主题">
+
 <h4 id="Maven配置"><a href="#Maven配置" class="headerlink" title="Maven配置"></a>Maven配置</h4><p>使用Maven最头疼的就是从中央库下载jar包超级慢，等待下载jar包的感觉用重庆话讲：肚肠子把把逗紧了。解决办法就是使用私服地址，私服可以使用本地配置的Maven(不是Intellij Idea里面的boundle Maven)，修改Intellj Maven采用本机安装Maven在设置(Ctrl + Alt + S)中输入Maven，修改地址(例如：<code>D:\Source\zwnewplatform\javasoftware\runtime\apache-maven-3.3.9</code>)即可，如下图所示。</p>
-<img src="/2016/09/26/intllij-idea-encoding/specify-maven-addr.jpg" alt="修改Maven地址" title="修改Maven地址">
+
 <h4 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h4><p>Intellij Idea可以完全丢掉键盘工作，有点早期Vim和Emacs编辑器的味道。善用Intellij Idea编辑器可以大幅提高工作效率，用快捷键有一种装逼的感觉，装逼人士必备。</p>
 <table>
 <thead>
@@ -557,13 +549,17 @@
 <td>Ctrl + Alt + O</td>
 <td style="text-align:center">优化(Optimization)类的Import</td>
 </tr>
+<tr>
+<td>Ctrl + H</td>
+<td style="text-align:center">显示类的层次结构(Hierarchy)</td>
+</tr>
 </tbody>
 </table>
 <h5 id="进入退出全屏"><a href="#进入退出全屏" class="headerlink" title="进入退出全屏"></a>进入退出全屏</h5><p>使用快捷键<code>Alt + V</code>打开View菜单，移动上下键选择<code>Enter Full Screen</code>即可。也可以自定义快捷键。</p>
 <h4 id="properties显示中文"><a href="#properties显示中文" class="headerlink" title="properties显示中文"></a>properties显示中文</h4><p>使用IntelliJ Idea打开属性文件时，如果包含中文，显示为原始的编码，正确显示中文需要做如下设置，到设置(settings)中,可以使用快捷键Ctrl + Alt + S打开设置界面，找到<code>File Encoding</code>选项卡，选中<code>Default encoding for properties file</code>即可，如下图所示.</p>
-<img src="/2016/09/26/intllij-idea-encoding/intellij-properties-encoding.png" alt="属性文件编码设置" title="属性文件编码设置">
+
 <h4 id="限制编辑器Tab页个数"><a href="#限制编辑器Tab页个数" class="headerlink" title="限制编辑器Tab页个数"></a>限制编辑器Tab页个数</h4><p>有时我们并不习惯在编辑器中打开太多的Tab页，如果不小心点开了7个以上的Tab页，在Tab页面中切换也蛮让人晕眩的，设置Tab页最大个数在Settings(Ctrl + Alt + S),Editor-General-Editor Tabs中，如下图如所示。</p>
-<img src="/2016/09/26/intllij-idea-encoding/intellij-tabs-number-setting.png" alt="IntelliJ Idea编辑器Tab页设置" title="IntelliJ Idea编辑器Tab页设置">
+
 <h4 id="注释模板"><a href="#注释模板" class="headerlink" title="注释模板"></a>注释模板</h4><p>参考：</p>
 <p><a href="http://www.hollischuang.com/archives/966" target="_blank" rel="external">Java开发必装的IntelliJ IDEA插件</a></p>
 <p><a href="https://www.jetbrains.com/help/idea/2016.2/surrounding-blocks-of-code-with-language-constructs.html" target="_blank" rel="external">Surrounding Blocks of Code with Language Constructs</a></p>
@@ -682,7 +678,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-count">82</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -699,7 +695,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">104</span>
+                <span class="site-state-item-count">108</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

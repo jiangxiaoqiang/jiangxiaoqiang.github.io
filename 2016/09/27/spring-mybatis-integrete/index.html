@@ -118,7 +118,6 @@ Eclipse Java EE IDE for Web Developers.Version: Neon Release (4.6.0)Build id:201
 Maven 3.3.9
 
 MySQL 5.7">
-<meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/27/spring-mybatis-integrete/spring-mybatis-running-result.jpg">
 <meta property="og:updated_time" content="2016-10-06T15:30:49.140Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring step by step(二)--持久化">
@@ -137,7 +136,6 @@ Eclipse Java EE IDE for Web Developers.Version: Neon Release (4.6.0)Build id:201
 Maven 3.3.9
 
 MySQL 5.7">
-<meta name="twitter:image" content="http://jiangxiaoqiang.com/2016/09/27/spring-mybatis-integrete/spring-mybatis-running-result.jpg">
 
 
 
@@ -410,7 +408,7 @@ MySQL 5.7">
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PageMapperTest</span> <span class="keyword">extends</span> <span class="title">BasicTest</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="meta">@Autowired</span></div><div class="line">	<span class="keyword">private</span> CountryService countryService;</div><div class="line"></div><div class="line">	<span class="meta">@Test</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			Country country = countryService.getCountyById(<span class="number">1</span>);</div><div class="line">			System.out.print(country.getId());</div><div class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">			<span class="comment">// TODO Auto-generated catch block</span></div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="新建数据库表"><a href="#新建数据库表" class="headerlink" title="新建数据库表"></a>新建数据库表</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">USE `test`;</div><div class="line"></div><div class="line">#</div><div class="line"># Table structure for table country</div><div class="line">#</div><div class="line"></div><div class="line">DROP TABLE IF EXISTS `country`;</div><div class="line">CREATE TABLE `country` (</div><div class="line">  `Id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',</div><div class="line">  `countryname` varchar(255) DEFAULT NULL COMMENT '名称',</div><div class="line">  `countrycode` varchar(255) DEFAULT NULL COMMENT '代码',</div><div class="line">  PRIMARY KEY (`Id`)</div><div class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='国家信息';</div><div class="line"></div><div class="line">INSERT INTO `country` VALUES (1,'Angola','AO');</div><div class="line">INSERT INTO `country` VALUES (2,'Afghanistan','AF');</div></pre></td></tr></table></figure>
 <h4 id="启动测试"><a href="#启动测试" class="headerlink" title="启动测试"></a>启动测试</h4><p>结果如下如所示。</p>
-<img src="/2016/09/27/spring-mybatis-integrete/spring-mybatis-running-result.jpg" alt="MyBatis读取数据" title="MyBatis读取数据">
+
 <p>引用文章：</p>
 <p><a href="http://www.ibm.com/developerworks/cn/opensource/os-cn-spring-iocannt/" target="_blank" rel="external">详解 Spring 3.0 基于 Annotation 的依赖注入实现</a></p>
 
@@ -526,7 +524,7 @@ MySQL 5.7">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-count">82</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -543,7 +541,7 @@ MySQL 5.7">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">104</span>
+                <span class="site-state-item-count">108</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
