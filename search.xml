@@ -147,9 +147,9 @@
     </entry>
     
     <entry>
-      <title><![CDATA[MyBatis缓存]]></title>
+      <title><![CDATA[MyBatis使用]]></title>
       <url>http://jiangxiaoqiang.com/2016/12/02/mybatis-cache/</url>
-      <content type="html"><![CDATA[<p>正如大多数持久层框架一样，MyBatis 同样提供了一级缓存和二级缓存的支持；</p>
+      <content type="html"><![CDATA[<h4 id="MyBatis缓存"><a href="#MyBatis缓存" class="headerlink" title="MyBatis缓存"></a>MyBatis缓存</h4><p>正如大多数持久层框架一样，MyBatis 同样提供了一级缓存和二级缓存的支持；</p>
 <a id="more"></a>
 <p>一级缓存基于 PerpetualCache 的 HashMap 本地缓存，其存储作用域为 Session，当 Session flush 或 close 之后，该Session中的所有 Cache 就将清空。<br>二级缓存与一级缓存其机制相同，默认也是采用 PerpetualCache，HashMap存储，不同在于其存储作用域为 Mapper(Namespace)，并且可自定义存储源，如 Ehcache、Hazelcast等。<br>对于缓存数据更新机制，当某一个作用域(一级缓存Session/二级缓存Namespaces)的进行了 C/U/D 操作后，默认该作用域下所有 select 中的缓存将被clear。<br>MyBatis 的缓存采用了delegate机制 及 装饰器模式设计，当put、get、remove时，其中会经过多层 delegate cache 处理，其Cache类别有：BaseCache(基础缓存)、EvictionCache(排除算法缓存) 、DecoratorCache(装饰器缓存)：</p>
 <ul>
@@ -157,7 +157,36 @@
 <li>EvictionCache:当缓存数量达到一定大小后，将通过算法对缓存数据进行清除。默认采用 Lru 算法(LruCache)，提供有 fifo 算法(FifoCache)等；</li>
 <li>DecoratorCache：缓存put/get处理前后的装饰器，如使用 LoggingCache 输出缓存命中日志信息、使用 SerializedCache 对 Cache的数据 put或get 进行序列化及反序列化处理、当设置flushInterval(默认1/h)后，则使用 ScheduledCache 对缓存数据进行定时刷新等。</li>
 </ul>
-<p>一般缓存框架的数据结构基本上都是 Key-Value 方式存储，MyBatis 对于其 Key 的生成采取规则为：[hashcode : checksum : mappedStementId : offset : limit : executeSql : queryParams]。对于并发 Read/Write 时缓存数据的同步问题，MyBatis 默认基于 JDK/concurrent中的ReadWriteLock，使用 ReentrantReadWriteLock 的实现，从而通过 Lock 机制防止在并发 Write Cache 过程中线程安全问题。</p>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD<br>一般缓存框架的数据结构基本上都是 Key-Value 方式存储，MyBatis 对于其 Key 的生成采取规则为：[hashcode : checksum : mappedStementId : offset : limit : executeSql : queryParams]。<br>对于并发 Read/Write 时缓存数据的同步问题，MyBatis 默认基于 JDK/concurrent中的ReadWriteLock，使用 ReentrantReadWriteLock 的实现，从而通过 Lock 机制防止在并发 Write Cache 过程中线程安全问题。</p>
+<h4 id="MyBatis延迟加载"><a href="#MyBatis延迟加载" class="headerlink" title="MyBatis延迟加载"></a>MyBatis延迟加载</h4><h4 id="MyBatis打印出SQL"><a href="#MyBatis打印出SQL" class="headerlink" title="MyBatis打印出SQL"></a>MyBatis打印出SQL</h4><ul>
+<li>在方法上添加MethodLog注解即可，如下图所示。</li>
+</ul>
+<img src="/2016/12/02/mybatis-cache/mybatis-logging.png" alt="MyBatis输出日志" title="MyBatis输出日志">
+<ul>
+<li>properties文件配置</li>
+</ul>
+<p>将ibatis log4j运行级别调到DEBUG可以在控制台打印出ibatis运行的sql语句,方便调试: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">### 设置Logger输出级别和输出目的地 ###</div><div class="line">log4j.rootLogger=debug,stdout,logfile</div><div class="line"></div><div class="line"></div><div class="line">### 把日志信息输出到控制台 ###</div><div class="line">log4j.appender.stdout=org.apache.log4j.ConsoleAppender</div><div class="line">#log4j.appender.stdout.Target=System.err</div><div class="line">log4j.appender.stdout.layout=org.apache.log4j.SimpleLayout</div><div class="line"></div><div class="line"></div><div class="line">### 把日志信息输出到文件：jbit.log ###</div><div class="line">log4j.appender.logfile=org.apache.log4j.FileAppender</div><div class="line">log4j.appender.logfile.File=jbit.log</div><div class="line">log4j.appender.logfile.layout=org.apache.log4j.PatternLayout</div><div class="line">log4j.appender.logfile.layout.ConversionPattern=%d&#123;yyyy-MM-dd HH:mm:ss&#125; %F %p %m%n</div><div class="line"></div><div class="line"></div><div class="line">###显示SQL语句部分</div><div class="line">log4j.logger.com.ibatis=DEBUG </div><div class="line">log4j.logger.com.ibatis.common.jdbc.SimpleDataSource=DEBUG </div><div class="line">log4j.logger.com.ibatis.common.jdbc.ScriptRunner=DEBUG </div><div class="line">log4j.logger.com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate=DEBUG </div><div class="line">log4j.logger.java.sql.Connection=DEBUG </div><div class="line">log4j.logger.java.sql.Statement=DEBUG </div><div class="line">log4j.logger.java.sql.PreparedStatement=DEBUG</div></pre></td></tr></table></figure>
+<ul>
+<li>xml文件配置</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 调试sql日志 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">Logger</span> <span class="attr">name</span>=<span class="string">"com.ibatis"</span> <span class="attr">level</span>=<span class="string">"info"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"Console"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">Logger</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">Logger</span> <span class="attr">name</span>=<span class="string">"com.ibatis.common.jdbc.SimpleDataSource"</span> <span class="attr">level</span>=<span class="string">"info"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"Console"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">Logger</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">Logger</span> <span class="attr">name</span>=<span class="string">"org.apache.ibatis.jdbc.ScriptRunner"</span> <span class="attr">level</span>=<span class="string">"info"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"Console"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">Logger</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">Logger</span> <span class="attr">name</span>=<span class="string">"com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate"</span></span></div><div class="line">    <span class="attr">level</span>=<span class="string">"info"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"Console"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">Logger</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">Logger</span> <span class="attr">name</span>=<span class="string">"java.sql.Connection"</span> <span class="attr">level</span>=<span class="string">"DEBUG"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"Console"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">Logger</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">Logger</span> <span class="attr">name</span>=<span class="string">"java.sql.Statement"</span> <span class="attr">level</span>=<span class="string">"DEBUG"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"Console"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">Logger</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">Logger</span> <span class="attr">name</span>=<span class="string">"java.sql.PreparedStatement"</span> <span class="attr">level</span>=<span class="string">"DEBUG"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">AppenderRef</span> <span class="attr">ref</span>=<span class="string">"Console"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">Logger</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>=======<br>一般缓存框架的数据结构基本上都是 Key-Value 方式存储，MyBatis 对于其 Key 的生成采取规则为：[hashcode : checksum : mappedStementId : offset : limit : executeSql : queryParams]。对于并发 Read/Write 时缓存数据的同步问题，MyBatis 默认基于 JDK/concurrent中的ReadWriteLock，使用 ReentrantReadWriteLock 的实现，从而通过 Lock 机制防止在并发 Write Cache 过程中线程安全问题。</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>bdc53dc27ab592072cdf63f4d5aa23d2d8717049</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 ]]></content>
     </entry>
     
@@ -1003,6 +1032,14 @@
 <td style="text-align:center">最大化、还原当前窗口</td>
 </tr>
 <tr>
+<td>Alt + F2</td>
+<td style="text-align:center">打开命令行界面</td>
+</tr>
+<tr>
+<td>Windows/ Alt+ F2</td>
+<td style="text-align:center">在当前活动窗口和所有窗口概览视图之间切换</td>
+</tr>
+<tr>
 <td>Ctrl + Alt + Up/Down</td>
 <td style="text-align:center">切换当前窗口</td>
 </tr>
@@ -1020,6 +1057,15 @@
 </tr>
 </tbody>
 </table>
+<a id="more"></a>
+<h4 id="打开终端"><a href="#打开终端" class="headerlink" title="打开终端"></a>打开终端</h4><p>在Ubuntu中打开终端可以使用快捷键Ctrl + Alt + T(Terminal)，在Fedora中打开All Settings-&gt;Keyboard-&gt;Custom Shortcuts，添加快捷键即可。在快捷键的command中输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gnome-terminal</div></pre></td></tr></table></figure>
+<h4 id="打开文件夹"><a href="#打开文件夹" class="headerlink" title="打开文件夹"></a>打开文件夹</h4><p>在Fedora中打开All Settings-&gt;Keyboard-&gt;Custom Shortcuts，添加快捷键即可，这里设置的是Ctrl + Alt + H(Home)。在快捷键的command中输入命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nautilus</div></pre></td></tr></table></figure>
+<p>即可打开文件夹。</p>
+<h4 id="打开微信"><a href="#打开微信" class="headerlink" title="打开微信"></a>打开微信</h4><p>在Fedora中打开All Settings-&gt;Keyboard-&gt;Custom Shortcuts，添加快捷键即可，这里设置的是Ctrl + Alt + H(Home)。在快捷键的command中输入命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/opt/electronic-wechat-linux-x64/electronic-wechat</div></pre></td></tr></table></figure>
+<p>即可快速打开微信,微信使用的是electronic-wechat，安装目录是/opt/electronic-wechat-linux-x64/。</p>
 ]]></content>
     </entry>
     
