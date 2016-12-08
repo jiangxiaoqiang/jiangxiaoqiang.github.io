@@ -90,10 +90,13 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/12/08/websocket-sending-config/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="项目中用到WebSocket技术，发送文本字节比较多时出现异常，立即断开了连接。项目在Tomcat上运行，Tomcat默认的文本大小为8192。">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2016/12/08/websocket-sending-config/websocket-disconnect-exception.png">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2016/12/08/websocket-sending-config/eclipse-websocket-message.png">
 <meta property="og:updated_time" content="2016-12-06T13:32:03.702Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Websocket发送消息长度设置">
 <meta name="twitter:description" content="项目中用到WebSocket技术，发送文本字节比较多时出现异常，立即断开了连接。项目在Tomcat上运行，Tomcat默认的文本大小为8192。">
+<meta name="twitter:image" content="http://jiangxiaoqiang.com/2016/12/08/websocket-sending-config/websocket-disconnect-exception.png">
 
 
 
@@ -347,12 +350,12 @@
       
         <p>项目中用到WebSocket技术，发送文本字节比较多时出现异常，立即断开了连接。项目在Tomcat上运行，Tomcat默认的文本大小为8192。</p>
 <a id="more"></a>
-
+<img src="/2016/12/08/websocket-sending-config/websocket-disconnect-exception.png" alt="WebSocket异常断开连接" title="WebSocket异常断开连接">
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">If the application does not define a MessageHandler.Partial for incoming text messages, any incoming text messages must be buffered so the entire message can be delivered in a single call to the registered MessageHandler.Whole for text messages. The default buffer size for text messages is 8192 bytes. This may be changed for a web application by setting the servlet context initialization parameter org.apache.tomcat.websocket.textBufferSize to the desired value in bytes.</div></pre></td></tr></table></figure>
 <p>在项目Tomcat的web.xml(<code>D:\Source\zwnewplatform\javasoftware\runtime\apache-tomcat-8.0.36\apache-tomcat-8.0.36\conf\web.xml</code>)中添加如下配置（注意单位为byte）。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>org.apache.tomcat.websocket.textBufferSize<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>327680<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>org.apache.tomcat.websocket.binaryBufferSize<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>327680<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>如果是Eclipse，则直接在Eclipse中配置，如下图所示：</p>
-
+<img src="/2016/12/08/websocket-sending-config/eclipse-websocket-message.png" alt="Eclipse配置WebSocket消息大小" title="Eclipse配置WebSocket消息大小">
 
       
     </div>
@@ -466,7 +469,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">82</span>
+              <span class="site-state-item-count">83</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -483,7 +486,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-count">106</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

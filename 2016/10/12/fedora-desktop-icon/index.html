@@ -94,12 +94,15 @@
 <meta property="og:description" content="安装好了Google Chrome和Intellij Idea之后没有桌面图标，也没有快速启动图标，每次启动都要打开终端，甚是麻烦。故将图标放在桌面能够节省不少时间，同时也更加方便。首先安装gnome-tweak-tool:
 1dnf install gnome-tweak-tool -y
 运行gnome-tweak-tool命令，在弹出的窗口的Desktop选项卡中打开Icons on Desk">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2016/10/12/fedora-desktop-icon/google-chrome-fedora-desktop-launcher.png">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2016/10/12/fedora-desktop-icon/google-chrome-startup-icon.png">
 <meta property="og:updated_time" content="2016-11-04T12:44:27.722Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fedora 24添加桌面图标">
 <meta name="twitter:description" content="安装好了Google Chrome和Intellij Idea之后没有桌面图标，也没有快速启动图标，每次启动都要打开终端，甚是麻烦。故将图标放在桌面能够节省不少时间，同时也更加方便。首先安装gnome-tweak-tool:
 1dnf install gnome-tweak-tool -y
 运行gnome-tweak-tool命令，在弹出的窗口的Desktop选项卡中打开Icons on Desk">
+<meta name="twitter:image" content="http://jiangxiaoqiang.com/2016/10/12/fedora-desktop-icon/google-chrome-fedora-desktop-launcher.png">
 
 
 
@@ -362,11 +365,11 @@
 <p>如下是Intellij Idea的桌面图标配置文件:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env xdg-open</span></div><div class="line"></div><div class="line">[Desktop Entry]</div><div class="line">Encoding=UTF-8</div><div class="line">Name=Intellij Idea</div><div class="line">GenericName=IDE</div><div class="line">Exec=<span class="string">'/opt/idea/idea-IC-162.2032.8/bin/idea.sh'</span></div><div class="line">Icon=/opt/idea/idea-IC-162.2032.8/bin/idea.png</div><div class="line">Terminal=<span class="literal">false</span></div><div class="line">Type=Application</div><div class="line">Categories=IDE;</div><div class="line">Name[en_US]=Intellij Idea</div></pre></td></tr></table></figure>
 <p>保存之后双击打开，一定要双击打开哟，否则启动图标不会出现，会出现一个确认界面。提示需要授权启动项，选择授权即可。配置好图标后的效果如图所示。</p>
-
+<img src="/2016/10/12/fedora-desktop-icon/google-chrome-fedora-desktop-launcher.png" alt="Google-Chrome手动添加桌面图标" title="Google-Chrome手动添加桌面图标">
 <h4 id="快速启动图标"><a href="#快速启动图标" class="headerlink" title="快速启动图标"></a>快速启动图标</h4><p>要让图标在快速启动栏里出现，直接将刚才新建Google-Chrome.desktop文件复制到<code>/usr/share/application</code>目录下即可。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp Google-Chrome.desktop /usr/share/application</div></pre></td></tr></table></figure>
 <p>配置好快速启动图标后的效果如下如所示。</p>
-
+<img src="/2016/10/12/fedora-desktop-icon/google-chrome-startup-icon.png" alt="Google-Chrome快速启动图标" title="Google-Chrome快速启动图标">
 <p><code>/usr/share/application</code>目录是Gnome中所有用户启动的快捷方式存放的目录。局部的快捷方式存放的目录在：<code>~/.local/share/applications</code>。desktop文件的结构如下。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[Desktop Entry]</div><div class="line">Encoding=UTF-8 //字符编码</div><div class="line">Name=vim　　 //显示的名字</div><div class="line">MimeType=text/plain; //类型</div><div class="line">Exec=vim %f //运行的程序 %f表示一个参数</div><div class="line">Type=Application　 //类型</div><div class="line">Terminal=true //是否使用终端</div><div class="line">NoDisplay=true //是否显示在gnome菜单里</div></pre></td></tr></table></figure>
 
@@ -484,7 +487,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">82</span>
+              <span class="site-state-item-count">83</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -501,7 +504,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-count">106</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -92,11 +92,14 @@
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="因为我们用的是Tomcat，所以在IDEA中点击右上角那个“Edit Configurations”按钮，然后在弹出的界面中点击左上角的加号，选择tomcat server-&amp;gt;remote。
 服务器配置要让远程服务器运行的代码支持远程调试，则启动的时候必须加上特定的JVM参数，这些参数是：">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2016/11/12/intellij-idea-remote-debbuging/tomcat-listening-port.png">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2016/11/12/intellij-idea-remote-debbuging/intellij-idea-remote-debugging.jpg">
 <meta property="og:updated_time" content="2016-11-18T16:25:05.327Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Intellij-Idea远程调试">
 <meta name="twitter:description" content="因为我们用的是Tomcat，所以在IDEA中点击右上角那个“Edit Configurations”按钮，然后在弹出的界面中点击左上角的加号，选择tomcat server-&amp;gt;remote。
 服务器配置要让远程服务器运行的代码支持远程调试，则启动的时候必须加上特定的JVM参数，这些参数是：">
+<meta name="twitter:image" content="http://jiangxiaoqiang.com/2016/11/12/intellij-idea-remote-debbuging/tomcat-listening-port.png">
 
 
 
@@ -361,9 +364,9 @@
 <p>使用如下命令查看是否配置成功：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#Windows下用此命令查看</span></div><div class="line">netstat -ano</div><div class="line"></div><div class="line"><span class="comment">#Linux下用此命令查看</span></div><div class="line">lsof -i:53996</div></pre></td></tr></table></figure>
 <p>查看是否有53996的端口处于监听状态。如下图所示：</p>
-
+<img src="/2016/11/12/intellij-idea-remote-debbuging/tomcat-listening-port.png" alt="检查服务端配置是否正确" title="检查服务端配置是否正确">
 <h4 id="Intellij-Idea配置"><a href="#Intellij-Idea配置" class="headerlink" title="Intellij Idea配置"></a>Intellij Idea配置</h4><p>Intellij Idea远程调试配置如下：</p>
-
+<img src="/2016/11/12/intellij-idea-remote-debbuging/intellij-idea-remote-debugging.jpg" alt="Intellij Idea远程调试配置" title="Intellij Idea远程调试配置">
 
       
     </div>
@@ -477,7 +480,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">82</span>
+              <span class="site-state-item-count">83</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -494,7 +497,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-count">106</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

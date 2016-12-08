@@ -90,10 +90,15 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="SQuirreL GUI客户端简介SQuirreL GUI(下载地址)客户端来连接Phoenix，就像MySQL使用Navicat for MySQL，Oracle使用PL/SQL Developer一样，在进行一些数据库操作的时候能够更加的直观和方便。同时它还可以连接MySQL。它可以运行在Windows、Linux、Mac OS操作系统上。">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/sphonix-driver-configuration.jpg">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/addAlias.jpg">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/configurationResult.jpg">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/squirrel-connect-mysql.jpg">
 <meta property="og:updated_time" content="2016-12-02T07:44:38.240Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQuirreL GUI客户端集成Phoenix、MySQL配置">
 <meta name="twitter:description" content="SQuirreL GUI客户端简介SQuirreL GUI(下载地址)客户端来连接Phoenix，就像MySQL使用Navicat for MySQL，Oracle使用PL/SQL Developer一样，在进行一些数据库操作的时候能够更加的直观和方便。同时它还可以连接MySQL。它可以运行在Windows、Linux、Mac OS操作系统上。">
+<meta name="twitter:image" content="http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/sphonix-driver-configuration.jpg">
 
 
 
@@ -353,15 +358,15 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">phoenix-4.8.0-HBase-1.2-client.jar</div></pre></td></tr></table></figure>
 <p>注意顺序，先拷贝jar包，在启动SQuirreL添加驱动，如果是拷贝jar包时已经启动了SQuirreL，那么SQuirreL需要重启一下，拷贝的jar包才生效，这个是需要注意的地方，可以参见<a href="http://stackoverflow.com/questions/40215921/squirrel-configure-could-not-initial-class-org-apache-phoenix-jdbc-phoenixdrive/40225765#40225765" target="_blank" rel="external">SQuirreL Configure: could not initial class org.apache.phoenix.jdbc.PhoenixDriver</a>。在连接不同的HBase数据库时，需要注意驱动的版本，不同版本的驱动是无法正确连接的。高版本的驱动无法连接低版本的HBase。</p>
 <h4 id="添加Driver"><a href="#添加Driver" class="headerlink" title="添加Driver"></a>添加Driver</h4><p>添加Driver如下图所示。</p>
-
+<img src="/2016/10/25/squirrel-phoenix-configuration/sphonix-driver-configuration.jpg" alt="Sphonix增加驱动" title="Sphonix增加驱动">
 <p>Name填写用户自定义名称。Example URL填写ZooKepper地址。Class Name填写：<code>org.apache.phoenix.jdbc.PhoenixDriver</code>。</p>
 <h4 id="添加Alias连接Hbase"><a href="#添加Alias连接Hbase" class="headerlink" title="添加Alias连接Hbase"></a>添加Alias连接Hbase</h4><p>如下图所示。</p>
-
+<img src="/2016/10/25/squirrel-phoenix-configuration/addAlias.jpg" alt="增加Alias" title="增加Alias">
 <p>Name是Alias的名字，可以填写自定义名称。Driver选择上一步配置好的Driver名称，这里是Phoenix。url填写Phoenix连接串：<code>jdbc:phoenix:192.168.24.226,192.168.24.195:2181:/hbase-unsecure</code>。UserName和Password填写操作系统的登录用户和登录密码。</p>
 <h4 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h4><p>SQL查询如下图所示。</p>
-
+<img src="/2016/10/25/squirrel-phoenix-configuration/configurationResult.jpg" alt="SQL查询" title="SQL查询">
 <h4 id="连接MySQL"><a href="#连接MySQL" class="headerlink" title="连接MySQL"></a>连接MySQL</h4><p>将MySQL的驱动<code>mysql-connector-java-5.1.39.jar</code>拷贝到lib目录下。</p>
-
+<img src="/2016/10/25/squirrel-phoenix-configuration/squirrel-connect-mysql.jpg" alt="SQuirreL连接MySQL" title="SQuirreL连接MySQL">
 <p>驱动链接填写：<code>jdbc:mysql://192.168.24.234:3306/clbs?useUnicode=true&amp;characterEncoding=utf-8</code>。用户名和密码填写登录Linux主机的用户名和密码。</p>
 
       
@@ -478,7 +483,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">82</span>
+              <span class="site-state-item-count">83</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -495,7 +500,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-count">106</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

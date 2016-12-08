@@ -4,6 +4,112 @@
   
     
     <entry>
+      <title><![CDATA[jvm工具]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/08/jvm-tools/</url>
+      <content type="html"><![CDATA[<h4 id="jps-JVM-Process-Status-Tools"><a href="#jps-JVM-Process-Status-Tools" class="headerlink" title="jps(JVM Process Status Tools)"></a>jps(JVM Process Status Tools)</h4><p>jps是参照Unix系统的取名规则命名的，而他的功能和ps的功能类似，可以列举正在运行的饿虚拟机进程并显示虚拟机执行的主类以及这些进程的唯一ID（LVMID，对应本机来说和PID相同）。VMID与LVMID需要特别说明下：如果是本地虚拟机进程，VMID(Virtual Machine IDentifier,虚机标识符)和LVMID(Local Virtual Machine IDentifier,虚机标识符)是一致的，如果是远程虚拟机进程，那VMID的格式应当是：[protocol:][//] lvmid [@hostname[:port]/servername]</p>
+<a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jps -lv</div></pre></td></tr></table></figure>
+<p>输出为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">2609 sun.tools.jps.Jps -Dapplication.home=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.111-3.b16.fc24.x86_64 -Xms8m</div><div class="line">2479 nutstore.client.gui.NutstoreGUI -ea -Dfile.encoding=UTF-8 -Xmx320M -XX:MinHeapFreeRatio=20 -XX:MaxHeapFreeRatio=40 -Dlog4j.defaultInitOverride=true -Djava.util.logging.config.file=/home/dolphin/.nutstore/dist/conf/java.logging.properties -Dnutstore.config.dir=/home/dolphin/.nutstore/dist/conf -Dnutstore.x64=True -Djava.library.path=/home/dolphin/.nutstore/dist/lib/native</div></pre></td></tr></table></figure>
+<h4 id="jstat-JVM-Statistics-Monitoring-Tools"><a href="#jstat-JVM-Statistics-Monitoring-Tools" class="headerlink" title="jstat(JVM Statistics Monitoring Tools)"></a>jstat(JVM Statistics Monitoring Tools)</h4><p>jstat是HotSpot Java虚拟机的性能统计工具。jstat主要用于监控虚拟机的各种运行状态信息，如类的装载、内存、垃圾回收、JIT编译器等，在没有GUI的服务器上，这款工具是首选的一款监控工具。每20秒查询一次进程2479的垃圾回收情况，监控5次，命令如下所示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jstat -gc 2479 20000 5</div></pre></td></tr></table></figure>
+<p>参数gc表示监视Java堆，包含eden、2个survivor区、old区和永久带区域的容量、已用空间、GC时间合计等信息。</p>
+<img src="/2016/12/08/jvm-tools/jstat-gc.jpg" alt="jstat监控Java GC" title="jstat监控Java GC">
+<p>上图中 S0 表示Survivor 0区的空间使用比例,S0C（Survivor 0 Count）， E, O, P 分别代表Eden, Old和Perm空间使用率，YGC 表示young gc的次数，YGCT(Young Generation Consume Time) 表示young gc消耗的时间。GCT(GC Time) 则用来统计执行gc的总时间。</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S0C</td>
+<td style="text-align:center">Current survivor space 0 capacity (KB)</td>
+</tr>
+<tr>
+<td>S1C</td>
+<td style="text-align:center">Current survivor space 1 capacity (KB)</td>
+</tr>
+<tr>
+<td>S0U</td>
+<td style="text-align:center">Survivor space 0 utilization (KB)</td>
+</tr>
+<tr>
+<td>S1U</td>
+<td style="text-align:center">Survivor space 1 utilization (KB)</td>
+</tr>
+<tr>
+<td>EC</td>
+<td style="text-align:center">Current eden space capacity (KB)</td>
+</tr>
+<tr>
+<td>EU</td>
+<td style="text-align:center">Eden space utilization (KB)</td>
+</tr>
+<tr>
+<td>OC</td>
+<td style="text-align:center">Current old space capacity (KB)</td>
+</tr>
+<tr>
+<td>OU</td>
+<td style="text-align:center">Old space utilization (KB)</td>
+</tr>
+<tr>
+<td>PC</td>
+<td style="text-align:center">Current permanent space capacity (KB)</td>
+</tr>
+<tr>
+<td>PU</td>
+<td style="text-align:center">Permanent space utilization (KB)</td>
+</tr>
+<tr>
+<td>MC</td>
+<td style="text-align:center">Metaspace capacity (kB)</td>
+</tr>
+<tr>
+<td>MU</td>
+<td style="text-align:center">Metacspace utilization (kB)</td>
+</tr>
+<tr>
+<td>CCSC</td>
+<td style="text-align:center">Compressed class space capacity (kB)</td>
+</tr>
+<tr>
+<td>CCSU</td>
+<td style="text-align:center">Compressed class space used (kB)</td>
+</tr>
+<tr>
+<td>YGC</td>
+<td style="text-align:center">Number of young generation GC Events</td>
+</tr>
+<tr>
+<td>YGCT</td>
+<td style="text-align:center">Young generation garbage collection time</td>
+</tr>
+<tr>
+<td>FGC</td>
+<td style="text-align:center">Number of full GC events</td>
+</tr>
+<tr>
+<td>FGCT</td>
+<td style="text-align:center">Full garbage collection time</td>
+</tr>
+<tr>
+<td>GCT</td>
+<td style="text-align:center">Total garbage collection time</td>
+</tr>
+</tbody>
+</table>
+<h4 id="jinfo（JVM-configuration-Info-for-Java）"><a href="#jinfo（JVM-configuration-Info-for-Java）" class="headerlink" title="jinfo（JVM configuration Info for Java）"></a>jinfo（JVM configuration Info for Java）</h4><p>Jinfo的作用是实时查看虚拟机的各项参数信息jps –v可以查看虚拟机在启动时被显式指定的参数信息，但是如果你想知道默认的一些参数信息呢？除了去查询对应的资料以外，jinfo就显得很重要了。</p>
+<h4 id="jmap（JVM-Memory-Map-for-Java）"><a href="#jmap（JVM-Memory-Map-for-Java）" class="headerlink" title="jmap（JVM Memory Map for Java）"></a>jmap（JVM Memory Map for Java）</h4><h4 id="jhat（JVM-Heap-Analysis-Tool）"><a href="#jhat（JVM-Heap-Analysis-Tool）" class="headerlink" title="jhat（JVM Heap Analysis Tool）"></a>jhat（JVM Heap Analysis Tool）</h4><h4 id="jstack（JVM-Stack-Trace-for-java）"><a href="#jstack（JVM-Stack-Trace-for-java）" class="headerlink" title="jstack（JVM Stack Trace for java）"></a>jstack（JVM Stack Trace for java）</h4><p>jstack用于JVM当前时刻的线程快照，又称threaddump文件，它是JVM当前每一条线程正在执行的堆栈信息的集合。生成线程快照的主要目的是为了定位线程出现长时间停顿的原因，如线程死锁、死循环、请求外部时长过长导致线程停顿的原因。通过jstack我们就可以知道哪些进程在后台做些什么？在等待什么资源等！</p>
+<p>参考资料：</p>
+<p><a href="http://docs.oracle.com/javase/1.5.0/docs/tooldocs/share/jstat.html" target="_blank" rel="external">jstat - Java Virtual Machine Statistics Monitoring Tool</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Lombok精简Java代码]]></title>
       <url>http://jiangxiaoqiang.com/2016/12/08/lombok/</url>
       <content type="html"><![CDATA[<h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p><a href="https://projectlombok.org/" target="_blank" rel="external">lombok</a>提供了简单的注解的形式来帮助我们简化消除一些必须有但显得很臃肿的java代码,特别是相对于POJO(Plain Ordinary Java Object)。安装Lombok Plugin和引入Jar包之后方可使用。</p>
@@ -63,12 +169,12 @@
       <url>http://jiangxiaoqiang.com/2016/12/08/websocket-sending-config/</url>
       <content type="html"><![CDATA[<p>项目中用到WebSocket技术，发送文本字节比较多时出现异常，立即断开了连接。项目在Tomcat上运行，Tomcat默认的文本大小为8192。</p>
 <a id="more"></a>
-
+<img src="/2016/12/08/websocket-sending-config/websocket-disconnect-exception.png" alt="WebSocket异常断开连接" title="WebSocket异常断开连接">
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">If the application does not define a MessageHandler.Partial for incoming text messages, any incoming text messages must be buffered so the entire message can be delivered in a single call to the registered MessageHandler.Whole for text messages. The default buffer size for text messages is 8192 bytes. This may be changed for a web application by setting the servlet context initialization parameter org.apache.tomcat.websocket.textBufferSize to the desired value in bytes.</div></pre></td></tr></table></figure>
 <p>在项目Tomcat的web.xml(<code>D:\Source\zwnewplatform\javasoftware\runtime\apache-tomcat-8.0.36\apache-tomcat-8.0.36\conf\web.xml</code>)中添加如下配置（注意单位为byte）。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>org.apache.tomcat.websocket.textBufferSize<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>327680<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>org.apache.tomcat.websocket.binaryBufferSize<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>327680<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>如果是Eclipse，则直接在Eclipse中配置，如下图所示：</p>
-
+<img src="/2016/12/08/websocket-sending-config/eclipse-websocket-message.png" alt="Eclipse配置WebSocket消息大小" title="Eclipse配置WebSocket消息大小">
 ]]></content>
     </entry>
     
@@ -77,7 +183,7 @@
       <url>http://jiangxiaoqiang.com/2016/12/08/springmvc-dispatcherservlet/</url>
       <content type="html"><![CDATA[<p>Spring MVC基于模型-视图-控制器(Model-View-Controller,MVC)模式，它能够帮助我们建立灵活和松耦合的Web程序.Spring MVC中用户请求如下图所示：</p>
 <a id="more"></a>
-
+<img src="/2016/12/08/springmvc-dispatcherservlet/example.jpg" alt="DispatcherServlet处理请求过程" title="DispatcherServlet处理请求过程">
 <h6 id="请求发出-HTTP-Resquest"><a href="#请求发出-HTTP-Resquest" class="headerlink" title="请求发出(HTTP Resquest)"></a>请求发出(HTTP Resquest)</h6><p>一个请求携带信息进入Spring MVC程序时，第一站是Spring的DispatcherServlet(在web.xml中配置)，它是接收所有用户请求的前端控制器Servlet。DispatcherServlet对请求URL进行解析，得到请求资源标识符（URI）。然后根据该URI，调用HandlerMapping获得该Handler配置的所有相关的对象（包括Handler对象以及Handler对象对应的拦截器），最后以HandlerExecutionChain对象的形式返回；DispatcherServlet的任务是将请求转发给Spring MVC控制器(Controller)，控制器是用于处理用户请求的Spring Bean。DispatcherServlet 根据获得的Handler，选择一个合适的HandlerAdapter。（如果成功获得HandlerAdapter后，此时将开始执行拦截器的preHandler()方法）</p>
 <h6 id="处理器映射-Handler-Mapping"><a href="#处理器映射-Handler-Mapping" class="headerlink" title="处理器映射(Handler Mapping)"></a>处理器映射(Handler Mapping)</h6><p>一般程序中会有不止一个控制器，那么DispatcherServlet需要知道将请求发送给哪个控制器，所以DispatcherServlet将会查询处理器映射(handler mapping)来确定请求的下一站，处理器映射会根据用户请求的URL来决定是哪个控制器。提取Request中的模型数据，填充Handler入参，开始执行Handler（Controller)。 在填充Handler的入参过程中，根据你的配置，Spring将帮你做一些额外的工作：</p>
 <ul>
@@ -419,7 +525,7 @@
       <url>http://jiangxiaoqiang.com/2016/11/29/java-unit-test/</url>
       <content type="html"><![CDATA[<p>在Intellij Idea中按下快捷键:<code>Ctrl + Alt + T(Test)</code>，弹出如下界面，选择需要创建测试的方法。</p>
 <a id="more"></a>
-
+<img src="/2016/11/29/java-unit-test/choose-test-function.jpg" alt="选择创建测试的方法" title="选择创建测试的方法">
 <p>选择完毕后会自动生成一个测试类，编写相应的测试代码即可。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by jiangxiaoqiang on 2016/11/29.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VehicleMessageHandlerTest</span> </span>&#123;</div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">parseAlarm</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        VehicleMessageHandler vehicleMessageHandler = <span class="keyword">new</span> VehicleMessageHandler();</div><div class="line">        String result = vehicleMessageHandler.parseAlarm(<span class="number">1232131</span>);</div><div class="line">        System.out.print(result);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>在代码编辑器中右键，选择<code>Debug ‘parseAlarm’</code>菜单即可进行单元测试。</p>
@@ -705,9 +811,9 @@
 <p>使用如下命令查看是否配置成功：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#Windows下用此命令查看</span></div><div class="line">netstat -ano</div><div class="line"></div><div class="line"><span class="comment">#Linux下用此命令查看</span></div><div class="line">lsof -i:53996</div></pre></td></tr></table></figure>
 <p>查看是否有53996的端口处于监听状态。如下图所示：</p>
-
+<img src="/2016/11/12/intellij-idea-remote-debbuging/tomcat-listening-port.png" alt="检查服务端配置是否正确" title="检查服务端配置是否正确">
 <h4 id="Intellij-Idea配置"><a href="#Intellij-Idea配置" class="headerlink" title="Intellij Idea配置"></a>Intellij Idea配置</h4><p>Intellij Idea远程调试配置如下：</p>
-
+<img src="/2016/11/12/intellij-idea-remote-debbuging/intellij-idea-remote-debugging.jpg" alt="Intellij Idea远程调试配置" title="Intellij Idea远程调试配置">
 ]]></content>
     </entry>
     
@@ -715,16 +821,16 @@
       <title><![CDATA[Websocket数据查看]]></title>
       <url>http://jiangxiaoqiang.com/2016/11/12/websocket-check/</url>
       <content type="html"><![CDATA[<h4 id="FireFox中查看WebSocket"><a href="#FireFox中查看WebSocket" class="headerlink" title="FireFox中查看WebSocket"></a>FireFox中查看WebSocket</h4><p>使用FireFox查看WebSocket内容需要安装一个<a href="https://addons.mozilla.org/en-US/firefox/addon/websocket-monitor/" target="_blank" rel="external">WebSocket-Monitor</a>插件。安装完毕后在FireFox的Web控制台(Ctrl + Shift + K)中。</p>
-
+<img src="/2016/11/12/websocket-check/firefox-websocket.jpg" alt="FireFox查看WebSocket" title="FireFox查看WebSocket">
 <a id="more"></a>
 <h4 id="Google-Chrome中查看WebSocket"><a href="#Google-Chrome中查看WebSocket" class="headerlink" title="Google Chrome中查看WebSocket"></a>Google Chrome中查看WebSocket</h4><p>Google Chrome自带查看模块，如下图所示。F12进入开发者页面，选择NetWork选项卡，选择WS(WebSocket)选项卡。</p>
-
+<img src="/2016/11/12/websocket-check/chrome-websocket.jpg" alt="Google Chrome查看WebSocket" title="Google Chrome查看WebSocket">
 <h4 id="Fiddler中查看WebSocket"><a href="#Fiddler中查看WebSocket" class="headerlink" title="Fiddler中查看WebSocket"></a>Fiddler中查看WebSocket</h4><p>在请求时选择任意WebSocket Session，即可出现WebSocket流量数据画面，不过是乱码，未找到合适的解决乱码的方案。</p>
-
+<img src="/2016/11/12/websocket-check/fiddler-websocket.jpg" alt="Fiddler查看WebSocket" title="Fiddler查看WebSocket">
 <p>Fiddler中的WebSocket显示乱码是因为数据已经被压缩(Compressed),要查看乱码的内容，在Response中添加头信息。按下F2按钮后，即可在Response中手动添加头信息(Add Headers)。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Content-Encoding: deflate</div></pre></td></tr></table></figure>
 <p>添加头信息之后，点击TextView会出现黄色的Decode提示框。</p>
-
+<img src="/2016/11/12/websocket-check/websocket-decode.jpg" alt="Fiddler查看WebSocket-Decode" title="Fiddler查看WebSocket-Decode">
 <p>点击之后即可看到原始的Json数据。</p>
 ]]></content>
     </entry>
@@ -829,18 +935,18 @@
 <a id="more"></a>
 <p>同理，在调整项目树宽度时，可以使用快捷键<code>Ctrl + Alt + Left/Right</code>。</p>
 <h4 id="Debug视图Tab页切换"><a href="#Debug视图Tab页切换" class="headerlink" title="Debug视图Tab页切换"></a>Debug视图Tab页切换</h4><p>快捷键是Shift + Tab，如下图所示。</p>
-
+<img src="/2016/11/03/intellij-idea-tips/intelli-idea-debug-view-convert.jpg" alt="Intellij Idea的Debug视图Tab页切换" title="Intellij Idea的Debug视图Tab页切换">
 <h4 id="Debug视图日志滚动到末尾"><a href="#Debug视图日志滚动到末尾" class="headerlink" title="Debug视图日志滚动到末尾"></a>Debug视图日志滚动到末尾</h4><p>如果想在Debug视图中将日志始终定位到末尾，可以点击左侧的Scroll To End按钮，也可以使用快捷键<code>Ctrl + End</code>。</p>
 <h4 id="Debug视图清空日志"><a href="#Debug视图清空日志" class="headerlink" title="Debug视图清空日志"></a>Debug视图清空日志</h4><p>清空日志没有快捷键，但是可以使用键盘上的鼠标右键来做到。</p>
 <h4 id="关闭Editor-Tabs"><a href="#关闭Editor-Tabs" class="headerlink" title="关闭Editor Tabs"></a>关闭Editor Tabs</h4><p>在Editor Tabs中切换比较耗费时间，可以尝试关闭Editor Tabs功能，关闭掉Editor Tabs功能还有一个好处是加载的时候会变快，因为不用加载Editor Tabs里打开的页面的内容了。关闭Editor Tabs功能按下<code>Ctrl + Alt + S</code>快捷键。搜索Editor Tabs关键字即可，在右侧Tab Appearence中选择None即可。关闭掉后直接可以通过Ctrl + E快捷键或者<code>Ctrl + Shift + E</code>快捷键访问文件。</p>
 <h4 id="跳转到特定文件夹"><a href="#跳转到特定文件夹" class="headerlink" title="跳转到特定文件夹"></a>跳转到特定文件夹</h4><p>在Intellij Idea中可以跳转到特定的文件夹，只需要按下两次Shift之后，在搜索的关键字前面加一个斜杠即可，如下图所示。</p>
-
+<img src="/2016/11/03/intellij-idea-tips/search-folder.jpg" alt="Intellij Idea跳转到指定文件夹" title="Intellij Idea跳转到指定文件夹">
 <h4 id="自动补全分号"><a href="#自动补全分号" class="headerlink" title="自动补全分号"></a>自动补全分号</h4><p>在语句的结尾补全分号，可以使用快捷键<code>Ctrl + Shift + Enter</code>，注意光标需要移动到补全分号的行。</p>
 <h4 id="打开无快捷键的Tab"><a href="#打开无快捷键的Tab" class="headerlink" title="打开无快捷键的Tab"></a>打开无快捷键的Tab</h4><p>在Intellij Idea中有些Tab时没有快捷键的，比如Maven Projects。要打开可以使用快捷键<code>Ctrl + Alt + A</code>，输入Maven projects关键字即可。</p>
 <h4 id="粘贴版历史"><a href="#粘贴版历史" class="headerlink" title="粘贴版历史"></a>粘贴版历史</h4><p>如果使用过 Mac 里面的 Alfred 的话，可能大家早就习惯了 Alfred 的粘贴板历史的能力，真是复制粘贴的神器啊。其实 Intellij IDEA 里面也提供了这样的能力，我们可以直接通过<code>Command + Shift + V</code>来进行访问历史粘贴板：</p>
-
+<img src="/2016/11/03/intellij-idea-tips/paste-history.jpg" alt="Intellij Idea历史粘贴板" title="Intellij Idea历史粘贴板">
 <h4 id="Language-Injection"><a href="#Language-Injection" class="headerlink" title="Language Injection"></a>Language Injection</h4><p>在 Java 的 String 中编辑有 JSON 非常麻烦，在 Intellij IDEA 中，我们可以直接使用 Intellij IDEA 的 Language Injection 的功能（Alt + Enter）将一个字符串标记为 JSON，就可以非常方便地编写 JSON 了，再也不用担心转义的问题了：</p>
-
+<img src="/2016/11/03/intellij-idea-tips/language-injection.jpg" alt="Intellij Idea Language Injection" title="Intellij Idea Language Injection">
 ]]></content>
     </entry>
     
@@ -994,15 +1100,15 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">phoenix-4.8.0-HBase-1.2-client.jar</div></pre></td></tr></table></figure>
 <p>注意顺序，先拷贝jar包，在启动SQuirreL添加驱动，如果是拷贝jar包时已经启动了SQuirreL，那么SQuirreL需要重启一下，拷贝的jar包才生效，这个是需要注意的地方，可以参见<a href="http://stackoverflow.com/questions/40215921/squirrel-configure-could-not-initial-class-org-apache-phoenix-jdbc-phoenixdrive/40225765#40225765" target="_blank" rel="external">SQuirreL Configure: could not initial class org.apache.phoenix.jdbc.PhoenixDriver</a>。在连接不同的HBase数据库时，需要注意驱动的版本，不同版本的驱动是无法正确连接的。高版本的驱动无法连接低版本的HBase。</p>
 <h4 id="添加Driver"><a href="#添加Driver" class="headerlink" title="添加Driver"></a>添加Driver</h4><p>添加Driver如下图所示。</p>
-
+<img src="/2016/10/25/squirrel-phoenix-configuration/sphonix-driver-configuration.jpg" alt="Sphonix增加驱动" title="Sphonix增加驱动">
 <p>Name填写用户自定义名称。Example URL填写ZooKepper地址。Class Name填写：<code>org.apache.phoenix.jdbc.PhoenixDriver</code>。</p>
 <h4 id="添加Alias连接Hbase"><a href="#添加Alias连接Hbase" class="headerlink" title="添加Alias连接Hbase"></a>添加Alias连接Hbase</h4><p>如下图所示。</p>
-
+<img src="/2016/10/25/squirrel-phoenix-configuration/addAlias.jpg" alt="增加Alias" title="增加Alias">
 <p>Name是Alias的名字，可以填写自定义名称。Driver选择上一步配置好的Driver名称，这里是Phoenix。url填写Phoenix连接串：<code>jdbc:phoenix:192.168.24.226,192.168.24.195:2181:/hbase-unsecure</code>。UserName和Password填写操作系统的登录用户和登录密码。</p>
 <h4 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h4><p>SQL查询如下图所示。</p>
-
+<img src="/2016/10/25/squirrel-phoenix-configuration/configurationResult.jpg" alt="SQL查询" title="SQL查询">
 <h4 id="连接MySQL"><a href="#连接MySQL" class="headerlink" title="连接MySQL"></a>连接MySQL</h4><p>将MySQL的驱动<code>mysql-connector-java-5.1.39.jar</code>拷贝到lib目录下。</p>
-
+<img src="/2016/10/25/squirrel-phoenix-configuration/squirrel-connect-mysql.jpg" alt="SQuirreL连接MySQL" title="SQuirreL连接MySQL">
 <p>驱动链接填写：<code>jdbc:mysql://192.168.24.234:3306/clbs?useUnicode=true&amp;characterEncoding=utf-8</code>。用户名和密码填写登录Linux主机的用户名和密码。</p>
 ]]></content>
     </entry>
@@ -1063,9 +1169,10 @@
 <h4 id="打开文件夹"><a href="#打开文件夹" class="headerlink" title="打开文件夹"></a>打开文件夹</h4><p>在Fedora中打开All Settings-&gt;Keyboard-&gt;Custom Shortcuts，添加快捷键即可，这里设置的是Ctrl + Alt + H(Home)。在快捷键的command中输入命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nautilus</div></pre></td></tr></table></figure>
 <p>即可打开文件夹。</p>
-<h4 id="打开微信"><a href="#打开微信" class="headerlink" title="打开微信"></a>打开微信</h4><p>在Fedora中打开All Settings-&gt;Keyboard-&gt;Custom Shortcuts，添加快捷键即可，这里设置的是Ctrl + Alt + H(Home)。在快捷键的command中输入命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/opt/electronic-wechat-linux-x64/electronic-wechat</div></pre></td></tr></table></figure>
+<h4 id="打开常用应用快捷键"><a href="#打开常用应用快捷键" class="headerlink" title="打开常用应用快捷键"></a>打开常用应用快捷键</h4><p>在Fedora中打开All Settings-&gt;Keyboard-&gt;Custom Shortcuts，添加快捷键即可，这里设置的是。在快捷键的command中输入命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#打开微信，Ctrl + Alt + W(WeChat)</span></div><div class="line">/opt/electronic-wechat-linux-x64/electronic-wechat</div><div class="line"><span class="comment">#打开Google Chrome,快捷键设置为：Ctrl + Alt + G(Google Chrome)</span></div><div class="line">/opt/google/chrome/chrome</div></pre></td></tr></table></figure>
 <p>即可快速打开微信,微信使用的是electronic-wechat，安装目录是/opt/electronic-wechat-linux-x64/。</p>
+<p><a href="https://help.gnome.org/users/gnome-help/3.12/shell-keyboard-shortcuts.html.en" target="_blank" rel="external">Useful keyboard shortcuts</a></p>
 ]]></content>
     </entry>
     
@@ -1282,11 +1389,11 @@
 <p>如下是Intellij Idea的桌面图标配置文件:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env xdg-open</span></div><div class="line"></div><div class="line">[Desktop Entry]</div><div class="line">Encoding=UTF-8</div><div class="line">Name=Intellij Idea</div><div class="line">GenericName=IDE</div><div class="line">Exec=<span class="string">'/opt/idea/idea-IC-162.2032.8/bin/idea.sh'</span></div><div class="line">Icon=/opt/idea/idea-IC-162.2032.8/bin/idea.png</div><div class="line">Terminal=<span class="literal">false</span></div><div class="line">Type=Application</div><div class="line">Categories=IDE;</div><div class="line">Name[en_US]=Intellij Idea</div></pre></td></tr></table></figure>
 <p>保存之后双击打开，一定要双击打开哟，否则启动图标不会出现，会出现一个确认界面。提示需要授权启动项，选择授权即可。配置好图标后的效果如图所示。</p>
-
+<img src="/2016/10/12/fedora-desktop-icon/google-chrome-fedora-desktop-launcher.png" alt="Google-Chrome手动添加桌面图标" title="Google-Chrome手动添加桌面图标">
 <h4 id="快速启动图标"><a href="#快速启动图标" class="headerlink" title="快速启动图标"></a>快速启动图标</h4><p>要让图标在快速启动栏里出现，直接将刚才新建Google-Chrome.desktop文件复制到<code>/usr/share/application</code>目录下即可。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp Google-Chrome.desktop /usr/share/application</div></pre></td></tr></table></figure>
 <p>配置好快速启动图标后的效果如下如所示。</p>
-
+<img src="/2016/10/12/fedora-desktop-icon/google-chrome-startup-icon.png" alt="Google-Chrome快速启动图标" title="Google-Chrome快速启动图标">
 <p><code>/usr/share/application</code>目录是Gnome中所有用户启动的快捷方式存放的目录。局部的快捷方式存放的目录在：<code>~/.local/share/applications</code>。desktop文件的结构如下。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[Desktop Entry]</div><div class="line">Encoding=UTF-8 //字符编码</div><div class="line">Name=vim　　 //显示的名字</div><div class="line">MimeType=text/plain; //类型</div><div class="line">Exec=vim %f //运行的程序 %f表示一个参数</div><div class="line">Type=Application　 //类型</div><div class="line">Terminal=true //是否使用终端</div><div class="line">NoDisplay=true //是否显示在gnome菜单里</div></pre></td></tr></table></figure>
 ]]></content>
@@ -1297,7 +1404,7 @@
       <url>http://jiangxiaoqiang.com/2016/10/10/intellij-hot-deply/</url>
       <content type="html"><![CDATA[<p>下午遇到一个问题，在开发时，HTML修改后浏览器刷新始终不显示修改后的效果。经过朋友的指导，原来是要选择Exploded包进行部署。如图所示。</p>
 <a id="more"></a>
-
+<img src="/2016/10/10/intellij-hot-deply/war-exploded-deploy.jpg" alt="选择Exploded部署包" title="选择Exploded部署包">
 <p>在Intellij的官方文档上如此描述：To have the application deployed as a directory, choose Web Application: Exploded.To have the application deployed in the packed form, choose Web Application: Archive.大意是如果想以目录形式部署，选择Exploded(adj. 爆炸了的；分解的；被破除的)模式,如果想以打包模式部署，则选择Archive模式。Exploded模式带来的好处是支持热部署，这样不用在开发过程中每次修改了内容后(HTML\JSP)都重新部署，重启一次大概要1-3分钟，有此可见大大提高了开发效率。缺点是多次部署后，Tomcat可能内存溢出，此时就必须重启Tomcat。</p>
 <p>参考资料：</p>
 <p><a href="http://stackoverflow.com/questions/1289358/what-does-exploded-development-mean-in-java" target="_blank" rel="external">What does Exploded Development mean? (In Java)</a></p>
@@ -1358,7 +1465,7 @@
       <url>http://jiangxiaoqiang.com/2016/10/08/intelli-idea-plugin/</url>
       <content type="html"><![CDATA[<h4 id="presentation-assistant"><a href="#presentation-assistant" class="headerlink" title="presentation assistant"></a>presentation assistant</h4><p>这款插件可以实时的在Intellij屏幕底部展示当前按下的快捷键，包括Windows的快捷键和Mac的快捷键，可以帮助您记忆快捷键，清楚当前的行为(Action)。效果如下图所示。</p>
 <a id="more"></a>
-
+<img src="/2016/10/08/intelli-idea-plugin/presentation-assistant-tips.jpg" alt="Presentation Assistant提示" title="Presentation Assistant提示">
 <h4 id="Grep-Console"><a href="#Grep-Console" class="headerlink" title="Grep Console"></a>Grep Console</h4><p>允许你定义一系列将通过控制台输出或文件测试的正则表达式。匹配代码行的每个表达式将会影响整行的样式，或播放声音。例如，错误消息可以被设置在一个红色的背景中显示。例如错误(ERROR)输出为红色，报警(WARNING)输出为黄色，信息(INFO)输出为绿色。</p>
 <h4 id="JRebel-for-IntelliJ-Commercial"><a href="#JRebel-for-IntelliJ-Commercial" class="headerlink" title="JRebel for IntelliJ(Commercial)"></a>JRebel for IntelliJ(Commercial)</h4><p>JRebel的热部署可以让你修改代码以后不用重新启动项目即可加载效果，即所谓的热部署，可以大大提高开发效率。</p>
 ]]></content>
@@ -1713,7 +1820,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PageMapperTest</span> <span class="keyword">extends</span> <span class="title">BasicTest</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="meta">@Autowired</span></div><div class="line">	<span class="keyword">private</span> CountryService countryService;</div><div class="line"></div><div class="line">	<span class="meta">@Test</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			Country country = countryService.getCountyById(<span class="number">1</span>);</div><div class="line">			System.out.print(country.getId());</div><div class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">			<span class="comment">// TODO Auto-generated catch block</span></div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="新建数据库表"><a href="#新建数据库表" class="headerlink" title="新建数据库表"></a>新建数据库表</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">USE `test`;</div><div class="line"></div><div class="line">#</div><div class="line"># Table structure for table country</div><div class="line">#</div><div class="line"></div><div class="line">DROP TABLE IF EXISTS `country`;</div><div class="line">CREATE TABLE `country` (</div><div class="line">  `Id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',</div><div class="line">  `countryname` varchar(255) DEFAULT NULL COMMENT '名称',</div><div class="line">  `countrycode` varchar(255) DEFAULT NULL COMMENT '代码',</div><div class="line">  PRIMARY KEY (`Id`)</div><div class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='国家信息';</div><div class="line"></div><div class="line">INSERT INTO `country` VALUES (1,'Angola','AO');</div><div class="line">INSERT INTO `country` VALUES (2,'Afghanistan','AF');</div></pre></td></tr></table></figure>
 <h4 id="启动测试"><a href="#启动测试" class="headerlink" title="启动测试"></a>启动测试</h4><p>结果如下如所示。</p>
-
+<img src="/2016/09/27/spring-mybatis-integrete/spring-mybatis-running-result.jpg" alt="MyBatis读取数据" title="MyBatis读取数据">
 <p>引用文章：</p>
 <p><a href="http://www.ibm.com/developerworks/cn/opensource/os-cn-spring-iocannt/" target="_blank" rel="external">详解 Spring 3.0 基于 Annotation 的依赖注入实现</a></p>
 ]]></content>
@@ -1723,13 +1830,13 @@
       <title><![CDATA[IntelliJ Idea快捷键技巧分享]]></title>
       <url>http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/</url>
       <content type="html"><![CDATA[<h4 id="输入乱码"><a href="#输入乱码" class="headerlink" title="输入乱码"></a>输入乱码</h4><p>在控制台输入中文时显示的不是输入的汉字，而是显示正方形符号，此时输入的汉字显示乱码，如图所示。</p>
-
+<img src="/2016/09/26/intllij-idea-encoding/intelli-idea-input-encode.jpg" alt="输入时乱码" title="输入时乱码">
 <a id="more"></a>
 <p>解决此问题，可使用支持中文较好的字体，覆盖默认字体，在Intellig Idea中的File-Settings-Appearance&amp;Behavior-Appearance中(Ctrl + Alt + S)。如下图所示。</p>
-
+<img src="/2016/09/26/intllij-idea-encoding/intelli-idea-override-default-font.jpg" alt="覆盖默认字体" title="覆盖默认字体">
 <p>在Debug控制台中Tomcat中输出乱码，可以打开Run/Debug Configuration,选择你的tomcat。在Server &gt; VM options设置为<code>-Dfile.encoding=UTF-8</code> ，重启tomcat。</p>
 <h4 id="智能提示敏感调整"><a href="#智能提示敏感调整" class="headerlink" title="智能提示敏感调整"></a>智能提示敏感调整</h4><p>在智能提示时默认大小写敏感，比如String的智能提示就必须首字母大写才能够准确定位，经常大小写切换，不是特别方便。在settings-Editor-General-Code Completion里设置后，可以省去大小写切换操作。</p>
-
+<img src="/2016/09/26/intllij-idea-encoding/code-completion-case-sensitive.jpg" alt="智能提示大小写敏感调整" title="智能提示大小写敏感调整">
 <h4 id="Live-Templates"><a href="#Live-Templates" class="headerlink" title="Live Templates"></a>Live Templates</h4><p>Live templates帮助你快速、高效、精准的输入经常使用的或者自定义的代码片段(Live templates let you insert frequently-used or custom code constructs into your source code file quickly, efficiently, and accurately).相当于一个代码块的缩写，输入<code>Ctrl + J</code>会显示当前上下文中所有可用的模板。快速输入foreach，在方法内(一定要在方法里敲)输入iter + TAB。</p>
 <h5 id="快速进行空判断"><a href="#快速进行空判断" class="headerlink" title="快速进行空判断"></a>快速进行空判断</h5><p>输入<code>ifn</code>，按TAB即可。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (args == <span class="keyword">null</span>) &#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -1738,9 +1845,9 @@
 <h4 id="Surround-with"><a href="#Surround-with" class="headerlink" title="Surround with"></a>Surround with</h4><p>用于快速添加try catch等代码块，The Surround with feature allows you easily put expressions or statements within blocks or language constructs.快捷键为：<code>Ctrl + Alt + T</code>。</p>
 <h4 id="重构-Reflactor"><a href="#重构-Reflactor" class="headerlink" title="重构(Reflactor)"></a>重构(Reflactor)</h4><h5 id="重命名-Rename"><a href="#重命名-Rename" class="headerlink" title="重命名(Rename)"></a>重命名(Rename)</h5><p>Shift + F6,可以重命名你的类、方法、变量等等。</p>
 <h4 id="主题-Theme"><a href="#主题-Theme" class="headerlink" title="主题(Theme)"></a>主题(Theme)</h4><p>更换默认主题在settings(Ctrl + Alt + S) –&gt; editor –&gt; colors &amp; fonts –&gt; general，如下图所示，如果需要修改主题的字体等是默认是不允许的，需要复制一个新的主题，再自定义修改相应的参数。</p>
-
+<img src="/2016/09/26/intllij-idea-encoding/change-theme.jpg" alt="修改默认主题" title="修改默认主题">
 <h4 id="Maven配置"><a href="#Maven配置" class="headerlink" title="Maven配置"></a>Maven配置</h4><p>使用Maven最头疼的就是从中央库下载jar包超级慢，等待下载jar包的感觉用重庆话讲：肚肠子把把逗紧了。解决办法就是使用私服地址，私服可以使用本地配置的Maven(不是Intellij Idea里面的boundle Maven)，修改Intellj Maven采用本机安装Maven在设置(Ctrl + Alt + S)中输入Maven，修改地址(例如：<code>D:\Source\zwnewplatform\javasoftware\runtime\apache-maven-3.3.9</code>)即可，如下图所示。</p>
-
+<img src="/2016/09/26/intllij-idea-encoding/specify-maven-addr.jpg" alt="修改Maven地址" title="修改Maven地址">
 <h4 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h4><p>Intellij Idea可以完全丢掉键盘工作，有点早期Vim和Emacs编辑器的味道。善用Intellij Idea编辑器可以大幅提高工作效率，用快捷键有一种装逼的感觉，装逼人士必备。</p>
 <table>
 <thead>
@@ -1934,9 +2041,9 @@
 </table>
 <h5 id="进入退出全屏"><a href="#进入退出全屏" class="headerlink" title="进入退出全屏"></a>进入退出全屏</h5><p>使用快捷键<code>Alt + V</code>打开View菜单，移动上下键选择<code>Enter Full Screen</code>即可。也可以自定义快捷键。</p>
 <h4 id="properties显示中文"><a href="#properties显示中文" class="headerlink" title="properties显示中文"></a>properties显示中文</h4><p>使用IntelliJ Idea打开属性文件时，如果包含中文，显示为原始的编码，正确显示中文需要做如下设置，到设置(settings)中,可以使用快捷键Ctrl + Alt + S打开设置界面，找到<code>File Encoding</code>选项卡，选中<code>Default encoding for properties file</code>即可，如下图所示.</p>
-
+<img src="/2016/09/26/intllij-idea-encoding/intellij-properties-encoding.png" alt="属性文件编码设置" title="属性文件编码设置">
 <h4 id="限制编辑器Tab页个数"><a href="#限制编辑器Tab页个数" class="headerlink" title="限制编辑器Tab页个数"></a>限制编辑器Tab页个数</h4><p>有时我们并不习惯在编辑器中打开太多的Tab页，如果不小心点开了7个以上的Tab页，在Tab页面中切换也蛮让人晕眩的，设置Tab页最大个数在Settings(Ctrl + Alt + S),Editor-General-Editor Tabs中，如下图如所示。</p>
-
+<img src="/2016/09/26/intllij-idea-encoding/intellij-tabs-number-setting.png" alt="IntelliJ Idea编辑器Tab页设置" title="IntelliJ Idea编辑器Tab页设置">
 <h4 id="注释模板"><a href="#注释模板" class="headerlink" title="注释模板"></a>注释模板</h4><p>参考：</p>
 <p><a href="http://www.hollischuang.com/archives/966" target="_blank" rel="external">Java开发必装的IntelliJ IDEA插件</a></p>
 <p><a href="https://www.jetbrains.com/help/idea/2016.2/surrounding-blocks-of-code-with-language-constructs.html" target="_blank" rel="external">Surrounding Blocks of Code with Language Constructs</a></p>
@@ -1949,14 +2056,14 @@
       <content type="html"><![CDATA[<h4 id="为什么要依赖注入"><a href="#为什么要依赖注入" class="headerlink" title="为什么要依赖注入"></a>为什么要依赖注入</h4><p>依赖注入(Dependency Injection)所要达到的目标是实现程序间的松耦合。将服务的调用者和服务的提供者分离。DI提供一种机制，在运行时绑定服务的提供者和调用者。</p>
 <a id="more"></a>
 <h4 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h4><p>新建一个Web项目，目录结构如下。</p>
-
+<img src="/2016/09/25/spring-ioc/maven-initial-content-structure.jpg" alt="Maven项目目录树结构" title="Maven项目目录树结构">
 <h4 id="引入包"><a href="#引入包" class="headerlink" title="引入包"></a>引入包</h4><p>引入servlet-api.jar包，目录结构如下。</p>
-
+<img src="/2016/09/25/spring-ioc/add-servlet-api-content-structure.jpg" alt="Maven项目目录树结构" title="Maven项目目录树结构">
 <p>注意引入servlet-api.jar包后，多了src/main/java目录和src/test/java目录。servlet-api.jar包中，实现了Sevlet规范，在Apache Tomcat 8.0.37中实现的是Servlet Specification 3.1，JSP Specification 2.3。版本之间详细的对应关系可以看<a href="http://tomcat.apache.org/whichversion.html" target="_blank" rel="external"><strong>Apache Tomcat Versions</strong></a>。</p>
 <h4 id="添加Spring依赖包"><a href="#添加Spring依赖包" class="headerlink" title="添加Spring依赖包"></a>添加Spring依赖包</h4><p>在Maven的POM文件中添加spring-context依赖。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-context<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.3.3.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>此处虽然只添加了一个jar包，Maven会自动下载此jar包相关的依赖包。在Maven的Dependency Hierarchy中查看包与包之间的依赖关系如下图所示。</p>
-
+<img src="/2016/09/25/spring-ioc/spring-context-dependency-hierarchy.jpg" alt="Spring-Context包依赖关系" title="Spring-Context包依赖关系">
 <h4 id="添加类"><a href="#添加类" class="headerlink" title="添加类"></a>添加类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MessageService</span> </span>&#123;</div><div class="line">   <span class="function">String <span class="title">getMessage</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Component</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MessagePrinter</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">final</span> <span class="keyword">private</span> MessageService service;</div><div class="line"></div><div class="line">    <span class="meta">@Autowired</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MessagePrinter</span><span class="params">(MessageService service)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.service = service;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printMessage</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="keyword">this</span>.service.getMessage());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>带有 @Configuration 的注解类表示这个类可以使用 Spring IoC 容器作为 bean 定义的来源。@Bean 注解告诉 Spring，一个带有 @Bean 的注解方法将返回一个对象，该对象应该被注册为在 Spring 应用程序上下文中的 bean。</p>
@@ -1965,7 +2072,7 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">beans</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"mockMessageService"</span> <span class="attr">class</span>=<span class="string">"dolphin.MessageService"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>带有 @Bean 注解的方法名称作为 bean 的 ID，它创建并返回实际的 bean。配置类可以声明多个 @Bean。一旦定义了配置类，你就可以使用 AnnotationConfigApplicationContext 来加载并把他们提供给 Spring 容器(Main方法中即是)。</p>
 <h4 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h4><p>结果如图所示。</p>
-
+<img src="/2016/09/25/spring-ioc/spring-di-result.jpg" alt="Dependency Injection结果示例" title="Dependency Injection结果示例">
 <p>来自：</p>
 <ul>
 <li><a href="https://projects.spring.io/spring-framework/#quick-start" target="_blank" rel="external">spring-framework-quick-start</a></li>
@@ -2044,7 +2151,7 @@
 </li>
 </ul>
 <p>Tomcat7和Tomcat8默认设置都是http1.1，Tomcat7默认使用BIO，Tomcat8根据情况自动选择BIO还是NIO，甚至NIO2.当前调试版本是Tomcat 8，默认进入的是NioEndpoint(其实这里已经到AbstractEndpoint的Processor了，在NioEndpoint的断点始终没有命中，不知何故)，如下图所示。</p>
-
+<img src="/2016/09/22/tomcat-http/nioendpoint-debug.jpg" alt="HTTP请求进入NioEndpoint" title="HTTP请求进入NioEndpoint">
 <h4 id="Engine处理请求"><a href="#Engine处理请求" class="headerlink" title="Engine处理请求"></a>Engine处理请求</h4><p>Connector把该请求交给它所在的Service的Engine(StandardEngine)来处理，并等待Engine的回应。Container 是容器的父接口，所有子容器都必须实现这个接口，Container 容器的设计用的是典型的责任链的设计模式，它有四个子容器组件构成，分别是：Engine、Host、Context、Wrapper，这四个组件不是平行的，而是父子关系，Engine 包含 Host,Host 包含 Context，Context 包含 Wrapper。通常一个 Servlet class 对应一个 Wrapper，如果有多个 Servlet 就可以定义多个 Wrapper，如果有多个 Wrapper 就要定义一个更高的Container。详细的关系在server.xml可以看出来：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Server</span>&gt;</span><span class="comment">&lt;!--顶层元素，代表一个服务器--&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">Service</span>&gt;</span><span class="comment">&lt;!--顶层元素，是Connector的集合，只有一个Engine--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">Connectior</span>/&gt;</span><span class="comment">&lt;!--连接器类元素，代表通信接口--&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">Engine</span>&gt;</span><span class="comment">&lt;!--容器类元素，为特定的Service组件处理所有客户请求，可包含多个Host--&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">Host</span>&gt;</span><span class="comment">&lt;!--为特定的虚拟主机处理所有客户请求--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">Context</span>&gt;</span><span class="comment">&lt;!--为特定的WEB应用处理所有客户请求--&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">Context</span>&gt;</span></div><div class="line">         <span class="tag">&lt;/<span class="name">Host</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">Engine</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">Service</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">Server</span>&gt;</span></div></pre></td></tr></table></figure>
 <h4 id="匹配Host"><a href="#匹配Host" class="headerlink" title="匹配Host"></a>匹配Host</h4><p>Engine获得请求localhost:8080/test/index.jsp，匹配它所有虚拟主机Host<br>Engine匹配到名为localhost的Host（即使匹配不到也把请求交给该Host处理，因为该Host被定义为该Engine的默认主机）</p>
@@ -2052,7 +2159,7 @@
 <h4 id="匹配Servlet"><a href="#匹配Servlet" class="headerlink" title="匹配Servlet"></a>匹配Servlet</h4><p>path=”/test”的Context获得请求/index.jsp，在它的mapping table中寻找对应的servlet<br>Context匹配到URL PATTERN为*.jsp的servlet，对应于JspServlet类<br>构造HttpServletRequest对象和HttpServletResponse对象，作为参数调用JspServlet的doGet或doPost方法</p>
 <h4 id="返回响应"><a href="#返回响应" class="headerlink" title="返回响应"></a>返回响应</h4><p>Context把执行完了之后的HttpServletResponse对象返回给Host<br>Host把HttpServletResponse对象返回给Engine<br>Engine把HttpServletResponse对象返回给Connector<br>Connector把HttpServletResponse对象返回给客户browser</p>
 <p>请求流程图(Graphiz绘制)：</p>
-]]></content>
+<img src="/2016/09/22/tomcat-http/tomcat-handle-flow.jpg" alt="HTTP在Tomcat中的Handle流程" title="HTTP在Tomcat中的Handle流程">]]></content>
     </entry>
     
     <entry>
@@ -2062,7 +2169,7 @@
 <h4 id="引入Tomcat8-0-37jar包"><a href="#引入Tomcat8-0-37jar包" class="headerlink" title="引入Tomcat8.0.37jar包"></a>引入Tomcat8.0.37jar包</h4><p>由于Tomcat的入口类JIoEndPoint实现在tomcat-coyote.jar包中，入口org.apache.tomcat.util.net.JIoEndpoint，该类用来处理传递进来的TCP连接，它实现了一个简单的服务器模式：一个监听线程用来接收socket以及为每个进来的连接创建一个worker来处理。更加高级的功能会涉及到线程重用，如队列等。所以需要引入Tomcat8.0.37中的tomcat-coyote.jar包，在Tomcat8项目的lib目录中。</p>
 <a id="more"></a>
 <h4 id="附加源码"><a href="#附加源码" class="headerlink" title="附加源码"></a>附加源码</h4><p>附加源码如下图所示。</p>
-
+<img src="/2016/09/20/launching-and-debugging-tomcat-extra/attach-tomcat-source.jpg" alt="Tomcat源码附加" title="Tomcat源码附加">
 <h4 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h4><p>在JIoEndPoint类中的processSocket方法上新建断点，在浏览器中请求<a href="http://localhost:9090/examples/demo/test" target="_blank" rel="external">地址</a>即可命中断点，单步跟踪调试即可。Tomcat中支持两种协议的连接器：HTTP/1.1与AJP/1.3。HTTP/1.1协议负责建立HTTP连接，web应用通过浏览器访问tomcat服务器用的就是这个连接器，默认监听的是8080端口；AJP/1.3协议负责和其他HTTP服务器建立连接，监听的是8009端口，比如tomcat和apache或者iis集成时需要用到这个连接器。<br>协议上有三种不同的实现方式：JIO、APR、NIO。</p>
 <ul>
 <li><strong>JIO(java.io)</strong>：用java.io纯JAVA编写的TCP模块，这是tomcat默认连接器实现方法；</li>
@@ -2090,12 +2197,12 @@
 </ul>
 <a id="more"></a>
 <h4 id="创建项目Tomcat8"><a href="#创建项目Tomcat8" class="headerlink" title="创建项目Tomcat8"></a>创建项目Tomcat8</h4><p>创建一个新的Java类型项目，项目名称为“Tomcat8”，如下如所示。</p>
-
+<img src="/2016/09/20/launching-and-debugging-tomcat/create-new-java-project.jpg" alt="新建项目Tomcat8" title="新建项目Tomcat8">
 <h4 id="下载Tomcat-8-0-37二进制包"><a href="#下载Tomcat-8-0-37二进制包" class="headerlink" title="下载Tomcat 8.0.37二进制包"></a>下载Tomcat 8.0.37二进制包</h4><p>下载<a href="https://tomcat.apache.org/download-80.cgi" target="_blank" rel="external">Tomcat 8.0.37</a>对应的二进制文件。将之拷贝到项目Tomcat8项目的根目录。拷贝之后Tomcat项目的目录结构如下图所示。</p>
-
+<img src="/2016/09/20/launching-and-debugging-tomcat/tomcat8-tree-structure.jpg" alt="Tomcat8项目目录树结构" title="Tomcat8项目目录树结构">
 <h4 id="创建另一个项目test"><a href="#创建另一个项目test" class="headerlink" title="创建另一个项目test"></a>创建另一个项目test</h4><p>创建一个Maven的webapp项目,名字为“test”。</p>
 <h4 id="新建自定义Servlet"><a href="#新建自定义Servlet" class="headerlink" title="新建自定义Servlet"></a>新建自定义Servlet</h4><p>在test项目下新建一个自定义Servlet,名字为“TestServlet”，如图所示：</p>
-
+<img src="/2016/09/20/launching-and-debugging-tomcat/add-custom-servlet.jpg" alt="添加自定义Servlet" title="添加自定义Servlet">
 <p>由于TestServlet实现HttpServlet接口，HttpServlet接口的定义在servlet-api.jar包中，所以在test项目的Library中需要引用Tomcat8项目目录下的servlet-api.jar包。新建自定义Servlet完成后在Tomcat8项目中配置servlet映射(/webapps/examples/WEB-INF)：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>test<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/demo/test<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>以上映射说明从/demo/test发送的请求由名为test的Servlet来处理。在Tomcat8项目中配置servlet(/webapps/examples/WEB-INF)：</p>
@@ -2104,7 +2211,7 @@
 <h4 id="配置调试参数"><a href="#配置调试参数" class="headerlink" title="配置调试参数"></a>配置调试参数</h4><p>配置test项目，创建调试配置，配置Main Class为Tomcat的启动类：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">org.apache.catalina.startup.Bootstrap</div></pre></td></tr></table></figure>
 <p>配置test项目的工作空间为Tomcat8的工作空间，如图所示：</p>
-
+<img src="/2016/09/20/launching-and-debugging-tomcat/config-workspace.jpg" alt="配置test项目工作空间" title="配置test项目工作空间">
 <h4 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h4><p>在自定义的Servlet的doGet方法上打断点，打开浏览器访问<a href="http://localhost:9090/examples/demo/test" target="_blank" rel="external">链接</a>即可命中自定义Servlet。从这里可以加深理解HTTP请求到自定义Servlet处理的过程，可以理解Spring MVC和Tomcat是如何联系起来的。</p>
 <p>源自：</p>
 <ul>
@@ -2155,7 +2262,7 @@
 <p>想了解平时学习的理论知识在实际的代码实现中是什么情况，比较好的方式是阅读源码，如果能在阅读过程中根据疑问动手调试源码验证猜想和疑问，那就更加完美了。这里想看Spring MVC一个HTTP请求从开始到结束到底是怎么运行的，Spring MVC怎么处理，选取了4.2.3版本的源码进行调试。</p>
 <a id="more"></a>
 <p>首先从GitHub上下载4.2.3版本的源码，在项目的Maven Dependencies找到名为spring-webmvc-4.2.3.REALEASE的jar包，单击右键build-path–&gt;Configure build path,在Libraries中找到对应的jar包，选中source attachment–&gt;Edit.</p>
-
+<img src="/2016/09/17/springmvc-sourcecode-debugging/springmvc-attach-source.png" alt="Spring MVC关联源码" title="Spring MVC关联源码">
 <p>在spring-webmvc-4.2.3.REALEASE.jar中找到dispatchservlet类，打断点即可进入调试。</p>
 ]]></content>
     </entry>

@@ -90,10 +90,15 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/11/03/intellij-idea-tips/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="键盘调整Debug窗口的大小键盘调整Debug窗口的大小快捷键是Ctrl + Shift + Up/Down，注意一定要定位到Debug视图，也就是Debug视图但是当前窗口的活跃(Active)视图才会生效。">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2016/11/03/intellij-idea-tips/intelli-idea-debug-view-convert.jpg">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2016/11/03/intellij-idea-tips/search-folder.jpg">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2016/11/03/intellij-idea-tips/paste-history.jpg">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2016/11/03/intellij-idea-tips/language-injection.jpg">
 <meta property="og:updated_time" content="2016-12-06T13:32:03.668Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Intellij Idea小技巧(tips)">
 <meta name="twitter:description" content="键盘调整Debug窗口的大小键盘调整Debug窗口的大小快捷键是Ctrl + Shift + Up/Down，注意一定要定位到Debug视图，也就是Debug视图但是当前窗口的活跃(Active)视图才会生效。">
+<meta name="twitter:image" content="http://jiangxiaoqiang.com/2016/11/03/intellij-idea-tips/intelli-idea-debug-view-convert.jpg">
 
 
 
@@ -349,18 +354,18 @@
 <a id="more"></a>
 <p>同理，在调整项目树宽度时，可以使用快捷键<code>Ctrl + Alt + Left/Right</code>。</p>
 <h4 id="Debug视图Tab页切换"><a href="#Debug视图Tab页切换" class="headerlink" title="Debug视图Tab页切换"></a>Debug视图Tab页切换</h4><p>快捷键是Shift + Tab，如下图所示。</p>
-
+<img src="/2016/11/03/intellij-idea-tips/intelli-idea-debug-view-convert.jpg" alt="Intellij Idea的Debug视图Tab页切换" title="Intellij Idea的Debug视图Tab页切换">
 <h4 id="Debug视图日志滚动到末尾"><a href="#Debug视图日志滚动到末尾" class="headerlink" title="Debug视图日志滚动到末尾"></a>Debug视图日志滚动到末尾</h4><p>如果想在Debug视图中将日志始终定位到末尾，可以点击左侧的Scroll To End按钮，也可以使用快捷键<code>Ctrl + End</code>。</p>
 <h4 id="Debug视图清空日志"><a href="#Debug视图清空日志" class="headerlink" title="Debug视图清空日志"></a>Debug视图清空日志</h4><p>清空日志没有快捷键，但是可以使用键盘上的鼠标右键来做到。</p>
 <h4 id="关闭Editor-Tabs"><a href="#关闭Editor-Tabs" class="headerlink" title="关闭Editor Tabs"></a>关闭Editor Tabs</h4><p>在Editor Tabs中切换比较耗费时间，可以尝试关闭Editor Tabs功能，关闭掉Editor Tabs功能还有一个好处是加载的时候会变快，因为不用加载Editor Tabs里打开的页面的内容了。关闭Editor Tabs功能按下<code>Ctrl + Alt + S</code>快捷键。搜索Editor Tabs关键字即可，在右侧Tab Appearence中选择None即可。关闭掉后直接可以通过Ctrl + E快捷键或者<code>Ctrl + Shift + E</code>快捷键访问文件。</p>
 <h4 id="跳转到特定文件夹"><a href="#跳转到特定文件夹" class="headerlink" title="跳转到特定文件夹"></a>跳转到特定文件夹</h4><p>在Intellij Idea中可以跳转到特定的文件夹，只需要按下两次Shift之后，在搜索的关键字前面加一个斜杠即可，如下图所示。</p>
-
+<img src="/2016/11/03/intellij-idea-tips/search-folder.jpg" alt="Intellij Idea跳转到指定文件夹" title="Intellij Idea跳转到指定文件夹">
 <h4 id="自动补全分号"><a href="#自动补全分号" class="headerlink" title="自动补全分号"></a>自动补全分号</h4><p>在语句的结尾补全分号，可以使用快捷键<code>Ctrl + Shift + Enter</code>，注意光标需要移动到补全分号的行。</p>
 <h4 id="打开无快捷键的Tab"><a href="#打开无快捷键的Tab" class="headerlink" title="打开无快捷键的Tab"></a>打开无快捷键的Tab</h4><p>在Intellij Idea中有些Tab时没有快捷键的，比如Maven Projects。要打开可以使用快捷键<code>Ctrl + Alt + A</code>，输入Maven projects关键字即可。</p>
 <h4 id="粘贴版历史"><a href="#粘贴版历史" class="headerlink" title="粘贴版历史"></a>粘贴版历史</h4><p>如果使用过 Mac 里面的 Alfred 的话，可能大家早就习惯了 Alfred 的粘贴板历史的能力，真是复制粘贴的神器啊。其实 Intellij IDEA 里面也提供了这样的能力，我们可以直接通过<code>Command + Shift + V</code>来进行访问历史粘贴板：</p>
-
+<img src="/2016/11/03/intellij-idea-tips/paste-history.jpg" alt="Intellij Idea历史粘贴板" title="Intellij Idea历史粘贴板">
 <h4 id="Language-Injection"><a href="#Language-Injection" class="headerlink" title="Language Injection"></a>Language Injection</h4><p>在 Java 的 String 中编辑有 JSON 非常麻烦，在 Intellij IDEA 中，我们可以直接使用 Intellij IDEA 的 Language Injection 的功能（Alt + Enter）将一个字符串标记为 JSON，就可以非常方便地编写 JSON 了，再也不用担心转义的问题了：</p>
-
+<img src="/2016/11/03/intellij-idea-tips/language-injection.jpg" alt="Intellij Idea Language Injection" title="Intellij Idea Language Injection">
 
       
     </div>
@@ -476,7 +481,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">82</span>
+              <span class="site-state-item-count">83</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -493,7 +498,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-count">106</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
