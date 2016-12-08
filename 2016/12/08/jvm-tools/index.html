@@ -85,15 +85,17 @@
 
 
 <meta name="description" content="jps(JVM Process Status Tools)jps是参照Unix系统的取名规则命名的，而他的功能和ps的功能类似，可以列举正在运行的饿虚拟机进程并显示虚拟机执行的主类以及这些进程的唯一ID（LVMID，对应本机来说和PID相同）。VMID与LVMID需要特别说明下：如果是本地虚拟机进程，VMID(Virtual Machine IDentifier,虚机标识符)和LVMID(Loca">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:title" content="jvm工具">
-<meta property="og:url" content="http://jiangxiaoqiang.com/jvm-tools.html">
+<meta property="og:url" content="http://jiangxiaoqiang.com/2016/12/08/jvm-tools/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="jps(JVM Process Status Tools)jps是参照Unix系统的取名规则命名的，而他的功能和ps的功能类似，可以列举正在运行的饿虚拟机进程并显示虚拟机执行的主类以及这些进程的唯一ID（LVMID，对应本机来说和PID相同）。VMID与LVMID需要特别说明下：如果是本地虚拟机进程，VMID(Virtual Machine IDentifier,虚机标识符)和LVMID(Loca">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2016/12/08/jvm-tools/jstat-gc.jpg">
 <meta property="og:updated_time" content="2016-12-08T14:30:48.697Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jvm工具">
 <meta name="twitter:description" content="jps(JVM Process Status Tools)jps是参照Unix系统的取名规则命名的，而他的功能和ps的功能类似，可以列举正在运行的饿虚拟机进程并显示虚拟机执行的主类以及这些进程的唯一ID（LVMID，对应本机来说和PID相同）。VMID与LVMID需要特别说明下：如果是本地虚拟机进程，VMID(Virtual Machine IDentifier,虚机标识符)和LVMID(Loca">
+<meta name="twitter:image" content="http://jiangxiaoqiang.com/2016/12/08/jvm-tools/jstat-gc.jpg">
 
 
 
@@ -114,16 +116,10 @@
 
 
 
-  <link rel="canonical" href="http://jiangxiaoqiang.com/jvm-tools.html"/>
+  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/12/08/jvm-tools/"/>
 
 
-  <title>
-  
-
-  
-    jvm工具 | 小强的博客
-  
-</title>
+  <title> jvm工具 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -153,7 +149,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -266,8 +262,73 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
     
-      <h4 id="jps-JVM-Process-Status-Tools"><a href="#jps-JVM-Process-Status-Tools" class="headerlink" title="jps(JVM Process Status Tools)"></a>jps(JVM Process Status Tools)</h4><p>jps是参照Unix系统的取名规则命名的，而他的功能和ps的功能类似，可以列举正在运行的饿虚拟机进程并显示虚拟机执行的主类以及这些进程的唯一ID（LVMID，对应本机来说和PID相同）。VMID与LVMID需要特别说明下：如果是本地虚拟机进程，VMID(Virtual Machine IDentifier,虚机标识符)和LVMID(Local Virtual Machine IDentifier,虚机标识符)是一致的，如果是远程虚拟机进程，那VMID的格式应当是：[protocol:][//] lvmid [@hostname[:port]/servername]</p>
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                jvm工具
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-08T21:54:49+08:00" content="2016-12-08">
+              2016-12-08
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/08/jvm-tools/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/08/jvm-tools/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="jps-JVM-Process-Status-Tools"><a href="#jps-JVM-Process-Status-Tools" class="headerlink" title="jps(JVM Process Status Tools)"></a>jps(JVM Process Status Tools)</h4><p>jps是参照Unix系统的取名规则命名的，而他的功能和ps的功能类似，可以列举正在运行的饿虚拟机进程并显示虚拟机执行的主类以及这些进程的唯一ID（LVMID，对应本机来说和PID相同）。VMID与LVMID需要特别说明下：如果是本地虚拟机进程，VMID(Virtual Machine IDentifier,虚机标识符)和LVMID(Local Virtual Machine IDentifier,虚机标识符)是一致的，如果是远程虚拟机进程，那VMID的格式应当是：[protocol:][//] lvmid [@hostname[:port]/servername]</p>
 <a id="more"></a>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jps -lv</div></pre></td></tr></table></figure>
 <p>输出为：</p>
@@ -275,7 +336,7 @@
 <h4 id="jstat-JVM-Statistics-Monitoring-Tools"><a href="#jstat-JVM-Statistics-Monitoring-Tools" class="headerlink" title="jstat(JVM Statistics Monitoring Tools)"></a>jstat(JVM Statistics Monitoring Tools)</h4><p>jstat是HotSpot Java虚拟机的性能统计工具。jstat主要用于监控虚拟机的各种运行状态信息，如类的装载、内存、垃圾回收、JIT编译器等，在没有GUI的服务器上，这款工具是首选的一款监控工具。每20秒查询一次进程2479的垃圾回收情况，监控5次，命令如下所示：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jstat -gc 2479 20000 5</div></pre></td></tr></table></figure>
 <p>参数gc表示监视Java堆，包含eden、2个survivor区、old区和永久带区域的容量、已用空间、GC时间合计等信息。</p>
-
+<img src="/2016/12/08/jvm-tools/jstat-gc.jpg" alt="jstat监控Java GC" title="jstat监控Java GC">
 <p>上图中 S0 表示Survivor 0区的空间使用比例,S0C（Survivor 0 Count）， E, O, P 分别代表Eden, Old和Perm空间使用率，YGC 表示young gc的次数，YGCT(Young Generation Consume Time) 表示young gc消耗的时间。GCT(GC Time) 则用来统计执行gc的总时间。</p>
 <table>
 <thead>
@@ -368,7 +429,52 @@
 <p>参考资料：</p>
 <p><a href="http://docs.oracle.com/javase/1.5.0/docs/tooldocs/share/jstat.html" target="_blank" rel="external">jstat - Java Virtual Machine Statistics Monitoring Tool</a></p>
 
-    
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/08/lombok/" rel="next" title="Lombok精简Java代码">
+                <i class="fa fa-chevron-left"></i> Lombok精简Java代码
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -379,8 +485,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="jvm-tools.html"
-           data-title="jvm工具" data-url="http://jiangxiaoqiang.com/jvm-tools.html">
+      <div class="ds-thread" data-thread-key="2016/12/08/jvm-tools/"
+           data-title="jvm工具" data-url="http://jiangxiaoqiang.com/2016/12/08/jvm-tools/">
       </div>
     
   </div>
@@ -404,8 +510,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -416,7 +531,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">82</span>
+              <span class="site-state-item-count">83</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -479,6 +594,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#jps-JVM-Process-Status-Tools"><span class="nav-number">1.</span> <span class="nav-text">jps(JVM Process Status Tools)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jstat-JVM-Statistics-Monitoring-Tools"><span class="nav-number">2.</span> <span class="nav-text">jstat(JVM Statistics Monitoring Tools)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jinfo（JVM-configuration-Info-for-Java）"><span class="nav-number">3.</span> <span class="nav-text">jinfo（JVM configuration Info for Java）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jmap（JVM-Memory-Map-for-Java）"><span class="nav-number">4.</span> <span class="nav-text">jmap（JVM Memory Map for Java）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jhat（JVM-Heap-Analysis-Tool）"><span class="nav-number">5.</span> <span class="nav-text">jhat（JVM Heap Analysis Tool）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jstack（JVM-Stack-Trace-for-java）"><span class="nav-number">6.</span> <span class="nav-text">jstack（JVM Stack Trace for java）</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -575,6 +701,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
 
   
 
