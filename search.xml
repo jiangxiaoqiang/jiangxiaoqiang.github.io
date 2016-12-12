@@ -4,6 +4,74 @@
   
     
     <entry>
+      <title><![CDATA[Java容器类总结]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/12/java-container/</url>
+      <content type="html"><![CDATA[<p>Java容器类是java提供的工具包，包含了常用的数据结构：集合、链表、队列、栈、数组、映射等。</p>
+<a id="more"></a>
+<h4 id="Collection接口"><a href="#Collection接口" class="headerlink" title="Collection接口"></a>Collection接口</h4><p>Collection的定义如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Collection</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Iterable</span>&lt;<span class="title">E</span>&gt; </span>&#123;&#125;</div></pre></td></tr></table></figure>
+<p>它是一个接口，是高度抽象出来的集合，它包含了集合的基本操作：添加、删除、清空、遍历(读取)、是否为空、获取大小、是否保护某元素等等。<br>在Java中所有实现了Collection接口的类都必须提供两套标准的构造函数，一个是无参，用于创建一个空的Collection，一个是带有Collection参数的有参构造函数，用于创建一个新的Collection，这个新的Collection与传入进来的Collection具备相同的元素。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Java线程]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/12/java-thread-join/</url>
+      <content type="html"><![CDATA[<h4 id="线程合并-Join"><a href="#线程合并-Join" class="headerlink" title="线程合并(Join)"></a>线程合并(Join)</h4><p>线程的合并的含义就是将几个并行线程的线程合并为一个单线程执行，应用场景是当一个线程必须等待另一个线程执行完毕才能执行时可以使用join方法。</p>
+<a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">public static void main(String[] args) &#123;</div><div class="line">    Thread t1 = new MyThread1();</div><div class="line">    t1.start();</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (int i = 0; i &lt; 10; i++) &#123;</div><div class="line">        System.out.println(<span class="string">"主线程第"</span> + i + <span class="string">"次执行！"</span>);</div><div class="line">        <span class="keyword">if</span> (i &gt; 2) &#123;</div><div class="line">            try &#123;</div><div class="line">                //t1线程合并到主线程中，主线程停止执行过程，转而执行t1线程，直到t1执行完毕后继续。</div><div class="line">                t1.join();</div><div class="line">            &#125; catch (InterruptedException e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">static class MyThread1 extends Thread &#123;</div><div class="line">    public void <span class="function"><span class="title">run</span></span>() &#123;</div><div class="line">        <span class="keyword">for</span> (int i = 0; i &lt; 10; i++) &#123;</div><div class="line">            System.out.println(<span class="string">"线程1第"</span> + i + <span class="string">"次执行！"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>运行结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">Connected to the target VM, address: &apos;127.0.0.1:44229&apos;, transport: &apos;socket&apos;</div><div class="line">主线程第0次执行！</div><div class="line">主线程第1次执行！</div><div class="line">线程1第0次执行！</div><div class="line">主线程第2次执行！</div><div class="line">线程1第1次执行！</div><div class="line">主线程第3次执行！</div><div class="line">线程1第2次执行！</div><div class="line">线程1第3次执行！</div><div class="line">线程1第4次执行！</div><div class="line">线程1第5次执行！</div><div class="line">线程1第6次执行！</div><div class="line">线程1第7次执行！</div><div class="line">线程1第8次执行！</div><div class="line">线程1第9次执行！</div><div class="line">主线程第4次执行！</div><div class="line">主线程第5次执行！</div><div class="line">主线程第6次执行！</div><div class="line">主线程第7次执行！</div><div class="line">主线程第8次执行！</div><div class="line">主线程第9次执行！</div><div class="line">Disconnected from the target VM, address: &apos;127.0.0.1:44229&apos;, transport: &apos;socket&apos;</div><div class="line"></div><div class="line">Process finished with exit code 0</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Java的Object类]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/12/java-object/</url>
+      <content type="html"><![CDATA[<p>今天面试的时候，面试官问起了Object有哪些方法，回答出来大半，不过还是不完全，理解不够深入，平时还没有细细研究这些内容，回家时仔细总结，并记录如下。Java中的Object类是所有类的父类，它提供了以下11个方法：</p>
+<a id="more"></a>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> Class&lt;?&gt; getClass();</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span>;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> (<span class="keyword">this</span> == obj);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">native</span> Object <span class="title">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException</span>;</div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> getClass().getName() + <span class="string">"@"</span> + Integer.toHexString(hashCode());</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">notify</span><span class="params">()</span></span>;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">notifyAll</span><span class="params">()</span></span>;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">wait</span><span class="params">(<span class="keyword">long</span> timeout)</span> <span class="keyword">throws</span> InterruptedException</span>;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">wait</span><span class="params">(<span class="keyword">long</span> timeout, <span class="keyword">int</span> nanos)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</div><div class="line">    <span class="keyword">if</span> (timeout &lt; <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"timeout value is negative"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (nanos &lt; <span class="number">0</span> || nanos &gt; <span class="number">999999</span>) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(</div><div class="line">                            <span class="string">"nanosecond timeout value out of range"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (nanos &gt; <span class="number">0</span>) &#123;</div><div class="line">        timeout++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    wait(timeout);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">wait</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</div><div class="line">    wait(<span class="number">0</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">finalize</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>&#123; &#125;</div></pre></td></tr></table></figure>
+<h4 id="getClass方法"><a href="#getClass方法" class="headerlink" title="getClass方法"></a>getClass方法</h4><p>getClass方法是一个final方法，不允许子类重写，并且也是一个native方法。</p>
+<p>返回当前运行时对象的Class对象，注意这里是运行时，比如以下代码中n是一个Number类型的实例，但是java中数值默认是Integer类型，所以getClass方法返回的是java.lang.Integer：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="string">"str"</span>.getClass() <span class="comment">// class java.lang.String</span></div><div class="line"><span class="string">"str"</span>.getClass == String.class <span class="comment">// true</span></div><div class="line">Number n = <span class="number">0</span>;</div><div class="line">Class&lt;? extends Number&gt; c = n.getClass(); <span class="comment">// class java.lang.Integer</span></div></pre></td></tr></table></figure>
+<h4 id="hashCode方法"><a href="#hashCode方法" class="headerlink" title="hashCode方法"></a>hashCode方法</h4><p>hashCode方法也是一个native方法。</p>
+<p>该方法返回对象的哈希码，主要使用在哈希表中，比如JDK中的HashMap。</p>
+<p>哈希码的通用约定如下：</p>
+<p>在java程序执行过程中，在一个对象没有被改变的前提下，无论这个对象被调用多少次，hashCode方法都会返回相同的整数值。对象的哈希码没有必要在不同的程序中保持相同的值。<br>如果2个对象使用equals方法进行比较并且相同的话，那么这2个对象的hashCode方法的值也必须相等。<br>如果根据equals方法，得到两个对象不相等，那么这2个对象的hashCode值不需要必须不相同。但是，不相等的对象的hashCode值不同的话可以提高哈希表的性能。<br>通常情况下，不同的对象产生的哈希码是不同的。默认情况下，对象的哈希码是通过将该对象的内部地址转换成一个整数来实现的。</p>
+<p>String的hashCode方法实现如下， 计算方法是 s[0]31^(n-1) + s[1]31^(n-2) + … + s[n-1]，其中s[0]表示字符串的第一个字符，n表示字符串长度：</p>
+<p>public int hashCode() {<br>    int h = hash;<br>    if (h == 0 &amp;&amp; value.length &gt; 0) {<br>        char val[] = value;</p>
+<pre><code>    for (int i = 0; i &lt; value.length; i++) {
+        h = 31 * h + val[i];
+    }
+    hash = h;
+}
+return h;
+</code></pre><p>}<br>比如”fo”的hashCode = 102 31^1 + 111 = 3273， “foo”的hashCode = 102 31^2 + 111 * 31^1 + 111 = 101574 (‘f’的ascii码为102, ‘o’的ascii码为111)</p>
+<p>hashCode在哈希表HashMap中的应用：</p>
+<p>// Student类，只重写了hashCode方法<br>public static class Student {</p>
+<pre><code>private String name;
+private int age;
+
+public Student(String name, int age) {
+    this.name = name;
+    this.age = age;
+}
+
+@Override
+public int hashCode() {
+    return name.hashCode();
+}
+</code></pre><p>}</p>
+<p>Map<student, string=""> map = new HashMap<student, string="">();<br>Student stu1 = new Student(“fo”, 11);<br>Student stu2 = new Student(“fo”, 22);<br>map.put(stu1, “fo”);<br>map.put(stu2, “fo”);<br>上面这段代码中，map中有2个元素stu1和stu2。但是这2个元素是在哈希表中的同一个数组项中的位置，也就是在同一串链表中。 但是为什么stu1和stu2的hashCode相同，但是两条元素都插到map里了，这是因为map判断重复数据的条件是 两个对象的哈希码相同并且(两个对象是同一个对象或者两个对象相等[equals为true])。 所以再给Student重写equals方法，并且只比较name的话，这样map就只有1个元素了。</student,></student,></p>
+<p>@Override<br>public boolean equals(Object o) {<br>    if (this == o) return true;<br>    if (o == null || getClass() != o.getClass()) return false;<br>    Student student = (Student) o;<br>    return this.name.equals(student.name);<br>}<br>这个例子直接说明了hashCode中通用约定的第三点：</p>
+<p>第三点：如果根据equals方法，得到两个对象不相等，那么这2个对象的hashCode值不需要必须不相同。但是，不相等的对象的hashCode值不同的话可以提高哈希表的性能。 –&gt; 上面例子一开始没有重写equals方法，导致两个对象不相等，但是这两个对象的hashCode值一样，所以导致这两个对象在同一串链表中，影响性能。</p>
+<p>当然，还有第三种情况，那就是equals方法相等，但是hashCode的值不相等。</p>
+<p>这种情况也就是违反了通用约定的第二点：</p>
+<p>第二点：如果2个对象使用equals方法进行比较并且相同的话，那么这2个对象的hashCode方法的值也必须相等。 违反这一点产生的后果就是如果一个stu1实例是Student(“fo”, 11)，stu2实例是Student(“fo”, 11)，那么这2个实例是相等的，但是他们的hashCode不一样，这样是导致哈希表中都会存入stu1实例和stu2实例，但是实际情况下，stu1和stu2是重复数据，只允许存在一条数据在哈希表中。所以这一点是非常重点的，再强调一下：如果2个对象的equals方法相等，那么他们的hashCode值也必须相等，反之，如果2个对象hashCode值相等，但是equals不相等，这样会影响性能，所以还是建议2个方法都一起重写。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Fedora设置VPN连接]]></title>
       <url>http://jiangxiaoqiang.com/2016/12/10/fedora-vpn-connect/</url>
       <content type="html"><![CDATA[<p>在家里需要连接学校的VPN，家里的电脑安装的时Fedora 24。原以为会非常复杂，其实设置非常简单。</p>
@@ -1973,7 +2041,7 @@
 <a id="more"></a>
 <p>解决此问题，可使用支持中文较好的字体，覆盖默认字体，在Intellig Idea中的File-Settings-Appearance&amp;Behavior-Appearance中(Ctrl + Alt + S)。如下图所示。</p>
 <img src="/2016/09/26/intllij-idea-encoding/intelli-idea-override-default-font.jpg" alt="覆盖默认字体" title="覆盖默认字体">
-<p>在Debug控制台中Tomcat中输出乱码，可以打开Run/Debug Configuration,选择你的tomcat。在Server &gt; VM options设置为<code>-Dfile.encoding=UTF-8</code> ，重启tomcat。</p>
+<p>在Debug控制台中Tomcat中输出乱码，可以打开Run/Debug Configuration,选择你的tomcat。在Server &gt; VM options设置为<code>-Dfile.encoding=UTF-8</code> ，重启tomcat，其中参数-D代表Default，设置默认的文件编码是UTF-8。</p>
 <h4 id="智能提示敏感调整"><a href="#智能提示敏感调整" class="headerlink" title="智能提示敏感调整"></a>智能提示敏感调整</h4><p>在智能提示时默认大小写敏感，比如String的智能提示就必须首字母大写才能够准确定位，经常大小写切换，不是特别方便。在settings-Editor-General-Code Completion里设置后，可以省去大小写切换操作。</p>
 <img src="/2016/09/26/intllij-idea-encoding/code-completion-case-sensitive.jpg" alt="智能提示大小写敏感调整" title="智能提示大小写敏感调整">
 <h4 id="Live-Templates"><a href="#Live-Templates" class="headerlink" title="Live Templates"></a>Live Templates</h4><p>Live templates帮助你快速、高效、精准的输入经常使用的或者自定义的代码片段(Live templates let you insert frequently-used or custom code constructs into your source code file quickly, efficiently, and accurately).相当于一个代码块的缩写，输入<code>Ctrl + J</code>会显示当前上下文中所有可用的模板。快速输入foreach，在方法内(一定要在方法里敲)输入iter + TAB。</p>
