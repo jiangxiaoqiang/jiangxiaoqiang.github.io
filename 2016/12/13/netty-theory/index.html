@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Netty," />
 
 
 
@@ -84,36 +84,16 @@
 
 
 
-<meta name="description" content="这里是dolphin的部落格，若此分享能够作为您的参考，是我的荣幸。
-此处记录了一些平时的总结和遇到的一些问题。本人不是技术大牛，如果您发现了错误或者是有更优的解决方法，如果能够得到您的时间邮件指出的话，不胜感激。很久以前疑惑为什么前人不将经验和教训告知新手，现在逐渐理解，这也是喜爱开源、开放的氛围的原因。
-
-Mail:jiangtingqiang@gmal.com
-
-
-微信订阅号会不定期推送一些">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于">
-<meta property="og:url" content="http://jiangxiaoqiang.com/about/index.html">
+<meta name="description" content="Netty是一个高性能 事件驱动的异步的非堵塞的IO(NIO)框架，用于建立TCP等底层的连接，基于Netty可以建立高性能的Http服务器。支持HTTP、 WebSocket 、Protobuf、 Binary TCP |和UDP，Netty已经被很多高性能项目作为其Socket底层基础，如HornetQ Infinispan Vert.xPlay Framework Finangle和 Cas">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Netty原理">
+<meta property="og:url" content="http://jiangxiaoqiang.com/2016/12/13/netty-theory/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="这里是dolphin的部落格，若此分享能够作为您的参考，是我的荣幸。
-此处记录了一些平时的总结和遇到的一些问题。本人不是技术大牛，如果您发现了错误或者是有更优的解决方法，如果能够得到您的时间邮件指出的话，不胜感激。很久以前疑惑为什么前人不将经验和教训告知新手，现在逐渐理解，这也是喜爱开源、开放的氛围的原因。
-
-Mail:jiangtingqiang@gmal.com
-
-
-微信订阅号会不定期推送一些">
-<meta property="og:image" content="http://jiangxiaoqiang.com/./index/qrcode.jpg">
-<meta property="og:updated_time" content="2016-12-08T06:36:24.583Z">
+<meta property="og:description" content="Netty是一个高性能 事件驱动的异步的非堵塞的IO(NIO)框架，用于建立TCP等底层的连接，基于Netty可以建立高性能的Http服务器。支持HTTP、 WebSocket 、Protobuf、 Binary TCP |和UDP，Netty已经被很多高性能项目作为其Socket底层基础，如HornetQ Infinispan Vert.xPlay Framework Finangle和 Cas">
+<meta property="og:updated_time" content="2016-12-13T15:24:14.824Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于">
-<meta name="twitter:description" content="这里是dolphin的部落格，若此分享能够作为您的参考，是我的荣幸。
-此处记录了一些平时的总结和遇到的一些问题。本人不是技术大牛，如果您发现了错误或者是有更优的解决方法，如果能够得到您的时间邮件指出的话，不胜感激。很久以前疑惑为什么前人不将经验和教训告知新手，现在逐渐理解，这也是喜爱开源、开放的氛围的原因。
-
-Mail:jiangtingqiang@gmal.com
-
-
-微信订阅号会不定期推送一些">
-<meta name="twitter:image" content="http://jiangxiaoqiang.com/./index/qrcode.jpg">
+<meta name="twitter:title" content="Netty原理">
+<meta name="twitter:description" content="Netty是一个高性能 事件驱动的异步的非堵塞的IO(NIO)框架，用于建立TCP等底层的连接，基于Netty可以建立高性能的Http服务器。支持HTTP、 WebSocket 、Protobuf、 Binary TCP |和UDP，Netty已经被很多高性能项目作为其Socket底层基础，如HornetQ Infinispan Vert.xPlay Framework Finangle和 Cas">
 
 
 
@@ -134,16 +114,10 @@ Mail:jiangtingqiang@gmal.com
 
 
 
-  <link rel="canonical" href="http://jiangxiaoqiang.com/about/"/>
+  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/12/13/netty-theory/"/>
 
 
-  <title>
-  
-
-  
-    关于 | 小强的博客
-  
-</title>
+  <title> Netty原理 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -173,7 +147,7 @@ Mail:jiangtingqiang@gmal.com
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -286,16 +260,155 @@ Mail:jiangtingqiang@gmal.com
 
   <div id="posts" class="posts-expand">
     
-    
-      <p>这里是dolphin的部落格，若此分享能够作为您的参考，是我的荣幸。</p>
-<p>此处记录了一些平时的总结和遇到的一些问题。本人不是技术大牛，如果您发现了错误或者是有更优的解决方法，如果能够得到您的时间邮件指出的话，不胜感激。很久以前疑惑为什么前人不将经验和教训告知新手，现在逐渐理解，这也是喜爱开源、开放的氛围的原因。</p>
-<ul>
-<li>Mail:jiangtingqiang@gmal.com</li>
-</ul>
-<p><img src="./index/qrcode.jpg" alt="qr"></p>
-<p>微信订阅号会不定期推送一些文章。</p>
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Netty原理
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-13T23:07:35+08:00" content="2016-12-13">
+              2016-12-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/13/netty-theory/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/13/netty-theory/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Netty是一个高性能 事件驱动的异步的非堵塞的IO(NIO)框架，用于建立TCP等底层的连接，基于Netty可以建立高性能的Http服务器。支持HTTP、 WebSocket 、Protobuf、 Binary TCP |和UDP，Netty已经被很多高性能项目作为其Socket底层基础，如HornetQ Infinispan Vert.x<br>Play Framework Finangle和 Cassandra。其竞争对手是：Apache MINA和 Grizzly。</p>
+<a id="more"></a>
+<p>作为当前最流行的NIO框架，Netty在互联网领域、大数据分布式计算领域、游戏行业、通信行业等获得了广泛的应用，一些业界著名的开源组件也基于Netty的NIO框架构建。</p>
+<h4 id="异步非阻塞通信"><a href="#异步非阻塞通信" class="headerlink" title="异步非阻塞通信"></a>异步非阻塞通信</h4><p>在IO编程过程中，当需要同时处理多个客户端接入请求时，可以利用多线程或者IO多路复用技术进行处理。IO多路复用技术通过把多个IO的阻塞复用到同一个select的阻塞上，从而使得系统在单线程的情况下可以同时处理多个客户端请求。与传统的多线程/多进程模型比，I/O多路复用的最大优势是系统开销小，系统不需要创建新的额外进程或者线程，也不需要维护这些进程和线程的运行，降低了系统的维护工作量，节省了系统资源。</p>
+<p>JDK1.4提供了对非阻塞IO（NIO）的支持，JDK1.5_update10版本使用epoll替代了传统的select/poll，极大的提升了NIO通信的性能。</p>
+<h4 id="零拷贝"><a href="#零拷贝" class="headerlink" title="零拷贝"></a>零拷贝</h4><p>Netty的“零拷贝”主要体现在如下三个方面：</p>
+<p>1) Netty的接收和发送ByteBuffer采用DIRECT BUFFERS，使用堆外直接内存进行Socket读写，不需要进行字节缓冲区的二次拷贝。如果使用传统的堆内存（HEAP BUFFERS）进行Socket读写，JVM会将堆内存Buffer拷贝一份到直接内存中，然后才写入Socket中。相比于堆外直接内存，消息在发送过程中多了一次缓冲区的内存拷贝。</p>
+<p>2) Netty提供了组合Buffer对象，可以聚合多个ByteBuffer对象，用户可以像操作一个Buffer那样方便的对组合Buffer进行操作，避免了传统通过内存拷贝的方式将几个小Buffer合并成一个大的Buffer。</p>
+<p>3) Netty的文件传输采用了transferTo方法，它可以直接将文件缓冲区的数据发送到目标Channel，避免了传统通过循环write方式导致的内存拷贝问题。</p>
+<h4 id="内存池"><a href="#内存池" class="headerlink" title="内存池"></a>内存池</h4><h4 id="高效的Reactor线程模型"><a href="#高效的Reactor线程模型" class="headerlink" title="高效的Reactor线程模型"></a>高效的Reactor线程模型</h4><h4 id="无锁化的串行设计理念"><a href="#无锁化的串行设计理念" class="headerlink" title="无锁化的串行设计理念"></a>无锁化的串行设计理念</h4><h4 id="高效的并发编程"><a href="#高效的并发编程" class="headerlink" title="高效的并发编程"></a>高效的并发编程</h4><p>参考文章：</p>
+<p><a href="http://www.infoq.com/cn/articles/netty-high-performance" target="_blank" rel="external">Netty系列之Netty高性能之道</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Netty/" rel="tag">#Netty</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/13/redis-memcached-diff/" rel="next" title="Redis与Memcached区别">
+                <i class="fa fa-chevron-left"></i> Redis与Memcached区别
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -306,8 +419,8 @@ Mail:jiangtingqiang@gmal.com
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="about/index.html"
-           data-title="关于" data-url="http://jiangxiaoqiang.com/about/index.html">
+      <div class="ds-thread" data-thread-key="2016/12/13/netty-theory/"
+           data-title="Netty原理" data-url="http://jiangxiaoqiang.com/2016/12/13/netty-theory/">
       </div>
     
   </div>
@@ -331,8 +444,17 @@ Mail:jiangtingqiang@gmal.com
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -410,6 +532,17 @@ Mail:jiangtingqiang@gmal.com
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#异步非阻塞通信"><span class="nav-number">1.</span> <span class="nav-text">异步非阻塞通信</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#零拷贝"><span class="nav-number">2.</span> <span class="nav-text">零拷贝</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内存池"><span class="nav-number">3.</span> <span class="nav-text">内存池</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#高效的Reactor线程模型"><span class="nav-number">4.</span> <span class="nav-text">高效的Reactor线程模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#无锁化的串行设计理念"><span class="nav-number">5.</span> <span class="nav-text">无锁化的串行设计理念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#高效的并发编程"><span class="nav-number">6.</span> <span class="nav-text">高效的并发编程</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -506,6 +639,10 @@ Mail:jiangtingqiang@gmal.com
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
 
   
 
