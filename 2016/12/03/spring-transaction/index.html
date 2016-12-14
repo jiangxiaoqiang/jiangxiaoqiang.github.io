@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/12/03/spring-transaction/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="事务最重要的两个特性，是事务的传播级别和数据隔离级别。传播级别定义的是事务的控制范围，事务隔离级别定义的是事务在数据库读写方面的控制范围。">
-<meta property="og:updated_time" content="2016-12-06T13:32:03.701Z">
+<meta property="og:updated_time" content="2016-12-14T14:38:44.798Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring事务管理">
 <meta name="twitter:description" content="事务最重要的两个特性，是事务的传播级别和数据隔离级别。传播级别定义的是事务的控制范围，事务隔离级别定义的是事务在数据库读写方面的控制范围。">
@@ -368,6 +368,7 @@
 <p>一个对照关系表：<br>                                       Dirty reads          non-repeatable reads            phantom reads<br>Serializable                          不会                        不会                                           不会<br>REPEATABLE READ             不会                        不会                                            会<br>READ COMMITTED             不会                        会                                                会<br>Read Uncommitted             会                           会                                                会</p>
 <p>所以最安全的，是Serializable，但是伴随而来也是高昂的性能开销。<br>另外，事务常用的两个属性：readonly和timeout<br>一个是设置事务为只读以提升性能。<br>另一个是设置事务的超时时间，一般用于防止大事务的发生。还是那句话，事务要尽可能的小！</p>
 <h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><p>在需要事务管理的地方加@Transactional 注解。@Transactional 注解可以被应用于接口定义和接口方法、类定义和类的 public 方法上。<br>@Transactional 注解只能应用到 public 可见度的方法上。 如果你在 protected、private 或者 package-visible 的方法上使用 @Transactional 注解，它也不会报错， 但是这个被注解的方法将不会展示已配置的事务设置。<br>注意仅仅 @Transactional 注解的出现不足于开启事务行为，它仅仅 是一种元数据。必须在配置文件中使用配置元素，才真正开启了事务行为。<br>通过 元素的 “proxy-target-class” 属性值来控制是基于接口的还是基于类的代理被创建。如果 “proxy-target-class” 属值被设置为 “true”，那么基于类的代理将起作用（这时需要CGLIB库cglib.jar在CLASSPATH中）。如果 “proxy-target-class” 属值被设置为 “false” 或者这个属性被省略，那么标准的JDK基于接口的代理将起作用。<br>Spring团队建议在具体的类（或类的方法）上使用 @Transactional 注解，而不要使用在类所要实现的任何接口上。在接口上使用 @Transactional 注解，只能当你设置了基于接口的代理时它才生效。因为注解是 不能继承 的，这就意味着如果正在使用基于类的代理时，那么事务的设置将不能被基于类的代理所识别，而且对象也将不会被事务代理所包装。<br>@Transactional 的事务开启 ，或者是基于接口的 或者是基于类的代理被创建。所以在同一个类中一个方法调用另一个方法有事务的方法，事务是不会起作用的。</p>
+<p><a href="http://www.importnew.com/12300.html" target="_blank" rel="external">Spring @Transactional工作原理</a></p>
 
       
     </div>
@@ -481,7 +482,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">100</span>
+              <span class="site-state-item-count">102</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -498,7 +499,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">120</span>
+                <span class="site-state-item-count">122</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

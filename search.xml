@@ -4,6 +4,24 @@
   
     
     <entry>
+      <title><![CDATA[Spring JPA]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/14/spring-jpa/</url>
+      <content type="html"><![CDATA[<p>JPA(Java Persistant API)。Spring Data JPA, part of the larger Spring Data family, makes it easy to easily implement JPA based repositories. This module deals with enhanced support for JPA based data access layers. It makes it easier to build Spring-powered applications that use data access technologies.</p>
+<a id="more"></a>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Spring注入方式]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/14/spring-injection-type/</url>
+      <content type="html"><![CDATA[<h4 id="Set注入"><a href="#Set注入" class="headerlink" title="Set注入"></a>Set注入</h4><p>这是最简单的注入方式，假设有一个SpringAction，类中需要实例化一个SpringDao对象，那么就可以定义一个private的SpringDao成员变量，然后创建SpringDao的set方法（这是ioc的注入入口）。</p>
+<a id="more"></a>
+<h4 id="构造器注入"><a href="#构造器注入" class="headerlink" title="构造器注入"></a>构造器注入</h4><p>这种方式的注入是指带有参数的构造函数注入，看下面的例子，我创建了两个成员变量SpringDao和User，但是并未设置对象的set方法，所以就不能支持第一种注入方式，这里的注入方式是在SpringAction的构造函数中注入，也就是说在创建SpringAction对象时要将SpringDao和User两个参数值传进来。</p>
+<h4 id="静态工厂的方法注入"><a href="#静态工厂的方法注入" class="headerlink" title="静态工厂的方法注入"></a>静态工厂的方法注入</h4><h4 id="实例工厂的方法注入"><a href="#实例工厂的方法注入" class="headerlink" title="实例工厂的方法注入"></a>实例工厂的方法注入</h4><p><a href="http://blessht.iteye.com/blog/1162131" target="_blank" rel="external">Spring四种依赖注入方式</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Spring MVC数据绑定流程]]></title>
       <url>http://jiangxiaoqiang.com/2016/12/14/spring-mvc-databinding/</url>
       <content type="html"><![CDATA[<p>SpringMVC主框架将ServletRequest对象及目标方法的入参实例传递给WebDataBinderFactory实例，以创建DataBinder实例对象。DataBinder调用装配在SpringMVC上下文中的ConversionService组件进行数据类型转换、数据格式化工作。将Servlet中的请求信息填充到入参对象中。调用Validator组件对已经绑定了请求消息的入参对象进行数据合法性校验，并最终生成数据绑定结果。</p>
@@ -634,6 +652,7 @@ public int hashCode() {
 <p>一个对照关系表：<br>                                       Dirty reads          non-repeatable reads            phantom reads<br>Serializable                          不会                        不会                                           不会<br>REPEATABLE READ             不会                        不会                                            会<br>READ COMMITTED             不会                        会                                                会<br>Read Uncommitted             会                           会                                                会</p>
 <p>所以最安全的，是Serializable，但是伴随而来也是高昂的性能开销。<br>另外，事务常用的两个属性：readonly和timeout<br>一个是设置事务为只读以提升性能。<br>另一个是设置事务的超时时间，一般用于防止大事务的发生。还是那句话，事务要尽可能的小！</p>
 <h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><p>在需要事务管理的地方加@Transactional 注解。@Transactional 注解可以被应用于接口定义和接口方法、类定义和类的 public 方法上。<br>@Transactional 注解只能应用到 public 可见度的方法上。 如果你在 protected、private 或者 package-visible 的方法上使用 @Transactional 注解，它也不会报错， 但是这个被注解的方法将不会展示已配置的事务设置。<br>注意仅仅 @Transactional 注解的出现不足于开启事务行为，它仅仅 是一种元数据。必须在配置文件中使用配置元素，才真正开启了事务行为。<br>通过 元素的 “proxy-target-class” 属性值来控制是基于接口的还是基于类的代理被创建。如果 “proxy-target-class” 属值被设置为 “true”，那么基于类的代理将起作用（这时需要CGLIB库cglib.jar在CLASSPATH中）。如果 “proxy-target-class” 属值被设置为 “false” 或者这个属性被省略，那么标准的JDK基于接口的代理将起作用。<br>Spring团队建议在具体的类（或类的方法）上使用 @Transactional 注解，而不要使用在类所要实现的任何接口上。在接口上使用 @Transactional 注解，只能当你设置了基于接口的代理时它才生效。因为注解是 不能继承 的，这就意味着如果正在使用基于类的代理时，那么事务的设置将不能被基于类的代理所识别，而且对象也将不会被事务代理所包装。<br>@Transactional 的事务开启 ，或者是基于接口的 或者是基于类的代理被创建。所以在同一个类中一个方法调用另一个方法有事务的方法，事务是不会起作用的。</p>
+<p><a href="http://www.importnew.com/12300.html" target="_blank" rel="external">Spring @Transactional工作原理</a></p>
 ]]></content>
     </entry>
     
