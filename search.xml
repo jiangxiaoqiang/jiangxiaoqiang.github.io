@@ -4,6 +4,42 @@
   
     
     <entry>
+      <title><![CDATA[Spring MVC数据绑定流程]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/14/spring-mvc-databinding/</url>
+      <content type="html"><![CDATA[<p>SpringMVC主框架将ServletRequest对象及目标方法的入参实例传递给WebDataBinderFactory实例，以创建DataBinder实例对象。DataBinder调用装配在SpringMVC上下文中的ConversionService组件进行数据类型转换、数据格式化工作。将Servlet中的请求信息填充到入参对象中。调用Validator组件对已经绑定了请求消息的入参对象进行数据合法性校验，并最终生成数据绑定结果。</p>
+<a id="more"></a>
+
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Spring MVC返回Json]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/14/spring-mvc-return-json/</url>
+      <content type="html"><![CDATA[<p>Spring MVC返回 json字符串的方式有很多种方法:</p>
+<ul>
+<li>直接 PrintWriter 输出</li>
+<li>使用 JSP 视图</li>
+<li>使用Spring内置的支持</li>
+</ul>
+<a id="more"></a>
+<h4 id="PrintWriter输出"><a href="#PrintWriter输出" class="headerlink" title="PrintWriter输出"></a>PrintWriter输出</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//返回给前台一个字符串</span></div><div class="line"> <span class="meta">@RequestMapping</span>(params = <span class="string">"method=getJson1"</span>)</div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getJson</span><span class="params">(@RequestParam(<span class="string">"userid"</span>)</span> String userid,@<span class="title">RequestHeader</span><span class="params">(<span class="string">"Accept-Encoding"</span>)</span> String encoding,HttpServletRequest request,PrintWriter printWriter) </span>&#123;</div><div class="line">  System.out.println(<span class="string">"通过注解在参数中取值 "</span>+userid);</div><div class="line">  System.out.println(<span class="string">"通过@RequestHeader获得的encoding "</span>+encoding);</div><div class="line">        printWriter.write(<span class="string">"&#123;key,1&#125;"</span>);</div><div class="line">        printWriter.flush();</div><div class="line">        printWriter.close();</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<h4 id="ResponseBody"><a href="#ResponseBody" class="headerlink" title="@ResponseBody"></a>@ResponseBody</h4><p>通过@ResponseBody  直接返回对象,Spring MVC会自动把对象转化成Json,需要其他配置支持。<br>    1、开启  <mvc:annotation-driven><br>    2、Jackson library 对应的jar必须加入到工程中<br>             3、方法的返回值必须添加 @ResponseBody</mvc:annotation-driven></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//把返回结果解析成json串返回到前台</span></div><div class="line"> <span class="meta">@RequestMapping</span>(params = <span class="string">"method=json"</span>)</div><div class="line"> <span class="keyword">public</span> <span class="meta">@ResponseBody</span> <span class="function">User <span class="title">passValue</span><span class="params">(HttpServletRequest request)</span> </span>&#123;</div><div class="line">  User user = <span class="keyword">new</span> User();</div><div class="line">  user.setUser(<span class="string">"aaaa"</span>);</div><div class="line">  user.setPass(<span class="string">"asfd"</span>);</div><div class="line">  <span class="keyword">return</span> user;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p> 注意：在使用@ResponseBody 返回json的时候，方法参数中一定不能他添加   PrintWriter printWriter</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Interview面试题]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/14/interview-question/</url>
+      <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Boy</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> i = <span class="number">12</span>;</div><div class="line">        <span class="comment">//输出为-120</span></div><div class="line">        System.out.print(i += i -= i *= i);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>计算过程参考这里：</p>
+<a id="more"></a>
+<p><a href="http://stackoverflow.com/questions/41144042/why-the-output-is-120/41144150#41144150" target="_blank" rel="external">Why the output is -120?</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[算法（Algorithm）]]></title>
       <url>http://jiangxiaoqiang.com/2016/12/14/algorithm/</url>
       <content type="html"><![CDATA[<h4 id="实现汉诺塔（Hanoi-Tower）的算法-递归"><a href="#实现汉诺塔（Hanoi-Tower）的算法-递归" class="headerlink" title="实现汉诺塔（Hanoi Tower）的算法(递归)"></a>实现汉诺塔（Hanoi Tower）的算法(递归)</h4><h4 id="快速排序-Quik-Sort"><a href="#快速排序-Quik-Sort" class="headerlink" title="快速排序(Quik Sort)"></a>快速排序(Quik Sort)</h4>]]></content>
