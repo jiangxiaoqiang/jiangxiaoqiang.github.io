@@ -4,6 +4,95 @@
   
     
     <entry>
+      <title><![CDATA[算法（Algorithm）]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/14/algorithm/</url>
+      <content type="html"><![CDATA[<h4 id="实现汉诺塔（Hanoi-Tower）的算法-递归"><a href="#实现汉诺塔（Hanoi-Tower）的算法-递归" class="headerlink" title="实现汉诺塔（Hanoi Tower）的算法(递归)"></a>实现汉诺塔（Hanoi Tower）的算法(递归)</h4><h4 id="快速排序-Quik-Sort"><a href="#快速排序-Quik-Sort" class="headerlink" title="快速排序(Quik Sort)"></a>快速排序(Quik Sort)</h4>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[抽象类和接口区别]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/14/abstract-and-interface-diff/</url>
+      <content type="html"><![CDATA[<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align:center">抽象类</th>
+<th>接口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>默认的方法实现</td>
+<td style="text-align:center">它可以有默认的方法实现</td>
+<td>接口完全是抽象的。它根本不存在方法的实现</td>
+</tr>
+<tr>
+<td>实现</td>
+<td style="text-align:center">子类使用extends关键字来继承抽象类。如果子类不是抽象类的话，它需要提供抽象类中所有声明的方法的实现。</td>
+<td>子类使用关键字implements来实现接口。它需要提供接口中所有声明的方法的实现</td>
+</tr>
+<tr>
+<td>构造器</td>
+<td style="text-align:center">抽象类可以有构造器</td>
+<td>接口不能有构造器</td>
+</tr>
+<tr>
+<td>与正常Java类的区别</td>
+<td style="text-align:center">除了你不能实例化抽象类之外，它和普通Java类没有任何区别</td>
+<td>接口是完全不同的类型</td>
+</tr>
+<tr>
+<td>访问修饰符</td>
+<td style="text-align:center">抽象方法可以有public、protected和default这些修饰符</td>
+<td>接口方法默认修饰符是public。你不可以使用其它修饰符。</td>
+</tr>
+<tr>
+<td>main方法</td>
+<td style="text-align:center">抽象方法可以有main方法并且我们可以运行它</td>
+<td>接口没有main方法，因此我们不能运行它。</td>
+</tr>
+<tr>
+<td>多继承</td>
+<td style="text-align:center">抽象方法可以继承一个类和实现多个接口</td>
+<td>接口只可以继承一个或多个其它接口</td>
+</tr>
+<tr>
+<td>速度</td>
+<td style="text-align:center">它比接口速度要快</td>
+<td>接口是稍微有点慢的，因为它需要时间去寻找在类中实现的方法。</td>
+</tr>
+<tr>
+<td>添加新方法</td>
+<td style="text-align:center">如果你往抽象类中添加新的方法，你可以给它提供默认的实现。因此你不需要改变你现在的代码。</td>
+<td>如果你往接口中添加方法，那么你必须改变实现该接口的类。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="什么时候使用抽象类和接口"><a href="#什么时候使用抽象类和接口" class="headerlink" title="什么时候使用抽象类和接口"></a>什么时候使用抽象类和接口</h4><p>如果你拥有一些方法并且想让它们中的一些有默认实现，那么使用抽象类吧。<br>如果你想实现多重继承，那么你必须使用接口。由于Java不支持多继承，子类不能够继承多个类，但可以实现多个接口。因此你就可以使用接口来解决它。<br>如果基本功能在不断改变，那么就需要使用抽象类。如果不断改变基本功能并且使用接口，那么就需要改变所有实现了该接口的类。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Java内存模型(Memory Model)]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/14/java-memory-model/</url>
+      <content type="html"><![CDATA[<p>JVM管理的内存区域(Memory Area)包括以下几个区域：</p>
+<a id="more"></a>
+<img src="/2016/12/14/java-memory-model/jvm-memory-area.png" alt="JVM内存区域" title="JVM内存区域">
+<h4 id="栈区-Stack-Area"><a href="#栈区-Stack-Area" class="headerlink" title="栈区(Stack Area)"></a>栈区(Stack Area)</h4><p>栈分为Java虚拟机栈和本地方法栈</p>
+<h5 id="Java虚拟机栈-Java-Virtual-Machine-Stack"><a href="#Java虚拟机栈-Java-Virtual-Machine-Stack" class="headerlink" title="Java虚拟机栈(Java Virtual Machine Stack)"></a>Java虚拟机栈(Java Virtual Machine Stack)</h5><p>重点是Java虚拟机栈，它是线程私有的，生命周期与线程相同。每个方法执行都会创建一个栈帧，用于存放局部变量表，操作栈，动态链接，方法出口等。每个方法从被调用，直到被执行完。对应着一个栈帧在虚拟机中从入栈到出栈的过程。通常说的栈就是指局部变量表部分，存放编译期间可知的8种基本数据类型，及对象引用和指令地址。局部变量表是在编译期间完成分配，当进入一个方法时，这个栈中的局部变量分配内存大小是确定的。会有两种异常StackOverFlowError和 OutOfMemoneyError。当线程请求栈深度大于虚拟机所允许的深度就会抛出StackOverFlowError错误；虚拟机栈动态扩展，当扩展无法申请到足够的内存空间时候，抛出OutOfMemoneyError。</p>
+<h5 id="本地方法栈-Local-Methond-Stack"><a href="#本地方法栈-Local-Methond-Stack" class="headerlink" title="本地方法栈(Local Methond Stack)"></a>本地方法栈(Local Methond Stack)</h5><p>本地方法栈 为虚拟机使用到本地方法服务（native）</p>
+<h4 id="堆区-Heap-Area"><a href="#堆区-Heap-Area" class="headerlink" title="堆区(Heap Area)"></a>堆区(Heap Area)</h4><ul>
+<li>堆被所有线程共享区域，在虚拟机启动时创建，唯一目的存放对象实例。</li>
+<li>堆区是gc的主要区域，通常情况下分为两个区块年轻代和年老代。更细一点年轻代又分为Eden区最要放新创建对象，From survivor 和 To survivor 保存gc后幸存下的对象，默认情况下各自占比 8:1:1。不过很多文章介绍分为3个区块，把方法区算着为永久代。这大概是基于Hotspot虚拟机划分， 然后比如IBM j9就不存在永久代概论。不管怎么分区，都是存放对象实例。会有异 常OutOfMemoneyError</li>
+</ul>
+<h4 id="方法区-Method-Area"><a href="#方法区-Method-Area" class="headerlink" title="方法区(Method Area)"></a>方法区(Method Area)</h4><p>被所有线程共享区域，用于存放已被虚拟机加载的类信息，常量，静态变量等数据。被Java虚拟机描述为堆的一个逻辑部分。习惯是也叫它永久代（permanment generation），垃圾回收很少光顾这个区域，不过也是需要回收的，主要针对常量池回收，类型卸载。常量池用于存放编译期生成的各种字节码和符号引用，常量池具有一定的动态性，里面可以存放编译期生成的常量；运行期间的常量也可以添加进入常量池中，比如string的intern()方法。</p>
+<h4 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h4><p>当前线程所执行的行号指示器。通过改变计数器的值来确定下一条指令，比如循环，分支，跳转，异常处理，线程恢复等都是依赖计数器来完成。Java虚拟机多线程是通过线程轮流切换并分配处理器执行时间的方式实现的。为了线程切换能恢复到正确的位置，每条线程都需要一个独立的程序计数器，所以它是线程私有的。唯一一块Java虚拟机没有规定任何OutofMemoryError的区块。jvm分区大致就这个块，具体里面还有很多细节，及其各个模块工作的算法都很复杂，这里只是对分区进行简单介绍，掌握一些基本的知识点。</p>
+<p>参考文章：</p>
+<p><a href="http://blog.csdn.net/honjane/article/details/51542183" target="_blank" rel="external">JVM内存模型及分区</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Netty原理]]></title>
       <url>http://jiangxiaoqiang.com/2016/12/13/netty-theory/</url>
       <content type="html"><![CDATA[<p>Netty是一个高性能 事件驱动的异步的非堵塞的IO(NIO)框架，用于建立TCP等底层的连接，基于Netty可以建立高性能的Http服务器。支持HTTP、 WebSocket 、Protobuf、 Binary TCP |和UDP，Netty已经被很多高性能项目作为其Socket底层基础，如HornetQ Infinispan Vert.x<br>Play Framework Finangle和 Cassandra。其竞争对手是：Apache MINA和 Grizzly。</p>
@@ -836,7 +925,29 @@ public int hashCode() {
 2.公平锁，多个线程等待同一个锁时，必须按照申请锁的时间顺序获得锁，Synchronized锁非公平锁，ReentrantLock默认的构造函数是创建的非公平锁，可以通过参数true设为公平锁，但公平锁表现的性能不是很好。
 3.锁绑定多个条件，一个ReentrantLock对象可以同时绑定对个对象。
 </code></pre><h4 id="synchronized锁普通方法和锁静态方法、死锁的原理及排查方法"><a href="#synchronized锁普通方法和锁静态方法、死锁的原理及排查方法" class="headerlink" title="synchronized锁普通方法和锁静态方法、死锁的原理及排查方法"></a>synchronized锁普通方法和锁静态方法、死锁的原理及排查方法</h4><h4 id="String的hashCode-方法是怎么实现的"><a href="#String的hashCode-方法是怎么实现的" class="headerlink" title="String的hashCode()方法是怎么实现的"></a>String的hashCode()方法是怎么实现的</h4><h4 id="List、Map、Set实现类的源代码"><a href="#List、Map、Set实现类的源代码" class="headerlink" title="List、Map、Set实现类的源代码"></a>List、Map、Set实现类的源代码</h4><h4 id="ReentrantLock、AQS的源代码"><a href="#ReentrantLock、AQS的源代码" class="headerlink" title="ReentrantLock、AQS的源代码"></a>ReentrantLock、AQS的源代码</h4><h4 id="AtomicInteger的实现原理，主要能说清楚CAS机制并且AtomicInteger是如何利用CAS机制实现的"><a href="#AtomicInteger的实现原理，主要能说清楚CAS机制并且AtomicInteger是如何利用CAS机制实现的" class="headerlink" title="AtomicInteger的实现原理，主要能说清楚CAS机制并且AtomicInteger是如何利用CAS机制实现的"></a>AtomicInteger的实现原理，主要能说清楚CAS机制并且AtomicInteger是如何利用CAS机制实现的</h4><h4 id="线程池的实现原理"><a href="#线程池的实现原理" class="headerlink" title="线程池的实现原理"></a>线程池的实现原理</h4><h4 id="Object类中的方法以及每个方法的作用"><a href="#Object类中的方法以及每个方法的作用" class="headerlink" title="Object类中的方法以及每个方法的作用"></a>Object类中的方法以及每个方法的作用</h4><h4 id="想要在Spring初始化bean的时候做一些事情该怎么做"><a href="#想要在Spring初始化bean的时候做一些事情该怎么做" class="headerlink" title="想要在Spring初始化bean的时候做一些事情该怎么做"></a>想要在Spring初始化bean的时候做一些事情该怎么做</h4><h4 id="想要在bean销毁的时候做一些事情该怎么做"><a href="#想要在bean销毁的时候做一些事情该怎么做" class="headerlink" title="想要在bean销毁的时候做一些事情该怎么做"></a>想要在bean销毁的时候做一些事情该怎么做</h4><h4 id="MyBatis中-和-的区别"><a href="#MyBatis中-和-的区别" class="headerlink" title="MyBatis中$和#的区别"></a>MyBatis中$和#的区别</h4><h4 id="AVL树、红黑树，可以不了解它们的具体实现，但是要知道什么是二叉查找树、什么是平衡树，AVL树和红黑树的区别。"><a href="#AVL树、红黑树，可以不了解它们的具体实现，但是要知道什么是二叉查找树、什么是平衡树，AVL树和红黑树的区别。" class="headerlink" title="AVL树、红黑树，可以不了解它们的具体实现，但是要知道什么是二叉查找树、什么是平衡树，AVL树和红黑树的区别。"></a>AVL树、红黑树，可以不了解它们的具体实现，但是要知道什么是二叉查找树、什么是平衡树，AVL树和红黑树的区别。</h4><h4 id="索引使用的是哪种数据结构实现"><a href="#索引使用的是哪种数据结构实现" class="headerlink" title="索引使用的是哪种数据结构实现"></a>索引使用的是哪种数据结构实现</h4><h4 id="索引为什么要使用树来实现呢"><a href="#索引为什么要使用树来实现呢" class="headerlink" title="索引为什么要使用树来实现呢"></a>索引为什么要使用树来实现呢</h4><h4 id="Collections-sort方法使用的是哪种排序方法"><a href="#Collections-sort方法使用的是哪种排序方法" class="headerlink" title="Collections.sort方法使用的是哪种排序方法"></a>Collections.sort方法使用的是哪种排序方法</h4><p>（1）Java虚拟机的内存布局<br>（2）GC算法及几种垃圾收集器<br>（3）类加载机制，也就是双亲委派模型<br>（4）Java内存模型<br>（5）happens-before规则<br>（6）volatile关键字使用规则</p>
-<h4 id="谈谈分布式Session的几种实现方式"><a href="#谈谈分布式Session的几种实现方式" class="headerlink" title="谈谈分布式Session的几种实现方式"></a>谈谈分布式Session的几种实现方式</h4><h4 id="讲一下Session和Cookie的区别和联系以及Session的实现原理"><a href="#讲一下Session和Cookie的区别和联系以及Session的实现原理" class="headerlink" title="讲一下Session和Cookie的区别和联系以及Session的实现原理"></a>讲一下Session和Cookie的区别和联系以及Session的实现原理</h4>]]></content>
+<h4 id="谈谈分布式Session的几种实现方式"><a href="#谈谈分布式Session的几种实现方式" class="headerlink" title="谈谈分布式Session的几种实现方式"></a>谈谈分布式Session的几种实现方式</h4><h4 id="讲一下Session和Cookie的区别和联系以及Session的实现原理"><a href="#讲一下Session和Cookie的区别和联系以及Session的实现原理" class="headerlink" title="讲一下Session和Cookie的区别和联系以及Session的实现原理"></a>讲一下Session和Cookie的区别和联系以及Session的实现原理</h4><h4 id="XML文档定义有几种形式？它们之间有何本质区别？解析XML文档有哪几种方式？"><a href="#XML文档定义有几种形式？它们之间有何本质区别？解析XML文档有哪几种方式？" class="headerlink" title="XML文档定义有几种形式？它们之间有何本质区别？解析XML文档有哪几种方式？"></a>XML文档定义有几种形式？它们之间有何本质区别？解析XML文档有哪几种方式？</h4><p>两种定义形式 dtd（文档类型定义）  schema（XML模式）；</p>
+<h5 id="它们之间有何本质区别？"><a href="#它们之间有何本质区别？" class="headerlink" title="它们之间有何本质区别？"></a>它们之间有何本质区别？</h5><p>XML Schema和DTD（Document Type Define）都用于文档验证，但二者还有一定区别，本质区别:schema本身是xml的，可以被XML解析器解析(这也是从DTD上发展schema的根本目的)。另外：</p>
+<p>XML Schema是内容开放模型，可扩展，功能性强；而DTD可扩展性差；</p>
+<p>XML Schema支持丰富的数据类型，而DTD不支持元素的数据类型，对属性的类型定义也很有限；</p>
+<p>XML Schema支持命名空间机制，而DTD不支持；</p>
+<p>XML Schema可针对不同情况对整个XML文档或文档局部进行验证；而DTD缺乏这种灵活性；</p>
+<p>XML Schema完全遵循XML规范，符合XML语法，可以和DOM结合使用，功能强大；而DTD语法本身有自身的语法和要求，难以学习；</p>
+<h5 id="解析XML文档有哪几种方式？"><a href="#解析XML文档有哪几种方式？" class="headerlink" title="解析XML文档有哪几种方式？"></a>解析XML文档有哪几种方式？</h5><p>有DOM（文档对象模型）,SAX（Simple API for XML）,STAX等</p>
+<pre><code>DOM:文档驱动，处理大型文件时其性能下降的非常厉害。这个问题是由DOM的树结构所造成的，这种结构占用的内存较多，而且DOM必须在解析文件之前把整个文档装入内存,适合对XML的随机访问
+</code></pre><p>SAX:不同于DOM,SAX是事件驱动型的XML解析方式。它顺序读取XML文件，不需要一次全部装载整个文件。当遇到像文件开头，文档结束，或者标签开头与标签结束时，它会触发一个事件，用户通过在其回调事件中写入处理代码来处理XML文件，适合对XML的顺序访问，且是只读的。当前浏览器不支持SAX</p>
+<p>SAXParserFactory factory= SAXParserFactory.newInstance();</p>
+<p>SAXParser saxparser= factory.newSAXParser();//创建SAX解析器</p>
+<p>MyHandler handler=new MyHandler();//创建事件处理器</p>
+<p>saxParser.parse(new File(“Sax_1.xml”),handler);//绑定文件和事件处理者</p>
+<p>STAX:Streaming API for XML (StAX) Streaming API for XML (StAX)</p>
+<p>是用 Java™ 语言处理 XML 的最新标准。StAX 与其他方法的区别就在于应用程序能够把 XML 作为一个事件流来处理。StAX 允许应用程序代码把这些事件逐个拉出来，而不用提供在解析器方便时从解析器中接收事件的处理程序。</p>
+<h4 id="jsp和servlet的区别和联系"><a href="#jsp和servlet的区别和联系" class="headerlink" title="jsp和servlet的区别和联系"></a>jsp和servlet的区别和联系</h4><ol>
+<li>jsp经编译后就变成了Servlet.(JSP的本质就是Servlet，JVM只能识别java的类，不能识别JSP的代码,Web容器将JSP的代码编译成JVM能够识别的java类)</li>
+<li>jsp更擅长表现于页面显示,servlet更擅长于逻辑控制.</li>
+<li>Servlet中没有内置对象，Jsp中的内置对象都是必须通过HttpServletRequest对象，HttpServletResponse对象以及HttpServlet对象得到.<br>Jsp是Servlet的一种简化，使用Jsp只需要完成程序员需要输出到客户端的内容，Jsp中的Java脚本如何镶嵌到一个类中，由Jsp容器完成。而Servlet则是个完整的Java类，这个类的Service方法用于生成对客户端的响应。<br>联系： JSP是Servlet技术的扩展，本质上就是Servlet的简易方式。JSP编译后是“类servlet”。Servlet和JSP最主要的不同点在于，Servlet的应用逻辑是在Java文件中，并且完全从表示层中的HTML里分离开来。而JSP的情况是Java和HTML可以组合成一个扩展名为.jsp的文件。JSP侧重于视图，Servlet主要用于控制逻辑。</li>
+</ol>
+<h4 id="一个“-java”源文件中是否可以包括多个类（不包括内部类）？有什么限制？"><a href="#一个“-java”源文件中是否可以包括多个类（不包括内部类）？有什么限制？" class="headerlink" title="一个“.java”源文件中是否可以包括多个类（不包括内部类）？有什么限制？"></a>一个“.java”源文件中是否可以包括多个类（不包括内部类）？有什么限制？</h4><p>可以的，一个“.java”源文件里面可以包含多个类，但是只允许有一个public类，并且类名必须和文件名一致。每个编译单元只能有一个public 类。这么做的意思是，每个编译单元只能有一个公开的接口，而这个接口就由其public 类来表示。你可以根据需要，往这个文件里面添加任意多个提供辅助功能的package 权限的类。但是如果这个编译单元里面有两个或两个以上的public 类的话，程序就不知道从哪里导入了，编译器就会报错。　　</p>
+]]></content>
     </entry>
     
     <entry>
