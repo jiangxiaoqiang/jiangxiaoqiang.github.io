@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="实现汉诺塔（Hanoi Tower）的算法(递归)快速排序(Quik Sort)">
+<meta name="description" content="汉诺塔算法12345678910111213static void hannoi(int n, String from, String buffer, String to) &amp;#123;    if (n == 1) &amp;#123;        System.out.println(&quot;Move disk &quot; + n + &quot; from &quot; + from + &quot; to &quot; + to);    &amp;#12">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法（Algorithm）">
+<meta property="og:title" content="算法">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/12/14/algorithm/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="实现汉诺塔（Hanoi Tower）的算法(递归)快速排序(Quik Sort)">
-<meta property="og:updated_time" content="2016-12-14T13:03:07.354Z">
+<meta property="og:description" content="汉诺塔算法12345678910111213static void hannoi(int n, String from, String buffer, String to) &amp;#123;    if (n == 1) &amp;#123;        System.out.println(&quot;Move disk &quot; + n + &quot; from &quot; + from + &quot; to &quot; + to);    &amp;#12">
+<meta property="og:updated_time" content="2016-12-15T14:48:08.674Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法（Algorithm）">
-<meta name="twitter:description" content="实现汉诺塔（Hanoi Tower）的算法(递归)快速排序(Quik Sort)">
+<meta name="twitter:title" content="算法">
+<meta name="twitter:description" content="汉诺塔算法12345678910111213static void hannoi(int n, String from, String buffer, String to) &amp;#123;    if (n == 1) &amp;#123;        System.out.println(&quot;Move disk &quot; + n + &quot; from &quot; + from + &quot; to &quot; + to);    &amp;#12">
 
 
 
@@ -117,7 +117,7 @@
   <link rel="canonical" href="http://jiangxiaoqiang.com/2016/12/14/algorithm/"/>
 
 
-  <title> 算法（Algorithm） | 小强的博客 </title>
+  <title> 算法 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -279,7 +279,7 @@
             
             
               
-                算法（Algorithm）
+                算法
               
             
           </h1>
@@ -291,7 +291,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-14T20:46:03+08:00" content="2016-12-14">
+            <time itemprop="dateCreated" datetime="2016-12-14T20:05:29+08:00" content="2016-12-14">
               2016-12-14
             </time>
           </span>
@@ -345,7 +345,8 @@
       
 
       
-        <h4 id="实现汉诺塔（Hanoi-Tower）的算法-递归"><a href="#实现汉诺塔（Hanoi-Tower）的算法-递归" class="headerlink" title="实现汉诺塔（Hanoi Tower）的算法(递归)"></a>实现汉诺塔（Hanoi Tower）的算法(递归)</h4><h4 id="快速排序-Quik-Sort"><a href="#快速排序-Quik-Sort" class="headerlink" title="快速排序(Quik Sort)"></a>快速排序(Quik Sort)</h4>
+        <h4 id="汉诺塔算法"><a href="#汉诺塔算法" class="headerlink" title="汉诺塔算法"></a>汉诺塔算法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">hannoi</span><span class="params">(<span class="keyword">int</span> n, String from, String buffer, String to)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</div><div class="line">        System.out.println(<span class="string">"Move disk "</span> + n + <span class="string">" from "</span> + from + <span class="string">" to "</span> + to);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        hannoi(n - <span class="number">1</span>, from, to, buffer);</div><div class="line">        System.out.println(<span class="string">"Move disk "</span> + n + <span class="string">" from "</span> + from + <span class="string">" to "</span> + to);</div><div class="line">        hannoi(n - <span class="number">1</span>, buffer, from, to);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    hannoi(<span class="number">3</span>, <span class="string">"A"</span>, <span class="string">"B"</span>, <span class="string">"C"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -376,16 +377,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/14/abstract-and-interface-diff/" rel="next" title="抽象类和接口区别">
-                <i class="fa fa-chevron-left"></i> 抽象类和接口区别
+              <a href="/2016/12/14/java-memory-model/" rel="next" title="Java内存模型(Memory Model)">
+                <i class="fa fa-chevron-left"></i> Java内存模型(Memory Model)
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/14/interview-question/" rel="prev" title="Interview面试题">
-                Interview面试题 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/14/abstract-and-interface-diff/" rel="prev" title="抽象类和接口区别">
+                抽象类和接口区别 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -413,7 +414,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/12/14/algorithm/"
-           data-title="算法（Algorithm）" data-url="http://jiangxiaoqiang.com/2016/12/14/algorithm/">
+           data-title="算法" data-url="http://jiangxiaoqiang.com/2016/12/14/algorithm/">
       </div>
     
   </div>
@@ -458,7 +459,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">102</span>
+              <span class="site-state-item-count">103</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -532,7 +533,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现汉诺塔（Hanoi-Tower）的算法-递归"><span class="nav-number">1.</span> <span class="nav-text">实现汉诺塔（Hanoi Tower）的算法(递归)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快速排序-Quik-Sort"><span class="nav-number">2.</span> <span class="nav-text">快速排序(Quik Sort)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#汉诺塔算法"><span class="nav-number">1.</span> <span class="nav-text">汉诺塔算法</span></a></li></ol></div>
             
           </div>
         </section>
