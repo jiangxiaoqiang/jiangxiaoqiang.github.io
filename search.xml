@@ -4,6 +4,24 @@
   
     
     <entry>
+      <title><![CDATA[zookeeper总结]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/16/zookeeper-using/</url>
+      <content type="html"><![CDATA[<h4 id="Zookeeper工作原理"><a href="#Zookeeper工作原理" class="headerlink" title="Zookeeper工作原理"></a>Zookeeper工作原理</h4><p>Zookeeper的核心是原子广播（Atomic Broadcast），这个机制保证了各个Server之间的同步。实现这个机制的协议叫做Zab(Zookeeper Atomic Broadcast)协议。Zab协议有两种模式，它们分别是恢复模式（选主）和广播模式（同步）。当服务启动或者在领导者崩溃后，Zab就进入了恢复模式，当领导者被选举出来，且大多数Server完成了和leader的状态同步以后，恢复模式就结束了。状态同步保证了leader和Server具有相同的系统状态。</p>
+<a id="more"></a>
+<p>为了保证事务的顺序一致性，zookeeper采用了递增的事务id号（zxid）来标识事务。所有的提议（proposal）都在被提出的时候加上了zxid(ZooKeeper transaction id)。实现中zxid是一个64位的数字，它高32位是epoch用来标识leader关系是否改变，每次一个leader被选出来，它都会有一个新的epoch，标识当前属于那个leader的统治时期。低32位用于递增计数。</p>
+<p>每个Server在工作过程中有三种状态：</p>
+<ul>
+<li><p>LOOKING：当前Server不知道leader是谁，正在搜寻</p>
+</li>
+<li><p>LEADING：当前Server即为选举出来的leader</p>
+</li>
+<li><p>FOLLOWING：leader已经选举出来，当前Server与之同步</p>
+</li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Maven使用]]></title>
       <url>http://jiangxiaoqiang.com/2016/12/15/maven-using/</url>
       <content type="html"><![CDATA[<h4 id="Maven生命周期"><a href="#Maven生命周期" class="headerlink" title="Maven生命周期"></a>Maven生命周期</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">process-resources, compile, process-test-resources, <span class="built_in">test</span>-compile, <span class="built_in">test</span> and package</div></pre></td></tr></table></figure>
@@ -57,10 +75,16 @@
     <entry>
       <title><![CDATA[Interview面试题]]></title>
       <url>http://jiangxiaoqiang.com/2016/12/14/interview-question/</url>
-      <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Boy</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> i = <span class="number">12</span>;</div><div class="line">        <span class="comment">//输出为-120</span></div><div class="line">        System.out.print(i += i -= i *= i);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      <content type="html"><![CDATA[<h4 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Boy</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> i = <span class="number">12</span>;</div><div class="line">        <span class="comment">//输出为-120</span></div><div class="line">        System.out.print(i += i -= i *= i);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>计算过程参考这里：</p>
 <a id="more"></a>
 <p><a href="http://stackoverflow.com/questions/41144042/why-the-output-is-120/41144150#41144150" target="_blank" rel="external">Why the output is -120?</a></p>
+<h4 id="Java值传递"><a href="#Java值传递" class="headerlink" title="Java值传递"></a>Java值传递</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaPramPassing</span> </span>&#123;</div><div class="line">    String str = <span class="keyword">new</span> String(<span class="string">"good"</span>);</div><div class="line">    <span class="keyword">char</span>[] ch = &#123;<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>&#125;;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        JavaPramPassing javaPramPassing = <span class="keyword">new</span> JavaPramPassing();</div><div class="line">        javaPramPassing.change(javaPramPassing.str,javaPramPassing.ch);</div><div class="line">        System.out.println(javaPramPassing.str);</div><div class="line">        System.out.println(javaPramPassing.ch);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">(String str, <span class="keyword">char</span>[] ch)</span> </span>&#123;</div><div class="line">        str = <span class="string">"test ok"</span>;</div><div class="line">        ch[<span class="number">0</span>] = <span class="string">'g'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Java参数，不管是原始类型还是引用类型，传递的都是副本(有另外一种说法是传值，但是说传副本更好理解吧，传值通常是相对传址而言)。</p>
+<ul>
+<li>如果参数类型是原始类型，那么传过来的就是这个参数的一个副本，也就是这个原始参数的值，这个跟之前所谈的传值是一样的。如果在函数中改变了副本的 值不会改变原始的值.</li>
+<li>如果参数类型是引用类型，那么传过来的就是这个引用参数的副本，这个副本存放的是参数的地址。如果在函数中没有改变这个副本的地址，而是改变了地址中的 值，那么在函数内的改变会影响到传入的参数。如果在函数中改变了副本的地址，如new一个，那么副本就指向了一个新的地址，此时传入的参数还是指向原来的 地址，所以不会改变参数的值。</li>
+</ul>
 ]]></content>
     </entry>
     
