@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Spring,Injection," />
+  <meta name="keywords" content="Fedora," />
 
 
 
@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="Set注入这是最简单的注入方式，假设有一个SpringAction，类中需要实例化一个SpringDao对象，那么就可以定义一个private的SpringDao成员变量，然后创建SpringDao的set方法（这是ioc的注入入口）。">
+<meta name="description" content="7zip7-Zip is open source software. Most of the source code is under the GNU LGPL license. The unRAR code is under a mixed license: GNU LGPL + unRAR restrictions.7-Zip works in Windows 10 / 8 / 7 / Vis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring注入方式">
-<meta property="og:url" content="http://jiangxiaoqiang.com/2016/12/14/spring-injection-type/index.html">
+<meta property="og:title" content="Fedora常用软件集合">
+<meta property="og:url" content="http://jiangxiaoqiang.com/2016/12/16/fedora-software/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="Set注入这是最简单的注入方式，假设有一个SpringAction，类中需要实例化一个SpringDao对象，那么就可以定义一个private的SpringDao成员变量，然后创建SpringDao的set方法（这是ioc的注入入口）。">
-<meta property="og:updated_time" content="2016-12-14T14:28:51.304Z">
+<meta property="og:description" content="7zip7-Zip is open source software. Most of the source code is under the GNU LGPL license. The unRAR code is under a mixed license: GNU LGPL + unRAR restrictions.7-Zip works in Windows 10 / 8 / 7 / Vis">
+<meta property="og:updated_time" content="2016-12-16T15:37:42.463Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring注入方式">
-<meta name="twitter:description" content="Set注入这是最简单的注入方式，假设有一个SpringAction，类中需要实例化一个SpringDao对象，那么就可以定义一个private的SpringDao成员变量，然后创建SpringDao的set方法（这是ioc的注入入口）。">
+<meta name="twitter:title" content="Fedora常用软件集合">
+<meta name="twitter:description" content="7zip7-Zip is open source software. Most of the source code is under the GNU LGPL license. The unRAR code is under a mixed license: GNU LGPL + unRAR restrictions.7-Zip works in Windows 10 / 8 / 7 / Vis">
 
 
 
@@ -114,10 +114,10 @@
 
 
 
-  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/12/14/spring-injection-type/"/>
+  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/12/16/fedora-software/"/>
 
 
-  <title> Spring注入方式 | 小强的博客 </title>
+  <title> Fedora常用软件集合 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -279,7 +279,7 @@
             
             
               
-                Spring注入方式
+                Fedora常用软件集合
               
             
           </h1>
@@ -291,8 +291,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-14T22:24:37+08:00" content="2016-12-14">
-              2016-12-14
+            <time itemprop="dateCreated" datetime="2016-12-16T23:32:33+08:00" content="2016-12-16">
+              2016-12-16
             </time>
           </span>
 
@@ -321,8 +321,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/12/14/spring-injection-type/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/14/spring-injection-type/" itemprop="commentsCount"></span>
+                <a href="/2016/12/16/fedora-software/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/16/fedora-software/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -345,10 +345,15 @@
       
 
       
-        <h4 id="Set注入"><a href="#Set注入" class="headerlink" title="Set注入"></a>Set注入</h4><p>这是最简单的注入方式，假设有一个SpringAction，类中需要实例化一个SpringDao对象，那么就可以定义一个private的SpringDao成员变量，然后创建SpringDao的set方法（这是ioc的注入入口）。</p>
+        <h4 id="7zip"><a href="#7zip" class="headerlink" title="7zip"></a>7zip</h4><p>7-Zip is open source software. Most of the source code is under the GNU LGPL license. The unRAR code is under a mixed license: GNU LGPL + unRAR restrictions.7-Zip works in Windows 10 / 8 / 7 / Vista / XP / 2012 / 2008 / 2003 / 2000 / NT. There is a port of the command line version to Linux/Unix.安装7zip用于解压.7z结尾的文件：</p>
 <a id="more"></a>
-<h4 id="构造器注入"><a href="#构造器注入" class="headerlink" title="构造器注入"></a>构造器注入</h4><p>这种方式的注入是指带有参数的构造函数注入，看下面的例子，我创建了两个成员变量SpringDao和User，但是并未设置对象的set方法，所以就不能支持第一种注入方式，这里的注入方式是在SpringAction的构造函数中注入，也就是说在创建SpringAction对象时要将SpringDao和User两个参数值传进来。</p>
-<h4 id="静态工厂的方法注入"><a href="#静态工厂的方法注入" class="headerlink" title="静态工厂的方法注入"></a>静态工厂的方法注入</h4><h4 id="实例工厂的方法注入"><a href="#实例工厂的方法注入" class="headerlink" title="实例工厂的方法注入"></a>实例工厂的方法注入</h4><p><a href="http://blessht.iteye.com/blog/1162131" target="_blank" rel="external">Spring四种依赖注入方式</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dnf install -y p7zip-plugins</div></pre></td></tr></table></figure>
+<p>使用如下命令解压文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">7z e Netty权威指南\ PDF完整版带目录书签.7z</div></pre></td></tr></table></figure>
+<p>输出的结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">7-Zip [64] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21</div><div class="line">p7zip Version 16.02 (locale=en_US.UTF-8,Utf16=on,HugeFiles=on,64 bits,8 CPUs Intel(R) Core(TM) i7-3632QM CPU @ 2.20GHz (306A9),ASM,AES-NI)</div><div class="line"></div><div class="line">Scanning the drive for archives:</div><div class="line">1 file, 61246559 bytes (59 MiB)</div><div class="line"></div><div class="line">Extracting archive: Netty权威指南 PDF完整版带目录书签.7z</div><div class="line">--</div><div class="line">Path = Netty权威指南 PDF完整版带目录书签.7z</div><div class="line">Type = 7z</div><div class="line">Physical Size = 61246559</div><div class="line">Headers Size = 306</div><div class="line">Method = LZMA2:24</div><div class="line">Solid = +</div><div class="line">Blocks = 1</div><div class="line"></div><div class="line">Everything is Ok                                                           </div><div class="line"></div><div class="line">Files: 3</div><div class="line">Size:       86833121</div><div class="line">Compressed: 61246559</div></pre></td></tr></table></figure>
+<h4 id="VLC-Media-Player"><a href="#VLC-Media-Player" class="headerlink" title="VLC Media Player"></a>VLC Media Player</h4><h4 id="MPlayer"><a href="#MPlayer" class="headerlink" title="MPlayer"></a>MPlayer</h4><h4 id="Graphiz"><a href="#Graphiz" class="headerlink" title="Graphiz"></a>Graphiz</h4><h4 id="Putty"><a href="#Putty" class="headerlink" title="Putty"></a>Putty</h4><h4 id="Google-Chrome"><a href="#Google-Chrome" class="headerlink" title="Google Chrome"></a>Google Chrome</h4><h4 id="FireFox"><a href="#FireFox" class="headerlink" title="FireFox"></a>FireFox</h4><h4 id="Google-Earth"><a href="#Google-Earth" class="headerlink" title="Google Earth"></a>Google Earth</h4><h4 id="Lantern"><a href="#Lantern" class="headerlink" title="Lantern"></a>Lantern</h4><h4 id="Atom"><a href="#Atom" class="headerlink" title="Atom"></a>Atom</h4><h4 id="aMule"><a href="#aMule" class="headerlink" title="aMule"></a>aMule</h4><h4 id="TexStudio"><a href="#TexStudio" class="headerlink" title="TexStudio"></a>TexStudio</h4><h4 id="Nutstore"><a href="#Nutstore" class="headerlink" title="Nutstore"></a>Nutstore</h4><p>跨平台的云同步软件。</p>
+<h4 id="KeePass"><a href="#KeePass" class="headerlink" title="KeePass"></a>KeePass</h4><p>KeePass是一款密码管理软件，我的密码有100多个。平时没法全部都记住的，所以只需要记住一个KeePass密码即可。KeePass可以同时安装在Windows、Linux上。</p>
 
       
     </div>
@@ -371,9 +376,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Spring/" rel="tag">#Spring</a>
-          
-            <a href="/tags/Injection/" rel="tag">#Injection</a>
+            <a href="/tags/Fedora/" rel="tag">#Fedora</a>
           
         </div>
       
@@ -382,17 +385,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/14/spring-mvc-databinding/" rel="next" title="Spring MVC数据绑定流程">
-                <i class="fa fa-chevron-left"></i> Spring MVC数据绑定流程
+              <a href="/2016/12/16/zookeeper-using/" rel="next" title="zookeeper总结">
+                <i class="fa fa-chevron-left"></i> zookeeper总结
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/14/spring-jpa/" rel="prev" title="Spring JPA">
-                Spring JPA <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -418,8 +417,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/14/spring-injection-type/"
-           data-title="Spring注入方式" data-url="http://jiangxiaoqiang.com/2016/12/14/spring-injection-type/">
+      <div class="ds-thread" data-thread-key="2016/12/16/fedora-software/"
+           data-title="Fedora常用软件集合" data-url="http://jiangxiaoqiang.com/2016/12/16/fedora-software/">
       </div>
     
   </div>
@@ -538,7 +537,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Set注入"><span class="nav-number">1.</span> <span class="nav-text">Set注入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构造器注入"><span class="nav-number">2.</span> <span class="nav-text">构造器注入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#静态工厂的方法注入"><span class="nav-number">3.</span> <span class="nav-text">静态工厂的方法注入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实例工厂的方法注入"><span class="nav-number">4.</span> <span class="nav-text">实例工厂的方法注入</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#7zip"><span class="nav-number">1.</span> <span class="nav-text">7zip</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VLC-Media-Player"><span class="nav-number">2.</span> <span class="nav-text">VLC Media Player</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MPlayer"><span class="nav-number">3.</span> <span class="nav-text">MPlayer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Graphiz"><span class="nav-number">4.</span> <span class="nav-text">Graphiz</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Putty"><span class="nav-number">5.</span> <span class="nav-text">Putty</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Google-Chrome"><span class="nav-number">6.</span> <span class="nav-text">Google Chrome</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FireFox"><span class="nav-number">7.</span> <span class="nav-text">FireFox</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Google-Earth"><span class="nav-number">8.</span> <span class="nav-text">Google Earth</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lantern"><span class="nav-number">9.</span> <span class="nav-text">Lantern</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Atom"><span class="nav-number">10.</span> <span class="nav-text">Atom</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#aMule"><span class="nav-number">11.</span> <span class="nav-text">aMule</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TexStudio"><span class="nav-number">12.</span> <span class="nav-text">TexStudio</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Nutstore"><span class="nav-number">13.</span> <span class="nav-text">Nutstore</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#KeePass"><span class="nav-number">14.</span> <span class="nav-text">KeePass</span></a></li></ol></div>
             
           </div>
         </section>
