@@ -84,16 +84,18 @@
 
 
 
-<meta name="description" content="Java容器类是java提供的工具包，包含了常用的数据结构：集合、链表、队列、栈、数组、映射等。">
+<meta name="description" content="Java容器类是java提供的工具包，包含了常用的数据结构：集合、链表、队列、栈、数组、映射等。Java容器类库定义了两个不同概念的容器，Collection和Map。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java容器类总结">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/12/12/java-container/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="Java容器类是java提供的工具包，包含了常用的数据结构：集合、链表、队列、栈、数组、映射等。">
-<meta property="og:updated_time" content="2016-12-12T12:29:57.308Z">
+<meta property="og:description" content="Java容器类是java提供的工具包，包含了常用的数据结构：集合、链表、队列、栈、数组、映射等。Java容器类库定义了两个不同概念的容器，Collection和Map。">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2016/12/12/java-container/java-container.jpg">
+<meta property="og:updated_time" content="2016-12-17T14:12:57.040Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java容器类总结">
-<meta name="twitter:description" content="Java容器类是java提供的工具包，包含了常用的数据结构：集合、链表、队列、栈、数组、映射等。">
+<meta name="twitter:description" content="Java容器类是java提供的工具包，包含了常用的数据结构：集合、链表、队列、栈、数组、映射等。Java容器类库定义了两个不同概念的容器，Collection和Map。">
+<meta name="twitter:image" content="http://jiangxiaoqiang.com/2016/12/12/java-container/java-container.jpg">
 
 
 
@@ -345,11 +347,14 @@
       
 
       
-        <p>Java容器类是java提供的工具包，包含了常用的数据结构：集合、链表、队列、栈、数组、映射等。</p>
+        <p>Java容器类是java提供的工具包，包含了常用的数据结构：集合、链表、队列、栈、数组、映射等。Java容器类库定义了两个不同概念的容器，Collection和Map。</p>
 <a id="more"></a>
 <h4 id="Collection接口"><a href="#Collection接口" class="headerlink" title="Collection接口"></a>Collection接口</h4><p>Collection的定义如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Collection</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Iterable</span>&lt;<span class="title">E</span>&gt; </span>&#123;&#125;</div></pre></td></tr></table></figure>
-<p>它是一个接口，是高度抽象出来的集合，它包含了集合的基本操作：添加、删除、清空、遍历(读取)、是否为空、获取大小、是否保护某元素等等。<br>在Java中所有实现了Collection接口的类都必须提供两套标准的构造函数，一个是无参，用于创建一个空的Collection，一个是带有Collection参数的有参构造函数，用于创建一个新的Collection，这个新的Collection与传入进来的Collection具备相同的元素。</p>
+<p>它是一个接口，是高度抽象出来的集合，它包含了集合的基本操作：添加、删除、清空、遍历(读取)、是否为空、获取大小、是否保护某元素等等。在Java中所有实现了Collection接口的类都必须提供两套标准的构造函数，一个是无参，用于创建一个空的Collection，一个是带有Collection参数的有参构造函数，用于创建一个新的Collection，这个新的Collection与传入进来的Collection具备相同的元素。</p>
+<img src="/2016/12/12/java-container/java-container.jpg" alt="Java容器关系图" title="Java容器关系图">
+<p>Graphiz绘制图形源码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">digraph&#123;</div><div class="line">size=&quot;8,8&quot;;</div><div class="line">        edge[fontname=&quot;FangSong&quot;];</div><div class="line">        node[shape=&quot;Mrecord&quot;,fontname=&quot;FangSong&quot;,size=&quot;20,20&quot;,fontsize=12,color=&quot;skyblue&quot;,style=&quot;filled&quot;]</div><div class="line">        Iterator -&gt; &quot;Collection&lt;&lt;Interface&gt;&gt;&quot;;</div><div class="line">        Iterator -&gt; &quot;Map&lt;&lt;Interface&gt;&gt;&quot;;</div><div class="line">        &quot;Collection&lt;&lt;Interface&gt;&gt;&quot; -&gt; &quot;Set&lt;&lt;Interface&gt;&gt;&quot;;</div><div class="line">        &quot;Set&lt;&lt;Interface&gt;&gt;&quot; -&gt; HashSet;</div><div class="line">        &quot;Set&lt;&lt;Interface&gt;&gt;&quot; -&gt; LinkedHashSet;</div><div class="line">        &quot;Set&lt;&lt;Interface&gt;&gt;&quot; -&gt; TreeSet;</div><div class="line">        &quot;Collection&lt;&lt;Interface&gt;&gt;&quot; -&gt; &quot;List&lt;&lt;Interface&gt;&gt;&quot;;</div><div class="line">        &quot;List&lt;&lt;Interface&gt;&gt;&quot; -&gt; ArrayList;</div><div class="line">        &quot;List&lt;&lt;Interface&gt;&gt;&quot; -&gt; Vector;</div><div class="line">        &quot;List&lt;&lt;Interface&gt;&gt;&quot; -&gt; LinkedList;</div><div class="line">        &quot;Collection&lt;&lt;Interface&gt;&gt;&quot; -&gt; &quot;Queue&lt;&lt;Interface&gt;&gt;&quot;;</div><div class="line">        &quot;Queue&lt;&lt;Interface&gt;&gt;&quot; -&gt; LinkedList;</div><div class="line">        &quot;Queue&lt;&lt;Interface&gt;&gt;&quot; -&gt; PriorityQueue;</div><div class="line">        &quot;Map&lt;&lt;Interface&gt;&gt;&quot; -&gt; HashTable;</div><div class="line">        &quot;Map&lt;&lt;Interface&gt;&gt;&quot; -&gt; LinkedHashMap;</div><div class="line">        &quot;Map&lt;&lt;Interface&gt;&gt;&quot; -&gt; HashMap;</div><div class="line">        &quot;Map&lt;&lt;Interface&gt;&gt;&quot; -&gt; TreeMap;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -465,7 +470,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">106</span>
+              <span class="site-state-item-count">107</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -482,7 +487,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">124</span>
+                <span class="site-state-item-count">126</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
