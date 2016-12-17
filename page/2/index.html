@@ -278,6 +278,128 @@
             
               
                 
+                <a class="post-title-link" href="/2016/12/14/spring-injection-type/" itemprop="url">
+                  Spring注入方式
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-14T22:24:37+08:00" content="2016-12-14">
+              2016-12-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/14/spring-injection-type/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/14/spring-injection-type/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="Set注入"><a href="#Set注入" class="headerlink" title="Set注入"></a>Set注入</h4><p>这是最简单的注入方式，假设有一个SpringAction，类中需要实例化一个SpringDao对象，那么就可以定义一个private的SpringDao成员变量，然后创建SpringDao的set方法（这是ioc的注入入口）。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/12/14/spring-injection-type/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/12/14/spring-mvc-databinding/" itemprop="url">
                   Spring MVC数据绑定流程
                 </a>
@@ -757,187 +879,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/14/abstract-and-interface-diff/" itemprop="url">
-                  抽象类和接口区别
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-14T20:05:29+08:00" content="2016-12-14">
-              2016-12-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Programming/" itemprop="url" rel="index">
-                    <span itemprop="name">Programming</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/12/14/abstract-and-interface-diff/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/14/abstract-and-interface-diff/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><table>
-<thead>
-<tr>
-<th>参数</th>
-<th style="text-align:center">抽象类</th>
-<th>接口</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>默认的方法实现</td>
-<td style="text-align:center">它可以有默认的方法实现</td>
-<td>接口完全是抽象的。它根本不存在方法的实现</td>
-</tr>
-<tr>
-<td>实现</td>
-<td style="text-align:center">子类使用extends关键字来继承抽象类。如果子类不是抽象类的话，它需要提供抽象类中所有声明的方法的实现。</td>
-<td>子类使用关键字implements来实现接口。它需要提供接口中所有声明的方法的实现</td>
-</tr>
-<tr>
-<td>构造器</td>
-<td style="text-align:center">抽象类可以有构造器</td>
-<td>接口不能有构造器</td>
-</tr>
-<tr>
-<td>与正常Java类的区别</td>
-<td style="text-align:center">除了你不能实例化抽象类之外，它和普通Java类没有任何区别</td>
-<td>接口是完全不同的类型</td>
-</tr>
-<tr>
-<td>访问修饰符</td>
-<td style="text-align:center">抽象方法可以有public、protected和default这些修饰符</td>
-<td>接口方法默认修饰符是public。你不可以使用其它修饰符。</td>
-</tr>
-<tr>
-<td>main方法</td>
-<td style="text-align:center">抽象方法可以有main方法并且我们可以运行它</td>
-<td>接口没有main方法，因此我们不能运行它。</td>
-</tr>
-<tr>
-<td>多继承</td>
-<td style="text-align:center">抽象方法可以继承一个类和实现多个接口</td>
-<td>接口只可以继承一个或多个其它接口</td>
-</tr>
-<tr>
-<td>速度</td>
-<td style="text-align:center">它比接口速度要快</td>
-<td>接口是稍微有点慢的，因为它需要时间去寻找在类中实现的方法。</td>
-</tr>
-<tr>
-<td>添加新方法</td>
-<td style="text-align:center">如果你往抽象类中添加新的方法，你可以给它提供默认的实现。因此你不需要改变你现在的代码。</td>
-<td>如果你往接口中添加方法，那么你必须改变实现该接口的类。</td>
-</tr>
-</tbody>
-</table>
-<h4 id="什么时候使用抽象类和接口"><a href="#什么时候使用抽象类和接口" class="headerlink" title="什么时候使用抽象类和接口"></a>什么时候使用抽象类和接口</h4><p>如果你拥有一些方法并且想让它们中的一些有默认实现，那么使用抽象类吧。<br>如果你想实现多重继承，那么你必须使用接口。由于Java不支持多继承，子类不能够继承多个类，但可以实现多个接口。因此你就可以使用接口来解决它。<br>如果基本功能在不断改变，那么就需要使用抽象类。如果不断改变基本功能并且使用接口，那么就需要改变所有实现了该接口的类。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -978,7 +924,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">105</span>
+              <span class="site-state-item-count">106</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -995,7 +941,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">123</span>
+                <span class="site-state-item-count">124</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -84,16 +84,18 @@
 
 
 
-<meta name="description" content="7zip7-Zip is open source software. Most of the source code is under the GNU LGPL license. The unRAR code is under a mixed license: GNU LGPL + unRAR restrictions.7-Zip works in Windows 10 / 8 / 7 / Vis">
+<meta name="description" content="htophtop是实时显示系统情况的，不同于ps、pstree、pidof、vmsta等这些快照工具，快照工具只能显示命令执行前一秒系统的情况。htop 对关键信息实行高亮显示，对于我们用肉眼查看进程信息的情况相当友好。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Fedora常用软件集合">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/12/16/fedora-software/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="7zip7-Zip is open source software. Most of the source code is under the GNU LGPL license. The unRAR code is under a mixed license: GNU LGPL + unRAR restrictions.7-Zip works in Windows 10 / 8 / 7 / Vis">
-<meta property="og:updated_time" content="2016-12-16T15:48:03.804Z">
+<meta property="og:description" content="htophtop是实时显示系统情况的，不同于ps、pstree、pidof、vmsta等这些快照工具，快照工具只能显示命令执行前一秒系统的情况。htop 对关键信息实行高亮显示，对于我们用肉眼查看进程信息的情况相当友好。">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2016/12/16/fedora-software/htop-ui.jpg">
+<meta property="og:updated_time" content="2016-12-17T09:57:12.357Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fedora常用软件集合">
-<meta name="twitter:description" content="7zip7-Zip is open source software. Most of the source code is under the GNU LGPL license. The unRAR code is under a mixed license: GNU LGPL + unRAR restrictions.7-Zip works in Windows 10 / 8 / 7 / Vis">
+<meta name="twitter:description" content="htophtop是实时显示系统情况的，不同于ps、pstree、pidof、vmsta等这些快照工具，快照工具只能显示命令执行前一秒系统的情况。htop 对关键信息实行高亮显示，对于我们用肉眼查看进程信息的情况相当友好。">
+<meta name="twitter:image" content="http://jiangxiaoqiang.com/2016/12/16/fedora-software/htop-ui.jpg">
 
 
 
@@ -345,8 +347,116 @@
       
 
       
-        <h4 id="7zip"><a href="#7zip" class="headerlink" title="7zip"></a>7zip</h4><p>7-Zip is open source software. Most of the source code is under the GNU LGPL license. The unRAR code is under a mixed license: GNU LGPL + unRAR restrictions.7-Zip works in Windows 10 / 8 / 7 / Vista / XP / 2012 / 2008 / 2003 / 2000 / NT. There is a port of the command line version to Linux/Unix.安装7zip用于解压.7z结尾的文件：</p>
+        <h4 id="htop"><a href="#htop" class="headerlink" title="htop"></a>htop</h4><p>htop是实时显示系统情况的，不同于ps、pstree、pidof、vmsta等这些快照工具，快照工具只能显示命令执行前一秒系统的情况。htop 对关键信息实行高亮显示，对于我们用肉眼查看进程信息的情况相当友好。</p>
 <a id="more"></a>
+<table>
+<thead>
+<tr>
+<th>列名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PID</td>
+<td style="text-align:center">进程id</td>
+</tr>
+<tr>
+<td>PPID</td>
+<td style="text-align:center">父进程id</td>
+</tr>
+<tr>
+<td>RUSER</td>
+<td style="text-align:center">Real user name</td>
+</tr>
+<tr>
+<td>UID</td>
+<td style="text-align:center">进程所有者的用户id</td>
+</tr>
+<tr>
+<td>TTY</td>
+<td style="text-align:center">启动进程的终端名。不是从终端启动的进程则显示为 ?</td>
+</tr>
+<tr>
+<td>PR</td>
+<td style="text-align:center">优先级</td>
+</tr>
+<tr>
+<td>NI</td>
+<td style="text-align:center">nice值。负值表示高优先级，正值表示低优先级</td>
+</tr>
+<tr>
+<td>P</td>
+<td style="text-align:center">最后使用的CPU，仅在多CPU环境下有意义</td>
+</tr>
+<tr>
+<td>%CPU</td>
+<td style="text-align:center">上次更新到现在的CPU时间占用百分比</td>
+</tr>
+<tr>
+<td>VIRT(Virtual)</td>
+<td style="text-align:center">进程使用的虚拟内存总量，单位kb。VIRT=SWAP+RES</td>
+</tr>
+<tr>
+<td>TIME</td>
+<td style="text-align:center">进程使用的CPU时间总计，单位秒</td>
+</tr>
+<tr>
+<td>SHR(Share)</td>
+<td style="text-align:center">共享内存大小，单位kb</td>
+</tr>
+<tr>
+<td>TIME+</td>
+<td style="text-align:center">进程使用的CPU时间总计，单位1/100秒</td>
+</tr>
+<tr>
+<td>%MEM</td>
+<td style="text-align:center">进程使用的物理内存百分比</td>
+</tr>
+<tr>
+<td>SWAP</td>
+<td style="text-align:center">进程使用的虚拟内存中，被换出的大小，单位kb</td>
+</tr>
+<tr>
+<td>S(Status)</td>
+<td style="text-align:center">进程状态（D=不可中断的睡眠状态，R=运行，S=睡眠，T=跟踪/停止，Z=僵尸进程）</td>
+</tr>
+<tr>
+<td>RES</td>
+<td style="text-align:center">进程使用的、未被换出的物理内存大小，单位kb。RES=CODE+DATA</td>
+</tr>
+<tr>
+<td>CODE</td>
+<td style="text-align:center">可执行代码占用的物理内存大小，单位kb</td>
+</tr>
+<tr>
+<td>DATA</td>
+<td style="text-align:center">可执行代码以外的部分(数据段+栈)占用的物理内存大小，单位kb</td>
+</tr>
+<tr>
+<td>nFLT</td>
+<td style="text-align:center">页面错误次数</td>
+</tr>
+<tr>
+<td>nDRT</td>
+<td style="text-align:center">最后一次写入到现在，被修改过的页面数</td>
+</tr>
+<tr>
+<td>WCHAN</td>
+<td style="text-align:center">若该进程在睡眠，则显示睡眠中的系统函数名</td>
+</tr>
+<tr>
+<td>Flags</td>
+<td style="text-align:center">任务标志，参考 sched.h</td>
+</tr>
+</tbody>
+</table>
+<p>默认情况下仅显示比较重要的 PID、USER、PR、NI、VIRT、RES、SHR、S、%CPU、%MEM、TIME+、COMMAND 列。可以通过下面的快捷键来更改显示内容</p>
+<img src="/2016/12/16/fedora-software/htop-ui.jpg" alt="htop界面" title="htop界面">
+<p>上图说明计算机有8个内核，8GB的内存，8GB的交换空间(Swap Space)。</p>
+<h4 id="Visual-Studio-Code"><a href="#Visual-Studio-Code" class="headerlink" title="Visual Studio Code"></a>Visual Studio Code</h4><p>跨平台文本编辑器。</p>
+<h4 id="Eclipse"><a href="#Eclipse" class="headerlink" title="Eclipse"></a>Eclipse</h4><p>Java开发IDE。</p>
+<h4 id="7zip"><a href="#7zip" class="headerlink" title="7zip"></a>7zip</h4><p>7-Zip is open source software. Most of the source code is under the GNU LGPL license. The unRAR code is under a mixed license: GNU LGPL + unRAR restrictions.7-Zip works in Windows 10 / 8 / 7 / Vista / XP / 2012 / 2008 / 2003 / 2000 / NT. There is a port of the command line version to Linux/Unix.安装7zip用于解压.7z结尾的文件：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dnf install -y p7zip-plugins</div></pre></td></tr></table></figure>
 <p>使用如下命令解压文件：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">7z e Netty权威指南\ PDF完整版带目录书签.7z</div></pre></td></tr></table></figure>
@@ -357,7 +467,9 @@
 <h4 id="Intellij-Idea"><a href="#Intellij-Idea" class="headerlink" title="Intellij Idea"></a>Intellij Idea</h4><p>Linux下Java开发必备工具。</p>
 <h4 id="FileZilla"><a href="#FileZilla" class="headerlink" title="FileZilla"></a>FileZilla</h4><h4 id="Slack"><a href="#Slack" class="headerlink" title="Slack"></a>Slack</h4><h4 id="Wireshark"><a href="#Wireshark" class="headerlink" title="Wireshark"></a>Wireshark</h4><h4 id="Transmission"><a href="#Transmission" class="headerlink" title="Transmission"></a>Transmission</h4><p>Linux下torrent下载工具。</p>
 <h4 id="Deluge"><a href="#Deluge" class="headerlink" title="Deluge"></a>Deluge</h4><p>Linux下下载工具，支持磁力链接(Magnic Link)下载。</p>
-<h4 id="MPlayer"><a href="#MPlayer" class="headerlink" title="MPlayer"></a>MPlayer</h4><h4 id="Graphiz"><a href="#Graphiz" class="headerlink" title="Graphiz"></a>Graphiz</h4><h4 id="Putty"><a href="#Putty" class="headerlink" title="Putty"></a>Putty</h4><h4 id="Google-Chrome"><a href="#Google-Chrome" class="headerlink" title="Google Chrome"></a>Google Chrome</h4><h4 id="FireFox"><a href="#FireFox" class="headerlink" title="FireFox"></a>FireFox</h4><h4 id="Google-Earth"><a href="#Google-Earth" class="headerlink" title="Google Earth"></a>Google Earth</h4><h4 id="Lantern"><a href="#Lantern" class="headerlink" title="Lantern"></a>Lantern</h4><h4 id="Atom"><a href="#Atom" class="headerlink" title="Atom"></a>Atom</h4><h4 id="aMule"><a href="#aMule" class="headerlink" title="aMule"></a>aMule</h4><h4 id="TexStudio"><a href="#TexStudio" class="headerlink" title="TexStudio"></a>TexStudio</h4><h4 id="Nutstore"><a href="#Nutstore" class="headerlink" title="Nutstore"></a>Nutstore</h4><p>跨平台的云同步软件。</p>
+<h4 id="MPlayer"><a href="#MPlayer" class="headerlink" title="MPlayer"></a>MPlayer</h4><h4 id="Graphiz"><a href="#Graphiz" class="headerlink" title="Graphiz"></a>Graphiz</h4><h4 id="Putty"><a href="#Putty" class="headerlink" title="Putty"></a>Putty</h4><h4 id="Google-Chrome"><a href="#Google-Chrome" class="headerlink" title="Google Chrome"></a>Google Chrome</h4><p>Google Chrome浏览器的好处之一就是，只要登陆Google的账号后，它会把你的搜索记录、插件、Cookie等同步到云端，这样回家之后可以接着处理工作上遗留的问题。比如在办公室研究某个问题到一半，回家打开浏览器搜索关键字会快速出现办公时研究的关键字，相当方便。还有你的历史浏览记录，在不同的设备上使用即时同步，不同设备（PC、Laptop）、平台（Windows和Fedora）使用习惯无缝对接。</p>
+<h4 id="FireFox"><a href="#FireFox" class="headerlink" title="FireFox"></a>FireFox</h4><h4 id="Google-Earth"><a href="#Google-Earth" class="headerlink" title="Google Earth"></a>Google Earth</h4><h4 id="Lantern"><a href="#Lantern" class="headerlink" title="Lantern"></a>Lantern</h4><h4 id="Atom"><a href="#Atom" class="headerlink" title="Atom"></a>Atom</h4><h4 id="aMule"><a href="#aMule" class="headerlink" title="aMule"></a>aMule</h4><h4 id="TexStudio"><a href="#TexStudio" class="headerlink" title="TexStudio"></a>TexStudio</h4><h4 id="Nutstore"><a href="#Nutstore" class="headerlink" title="Nutstore"></a>Nutstore</h4><p>跨平台的云同步软件。</p>
+<h4 id="Haroopad"><a href="#Haroopad" class="headerlink" title="Haroopad"></a>Haroopad</h4><p>跨平台Markdown编辑器。</p>
 <h4 id="KeePass"><a href="#KeePass" class="headerlink" title="KeePass"></a>KeePass</h4><p>KeePass是一款密码管理软件，我的密码有100多个。平时没法全部都记住的，所以只需要记住一个KeePass密码即可。KeePass可以同时安装在Windows、Linux上。</p>
 
       
@@ -397,6 +509,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/17/java-exception/" rel="prev" title="Java异常分类">
+                Java异常分类 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -468,7 +584,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">105</span>
+              <span class="site-state-item-count">106</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -485,7 +601,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">123</span>
+                <span class="site-state-item-count">124</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -542,7 +658,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#7zip"><span class="nav-number">1.</span> <span class="nav-text">7zip</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VLC-Media-Player"><span class="nav-number">2.</span> <span class="nav-text">VLC Media Player</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Electronic-Wechat"><span class="nav-number">3.</span> <span class="nav-text">Electronic-Wechat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Shutter"><span class="nav-number">4.</span> <span class="nav-text">Shutter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Intellij-Idea"><span class="nav-number">5.</span> <span class="nav-text">Intellij Idea</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FileZilla"><span class="nav-number">6.</span> <span class="nav-text">FileZilla</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Slack"><span class="nav-number">7.</span> <span class="nav-text">Slack</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Wireshark"><span class="nav-number">8.</span> <span class="nav-text">Wireshark</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Transmission"><span class="nav-number">9.</span> <span class="nav-text">Transmission</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Deluge"><span class="nav-number">10.</span> <span class="nav-text">Deluge</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MPlayer"><span class="nav-number">11.</span> <span class="nav-text">MPlayer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Graphiz"><span class="nav-number">12.</span> <span class="nav-text">Graphiz</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Putty"><span class="nav-number">13.</span> <span class="nav-text">Putty</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Google-Chrome"><span class="nav-number">14.</span> <span class="nav-text">Google Chrome</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FireFox"><span class="nav-number">15.</span> <span class="nav-text">FireFox</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Google-Earth"><span class="nav-number">16.</span> <span class="nav-text">Google Earth</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lantern"><span class="nav-number">17.</span> <span class="nav-text">Lantern</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Atom"><span class="nav-number">18.</span> <span class="nav-text">Atom</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#aMule"><span class="nav-number">19.</span> <span class="nav-text">aMule</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TexStudio"><span class="nav-number">20.</span> <span class="nav-text">TexStudio</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Nutstore"><span class="nav-number">21.</span> <span class="nav-text">Nutstore</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#KeePass"><span class="nav-number">22.</span> <span class="nav-text">KeePass</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#htop"><span class="nav-number">1.</span> <span class="nav-text">htop</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Visual-Studio-Code"><span class="nav-number">2.</span> <span class="nav-text">Visual Studio Code</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Eclipse"><span class="nav-number">3.</span> <span class="nav-text">Eclipse</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7zip"><span class="nav-number">4.</span> <span class="nav-text">7zip</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VLC-Media-Player"><span class="nav-number">5.</span> <span class="nav-text">VLC Media Player</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Electronic-Wechat"><span class="nav-number">6.</span> <span class="nav-text">Electronic-Wechat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Shutter"><span class="nav-number">7.</span> <span class="nav-text">Shutter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Intellij-Idea"><span class="nav-number">8.</span> <span class="nav-text">Intellij Idea</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FileZilla"><span class="nav-number">9.</span> <span class="nav-text">FileZilla</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Slack"><span class="nav-number">10.</span> <span class="nav-text">Slack</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Wireshark"><span class="nav-number">11.</span> <span class="nav-text">Wireshark</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Transmission"><span class="nav-number">12.</span> <span class="nav-text">Transmission</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Deluge"><span class="nav-number">13.</span> <span class="nav-text">Deluge</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MPlayer"><span class="nav-number">14.</span> <span class="nav-text">MPlayer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Graphiz"><span class="nav-number">15.</span> <span class="nav-text">Graphiz</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Putty"><span class="nav-number">16.</span> <span class="nav-text">Putty</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Google-Chrome"><span class="nav-number">17.</span> <span class="nav-text">Google Chrome</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FireFox"><span class="nav-number">18.</span> <span class="nav-text">FireFox</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Google-Earth"><span class="nav-number">19.</span> <span class="nav-text">Google Earth</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lantern"><span class="nav-number">20.</span> <span class="nav-text">Lantern</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Atom"><span class="nav-number">21.</span> <span class="nav-text">Atom</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#aMule"><span class="nav-number">22.</span> <span class="nav-text">aMule</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TexStudio"><span class="nav-number">23.</span> <span class="nav-text">TexStudio</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Nutstore"><span class="nav-number">24.</span> <span class="nav-text">Nutstore</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Haroopad"><span class="nav-number">25.</span> <span class="nav-text">Haroopad</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#KeePass"><span class="nav-number">26.</span> <span class="nav-text">KeePass</span></a></li></ol></div>
             
           </div>
         </section>
