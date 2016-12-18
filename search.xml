@@ -4,6 +4,61 @@
   
     
     <entry>
+      <title><![CDATA[Java concurrent包]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/18/java-concurrent-package/</url>
+      <content type="html"><![CDATA[<h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p> java.util.concurrent 包含许多线程安全、测试良好、高性能的并发构建块。不客气地说，创建 java.util.concurrent 的目的就是要实现 Collection 框架对数据结构所执行的并发操作。通过提供一组可靠的、高性能并发构建块，开发人员可以提高并发类的线程安全、可伸缩性、性能、可读性和可靠性。</p>
+<a id="more"></a>
+<p>通常所说的concurrent包基本有3个package组成  </p>
+<ul>
+<li>java.util.concurrent：提供大部分关于并发的接口和类，如BlockingQueue,Callable,ConcurrentHashMap,ExecutorService, Semaphore等  </li>
+<li>java.util.concurrent.atomic：提供所有原子操作的类， 如AtomicInteger, AtomicLong等；  </li>
+<li>java.util.concurrent.locks:提供锁相关的类, 如Lock, ReentrantLock, ReadWriteLock, Condition等；</li>
+</ul>
+<p>参考文章：</p>
+<ul>
+<li><a href="https://my.oschina.net/yu120/blog/689204" target="_blank" rel="external">Java concurrent包介绍及使用</a></li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Java并发编程：Callable、Future和FutureTask]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/18/java-concurrent-program/</url>
+      <content type="html"><![CDATA[<p>创建线程的2种方式，一种是直接继承Thread，另外一种就是实现Runnable接口。这2种方式都有一个缺陷就是：在执行完任务之后无法获取执行结果。如果需要获取执行结果，就必须通过共享变量或者使用线程通信的方式来达到效果，这样使用起来就比较麻烦。而自从Java 1.5开始，就提供了Callable和Future，通过它们可以在任务执行完毕之后得到任务执行结果。</p>
+<a id="more"></a>
+<h4 id="Callable与Runnable"><a href="#Callable与Runnable" class="headerlink" title="Callable与Runnable"></a>Callable与Runnable</h4><h4 id="Future"><a href="#Future" class="headerlink" title="Future"></a>Future</h4><p>多线程开发中有几个痛点：</p>
+<ul>
+<li>主线程如何正确的关闭异步线程？</li>
+<li>主线程怎么知道异步线程是否执行完成？</li>
+</ul>
+<p>Future提供了三种功能：</p>
+<p>　　1）判断任务是否完成；</p>
+<p>　　2）能够中断任务；</p>
+<p>　　3）能够获取任务执行结果。</p>
+<h4 id="FutureTask"><a href="#FutureTask" class="headerlink" title="FutureTask"></a>FutureTask</h4><p>参考文章：</p>
+<ul>
+<li><p><a href="http://gavinliu.cn/2015/12/14/Java-%E4%BD%BF%E7%94%A8Future%E8%BF%9B%E8%A1%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/" target="_blank" rel="external">Java - 使用Future模式进行多线程编程</a></p>
+</li>
+<li><p><a href="http://blog.csdn.net/ghsau/article/details/7451464" target="_blank" rel="external">Java线程(七)：Callable和Future</a></p>
+</li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[hexo使用总结]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/18/hexo-using/</url>
+      <content type="html"><![CDATA[<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>安装Hexo：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo --save</div></pre></td></tr></table></figure>
+<p>仅仅安装了Hexo还不可以在浏览器中查看效果，还需要安装Hexo Server模块：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-server --save</div></pre></td></tr></table></figure>
+<p>安装之后就可以使用hexo server命令了。在Ubuntu下安装会出现获取文件失败的错误，可能需要多次尝试。提示：WARN  No layout: index.html时，一般是由于主题文件不存在导致，安装相应的主题即可。切换到源码目录下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure>
+<p>访问<a href="http://localhost:4000页面空白，提示can" target="_blank" rel="external">http://localhost:4000页面空白，提示can</a> not get /，此时需要在源码目录下运行一下npm install命令即可。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[ArrayList线程安全]]></title>
       <url>http://jiangxiaoqiang.com/2016/12/17/arraylist-thread-safe/</url>
       <content type="html"><![CDATA[<ol>
@@ -46,7 +101,7 @@
       <title><![CDATA[Fedora常用软件集合]]></title>
       <url>http://jiangxiaoqiang.com/2016/12/16/fedora-software/</url>
       <content type="html"><![CDATA[<p>使用Fedora 24有一段时间了，这里列出了平时总结的在Fedora上可以使用的一些软件，完成平时的任务。如果您也要尝试使用Fedora，或许可以节省不少时间。</p>
-<h4 id="htop"><a href="#htop" class="headerlink" title="htop"></a>htop</h4><p>htop是实时显示当前系统运行情况的，不同于ps、pstree、pidof、vmsta等这些快照工具，快照工具只能显示命令执行前一秒系统的情况。htop 对关键信息实行高亮显示，对于我们用肉眼查看进程信息的情况相当友好。</p>
+<h4 id="Fiddler-for-Linux"><a href="#Fiddler-for-Linux" class="headerlink" title="Fiddler for Linux"></a>Fiddler for Linux</h4><h4 id="Apache-Tomcat"><a href="#Apache-Tomcat" class="headerlink" title="Apache Tomcat"></a>Apache Tomcat</h4><h4 id="OpenVPN"><a href="#OpenVPN" class="headerlink" title="OpenVPN"></a>OpenVPN</h4><h4 id="StarDict"><a href="#StarDict" class="headerlink" title="StarDict"></a>StarDict</h4><h4 id="htop"><a href="#htop" class="headerlink" title="htop"></a>htop</h4><p>htop是实时显示当前系统运行情况的，不同于ps、pstree、pidof、vmsta等这些快照工具，快照工具只能显示命令执行前一秒系统的情况。htop 对关键信息实行高亮显示，对于我们用肉眼查看进程信息的情况相当友好。</p>
 <a id="more"></a>
 <table>
 <thead>
@@ -258,6 +313,10 @@
 <h4 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Boy</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> i = <span class="number">12</span>;</div><div class="line">        <span class="comment">//输出为-120</span></div><div class="line">        System.out.print(i += i -= i *= i);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>计算过程参考这里：</p>
 <p><a href="http://stackoverflow.com/questions/41144042/why-the-output-is-120/41144150#41144150" target="_blank" rel="external">Why the output is -120?</a></p>
+<p>#### </p>
+<p>synchronized是对类的当前实例进行加锁，防止其他线程同时访问该类的该实例的所有synchronized块，注意这里是“类的当前实例”，类的两个不同实例就没有这种约束了。那么static synchronized恰好就是要控制类的所有实例的访问了，static synchronized是限制线程同时访问jvm中该类的所有实例同时访问对应的代码快。实际上，在类中某方法或某代码块中有synchronized，那么在生成一个该类实例后，该类也就有一个监视快，放置线程并发访问改实例synchronized保护快，而static synchronized则是所有该类的实例公用一个监视快了，也就是两个的区别了,也就是synchronized相当于this.synchronized，而static synchronized相当于Something.synchronized。</p>
+<p>synchronized针对同一个实例不能访问，针对不同的实例可以同时访问。static synchronized针对所有的实例均不能同时访问。synchronized本来就是修饰方法的，后来引申出synchronized修饰代码块，只是为了可以更精确的控制冲突限制的访问区域，使得表现更加高效率。synchronized方法只能锁定现阶段的对象，而synchronized区块可以锁定指定的对象，指定的对象直接跟在synchronized()括号之后。此外，synchronized关键字是不能继承的，也就是说，基类的方法synchronized f(){} 在继承类中并不自动是synchronized f(){}，而是变成了f(){}。继承类需要你显式的指定它的某个方法为synchronized方法。还有synchronized不能被继承，继承时子类的覆盖方法必须显示定义成synchronized。</p>
+<p>除了方法前用synchronized关键字，synchronized关键字还可以用于方法中的某个区块中，表示只对这个区块的资源实行互斥访问。用法是: synchronized(object){/<em>区块</em>/}，它的作用域是object对象。当一个线程执行时，将object对象锁住，另一个线程就不能执行对应的块。synchronized方法实际上等同于用一个synchronized块包住方法中的所有语句，然后在synchronized块的括号中传入this关键字。当然，如果是静态方法，需要锁定的则是class对象。可能一个方法中只有几行代码会涉及到线程同步问题，所以synchronized块比synchronized方法更加细粒度地控制了多个线程的访问，只有synchronized块中的内容不能同时被多个线程所访问，方法中的其他语句仍然可以同时被多个线程所访问（包括synchronized块之前的和之后的）。</p>
 <h4 id="Java值传递"><a href="#Java值传递" class="headerlink" title="Java值传递"></a>Java值传递</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaPramPassing</span> </span>&#123;</div><div class="line">    String str = <span class="keyword">new</span> String(<span class="string">"good"</span>);</div><div class="line">    <span class="keyword">char</span>[] ch = &#123;<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>&#125;;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        JavaPramPassing javaPramPassing = <span class="keyword">new</span> JavaPramPassing();</div><div class="line">        javaPramPassing.change(javaPramPassing.str,javaPramPassing.ch);</div><div class="line">        System.out.println(javaPramPassing.str);<span class="comment">//good</span></div><div class="line">        System.out.println(javaPramPassing.ch);<span class="comment">//gbc</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">(String str, <span class="keyword">char</span>[] ch)</span> </span>&#123;</div><div class="line">        str = <span class="string">"test ok"</span>;</div><div class="line">        ch[<span class="number">0</span>] = <span class="string">'g'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>Java参数，不管是原始类型还是引用类型，传递的都是副本(有另外一种说法是传值，但是说传副本更好理解吧，传值通常是相对传址而言)。要特殊考虑String，以及Integer、Double等几个基本类型包装类，它们都是immutable类型，因为没有提供自身修改的函数，每次操作都是新生成一个对象，所以要特殊对待，可以认为是和基本数据类型相似，传值(Pass by Value)操作。</p>
 <ul>
@@ -283,21 +342,6 @@
 <li><p>开销较低的“读－写锁”策略</p>
 </li>
 </ul>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[算法]]></title>
-      <url>http://jiangxiaoqiang.com/2016/12/14/algorithm/</url>
-      <content type="html"><![CDATA[<h4 id="汉诺塔算法"><a href="#汉诺塔算法" class="headerlink" title="汉诺塔算法"></a>汉诺塔算法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">hannoi</span><span class="params">(<span class="keyword">int</span> n, String from, String buffer, String to)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</div><div class="line">        System.out.println(<span class="string">"Move disk "</span> + n + <span class="string">" from "</span> + from + <span class="string">" to "</span> + to);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        hannoi(n - <span class="number">1</span>, from, to, buffer);</div><div class="line">        System.out.println(<span class="string">"Move disk "</span> + n + <span class="string">" from "</span> + from + <span class="string">" to "</span> + to);</div><div class="line">        hannoi(n - <span class="number">1</span>, buffer, from, to);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    hannoi(<span class="number">3</span>, <span class="string">"A"</span>, <span class="string">"B"</span>, <span class="string">"C"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><p>快速排序（英语：Quicksort），又称划分交换排序（partition-exchange sort），一种排序算法，最早由东尼·霍尔提出。在平均状况下，排序n个项目要Ο(n log n)次比较。在最坏状况下则需要Ο(n2)次比较，但这种状况并不常见。事实上，快速排序通常明显比其他Ο(n log n)算法更快，因为它的内部循环（inner loop）可以在大部分的架构上很有效率地被实现出来。</p>
-<p>快速排序使用分治法（Divide and conquer）策略来把一个序列（list）分为两个子序列（sub-lists）。<br>步骤为：</p>
-<ol>
-<li>从数列中挑出一个元素，称为”基准”（pivot）</li>
-<li>重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的数可以到任一边）。在这个分区结束之后，该基准就处于数列的中间位置。这个称为分区（partition）操作。</li>
-<li>递归地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序。<br>递归的最底部情形，是数列的大小是零或一，也就是永远都已经被排序好了。虽然一直递归下去，但是这个算法总会结束，因为在每次的迭代（iteration）中，它至少会把一个元素摆到它最后的位置去。</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuickSort</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">static</span> <span class="keyword">int</span>[] arr;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> temp = arr[x];</div><div class="line">        arr[x] = arr[y];</div><div class="line">        arr[y] = temp;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quick_sort_recursive</span><span class="params">(<span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (start &gt;= end)</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        <span class="keyword">int</span> mid = arr[end];</div><div class="line">        <span class="keyword">int</span> left = start, right = end - <span class="number">1</span>;</div><div class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</div><div class="line">            <span class="keyword">while</span> (arr[left] &lt; mid &amp;&amp; left &lt; right)</div><div class="line">                left++;</div><div class="line">            <span class="keyword">while</span> (arr[right] &gt;= mid &amp;&amp; left &lt; right)</div><div class="line">                right--;</div><div class="line">            swap(left, right);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (arr[left] &gt;= arr[end]) &#123;</div><div class="line">            swap(left, end);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            left++;</div><div class="line">        &#125;</div><div class="line">        quick_sort_recursive(start, left - <span class="number">1</span>);</div><div class="line">        quick_sort_recursive(left + <span class="number">1</span>, end);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span>[] arrin)</span> </span>&#123;</div><div class="line">        arr = arrin;</div><div class="line">        quick_sort_recursive(<span class="number">0</span>, arr.length - <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] array = &#123;<span class="number">1</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">2</span>&#125;;</div><div class="line">        sort(array);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</div><div class="line">            <span class="keyword">int</span> sortedElement = array[i];</div><div class="line">            System.out.println(sortedElement);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 ]]></content>
     </entry>
     
@@ -361,6 +405,21 @@
 </tbody>
 </table>
 <h4 id="什么时候使用抽象类和接口"><a href="#什么时候使用抽象类和接口" class="headerlink" title="什么时候使用抽象类和接口"></a>什么时候使用抽象类和接口</h4><p>如果你拥有一些方法并且想让它们中的一些有默认实现，那么使用抽象类吧。<br>如果你想实现多重继承，那么你必须使用接口。由于Java不支持多继承，子类不能够继承多个类，但可以实现多个接口。因此你就可以使用接口来解决它。<br>如果基本功能在不断改变，那么就需要使用抽象类。如果不断改变基本功能并且使用接口，那么就需要改变所有实现了该接口的类。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[算法]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/14/algorithm/</url>
+      <content type="html"><![CDATA[<h4 id="汉诺塔算法"><a href="#汉诺塔算法" class="headerlink" title="汉诺塔算法"></a>汉诺塔算法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">hannoi</span><span class="params">(<span class="keyword">int</span> n, String from, String buffer, String to)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</div><div class="line">        System.out.println(<span class="string">"Move disk "</span> + n + <span class="string">" from "</span> + from + <span class="string">" to "</span> + to);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        hannoi(n - <span class="number">1</span>, from, to, buffer);</div><div class="line">        System.out.println(<span class="string">"Move disk "</span> + n + <span class="string">" from "</span> + from + <span class="string">" to "</span> + to);</div><div class="line">        hannoi(n - <span class="number">1</span>, buffer, from, to);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    hannoi(<span class="number">3</span>, <span class="string">"A"</span>, <span class="string">"B"</span>, <span class="string">"C"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><p>快速排序（英语：Quicksort），又称划分交换排序（partition-exchange sort），一种排序算法，最早由东尼·霍尔提出。在平均状况下，排序n个项目要Ο(n log n)次比较。在最坏状况下则需要Ο(n2)次比较，但这种状况并不常见。事实上，快速排序通常明显比其他Ο(n log n)算法更快，因为它的内部循环（inner loop）可以在大部分的架构上很有效率地被实现出来。</p>
+<p>快速排序使用分治法（Divide and conquer）策略来把一个序列（list）分为两个子序列（sub-lists）。<br>步骤为：</p>
+<ol>
+<li>从数列中挑出一个元素，称为”基准”（pivot）</li>
+<li>重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的数可以到任一边）。在这个分区结束之后，该基准就处于数列的中间位置。这个称为分区（partition）操作。</li>
+<li>递归地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序。<br>递归的最底部情形，是数列的大小是零或一，也就是永远都已经被排序好了。虽然一直递归下去，但是这个算法总会结束，因为在每次的迭代（iteration）中，它至少会把一个元素摆到它最后的位置去。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuickSort</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">static</span> <span class="keyword">int</span>[] arr;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> temp = arr[x];</div><div class="line">        arr[x] = arr[y];</div><div class="line">        arr[y] = temp;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quick_sort_recursive</span><span class="params">(<span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (start &gt;= end)</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        <span class="keyword">int</span> mid = arr[end];</div><div class="line">        <span class="keyword">int</span> left = start, right = end - <span class="number">1</span>;</div><div class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</div><div class="line">            <span class="keyword">while</span> (arr[left] &lt; mid &amp;&amp; left &lt; right)</div><div class="line">                left++;</div><div class="line">            <span class="keyword">while</span> (arr[right] &gt;= mid &amp;&amp; left &lt; right)</div><div class="line">                right--;</div><div class="line">            swap(left, right);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (arr[left] &gt;= arr[end]) &#123;</div><div class="line">            swap(left, end);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            left++;</div><div class="line">        &#125;</div><div class="line">        quick_sort_recursive(start, left - <span class="number">1</span>);</div><div class="line">        quick_sort_recursive(left + <span class="number">1</span>, end);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span>[] arrin)</span> </span>&#123;</div><div class="line">        arr = arrin;</div><div class="line">        quick_sort_recursive(<span class="number">0</span>, arr.length - <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] array = &#123;<span class="number">1</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">2</span>&#125;;</div><div class="line">        sort(array);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</div><div class="line">            <span class="keyword">int</span> sortedElement = array[i];</div><div class="line">            System.out.println(sortedElement);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 ]]></content>
     </entry>
     
@@ -1952,7 +2011,7 @@ public int hashCode() {
     </entry>
     
     <entry>
-      <title><![CDATA[Fedora快捷键]]></title>
+      <title><![CDATA[Fedora使用技巧]]></title>
       <url>http://jiangxiaoqiang.com/2016/10/21/Fedora-shortkey/</url>
       <content type="html"><![CDATA[<p>如下是我在使用Fedora的时候整理的快捷键，网络上有许多快捷键版本，下表是经过测试可用并一直在使用的快捷键。</p>
 <table>
@@ -2008,6 +2067,9 @@ public int hashCode() {
 <a id="more"></a>
 <h4 id="打开终端"><a href="#打开终端" class="headerlink" title="打开终端"></a>打开终端</h4><p>在Ubuntu中打开终端可以使用快捷键Ctrl + Alt + T(Terminal)，在Fedora中打开All Settings-&gt;Keyboard-&gt;Custom Shortcuts，添加快捷键即可。在快捷键的command中输入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gnome-terminal</div></pre></td></tr></table></figure>
+<p>在平时使用中，总有一个目录是使用频率最高的，此时打开终端时可以默认切换到对应的目录，只需要将启动命令改为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gnome-terminal --working-directory=/home/dolphin/dolphin/project/blogs/xiaoqiang-blog-source</div></pre></td></tr></table></figure>
+<p>此时使用快捷键打开终端时默认为设置的目录，非常之方便。</p>
 <h4 id="打开文件夹"><a href="#打开文件夹" class="headerlink" title="打开文件夹"></a>打开文件夹</h4><p>在Fedora中打开All Settings-&gt;Keyboard-&gt;Custom Shortcuts，添加快捷键即可，这里设置的是Ctrl + Alt + H(Home)。在快捷键的command中输入命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nautilus</div></pre></td></tr></table></figure>
 <p>即可打开文件夹。</p>
