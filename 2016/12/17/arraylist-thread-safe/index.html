@@ -92,7 +92,7 @@ Using thread-safe variant of ArrayList: CopyOnWriteArrayList">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="Using Collections.synchronizedList() method
 Using thread-safe variant of ArrayList: CopyOnWriteArrayList">
-<meta property="og:updated_time" content="2016-12-17T14:18:07.427Z">
+<meta property="og:updated_time" content="2016-12-18T11:58:56.034Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ArrayList线程安全">
 <meta name="twitter:description" content="Using Collections.synchronizedList() method
@@ -353,6 +353,7 @@ Using thread-safe variant of ArrayList: CopyOnWriteArrayList">
 <li>Using thread-safe variant of ArrayList: CopyOnWriteArrayList</li>
 </ol>
 <a id="more"></a>
+<h4 id="CopyOnWriteArrayList"><a href="#CopyOnWriteArrayList" class="headerlink" title="CopyOnWriteArrayList"></a>CopyOnWriteArrayList</h4><p>CopyOnWriteArrayList是java.util.concurrent包中的一个List的实现类。CopyOnWrite的意思是在写时拷贝，也就是如果需要对CopyOnWriteArrayList的内容进行改变，首先会拷贝一份新的List并且在新的List上进行修改，最后将原List的引用指向新的List。使用CopyOnWriteArrayList可以线程安全地遍历，因为如果另外一个线程在遍历的时候修改List的话，实际上会拷贝出一个新的List上修改，而不影响当前正在被遍历的List。</p>
 <p><a href="http://stackoverflow.com/questions/2444005/how-do-i-make-my-arraylist-thread-safe-another-approach-to-problem-in-java" target="_blank" rel="external">How do I make my ArrayList Thread-Safe? Another approach to problem in Java?</a></p>
 
       
@@ -530,6 +531,10 @@ Using thread-safe variant of ArrayList: CopyOnWriteArrayList">
                   <a href="http://jm.taobao.org/" title="阿里中间件团队博客" target="_blank">阿里中间件团队博客</a>
                 </li>
               
+                <li class="links-of-blogroll-item">
+                  <a href="http://wdxtub.com/" title="小土刀的博客" target="_blank">小土刀的博客</a>
+                </li>
+              
             </ul>
           </div>
         
@@ -543,7 +548,7 @@ Using thread-safe variant of ArrayList: CopyOnWriteArrayList">
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#CopyOnWriteArrayList"><span class="nav-number">1.</span> <span class="nav-text">CopyOnWriteArrayList</span></a></li></ol></div>
             
           </div>
         </section>
