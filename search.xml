@@ -1539,7 +1539,10 @@ public int hashCode() {
 <img src="/2016/11/20/paper-searching/simple-search.jpg" alt="Google简单搜索" title="Google简单搜索">
 <h4 id="排除关键字"><a href="#排除关键字" class="headerlink" title="排除关键字"></a>排除关键字</h4><p>假设要寻找“红外热成像技术”的相关论文，在<a href="https://scholar.google.com" target="_blank" rel="external">Google学术(Google Scholar)</a>里输入关键字“红外热成像技术”，出来65400条结果。如果想要排除红外热成像技术在电力方面的应用的论文，键入如下关键字：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">红外热成像技术 -电力</div><div class="line">红外热成像技术 -步态 -夜视 -反潜 -制冷 -问题 -看法 -测温 -隐身 -机载 -煤 -保温 -车 -飞机 -水泥 -森林 -几何 -电力 -金属 -视频 -建筑 -军事 -无损 -火焰 -农业 -物理 -电气  -电路</div></pre></td></tr></table></figure>
-<p>红外热像技术<br>红外热成像诊断增生、炎症和癌症的临床价值<br>医用。</p>
+<p>参考：</p>
+<ul>
+<li><a href="http://wdxtub.com/2016/03/26/google-tip/" target="_blank" rel="external">Google 搜索技巧</a></li>
+</ul>
 ]]></content>
     </entry>
     
