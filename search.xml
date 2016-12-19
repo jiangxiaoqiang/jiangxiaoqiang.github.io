@@ -4,6 +4,38 @@
   
     
     <entry>
+      <title><![CDATA[Spring Boot特点]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/19/spring-boot/</url>
+      <content type="html"><![CDATA[<h4 id="Spring-Boot特点"><a href="#Spring-Boot特点" class="headerlink" title="Spring Boot特点"></a>Spring Boot特点</h4><p>2013年12月12日，Spring发布了4.0版本。Spring的4.0版本可以说是一个重大的更新，其全面支持Java8，并且对Groovy语言也有良好的支持。另外引入了非常多的新项目，比如Spring boot，Spring Cloud，Spring WebSocket等。Spring由于其繁琐的配置，一度被人成为“配置地狱”，各种XML、Annotation配置，让人眼花缭乱，而且如果出错了也很难找出原因。Spring Boot项目就是为了解决配置繁琐的问题，最大化的实现convention over configuration(约定大于配置)。熟悉Ruby On Rails（ROR框架的程序员都知道，借助于ROR的脚手架工具只需简单的几步即可建立起一个Web应用程序。而Spring Boot就相当于Java平台上的ROR。</p>
+<a id="more"></a>
+<p>Spring Boot的特性有以下几条：</p>
+<ul>
+<li><p>创建独立Spring应用程序</p>
+</li>
+<li><p>嵌入式Tomcat，Jetty容器，无需部署WAR包</p>
+</li>
+<li><p>简化Maven及Gradle配置</p>
+</li>
+<li><p>尽可能的自动化配置Spring</p>
+</li>
+<li><p>直接植入产品环境下的实用功能，比如度量指标、健康检查及扩展配置等</p>
+</li>
+<li><p>无需代码生成及XML配置</p>
+</li>
+</ul>
+<p>Spring Boot是这几年微服务概念流行后，Spring开发的一套快速开发Spring应用的框架。它本身并不提供Spring框架的核心特性以及扩展功能，只是用于快速、敏捷地开发新一代基于Spring框架的应用程序。也就是说，它并不是用来替代Spring的解决方案，而是和Spring框架紧密结合用于提升Spring开发者体验的工具。同时它集成了大量常用的第三方库配置（例如Jackson, JDBC, Mongo, Redis, Mail等等），Spring Boot应用中这些第三方库几乎可以零配置的开箱即用（out-of-the-box），大部分的Spring Boot应用都只需要非常少量的配置代码，开发者能够更加专注于业务逻辑。</p>
+<h4 id="EnableAutoConfiguration"><a href="#EnableAutoConfiguration" class="headerlink" title="@EnableAutoConfiguration"></a>@EnableAutoConfiguration</h4><p>@EnableAutoConfiguration这个注解告诉Spring Boot根据添加的jar依赖猜测你想如何配置Spring。spring-boot-starter-web添加了Tomcat和Spring MVC，所以auto-configuration将假定你正在开发一个web应用并相应地对Spring进行默认设置。</p>
+<p>参考资料：</p>
+<ul>
+<li><p><a href="https://www.tianmaying.com/qa/205" target="_blank" rel="external">spring -boot和spring-mvc是两个平行的框架么?</a></p>
+</li>
+<li><p><a href="http://www.cnblogs.com/huang0925/p/4347690.html" target="_blank" rel="external">值得使用的Spring Boot</a></p>
+</li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Java concurrent包]]></title>
       <url>http://jiangxiaoqiang.com/2016/12/18/java-concurrent-package/</url>
       <content type="html"><![CDATA[<h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p> java.util.concurrent 包含许多线程安全、测试良好、高性能的并发构建块。不客气地说，创建 java.util.concurrent 的目的就是要实现 Collection 框架对数据结构所执行的并发操作。通过提供一组可靠的、高性能并发构建块，开发人员可以提高并发类的线程安全、可伸缩性、性能、可读性和可靠性。</p>
@@ -51,6 +83,8 @@
       <url>http://jiangxiaoqiang.com/2016/12/18/hexo-using/</url>
       <content type="html"><![CDATA[<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>安装Hexo：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo --save</div></pre></td></tr></table></figure>
+<p>安装hexo-cli:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-cli -g</div></pre></td></tr></table></figure>
 <p>仅仅安装了Hexo还不可以在浏览器中查看效果，还需要安装Hexo Server模块：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-server --save</div></pre></td></tr></table></figure>
 <p>安装之后就可以使用hexo server命令了。在Ubuntu下安装会出现获取文件失败的错误，可能需要多次尝试。提示：WARN  No layout: index.html时，一般是由于主题文件不存在导致，安装相应的主题即可。切换到源码目录下：</p>
@@ -1569,6 +1603,10 @@ public int hashCode() {
 <h4 id="查看网页源码"><a href="#查看网页源码" class="headerlink" title="查看网页源码"></a>查看网页源码</h4><p>直接在curl命令后加上网址，就可以看到网页源码。我们以网址www.jiangxiaoqiang.com为例：</p>
 <p>curl www.jiangxiaoqiang.com</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;<span class="name">title</span>&gt;</span>301 Moved Permanently<span class="tag">&lt;/<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">bgcolor</span>=<span class="string">"white"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">center</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span>301 Moved Permanently<span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;/<span class="name">center</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">hr</span>&gt;</span><span class="tag">&lt;<span class="name">center</span>&gt;</span>nginx<span class="tag">&lt;/<span class="name">center</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="请求API数据"><a href="#请求API数据" class="headerlink" title="请求API数据"></a>请求API数据</h4><p>比如需要在请求头中添加Key、Value键值对，可以添加-H(Header)参数，如下命令行所示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -H <span class="string">"APPID:123"</span> http://localhost:28080/api/xysj?xdrShxym=addd</div></pre></td></tr></table></figure>
+<p>如果是需要发送多个请求头，那么多次指定-H参数即可,如下命令所示。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -H <span class="string">"APPID:123"</span> -H <span class="string">"TIMESTAMP:2016-12-19 16:58:02"</span> -H <span class="string">"ECHOSTR:sdsaasf"</span> -H <span class="string">"TOKEN:sdsss"</span> http://localhost:28080/api/xysj?xdrShxym=addd</div></pre></td></tr></table></figure>
 ]]></content>
     </entry>
     
@@ -2385,7 +2423,8 @@ public int hashCode() {
 <a id="more"></a>
 <img src="/2016/10/08/intelli-idea-plugin/presentation-assistant-tips.jpg" alt="Presentation Assistant提示" title="Presentation Assistant提示">
 <h4 id="Grep-Console"><a href="#Grep-Console" class="headerlink" title="Grep Console"></a>Grep Console</h4><p>允许你定义一系列将通过控制台输出或文件测试的正则表达式。匹配代码行的每个表达式将会影响整行的样式，或播放声音。例如，错误消息可以被设置在一个红色的背景中显示。例如错误(ERROR)输出为红色，报警(WARNING)输出为黄色，信息(INFO)输出为绿色。</p>
-<h4 id="JRebel-for-IntelliJ-Commercial"><a href="#JRebel-for-IntelliJ-Commercial" class="headerlink" title="JRebel for IntelliJ(Commercial)"></a>JRebel for IntelliJ(Commercial)</h4><p>JRebel的热部署可以让你修改代码以后不用重新启动项目即可加载效果，即所谓的热部署，可以大大提高开发效率。</p>
+<h4 id="JRebel-for-IntelliJ-Commercial"><a href="#JRebel-for-IntelliJ-Commercial" class="headerlink" title="JRebel for IntelliJ(Commercial)"></a>JRebel for IntelliJ(Commercial)</h4><p>JRebel的热部署可以让你修改代码以后不用重新启动项目即可加载效果，即所谓的热部署，可以大大提高开发效率。在IntelliJ Idea-&gt;Setting-&gt;Plugin-&gt;Browse Repositories中，输入JRebel for IntelliJ关键字即可。</p>
+<h4 id="Lombok"><a href="#Lombok" class="headerlink" title="Lombok"></a>Lombok</h4><p>自动生成实体的Getter、Setter，可以大大减少实体的编码量。</p>
 ]]></content>
     </entry>
     

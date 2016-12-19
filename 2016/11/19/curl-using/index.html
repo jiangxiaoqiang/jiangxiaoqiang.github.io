@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/11/19/curl-using/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="简介curl is a tool to transfer data from or to a server, using one of the supported protocols (DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, S">
-<meta property="og:updated_time" content="2016-11-18T18:22:13.137Z">
+<meta property="og:updated_time" content="2016-12-19T14:38:29.684Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="curl使用">
 <meta name="twitter:description" content="简介curl is a tool to transfer data from or to a server, using one of the supported protocols (DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, S">
@@ -351,6 +351,10 @@
 <h4 id="查看网页源码"><a href="#查看网页源码" class="headerlink" title="查看网页源码"></a>查看网页源码</h4><p>直接在curl命令后加上网址，就可以看到网页源码。我们以网址www.jiangxiaoqiang.com为例：</p>
 <p>curl www.jiangxiaoqiang.com</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;<span class="name">title</span>&gt;</span>301 Moved Permanently<span class="tag">&lt;/<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">bgcolor</span>=<span class="string">"white"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">center</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span>301 Moved Permanently<span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;/<span class="name">center</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">hr</span>&gt;</span><span class="tag">&lt;<span class="name">center</span>&gt;</span>nginx<span class="tag">&lt;/<span class="name">center</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="请求API数据"><a href="#请求API数据" class="headerlink" title="请求API数据"></a>请求API数据</h4><p>比如需要在请求头中添加Key、Value键值对，可以添加-H(Header)参数，如下命令行所示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -H <span class="string">"APPID:123"</span> http://localhost:28080/api/xysj?xdrShxym=addd</div></pre></td></tr></table></figure>
+<p>如果是需要发送多个请求头，那么多次指定-H参数即可,如下命令所示。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -H <span class="string">"APPID:123"</span> -H <span class="string">"TIMESTAMP:2016-12-19 16:58:02"</span> -H <span class="string">"ECHOSTR:sdsaasf"</span> -H <span class="string">"TOKEN:sdsss"</span> http://localhost:28080/api/xysj?xdrShxym=addd</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -464,7 +468,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">110</span>
+              <span class="site-state-item-count">111</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -542,7 +546,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看网页源码"><span class="nav-number">2.</span> <span class="nav-text">查看网页源码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看网页源码"><span class="nav-number">2.</span> <span class="nav-text">查看网页源码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请求API数据"><span class="nav-number">3.</span> <span class="nav-text">请求API数据</span></a></li></ol></div>
             
           </div>
         </section>
