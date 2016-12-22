@@ -4,6 +4,16 @@
   
     
     <entry>
+      <title><![CDATA[数据库切分]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/22/database-sharding/</url>
+      <content type="html"><![CDATA[<h4 id="垂直切分-Vertical-Sharding"><a href="#垂直切分-Vertical-Sharding" class="headerlink" title="垂直切分(Vertical Sharding)"></a>垂直切分(Vertical Sharding)</h4><p>Sharding的基本思想就要把一个数据库切分成多个部分放到不同的数据库(server)上，从而缓解单一数据库的性能问题。不太严格的讲，对于海量数据的数据库，如果是因为表多而数据多，这时候适合使用垂直切分，即把关系紧密（比如同一模块）的表切分出来放在一个server上。如果表并不多，但每张表的数据非常多，这时候适合水平切分，即把表的数据按某种规则（比如按ID散列）切分到多个数据库(server)上。当然，现实中更多是这两种情况混杂在一起，这时候需要根据实际情况做出选择，也可能会综合使用垂直与水平切分，从而将原有数据库切分成类似矩阵一样可以无限扩充的数据库(server)阵列。</p>
+<a id="more"></a>
+<p>垂直切分的最大特点就是规则简单，实施也更为方便，尤其适合各业务之间的耦合度非<br>常低，相互影响很小，业务逻辑非常清晰的系统。在这种系统中，可以很容易做到将不同业<br>务模块所使用的表分拆到不同的数据库中。根据不同的表来进行拆分，对应用程序的影响也<br>更小，拆分规则也会比较简单清晰。</p>
+<h4 id="水平切分-Herizonal-Sharding"><a href="#水平切分-Herizonal-Sharding" class="headerlink" title="水平切分(Herizonal Sharding)"></a>水平切分(Herizonal Sharding)</h4><p>水平切分于垂直切分相比，相对来说稍微复杂一些。因为要将同一个表中的不同数据拆<br>分到不同的数据库中，对于应用程序来说，拆分规则本身就较根据表名来拆分更为复杂，后<br>期的数据维护也会更为复杂一些。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Java泛型实现原理]]></title>
       <url>http://jiangxiaoqiang.com/2016/12/21/java-generate-implement/</url>
       <content type="html"><![CDATA[<p>泛型编程是一种通过参数化的方式将数据处理与数据类型解耦的技术，通过对数据类型施加约束（比如Java中的有界类型）来保证数据处理的正确性，又称参数类型或参数多态性。泛型最著名的应用就是容器，C++的STL、Java的Collection Framework。</p>
@@ -21,7 +31,11 @@
     <entry>
       <title><![CDATA[Ubuntu使用]]></title>
       <url>http://jiangxiaoqiang.com/2016/12/20/ubuntu-using/</url>
-      <content type="html"><![CDATA[<h4 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h4><h4 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h4>]]></content>
+      <content type="html"><![CDATA[<h4 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h4><ul>
+<li>长按Windows键会出现全局快捷键页面</li>
+</ul>
+<h4 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h4><p>Ctrl + Alt + +放大终端<br>Ctrl + - 缩小终端</p>
+]]></content>
     </entry>
     
     <entry>
@@ -32,12 +46,28 @@
 <a id="more"></a>
 <p>如果是遍历List<string>，可以采用如下写法：</string></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">**</span>"<span class="attr">countByXdrShxym</span>" **<span class="attr">resultType</span>=<span class="string">**</span>"<span class="attr">java.util.HashMap</span>"**&gt;</span>    </div><div class="line">    select XDR_SHXYM, count(*) AS total from TS_B_BLACKLIST where XDR_SHXYM in</div><div class="line">    <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">item</span>=<span class="string">**</span>"<span class="attr">item</span>" **<span class="attr">index</span>=<span class="string">**</span>"<span class="attr">index</span>" **<span class="attr">collection</span>=<span class="string">**</span>"<span class="attr">list</span>" **<span class="attr">open</span>=<span class="string">**</span>"('" **<span class="attr">separator</span>=<span class="string">**</span>"','" **<span class="attr">close</span>=<span class="string">**</span>"')"**&gt;</span>$&#123;item&#125;<span class="tag">&lt;/<span class="name">foreach</span>&gt;</span>    </div><div class="line">    group by XDR_SHXYM</div><div class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>齐总open和close需要单独加上单引号，链接分隔符(separator)也需要添加引号。另外遍历的item会出现解析出来是？的情况，将字符#替换为$，不过有ＳＱＬ注入的风险。Mybatis如果采用#{xxx}的形式设置参数，Mybatis会进行sql注入的过滤。如果采用的是${xxx}，Mybatis不会进行sql注入过滤，而是直接将参入的内容输出为sql语句。</p>
-<h4 id="特殊符号"><a href="#特殊符号" class="headerlink" title="特殊符号"></a>特殊符号</h4><p>优势想在ＳＱＬ中添加特殊符号，比如在字符串变量中添加一个单引号，如下语句所示。</p>
+<p>其中open和close需要单独加上单引号，链接分隔符(separator)也需要添加引号。另外遍历的item会出现解析出来是？的情况，将字符#替换为$，不过有SQL注入的风险。Mybatis如果采用#{xxx}的形式设置参数，Mybatis会进行sql注入的过滤。如果采用的是${xxx}，Mybatis不会进行sql注入过滤，而是直接将参入的内容输出为sql语句。</p>
+<h4 id="特殊符号"><a href="#特殊符号" class="headerlink" title="特殊符号"></a>特殊符号</h4><p>优势想在SQL中添加特殊符号，比如在字符串变量中添加一个单引号，如下语句所示。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findList"</span> <span class="attr">parameterType</span>=<span class="string">"map"</span> <span class="attr">resultMap</span>=<span class="string">"SummaryXzxk"</span>&gt;</span>    </div><div class="line">    SELECT *</div><div class="line">    FROM TS_B_XZXK</div><div class="line">    <span class="tag">&lt;<span class="name">trim</span> <span class="attr">prefix</span>=<span class="string">"WHERE"</span> <span class="attr">prefixOverrides</span>=<span class="string">"AND|OR"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span> = <span class="string">"xdr != null"</span>&gt;</span>            </div><div class="line">        AND XDR like CONCAT('%', $&#123;xdr&#125;, '%')</div><div class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">trim</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>在变量xdr上添加单引号，可以写成如下语句：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">select</span>&gt;</span></div><div class="line">    SELECT *</div><div class="line">    FROM TS_B_XZXK</div><div class="line">    <span class="tag">&lt;<span class="name">trim</span> <span class="attr">prefix</span>=<span class="string">"WHERE"</span> <span class="attr">prefixOverrides</span>=<span class="string">"AND|OR"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span> = <span class="string">"xdr != null"</span>&gt;</span>            </div><div class="line">        AND XDR like CONCAT('%', &amp;apos;$&#123;xdr&#125;&amp;apos;, '%')</div><div class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">trim</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></div></pre></td></tr></table></figure>
-]]></content>
+<h4 id="传入参数"><a href="#传入参数" class="headerlink" title="传入参数"></a>传入参数</h4><p>ＭyBatis的传入参数可以是各种Java的基本数据类型：包含int,String,Date等。基本数据类型作为传参，只能传入一个。通过#{参数名}即可获取传入的值，复杂数据类型：包含Java实体类、Map。通过#{属性名}或#{map的KeyName}即可获取传入的值，但是如果想传入一个collection时，可以使用mapper配置文件中的foreach语句。</p>
+<h4 id="MyBatis中-与-的区别"><a href="#MyBatis中-与-的区别" class="headerlink" title="MyBatis中${}与#{}的区别"></a>MyBatis中${}与#{}的区别</h4><p>当使用#{parameterName}引入参数的时候，Mybatis会把这个参数认为是一个字符串，在拼接SQL的时候其实首先是一个问号（？），然后查询的时候，将参数引入到问号（？）之中。比如<br>    select <em> from emp where name = #{name}，这样的一个SQL，解析以后是select </em> from emp where name = ?，由于是#{name}的方式引入，那么就将问号（？）替换成#{name}的值，比如传进一个字符串”yedward”，那么最终的查询SQL是select * from emp where name = ‘yedward’。</p>
+<p>当使用${parameterName}引入参数的时候，Mybatis会将这个参数直接拼到SQL中去，就没有上面那种问号（？）。</p>
+<ol>
+<li><p>#将传入的数据都当成一个字符串，会对自动传入的数据加一个双引号。如：order by #user_id#，如果传入的值是111,那么解析成sql时的值为order by “111”, 如果传入的值是id，则解析成的sql为order by “id”</p>
+</li>
+<li><p>$将传入的数据直接显示生成在sql中。如：order by $user_id$，如果传入的值是111,那么解析成sql时的值为order by user_id,  如果传入的值是id，则解析成的sql为order by id.
+　　</p>
+</li>
+<li>#方式能够很大程度防止sql注入。<br>　　<br>4.$方式无法防止Sql注入。</li>
+</ol>
+<p>5.$方式一般用于传入数据库对象，例如传入表名.<br>    注：MyBatis排序时使用order by 动态参数时用$而不是#</p>
+<p>6.有时你只是想直接在SQL语句中插入一个不改变的字符串。比如，像ORDER BY，你可以这样来使用：<br>    ORDER BY ${columnName}<br>这里MyBatis不会修改或转义字符串。</p>
+<p>总结：<br>写一句SQL-例如：select <em> from user_role where user_code = “100”;<br>这句话而言，需要写成 select </em> from ${tableName} where user_code = #{userCode}<br>所以，$符是直接拼成sql的 ，#符则会以字符串的形式 与sql进行拼接。<br>在直接拼接规则的时候可以用$，规则已经有了，只是传递参数进去，那么可以用#。</p>
+<h4 id="parameter参数"><a href="#parameter参数" class="headerlink" title="_parameter参数"></a>_parameter参数</h4><p>错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">There is no getter for property named &apos;moduleCode&apos; in &apos;class java.lang.String</div></pre></td></tr></table></figure>
+<h4 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h4><h5 id="Mybatis-PageHelper"><a href="#Mybatis-PageHelper" class="headerlink" title="Mybatis-PageHelper"></a>Mybatis-PageHelper</h5>]]></content>
     </entry>
     
     <entry>
@@ -209,11 +239,12 @@
     <entry>
       <title><![CDATA[Fedora常用软件集合]]></title>
       <url>http://jiangxiaoqiang.com/2016/12/16/fedora-software/</url>
-      <content type="html"><![CDATA[<p>使用Fedora 24有一段时间了，这里列出了平时总结的在Fedora上可以使用的一些软件，完成平时的任务。如果您也要尝试使用Fedora，或许可以节省不少时间。</p>
+      <content type="html"><![CDATA[<p>使用Fedora 24有一段时间了，这里列出了平时总结的在Fedora上可以使用的一些软件，完成平时的任务。如果您也要尝试使用Fedora，或许可以节省不少时间。列出的软件大多数是跨平台(Crossplatform)的，可以运行在其他Linux发行版上，以及Mac OS和Windows上。</p>
 <a id="more"></a>
 <h4 id="wget"><a href="#wget" class="headerlink" title="wget"></a>wget</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget -c http://dl.zeroturnaround.com/idea/jr-ide-intellij-6.5.0_13-16.zip</div></pre></td></tr></table></figure>
-<p>-c参数表示断电续传。–continue： Continue getting a partially-downloaded file.  This is useful when you want to finish up a download started by a previous instance of Wget, or by another program. </p>
+<p>-c参数表示断电续传。–continue： Continue getting a partially-downloaded file.  This is useful when you want to finish up a download started by a previous instance of Wget, or by another program.</p>
 <h4 id="NodeJS"><a href="#NodeJS" class="headerlink" title="NodeJS"></a>NodeJS</h4><p>本博客就是基于NodeJS生成，虽然不是很懂NodeJS，但是感觉很牛逼的样子。</p>
+<h4 id="nmap"><a href="#nmap" class="headerlink" title="nmap"></a>nmap</h4><p>端口扫描。</p>
 <h4 id="Fiddler-for-Linux"><a href="#Fiddler-for-Linux" class="headerlink" title="Fiddler for Linux"></a>Fiddler for Linux</h4><h4 id="Apache-Tomcat"><a href="#Apache-Tomcat" class="headerlink" title="Apache Tomcat"></a>Apache Tomcat</h4><h4 id="OpenVPN"><a href="#OpenVPN" class="headerlink" title="OpenVPN"></a>OpenVPN</h4><h4 id="StarDict"><a href="#StarDict" class="headerlink" title="StarDict"></a>StarDict</h4><h4 id="htop"><a href="#htop" class="headerlink" title="htop"></a>htop</h4><p>htop是实时显示当前系统运行情况的，不同于ps、pstree、pidof、vmsta等这些快照工具，快照工具只能显示命令执行前一秒系统的情况。htop 对关键信息实行高亮显示，对于我们用肉眼查看进程信息的情况相当友好。</p>
 <table>
 <thead>
@@ -1679,7 +1710,7 @@ public int hashCode() {
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl www.jiangxiaoqiang.com</div></pre></td></tr></table></figure>
 <p>返回的结果为：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;<span class="name">title</span>&gt;</span>301 Moved Permanently<span class="tag">&lt;/<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">bgcolor</span>=<span class="string">"white"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">center</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span>301 Moved Permanently<span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;/<span class="name">center</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">hr</span>&gt;</span><span class="tag">&lt;<span class="name">center</span>&gt;</span>nginx<span class="tag">&lt;/<span class="name">center</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
-<h4 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h4><p>使用<code>--cookie</code>参数，可以让curl发送cookie，如下命令行所示。</p>
+<h4 id="Cookie"><a href="#Cookie" class="headerlink" title="Ｃookie"></a>Ｃookie</h4><p>使用<code>--cookie</code>参数，可以让curl发送cookie，如下命令行所示。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl --cookie <span class="string">"name=xxx"</span> www.example.com</div></pre></td></tr></table></figure>
 <p><code>-c cookie-file</code>可以保存服务器返回的cookie到文件，<code>-b cookie-file</code>可以使用这个文件作为cookie信息，进行后续的请求。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl -c cookies http://example.com</div><div class="line">curl -b cookies http://example.com</div></pre></td></tr></table></figure>
@@ -1687,6 +1718,11 @@ public int hashCode() {
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -H <span class="string">"APPID:123"</span> http://localhost:28080/api/xysj?xdrShxym=addd</div></pre></td></tr></table></figure>
 <p>如果是需要发送多个请求头，那么多次指定-H参数即可,如下命令所示。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -H <span class="string">"APPID:123"</span> -H <span class="string">"TIMESTAMP:2016-12-19 16:58:02"</span> -H <span class="string">"ECHOSTR:sdsaasf"</span> -H <span class="string">"TOKEN:sdsss"</span> http://localhost:28080/api/xysj?xdrShxym=addd</div></pre></td></tr></table></figure>
+<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><p>在Restful多参数请求时，需要使用转义符号。url为<code>http://mywebsite.com/index.PHP?a=1&amp;b=2&amp;c=3</code>时，web形式下访问url地址，使用$_GET是可以获取到所有的参数。然而在Linux下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl http://mywebsite.com/index.php?a=1&amp;b=2&amp;c=3</div></pre></td></tr></table></figure>
+<p>$_GET只能获取到参数a,由于url中有&amp;，其他参数获取不到，在linux系统中&amp;会使进程系统后台运行,必须对&amp;进行下转义才能$_GET获取到所有参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl http://mywebsite.com/index.php?a=1\&amp;b=2\&amp;c=3</div></pre></td></tr></table></figure>
+<p>这一个细节需要注意。</p>
 <p>参考资料：</p>
 <ul>
 <li><a href="http://www.ruanyifeng.com/blog/2011/09/curl.html" target="_blank" rel="external">curl网站开发指南</a></li>
@@ -1972,7 +2008,8 @@ public int hashCode() {
 <img src="/2016/11/03/intellij-idea-tips/paste-history.jpg" alt="Intellij Idea历史粘贴板" title="Intellij Idea历史粘贴板">
 <h4 id="Language-Injection"><a href="#Language-Injection" class="headerlink" title="Language Injection"></a>Language Injection</h4><p>在 Java 的 String 中编辑有 JSON 非常麻烦，在 Intellij IDEA 中，我们可以直接使用 Intellij IDEA 的 Language Injection 的功能（Alt + Enter）将一个字符串标记为 JSON，就可以非常方便地编写 JSON 了，再也不用担心转义的问题了：</p>
 <img src="/2016/11/03/intellij-idea-tips/language-injection.jpg" alt="Intellij Idea Language Injection" title="Intellij Idea Language Injection">
-<h4 id="Intellij-Idea注释模板"><a href="#Intellij-Idea注释模板" class="headerlink" title="Intellij Idea注释模板"></a>Intellij Idea注释模板</h4>]]></content>
+<h4 id="Intellij-Idea注释模板"><a href="#Intellij-Idea注释模板" class="headerlink" title="Intellij Idea注释模板"></a>Intellij Idea注释模板</h4><p>File – Settings – Editor – Code Style – File and Code Templates设置类生成模板。</p>
+]]></content>
     </entry>
     
     <entry>
@@ -2394,6 +2431,8 @@ public int hashCode() {
 <p>对于Stream中包含的元素进行去重操作（去重逻辑依赖元素的equals方法），新生成的Stream中没有重复的元素。（根据.equals行为排除所有重复的元素。）</p>
 <h4 id="去除String数组重复数据"><a href="#去除String数组重复数据" class="headerlink" title="去除String数组重复数据"></a>去除String数组重复数据</h4><p>其中deviceNumbers为String类型的数组。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">deviceNumbers= <span class="keyword">new</span> HashSet&lt;&gt;(Arrays.asList(deviceNumbers)).toArray(<span class="keyword">new</span> String[<span class="number">0</span>]);</div></pre></td></tr></table></figure>
+<h4 id="过滤器-Filter"><a href="#过滤器-Filter" class="headerlink" title="过滤器(Filter)"></a>过滤器(Filter)</h4><p>从List中过滤出指定条件的数据：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">List&lt;CreditDocument&gt; xzxkList = creditDocuments.stream().filter(a -&gt; a.getInfoType() == <span class="number">1</span>).collect(Collectors.toList());</div></pre></td></tr></table></figure>
 ]]></content>
     </entry>
     
