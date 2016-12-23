@@ -716,10 +716,40 @@
       
         
           
-            <h4 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h4><ul>
+            <p>使用的Ubuntu版本为14.04 LTS和16.04 LTS版本。</p>
+<h4 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h4><ul>
 <li>长按Windows键会出现全局快捷键页面</li>
 </ul>
-<h4 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h4><p>Ctrl + Alt + +放大终端<br>Ctrl + - 缩小终端</p>
+<h4 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h4><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl + Alt + +</td>
+<td style="text-align:center">放大终端</td>
+</tr>
+<tr>
+<td>Ctrl + -</td>
+<td style="text-align:center">缩小终端</td>
+</tr>
+<tr>
+<td>Ctrl + Window + Up</td>
+<td style="text-align:center">最大化窗口，注意按下时按顺序按下相应键</td>
+</tr>
+<tr>
+<td>Ctrl + Window + Down</td>
+<td style="text-align:center">最小化窗口，注意按下时按顺序按下相应键</td>
+</tr>
+<tr>
+<td>Alt + F1</td>
+<td style="text-align:center">调出侧边栏(如果有设置自动隐藏的话)</td>
+</tr>
+</tbody>
+</table>
 
           
         
@@ -838,7 +868,10 @@
 
       
         
-          <h4 id="Mapper文件中遍历集合参数"><a href="#Mapper文件中遍历集合参数" class="headerlink" title="Mapper文件中遍历集合参数"></a>Mapper文件中遍历集合参数</h4><p>在遍历List<Integer>时，直接使用如下的语句即可：</p>
+          <ul>
+<li>Java的实体属性中，属性赋值时是区分大小写的，比如adog不能成功映射到aDog</li>
+</ul>
+<h4 id="Mapper文件中遍历集合参数"><a href="#Mapper文件中遍历集合参数" class="headerlink" title="Mapper文件中遍历集合参数"></a>Mapper文件中遍历集合参数</h4><p>在遍历List<Integer>时，直接使用如下的语句即可：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">select * from table</div><div class="line"><span class="tag">&lt;<span class="name">where</span>&gt;</span></div><div class="line">    id in <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"ids"</span> <span class="attr">item</span>=<span class="string">"item"</span> <span class="attr">index</span>=<span class="string">"index"</span></div><div class="line"><span class="attr">open</span>=<span class="string">"("</span> <span class="attr">separator</span>=<span class="string">","</span> <span class="attr">close</span>=<span class="string">")"</span>&gt;</span>#&#123;item&#125;<span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">where</span>&gt;</span></div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/12/20/mybatis-using/#more" rel="contents">

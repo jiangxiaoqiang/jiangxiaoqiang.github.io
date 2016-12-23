@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/12/19/git-using/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="Git是目前世界上最先进的分布式版本控制系统，没有之一。Git有什么特点？简单来说就是：高端大气上档次！逼格那是相当高，装逼必备神器。当你说用Git管理源码的时候，逼格瞬间高好几个档次。最近项目中在用，结合以前使用的经验，简单的总结记录在此。">
-<meta property="og:updated_time" content="2016-12-21T14:29:24.136Z">
+<meta property="og:updated_time" content="2016-12-23T12:29:52.757Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git使用">
 <meta name="twitter:description" content="Git是目前世界上最先进的分布式版本控制系统，没有之一。Git有什么特点？简单来说就是：高端大气上档次！逼格那是相当高，装逼必备神器。当你说用Git管理源码的时候，逼格瞬间高好几个档次。最近项目中在用，结合以前使用的经验，简单的总结记录在此。">
@@ -331,15 +331,41 @@
 <h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#列出分支</span></div><div class="line">git branch</div></pre></td></tr></table></figure>
 <p>查看提交历史：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">log</span> --graph --all</div></pre></td></tr></table></figure>
-<h4 id="发起pull-request"><a href="#发起pull-request" class="headerlink" title="发起pull request"></a>发起pull request</h4><p>创建(check out)分支v1_xiaoqiang：</p>
+<h4 id="发起pull-request"><a href="#发起pull-request" class="headerlink" title="发起pull request"></a>发起pull request</h4><p>新建(check out)分支v1_xiaoqiang：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b v1_xiaoqiang</div></pre></td></tr></table></figure>
-<p>将新的分之合并到origin分支中：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-b <branch></branch></td>
+<td>create and checkout a new branch</td>
+</tr>
+<tr>
+<td>-B <branch></branch></td>
+<td>create/reset and checkout a branch</td>
+</tr>
+</tbody>
+</table>
+<p>将新的分之push到origin分支中：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin v1_xiaoqiang</div></pre></td></tr></table></figure>
 <p>到GitLab页面里创建一个pull request即可。</p>
-<h4 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h4><p>采用git pull时，提示如下：</p>
+<h4 id="更新-update"><a href="#更新-update" class="headerlink" title="更新(update)"></a>更新(update)</h4><p>采用git pull时，提示如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">hldev@hldev-100:~/hldata/backend/credit-system$ git pull</div><div class="line">Username for &apos;http://dn6&apos;: xiaoqiang.jiang</div><div class="line">Password for &apos;http://xiaoqiang.jiang@dn6&apos;:</div><div class="line">There is no tracking information for the current branch.</div><div class="line">Please specify which branch you want to merge with.</div><div class="line">See git-pull(1) for details.</div><div class="line"></div><div class="line">    git pull &lt;remote&gt; &lt;branch&gt;</div><div class="line"></div><div class="line">If you wish to set tracking information for this branch you can do so with:</div><div class="line"></div><div class="line">    git branch --set-upstream-to=origin/&lt;branch&gt; v1_xiaoqiang</div></pre></td></tr></table></figure>
 <p>指定本地dev分支与远程origin/dev分支的链接，根据提示，设置dev和origin/dev的链接：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch --set-upstream-to origin/v1 v1_xiaoqiang</div></pre></td></tr></table></figure>
+<h4 id="合并-merge"><a href="#合并-merge" class="headerlink" title="合并(merge)"></a>合并(merge)</h4><p>下面是使用过的一个合并步骤,切换到v1分支，v1分支是开发的主分支：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout v1</div></pre></td></tr></table></figure>
+<p>将远程分支更新获取并合并到v1分支：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull origin v1</div></pre></td></tr></table></figure>
+<p>查看当前分支：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch</div></pre></td></tr></table></figure>
+<p>假如当前分支为名称：v1_xiaoqiang,将v1分支合并到当前分支：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#切换到v1_xiaoqiang分支</span></div><div class="line">git checkout v1_xiaoqiang</div><div class="line"><span class="comment">#合并到v1分支</span></div><div class="line">git merge v1</div></pre></td></tr></table></figure>
 <h4 id="Stash"><a href="#Stash" class="headerlink" title="Stash"></a>Stash</h4><p>“‘储藏”“可以获取你工作目录的中间状态——也就是你修改过的被追踪的文件和暂存的变更——并将它保存到一个未完结变更的堆栈中，随时可以重新应用。往堆栈推送一个新的储藏，只要运行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git stash</div></pre></td></tr></table></figure>
 <p>查看储藏：</p>
@@ -535,7 +561,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发起pull-request"><span class="nav-number">2.</span> <span class="nav-text">发起pull request</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新"><span class="nav-number">3.</span> <span class="nav-text">更新</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Stash"><span class="nav-number">4.</span> <span class="nav-text">Stash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Your-branch-and-‘origin-master’-have-diverged"><span class="nav-number">5.</span> <span class="nav-text">Your branch and ‘origin/master’ have diverged</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Changes-not-staged-for-commit"><span class="nav-number">5.1.</span> <span class="nav-text">Changes not staged for commit</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Please-commit-your-changes-or-stash-them-before-you-can-merge"><span class="nav-number">6.</span> <span class="nav-text">Please, commit your changes or stash them before you can merge</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发起pull-request"><span class="nav-number">2.</span> <span class="nav-text">发起pull request</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新-update"><span class="nav-number">3.</span> <span class="nav-text">更新(update)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#合并-merge"><span class="nav-number">4.</span> <span class="nav-text">合并(merge)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Stash"><span class="nav-number">5.</span> <span class="nav-text">Stash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Your-branch-and-‘origin-master’-have-diverged"><span class="nav-number">6.</span> <span class="nav-text">Your branch and ‘origin/master’ have diverged</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Changes-not-staged-for-commit"><span class="nav-number">6.1.</span> <span class="nav-text">Changes not staged for commit</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Please-commit-your-changes-or-stash-them-before-you-can-merge"><span class="nav-number">7.</span> <span class="nav-text">Please, commit your changes or stash them before you can merge</span></a></li></ol></div>
             
           </div>
         </section>

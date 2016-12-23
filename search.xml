@@ -42,17 +42,50 @@
     <entry>
       <title><![CDATA[Ubuntu使用]]></title>
       <url>http://jiangxiaoqiang.com/2016/12/20/ubuntu-using/</url>
-      <content type="html"><![CDATA[<h4 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h4><ul>
+      <content type="html"><![CDATA[<p>使用的Ubuntu版本为14.04 LTS和16.04 LTS版本。</p>
+<h4 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h4><ul>
 <li>长按Windows键会出现全局快捷键页面</li>
 </ul>
-<h4 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h4><p>Ctrl + Alt + +放大终端<br>Ctrl + - 缩小终端</p>
+<h4 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h4><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl + Alt + +</td>
+<td style="text-align:center">放大终端</td>
+</tr>
+<tr>
+<td>Ctrl + -</td>
+<td style="text-align:center">缩小终端</td>
+</tr>
+<tr>
+<td>Ctrl + Window + Up</td>
+<td style="text-align:center">最大化窗口，注意按下时按顺序按下相应键</td>
+</tr>
+<tr>
+<td>Ctrl + Window + Down</td>
+<td style="text-align:center">最小化窗口，注意按下时按顺序按下相应键</td>
+</tr>
+<tr>
+<td>Alt + F1</td>
+<td style="text-align:center">调出侧边栏(如果有设置自动隐藏的话)</td>
+</tr>
+</tbody>
+</table>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[MyBatis使用]]></title>
       <url>http://jiangxiaoqiang.com/2016/12/20/mybatis-using/</url>
-      <content type="html"><![CDATA[<h4 id="Mapper文件中遍历集合参数"><a href="#Mapper文件中遍历集合参数" class="headerlink" title="Mapper文件中遍历集合参数"></a>Mapper文件中遍历集合参数</h4><p>在遍历List<integer>时，直接使用如下的语句即可：</integer></p>
+      <content type="html"><![CDATA[<ul>
+<li>Java的实体属性中，属性赋值时是区分大小写的，比如adog不能成功映射到aDog</li>
+</ul>
+<h4 id="Mapper文件中遍历集合参数"><a href="#Mapper文件中遍历集合参数" class="headerlink" title="Mapper文件中遍历集合参数"></a>Mapper文件中遍历集合参数</h4><p>在遍历List<integer>时，直接使用如下的语句即可：</integer></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">select * from table</div><div class="line"><span class="tag">&lt;<span class="name">where</span>&gt;</span></div><div class="line">    id in <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"ids"</span> <span class="attr">item</span>=<span class="string">"item"</span> <span class="attr">index</span>=<span class="string">"index"</span></span></div><div class="line"><span class="attr">open</span>=<span class="string">"("</span> <span class="attr">separator</span>=<span class="string">","</span> <span class="attr">close</span>=<span class="string">")"</span>&gt;#&#123;item&#125;<span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">where</span>&gt;</span></div></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>如果是遍历List<string>，可以采用如下写法：</string></p>
@@ -95,15 +128,41 @@
 <h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#列出分支</span></div><div class="line">git branch</div></pre></td></tr></table></figure>
 <p>查看提交历史：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">log</span> --graph --all</div></pre></td></tr></table></figure>
-<h4 id="发起pull-request"><a href="#发起pull-request" class="headerlink" title="发起pull request"></a>发起pull request</h4><p>创建(check out)分支v1_xiaoqiang：</p>
+<h4 id="发起pull-request"><a href="#发起pull-request" class="headerlink" title="发起pull request"></a>发起pull request</h4><p>新建(check out)分支v1_xiaoqiang：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b v1_xiaoqiang</div></pre></td></tr></table></figure>
-<p>将新的分之合并到origin分支中：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-b <branch></branch></td>
+<td>create and checkout a new branch</td>
+</tr>
+<tr>
+<td>-B <branch></branch></td>
+<td>create/reset and checkout a branch</td>
+</tr>
+</tbody>
+</table>
+<p>将新的分之push到origin分支中：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin v1_xiaoqiang</div></pre></td></tr></table></figure>
 <p>到GitLab页面里创建一个pull request即可。</p>
-<h4 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h4><p>采用git pull时，提示如下：</p>
+<h4 id="更新-update"><a href="#更新-update" class="headerlink" title="更新(update)"></a>更新(update)</h4><p>采用git pull时，提示如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">hldev@hldev-100:~/hldata/backend/credit-system$ git pull</div><div class="line">Username for &apos;http://dn6&apos;: xiaoqiang.jiang</div><div class="line">Password for &apos;http://xiaoqiang.jiang@dn6&apos;:</div><div class="line">There is no tracking information for the current branch.</div><div class="line">Please specify which branch you want to merge with.</div><div class="line">See git-pull(1) for details.</div><div class="line"></div><div class="line">    git pull &lt;remote&gt; &lt;branch&gt;</div><div class="line"></div><div class="line">If you wish to set tracking information for this branch you can do so with:</div><div class="line"></div><div class="line">    git branch --set-upstream-to=origin/&lt;branch&gt; v1_xiaoqiang</div></pre></td></tr></table></figure>
 <p>指定本地dev分支与远程origin/dev分支的链接，根据提示，设置dev和origin/dev的链接：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch --set-upstream-to origin/v1 v1_xiaoqiang</div></pre></td></tr></table></figure>
+<h4 id="合并-merge"><a href="#合并-merge" class="headerlink" title="合并(merge)"></a>合并(merge)</h4><p>下面是使用过的一个合并步骤,切换到v1分支，v1分支是开发的主分支：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout v1</div></pre></td></tr></table></figure>
+<p>将远程分支更新获取并合并到v1分支：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull origin v1</div></pre></td></tr></table></figure>
+<p>查看当前分支：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch</div></pre></td></tr></table></figure>
+<p>假如当前分支为名称：v1_xiaoqiang,将v1分支合并到当前分支：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#切换到v1_xiaoqiang分支</span></div><div class="line">git checkout v1_xiaoqiang</div><div class="line"><span class="comment">#合并到v1分支</span></div><div class="line">git merge v1</div></pre></td></tr></table></figure>
 <h4 id="Stash"><a href="#Stash" class="headerlink" title="Stash"></a>Stash</h4><p>“‘储藏”“可以获取你工作目录的中间状态——也就是你修改过的被追踪的文件和暂存的变更——并将它保存到一个未完结变更的堆栈中，随时可以重新应用。往堆栈推送一个新的储藏，只要运行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git stash</div></pre></td></tr></table></figure>
 <p>查看储藏：</p>
@@ -252,9 +311,9 @@
       <url>http://jiangxiaoqiang.com/2016/12/16/fedora-software/</url>
       <content type="html"><![CDATA[<p>使用Fedora 24有一段时间了，这里列出了平时总结的在Fedora上可以使用的一些软件，完成平时的任务。如果您也要尝试使用Fedora，或许可以节省不少时间。列出的软件大多数是跨平台(Crossplatform)的，可以运行在其他Linux发行版上，以及Mac OS和Windows上。</p>
 <a id="more"></a>
-<h4 id="wget"><a href="#wget" class="headerlink" title="wget"></a>wget</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget -c http://dl.zeroturnaround.com/idea/jr-ide-intellij-6.5.0_13-16.zip</div></pre></td></tr></table></figure>
+<h3 id="网络-Network"><a href="#网络-Network" class="headerlink" title="网络(Network)"></a>网络(Network)</h3><h4 id="wget"><a href="#wget" class="headerlink" title="wget"></a>wget</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget -c http://dl.zeroturnaround.com/idea/jr-ide-intellij-6.5.0_13-16.zip</div></pre></td></tr></table></figure>
 <p>-c参数表示断电续传。–continue： Continue getting a partially-downloaded file.  This is useful when you want to finish up a download started by a previous instance of Wget, or by another program.</p>
-<h4 id="NodeJS"><a href="#NodeJS" class="headerlink" title="NodeJS"></a>NodeJS</h4><p>本博客就是基于NodeJS生成，虽然不是很懂NodeJS，但是感觉很牛逼的样子。</p>
+<h4 id="编程开发（Development）"><a href="#编程开发（Development）" class="headerlink" title="编程开发（Development）"></a>编程开发（Development）</h4><h4 id="NodeJS"><a href="#NodeJS" class="headerlink" title="NodeJS"></a>NodeJS</h4><p>本博客就是基于NodeJS生成，虽然不是很懂NodeJS，但是感觉很牛逼的样子。</p>
 <h4 id="nmap"><a href="#nmap" class="headerlink" title="nmap"></a>nmap</h4><p>端口扫描。</p>
 <h4 id="Fiddler-for-Linux"><a href="#Fiddler-for-Linux" class="headerlink" title="Fiddler for Linux"></a>Fiddler for Linux</h4><h4 id="Apache-Tomcat"><a href="#Apache-Tomcat" class="headerlink" title="Apache Tomcat"></a>Apache Tomcat</h4><h4 id="OpenVPN"><a href="#OpenVPN" class="headerlink" title="OpenVPN"></a>OpenVPN</h4><h4 id="StarDict"><a href="#StarDict" class="headerlink" title="StarDict"></a>StarDict</h4><h4 id="htop"><a href="#htop" class="headerlink" title="htop"></a>htop</h4><p>htop是实时显示当前系统运行情况的，不同于ps、pstree、pidof、vmsta等这些快照工具，快照工具只能显示命令执行前一秒系统的情况。htop 对关键信息实行高亮显示，对于我们用肉眼查看进程信息的情况相当友好。</p>
 <table>
@@ -370,7 +429,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">7z e Netty权威指南\ PDF完整版带目录书签.7z</div></pre></td></tr></table></figure>
 <p>输出的结果如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">7-Zip [64] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21</div><div class="line">p7zip Version 16.02 (locale=en_US.UTF-8,Utf16=on,HugeFiles=on,64 bits,8 CPUs Intel(R) Core(TM) i7-3632QM CPU @ 2.20GHz (306A9),ASM,AES-NI)</div><div class="line"></div><div class="line">Scanning the drive for archives:</div><div class="line">1 file, 61246559 bytes (59 MiB)</div><div class="line"></div><div class="line">Extracting archive: Netty权威指南 PDF完整版带目录书签.7z</div><div class="line">--</div><div class="line">Path = Netty权威指南 PDF完整版带目录书签.7z</div><div class="line">Type = 7z</div><div class="line">Physical Size = 61246559</div><div class="line">Headers Size = 306</div><div class="line">Method = LZMA2:24</div><div class="line">Solid = +</div><div class="line">Blocks = 1</div><div class="line"></div><div class="line">Everything is Ok                                                           </div><div class="line"></div><div class="line">Files: 3</div><div class="line">Size:       86833121</div><div class="line">Compressed: 61246559</div></pre></td></tr></table></figure>
-<h4 id="VLC-Media-Player"><a href="#VLC-Media-Player" class="headerlink" title="VLC Media Player"></a>VLC Media Player</h4><h4 id="Electronic-Wechat"><a href="#Electronic-Wechat" class="headerlink" title="Electronic-Wechat"></a>Electronic-Wechat</h4><p>基于微信网页版微信，结合Electron开发的基于Linux的微信客户端。</p>
+<h3 id="影音娱乐-Media-amp-Entertainment"><a href="#影音娱乐-Media-amp-Entertainment" class="headerlink" title="影音娱乐(Media&amp;Entertainment)"></a>影音娱乐(Media&amp;Entertainment)</h3><h4 id="VLC-Media-Player"><a href="#VLC-Media-Player" class="headerlink" title="VLC Media Player"></a>VLC Media Player</h4><h4 id="Electronic-Wechat"><a href="#Electronic-Wechat" class="headerlink" title="Electronic-Wechat"></a>Electronic-Wechat</h4><p>基于微信网页版微信，结合Electron开发的基于Linux的微信客户端。</p>
 <h4 id="Shutter"><a href="#Shutter" class="headerlink" title="Shutter"></a>Shutter</h4><p>Linux下的截图工具。</p>
 <h4 id="Intellij-Idea"><a href="#Intellij-Idea" class="headerlink" title="Intellij Idea"></a>Intellij Idea</h4><p>Linux下Java开发必备工具。</p>
 <h4 id="FileZilla"><a href="#FileZilla" class="headerlink" title="FileZilla"></a>FileZilla</h4><h4 id="Slack"><a href="#Slack" class="headerlink" title="Slack"></a>Slack</h4><h4 id="Wireshark"><a href="#Wireshark" class="headerlink" title="Wireshark"></a>Wireshark</h4><h4 id="Transmission"><a href="#Transmission" class="headerlink" title="Transmission"></a>Transmission</h4><p>Linux下torrent下载工具。</p>
@@ -380,7 +439,7 @@
 <h4 id="xx-net"><a href="#xx-net" class="headerlink" title="xx-net"></a>xx-net</h4><p>如果平时需要用Google搜索一些资料，xx-net是一款必不可少的工具。</p>
 <h4 id="Atom"><a href="#Atom" class="headerlink" title="Atom"></a>Atom</h4><h4 id="aMule"><a href="#aMule" class="headerlink" title="aMule"></a>aMule</h4><h4 id="TexStudio"><a href="#TexStudio" class="headerlink" title="TexStudio"></a>TexStudio</h4><h4 id="Nutstore"><a href="#Nutstore" class="headerlink" title="Nutstore"></a>Nutstore</h4><p>跨平台的云同步软件。</p>
 <h4 id="Haroopad"><a href="#Haroopad" class="headerlink" title="Haroopad"></a>Haroopad</h4><p>跨平台Markdown编辑器。</p>
-<h4 id="KeePass"><a href="#KeePass" class="headerlink" title="KeePass"></a>KeePass</h4><p>KeePass是一款密码管理软件，我的密码有100多个。平时没法全部都记住的，所以只需要记住一个KeePass密码即可。KeePass可以同时安装在Windows、Linux上。</p>
+<h3 id="工具-Tools"><a href="#工具-Tools" class="headerlink" title="工具(Tools)"></a>工具(Tools)</h3><h4 id="KeePass"><a href="#KeePass" class="headerlink" title="KeePass"></a>KeePass</h4><p>KeePass是一款密码管理软件，我的密码有100多个。平时没法全部都记住的，所以只需要记住一个KeePass密码即可。KeePass可以同时安装在Windows、Linux上。</p>
 ]]></content>
     </entry>
     
@@ -1734,6 +1793,9 @@ public int hashCode() {
 <p>$_GET只能获取到参数a,由于url中有&amp;，其他参数获取不到，在linux系统中&amp;会使进程系统后台运行,必须对&amp;进行下转义才能$_GET获取到所有参数。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl http://mywebsite.com/index.php?a=1\&amp;b=2\&amp;c=3</div></pre></td></tr></table></figure>
 <p>这一个细节需要注意。</p>
+<h4 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h4><p>如下命令是使用curl下载XX-net工具。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -o xxnet.zip https://codeload.github.com/XX-net/XX-Net/zip/3.2.8</div></pre></td></tr></table></figure>
+<p>-o, –output <file>，文件的保存名称。</file></p>
 <p>参考资料：</p>
 <ul>
 <li><a href="http://www.ruanyifeng.com/blog/2011/09/curl.html" target="_blank" rel="external">curl网站开发指南</a></li>
@@ -2246,6 +2308,10 @@ public int hashCode() {
 <td>Ctrl + Shift + N(New)</td>
 <td style="text-align:center">打開一個新的終端</td>
 </tr>
+<tr>
+<td>Ctrl + Alt + Del</td>
+<td style="text-align:center">调出关机界面</td>
+</tr>
 </tbody>
 </table>
 <a id="more"></a>
@@ -2389,7 +2455,7 @@ public int hashCode() {
 <h5 id="安装代理切换插件"><a href="#安装代理切换插件" class="headerlink" title="安装代理切换插件"></a>安装代理切换插件</h5><p>打开Google Chrome浏览器，切换到插件管理页面,可以选择Settings-Extensions,也可以访问链接：<code>chrome://extensions/</code>，将文件<code>/opt/xx-net/SwitchyOmega/SwitchyOmega.crx</code>托放到浏览器中，即可安装代理自动切换插件SwitchyOmega。</p>
 <h5 id="导入证书"><a href="#导入证书" class="headerlink" title="导入证书"></a>导入证书</h5><p>在Google Chrome浏览器中，访问地址：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chrome://settings/certificates</div></pre></td></tr></table></figure>
-<p>选择Authorities选项卡，选择导入(Import)证书。如下图所示。</p>
+<p>选择Authorities选项卡，选择导入(Import)证书。证书的存放路径为:<code>/data/gae-proxy/</code>下。如下图所示。</p>
 <img src="/2016/10/15/Fedora-24-using-xxnet/import-authorize.png" alt="Google-Chrome导入证书" title="Google-Chrome导入证书">
 <p>证书导入完成后在浏览器中访问地址：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">localhost:8085</div></pre></td></tr></table></figure>
@@ -3127,6 +3193,10 @@ public int hashCode() {
 <tr>
 <td>Ctrl + H</td>
 <td style="text-align:center">显示类的层次结构(Hierarchy)</td>
+</tr>
+<tr>
+<td>Alt + F12</td>
+<td style="text-align:center">激活Terminal</td>
 </tr>
 </tbody>
 </table>

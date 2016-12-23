@@ -92,7 +92,7 @@
 <meta property="og:description" content="虽然此处实际在Linux平台进行的配置，但是XX-Net是跨平台的，在Windows、Mac OS下一样可以使用，在其他的操作系统下配置类似。在Fedora 24中安装完Google Chrome之后，还需要同步在Windows平台上保存的Google Chrome的书签（里面有好多收藏的好网站）、Cookie(不用每次登陆网页输入用户名和密码，记忆用户名和密码非常具有迷惑性，目前注册的用户名密码">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/10/15/Fedora-24-using-xxnet/import-authorize.png">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/10/15/Fedora-24-using-xxnet/configuration-success.png">
-<meta property="og:updated_time" content="2016-10-16T13:28:35.495Z">
+<meta property="og:updated_time" content="2016-12-23T12:29:52.756Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Fedora 24中使用xx-net">
 <meta name="twitter:description" content="虽然此处实际在Linux平台进行的配置，但是XX-Net是跨平台的，在Windows、Mac OS下一样可以使用，在其他的操作系统下配置类似。在Fedora 24中安装完Google Chrome之后，还需要同步在Windows平台上保存的Google Chrome的书签（里面有好多收藏的好网站）、Cookie(不用每次登陆网页输入用户名和密码，记忆用户名和密码非常具有迷惑性，目前注册的用户名密码">
@@ -358,7 +358,7 @@
 <h5 id="安装代理切换插件"><a href="#安装代理切换插件" class="headerlink" title="安装代理切换插件"></a>安装代理切换插件</h5><p>打开Google Chrome浏览器，切换到插件管理页面,可以选择Settings-Extensions,也可以访问链接：<code>chrome://extensions/</code>，将文件<code>/opt/xx-net/SwitchyOmega/SwitchyOmega.crx</code>托放到浏览器中，即可安装代理自动切换插件SwitchyOmega。</p>
 <h5 id="导入证书"><a href="#导入证书" class="headerlink" title="导入证书"></a>导入证书</h5><p>在Google Chrome浏览器中，访问地址：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chrome://settings/certificates</div></pre></td></tr></table></figure>
-<p>选择Authorities选项卡，选择导入(Import)证书。如下图所示。</p>
+<p>选择Authorities选项卡，选择导入(Import)证书。证书的存放路径为:<code>/data/gae-proxy/</code>下。如下图所示。</p>
 <img src="/2016/10/15/Fedora-24-using-xxnet/import-authorize.png" alt="Google-Chrome导入证书" title="Google-Chrome导入证书">
 <p>证书导入完成后在浏览器中访问地址：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">localhost:8085</div></pre></td></tr></table></figure>
