@@ -96,7 +96,7 @@ Mapper文件中遍历集合参数在遍历List时，直接使用如下的语句�
 
 Mapper文件中遍历集合参数在遍历List时，直接使用如下的语句即可：
 12345select * from table&amp;lt;where&amp;gt;    id in &amp;lt;foreach collection=&quot;ids&quot; item=&quot;item&quot; index=&quot;index&quot;open=&quot;(&quot; separator">
-<meta property="og:updated_time" content="2016-12-23T12:29:52.758Z">
+<meta property="og:updated_time" content="2016-12-24T13:15:28.957Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MyBatis使用">
 <meta name="twitter:description" content="Java的实体属性中，属性赋值时是区分大小写的，比如adog不能成功映射到aDog
@@ -383,6 +383,10 @@ Mapper文件中遍历集合参数在遍历List时，直接使用如下的语句�
 <p>总结：<br>写一句SQL-例如：select <em> from user_role where user_code = “100”;<br>这句话而言，需要写成 select </em> from ${tableName} where user_code = #{userCode}<br>所以，$符是直接拼成sql的 ，#符则会以字符串的形式 与sql进行拼接。<br>在直接拼接规则的时候可以用$，规则已经有了，只是传递参数进去，那么可以用#。</p>
 <h4 id="parameter参数"><a href="#parameter参数" class="headerlink" title="_parameter参数"></a>_parameter参数</h4><p>错误：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">There is no getter for property named &apos;moduleCode&apos; in &apos;class java.lang.String</div></pre></td></tr></table></figure>
+<p>将映射语句由：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findByUUID"</span> <span class="attr">parameterType</span>=<span class="string">"java.lang.String"</span> <span class="attr">resultMap</span>=<span class="string">"Corporation"</span>&gt;</span></div><div class="line">     SELECT *</div><div class="line">     FROM TS_F_CORPORATION</div><div class="line">     WHERE ID = &amp;apos;$&#123;id&#125;&amp;apos;;</div><div class="line"> <span class="tag">&lt;/<span class="name">select</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>改为：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findByUUID"</span> <span class="attr">parameterType</span>=<span class="string">"java.lang.String"</span> <span class="attr">resultMap</span>=<span class="string">"Corporation"</span>&gt;</span></div><div class="line">     SELECT *</div><div class="line">     FROM TS_F_CORPORATION</div><div class="line">     WHERE ID = &amp;apos;$&#123;_parameter&#125;&amp;apos;;</div><div class="line"> <span class="tag">&lt;/<span class="name">select</span>&gt;</span></div></pre></td></tr></table></figure>
 <h4 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h4><h5 id="Mybatis-PageHelper"><a href="#Mybatis-PageHelper" class="headerlink" title="Mybatis-PageHelper"></a>Mybatis-PageHelper</h5>
       
     </div>
@@ -496,7 +500,7 @@ Mapper文件中遍历集合参数在遍历List时，直接使用如下的语句�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">118</span>
+              <span class="site-state-item-count">120</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -504,7 +508,7 @@ Mapper文件中遍历集合参数在遍历List时，直接使用如下的语句�
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -513,7 +517,7 @@ Mapper文件中遍历集合参数在遍历List时，直接使用如下的语句�
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">132</span>
+                <span class="site-state-item-count">135</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

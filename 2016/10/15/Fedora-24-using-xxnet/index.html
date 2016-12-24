@@ -92,7 +92,7 @@
 <meta property="og:description" content="虽然此处实际在Linux平台进行的配置，但是XX-Net是跨平台的，在Windows、Mac OS下一样可以使用，在其他的操作系统下配置类似。在Fedora 24中安装完Google Chrome之后，还需要同步在Windows平台上保存的Google Chrome的书签（里面有好多收藏的好网站）、Cookie(不用每次登陆网页输入用户名和密码，记忆用户名和密码非常具有迷惑性，目前注册的用户名密码">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/10/15/Fedora-24-using-xxnet/import-authorize.png">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/10/15/Fedora-24-using-xxnet/configuration-success.png">
-<meta property="og:updated_time" content="2016-12-23T12:29:52.756Z">
+<meta property="og:updated_time" content="2016-12-24T13:15:28.957Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Fedora 24中使用xx-net">
 <meta name="twitter:description" content="虽然此处实际在Linux平台进行的配置，但是XX-Net是跨平台的，在Windows、Mac OS下一样可以使用，在其他的操作系统下配置类似。在Fedora 24中安装完Google Chrome之后，还需要同步在Windows平台上保存的Google Chrome的书签（里面有好多收藏的好网站）、Cookie(不用每次登陆网页输入用户名和密码，记忆用户名和密码非常具有迷惑性，目前注册的用户名密码">
@@ -354,8 +354,9 @@
 <h4 id="下载xx-net"><a href="#下载xx-net" class="headerlink" title="下载xx-net"></a>下载xx-net</h4><p>下载在<a href="https://github.com/XX-net/XX-Net/blob/master/code/default/download.md" target="_blank" rel="external">Github</a>.这里下载的是稳定版(Stable Version).</p>
 <h4 id="启动xx-net"><a href="#启动xx-net" class="headerlink" title="启动xx-net"></a>启动xx-net</h4><p>下载完毕后,解压文件夹，在终端中切换到解压的文件夹下，运行启动命令。如果是在Windows下，运行<code>start.vbs</code>。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./start</div></pre></td></tr></table></figure>
-<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>配置主要分为两步，第一步是安装代理自动切换插件，第二步是导入证书。</p>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>配置主要分为两步，第一步是安装代理自动切换插件，第二步是导入备份文件，第三步是导入证书。</p>
 <h5 id="安装代理切换插件"><a href="#安装代理切换插件" class="headerlink" title="安装代理切换插件"></a>安装代理切换插件</h5><p>打开Google Chrome浏览器，切换到插件管理页面,可以选择Settings-Extensions,也可以访问链接：<code>chrome://extensions/</code>，将文件<code>/opt/xx-net/SwitchyOmega/SwitchyOmega.crx</code>托放到浏览器中，即可安装代理自动切换插件SwitchyOmega。</p>
+<h4 id="导入备份文件"><a href="#导入备份文件" class="headerlink" title="导入备份文件"></a>导入备份文件</h4><p>到SwitchyOmega的设置页面，找到Import/Export选项卡即可。导入完成后，点击SwitchyOmega，切换成“XX-Net自动切换”，如果使用的是X-Tunnel或SS，请点击“X-Tunnel自动切换”。</p>
 <h5 id="导入证书"><a href="#导入证书" class="headerlink" title="导入证书"></a>导入证书</h5><p>在Google Chrome浏览器中，访问地址：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chrome://settings/certificates</div></pre></td></tr></table></figure>
 <p>选择Authorities选项卡，选择导入(Import)证书。证书的存放路径为:<code>/data/gae-proxy/</code>下。如下图所示。</p>
@@ -365,6 +366,10 @@
 <p>出现如下图所示页面表示导入成功。</p>
 <img src="/2016/10/15/Fedora-24-using-xxnet/configuration-success.png" alt="Google-Chrome导入证书" title="Google-Chrome导入证书">
 <h4 id="验证配置并使用"><a href="#验证配置并使用" class="headerlink" title="验证配置并使用"></a>验证配置并使用</h4><p>访问Google搜索引擎，如果能够成功访问Google,代表配置成功。如果首次无法访问，可以待后台程序多运行一些时间，几十分钟到几小时不等。一段时间之后再次尝试。需要注意的是XX-Net代理上网不具有匿名性，或者说匿名性很弱。</p>
+<p>参考资料：</p>
+<ul>
+<li><a href="https://github.com/XX-net/XX-Net/wiki/%E4%BD%BF%E7%94%A8Chrome%E6%B5%8F%E8%A7%88%E5%99%A8" target="_blank" rel="external">使用Chrome浏览器</a></li>
+</ul>
 
       
     </div>
@@ -480,7 +485,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">118</span>
+              <span class="site-state-item-count">120</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -488,7 +493,7 @@
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -497,7 +502,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">132</span>
+                <span class="site-state-item-count">135</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -558,7 +563,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#xx-net简介"><span class="nav-number">1.</span> <span class="nav-text">xx-net简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载xx-net"><span class="nav-number">2.</span> <span class="nav-text">下载xx-net</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动xx-net"><span class="nav-number">3.</span> <span class="nav-text">启动xx-net</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置"><span class="nav-number">4.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装代理切换插件"><span class="nav-number">4.1.</span> <span class="nav-text">安装代理切换插件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#导入证书"><span class="nav-number">4.2.</span> <span class="nav-text">导入证书</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#验证配置并使用"><span class="nav-number">5.</span> <span class="nav-text">验证配置并使用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#xx-net简介"><span class="nav-number">1.</span> <span class="nav-text">xx-net简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载xx-net"><span class="nav-number">2.</span> <span class="nav-text">下载xx-net</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动xx-net"><span class="nav-number">3.</span> <span class="nav-text">启动xx-net</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置"><span class="nav-number">4.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装代理切换插件"><span class="nav-number">4.1.</span> <span class="nav-text">安装代理切换插件</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导入备份文件"><span class="nav-number">5.</span> <span class="nav-text">导入备份文件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#导入证书"><span class="nav-number">5.1.</span> <span class="nav-text">导入证书</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#验证配置并使用"><span class="nav-number">6.</span> <span class="nav-text">验证配置并使用</span></a></li></ol></div>
             
           </div>
         </section>
