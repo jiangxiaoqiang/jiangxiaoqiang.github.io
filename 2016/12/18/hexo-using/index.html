@@ -102,7 +102,7 @@
 仅仅安装了Hexo还不可以在浏览器中查看效果，还需要安装Hexo Server模块：
 1npm install hexo-server --save
 安装之后就可以使用hexo server命令了。在Ubuntu下安装会出现获取文件失败的错误，可能需要多次">
-<meta property="og:updated_time" content="2016-12-19T14:38:29.684Z">
+<meta property="og:updated_time" content="2016-12-25T13:59:59.681Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo使用总结">
 <meta name="twitter:description" content="安装安装Hexo：
@@ -371,7 +371,12 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-server --save</div></pre></td></tr></table></figure>
 <p>安装之后就可以使用hexo server命令了。在Ubuntu下安装会出现获取文件失败的错误，可能需要多次尝试。提示：WARN  No layout: index.html时，一般是由于主题文件不存在导致，安装相应的主题即可。切换到源码目录下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure>
-<p>访问<a href="http://localhost:4000页面空白，提示can" target="_blank" rel="external">http://localhost:4000页面空白，提示can</a> not get /，此时需要在源码目录下运行一下npm install命令即可。</p>
+<p>访问<code>http://localhost:4000</code>页面空白，提示<code>can not get /</code>，此时需要在源码目录下运行一下npm install命令即可。</p>
+<h4 id="安装搜索模块"><a href="#安装搜索模块" class="headerlink" title="安装搜索模块"></a>安装搜索模块</h4><p>安装搜索模块可自定义站内搜索，在源码目录下执行如下命令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-searchdb --save</div></pre></td></tr></table></figure>
+<h4 id="安装Next主题"><a href="#安装Next主题" class="headerlink" title="安装Next主题"></a>安装Next主题</h4><p>next主题是Hexo下一款非常简洁美观的主题，切换到themes目录下，执行如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure>
+<h4 id="设置菜单"><a href="#设置菜单" class="headerlink" title="设置菜单"></a>设置菜单</h4><p>可以自己添加相应菜单，可以在一级菜单上添加一个书(Book)或者其他模块。</p>
 
       
     </div>
@@ -485,7 +490,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">120</span>
+              <span class="site-state-item-count">124</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -493,7 +498,7 @@
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -502,7 +507,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">135</span>
+                <span class="site-state-item-count">136</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -563,7 +568,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装搜索模块"><span class="nav-number">2.</span> <span class="nav-text">安装搜索模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Next主题"><span class="nav-number">3.</span> <span class="nav-text">安装Next主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置菜单"><span class="nav-number">4.</span> <span class="nav-text">设置菜单</span></a></li></ol></div>
             
           </div>
         </section>

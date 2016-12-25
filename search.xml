@@ -4,6 +4,110 @@
   
     
     <entry>
+      <title><![CDATA[uget使用]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/25/uget-using/</url>
+      <content type="html"><![CDATA[<p>uGet is the #1 Open Source Download Manager app.uGet is a multi-platform app for Linux, BSD, Android &amp; Windows (XP - 8)</p>
+<a id="more"></a>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>在Ubuntu 16.04中，输入如下命令安装uGet。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install uget -y</div></pre></td></tr></table></figure>
+<p>打开uGet即可使用，如下图所示：</p>
+<img src="/2016/12/25/uget-using/uget-ui.jpg" alt="uGet界面" title="uGet界面">
+<h4 id="插件-Plugin"><a href="#插件-Plugin" class="headerlink" title="插件(Plugin)"></a>插件(Plugin)</h4><p>uGet可以作为aria2的UI，aria2下载工具特点：</p>
+<ul>
+<li>支持http/https/ftp/bt协议</li>
+<li>支持metalink3.0，metalink是一种可以将不同协议下载的同一文件集合到一起以达到最大下载稳定性和速度</li>
+<li>支持分段下载和续传</li>
+<li>支持通过http代理的ftp下载</li>
+<li>可以作为守护进程(Deamon)运行</li>
+</ul>
+<p>输入如下命令安装aria2：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install aria2 -y</div></pre></td></tr></table></figure>
+<p>安装完毕后在uGet中(uget→编辑(Edit)→设置(Settings))进行设置即可，如下图所示：</p>
+<img src="/2016/12/25/uget-using/uget-aria2-plugin-settings.jpg" alt="uGet aria2插件设置" title="uGet aria2插件设置">
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[vim使用]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/24/vim-using/</url>
+      <content type="html"><![CDATA[<h4 id="替換（substitute）"><a href="#替換（substitute）" class="headerlink" title="替換（substitute）"></a>替換（substitute）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:[range]s/pattern/string/[c,e,g,i]</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>range</td>
+<td>指的是範圍，1,7 指從第一行至第七行，1,$ 指從第一行至最後一行，也就是整篇文章，也可以 % 代表。還記得嗎？ % 是目前編輯的文章，# 是前一次編輯的文章。</td>
+</tr>
+<tr>
+<td>pattern</td>
+<td>就是要被替換掉的字串，可以用 regexp 來表示。</td>
+</tr>
+<tr>
+<td>tring</td>
+<td>將pattern 由 string 所取代。</td>
+</tr>
+<tr>
+<td>c</td>
+<td>confirm，每次替換前會詢問。</td>
+</tr>
+<tr>
+<td>e</td>
+<td>不顯示 error。</td>
+</tr>
+<tr>
+<td>g</td>
+<td>globe，不詢問，整行替換。</td>
+</tr>
+<tr>
+<td>i</td>
+<td>ignore 不分大小寫。</td>
+</tr>
+</tbody>
+</table>
+<p>g 大概都是要加的，否則只會替換每一行的第一個符合字串。可以合起來用，如 cgi，表示不分大小寫，整行替換，替換前要詢問是否替換。</p>
+<h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>shift + g(G)</td>
+<td>跳转到文件末尾</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Ubuntu常用软件一键安装]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/24/ubuntu-install-software-batch/</url>
+      <content type="html"><![CDATA[<p>进公司时同事帮助安装Ubuntu操作系统时，使用脚本安装软件，非常之快。2小时之内，包括操作系统和开发环境皆搭建完毕。或许我们都有搭建开发环境的经历，半天能够搞定还算是比较顺利的。中间还不能出什么幺蛾子，要是再遇到点奇奇怪怪的问题，耗费的时间更长了。这里也见识到了Linux的搞笑和方便。</p>
+<a id="more"></a>
+<p>仔细观察，他是许多软件用几行简单的命令皆搞定了，所以我想编写一个简单的Bash脚本，争取一个脚本搞定大部分软件安装工作。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Linux压缩包管理]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/24/linux-compress-package-management/</url>
+      <content type="html"><![CDATA[<h4 id="tar-bz2"><a href="#tar-bz2" class="headerlink" title="tar.bz2"></a>tar.bz2</h4><p>解压tar.bz2的命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -jxvf xx.tar.bz2</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="tar-gz"><a href="#tar-gz" class="headerlink" title="tar.gz"></a>tar.gz</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -xzvf example.tar.gz</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[初识React]]></title>
       <url>http://jiangxiaoqiang.com/2016/12/23/react-using/</url>
       <content type="html"><![CDATA[<p>React 起源于 Facebook 的内部项目，因为该公司对市场上所有 JavaScript MVC 框架，都不满意，就决定自己写一套，用来架设Instagram的网站。</p>
@@ -69,6 +173,9 @@
 <h4 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h4><ul>
 <li>长按Windows键会出现全局快捷键页面</li>
 </ul>
+<h5 id="设置Terminal默认路径"><a href="#设置Terminal默认路径" class="headerlink" title="设置Terminal默认路径"></a>设置Terminal默认路径</h5><p>一般情况下，在终端里有一个最高频的使用目录，希望打开终端时默认切换到此目录下。在Ubuntu里可以在Home目录下的bashrc<code>~/.bashrc</code>脚本里添加如下代码即可：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> [ <span class="_">-d</span> ~/document/blogs/jiangxiaoqiang/xiaoqiang-blog-source ];<span class="keyword">then</span></div><div class="line">    <span class="built_in">cd</span> ~/document/blogs/jiangxiaoqiang/xiaoqiang-blog-source</div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
+<p>代码的含义是，如果当前目录不在<code>~/document/blogs/jiangxiaoqiang/xiaoqiang-blog-source</code>目录下，那么就切换到此目录。下一次打开终端时默认路径即为：<code>~/document/blogs/jiangxiaoqiang/xiaoqiang-blog-source</code></p>
 <h4 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h4><table>
 <thead>
 <tr>
@@ -189,7 +296,7 @@
 <p>查看当前分支：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch</div></pre></td></tr></table></figure>
 <p>假如当前分支为名称：v1_xiaoqiang,将v1分支合并到当前分支：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#切换到v1_xiaoqiang分支</span></div><div class="line">git checkout v1_xiaoqiang</div><div class="line"><span class="comment">#合并到v1分支</span></div><div class="line">git merge v1</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#切换到v1_xiaoqiang分支</span></div><div class="line">git checkout v1_xiaoqiang</div><div class="line"><span class="comment">#将v1分支合并到当前分支（v1_xiaoqiang）</span></div><div class="line">git merge v1</div></pre></td></tr></table></figure>
 <h4 id="Stash"><a href="#Stash" class="headerlink" title="Stash"></a>Stash</h4><p>“‘储藏”“可以获取你工作目录的中间状态——也就是你修改过的被追踪的文件和暂存的变更——并将它保存到一个未完结变更的堆栈中，随时可以重新应用。往堆栈推送一个新的储藏，只要运行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git stash</div></pre></td></tr></table></figure>
 <p>查看储藏：</p>
@@ -289,7 +396,12 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-server --save</div></pre></td></tr></table></figure>
 <p>安装之后就可以使用hexo server命令了。在Ubuntu下安装会出现获取文件失败的错误，可能需要多次尝试。提示：WARN  No layout: index.html时，一般是由于主题文件不存在导致，安装相应的主题即可。切换到源码目录下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure>
-<p>访问<a href="http://localhost:4000页面空白，提示can" target="_blank" rel="external">http://localhost:4000页面空白，提示can</a> not get /，此时需要在源码目录下运行一下npm install命令即可。</p>
+<p>访问<code>http://localhost:4000</code>页面空白，提示<code>can not get /</code>，此时需要在源码目录下运行一下npm install命令即可。</p>
+<h4 id="安装搜索模块"><a href="#安装搜索模块" class="headerlink" title="安装搜索模块"></a>安装搜索模块</h4><p>安装搜索模块可自定义站内搜索，在源码目录下执行如下命令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-searchdb --save</div></pre></td></tr></table></figure>
+<h4 id="安装Next主题"><a href="#安装Next主题" class="headerlink" title="安装Next主题"></a>安装Next主题</h4><p>next主题是Hexo下一款非常简洁美观的主题，切换到themes目录下，执行如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure>
+<h4 id="设置菜单"><a href="#设置菜单" class="headerlink" title="设置菜单"></a>设置菜单</h4><p>可以自己添加相应菜单，可以在一级菜单上添加一个书(Book)或者其他模块。</p>
 ]]></content>
     </entry>
     
@@ -340,7 +452,8 @@
 <a id="more"></a>
 <h3 id="网络-Network"><a href="#网络-Network" class="headerlink" title="网络(Network)"></a>网络(Network)</h3><h4 id="httrack"><a href="#httrack" class="headerlink" title="httrack"></a>httrack</h4><p>网页下载与缓存。</p>
 <h4 id="wget"><a href="#wget" class="headerlink" title="wget"></a>wget</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget -c http://dl.zeroturnaround.com/idea/jr-ide-intellij-6.5.0_13-16.zip</div></pre></td></tr></table></figure>
-<p>-c参数表示断电续传。–continue： Continue getting a partially-downloaded file.  This is useful when you want to finish up a download started by a previous instance of Wget, or by another program.</p>
+<p>-c参数表示断点续传。–continue： Continue getting a partially-downloaded file.  This is useful when you want to finish up a download started by a previous instance of Wget, or by another program.</p>
+<h4 id="uGet"><a href="#uGet" class="headerlink" title="uGet"></a>uGet</h4><p>uGet is the #1 Open Source Download Manager app.uGet is a multi-platform app for Linux, BSD, Android &amp; Windows (XP - 8)</p>
 <h4 id="编程开发（Development）"><a href="#编程开发（Development）" class="headerlink" title="编程开发（Development）"></a>编程开发（Development）</h4><h4 id="NodeJS"><a href="#NodeJS" class="headerlink" title="NodeJS"></a>NodeJS</h4><p>本博客就是基于NodeJS生成，虽然不是很懂NodeJS，但是感觉很牛逼的样子。</p>
 <h4 id="nmap"><a href="#nmap" class="headerlink" title="nmap"></a>nmap</h4><p>端口扫描。</p>
 <h4 id="Fiddler-for-Linux"><a href="#Fiddler-for-Linux" class="headerlink" title="Fiddler for Linux"></a>Fiddler for Linux</h4><h4 id="Apache-Tomcat"><a href="#Apache-Tomcat" class="headerlink" title="Apache Tomcat"></a>Apache Tomcat</h4><h4 id="OpenVPN"><a href="#OpenVPN" class="headerlink" title="OpenVPN"></a>OpenVPN</h4><h4 id="StarDict"><a href="#StarDict" class="headerlink" title="StarDict"></a>StarDict</h4><h4 id="htop"><a href="#htop" class="headerlink" title="htop"></a>htop</h4><p>htop是实时显示当前系统运行情况的，不同于ps、pstree、pidof、vmsta等这些快照工具，快照工具只能显示命令执行前一秒系统的情况。htop 对关键信息实行高亮显示，对于我们用肉眼查看进程信息的情况相当友好。</p>
@@ -468,6 +581,7 @@
 <h4 id="Atom"><a href="#Atom" class="headerlink" title="Atom"></a>Atom</h4><h4 id="aMule"><a href="#aMule" class="headerlink" title="aMule"></a>aMule</h4><h4 id="TexStudio"><a href="#TexStudio" class="headerlink" title="TexStudio"></a>TexStudio</h4><h4 id="Nutstore"><a href="#Nutstore" class="headerlink" title="Nutstore"></a>Nutstore</h4><p>跨平台的云同步软件。</p>
 <h4 id="Haroopad"><a href="#Haroopad" class="headerlink" title="Haroopad"></a>Haroopad</h4><p>跨平台Markdown编辑器。</p>
 <h3 id="工具-Tools"><a href="#工具-Tools" class="headerlink" title="工具(Tools)"></a>工具(Tools)</h3><h4 id="KeePass"><a href="#KeePass" class="headerlink" title="KeePass"></a>KeePass</h4><p>KeePass是一款密码管理软件，我的密码有100多个。平时没法全部都记住的，所以只需要记住一个KeePass密码即可。KeePass可以同时安装在Windows、Linux上。</p>
+<h4 id="albert"><a href="#albert" class="headerlink" title="albert"></a>albert</h4><p>Albert is a desktop agnostic launcher, inspired by the ease of use of OSX’ Alfred launcher. Its goals are usability and beauty, performance and extensability. It is written in C++ and based on the Qt framework.</p>
 ]]></content>
     </entry>
     
@@ -587,6 +701,21 @@
     </entry>
     
     <entry>
+      <title><![CDATA[算法]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/14/algorithm/</url>
+      <content type="html"><![CDATA[<h4 id="汉诺塔算法"><a href="#汉诺塔算法" class="headerlink" title="汉诺塔算法"></a>汉诺塔算法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">hannoi</span><span class="params">(<span class="keyword">int</span> n, String from, String buffer, String to)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</div><div class="line">        System.out.println(<span class="string">"Move disk "</span> + n + <span class="string">" from "</span> + from + <span class="string">" to "</span> + to);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        hannoi(n - <span class="number">1</span>, from, to, buffer);</div><div class="line">        System.out.println(<span class="string">"Move disk "</span> + n + <span class="string">" from "</span> + from + <span class="string">" to "</span> + to);</div><div class="line">        hannoi(n - <span class="number">1</span>, buffer, from, to);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    hannoi(<span class="number">3</span>, <span class="string">"A"</span>, <span class="string">"B"</span>, <span class="string">"C"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><p>快速排序（英语：Quicksort），又称划分交换排序（partition-exchange sort），一种排序算法，最早由东尼·霍尔提出。在平均状况下，排序n个项目要Ο(n log n)次比较。在最坏状况下则需要Ο(n2)次比较，但这种状况并不常见。事实上，快速排序通常明显比其他Ο(n log n)算法更快，因为它的内部循环（inner loop）可以在大部分的架构上很有效率地被实现出来。</p>
+<p>快速排序使用分治法（Divide and conquer）策略来把一个序列（list）分为两个子序列（sub-lists）。<br>步骤为：</p>
+<ol>
+<li>从数列中挑出一个元素，称为”基准”（pivot）</li>
+<li>重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的数可以到任一边）。在这个分区结束之后，该基准就处于数列的中间位置。这个称为分区（partition）操作。</li>
+<li>递归地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序。<br>递归的最底部情形，是数列的大小是零或一，也就是永远都已经被排序好了。虽然一直递归下去，但是这个算法总会结束，因为在每次的迭代（iteration）中，它至少会把一个元素摆到它最后的位置去。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuickSort</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">static</span> <span class="keyword">int</span>[] arr;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> temp = arr[x];</div><div class="line">        arr[x] = arr[y];</div><div class="line">        arr[y] = temp;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quick_sort_recursive</span><span class="params">(<span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (start &gt;= end)</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        <span class="keyword">int</span> mid = arr[end];</div><div class="line">        <span class="keyword">int</span> left = start, right = end - <span class="number">1</span>;</div><div class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</div><div class="line">            <span class="keyword">while</span> (arr[left] &lt; mid &amp;&amp; left &lt; right)</div><div class="line">                left++;</div><div class="line">            <span class="keyword">while</span> (arr[right] &gt;= mid &amp;&amp; left &lt; right)</div><div class="line">                right--;</div><div class="line">            swap(left, right);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (arr[left] &gt;= arr[end]) &#123;</div><div class="line">            swap(left, end);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            left++;</div><div class="line">        &#125;</div><div class="line">        quick_sort_recursive(start, left - <span class="number">1</span>);</div><div class="line">        quick_sort_recursive(left + <span class="number">1</span>, end);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span>[] arrin)</span> </span>&#123;</div><div class="line">        arr = arrin;</div><div class="line">        quick_sort_recursive(<span class="number">0</span>, arr.length - <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] array = &#123;<span class="number">1</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">2</span>&#125;;</div><div class="line">        sort(array);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</div><div class="line">            <span class="keyword">int</span> sortedElement = array[i];</div><div class="line">            System.out.println(sortedElement);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[抽象类和接口区别]]></title>
       <url>http://jiangxiaoqiang.com/2016/12/14/abstract-and-interface-diff/</url>
       <content type="html"><![CDATA[<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><table>
@@ -646,21 +775,6 @@
 </tbody>
 </table>
 <h4 id="什么时候使用抽象类和接口"><a href="#什么时候使用抽象类和接口" class="headerlink" title="什么时候使用抽象类和接口"></a>什么时候使用抽象类和接口</h4><p>如果你拥有一些方法并且想让它们中的一些有默认实现，那么使用抽象类吧。<br>如果你想实现多重继承，那么你必须使用接口。由于Java不支持多继承，子类不能够继承多个类，但可以实现多个接口。因此你就可以使用接口来解决它。<br>如果基本功能在不断改变，那么就需要使用抽象类。如果不断改变基本功能并且使用接口，那么就需要改变所有实现了该接口的类。</p>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[算法]]></title>
-      <url>http://jiangxiaoqiang.com/2016/12/14/algorithm/</url>
-      <content type="html"><![CDATA[<h4 id="汉诺塔算法"><a href="#汉诺塔算法" class="headerlink" title="汉诺塔算法"></a>汉诺塔算法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">hannoi</span><span class="params">(<span class="keyword">int</span> n, String from, String buffer, String to)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</div><div class="line">        System.out.println(<span class="string">"Move disk "</span> + n + <span class="string">" from "</span> + from + <span class="string">" to "</span> + to);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        hannoi(n - <span class="number">1</span>, from, to, buffer);</div><div class="line">        System.out.println(<span class="string">"Move disk "</span> + n + <span class="string">" from "</span> + from + <span class="string">" to "</span> + to);</div><div class="line">        hannoi(n - <span class="number">1</span>, buffer, from, to);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    hannoi(<span class="number">3</span>, <span class="string">"A"</span>, <span class="string">"B"</span>, <span class="string">"C"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><p>快速排序（英语：Quicksort），又称划分交换排序（partition-exchange sort），一种排序算法，最早由东尼·霍尔提出。在平均状况下，排序n个项目要Ο(n log n)次比较。在最坏状况下则需要Ο(n2)次比较，但这种状况并不常见。事实上，快速排序通常明显比其他Ο(n log n)算法更快，因为它的内部循环（inner loop）可以在大部分的架构上很有效率地被实现出来。</p>
-<p>快速排序使用分治法（Divide and conquer）策略来把一个序列（list）分为两个子序列（sub-lists）。<br>步骤为：</p>
-<ol>
-<li>从数列中挑出一个元素，称为”基准”（pivot）</li>
-<li>重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的数可以到任一边）。在这个分区结束之后，该基准就处于数列的中间位置。这个称为分区（partition）操作。</li>
-<li>递归地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序。<br>递归的最底部情形，是数列的大小是零或一，也就是永远都已经被排序好了。虽然一直递归下去，但是这个算法总会结束，因为在每次的迭代（iteration）中，它至少会把一个元素摆到它最后的位置去。</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuickSort</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">static</span> <span class="keyword">int</span>[] arr;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> temp = arr[x];</div><div class="line">        arr[x] = arr[y];</div><div class="line">        arr[y] = temp;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quick_sort_recursive</span><span class="params">(<span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (start &gt;= end)</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        <span class="keyword">int</span> mid = arr[end];</div><div class="line">        <span class="keyword">int</span> left = start, right = end - <span class="number">1</span>;</div><div class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</div><div class="line">            <span class="keyword">while</span> (arr[left] &lt; mid &amp;&amp; left &lt; right)</div><div class="line">                left++;</div><div class="line">            <span class="keyword">while</span> (arr[right] &gt;= mid &amp;&amp; left &lt; right)</div><div class="line">                right--;</div><div class="line">            swap(left, right);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (arr[left] &gt;= arr[end]) &#123;</div><div class="line">            swap(left, end);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            left++;</div><div class="line">        &#125;</div><div class="line">        quick_sort_recursive(start, left - <span class="number">1</span>);</div><div class="line">        quick_sort_recursive(left + <span class="number">1</span>, end);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span>[] arrin)</span> </span>&#123;</div><div class="line">        arr = arrin;</div><div class="line">        quick_sort_recursive(<span class="number">0</span>, arr.length - <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] array = &#123;<span class="number">1</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">2</span>&#125;;</div><div class="line">        sort(array);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</div><div class="line">            <span class="keyword">int</span> sortedElement = array[i];</div><div class="line">            System.out.println(sortedElement);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 ]]></content>
     </entry>
     
@@ -2517,7 +2631,7 @@ public int hashCode() {
 <li>5:Start the system normally with appropriate display manager (with GUI)</li>
 <li>6:Reboot</li>
 </ul>
-<h4 id="登录后自动运行程序"><a href="#登录后自动运行程序" class="headerlink" title="登录后自动运行程序"></a>登录后自动运行程序</h4><p>用户登录时，bash首先自动执行系统管理员建立的全局登录script ：/etc/profile。然后bash在用户起始目录下按顺序查找三个特殊文件中的一个：/.bash_profile、/.bash_login、/.profile，但只执行最先找到的 一个。因此，只需根据实际需要在上述文件中加入命令就可以实现用户登录时自动运行某些程序（类似于DOS下的 Autoexec.bat）。简单的方法,在/etc/inittab 结尾加上你要启动的程序。/etc/profile： 此文件为系统的每个用户设置环境信息,当用户第一次登录时,该文件被执行。/etc/bashrc: 为每一个运行bash shell的用户执行此文件。~/.bashrc: 当登录时以及每次打开新的shell时,该文件被执行。设置登陆时启动OpenVPN,在<code>/etc/profile</code>文件中添加执行脚本：</p>
+<h4 id="登录后自动运行程序"><a href="#登录后自动运行程序" class="headerlink" title="登录后自动运行程序"></a>登录后自动运行程序</h4><p>用户登录时，bash首先自动执行系统管理员建立的全局登录script:<code>/etc/profile</code>。然后bash在用户起始目录下按顺序查找三个特殊文件中的一个：<code>/.bash_profile</code>、<code>/.bash_login</code>、<code>/.profile</code>，但只执行最先找到的 一个。因此，只需根据实际需要在上述文件中加入命令就可以实现用户登录时自动运行某些程序（类似于DOS下的 Autoexec.bat）。简单的方法,在/etc/inittab 结尾加上你要启动的程序。/etc/profile： 此文件为系统的每个用户设置环境信息,当用户第一次登录时,该文件被执行。<code>/etc/bashrc</code>: 为每一个运行bash shell的用户执行此文件。<code>~/.bashrc</code>: 当登录时以及每次打开新的shell时,该文件被执行。设置登陆时启动OpenVPN,在<code>/etc/profile</code>文件中添加执行脚本：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/etc/openvpn/startopenvpn.sh &amp; &gt;&gt; /tmp/openvpn.log</div></pre></td></tr></table></figure>
 <p>其中startopenvpn.sh脚本中：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /etc/openvpn</div><div class="line">nohup openvpn /etc/openvpn/client.conf</div></pre></td></tr></table></figure>
