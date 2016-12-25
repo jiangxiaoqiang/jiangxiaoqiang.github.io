@@ -277,6 +277,8 @@
 <h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#列出分支</span></div><div class="line">git branch</div></pre></td></tr></table></figure>
 <p>查看提交历史：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">log</span> --graph --all</div></pre></td></tr></table></figure>
+<p>Git保存用户名和密码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config credential.helper store</div></pre></td></tr></table></figure>
 <h4 id="发起pull-request"><a href="#发起pull-request" class="headerlink" title="发起pull request"></a>发起pull request</h4><p>新建(check out)分支v1_xiaoqiang：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b v1_xiaoqiang</div></pre></td></tr></table></figure>
 <table>
