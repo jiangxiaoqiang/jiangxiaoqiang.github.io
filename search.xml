@@ -4,6 +4,21 @@
   
     
     <entry>
+      <title><![CDATA[meld使用]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/25/meld-using/</url>
+      <content type="html"><![CDATA[<h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>Meld is a visual diff and merge tool targeted at developers. Meld helps you compare files, directories, and version controlled projects. It provides two- and three-way comparison of both files and directories, and has support for many popular version control systems.</p>
+<p>Meld helps you review code changes and understand patches. It might even help you to figure out what is going on in that merge you keep avoiding.</p>
+<a id="more"></a>
+<h4 id="安装与配置"><a href="#安装与配置" class="headerlink" title="安装与配置"></a>安装与配置</h4><p>输入如下命令安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#在Fedora 24中安装</span></div><div class="line">dnf install meld -y</div><div class="line"><span class="comment">#在Ubuntu 16.04中安装</span></div><div class="line">sudo apt install meld -y</div></pre></td></tr></table></figure>
+<p>配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#配置meld为默认的合并工具(Merge Tool)</span></div><div class="line">git config --global merge.tool meld</div></pre></td></tr></table></figure>
+<p>使用合并工具：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#使用merge tool合并</span></div><div class="line">git mergetool</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[uget使用]]></title>
       <url>http://jiangxiaoqiang.com/2016/12/25/uget-using/</url>
       <content type="html"><![CDATA[<p>uGet is the #1 Open Source Download Manager app.uGet is a multi-platform app for Linux, BSD, Android &amp; Windows (XP - 8)</p>
@@ -91,7 +106,7 @@
     <entry>
       <title><![CDATA[Ubuntu常用软件一键安装]]></title>
       <url>http://jiangxiaoqiang.com/2016/12/24/ubuntu-install-software-batch/</url>
-      <content type="html"><![CDATA[<p>进公司时同事帮助安装Ubuntu操作系统时，使用脚本安装软件，非常之快。2小时之内，包括操作系统和开发环境皆搭建完毕。或许我们都有搭建开发环境的经历，半天能够搞定还算是比较顺利的。中间还不能出什么幺蛾子，要是再遇到点奇奇怪怪的问题，耗费的时间更长了。这里也见识到了Linux的搞笑和方便。</p>
+      <content type="html"><![CDATA[<p>进公司时同事帮助安装Ubuntu操作系统时，使用脚本安装软件，非常之快。2小时之内，包括操作系统和开发环境皆搭建完毕。或许我们都有搭建开发环境的经历，半天能够搞定还算是比较顺利的。中间还不能出什么幺蛾子，要是再遇到点奇奇怪怪的问题，耗费的时间更长了。这里也见识到了Linux的高效和方便。</p>
 <a id="more"></a>
 <p>仔细观察，他是许多软件用几行简单的命令皆搞定了，所以我想编写一个简单的Bash脚本，争取一个脚本搞定大部分软件安装工作。</p>
 ]]></content>
