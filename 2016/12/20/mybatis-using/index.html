@@ -96,7 +96,7 @@ Mapper文件中遍历集合参数在遍历List时，直接使用如下的语句�
 
 Mapper文件中遍历集合参数在遍历List时，直接使用如下的语句即可：
 12345select * from table&amp;lt;where&amp;gt;    id in &amp;lt;foreach collection=&quot;ids&quot; item=&quot;item&quot; index=&quot;index&quot;open=&quot;(&quot; separator">
-<meta property="og:updated_time" content="2016-12-24T13:15:28.957Z">
+<meta property="og:updated_time" content="2016-12-26T12:48:48.684Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MyBatis使用">
 <meta name="twitter:description" content="Java的实体属性中，属性赋值时是区分大小写的，比如adog不能成功映射到aDog
@@ -368,7 +368,7 @@ Mapper文件中遍历集合参数在遍历List时，直接使用如下的语句�
 <p>在变量xdr上添加单引号，可以写成如下语句：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">select</span>&gt;</span></div><div class="line">    SELECT *</div><div class="line">    FROM TS_B_XZXK</div><div class="line">    <span class="tag">&lt;<span class="name">trim</span> <span class="attr">prefix</span>=<span class="string">"WHERE"</span> <span class="attr">prefixOverrides</span>=<span class="string">"AND|OR"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span> = <span class="string">"xdr != null"</span>&gt;</span>            </div><div class="line">        AND XDR like CONCAT('%', &amp;apos;$&#123;xdr&#125;&amp;apos;, '%')</div><div class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">trim</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></div></pre></td></tr></table></figure>
 <h4 id="传入参数"><a href="#传入参数" class="headerlink" title="传入参数"></a>传入参数</h4><p>ＭyBatis的传入参数可以是各种Java的基本数据类型：包含int,String,Date等。基本数据类型作为传参，只能传入一个。通过#{参数名}即可获取传入的值，复杂数据类型：包含Java实体类、Map。通过#{属性名}或#{map的KeyName}即可获取传入的值，但是如果想传入一个collection时，可以使用mapper配置文件中的foreach语句。</p>
-<h4 id="MyBatis中-与-的区别"><a href="#MyBatis中-与-的区别" class="headerlink" title="MyBatis中${}与#{}的区别"></a>MyBatis中${}与#{}的区别</h4><p>当使用#{parameterName}引入参数的时候，Mybatis会把这个参数认为是一个字符串，在拼接SQL的时候其实首先是一个问号（？），然后查询的时候，将参数引入到问号（？）之中。比如<br>    select <em> from emp where name = #{name}，这样的一个SQL，解析以后是select </em> from emp where name = ?，由于是#{name}的方式引入，那么就将问号（？）替换成#{name}的值，比如传进一个字符串”yedward”，那么最终的查询SQL是select * from emp where name = ‘yedward’。</p>
+<h4 id="MyBatis中-与-的区别"><a href="#MyBatis中-与-的区别" class="headerlink" title="MyBatis中${}与#{}的区别"></a>MyBatis中${}与#{}的区别</h4><p>当使用#{parameterName}引入参数的时候，Mybatis会把这个参数认为是一个字符串，在拼接SQL的时候其实首先是一个问号（？），然后查询的时候，将参数引入到问号（？）之中。比如<br>    <code>select * from emp where name = #{name}</code>，这样的一个SQL，解析以后是<code>select * from emp where name = ?</code>，由于是#{name}的方式引入，那么就将问号（？）替换成#{name}的值，比如传进一个字符串”yedward”，那么最终的查询SQL是<code>select * from emp where name = &#39;yedward&#39;</code>。可以理解为#可以进行预编译，进行类型匹配，而$不进行数据类型匹配。</p>
 <p>当使用${parameterName}引入参数的时候，Mybatis会将这个参数直接拼到SQL中去，就没有上面那种问号（？）。</p>
 <ol>
 <li><p>#将传入的数据都当成一个字符串，会对自动传入的数据加一个双引号。如：order by #user_id#，如果传入的值是111,那么解析成sql时的值为order by “111”, 如果传入的值是id，则解析成的sql为order by “id”</p>
@@ -376,18 +376,25 @@ Mapper文件中遍历集合参数在遍历List时，直接使用如下的语句�
 <li><p>$将传入的数据直接显示生成在sql中。如：order by $user_id$，如果传入的值是111,那么解析成sql时的值为order by user_id,  如果传入的值是id，则解析成的sql为order by id.
 　　</p>
 </li>
-<li>#方式能够很大程度防止sql注入。<br>　　<br>4.$方式无法防止Sql注入。</li>
+<li>#方式能够很大程度防止sql注入。
+　　</li>
+<li><p>$方式无法防止Sql注入。</p>
+</li>
+<li><p>$方式一般用于传入数据库对象，例如传入表名.<br> 注：MyBatis排序时使用order by 动态参数时用$而不是#</p>
+</li>
+<li><p>有时你只是想直接在SQL语句中插入一个不改变的字符串。比如，像ORDER BY，你可以这样来使用：<br> ORDER BY ${columnName}</p>
+</li>
 </ol>
-<p>5.$方式一般用于传入数据库对象，例如传入表名.<br>    注：MyBatis排序时使用order by 动态参数时用$而不是#</p>
-<p>6.有时你只是想直接在SQL语句中插入一个不改变的字符串。比如，像ORDER BY，你可以这样来使用：<br>    ORDER BY ${columnName}<br>这里MyBatis不会修改或转义字符串。</p>
-<p>总结：<br>写一句SQL-例如：select <em> from user_role where user_code = “100”;<br>这句话而言，需要写成 select </em> from ${tableName} where user_code = #{userCode}<br>所以，$符是直接拼成sql的 ，#符则会以字符串的形式 与sql进行拼接。<br>在直接拼接规则的时候可以用$，规则已经有了，只是传递参数进去，那么可以用#。</p>
+<p>这里MyBatis不会修改或转义字符串。</p>
+<p>总结：<br>写一句SQL-例如：<code>select * from user_role where user_code = &quot;100&quot;;</code><br>这句话而言，需要写成 <code>select * from ${tableName} where user_code = #{userCode}</code><br>所以，$符是直接拼成sql的 ，#符则会以字符串的形式 与sql进行拼接。在直接拼接规则的时候可以用$，规则已经有了，只是传递参数进去，那么可以用#。</p>
 <h4 id="parameter参数"><a href="#parameter参数" class="headerlink" title="_parameter参数"></a>_parameter参数</h4><p>错误：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">There is no getter for property named &apos;moduleCode&apos; in &apos;class java.lang.String</div></pre></td></tr></table></figure>
 <p>将映射语句由：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findByUUID"</span> <span class="attr">parameterType</span>=<span class="string">"java.lang.String"</span> <span class="attr">resultMap</span>=<span class="string">"Corporation"</span>&gt;</span></div><div class="line">     SELECT *</div><div class="line">     FROM TS_F_CORPORATION</div><div class="line">     WHERE ID = &amp;apos;$&#123;id&#125;&amp;apos;;</div><div class="line"> <span class="tag">&lt;/<span class="name">select</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>改为：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findByUUID"</span> <span class="attr">parameterType</span>=<span class="string">"java.lang.String"</span> <span class="attr">resultMap</span>=<span class="string">"Corporation"</span>&gt;</span></div><div class="line">     SELECT *</div><div class="line">     FROM TS_F_CORPORATION</div><div class="line">     WHERE ID = &amp;apos;$&#123;_parameter&#125;&amp;apos;;</div><div class="line"> <span class="tag">&lt;/<span class="name">select</span>&gt;</span></div></pre></td></tr></table></figure>
-<h4 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h4><h5 id="Mybatis-PageHelper"><a href="#Mybatis-PageHelper" class="headerlink" title="Mybatis-PageHelper"></a>Mybatis-PageHelper</h5>
+<h4 id="分页-Page"><a href="#分页-Page" class="headerlink" title="分页(Page)"></a>分页(Page)</h4><h4 id="拦截器实现分页-Implement-by-Interceptor"><a href="#拦截器实现分页-Implement-by-Interceptor" class="headerlink" title="拦截器实现分页(Implement by Interceptor)"></a>拦截器实现分页(Implement by Interceptor)</h4><p>由于不同的数据库厂商所提供的分页不同，例如ORACLE是子查询实现，MySQL是limit语句实现，所以在Mybatis中，默认的实现是基于逻辑分页(Logical Page)的。但是Mybatis支持拦截器(Interceptor),所以，我们可以根据不同的数据库，定制自己的数据库物理分页(Physical Page)逻辑。改变mybatis内部的分页行为，理论上只要把最终要执行的sql转变成对应的分页语句就行了。</p>
+<h5 id="Mybatis-PageHelper"><a href="#Mybatis-PageHelper" class="headerlink" title="Mybatis-PageHelper"></a>Mybatis-PageHelper</h5>
       
     </div>
 
@@ -500,7 +507,7 @@ Mapper文件中遍历集合参数在遍历List时，直接使用如下的语句�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">125</span>
+              <span class="site-state-item-count">126</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -517,7 +524,7 @@ Mapper文件中遍历集合参数在遍历List时，直接使用如下的语句�
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">137</span>
+                <span class="site-state-item-count">140</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -582,7 +589,7 @@ Mapper文件中遍历集合参数在遍历List时，直接使用如下的语句�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Mapper文件中遍历集合参数"><span class="nav-number">1.</span> <span class="nav-text">Mapper文件中遍历集合参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特殊符号"><span class="nav-number">2.</span> <span class="nav-text">特殊符号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#传入参数"><span class="nav-number">3.</span> <span class="nav-text">传入参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MyBatis中-与-的区别"><span class="nav-number">4.</span> <span class="nav-text">MyBatis中${}与#{}的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#parameter参数"><span class="nav-number">5.</span> <span class="nav-text">_parameter参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分页"><span class="nav-number">6.</span> <span class="nav-text">分页</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Mybatis-PageHelper"><span class="nav-number">6.1.</span> <span class="nav-text">Mybatis-PageHelper</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Mapper文件中遍历集合参数"><span class="nav-number">1.</span> <span class="nav-text">Mapper文件中遍历集合参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特殊符号"><span class="nav-number">2.</span> <span class="nav-text">特殊符号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#传入参数"><span class="nav-number">3.</span> <span class="nav-text">传入参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MyBatis中-与-的区别"><span class="nav-number">4.</span> <span class="nav-text">MyBatis中${}与#{}的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#parameter参数"><span class="nav-number">5.</span> <span class="nav-text">_parameter参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分页-Page"><span class="nav-number">6.</span> <span class="nav-text">分页(Page)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拦截器实现分页-Implement-by-Interceptor"><span class="nav-number">7.</span> <span class="nav-text">拦截器实现分页(Implement by Interceptor)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Mybatis-PageHelper"><span class="nav-number">7.1.</span> <span class="nav-text">Mybatis-PageHelper</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
