@@ -4,6 +4,67 @@
   
     
     <entry>
+      <title><![CDATA[Java中的时间]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/28/java-date/</url>
+      <content type="html"><![CDATA[<p>如果单纯以Date类型定义时间字段，定义时间的格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@ApiModelProperty</span>(value = <span class="string">"数据更新时间戳"</span>)</div><div class="line"><span class="meta">@DateTimeFormat</span>(pattern = <span class="string">"yyyy-MM-dd HH:mm:ss"</span>)</div><div class="line"><span class="keyword">private</span> LocalDateTime sjc;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>那么返回的时间值如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&quot;jdrq&quot;:&quot;2016-06-26T00:23:15.000+0000&quot;</div></pre></td></tr></table></figure>
+<p>如果想返回类似<code>2016-06-26 00:00:00</code>格式的时间，那么需要定义日期类型为LocalDateTime。返回的时间里，日期和时间中始终有一个大写T，原来是LocalDateTime的toString方法在转化时添加了一个T字符：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//-----------------------------------------------------------------------</span></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Outputs this date-time as a &#123;<span class="doctag">@code</span> String&#125;, such as &#123;<span class="doctag">@code</span> 2007-12-03T10:15:30&#125;.</div><div class="line"> * &lt;p&gt;</div><div class="line"> * The output will be one of the following ISO-8601 formats:</div><div class="line"> * &lt;ul&gt;</div><div class="line"> * &lt;li&gt;&#123;<span class="doctag">@code</span> uuuu-MM-dd'T'HH:mm&#125;&lt;/li&gt;</div><div class="line"> * &lt;li&gt;&#123;<span class="doctag">@code</span> uuuu-MM-dd'T'HH:mm:ss&#125;&lt;/li&gt;</div><div class="line"> * &lt;li&gt;&#123;<span class="doctag">@code</span> uuuu-MM-dd'T'HH:mm:ss.SSS&#125;&lt;/li&gt;</div><div class="line"> * &lt;li&gt;&#123;<span class="doctag">@code</span> uuuu-MM-dd'T'HH:mm:ss.SSSSSS&#125;&lt;/li&gt;</div><div class="line"> * &lt;li&gt;&#123;<span class="doctag">@code</span> uuuu-MM-dd'T'HH:mm:ss.SSSSSSSSS&#125;&lt;/li&gt;</div><div class="line"> * &lt;/ul&gt;</div><div class="line"> * The format used will be the shortest that outputs the full value of</div><div class="line"> * the time where the omitted parts are implied to be zero.</div><div class="line"> *</div><div class="line"> * <span class="doctag">@return</span> a string representation of this date-time, not null</div><div class="line"> */</div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> date.toString() + <span class="string">'T'</span> + time.toString();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Ubuntu使用Latex]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/28/ubuntu-using-latex/</url>
+      <content type="html"><![CDATA[<p>LaTeX（ LATEX，音译“拉泰赫”）是一种基于TeX的排版系统，由美国计算机学家莱斯利·兰伯特（Leslie Lamport）在20世纪80年代初期开发。</p>
+<a id="more"></a>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>在Ubuntu 16.04中，输入如下命令安装TeX Live：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install texlive-full -y</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[ElasticSearch入门]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/27/elasticsearch-introduce/</url>
+      <content type="html"><![CDATA[<h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>ElasticSearch是一个基于Lucene开发的搜索服务器，具有分布式多用户的能力，ElasticSearch是用Java开发的开源项目，基于Restful Web接口，能够达到实时搜索、稳定、可靠、快速、高性能、安装使用方便，同时它的横向扩展能力非常强，不需要重启服务。ElasticSearch是一个非常好用的实时分布式搜索和分析引擎，可以帮助我们快速的处理大规模数据，也可以用于全文检索，结构化搜索以及分析等。目前很多网站都在使用ElasticSearch进行全文检索，例如：GitHub、StackOverflow、Wiki等。ElasticSearch式建立在全文检索引擎Lucene基础上的，而Lucene是最先进、高效的开元搜索引擎框架，但是Lucene只是一个框架，要充分利用它的功能，需要很高的学习成本，而ElasticSearch使用Lucene作为内部引擎，在其基础上封装了功能强大的Restful API，让开发人员可以在不需要了解背后复杂的逻辑，即可实现比较高效的搜索。</p>
+<a id="more"></a>
+<h5 id="倒排索引-Inverted-Index"><a href="#倒排索引-Inverted-Index" class="headerlink" title="倒排索引(Inverted Index)"></a>倒排索引(Inverted Index)</h5><p>关系型数据库为了提高查询效率会添加索引，比如MySQL就是B-Tree索引(B+树)，还有文件系统也是采用B+树。搜索引擎的基础数据结构倒排索引(Inverted Index)。在平时，会经常使用各种各样的索引，如根据链接，可以找到链接里的具体文本，这就是索引。反过来，如果，如果我们能根据具体文本，找到文本存在的具体链接，这就是倒排索引，可简单理解为从文本到链接的映射。平时在使用Google、百度时，就是根据具体文本去找链接，这就是以倒排索引为基础的。ElasticSearch也是使用的是倒排索引(Inverted Index)，也是为了提高查询速度。</p>
+<h5 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h5><p><strong>Gateway</strong>：代表ElasticSearch索引快照的存储方式，ElasticSearch默认是先把索引存放到内存中，当内存满了时再持久化(Persist)到本地硬盘。gateway对索引快照进行存储，当这个ElasticSearch集群关闭再重新启动时就会从gateway中读取索引备份数据。ElasticSearch支持多种类型的gateway，有本地文件系统（默认），分布式文件系统，Hadoop的HDFS和Amazon的s3云存储服务。</p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>输入如下命令下载ElasticSearch：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.1.1.tar.gz</div></pre></td></tr></table></figure>
+<p>-L参数表示–location，因为有些下载链接有重定向操作，L操作告诉curl如果返回的是重定向30X，那么就直接再次发起请求，请求重定向到的网址。O参数表示output，–remote-name，表示写入到本地磁盘的文件名称和远程文件名称(remote name)一样。下载完毕后，将文件拷贝到需要安装的目录下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv elasticsearch-5.1.1.tar.gz /opt/<span class="built_in">local</span>/tools/</div></pre></td></tr></table></figure>
+<p>将文件解压：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -xzvf elasticsearch-5.1.1.tar.gz</div></pre></td></tr></table></figure>
+<p>启动ElasticSearch:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./elasticsearch <span class="_">-d</span></div></pre></td></tr></table></figure>
+<p>输入如下命令判断是否安装成功：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl http://localhost:9200/?pretty</div></pre></td></tr></table></figure>
+<p>返回内容为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;name&quot; : &quot;eS0_ZDL&quot;,</div><div class="line">  &quot;cluster_name&quot; : &quot;elasticsearch&quot;,</div><div class="line">  &quot;cluster_uuid&quot; : &quot;DU2WJNtbRmOHXF9HFFs5LQ&quot;,</div><div class="line">  &quot;version&quot; : &#123;</div><div class="line">    &quot;number&quot; : &quot;5.1.1&quot;,</div><div class="line">    &quot;build_hash&quot; : &quot;5395e21&quot;,</div><div class="line">    &quot;build_date&quot; : &quot;2016-12-06T12:36:15.409Z&quot;,</div><div class="line">    &quot;build_snapshot&quot; : false,</div><div class="line">    &quot;lucene_version&quot; : &quot;6.3.0&quot;</div><div class="line">  &#125;,</div><div class="line">  &quot;tagline&quot; : &quot;You Know, for Search&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h4><h5 id="Head插件"><a href="#Head插件" class="headerlink" title="Head插件"></a>Head插件</h5><p>ElasticSearch从版本5+即不支持site plugin(site plugins are not supported). Run elasticsearch-head as a standalone server。安装Grunt：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo npm install -g grunt-cli</div><div class="line">sudo npm install grunt --save-dev</div></pre></td></tr></table></figure>
+<p>Grunt安装完毕后，接着安装elasticsearch-head：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git clone git://github.com/mobz/elasticsearch-head.git</div><div class="line">cd elasticsearch-head</div><div class="line">npm install</div><div class="line">grunt server</div></pre></td></tr></table></figure>
+<p>安装完毕后，访问地址：<code>http://localhost:9100/</code>。由于有同源策略，暂时还无法连接。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">XMLHttpRequest cannot load http://localhost:9200/_cluster/state. No &apos;Access-Control-Allow-Origin&apos; header is present on the requested resource. Origin &apos;http://localhost:9100&apos; is therefore not allowed access.</div></pre></td></tr></table></figure>
+<p>在ElasticSearch配置文件中(<code>/opt/local/tools/elasticsearch-5.1.1/config/elasticsearch.yml</code>)添加如下配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">http.cors.enabled: true</div><div class="line">http.cors.allow-origin: &quot;*&quot;</div></pre></td></tr></table></figure>
+<p>最后成功连接集群，如下图所示：</p>
+<img src="/2016/12/27/elasticsearch-introduce/head-connect-elasticsearch.jpg" alt="连接ElasticSearch集群效果" title="连接ElasticSearch集群效果">
+<ul>
+<li><p><a href="http://lxwei.github.io/posts/Elasticsearch-%E7%AE%80%E4%BB%8B.html" target="_blank" rel="external">Elasticsearch 简介</a></p>
+</li>
+<li><p><a href="http://1.droppdf.com/files/FOeNs/elasticsearch-the-definitive-guide-clinton-gormley-zachary-tong.pdf" target="_blank" rel="external">elasticsearch-the-definitive-guide-clinton-gormley-zachary-tong</a></p>
+</li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Gradle使用]]></title>
       <url>http://jiangxiaoqiang.com/2016/12/27/gradle-using/</url>
       <content type="html"><![CDATA[<p>使用以下配置文件对Gradle的构建进行配置：</p>
@@ -79,7 +140,7 @@
     <entry>
       <title><![CDATA[uget使用]]></title>
       <url>http://jiangxiaoqiang.com/2016/12/25/uget-using/</url>
-      <content type="html"><![CDATA[<p>uGet is the #1 Open Source Download Manager app.uGet is a multi-platform app for Linux, BSD, Android &amp; Windows (XP - 8)。uGet下载比较稳定，直观的感受是，用Google Chrome（中途可能变为速度为0的状态）和Wget(可能失去下载连接)无法下载的文件，使用uGet可以下载。</p>
+      <content type="html"><![CDATA[<p>uGet是一款Linux下的下载工具，uGet is the #1 Open Source Download Manager app.uGet is a multi-platform app for Linux, BSD, Android &amp; Windows (XP - 8)。uGet下载最大的体会比较稳定，直观的感受是，用Google Chrome（中途可能变为速度为0的状态）和Wget(可能失去下载连接)无法下载的文件，使用uGet可以下载。</p>
 <a id="more"></a>
 <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>在Ubuntu 16.04中，输入如下命令安装uGet。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install uget -y</div></pre></td></tr></table></figure>
@@ -177,6 +238,10 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -jxvf xx.tar.bz2</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <h4 id="tar-gz"><a href="#tar-gz" class="headerlink" title="tar.gz"></a>tar.gz</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -xzvf example.tar.gz</div></pre></td></tr></table></figure>
+<h4 id="rar"><a href="#rar" class="headerlink" title="rar"></a>rar</h4><p>在Ubuntu中处理rar(WinRAR Compressed Archive)文件类型，安装相应包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install -y unrar</div></pre></td></tr></table></figure>
+<p>输入如下命令解压缩：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">unrar x -r simple.rar</div></pre></td></tr></table></figure>
 ]]></content>
     </entry>
     
@@ -283,6 +348,10 @@
 <tr>
 <td>Ctrl + Window + D(Desktop)</td>
 <td style="text-align:center">显示桌面快捷键</td>
+</tr>
+<tr>
+<td>Alt + F7</td>
+<td style="text-align:center">激活窗口移动功能</td>
 </tr>
 </tbody>
 </table>
@@ -403,10 +472,12 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch</div></pre></td></tr></table></figure>
 <p>假如当前分支为名称：v1_xiaoqiang,将v1分支合并到当前分支：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#切换到v1_xiaoqiang分支</span></div><div class="line">git checkout v1_xiaoqiang</div><div class="line"><span class="comment">#将v1分支合并到当前分支（v1_xiaoqiang）</span></div><div class="line">git merge v1</div></pre></td></tr></table></figure>
-<h4 id="Stash"><a href="#Stash" class="headerlink" title="Stash"></a>Stash</h4><p>“‘储藏”“可以获取你工作目录的中间状态——也就是你修改过的被追踪的文件和暂存的变更——并将它保存到一个未完结变更的堆栈中，随时可以重新应用。往堆栈推送一个新的储藏，只要运行：</p>
+<h4 id="储藏-Stash"><a href="#储藏-Stash" class="headerlink" title="储藏(Stash)"></a>储藏(Stash)</h4><p>“‘储藏”“可以获取你工作目录的中间状态——也就是你修改过的被追踪的文件和暂存的变更——并将它保存到一个未完结变更的堆栈中，随时可以重新应用。往堆栈推送一个新的储藏，只要运行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git stash</div></pre></td></tr></table></figure>
 <p>查看储藏：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git stash list</div></pre></td></tr></table></figure>
+<p>输出的内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hldev@hldev-100:~/hldata/backend/credit-system$ git stash list</div><div class="line">stash@&#123;0&#125;: WIP on v1_xiaoqiang: ac284e4 refactor:根据属性名获取属性值优化</div></pre></td></tr></table></figure>
 <p>应用储藏：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git stash apply</div></pre></td></tr></table></figure>
 <h4 id="Your-branch-and-‘origin-master’-have-diverged"><a href="#Your-branch-and-‘origin-master’-have-diverged" class="headerlink" title="Your branch and ‘origin/master’ have diverged"></a>Your branch and ‘origin/master’ have diverged</h4><p>If you absolutely sure this is your case then you can force Git to push your changes:</p>
