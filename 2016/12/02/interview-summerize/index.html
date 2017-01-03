@@ -5,10 +5,10 @@
   
 
 
-<html class="theme-next muse use-motion">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,9 +63,9 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Interview," />
@@ -77,7 +77,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
 
@@ -97,9 +97,10 @@
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    root: '/',
     scheme: 'Muse',
     sidebar: {"position":"left","display":"post"},
     fancybox: true,
@@ -107,20 +108,29 @@
     duoshuo: {
       userId: '0',
       author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
 
 
-
   <link rel="canonical" href="http://jiangxiaoqiang.com/2016/12/02/interview-summerize/"/>
+
+
+
 
 
   <title> 面试总结 | 小强的博客 </title>
 </head>
 
-<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -150,7 +160,7 @@
   <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
@@ -161,7 +171,9 @@
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle"></p>
+    
+      <p class="site-subtitle"></p>
+    
 </div>
 
 <div class="site-nav-toggle">
@@ -249,6 +261,8 @@
   
 </nav>
 
+
+
  </div>
     </header>
 
@@ -262,13 +276,26 @@
     
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/12/02/interview-summerize/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="xiaoqiang jiang">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="小强的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="小强的博客" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -287,24 +314,36 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-02T15:52:52+08:00" content="2016-12-02">
-              2016-12-02
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-02T15:52:52+08:00">
+                2016-12-02
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Interview/" itemprop="url" rel="index">
                     <span itemprop="name">Interview</span>
                   </a>
@@ -312,7 +351,6 @@
 
                 
                 
-
               
             </span>
           
@@ -320,9 +358,12 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2016/12/02/interview-summerize/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/02/interview-summerize/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/02/interview-summerize/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -334,6 +375,9 @@
           
 
           
+
+          
+
         </div>
       </header>
     
@@ -629,11 +673,12 @@
       
     </div>
 
+
     <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/Interview/" rel="tag">#Interview</a>
+            <a href="/tags/Interview/" rel="tag"># Interview</a>
           
         </div>
       
@@ -647,6 +692,8 @@
               </a>
             
           </div>
+
+          <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
@@ -713,8 +760,8 @@
         </ul>
       
 
-      <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
                alt="xiaoqiang jiang" />
@@ -722,17 +769,20 @@
           <p class="site-description motion-element" itemprop="description"></p>
         </div>
         <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">131</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">138</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
 
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -741,7 +791,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">145</span>
+                <span class="site-state-item-count">149</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -782,34 +832,46 @@
                 </li>
               
                 <li class="links-of-blogroll-item">
-                  <a href="http://jm.taobao.org/" title="阿里中间件团队博客" target="_blank">阿里中间件团队博客</a>
+                  <a href="http://jm.taobao.org" title="阿里中间件团队博客" target="_blank">阿里中间件团队博客</a>
                 </li>
               
                 <li class="links-of-blogroll-item">
-                  <a href="http://wdxtub.com/" title="小土刀的博客" target="_blank">小土刀的博客</a>
+                  <a href="http://wdxtub.com" title="小土刀的博客" target="_blank">小土刀的博客</a>
                 </li>
               
                 <li class="links-of-blogroll-item">
-                  <a href="http://lucida.me/" title="Lucida的博客" target="_blank">Lucida的博客</a>
+                  <a href="http://lucida.me" title="Lucida的博客" target="_blank">Lucida的博客</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://stormzhang.com" title="stormzhang的博客" target="_blank">stormzhang的博客</a>
                 </li>
               
             </ul>
           </div>
         
 
+        
+
+
       </section>
 
       
+      <!--noindex-->
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
+
             
               
             
+
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Java中线程安全的类"><span class="nav-number">1.</span> <span class="nav-text">Java中线程安全的类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String、StringBuilder、StringBuffer区别"><span class="nav-number">2.</span> <span class="nav-text">String、StringBuilder、StringBuffer区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用Spring框架的原因"><span class="nav-number">3.</span> <span class="nav-text">使用Spring框架的原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#大型网站在架构上应当考虑哪些问题"><span class="nav-number">4.</span> <span class="nav-text">大型网站在架构上应当考虑哪些问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#你使用过的应用服务器优化技术有哪些"><span class="nav-number">5.</span> <span class="nav-text">你使用过的应用服务器优化技术有哪些</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#你用过的网站前端优化的技术有哪些"><span class="nav-number">6.</span> <span class="nav-text">你用过的网站前端优化的技术有哪些</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是XSS攻击？什么是SQL注入攻击？什么是CSRF攻击？"><span class="nav-number">7.</span> <span class="nav-text">什么是XSS攻击？什么是SQL注入攻击？什么是CSRF攻击？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是领域模型-domain-model-？贫血模型-anaemic-domain-model-和充血模型-rich-domain-model-有什么区别？"><span class="nav-number">8.</span> <span class="nav-text">什么是领域模型(domain model)？贫血模型(anaemic domain model)和充血模型(rich domain model)有什么区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#描述一下JVM加载class文件的原理机制"><span class="nav-number">9.</span> <span class="nav-text">描述一下JVM加载class文件的原理机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么条件下会触发垃圾回收"><span class="nav-number">10.</span> <span class="nav-text">什么条件下会触发垃圾回收</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#触发Full-GC"><span class="nav-number">10.1.</span> <span class="nav-text">触发Full GC</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CAS和AQS"><span class="nav-number">11.</span> <span class="nav-text">CAS和AQS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MyBatis与Hibernate区别"><span class="nav-number">12.</span> <span class="nav-text">MyBatis与Hibernate区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进程与线程的区别"><span class="nav-number">13.</span> <span class="nav-text">进程与线程的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP、TCP-IP、Socket的区别"><span class="nav-number">14.</span> <span class="nav-text">HTTP、TCP/IP、Socket的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#static关键字的作用"><span class="nav-number">15.</span> <span class="nav-text">static关键字的作用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#修饰变量"><span class="nav-number">15.1.</span> <span class="nav-text">修饰变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#修饰方法"><span class="nav-number">15.2.</span> <span class="nav-text">修饰方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#静态代码块"><span class="nav-number">15.3.</span> <span class="nav-text">静态代码块</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#静态内部类"><span class="nav-number">15.4.</span> <span class="nav-text">静态内部类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#静态导包"><span class="nav-number">15.5.</span> <span class="nav-text">静态导包</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#foeach循环的原理"><span class="nav-number">16.</span> <span class="nav-text">foeach循环的原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#valatile实现原理"><span class="nav-number">17.</span> <span class="nav-text">valatile实现原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#final关键字作用"><span class="nav-number">18.</span> <span class="nav-text">final关键字作用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#final方法"><span class="nav-number">18.1.</span> <span class="nav-text">final方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#final类"><span class="nav-number">18.2.</span> <span class="nav-text">final类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#final好处"><span class="nav-number">18.3.</span> <span class="nav-text">final好处</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#final知识点"><span class="nav-number">18.4.</span> <span class="nav-text">final知识点</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#transient关键字的作用"><span class="nav-number">19.</span> <span class="nav-text">transient关键字的作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redis的数据结构"><span class="nav-number">20.</span> <span class="nav-text">Redis的数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#String——字符串"><span class="nav-number">20.1.</span> <span class="nav-text">String——字符串</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hash——字典"><span class="nav-number">21.</span> <span class="nav-text">Hash——字典</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#List——列表"><span class="nav-number">22.</span> <span class="nav-text">List——列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Set——集合"><span class="nav-number">23.</span> <span class="nav-text">Set——集合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sorted-Set——有序集合"><span class="nav-number">24.</span> <span class="nav-text">Sorted Set——有序集合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ArrayList、LinkedList、Hashtable、HashMap、ConcurrentHashMap、HashSet的实现原理"><span class="nav-number">25.</span> <span class="nav-text">ArrayList、LinkedList、Hashtable、HashMap、ConcurrentHashMap、HashSet的实现原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CopyOnWrite容器和Queue"><span class="nav-number">26.</span> <span class="nav-text">CopyOnWrite容器和Queue</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ConcurrentHashMap的锁分段技术"><span class="nav-number">27.</span> <span class="nav-text">ConcurrentHashMap的锁分段技术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ConcurrentHashMap的读是否要加锁，为什么"><span class="nav-number">28.</span> <span class="nav-text">ConcurrentHashMap的读是否要加锁，为什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ConcurrentHashMap的迭代器是强一致性的迭代器还是弱一致性的迭代器"><span class="nav-number">29.</span> <span class="nav-text">ConcurrentHashMap的迭代器是强一致性的迭代器还是弱一致性的迭代器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用设计模式的优缺点"><span class="nav-number">30.</span> <span class="nav-text">常用设计模式的优缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Thread和Runnable的区别和联系"><span class="nav-number">31.</span> <span class="nav-text">Thread和Runnable的区别和联系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多次start一个线程会怎么样"><span class="nav-number">32.</span> <span class="nav-text">多次start一个线程会怎么样</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用的线程池有几种？这几种线程池之间有什么区别和联系？"><span class="nav-number">33.</span> <span class="nav-text">常用的线程池有几种？这几种线程池之间有什么区别和联系？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#newFixedThreadPool"><span class="nav-number">34.</span> <span class="nav-text">newFixedThreadPool</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#newCachedThreadPool"><span class="nav-number">35.</span> <span class="nav-text">newCachedThreadPool</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#newSingleThreadExecutor"><span class="nav-number">36.</span> <span class="nav-text">newSingleThreadExecutor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#newScheduleThreadPool"><span class="nav-number">37.</span> <span class="nav-text">newScheduleThreadPool</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程池的实现原理是怎么样的？"><span class="nav-number">38.</span> <span class="nav-text">线程池的实现原理是怎么样的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#假如有Thread1、Thread2、Thread3、Thread4四条线程分别统计C、D、E、F四个盘的大小，所有线程都统计完毕交给Thread5线程去做汇总，应当如何实现？"><span class="nav-number">39.</span> <span class="nav-text">假如有Thread1、Thread2、Thread3、Thread4四条线程分别统计C、D、E、F四个盘的大小，所有线程都统计完毕交给Thread5线程去做汇总，应当如何实现？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#synchronized和ReentrantLock的区别"><span class="nav-number">40.</span> <span class="nav-text">synchronized和ReentrantLock的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Synchronized"><span class="nav-number">40.1.</span> <span class="nav-text">Synchronized</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ReentrantLock"><span class="nav-number">40.2.</span> <span class="nav-text">ReentrantLock</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#synchronized锁普通方法和锁静态方法、死锁的原理及排查方法"><span class="nav-number">41.</span> <span class="nav-text">synchronized锁普通方法和锁静态方法、死锁的原理及排查方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String的hashCode-方法是怎么实现的"><span class="nav-number">42.</span> <span class="nav-text">String的hashCode()方法是怎么实现的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#List、Map、Set实现类的源代码"><span class="nav-number">43.</span> <span class="nav-text">List、Map、Set实现类的源代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ReentrantLock、AQS的源代码"><span class="nav-number">44.</span> <span class="nav-text">ReentrantLock、AQS的源代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AtomicInteger的实现原理，主要能说清楚CAS机制并且AtomicInteger是如何利用CAS机制实现的"><span class="nav-number">45.</span> <span class="nav-text">AtomicInteger的实现原理，主要能说清楚CAS机制并且AtomicInteger是如何利用CAS机制实现的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程池的实现原理"><span class="nav-number">46.</span> <span class="nav-text">线程池的实现原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Object类中的方法以及每个方法的作用"><span class="nav-number">47.</span> <span class="nav-text">Object类中的方法以及每个方法的作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#想要在Spring初始化bean的时候做一些事情该怎么做"><span class="nav-number">48.</span> <span class="nav-text">想要在Spring初始化bean的时候做一些事情该怎么做</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#想要在bean销毁的时候做一些事情该怎么做"><span class="nav-number">49.</span> <span class="nav-text">想要在bean销毁的时候做一些事情该怎么做</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MyBatis中-和-的区别"><span class="nav-number">50.</span> <span class="nav-text">MyBatis中$和#的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AVL树、红黑树，可以不了解它们的具体实现，但是要知道什么是二叉查找树、什么是平衡树，AVL树和红黑树的区别。"><span class="nav-number">51.</span> <span class="nav-text">AVL树、红黑树，可以不了解它们的具体实现，但是要知道什么是二叉查找树、什么是平衡树，AVL树和红黑树的区别。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#索引使用的是哪种数据结构实现"><span class="nav-number">52.</span> <span class="nav-text">索引使用的是哪种数据结构实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#索引为什么要使用树来实现呢"><span class="nav-number">53.</span> <span class="nav-text">索引为什么要使用树来实现呢</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Collections-sort方法使用的是哪种排序方法"><span class="nav-number">54.</span> <span class="nav-text">Collections.sort方法使用的是哪种排序方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#谈谈分布式Session的几种实现方式"><span class="nav-number">55.</span> <span class="nav-text">谈谈分布式Session的几种实现方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#讲一下Session和Cookie的区别和联系以及Session的实现原理"><span class="nav-number">56.</span> <span class="nav-text">讲一下Session和Cookie的区别和联系以及Session的实现原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XML文档定义有几种形式？它们之间有何本质区别？解析XML文档有哪几种方式？"><span class="nav-number">57.</span> <span class="nav-text">XML文档定义有几种形式？它们之间有何本质区别？解析XML文档有哪几种方式？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#它们之间有何本质区别？"><span class="nav-number">57.1.</span> <span class="nav-text">它们之间有何本质区别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#解析XML文档有哪几种方式？"><span class="nav-number">57.2.</span> <span class="nav-text">解析XML文档有哪几种方式？</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jsp和servlet的区别和联系"><span class="nav-number">58.</span> <span class="nav-text">jsp和servlet的区别和联系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一个“-java”源文件中是否可以包括多个类（不包括内部类）？有什么限制？"><span class="nav-number">59.</span> <span class="nav-text">一个“.java”源文件中是否可以包括多个类（不包括内部类）？有什么限制？</span></a></li></ol></div>
             
+
           </div>
         </section>
+      <!--/noindex-->
       
 
     </div>
@@ -825,12 +887,13 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">xiaoqiang jiang</span>
 </div>
+
 
 <div class="powered-by">
   由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
@@ -842,6 +905,7 @@
     NexT.Muse
   </a>
 </div>
+
 
         
 
@@ -875,46 +939,46 @@
 
 
   
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
-
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
 
 
 
@@ -939,9 +1003,14 @@
 
   
     
-    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
+
+
+
+
 
 
 
@@ -956,7 +1025,7 @@
     // Search DB path;
     var search_path = "search.xml";
     if (search_path.length == 0) {
-       search_path = "search.xml";
+      search_path = "search.xml";
     }
     var path = "/" + search_path;
     // monitor main search box;
@@ -964,96 +1033,95 @@
     function proceedsearch() {
       $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
       $('.popup').toggle();
-
     }
     // search function;
     var searchFunc = function(path, search_id, content_id) {
-    'use strict';
-    $.ajax({
+      'use strict';
+      $.ajax({
         url: path,
         dataType: "xml",
         async: true,
         success: function( xmlResponse ) {
-            // get the contents from search data
-            isfetched = true;
-            $('.popup').detach().appendTo('.header-inner');
-            var datas = $( "entry", xmlResponse ).map(function() {
-                return {
-                    title: $( "title", this ).text(),
-                    content: $("content",this).text(),
-                    url: $( "url" , this).text()
-                };
-            }).get();
-            var $input = document.getElementById(search_id);
-            var $resultContent = document.getElementById(content_id);
-            $input.addEventListener('input', function(){
-                var matchcounts = 0;
-                var str='<ul class=\"search-result-list\">';
-                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-                $resultContent.innerHTML = "";
-                if (this.value.trim().length > 1) {
-                // perform local searching
-                datas.forEach(function(data) {
-                    var isMatch = false;
-                    var content_index = [];
-                    var data_title = data.title.trim().toLowerCase();
-                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                    var data_url = data.url;
-                    var index_title = -1;
-                    var index_content = -1;
-                    var first_occur = -1;
-                    // only match artiles with not empty titles and contents
-                    if(data_title != '') {
-                        keywords.forEach(function(keyword, i) {
-                            index_title = data_title.indexOf(keyword);
-                            index_content = data_content.indexOf(keyword);
-                            if( index_title >= 0 || index_content >= 0 ){
-                                isMatch = true;
-								if (i == 0) {
-                                    first_occur = index_content;
-                                }
-                            } 
-							
-                        });
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
                     }
-                    // show search results
-                    if (isMatch) {
-                        matchcounts += 1;
-                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
-                        var content = data.content.trim().replace(/<[^>]+>/g,"");
-                        if (first_occur >= 0) {
-                            // cut out 100 characters
-                            var start = first_occur - 20;
-                            var end = first_occur + 80;
-                            if(start < 0){
-                                start = 0;
-                            }
-                            if(start == 0){
-                                end = 50;
-                            }
-                            if(end > content.length){
-                                end = content.length;
-                            }
-                            var match_content = content.substring(start, end);
-                            // highlight all keywords
-                            keywords.forEach(function(keyword){
-                                var regS = new RegExp(keyword, "gi");
-                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
-                            });
 
-                            str += "<p class=\"search-result\">" + match_content +"...</p>"
-                        }
-                        str += "</li>";
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
                     }
-                })};
-                str += "</ul>";
-                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
-                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
-                $resultContent.innerHTML = str;
-            });
-            proceedsearch();
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
         }
-    });}
+      });}
 
     // handle and trigger popup window;
     $('.popup-trigger').click(function(e) {
@@ -1063,7 +1131,6 @@
       } else {
         proceedsearch();
       };
-
     });
 
     $('.popup-btn-close').click(function(e){
@@ -1082,6 +1149,9 @@
   
 
   
+
+  
+
 
 </body>
 </html>
