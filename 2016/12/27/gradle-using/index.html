@@ -98,7 +98,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
 Gradle构建脚本（build.gradle）指定了一个项目和它的任务。
 Gradle属性文件（gradle.properties）用来配置构建属性。
 Gradle设置文件（gradle.settings）对于只有一个项目的构建而言是可选的，如果我们的构建中包含多于一个项目，那么它就是必须的，因为它描述了哪一个项目参与构建。每一个多项目的构建都必">
-<meta property="og:updated_time" content="2016-12-30T08:06:55.653Z">
+<meta property="og:updated_time" content="2017-01-03T05:01:10.297Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gradle使用">
 <meta name="twitter:description" content="使用以下配置文件对Gradle的构建进行配置：
@@ -209,6 +209,16 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
           </a>
         </li>
       
@@ -410,8 +420,14 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
 <a id="more"></a>
 <h4 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h4><p>在Ubuntu 16.04 LTS中安装Gradle:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install gradle -y</div></pre></td></tr></table></figure>
-<p>查看所有任务：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">gradle task</div><div class="line">gradle task --all</div></pre></td></tr></table></figure>
+<p>如下列出了Gradle常用的命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看所有任务</span></div><div class="line">gradle task</div><div class="line">gradle task --all</div><div class="line"></div><div class="line"><span class="comment"># 查看所有项目</span></div><div class="line">gradle projects</div><div class="line"></div><div class="line"><span class="comment"># 清楚app目录下的build文件夹</span></div><div class="line">gradle clean</div><div class="line"></div><div class="line"><span class="comment"># 检查依赖并编译打包 （正式和测试）</span></div><div class="line">gradle build</div><div class="line"></div><div class="line"><span class="comment">#编译并打Debug包</span></div><div class="line">gradle assembleDebug</div><div class="line"></div><div class="line"><span class="comment">#编译并打Release包</span></div><div class="line">gradle assembleRelease</div></pre></td></tr></table></figure>
+<p>定义一个依赖通常需要三个元素：</p>
+<ul>
+<li>group:创建该library的组织名，通常也会是包名，</li>
+<li>name :是该library的唯一标识</li>
+<li>version:该library的版本号</li>
+</ul>
 <h4 id="Wrapper"><a href="#Wrapper" class="headerlink" title="Wrapper"></a>Wrapper</h4><p>Wrapper主要是考虑在没有安装Gradle的电脑上使用Gradle命令。当执行gradlew(Gradle Wrapper)命令时，首先会检查电脑是否安装了Gradle，如果没有安装，会自动从gradle repository下载安装。需要查看Gradle Wrapper帮助，在命令行中输入如下命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gradle Wrapper --help</div></pre></td></tr></table></figure>
 <p>会打印出所有Gradle Wrapper</p>
@@ -541,10 +557,10 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
 
           
             <div class="site-state-item site-state-categories">
-              
+              <a href="/categories">
                 <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
-              
+              </a>
             </div>
           
 

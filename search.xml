@@ -39,7 +39,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/bin/ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></div></pre></td></tr></table></figure>
 <p>安装完毕brew后，可以通过brew安装其他软件：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 安装Lantern</span></div><div class="line">brew cask install Caskroom/cask/lantern</div><div class="line"><span class="comment"># 安装Google Chrome</span></div><div class="line">brew cask install Caskroom/cask/google-chrome</div><div class="line"><span class="comment"># 安装Java</span></div><div class="line">brew cask install java</div><div class="line"><span class="comment"># 安装PyCharm</span></div><div class="line">brew cask install pycharm</div><div class="line"><span class="comment"># 安装wget</span></div><div class="line">brew cask install wget</div><div class="line"><span class="comment"># 安装gradle</span></div><div class="line">brew install gradle</div><div class="line"><span class="comment"># 列出已经安装的软件名字</span></div><div class="line">brew list</div></pre></td></tr></table></figure>
-<p>有些命令安装软件是brew，而有些命令安装软件是brew cask。brew是从下载源码解压然后<code>./configure &amp;&amp; make install</code>，同时会包含相关依存库。并自动配置好各种环境变量，而且易于卸载。而brew cask是已经编译好了的应用包(.dmg/.pkg)，仅仅是下载解压，放在统一的目录中(/opt/homebrew-cask/Caskroom)，省掉了自己去下载、解压、拖拽（安装）等步骤，同样，卸载相当容易与干净。这个对一般用户来说会比较方便，包含很多在AppStore里没有的常用软件。</p>
+<p>有些命令安装软件是brew，而有些命令安装软件是brew cask。brew是从下载源码解压然后<code>./configure &amp;&amp; make install</code>，同时会包含相关依存库。并自动配置好各种环境变量，而且易于卸载。而brew cask是已经编译好了的应用包(.dmg[Apple Disk Image]/.pkg)，仅仅是下载解压，放在统一的目录中(/opt/homebrew-cask/Caskroom)，省掉了自己去下载、解压、拖拽（安装）等步骤，同样，卸载相当容易与干净。这个对一般用户来说会比较方便，包含很多在AppStore里没有的常用软件。</p>
 <h4 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h4><table>
 <thead>
 <tr>
@@ -256,8 +256,14 @@
 <a id="more"></a>
 <h4 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h4><p>在Ubuntu 16.04 LTS中安装Gradle:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install gradle -y</div></pre></td></tr></table></figure>
-<p>查看所有任务：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">gradle task</div><div class="line">gradle task --all</div></pre></td></tr></table></figure>
+<p>如下列出了Gradle常用的命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看所有任务</span></div><div class="line">gradle task</div><div class="line">gradle task --all</div><div class="line"></div><div class="line"><span class="comment"># 查看所有项目</span></div><div class="line">gradle projects</div><div class="line"></div><div class="line"><span class="comment"># 清楚app目录下的build文件夹</span></div><div class="line">gradle clean</div><div class="line"></div><div class="line"><span class="comment"># 检查依赖并编译打包 （正式和测试）</span></div><div class="line">gradle build</div><div class="line"></div><div class="line"><span class="comment">#编译并打Debug包</span></div><div class="line">gradle assembleDebug</div><div class="line"></div><div class="line"><span class="comment">#编译并打Release包</span></div><div class="line">gradle assembleRelease</div></pre></td></tr></table></figure>
+<p>定义一个依赖通常需要三个元素：</p>
+<ul>
+<li>group:创建该library的组织名，通常也会是包名，</li>
+<li>name :是该library的唯一标识</li>
+<li>version:该library的版本号</li>
+</ul>
 <h4 id="Wrapper"><a href="#Wrapper" class="headerlink" title="Wrapper"></a>Wrapper</h4><p>Wrapper主要是考虑在没有安装Gradle的电脑上使用Gradle命令。当执行gradlew(Gradle Wrapper)命令时，首先会检查电脑是否安装了Gradle，如果没有安装，会自动从gradle repository下载安装。需要查看Gradle Wrapper帮助，在命令行中输入如下命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gradle Wrapper --help</div></pre></td></tr></table></figure>
 <p>会打印出所有Gradle Wrapper</p>
