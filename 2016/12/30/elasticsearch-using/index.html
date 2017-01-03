@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="ElasticSearch," />
 
 
 
@@ -84,36 +84,16 @@
 
 
 
-<meta name="description" content="这里是dolphin的部落格，若此分享能够作为您的参考，是我的荣幸。此处记录了一些平时的总结和遇到的一些问题。本人不是技术大牛，如果您发现了错误或者是有更优的解决方法，如果能够得到您的时间邮件指出的话，不胜感激。很久以前疑惑为什么前人不将经验和教训告知新手，现在逐渐理解，这也是喜爱开源、开放的氛围的原因。Mail:jiangtingqiang@gmail.com
-关于我
-
-
-项
-说明
-备注">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于我">
-<meta property="og:url" content="http://jiangxiaoqiang.com/about/index.html">
+<meta name="description" content="什么是索引(Index)索引只是一个用来指向一个或多个分片(shards)的“逻辑命名空间(logical namespace)”.一个分片(shard)是一个最小级别“工作单元(worker unit)”,它只是保存了索引中所有数据的一部分。分片就是一个Lucene实例，并且它本身就是一个完整的搜索引擎。我们的文档存储在分片中，并且在分片中被索引，但是我们的应用程序不会直接与它们通信，取而代之的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ElasticSearch使用">
+<meta property="og:url" content="http://jiangxiaoqiang.com/2016/12/30/elasticsearch-using/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="这里是dolphin的部落格，若此分享能够作为您的参考，是我的荣幸。此处记录了一些平时的总结和遇到的一些问题。本人不是技术大牛，如果您发现了错误或者是有更优的解决方法，如果能够得到您的时间邮件指出的话，不胜感激。很久以前疑惑为什么前人不将经验和教训告知新手，现在逐渐理解，这也是喜爱开源、开放的氛围的原因。Mail:jiangtingqiang@gmail.com
-关于我
-
-
-项
-说明
-备注">
-<meta property="og:image" content="http://jiangxiaoqiang.com/./index/qrcode.jpg">
-<meta property="og:updated_time" content="2017-01-03T03:39:27.454Z">
+<meta property="og:description" content="什么是索引(Index)索引只是一个用来指向一个或多个分片(shards)的“逻辑命名空间(logical namespace)”.一个分片(shard)是一个最小级别“工作单元(worker unit)”,它只是保存了索引中所有数据的一部分。分片就是一个Lucene实例，并且它本身就是一个完整的搜索引擎。我们的文档存储在分片中，并且在分片中被索引，但是我们的应用程序不会直接与它们通信，取而代之的">
+<meta property="og:updated_time" content="2016-12-30T08:06:55.652Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于我">
-<meta name="twitter:description" content="这里是dolphin的部落格，若此分享能够作为您的参考，是我的荣幸。此处记录了一些平时的总结和遇到的一些问题。本人不是技术大牛，如果您发现了错误或者是有更优的解决方法，如果能够得到您的时间邮件指出的话，不胜感激。很久以前疑惑为什么前人不将经验和教训告知新手，现在逐渐理解，这也是喜爱开源、开放的氛围的原因。Mail:jiangtingqiang@gmail.com
-关于我
-
-
-项
-说明
-备注">
-<meta name="twitter:image" content="http://jiangxiaoqiang.com/./index/qrcode.jpg">
+<meta name="twitter:title" content="ElasticSearch使用">
+<meta name="twitter:description" content="什么是索引(Index)索引只是一个用来指向一个或多个分片(shards)的“逻辑命名空间(logical namespace)”.一个分片(shard)是一个最小级别“工作单元(worker unit)”,它只是保存了索引中所有数据的一部分。分片就是一个Lucene实例，并且它本身就是一个完整的搜索引擎。我们的文档存储在分片中，并且在分片中被索引，但是我们的应用程序不会直接与它们通信，取而代之的">
 
 
 
@@ -134,16 +114,10 @@
 
 
 
-  <link rel="canonical" href="http://jiangxiaoqiang.com/about/"/>
+  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/12/30/elasticsearch-using/"/>
 
 
-  <title>
-  
-
-  
-    关于我 | 小强的博客
-  
-</title>
+  <title> ElasticSearch使用 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -173,7 +147,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -286,68 +260,163 @@
 
   <div id="posts" class="posts-expand">
     
-    
-      <p>这里是dolphin的部落格，若此分享能够作为您的参考，是我的荣幸。此处记录了一些平时的总结和遇到的一些问题。本人不是技术大牛，如果您发现了错误或者是有更优的解决方法，如果能够得到您的时间邮件指出的话，不胜感激。很久以前疑惑为什么前人不将经验和教训告知新手，现在逐渐理解，这也是喜爱开源、开放的氛围的原因。Mail:jiangtingqiang@gmail.com</p>
-<h4 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h4><table>
-<thead>
-<tr>
-<th>项</th>
-<th>说明</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Language</td>
-<td>Java、C#、JavaScript、Python</td>
-<td></td>
-</tr>
-<tr>
-<td>Framework</td>
-<td>Spring、MyBatis</td>
-<td></td>
-</tr>
-<tr>
-<td>OS</td>
-<td>Redhat、CentOS、Ubuntu、Fedora、OpenSUSE</td>
-<td></td>
-</tr>
-<tr>
-<td>DB</td>
-<td>MySQL、Apache HBase</td>
-<td></td>
-</tr>
-<tr>
-<td>MQ</td>
-<td>Apache Kafka</td>
-<td></td>
-</tr>
-<tr>
-<td>Cache</td>
-<td>Redis</td>
-<td></td>
-</tr>
-<tr>
-<td>Tools</td>
-<td>Git、Intellij Idea、JRebel、Gradle、Jenkinshhhhhhhhhh</td>
-<td></td>
-</tr>
-<tr>
-<td>口号(Slogan)</td>
-<td>开源、分享要从娃娃抓起,装逼也是(So as zhuangbiliaty)</td>
-<td>不解释</td>
-</tr>
-</tbody>
-</table>
-<h4 id="出没地"><a href="#出没地" class="headerlink" title="出没地"></a>出没地</h4><ul>
-<li><a href="http://stackoverflow.com/users/2628868/dolphin" target="_blank" rel="external">StackOverflow</a></li>
-<li><a href="https://github.com/jiangxiaoqiang/" target="_blank" rel="external">GitHub</a></li>
-</ul>
-<p>下图是微信订阅号，会有一些分享，推送不频繁。</p>
-<p><img src="./index/qrcode.jpg" alt="qr"></p>
-<p>微信订阅号会不定期推送一些文章，非技术类。</p>
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                ElasticSearch使用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-30T16:06:55+08:00" content="2016-12-30">
+              2016-12-30
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/30/elasticsearch-using/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/30/elasticsearch-using/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="什么是索引-Index"><a href="#什么是索引-Index" class="headerlink" title="什么是索引(Index)"></a>什么是索引(Index)</h4><p>索引只是一个用来指向一个或多个分片(shards)的“逻辑命名空间(logical namespace)”.一个分片(shard)是一个最小级别“工作单元(worker unit)”,它只是保存了索引中所有数据的一部分。分片就是一个Lucene实例，并且它本身就是一个完整的搜索引擎。我们的文档存储在分片中，并且在分片中被索引，但是我们的应用程序不会直接与它们通信，取而代之的是，直接与索引通信。当索引创建完成的时候，主分片的数量就固定了，但是复制分片的数量可以随时调整。Cluster包含多个node，Indices不应该理解成动词索引，Indices可理解成关系数据库中的databases，Indices可包含多个Index，Index对应关系数据库中的database，它是用来存储相关文档的。Elasticsearch与关系数据的类比对应关系可以做如下理解：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Relational DB ⇒ Databases ⇒ Tables ⇒ Rows ⇒ Columns</div><div class="line"></div><div class="line">Elasticsearch ⇒ Indices ⇒ Types ⇒ Documents ⇒ Fields</div></pre></td></tr></table></figure>
+<h4 id="什么是分片-Shard"><a href="#什么是分片-Shard" class="headerlink" title="什么是分片(Shard)"></a>什么是分片(Shard)</h4><p>分片(Shard)是Elasticsearch在集群中分发数据的关键。文档存储在分片中，然后分片分配到集群中的节点上。当集群扩容或缩小，lasticsearch将会自动在你的节点间迁移分片，以使集群保持平衡。分片可以是主分片(primary shard)或者是复制分片(replica shard)。索引中的每个文档属于一个单独的主分片，所以主分片的数量决定了索引最多能存储多少数据。理论上主分片能存储的数据大小是没有限制的，限制取决于你实际的使用情况。分片的最大容量完全取决于你的使用状况：硬件存储的大小、文档的大小和复杂度、如何索引和查询你的文档，以及你期望的响应时间。复制分片只是主分片的一个副本，它可以防止硬件故障导致的数据丢失，同时可以提供读请求，比如搜索或者从别的shard取回文档。</p>
+<h4 id="创建索引-Index"><a href="#创建索引-Index" class="headerlink" title="创建索引(Index)"></a>创建索引(Index)</h4><p>如下curl命令，创建一个名字为jiangxiaoqiang的索引(Index)：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">curl -XPUT <span class="string">'localhost:9200/jiangxiaoqiang?pretty'</span> <span class="_">-d</span><span class="string">'</span></div><div class="line">&#123;</div><div class="line">    "settings" : &#123;</div><div class="line">        "index" : &#123;</div><div class="line">            "number_of_shards" : 3,</div><div class="line">            "number_of_replicas" : 2</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;'</div></pre></td></tr></table></figure>
+<p>url里面的pretty是pretty format的含义，指代参数的json是良好格式化的。</p>
+<h4 id="创建Type"><a href="#创建Type" class="headerlink" title="创建Type"></a>创建Type</h4><p>ElasticSearch中每个文档必须有一个类型定义。这里的类型相当于数据库当中的表，类型定义了字段映射（类似数据库表结构），这样一来，每个索引可以包含多种文档类型，而每种文档类型定义一种映射关系。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">curl -XPUT <span class="string">'localhost:9200/jiangxiaoqiang/typejxq/_mapping'</span> <span class="_">-d</span><span class="string">'&#123;</span></div><div class="line">   "typejxq": &#123;</div><div class="line">      "properties": &#123;</div><div class="line">         "name": &#123;</div><div class="line">            "type": "string"</div><div class="line">         &#125;,</div><div class="line">         "desc": &#123;</div><div class="line">            "type": "string"</div><div class="line">         &#125;</div><div class="line">      &#125;</div><div class="line">   &#125;</div><div class="line">&#125;'</div></pre></td></tr></table></figure>
+<h4 id="添加数据"><a href="#添加数据" class="headerlink" title="添加数据"></a>添加数据</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">curl -XPUT <span class="string">'localhost:9200/jiangxiaoqiang/typejxq/1'</span> <span class="_">-d</span><span class="string">'&#123;</span></div><div class="line">   "name":"jiangxiaoqiang",</div><div class="line">   "desc":"dfaewgrehrehr"</div><div class="line">&#125;'</div></pre></td></tr></table></figure>
+<h4 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">curl -XPOST <span class="string">'localhost:9200/jiangxiaoqiang/_search'</span> <span class="_">-d</span><span class="string">'&#123;</span></div><div class="line">    "query": &#123;</div><div class="line">        "bool": &#123;</div><div class="line">            "must": [</div><div class="line">                &#123;</div><div class="line">                    "prefix": &#123;</div><div class="line">                        "name": "jiang"</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            ],</div><div class="line">            "must_not": [],</div><div class="line">            "should": []</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    "from": 0,</div><div class="line">    "size": 10,</div><div class="line">    "sort": [],</div><div class="line">    "aggs": &#123;&#125;</div><div class="line">&#125;'</div></pre></td></tr></table></figure>
+<p>参考资料：</p>
+<ul>
+<li><a href="https://www.zhihu.com/question/26446020" target="_blank" rel="external">在ElasticSearch中，集群(Cluster),节点(Node),分片(Shard),Indices(索引),replicas(备份)之间是什么关系？</a></li>
+<li><a href="https://www.elastic.co/guide/index.html" target="_blank" rel="external">Elastic Stack and Product Documentation</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ElasticSearch/" rel="tag">#ElasticSearch</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/28/java-date/" rel="next" title="Java中的时间">
+                <i class="fa fa-chevron-left"></i> Java中的时间
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/30/synchronized-reentrantlock-lock/" rel="prev" title="Java中synchronized、reentrantlock、lock区别">
+                Java中synchronized、reentrantlock、lock区别 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -358,8 +427,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="about/index.html"
-           data-title="关于我" data-url="http://jiangxiaoqiang.com/about/index.html">
+      <div class="ds-thread" data-thread-key="2016/12/30/elasticsearch-using/"
+           data-title="ElasticSearch使用" data-url="http://jiangxiaoqiang.com/2016/12/30/elasticsearch-using/">
       </div>
     
   </div>
@@ -383,8 +452,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -474,6 +552,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是索引-Index"><span class="nav-number">1.</span> <span class="nav-text">什么是索引(Index)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是分片-Shard"><span class="nav-number">2.</span> <span class="nav-text">什么是分片(Shard)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建索引-Index"><span class="nav-number">3.</span> <span class="nav-text">创建索引(Index)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建Type"><span class="nav-number">4.</span> <span class="nav-text">创建Type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加数据"><span class="nav-number">5.</span> <span class="nav-text">添加数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询数据"><span class="nav-number">6.</span> <span class="nav-text">查询数据</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -570,6 +659,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
 
   
 
