@@ -4,6 +4,26 @@
   
     
     <entry>
+      <title><![CDATA[Java rest总结]]></title>
+      <url>http://jiangxiaoqiang.com/2017/01/04/java-rest-summarize/</url>
+      <content type="html"><![CDATA[<p>以下是开发Rest接口时遇到的一些问题。</p>
+<a id="more"></a>
+<h4 id="HTTP信息转换"><a href="#HTTP信息转换" class="headerlink" title="HTTP信息转换"></a>HTTP信息转换</h4><p>@ResponseBody 注解能够对客户端发过来的对象进行自动转换。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"savejson"</span>,method = RequestMethod.POST,headers = <span class="string">"content-Type=application/json"</span>)</div><div class="line"><span class="meta">@ApiOperation</span>(value = <span class="string">"必须且只能传一个参数"</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveXzss</span><span class="params">(@RequestBody String summaryXzssJson)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">    ObjectMapper mapper = <span class="keyword">new</span> ObjectMapper();</div><div class="line">    SummaryXzss summaryXzss = mapper.readValue(summaryXzssJson, <span class="keyword">new</span> TypeReference&lt;SummaryXzss&gt;() &#123;</div><div class="line">    &#125;);</div><div class="line">    xzssService.saveXzss(summaryXzss);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>实现自动转换，必须满足以下两个条件：</p>
+<ol>
+<li>请求的 Content-Type 头信息必须是 application/json；</li>
+<li>Jackson Json 库必须包含在应用程序的类路径下。</li>
+</ol>
+<h4 id="发送Post请求"><a href="#发送Post请求" class="headerlink" title="发送Post请求"></a>发送Post请求</h4><p>发送Post请求时，需要指定Content-Type和Accept请求头。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">curl -H <span class="string">"APPID:hlb11529c136998cb6"</span></div><div class="line">     -H <span class="string">"TIMESTAMP:2016-12-19 16:58:02"</span></div><div class="line">     -H <span class="string">"ECHOSTR:sdsaasf"</span></div><div class="line">     -H <span class="string">"TOKEN:14d45648c62a746ae9dd9b90c03c50893061222d"</span></div><div class="line">     -H <span class="string">"Accept:application/json"</span></div><div class="line">     -H <span class="string">"Accept:application/json"</span></div><div class="line">     -H <span class="string">"Content-Type:application/json"</span></div><div class="line">     -X POST <span class="_">-d</span> <span class="string">'&#123;"id":1&#125;'</span> http://localhost:28080/api/xzss/savejson</div></pre></td></tr></table></figure>
+<p>否则会提示415错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;timestamp&quot;: &quot;2017-01-04T03:28:26.404+0000&quot;,</div><div class="line">    &quot;status&quot;: 415,</div><div class="line">    &quot;error&quot;: &quot;Unsupported Media Type&quot;,</div><div class="line">    &quot;exception&quot;: &quot;org.springframework.web.HttpMediaTypeNotSupportedException&quot;,</div><div class="line">    &quot;message&quot;: &quot;Content type &apos;application/x-www-form-urlencoded&apos; not supported&quot;,</div><div class="line">    &quot;path&quot;: &quot;/api/xzss/savejson&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>The Content-Type header is used by @RequestBody to determine what format the data being sent from the client in the request is. The accept header is used by @ResponseBody to determine what format to sent the data back to the client in the response. That’s why you need both headers.</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[python-introduce]]></title>
       <url>http://jiangxiaoqiang.com/2017/01/01/python-introduce/</url>
       <content type="html"><![CDATA[<h4 id="目录树结构"><a href="#目录树结构" class="headerlink" title="目录树结构"></a>目录树结构</h4><p>—-pydolphin<br>    |—–dolphin<br>    |—–lib<br>    |—–doc<br>    |—–scripts<br>    |—–tests</p>
@@ -40,6 +60,8 @@
 <p>安装完毕brew后，可以通过brew安装其他软件：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 安装Lantern</span></div><div class="line">brew cask install Caskroom/cask/lantern</div><div class="line"><span class="comment"># 安装Google Chrome</span></div><div class="line">brew cask install Caskroom/cask/google-chrome</div><div class="line"><span class="comment"># 安装Java</span></div><div class="line">brew cask install java</div><div class="line"><span class="comment"># 安装PyCharm</span></div><div class="line">brew cask install pycharm</div><div class="line"><span class="comment"># 安装wget</span></div><div class="line">brew cask install wget</div><div class="line"><span class="comment"># 安装gradle</span></div><div class="line">brew install gradle</div><div class="line"><span class="comment"># 列出已经安装的软件名字</span></div><div class="line">brew list</div></pre></td></tr></table></figure>
 <p>有些命令安装软件是brew，而有些命令安装软件是brew cask。brew是从下载源码解压然后<code>./configure &amp;&amp; make install</code>，同时会包含相关依存库。并自动配置好各种环境变量，而且易于卸载。而brew cask是已经编译好了的应用包(.dmg[Apple Disk Image]/.pkg)，仅仅是下载解压，放在统一的目录中(/opt/homebrew-cask/Caskroom)，省掉了自己去下载、解压、拖拽（安装）等步骤，同样，卸载相当容易与干净。这个对一般用户来说会比较方便，包含很多在AppStore里没有的常用软件。</p>
+<h4 id="设置Java环境变量"><a href="#设置Java环境变量" class="headerlink" title="设置Java环境变量"></a>设置Java环境变量</h4><p>在当前用户的根目录下新建.bash_profiile隐藏文件。文件中添加如下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home <span class="comment">#jdk安装路径   </span></div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$PATH</span> </div><div class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</div></pre></td></tr></table></figure>
 <h4 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h4><table>
 <thead>
 <tr>
@@ -302,7 +324,7 @@
 <p>使用如下命令安装依赖包：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt-get install libcurl4-openssl-dev</div></pre></td></tr></table></figure>
 <h4 id="使用rest-assured框架测试"><a href="#使用rest-assured框架测试" class="headerlink" title="使用rest-assured框架测试"></a>使用rest-assured框架测试</h4><p>rest-assured框架用于测试REST方式的接口，使用JSON schema验证返回体，大大的简化了测试代码。esting and validation of REST services in Java is harder than in dynamic languages such as Ruby and Groovy. REST Assured brings the simplicity of using these languages into the Java domain.</p>
-<h5 id="引入依赖包"><a href="#引入依赖包" class="headerlink" title="引入依赖包"></a>引入依赖包</h5><p>引入<a href="http://rest-assured.io/" target="_blank" rel="external">rest-assured</a>框架的依赖包和TestNG的依赖包。</p>
+<h5 id="引入依赖包"><a href="#引入依赖包" class="headerlink" title="引入依赖包"></a>引入依赖包</h5><p>在Gradle中，引入<a href="http://rest-assured.io/" target="_blank" rel="external">rest-assured</a>框架的依赖包和TestNG的依赖包。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">project(&apos;:cc-api&apos;) &#123;</div><div class="line">    apply from: ccCommonBuildScript</div><div class="line">    description = &apos;credit-system-api&apos;</div><div class="line"></div><div class="line">    dependencies &#123;</div><div class="line">        compile &apos;io.rest-assured:json-path:3.0.1&apos;</div><div class="line">        compile &apos;org.testng:testng:6.8.17&apos;//TestNG依赖包</div><div class="line">        testCompile &apos;io.rest-assured:rest-assured:3.0.1&apos;</div><div class="line">        compile(&apos;com.jayway.restassured:rest-assured:2.3.1&apos;)//rest-assured框架依赖包</div><div class="line">        compile project(&apos;:cc-business&apos;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h5 id="添加测试方法"><a href="#添加测试方法" class="headerlink" title="添加测试方法"></a>添加测试方法</h5><p>测试方法如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> common.TestPublicVariable;</div><div class="line"><span class="keyword">import</span> org.testng.annotations.Test;</div><div class="line"><span class="keyword">import</span> <span class="keyword">static</span> io.restassured.RestAssured.given;</div><div class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.hamcrest.Matchers.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ApiXysjControllerTest</span> </span>&#123;</div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testCountTotal</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        given().header(TestPublicVariable.APPID, TestPublicVariable.APPID_VALUE)</div><div class="line">                .header(<span class="string">"TIMESTAMP"</span>, <span class="string">"2016-12-19 16:58:02"</span>)</div><div class="line">                .header(<span class="string">"ECHOSTR"</span>, <span class="string">"sdsaasf"</span>)</div><div class="line">                .header(<span class="string">"TOKEN"</span>, <span class="string">"14d45648c62a746ae9dd9b90c03c50893061222d"</span>)</div><div class="line">                .get(<span class="string">"http://192.168.32.105:28080/api/xysj/counttotal"</span>)</div><div class="line">                .then()</div><div class="line">                .body(<span class="string">"errCode"</span>, equalTo(<span class="number">0</span>));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -516,6 +538,8 @@
 <h4 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h4><ul>
 <li>长按Windows键会出现全局快捷键页面</li>
 </ul>
+<h4 id="设置截屏快捷键"><a href="#设置截屏快捷键" class="headerlink" title="设置截屏快捷键"></a>设置截屏快捷键</h4><p>在安装好了Shutter之后，每次截取屏幕都需要打开Shutter，点击Selection按钮。其实可以配置截屏的快捷键，就像QQ的<code>Ctrl + Alt + A</code>一样。如下图所示：</p>
+<img src="/2016/12/20/ubuntu-using/shutter-selection-shortkey.png" alt="Ubuntu截图设置快捷键" title="Ubuntu截图设置快捷键">
 <h5 id="设置Terminal默认路径"><a href="#设置Terminal默认路径" class="headerlink" title="设置Terminal默认路径"></a>设置Terminal默认路径</h5><p>一般情况下，在终端里有一个最高频的使用目录，希望打开终端时默认切换到此目录下。在Ubuntu里可以在Home目录下的bashrc<code>~/.bashrc</code>脚本里添加如下代码即可：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> [ <span class="_">-d</span> ~/document/blogs/jiangxiaoqiang/xiaoqiang-blog-source ];<span class="keyword">then</span></div><div class="line">    <span class="built_in">cd</span> ~/document/blogs/jiangxiaoqiang/xiaoqiang-blog-source</div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
 <p>代码的含义是，如果当前目录不在<code>~/document/blogs/jiangxiaoqiang/xiaoqiang-blog-source</code>目录下，那么就切换到此目录。下一次打开终端时默认路径即为：<code>~/document/blogs/jiangxiaoqiang/xiaoqiang-blog-source</code></p>
@@ -2338,6 +2362,9 @@ public int hashCode() {
 <h4 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h4><p>如下命令是使用curl下载XX-net工具。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -o xxnet.zip https://codeload.github.com/XX-net/XX-Net/zip/3.2.8</div></pre></td></tr></table></figure>
 <p>-o, –output <file>，文件的保存名称。</file></p>
+<h4 id="提交POST请求"><a href="#提交POST请求" class="headerlink" title="提交POST请求"></a>提交POST请求</h4><p>使用Curl提交Post请求如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -H <span class="string">"APPID:hlb11529c136998cb6"</span> -H <span class="string">"TIMESTAMP:2016-12-19 16:58:02"</span> -H <span class="string">"ECHOSTR:sdsaasf"</span> -H <span class="string">"TOKEN:14d45648c62a746ae9dd9b90c03c50893061222d"</span> -H <span class="string">"Accept:application/json"</span> -H <span class="string">"Accept:application/json"</span> -H <span class="string">"Content-Type:application/json"</span> -X POST <span class="_">-d</span> <span class="string">'&#123;"id":1&#125;'</span> http://localhost:28080/api/xzss/savejson</div></pre></td></tr></table></figure>
+<p>使用Curl请求时，默认是Get请求，如果需要显示指定请求类型，那么需要加上-X(–request)参数。</p>
 <p>参考资料：</p>
 <ul>
 <li><a href="http://www.ruanyifeng.com/blog/2011/09/curl.html" target="_blank" rel="external">curl网站开发指南</a></li>
@@ -2607,7 +2634,8 @@ public int hashCode() {
     <entry>
       <title><![CDATA[Intellij Idea小技巧(tips)]]></title>
       <url>http://jiangxiaoqiang.com/2016/11/03/intellij-idea-tips/</url>
-      <content type="html"><![CDATA[<h4 id="键盘调整Debug窗口的大小"><a href="#键盘调整Debug窗口的大小" class="headerlink" title="键盘调整Debug窗口的大小"></a>键盘调整Debug窗口的大小</h4><p>键盘调整Debug窗口的大小快捷键是<code>Ctrl + Shift + Up/Down</code>，注意一定要定位到Debug视图，也就是Debug视图但是当前窗口的活跃(Active)视图才会生效。</p>
+      <content type="html"><![CDATA[<h4 id="用键盘选择选框"><a href="#用键盘选择选框" class="headerlink" title="用键盘选择选框"></a>用键盘选择选框</h4><p>有时我们可以使用Tab按键将焦点移动到单选框里，如何使用键盘选中和取消选中单选框呢？只需要按下Space按键即可，即是键盘的空格按键。</p>
+<h4 id="键盘调整Debug窗口的大小"><a href="#键盘调整Debug窗口的大小" class="headerlink" title="键盘调整Debug窗口的大小"></a>键盘调整Debug窗口的大小</h4><p>键盘调整Debug窗口的大小快捷键是<code>Ctrl + Shift + Up/Down</code>，注意一定要定位到Debug视图，也就是Debug视图但是当前窗口的活跃(Active)视图才会生效。</p>
 <a id="more"></a>
 <p>同理，在调整项目树宽度时，可以使用快捷键<code>Ctrl + Alt + Left/Right</code>。</p>
 <h4 id="Debug视图Tab页切换"><a href="#Debug视图Tab页切换" class="headerlink" title="Debug视图Tab页切换"></a>Debug视图Tab页切换</h4><p>快捷键是Shift + Tab，如下图所示。</p>
@@ -3749,7 +3777,15 @@ public int hashCode() {
 </tr>
 <tr>
 <td>Ctrl + Shift + F10</td>
-<td style="text-align:center">运行所有测试</td>
+<td style="text-align:center">运行所有测试(不是特别好用)</td>
+</tr>
+<tr>
+<td>Ctrl + Delete</td>
+<td style="text-align:center">删除行</td>
+</tr>
+<tr>
+<td>Ctrl + Alt + O（Optimize）</td>
+<td style="text-align:center">优化包导入</td>
 </tr>
 </tbody>
 </table>
@@ -3758,7 +3794,11 @@ public int hashCode() {
 <img src="/2016/09/26/intllij-idea-encoding/intellij-properties-encoding.png" alt="属性文件编码设置" title="属性文件编码设置">
 <h4 id="限制编辑器Tab页个数"><a href="#限制编辑器Tab页个数" class="headerlink" title="限制编辑器Tab页个数"></a>限制编辑器Tab页个数</h4><p>有时我们并不习惯在编辑器中打开太多的Tab页，如果不小心点开了7个以上的Tab页，在Tab页面中切换也蛮让人晕眩的，设置Tab页最大个数在Settings(Ctrl + Alt + S),Editor-General-Editor Tabs中，如下图如所示。</p>
 <img src="/2016/09/26/intllij-idea-encoding/intellij-tabs-number-setting.png" alt="IntelliJ Idea编辑器Tab页设置" title="IntelliJ Idea编辑器Tab页设置">
-<h4 id="注释模板"><a href="#注释模板" class="headerlink" title="注释模板"></a>注释模板</h4><p>参考：</p>
+<h4 id="类文件注释"><a href="#类文件注释" class="headerlink" title="类文件注释"></a>类文件注释</h4><p>通过File–》Setting–》File and Code Template中来设置类文件注释，如下图所示：</p>
+<img src="/2016/09/26/intllij-idea-encoding/setting-class-comment.png" alt="设置类文件注释" title="设置类文件注释">
+<h4 id="格式化设置"><a href="#格式化设置" class="headerlink" title="格式化设置"></a>格式化设置</h4><p>有时在按下格式化按钮后，希望同时优化导入的包，自动移除未使用的包引用，在Intellij Idea中，可以在文件夹上右键，选择Reformate Code(Ctrl + Alt + L)，在弹出的界面中勾选Optimize Import即可。</p>
+<img src="/2016/09/26/intllij-idea-encoding/reformate-code.png" alt="格式化时优化导入包" title="格式化时优化导入包">
+<p>参考：</p>
 <p><a href="http://www.hollischuang.com/archives/966" target="_blank" rel="external">Java开发必装的IntelliJ IDEA插件</a></p>
 <p><a href="https://www.jetbrains.com/help/idea/2016.2/surrounding-blocks-of-code-with-language-constructs.html" target="_blank" rel="external">Surrounding Blocks of Code with Language Constructs</a></p>
 ]]></content>

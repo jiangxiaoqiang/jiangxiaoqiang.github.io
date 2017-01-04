@@ -94,7 +94,7 @@
 <meta property="og:description" content="使用Python脚本测试安装pycurl包：
 1pip install pycurl
 安装时可能会出现如下问题：">
-<meta property="og:updated_time" content="2017-01-03T09:27:41.234Z">
+<meta property="og:updated_time" content="2017-01-04T05:10:46.478Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Rest-Assured做Restful接口自动化测试">
 <meta name="twitter:description" content="使用Python脚本测试安装pycurl包：
@@ -413,7 +413,7 @@
 <p>使用如下命令安装依赖包：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt-get install libcurl4-openssl-dev</div></pre></td></tr></table></figure>
 <h4 id="使用rest-assured框架测试"><a href="#使用rest-assured框架测试" class="headerlink" title="使用rest-assured框架测试"></a>使用rest-assured框架测试</h4><p>rest-assured框架用于测试REST方式的接口，使用JSON schema验证返回体，大大的简化了测试代码。esting and validation of REST services in Java is harder than in dynamic languages such as Ruby and Groovy. REST Assured brings the simplicity of using these languages into the Java domain.</p>
-<h5 id="引入依赖包"><a href="#引入依赖包" class="headerlink" title="引入依赖包"></a>引入依赖包</h5><p>引入<a href="http://rest-assured.io/" target="_blank" rel="external">rest-assured</a>框架的依赖包和TestNG的依赖包。</p>
+<h5 id="引入依赖包"><a href="#引入依赖包" class="headerlink" title="引入依赖包"></a>引入依赖包</h5><p>在Gradle中，引入<a href="http://rest-assured.io/" target="_blank" rel="external">rest-assured</a>框架的依赖包和TestNG的依赖包。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">project(&apos;:cc-api&apos;) &#123;</div><div class="line">    apply from: ccCommonBuildScript</div><div class="line">    description = &apos;credit-system-api&apos;</div><div class="line"></div><div class="line">    dependencies &#123;</div><div class="line">        compile &apos;io.rest-assured:json-path:3.0.1&apos;</div><div class="line">        compile &apos;org.testng:testng:6.8.17&apos;//TestNG依赖包</div><div class="line">        testCompile &apos;io.rest-assured:rest-assured:3.0.1&apos;</div><div class="line">        compile(&apos;com.jayway.restassured:rest-assured:2.3.1&apos;)//rest-assured框架依赖包</div><div class="line">        compile project(&apos;:cc-business&apos;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h5 id="添加测试方法"><a href="#添加测试方法" class="headerlink" title="添加测试方法"></a>添加测试方法</h5><p>测试方法如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> common.TestPublicVariable;</div><div class="line"><span class="keyword">import</span> org.testng.annotations.Test;</div><div class="line"><span class="keyword">import</span> <span class="keyword">static</span> io.restassured.RestAssured.given;</div><div class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.hamcrest.Matchers.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ApiXysjControllerTest</span> </span>&#123;</div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testCountTotal</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        given().header(TestPublicVariable.APPID, TestPublicVariable.APPID_VALUE)</div><div class="line">                .header(<span class="string">"TIMESTAMP"</span>, <span class="string">"2016-12-19 16:58:02"</span>)</div><div class="line">                .header(<span class="string">"ECHOSTR"</span>, <span class="string">"sdsaasf"</span>)</div><div class="line">                .header(<span class="string">"TOKEN"</span>, <span class="string">"14d45648c62a746ae9dd9b90c03c50893061222d"</span>)</div><div class="line">                .get(<span class="string">"http://192.168.32.105:28080/api/xysj/counttotal"</span>)</div><div class="line">                .then()</div><div class="line">                .body(<span class="string">"errCode"</span>, equalTo(<span class="number">0</span>));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -541,7 +541,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">138</span>
+                <span class="site-state-item-count">139</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -550,7 +550,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
