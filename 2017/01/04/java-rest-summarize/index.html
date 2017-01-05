@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/01/04/java-rest-summarize/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="以下是开发Rest接口时遇到的一些问题。">
-<meta property="og:updated_time" content="2017-01-04T05:10:46.477Z">
+<meta property="og:updated_time" content="2017-01-05T03:12:09.004Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java rest总结">
 <meta name="twitter:description" content="以下是开发Rest接口时遇到的一些问题。">
@@ -386,6 +386,7 @@
 <li>请求的 Content-Type 头信息必须是 application/json；</li>
 <li>Jackson Json 库必须包含在应用程序的类路径下。</li>
 </ol>
+<p>在接收客户端HTTP请求的消息时，如果客户端将请求的Json放到消息体中，那么服务端可以直接取实体，或者取相应的Json进行反序列化。2种方式都能够达到要求，一般是直接取实体，省去了反序列化的步骤，由框架进行反序列化。</p>
 <h4 id="发送Post请求"><a href="#发送Post请求" class="headerlink" title="发送Post请求"></a>发送Post请求</h4><p>发送Post请求时，需要指定Content-Type和Accept请求头。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">curl -H <span class="string">"APPID:hlb11529c136998cb6"</span></div><div class="line">     -H <span class="string">"TIMESTAMP:2016-12-19 16:58:02"</span></div><div class="line">     -H <span class="string">"ECHOSTR:sdsaasf"</span></div><div class="line">     -H <span class="string">"TOKEN:14d45648c62a746ae9dd9b90c03c50893061222d"</span></div><div class="line">     -H <span class="string">"Accept:application/json"</span></div><div class="line">     -H <span class="string">"Accept:application/json"</span></div><div class="line">     -H <span class="string">"Content-Type:application/json"</span></div><div class="line">     -X POST <span class="_">-d</span> <span class="string">'&#123;"id":1&#125;'</span> http://localhost:28080/api/xzss/savejson</div></pre></td></tr></table></figure>
 <p>否则会提示415错误：</p>
@@ -417,8 +418,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/01/python-introduce/" rel="next" title="python-introduce">
-                <i class="fa fa-chevron-left"></i> python-introduce
+              <a href="/2017/01/01/python-introduce/" rel="next" title="Python入门">
+                <i class="fa fa-chevron-left"></i> Python入门
               </a>
             
           </div>
@@ -571,6 +572,10 @@
               
                 <li class="links-of-blogroll-item">
                   <a href="http://stormzhang.com" title="stormzhang的博客" target="_blank">stormzhang的博客</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.raychase.net" title="四火的唠叨" target="_blank">四火的唠叨</a>
                 </li>
               
             </ul>

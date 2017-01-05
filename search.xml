@@ -15,6 +15,7 @@
 <li>请求的 Content-Type 头信息必须是 application/json；</li>
 <li>Jackson Json 库必须包含在应用程序的类路径下。</li>
 </ol>
+<p>在接收客户端HTTP请求的消息时，如果客户端将请求的Json放到消息体中，那么服务端可以直接取实体，或者取相应的Json进行反序列化。2种方式都能够达到要求，一般是直接取实体，省去了反序列化的步骤，由框架进行反序列化。</p>
 <h4 id="发送Post请求"><a href="#发送Post请求" class="headerlink" title="发送Post请求"></a>发送Post请求</h4><p>发送Post请求时，需要指定Content-Type和Accept请求头。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">curl -H <span class="string">"APPID:hlb11529c136998cb6"</span></div><div class="line">     -H <span class="string">"TIMESTAMP:2016-12-19 16:58:02"</span></div><div class="line">     -H <span class="string">"ECHOSTR:sdsaasf"</span></div><div class="line">     -H <span class="string">"TOKEN:14d45648c62a746ae9dd9b90c03c50893061222d"</span></div><div class="line">     -H <span class="string">"Accept:application/json"</span></div><div class="line">     -H <span class="string">"Accept:application/json"</span></div><div class="line">     -H <span class="string">"Content-Type:application/json"</span></div><div class="line">     -X POST <span class="_">-d</span> <span class="string">'&#123;"id":1&#125;'</span> http://localhost:28080/api/xzss/savejson</div></pre></td></tr></table></figure>
 <p>否则会提示415错误：</p>
@@ -24,9 +25,10 @@
     </entry>
     
     <entry>
-      <title><![CDATA[python-introduce]]></title>
+      <title><![CDATA[Python入门]]></title>
       <url>http://jiangxiaoqiang.com/2017/01/01/python-introduce/</url>
-      <content type="html"><![CDATA[<h4 id="目录树结构"><a href="#目录树结构" class="headerlink" title="目录树结构"></a>目录树结构</h4><p>—-pydolphin<br>    |—–dolphin<br>    |—–lib<br>    |—–doc<br>    |—–scripts<br>    |—–tests</p>
+      <content type="html"><![CDATA[<h4 id="目录树结构"><a href="#目录树结构" class="headerlink" title="目录树结构"></a>目录树结构</h4><p>清晰的项目需要有清晰的目录结构。</p>
+<p>—-pydolphin<br>    |—–dolphin<br>    |—–lib<br>    |—–doc<br>    |—–scripts<br>    |—–tests</p>
 ]]></content>
     </entry>
     
@@ -587,6 +589,14 @@
 <td>Alt(短按)</td>
 <td style="text-align:center">激活本应用程序的搜索菜单，即可在当前应用程序中搜索了</td>
 </tr>
+<tr>
+<td>Alt + E</td>
+<td style="text-align:center">在Google Chrome浏览器中，可以打开浏览器右侧的菜单</td>
+</tr>
+<tr>
+<td>　Window + 1　</td>
+<td style="text-align:center">打开Home目录(还可以用Window组合键打开其他目录)</td>
+</tr>
 </tbody>
 </table>
 ]]></content>
@@ -876,7 +886,8 @@
 <h4 id="wget"><a href="#wget" class="headerlink" title="wget"></a>wget</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget -c http://dl.zeroturnaround.com/idea/jr-ide-intellij-6.5.0_13-16.zip</div></pre></td></tr></table></figure>
 <p>-c参数表示断点续传。–continue： Continue getting a partially-downloaded file.  This is useful when you want to finish up a download started by a previous instance of Wget, or by another program.</p>
 <h4 id="uGet"><a href="#uGet" class="headerlink" title="uGet"></a>uGet</h4><p>uGet is the #1 Open Source Download Manager app.uGet is a multi-platform app for Linux, BSD, Android &amp; Windows (XP - 8)</p>
-<h4 id="编程开发（Development）"><a href="#编程开发（Development）" class="headerlink" title="编程开发（Development）"></a>编程开发（Development）</h4><h4 id="NodeJS"><a href="#NodeJS" class="headerlink" title="NodeJS"></a>NodeJS</h4><p>本博客就是基于NodeJS生成，虽然不是很懂NodeJS，但是感觉很牛逼的样子。</p>
+<h3 id="编程开发（Development）"><a href="#编程开发（Development）" class="headerlink" title="编程开发（Development）"></a>编程开发（Development）</h3><h4 id="PyCharm-EDU"><a href="#PyCharm-EDU" class="headerlink" title="PyCharm(EDU)"></a>PyCharm(EDU)</h4><p>PyCharm的教育版是开源免费的，学习Python。</p>
+<h4 id="NodeJS"><a href="#NodeJS" class="headerlink" title="NodeJS"></a>NodeJS</h4><p>本博客就是基于NodeJS生成，虽然不是很懂NodeJS，但是感觉很牛逼的样子。</p>
 <h4 id="nmap"><a href="#nmap" class="headerlink" title="nmap"></a>nmap</h4><p>端口扫描。</p>
 <h4 id="Fiddler-for-Linux"><a href="#Fiddler-for-Linux" class="headerlink" title="Fiddler for Linux"></a>Fiddler for Linux</h4><h4 id="Apache-Tomcat"><a href="#Apache-Tomcat" class="headerlink" title="Apache Tomcat"></a>Apache Tomcat</h4><h4 id="OpenVPN"><a href="#OpenVPN" class="headerlink" title="OpenVPN"></a>OpenVPN</h4><h4 id="StarDict"><a href="#StarDict" class="headerlink" title="StarDict"></a>StarDict</h4><h4 id="htop"><a href="#htop" class="headerlink" title="htop"></a>htop</h4><p>htop是实时显示当前系统运行情况的，不同于ps、pstree、pidof、vmsta等这些快照工具，快照工具只能显示命令执行前一秒系统的情况。htop 对关键信息实行高亮显示，对于我们用肉眼查看进程信息的情况相当友好。</p>
 <table>
@@ -2509,7 +2520,7 @@ public int hashCode() {
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">set</span> CATALINA_OPTS=<span class="string">"-agentlib:jdwp=transport=dt_socket,address=53996,suspend=n,server=y"</span></div></pre></td></tr></table></figure>
 <p>如果是Linux，在catalina.sh文件中中，设置catalina环境变量：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> CATALINA_OPTS=<span class="string">"-agentlib:jdwp=transport=dt_socket,address=53996,suspend=n,server=y"</span></div></pre></td></tr></table></figure>
-<p>运行如下命令启动Tomcat：</p>
+<p>Sun虚拟机实现需要指定命令行选项，以加载JDWP（Java Debug Wire Protocol Transport）代理来debug。JDK 5.0以前需要指定-Xdebug和-Xrunjdwp这两个参数，以后则可以使用参数-agentlib:jdwp替代之，它们指定了JVM使用的连接器。从上面的例子代码可以看到几个jdwp支持的参数选项，包括transport、server、suspend、address等等，这些都很常见，还包括timeout、launch（中断并开始调试的时候，执行什么程序）、onuncaught（如果出现无法捕获的异常是否需要中断并调试）等等。运行如下命令启动Tomcat：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#Windows下启动Tomcat</span></div><div class="line">catalina.bat start</div><div class="line"></div><div class="line"><span class="comment">#Linux下启动Tomcat</span></div><div class="line">catalina.sh start</div></pre></td></tr></table></figure>
 <p>使用如下命令查看是否配置成功：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#Windows下用此命令查看</span></div><div class="line">netstat -ano</div><div class="line"></div><div class="line"><span class="comment">#Linux下用此命令查看</span></div><div class="line">lsof -i:53996</div></pre></td></tr></table></figure>
@@ -2517,6 +2528,10 @@ public int hashCode() {
 <img src="/2016/11/12/intellij-idea-remote-debbuging/tomcat-listening-port.png" alt="检查服务端配置是否正确" title="检查服务端配置是否正确">
 <h4 id="Intellij-Idea配置"><a href="#Intellij-Idea配置" class="headerlink" title="Intellij Idea配置"></a>Intellij Idea配置</h4><p>Intellij Idea远程调试配置如下：</p>
 <img src="/2016/11/12/intellij-idea-remote-debbuging/intellij-idea-remote-debugging.jpg" alt="Intellij Idea远程调试配置" title="Intellij Idea远程调试配置">
+<p>参考资料：</p>
+<ul>
+<li><a href="http://www.raychase.net/1519" target="_blank" rel="external">JVM问题定位工具</a></li>
+</ul>
 ]]></content>
     </entry>
     
@@ -3796,7 +3811,7 @@ public int hashCode() {
 <img src="/2016/09/26/intllij-idea-encoding/intellij-tabs-number-setting.png" alt="IntelliJ Idea编辑器Tab页设置" title="IntelliJ Idea编辑器Tab页设置">
 <h4 id="类文件注释"><a href="#类文件注释" class="headerlink" title="类文件注释"></a>类文件注释</h4><p>通过File–》Setting–》File and Code Template中来设置类文件注释，如下图所示：</p>
 <img src="/2016/09/26/intllij-idea-encoding/setting-class-comment.png" alt="设置类文件注释" title="设置类文件注释">
-<h4 id="格式化设置"><a href="#格式化设置" class="headerlink" title="格式化设置"></a>格式化设置</h4><p>有时在按下格式化按钮后，希望同时优化导入的包，自动移除未使用的包引用，在Intellij Idea中，可以在文件夹上右键，选择Reformate Code(Ctrl + Alt + L)，在弹出的界面中勾选Optimize Import即可。</p>
+<h4 id="格式化设置"><a href="#格式化设置" class="headerlink" title="格式化设置"></a>格式化设置</h4><p>有时在按下格式化按钮后，希望同时优化导入的包，自动移除未使用的包引用，在Intellij Idea中，可以在文件夹上右键，选择Reformate Code(Ctrl + Alt + L)，在弹出的界面中勾选Optimize Import即可。这样在每次按下格式化按钮时，会自动优化导入的包，比如自动移除未使用的包引用、自动排序等等。</p>
 <img src="/2016/09/26/intllij-idea-encoding/reformate-code.png" alt="格式化时优化导入包" title="格式化时优化导入包">
 <p>参考：</p>
 <p><a href="http://www.hollischuang.com/archives/966" target="_blank" rel="external">Java开发必装的IntelliJ IDEA插件</a></p>
