@@ -86,7 +86,7 @@
 
 <meta name="description" content="输入乱码在控制台输入中文时显示的不是输入的汉字，而是显示正方形符号，此时输入的汉字显示乱码，如图所示。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="IntelliJ Idea快捷键技巧分享">
+<meta property="og:title" content="IntelliJ Idea快捷键技巧">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="输入乱码在控制台输入中文时显示的不是输入的汉字，而是显示正方形符号，此时输入的汉字显示乱码，如图所示。">
@@ -97,9 +97,11 @@
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/specify-maven-addr.jpg">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/intellij-properties-encoding.png">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/intellij-tabs-number-setting.png">
-<meta property="og:updated_time" content="2017-01-03T01:35:34.800Z">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/setting-class-comment.png">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/reformate-code.png">
+<meta property="og:updated_time" content="2017-01-04T10:19:03.150Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IntelliJ Idea快捷键技巧分享">
+<meta name="twitter:title" content="IntelliJ Idea快捷键技巧">
 <meta name="twitter:description" content="输入乱码在控制台输入中文时显示的不是输入的汉字，而是显示正方形符号，此时输入的汉字显示乱码，如图所示。">
 <meta name="twitter:image" content="http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/intelli-idea-input-encode.jpg">
 
@@ -135,7 +137,7 @@
 
 
 
-  <title> IntelliJ Idea快捷键技巧分享 | 小强的博客 </title>
+  <title> IntelliJ Idea快捷键技巧 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -205,16 +207,6 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
           </a>
         </li>
       
@@ -314,7 +306,7 @@
             
             
               
-                IntelliJ Idea快捷键技巧分享
+                IntelliJ Idea快捷键技巧
               
             
           </h1>
@@ -611,7 +603,15 @@
 </tr>
 <tr>
 <td>Ctrl + Shift + F10</td>
-<td style="text-align:center">运行所有测试</td>
+<td style="text-align:center">运行所有测试(不是特别好用)</td>
+</tr>
+<tr>
+<td>Ctrl + Delete</td>
+<td style="text-align:center">删除行</td>
+</tr>
+<tr>
+<td>Ctrl + Alt + O（Optimize）</td>
+<td style="text-align:center">优化包导入</td>
 </tr>
 </tbody>
 </table>
@@ -620,7 +620,11 @@
 <img src="/2016/09/26/intllij-idea-encoding/intellij-properties-encoding.png" alt="属性文件编码设置" title="属性文件编码设置">
 <h4 id="限制编辑器Tab页个数"><a href="#限制编辑器Tab页个数" class="headerlink" title="限制编辑器Tab页个数"></a>限制编辑器Tab页个数</h4><p>有时我们并不习惯在编辑器中打开太多的Tab页，如果不小心点开了7个以上的Tab页，在Tab页面中切换也蛮让人晕眩的，设置Tab页最大个数在Settings(Ctrl + Alt + S),Editor-General-Editor Tabs中，如下图如所示。</p>
 <img src="/2016/09/26/intllij-idea-encoding/intellij-tabs-number-setting.png" alt="IntelliJ Idea编辑器Tab页设置" title="IntelliJ Idea编辑器Tab页设置">
-<h4 id="注释模板"><a href="#注释模板" class="headerlink" title="注释模板"></a>注释模板</h4><p>参考：</p>
+<h4 id="类文件注释"><a href="#类文件注释" class="headerlink" title="类文件注释"></a>类文件注释</h4><p>通过File–》Setting–》File and Code Template中来设置类文件注释，如下图所示：</p>
+<img src="/2016/09/26/intllij-idea-encoding/setting-class-comment.png" alt="设置类文件注释" title="设置类文件注释">
+<h4 id="格式化设置"><a href="#格式化设置" class="headerlink" title="格式化设置"></a>格式化设置</h4><p>有时在按下格式化按钮后，希望同时优化导入的包，自动移除未使用的包引用，在Intellij Idea中，可以在文件夹上右键，选择Reformate Code(Ctrl + Alt + L)，在弹出的界面中勾选Optimize Import即可。这样在每次按下格式化按钮时，会自动优化导入的包，比如自动移除未使用的包引用、自动排序等等。</p>
+<img src="/2016/09/26/intllij-idea-encoding/reformate-code.png" alt="格式化时优化导入包" title="格式化时优化导入包">
+<p>参考：</p>
 <p><a href="http://www.hollischuang.com/archives/966" target="_blank" rel="external">Java开发必装的IntelliJ IDEA插件</a></p>
 <p><a href="https://www.jetbrains.com/help/idea/2016.2/surrounding-blocks-of-code-with-language-constructs.html" target="_blank" rel="external">Surrounding Blocks of Code with Language Constructs</a></p>
 
@@ -696,7 +700,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/09/26/intllij-idea-encoding/"
-           data-title="IntelliJ Idea快捷键技巧分享" data-url="http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/">
+           data-title="IntelliJ Idea快捷键技巧" data-url="http://jiangxiaoqiang.com/2016/09/26/intllij-idea-encoding/">
       </div>
     
   </div>
@@ -743,7 +747,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">138</span>
+                <span class="site-state-item-count">144</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -752,7 +756,7 @@
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -761,7 +765,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">149</span>
+                <span class="site-state-item-count">153</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -817,6 +821,10 @@
                   <a href="http://stormzhang.com" title="stormzhang的博客" target="_blank">stormzhang的博客</a>
                 </li>
               
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.raychase.net" title="四火的唠叨" target="_blank">四火的唠叨</a>
+                </li>
+              
             </ul>
           </div>
         
@@ -836,7 +844,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入乱码"><span class="nav-number">1.</span> <span class="nav-text">输入乱码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#智能提示敏感调整"><span class="nav-number">2.</span> <span class="nav-text">智能提示敏感调整</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Live-Templates"><span class="nav-number">3.</span> <span class="nav-text">Live Templates</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#快速进行空判断"><span class="nav-number">3.1.</span> <span class="nav-text">快速进行空判断</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#快速输入Main方法"><span class="nav-number">3.2.</span> <span class="nav-text">快速输入Main方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Surround-with"><span class="nav-number">4.</span> <span class="nav-text">Surround with</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重构-Reflactor"><span class="nav-number">5.</span> <span class="nav-text">重构(Reflactor)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#重命名-Rename"><span class="nav-number">5.1.</span> <span class="nav-text">重命名(Rename)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主题-Theme"><span class="nav-number">6.</span> <span class="nav-text">主题(Theme)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Maven配置"><span class="nav-number">7.</span> <span class="nav-text">Maven配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用快捷键"><span class="nav-number">8.</span> <span class="nav-text">常用快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#进入退出全屏"><span class="nav-number">8.1.</span> <span class="nav-text">进入退出全屏</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#properties显示中文"><span class="nav-number">9.</span> <span class="nav-text">properties显示中文</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#限制编辑器Tab页个数"><span class="nav-number">10.</span> <span class="nav-text">限制编辑器Tab页个数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注释模板"><span class="nav-number">11.</span> <span class="nav-text">注释模板</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入乱码"><span class="nav-number">1.</span> <span class="nav-text">输入乱码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#智能提示敏感调整"><span class="nav-number">2.</span> <span class="nav-text">智能提示敏感调整</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Live-Templates"><span class="nav-number">3.</span> <span class="nav-text">Live Templates</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#快速进行空判断"><span class="nav-number">3.1.</span> <span class="nav-text">快速进行空判断</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#快速输入Main方法"><span class="nav-number">3.2.</span> <span class="nav-text">快速输入Main方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Surround-with"><span class="nav-number">4.</span> <span class="nav-text">Surround with</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重构-Reflactor"><span class="nav-number">5.</span> <span class="nav-text">重构(Reflactor)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#重命名-Rename"><span class="nav-number">5.1.</span> <span class="nav-text">重命名(Rename)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主题-Theme"><span class="nav-number">6.</span> <span class="nav-text">主题(Theme)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Maven配置"><span class="nav-number">7.</span> <span class="nav-text">Maven配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用快捷键"><span class="nav-number">8.</span> <span class="nav-text">常用快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#进入退出全屏"><span class="nav-number">8.1.</span> <span class="nav-text">进入退出全屏</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#properties显示中文"><span class="nav-number">9.</span> <span class="nav-text">properties显示中文</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#限制编辑器Tab页个数"><span class="nav-number">10.</span> <span class="nav-text">限制编辑器Tab页个数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类文件注释"><span class="nav-number">11.</span> <span class="nav-text">类文件注释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#格式化设置"><span class="nav-number">12.</span> <span class="nav-text">格式化设置</span></a></li></ol></div>
             
 
           </div>

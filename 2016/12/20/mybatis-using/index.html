@@ -86,23 +86,23 @@
 
 <meta name="description" content="Java的实体属性中，属性赋值时是区分大小写的，比如adog不能成功映射到aDog
 
-Mapper文件中遍历集合参数在遍历List时，直接使用如下的语句即可：
-12345select * from table&amp;lt;where&amp;gt;    id in &amp;lt;foreach collection=&quot;ids&quot; item=&quot;item&quot; index=&quot;index&quot;open=&quot;(&quot; separator">
+获取新增数据的ID有时在添加一条记录后，需要获取添加记录的ID，进行其他业务逻辑。那么只需要在MyBatis中进行如下配置即可：
+12345678&amp;lt;!-- 新增--&amp;gt;&amp;lt;insert id=&quot;saveXzss&quot; useGeneratedKeys=&quot;true&quot; keyProperty=&quot;id&quot;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MyBatis使用">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/12/20/mybatis-using/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="Java的实体属性中，属性赋值时是区分大小写的，比如adog不能成功映射到aDog
 
-Mapper文件中遍历集合参数在遍历List时，直接使用如下的语句即可：
-12345select * from table&amp;lt;where&amp;gt;    id in &amp;lt;foreach collection=&quot;ids&quot; item=&quot;item&quot; index=&quot;index&quot;open=&quot;(&quot; separator">
-<meta property="og:updated_time" content="2016-12-26T12:48:48.684Z">
+获取新增数据的ID有时在添加一条记录后，需要获取添加记录的ID，进行其他业务逻辑。那么只需要在MyBatis中进行如下配置即可：
+12345678&amp;lt;!-- 新增--&amp;gt;&amp;lt;insert id=&quot;saveXzss&quot; useGeneratedKeys=&quot;true&quot; keyProperty=&quot;id&quot;">
+<meta property="og:updated_time" content="2017-01-06T11:38:44.407Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MyBatis使用">
 <meta name="twitter:description" content="Java的实体属性中，属性赋值时是区分大小写的，比如adog不能成功映射到aDog
 
-Mapper文件中遍历集合参数在遍历List时，直接使用如下的语句即可：
-12345select * from table&amp;lt;where&amp;gt;    id in &amp;lt;foreach collection=&quot;ids&quot; item=&quot;item&quot; index=&quot;index&quot;open=&quot;(&quot; separator">
+获取新增数据的ID有时在添加一条记录后，需要获取添加记录的ID，进行其他业务逻辑。那么只需要在MyBatis中进行如下配置即可：
+12345678&amp;lt;!-- 新增--&amp;gt;&amp;lt;insert id=&quot;saveXzss&quot; useGeneratedKeys=&quot;true&quot; keyProperty=&quot;id&quot;">
 
 
 
@@ -206,16 +206,6 @@ Mapper文件中遍历集合参数在遍历List时，直接使用如下的语句�
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
           </a>
         </li>
       
@@ -401,6 +391,10 @@ Mapper文件中遍历集合参数在遍历List时，直接使用如下的语句�
         <ul>
 <li>Java的实体属性中，属性赋值时是区分大小写的，比如adog不能成功映射到aDog</li>
 </ul>
+<h4 id="获取新增数据的ID"><a href="#获取新增数据的ID" class="headerlink" title="获取新增数据的ID"></a>获取新增数据的ID</h4><p>有时在添加一条记录后，需要获取添加记录的ID，进行其他业务逻辑。那么只需要在MyBatis中进行如下配置即可：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 新增--&gt;</div><div class="line">&lt;insert id="saveXzss" useGeneratedKeys="true" keyProperty="id"</div><div class="line">        parameterType="system.data.model.CreditDissent"&gt;</div><div class="line">    INSERT INTO TS_B_XYSS(</div><div class="line">    APPLAYER_NAME)</div><div class="line">    VALUES(</div><div class="line">    #&#123;applayerName&#125;);</div><div class="line">&lt;/insert&gt;</div></pre></td></tr></table></figure>
+<p><code>useGeneratedKeys=&quot;true&quot;</code>表示开启返回自增ID。<code>keyProperty=&quot;id&quot;</code>表示返回主键的名字。在业务代码中接收：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">workflowMapper.create(autoGenerateFlow);</div><div class="line"><span class="keyword">int</span> id=creditDissent.getId();</div></pre></td></tr></table></figure>
 <h4 id="Mapper文件中遍历集合参数"><a href="#Mapper文件中遍历集合参数" class="headerlink" title="Mapper文件中遍历集合参数"></a>Mapper文件中遍历集合参数</h4><p>在遍历List<integer>时，直接使用如下的语句即可：</integer></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">select * from table</div><div class="line"><span class="tag">&lt;<span class="name">where</span>&gt;</span></div><div class="line">    id in <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"ids"</span> <span class="attr">item</span>=<span class="string">"item"</span> <span class="attr">index</span>=<span class="string">"index"</span></span></div><div class="line"><span class="attr">open</span>=<span class="string">"("</span> <span class="attr">separator</span>=<span class="string">","</span> <span class="attr">close</span>=<span class="string">")"</span>&gt;#&#123;item&#125;<span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">where</span>&gt;</span></div></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -556,7 +550,7 @@ Mapper文件中遍历集合参数在遍历List时，直接使用如下的语句�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">138</span>
+                <span class="site-state-item-count">144</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -565,7 +559,7 @@ Mapper文件中遍历集合参数在遍历List时，直接使用如下的语句�
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -574,7 +568,7 @@ Mapper文件中遍历集合参数在遍历List时，直接使用如下的语句�
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">149</span>
+                <span class="site-state-item-count">153</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -630,6 +624,10 @@ Mapper文件中遍历集合参数在遍历List时，直接使用如下的语句�
                   <a href="http://stormzhang.com" title="stormzhang的博客" target="_blank">stormzhang的博客</a>
                 </li>
               
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.raychase.net" title="四火的唠叨" target="_blank">四火的唠叨</a>
+                </li>
+              
             </ul>
           </div>
         
@@ -649,7 +647,7 @@ Mapper文件中遍历集合参数在遍历List时，直接使用如下的语句�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Mapper文件中遍历集合参数"><span class="nav-number">1.</span> <span class="nav-text">Mapper文件中遍历集合参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特殊符号"><span class="nav-number">2.</span> <span class="nav-text">特殊符号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#传入参数"><span class="nav-number">3.</span> <span class="nav-text">传入参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MyBatis中-与-的区别"><span class="nav-number">4.</span> <span class="nav-text">MyBatis中${}与#{}的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#parameter参数"><span class="nav-number">5.</span> <span class="nav-text">_parameter参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分页-Page"><span class="nav-number">6.</span> <span class="nav-text">分页(Page)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拦截器实现分页-Implement-by-Interceptor"><span class="nav-number">7.</span> <span class="nav-text">拦截器实现分页(Implement by Interceptor)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Mybatis-PageHelper"><span class="nav-number">7.1.</span> <span class="nav-text">Mybatis-PageHelper</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#获取新增数据的ID"><span class="nav-number">1.</span> <span class="nav-text">获取新增数据的ID</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mapper文件中遍历集合参数"><span class="nav-number">2.</span> <span class="nav-text">Mapper文件中遍历集合参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特殊符号"><span class="nav-number">3.</span> <span class="nav-text">特殊符号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#传入参数"><span class="nav-number">4.</span> <span class="nav-text">传入参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MyBatis中-与-的区别"><span class="nav-number">5.</span> <span class="nav-text">MyBatis中${}与#{}的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#parameter参数"><span class="nav-number">6.</span> <span class="nav-text">_parameter参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分页-Page"><span class="nav-number">7.</span> <span class="nav-text">分页(Page)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拦截器实现分页-Implement-by-Interceptor"><span class="nav-number">8.</span> <span class="nav-text">拦截器实现分页(Implement by Interceptor)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Mybatis-PageHelper"><span class="nav-number">8.1.</span> <span class="nav-text">Mybatis-PageHelper</span></a></li></ol></li></ol></div>
             
 
           </div>

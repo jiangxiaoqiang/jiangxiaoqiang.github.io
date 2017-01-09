@@ -199,16 +199,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -280,7 +270,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/10/13/linux-chkconfig-service-systemctl/">
+  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/10/18/spring-get-bean/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xiaoqiang jiang">
@@ -305,8 +295,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/13/linux-chkconfig-service-systemctl/" itemprop="url">
-                  linux中的chkconfig、service和systemctl
+                <a class="post-title-link" href="/2016/10/18/spring-get-bean/" itemprop="url">
+                  Spring线程中Bean注入问题
                 </a>
               
             
@@ -322,8 +312,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-13T09:04:58+08:00">
-                2016-10-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-18T17:20:11+08:00">
+                2016-10-18
               </time>
             
 
@@ -363,8 +353,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/10/13/linux-chkconfig-service-systemctl/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/13/linux-chkconfig-service-systemctl/" itemprop="commentCount"></span>
+                <a href="/2016/10/18/spring-get-bean/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/18/spring-get-bean/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -391,11 +381,10 @@
 
       
         
-          <p>最近在Fedora里使用开机自动启动命令时，提示如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Note: This output shows SysV services only and does not include native</div><div class="line">      systemd services. SysV configuration data might be overridden by native</div><div class="line">      systemd configuration.</div><div class="line"></div><div class="line">      If you want to list systemd services use &apos;systemctl list-unit-files&apos;.</div><div class="line">      To see services enabled on particular target use</div><div class="line">      &apos;systemctl list-dependencies [target]&apos;.</div></pre></td></tr></table></figure>
+          <h4 id="实现ApplicationContextAware"><a href="#实现ApplicationContextAware" class="headerlink" title="实现ApplicationContextAware"></a>实现ApplicationContextAware</h4><p>在Spring中开启线程时，无法使用Bean的自动注入，此时需要手动获取Bean。方法如下：</p>
           <!--noindex-->
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/13/linux-chkconfig-service-systemctl/#more" rel="contents">
+            <a class="btn" href="/2016/10/18/spring-get-bean/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -436,7 +425,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/10/12/fedora-desktop-icon/">
+  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/10/17/port-aready-in-use/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xiaoqiang jiang">
@@ -461,8 +450,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/12/fedora-desktop-icon/" itemprop="url">
-                  Fedora 24添加桌面图标
+                <a class="post-title-link" href="/2016/10/17/port-aready-in-use/" itemprop="url">
+                  port aready in use
                 </a>
               
             
@@ -478,8 +467,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-12T08:51:47+08:00">
-                2016-10-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-17T16:15:02+08:00">
+                2016-10-17
               </time>
             
 
@@ -519,8 +508,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/10/12/fedora-desktop-icon/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/12/fedora-desktop-icon/" itemprop="commentCount"></span>
+                <a href="/2016/10/17/port-aready-in-use/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/17/port-aready-in-use/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -547,12 +536,11 @@
 
       
         
-          <p>安装好了Google Chrome和Intellij Idea之后没有桌面图标，也没有快速启动图标，每次启动都要打开终端，甚是麻烦。故将图标放在桌面能够节省不少时间，同时也更加方便。首先安装gnome-tweak-tool:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dnf install gnome-tweak-tool -y</div></pre></td></tr></table></figure>
-<p>运行<code>gnome-tweak-tool</code>命令，在弹出的窗口的Desktop选项卡中打开Icons on Desktop.</p>
+          <p>在使用Intellij Idea调试时，以Application方式启动程序时提示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">2016-10-17 11:28:38.537 ERROR 23156 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : </div><div class="line"></div><div class="line">***************************</div><div class="line">APPLICATION FAILED TO START</div><div class="line">***************************</div><div class="line"></div><div class="line">Description:</div><div class="line"></div><div class="line">The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.</div><div class="line"></div><div class="line">Action:</div><div class="line"></div><div class="line">Verify the connector&apos;s configuration, identify and stop any process that&apos;s listening on port 8080, or configure this application to listen on another port.</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/12/fedora-desktop-icon/#more" rel="contents">
+            <a class="btn" href="/2016/10/17/port-aready-in-use/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -593,7 +581,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/10/10/intellij-hot-deply/">
+  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/10/16/fedora-git-server/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xiaoqiang jiang">
@@ -618,8 +606,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/10/intellij-hot-deply/" itemprop="url">
-                  Intellij Idea热部署
+                <a class="post-title-link" href="/2016/10/16/fedora-git-server/" itemprop="url">
+                  Fedora 24搭建Git Server
                 </a>
               
             
@@ -635,8 +623,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-10T18:55:23+08:00">
-                2016-10-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-16T21:03:39+08:00">
+                2016-10-16
               </time>
             
 
@@ -676,8 +664,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/10/10/intellij-hot-deply/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/10/intellij-hot-deply/" itemprop="commentCount"></span>
+                <a href="/2016/10/16/fedora-git-server/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/16/fedora-git-server/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -704,10 +692,10 @@
 
       
         
-          <p>下午遇到一个问题，在开发时，HTML修改后浏览器刷新始终不显示修改后的效果。经过朋友的指导，原来是要选择Exploded包进行部署。如图所示。</p>
+          <p>想将代码拷贝到家里的电脑，在安静的时刻可以阅读消化。每天用U盘拷贝也是比较麻烦，本来Github挺好用的，但是闭源的托管需要费用。刚好办公电脑和家里的电脑安装了OpenVPN,所以就想在家里的电脑搭建一个Git Server，通过OpenVPN将家里的电脑和办公电脑相连(相当于局域网)。这样就可以随时提交代码了。同时也想以SSH连接家里的电脑，所以同时也安装了OpenSSH。也可以SSH远程Copy，但是无法增量Copy，Copy一次大概需要2-3个小时。遂放弃SSH Copy的方案。</p>
           <!--noindex-->
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/10/intellij-hot-deply/#more" rel="contents">
+            <a class="btn" href="/2016/10/16/fedora-git-server/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -748,7 +736,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/10/09/fedora-openvpn-client/">
+  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/10/15/Fedora-24-using-xxnet/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xiaoqiang jiang">
@@ -773,8 +761,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/09/fedora-openvpn-client/" itemprop="url">
-                  Fedora 24 OpenVPN客户端配置
+                <a class="post-title-link" href="/2016/10/15/Fedora-24-using-xxnet/" itemprop="url">
+                  在Fedora 24中使用xx-net
                 </a>
               
             
@@ -790,8 +778,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-09T11:55:08+08:00">
-                2016-10-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-15T21:30:14+08:00">
+                2016-10-15
               </time>
             
 
@@ -813,8 +801,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Programming/" itemprop="url" rel="index">
-                    <span itemprop="name">Programming</span>
+                  <a href="/categories/Software/" itemprop="url" rel="index">
+                    <span itemprop="name">Software</span>
                   </a>
                 </span>
 
@@ -831,8 +819,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/10/09/fedora-openvpn-client/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/09/fedora-openvpn-client/" itemprop="commentCount"></span>
+                <a href="/2016/10/15/Fedora-24-using-xxnet/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/15/Fedora-24-using-xxnet/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -859,22 +847,10 @@
 
       
         
-          <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>输入如下命令安装。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#Fedora 24安装命令</span></div><div class="line">dnf install openvpn -y</div><div class="line"><span class="comment">#CentOS 6.8安装命令(可输入lsb_release -a命令查看版本)</span></div><div class="line">yum intall openvpn -y</div></pre></td></tr></table></figure>
-<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><h5 id="生成客户端文件"><a href="#生成客户端文件" class="headerlink" title="生成客户端文件"></a>生成客户端文件</h5><p>到OpenVPN服务端<code>easy-rsa</code>目录下，输入如下命令生成客户端key：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">build-key client</div></pre></td></tr></table></figure>
-<p>这里介绍在Fedora中如何设置OpenVPN客户端。将生成的客户端文件拷贝到Fedora的<code>/etc/openvpn</code>配置目录中即可，生成的客户端文件有：</p>
-<ul>
-<li>ca.crt</li>
-<li>client.crt</li>
-<li>client.key</li>
-<li>client.ovpn</li>
-</ul>
-<p>在Fedora中将client.ovpn改为client.conf即可。启动OpenVPN客户端(root权限):</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">openvpn client.conf</div></pre></td></tr></table></figure>
+          <p>虽然此处实际在Linux平台进行的配置，但是XX-Net是跨平台的，在Windows、Mac OS下一样可以使用，在其他的操作系统下配置类似。在Fedora 24中安装完Google Chrome之后，还需要同步在Windows平台上保存的Google Chrome的书签（里面有好多收藏的好网站）、Cookie(不用每次登陆网页输入用户名和密码，记忆用户名和密码非常具有迷惑性，目前注册的用户名密码真的太多了，根本记不住，现在都是借助KeePass来记忆)等等数据。平时的搜索还是需要用Google，Google相比于百度，搜索出的结果更加精确，内容对于用户更加有意义。当你迫切想要知道某个问题的思路时，如果搜索出来一些无关痛痒的内容，是非常浪费时间的，消磨你的意志，会让你有一种被掏空了的感觉，对就是那种感觉。极大的降低了效率，想想如此庞大的用户基数，如果搜索出的内容不精准、没有意义所造成的资源浪费（时间、精力、意志力等）是非常恐怖的。所以这也是为什么费尽心思要使用Google，当你顺利的找到自己想要的内容并快速完成任务时，会深刻的体会到前期在科学上网里花费的时间是值得的。要做到以上两点，就需要借助XX-Net。</p>
           <!--noindex-->
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/09/fedora-openvpn-client/#more" rel="contents">
+            <a class="btn" href="/2016/10/15/Fedora-24-using-xxnet/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -915,7 +891,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/10/08/intelli-idea-plugin/">
+  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/10/14/script-startup-with-linux/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xiaoqiang jiang">
@@ -940,8 +916,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/08/intelli-idea-plugin/" itemprop="url">
-                  Intellij IDEA推荐插件
+                <a class="post-title-link" href="/2016/10/14/script-startup-with-linux/" itemprop="url">
+                  Linux开机自动启动程序
                 </a>
               
             
@@ -957,8 +933,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-08T13:46:41+08:00">
-                2016-10-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-14T17:45:50+08:00">
+                2016-10-14
               </time>
             
 
@@ -998,8 +974,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/10/08/intelli-idea-plugin/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/intelli-idea-plugin/" itemprop="commentCount"></span>
+                <a href="/2016/10/14/script-startup-with-linux/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/14/script-startup-with-linux/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1026,10 +1002,12 @@
 
       
         
-          <h4 id="presentation-assistant"><a href="#presentation-assistant" class="headerlink" title="presentation assistant"></a>presentation assistant</h4><p>这款插件可以实时的在Intellij屏幕底部展示当前按下的快捷键，包括Windows的快捷键和Mac的快捷键，可以帮助您记忆快捷键，清楚当前的行为(Action)。效果如下图所示。</p>
+          <h4 id="开机时自动运行"><a href="#开机时自动运行" class="headerlink" title="开机时自动运行"></a>开机时自动运行</h4><p>一般有守护进程的服务在Fedora 24中都可以通过systemctl命令自动运行。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl <span class="built_in">enable</span> ServiceName</div></pre></td></tr></table></figure>
+<p>对于没有服务的程序，如果想在开机时随系统启动可以通过脚本来实现。</p>
           <!--noindex-->
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/08/intelli-idea-plugin/#more" rel="contents">
+            <a class="btn" href="/2016/10/14/script-startup-with-linux/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1065,7 +1043,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/22/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/24/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/22/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="extend next" rel="next" href="/page/24/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1108,7 +1086,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">138</span>
+                <span class="site-state-item-count">144</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1117,7 +1095,7 @@
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -1126,7 +1104,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">149</span>
+                <span class="site-state-item-count">153</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1180,6 +1158,10 @@
               
                 <li class="links-of-blogroll-item">
                   <a href="http://stormzhang.com" title="stormzhang的博客" target="_blank">stormzhang的博客</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.raychase.net" title="四火的唠叨" target="_blank">四火的唠叨</a>
                 </li>
               
             </ul>

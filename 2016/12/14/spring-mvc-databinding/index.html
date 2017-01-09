@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/12/14/spring-mvc-databinding/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="SpringMVC主框架将ServletRequest对象及目标方法的入参实例传递给WebDataBinderFactory实例，以创建DataBinder实例对象。DataBinder调用装配在SpringMVC上下文中的ConversionService组件进行数据类型转换、数据格式化工作。将Servlet中的请求信息填充到入参对象中。调用Validator组件对已经绑定了请求消息的入参对象进">
-<meta property="og:updated_time" content="2016-12-14T14:19:44.892Z">
+<meta property="og:updated_time" content="2017-01-05T11:10:46.544Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring MVC数据绑定流程">
 <meta name="twitter:description" content="SpringMVC主框架将ServletRequest对象及目标方法的入参实例传递给WebDataBinderFactory实例，以创建DataBinder实例对象。DataBinder调用装配在SpringMVC上下文中的ConversionService组件进行数据类型转换、数据格式化工作。将Servlet中的请求信息填充到入参对象中。调用Validator组件对已经绑定了请求消息的入参对象进">
@@ -197,16 +197,6 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
           </a>
         </li>
       
@@ -392,6 +382,8 @@
         <p>SpringMVC主框架将ServletRequest对象及目标方法的入参实例传递给WebDataBinderFactory实例，以创建DataBinder实例对象。DataBinder调用装配在SpringMVC上下文中的ConversionService组件进行数据类型转换、数据格式化工作。将Servlet中的请求信息填充到入参对象中。调用Validator组件对已经绑定了请求消息的入参对象进行数据合法性校验，并最终生成数据绑定结果。</p>
 <a id="more"></a>
 
+<h4 id="到DispatcherServlet"><a href="#到DispatcherServlet" class="headerlink" title="到DispatcherServlet"></a>到DispatcherServlet</h4><p>客户端的请求到达服务端，首先到DispatcherServlet(org.springframework.web.servlet)的doService方法中。DispatcherServlet通过HandlerMapping获得HandlerExecutionChain，然后获得HandlerAdapter。请求方法参数的处理、响应返回值的处理，分别是HandlerMethodArgumentResolver和HandlerMethodReturnValueHandler，这两个接口都是Spring3.1版本之后加入的。</p>
+<h4 id="执行请求"><a href="#执行请求" class="headerlink" title="执行请求"></a>执行请求</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">invokeForRequest</span><span class="params">(NativeWebRequest request, ModelAndViewContainer mavContainer,</span></span></div><div class="line">			Object... providedArgs) <span class="keyword">throws</span> Exception &#123;</div><div class="line">	Object[] args = getMethodArgumentValues(request, mavContainer, providedArgs);</div><div class="line">	<span class="keyword">if</span> (logger.isTraceEnabled()) &#123;</div><div class="line">		logger.trace(<span class="string">"Invoking '"</span> + ClassUtils.getQualifiedMethodName(getMethod(), getBeanType()) +</div><div class="line">				<span class="string">"' with arguments "</span> + Arrays.toString(args));</div><div class="line">	&#125;</div><div class="line">	Object returnValue = doInvoke(args);</div><div class="line">	<span class="keyword">if</span> (logger.isTraceEnabled()) &#123;</div><div class="line">		logger.trace(<span class="string">"Method ["</span> + ClassUtils.getQualifiedMethodName(getMethod(), getBeanType()) +</div><div class="line">				<span class="string">"] returned ["</span> + returnValue + <span class="string">"]"</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> returnValue;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -487,8 +479,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -501,7 +502,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">138</span>
+                <span class="site-state-item-count">144</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -510,7 +511,7 @@
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -519,7 +520,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">149</span>
+                <span class="site-state-item-count">153</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -575,6 +576,10 @@
                   <a href="http://stormzhang.com" title="stormzhang的博客" target="_blank">stormzhang的博客</a>
                 </li>
               
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.raychase.net" title="四火的唠叨" target="_blank">四火的唠叨</a>
+                </li>
+              
             </ul>
           </div>
         
@@ -584,6 +589,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#到DispatcherServlet"><span class="nav-number">1.</span> <span class="nav-text">到DispatcherServlet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#执行请求"><span class="nav-number">2.</span> <span class="nav-text">执行请求</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>

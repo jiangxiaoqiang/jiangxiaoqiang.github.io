@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/12/19/git-using/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="Git是目前世界上最先进的分布式版本控制系统，没有之一。Git有什么特点？简单来说就是：高端大气上档次！逼格那是相当高，装逼必备神器。当你说用Git管理源码的时候，逼格瞬间高好几个档次。最近项目中在用，结合以前使用的经验，简单的总结记录在此。">
-<meta property="og:updated_time" content="2017-01-03T01:35:34.800Z">
+<meta property="og:updated_time" content="2017-01-09T04:53:14.299Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git使用">
 <meta name="twitter:description" content="Git是目前世界上最先进的分布式版本控制系统，没有之一。Git有什么特点？简单来说就是：高端大气上档次！逼格那是相当高，装逼必备神器。当你说用Git管理源码的时候，逼格瞬间高好几个档次。最近项目中在用，结合以前使用的经验，简单的总结记录在此。">
@@ -197,16 +197,6 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
           </a>
         </li>
       
@@ -380,7 +370,9 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote -v</div></pre></td></tr></table></figure>
 <h4 id="添加-Add"><a href="#添加-Add" class="headerlink" title="添加(Add)"></a>添加(Add)</h4><p>在使用Git的过程中，使用命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 添加当前目录的所有文件到暂存区</span></div><div class="line">git add .</div></pre></td></tr></table></figure>
-<p>没有添加某一部分子目录的文件，让我有点郁闷，最后切换到那个目录下手动添加修改后(Modified)的文件。按理说应该是添加当前目录下所有的文件和子文件夹啊，百思不得其解。</p>
+<p>没有添加某一部分子目录的文件，让我有点郁闷，最后切换到那个目录下手动添加修改后(Modified)的文件。按理说应该是添加当前目录下所有的文件和子文件夹啊，百思不得其解。原来是由于子目录下的远程库的地址与当前库不一致所导致,子目录下还是next主题的URL,而不是当前库的URL,将子目录下的远程库的地址修改为当前库的地址即可:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote <span class="built_in">set</span>-url --add origin https://github.com/jiangxiaoqiang/xiaoqiang-blog-source.git</div></pre></td></tr></table></figure>
+<p>其中,origin是远程库的名字.</p>
 <h4 id="发起pull-request"><a href="#发起pull-request" class="headerlink" title="发起pull request"></a>发起pull request</h4><p>新建(check out)分支v1_xiaoqiang：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b v1_xiaoqiang</div></pre></td></tr></table></figure>
 <table>
@@ -433,6 +425,22 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch</div></pre></td></tr></table></figure>
 <p>假如当前分支为名称：v1_xiaoqiang,将v1分支合并到当前分支：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#切换到v1_xiaoqiang分支</span></div><div class="line">git checkout v1_xiaoqiang</div><div class="line"><span class="comment">#将v1分支合并到当前分支（v1_xiaoqiang）</span></div><div class="line">git merge v1</div></pre></td></tr></table></figure>
+<p>关闭文件对比(合并)工具后，辅助文件都会自动删除，但同时会生成一个test.txt.orig的文件，orig是original的缩写，内容是解决冲突前的冲突现场。默认该.orig文件可能不会自动删除，需要手动删除。</p>
+<h4 id="撤销合并"><a href="#撤销合并" class="headerlink" title="撤销合并"></a>撤销合并</h4><p>使用git show命令查看父编号(parent number):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git show s868dfa3e5267578eeec73947f334320740885f56</div></pre></td></tr></table></figure>
+<p>显示的内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">commit 868dfa3e5267578eeec73947f334320740885f56</div><div class="line">Merge: 0995c73 6d3ef06</div><div class="line">Author: jiangxiaoqiang &lt;jiangtingqiang@gmail.com&gt;</div><div class="line">Date:   Fri Jan 6 09:30:15 2017 +0800</div><div class="line"></div><div class="line">    Merge branch &apos;v1&apos; of http://dn6/backend/credit-system into v1</div></pre></td></tr></table></figure>
+<p>The first one is the first parent, the second one is the second parent。取消合并：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git revert -m 1 HEAD</div></pre></td></tr></table></figure>
+<p>1就是1，表示0995c73对应的父来源，2表示6d3ef06对应的父来源。要撤销的那条merge线的编号,HEAD表示merge前的版本号。</p>
+<h4 id="Pull操作"><a href="#Pull操作" class="headerlink" title="Pull操作"></a>Pull操作</h4><p>git pull的作用是取回远程主机某个分支的更新，再与本地指定分之合并。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull &lt;远程主机名&gt;　&lt;远程分支名&gt;：&lt;本地分支名&gt;</div></pre></td></tr></table></figure>
+<p>比如取回origin主机的next分支，与本地的master分支合并，写成下面这样：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull origin next:master</div></pre></td></tr></table></figure>
+<p>远程分支与当前分支合并，冒号后的内容可以省略：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull origin next</div></pre></td></tr></table></figure>
+<p>等同于先做fetch，再做merge。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git fetch origin</div><div class="line">git merge origin/next</div></pre></td></tr></table></figure>
 <h4 id="储藏-Stash"><a href="#储藏-Stash" class="headerlink" title="储藏(Stash)"></a>储藏(Stash)</h4><p>“‘储藏”“可以获取你工作目录的中间状态——也就是你修改过的被追踪的文件和暂存的变更——并将它保存到一个未完结变更的堆栈中，随时可以重新应用。往堆栈推送一个新的储藏，只要运行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git stash</div></pre></td></tr></table></figure>
 <p>查看储藏：</p>
@@ -557,7 +565,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">138</span>
+                <span class="site-state-item-count">144</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -566,7 +574,7 @@
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -575,7 +583,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">149</span>
+                <span class="site-state-item-count">153</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -631,6 +639,10 @@
                   <a href="http://stormzhang.com" title="stormzhang的博客" target="_blank">stormzhang的博客</a>
                 </li>
               
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.raychase.net" title="四火的唠叨" target="_blank">四火的唠叨</a>
+                </li>
+              
             </ul>
           </div>
         
@@ -650,7 +662,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加-Add"><span class="nav-number">2.</span> <span class="nav-text">添加(Add)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发起pull-request"><span class="nav-number">3.</span> <span class="nav-text">发起pull request</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于Commit的建议"><span class="nav-number">4.</span> <span class="nav-text">关于Commit的建议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新-update"><span class="nav-number">5.</span> <span class="nav-text">更新(update)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#合并-merge"><span class="nav-number">6.</span> <span class="nav-text">合并(merge)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#储藏-Stash"><span class="nav-number">7.</span> <span class="nav-text">储藏(Stash)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Your-branch-and-‘origin-master’-have-diverged"><span class="nav-number">8.</span> <span class="nav-text">Your branch and ‘origin/master’ have diverged</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Changes-not-staged-for-commit"><span class="nav-number">8.1.</span> <span class="nav-text">Changes not staged for commit</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Please-commit-your-changes-or-stash-them-before-you-can-merge"><span class="nav-number">9.</span> <span class="nav-text">Please, commit your changes or stash them before you can merge</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加-Add"><span class="nav-number">2.</span> <span class="nav-text">添加(Add)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发起pull-request"><span class="nav-number">3.</span> <span class="nav-text">发起pull request</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于Commit的建议"><span class="nav-number">4.</span> <span class="nav-text">关于Commit的建议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新-update"><span class="nav-number">5.</span> <span class="nav-text">更新(update)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#合并-merge"><span class="nav-number">6.</span> <span class="nav-text">合并(merge)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#撤销合并"><span class="nav-number">7.</span> <span class="nav-text">撤销合并</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pull操作"><span class="nav-number">8.</span> <span class="nav-text">Pull操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#储藏-Stash"><span class="nav-number">9.</span> <span class="nav-text">储藏(Stash)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Your-branch-and-‘origin-master’-have-diverged"><span class="nav-number">10.</span> <span class="nav-text">Your branch and ‘origin/master’ have diverged</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Changes-not-staged-for-commit"><span class="nav-number">10.1.</span> <span class="nav-text">Changes not staged for commit</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Please-commit-your-changes-or-stash-them-before-you-can-merge"><span class="nav-number">11.</span> <span class="nav-text">Please, commit your changes or stash them before you can merge</span></a></li></ol></div>
             
 
           </div>

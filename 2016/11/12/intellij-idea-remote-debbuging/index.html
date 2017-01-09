@@ -94,7 +94,7 @@
 服务器配置要让远程服务器运行的代码支持远程调试，则启动的时候必须加上特定的JVM参数，这些参数是：">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/11/12/intellij-idea-remote-debbuging/tomcat-listening-port.png">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/11/12/intellij-idea-remote-debbuging/intellij-idea-remote-debugging.jpg">
-<meta property="og:updated_time" content="2016-11-18T16:25:05.327Z">
+<meta property="og:updated_time" content="2017-01-04T10:04:11.537Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Intellij-Idea远程调试">
 <meta name="twitter:description" content="因为我们用的是Tomcat，所以在IDEA中点击右上角那个“Edit Configurations”按钮，然后在弹出的界面中点击左上角的加号，选择tomcat server-&amp;gt;remote。
@@ -203,16 +203,6 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
           </a>
         </li>
       
@@ -403,7 +393,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">set</span> CATALINA_OPTS=<span class="string">"-agentlib:jdwp=transport=dt_socket,address=53996,suspend=n,server=y"</span></div></pre></td></tr></table></figure>
 <p>如果是Linux，在catalina.sh文件中中，设置catalina环境变量：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> CATALINA_OPTS=<span class="string">"-agentlib:jdwp=transport=dt_socket,address=53996,suspend=n,server=y"</span></div></pre></td></tr></table></figure>
-<p>运行如下命令启动Tomcat：</p>
+<p>Sun虚拟机实现需要指定命令行选项，以加载JDWP（Java Debug Wire Protocol Transport）代理来debug。JDK 5.0以前需要指定-Xdebug和-Xrunjdwp这两个参数，以后则可以使用参数-agentlib:jdwp替代之，它们指定了JVM使用的连接器。从上面的例子代码可以看到几个jdwp支持的参数选项，包括transport、server、suspend、address等等，这些都很常见，还包括timeout、launch（中断并开始调试的时候，执行什么程序）、onuncaught（如果出现无法捕获的异常是否需要中断并调试）等等。运行如下命令启动Tomcat：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#Windows下启动Tomcat</span></div><div class="line">catalina.bat start</div><div class="line"></div><div class="line"><span class="comment">#Linux下启动Tomcat</span></div><div class="line">catalina.sh start</div></pre></td></tr></table></figure>
 <p>使用如下命令查看是否配置成功：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#Windows下用此命令查看</span></div><div class="line">netstat -ano</div><div class="line"></div><div class="line"><span class="comment">#Linux下用此命令查看</span></div><div class="line">lsof -i:53996</div></pre></td></tr></table></figure>
@@ -411,6 +401,10 @@
 <img src="/2016/11/12/intellij-idea-remote-debbuging/tomcat-listening-port.png" alt="检查服务端配置是否正确" title="检查服务端配置是否正确">
 <h4 id="Intellij-Idea配置"><a href="#Intellij-Idea配置" class="headerlink" title="Intellij Idea配置"></a>Intellij Idea配置</h4><p>Intellij Idea远程调试配置如下：</p>
 <img src="/2016/11/12/intellij-idea-remote-debbuging/intellij-idea-remote-debugging.jpg" alt="Intellij Idea远程调试配置" title="Intellij Idea远程调试配置">
+<p>参考资料：</p>
+<ul>
+<li><a href="http://www.raychase.net/1519" target="_blank" rel="external">JVM问题定位工具</a></li>
+</ul>
 
       
     </div>
@@ -529,7 +523,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">138</span>
+                <span class="site-state-item-count">144</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -538,7 +532,7 @@
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -547,7 +541,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">149</span>
+                <span class="site-state-item-count">153</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -601,6 +595,10 @@
               
                 <li class="links-of-blogroll-item">
                   <a href="http://stormzhang.com" title="stormzhang的博客" target="_blank">stormzhang的博客</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.raychase.net" title="四火的唠叨" target="_blank">四火的唠叨</a>
                 </li>
               
             </ul>

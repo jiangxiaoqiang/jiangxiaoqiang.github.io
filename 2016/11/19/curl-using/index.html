@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/11/19/curl-using/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="简介curl is a tool to transfer data from or to a server, using one of the supported protocols (DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, S">
-<meta property="og:updated_time" content="2016-12-23T12:29:52.756Z">
+<meta property="og:updated_time" content="2017-01-04T03:40:57.193Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="curl使用">
 <meta name="twitter:description" content="简介curl is a tool to transfer data from or to a server, using one of the supported protocols (DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, S">
@@ -197,16 +197,6 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
           </a>
         </li>
       
@@ -412,6 +402,9 @@
 <h4 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h4><p>如下命令是使用curl下载XX-net工具。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -o xxnet.zip https://codeload.github.com/XX-net/XX-Net/zip/3.2.8</div></pre></td></tr></table></figure>
 <p>-o, –output <file>，文件的保存名称。</file></p>
+<h4 id="提交POST请求"><a href="#提交POST请求" class="headerlink" title="提交POST请求"></a>提交POST请求</h4><p>使用Curl提交Post请求如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -H <span class="string">"APPID:hlb11529c136998cb6"</span> -H <span class="string">"TIMESTAMP:2016-12-19 16:58:02"</span> -H <span class="string">"ECHOSTR:sdsaasf"</span> -H <span class="string">"TOKEN:14d45648c62a746ae9dd9b90c03c50893061222d"</span> -H <span class="string">"Accept:application/json"</span> -H <span class="string">"Accept:application/json"</span> -H <span class="string">"Content-Type:application/json"</span> -X POST <span class="_">-d</span> <span class="string">'&#123;"id":1&#125;'</span> http://localhost:28080/api/xzss/savejson</div></pre></td></tr></table></figure>
+<p>使用Curl请求时，默认是Get请求，如果需要显示指定请求类型，那么需要加上-X(–request)参数。</p>
 <p>参考资料：</p>
 <ul>
 <li><a href="http://www.ruanyifeng.com/blog/2011/09/curl.html" target="_blank" rel="external">curl网站开发指南</a></li>
@@ -534,7 +527,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">138</span>
+                <span class="site-state-item-count">144</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -543,7 +536,7 @@
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -552,7 +545,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">149</span>
+                <span class="site-state-item-count">153</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -608,6 +601,10 @@
                   <a href="http://stormzhang.com" title="stormzhang的博客" target="_blank">stormzhang的博客</a>
                 </li>
               
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.raychase.net" title="四火的唠叨" target="_blank">四火的唠叨</a>
+                </li>
+              
             </ul>
           </div>
         
@@ -627,7 +624,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看网页源码"><span class="nav-number">2.</span> <span class="nav-text">查看网页源码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie"><span class="nav-number">3.</span> <span class="nav-text">Ｃookie</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请求API数据"><span class="nav-number">4.</span> <span class="nav-text">请求API数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参数"><span class="nav-number">5.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载文件"><span class="nav-number">6.</span> <span class="nav-text">下载文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看网页源码"><span class="nav-number">2.</span> <span class="nav-text">查看网页源码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie"><span class="nav-number">3.</span> <span class="nav-text">Ｃookie</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请求API数据"><span class="nav-number">4.</span> <span class="nav-text">请求API数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参数"><span class="nav-number">5.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载文件"><span class="nav-number">6.</span> <span class="nav-text">下载文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#提交POST请求"><span class="nav-number">7.</span> <span class="nav-text">提交POST请求</span></a></li></ol></div>
             
 
           </div>
