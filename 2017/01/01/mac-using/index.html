@@ -90,7 +90,11 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/01/01/mac-using/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="安装常用软件brew是Mac下一款包管理器，默认是没有安装的。先安装包管理工具，其他软件可以通过包管理工具方便的安装。在终端中输入如下命令安装brew。">
+<<<<<<< HEAD
 <meta property="og:updated_time" content="2017-01-09T04:53:14.299Z">
+=======
+<meta property="og:updated_time" content="2017-01-04T05:10:46.477Z">
+>>>>>>> 3022207df2a00d5d2ff4be72e536389d8783a983
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac使用">
 <meta name="twitter:description" content="安装常用软件brew是Mac下一款包管理器，默认是没有安装的。先安装包管理工具，其他软件可以通过包管理工具方便的安装。在终端中输入如下命令安装brew。">
@@ -201,6 +205,29 @@
         </li>
       
         
+<<<<<<< HEAD
+=======
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+>>>>>>> 3022207df2a00d5d2ff4be72e536389d8783a983
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -363,11 +390,14 @@
 <p>安装完毕brew后，可以通过brew安装其他软件：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 安装Lantern</span></div><div class="line">brew cask install Caskroom/cask/lantern</div><div class="line"><span class="comment"># 安装Google Chrome</span></div><div class="line">brew cask install Caskroom/cask/google-chrome</div><div class="line"><span class="comment"># 安装Java</span></div><div class="line">brew cask install java</div><div class="line"><span class="comment"># 安装PyCharm</span></div><div class="line">brew cask install pycharm</div><div class="line"><span class="comment"># 安装wget</span></div><div class="line">brew cask install wget</div><div class="line"><span class="comment"># 安装gradle</span></div><div class="line">brew install gradle</div><div class="line"><span class="comment"># 列出已经安装的软件名字</span></div><div class="line">brew list</div></pre></td></tr></table></figure>
 <p>有些命令安装软件是brew，而有些命令安装软件是brew cask。brew是从下载源码解压然后<code>./configure &amp;&amp; make install</code>，同时会包含相关依存库。并自动配置好各种环境变量，而且易于卸载。而brew cask是已经编译好了的应用包(.dmg[Apple Disk Image]/.pkg)，仅仅是下载解压，放在统一的目录中(/opt/homebrew-cask/Caskroom)，省掉了自己去下载、解压、拖拽（安装）等步骤，同样，卸载相当容易与干净。这个对一般用户来说会比较方便，包含很多在AppStore里没有的常用软件。</p>
+<<<<<<< HEAD
 <p>brew默认的安装路径在/usr/local/bin下。</p>
 <h4 id="设置root"><a href="#设置root" class="headerlink" title="设置root"></a>设置root</h4><p>打开终端，键入命令<code>sudo passwd root</code>,然后提示输入当前登录用户密码，通过以后，提示输入两遍root的密码。这样就设置好root帐号密码了，可以用root来登录MacOS了。打开终端，输入命令<code>su root</code>，输入密码即可．</p>
 <h4 id="显示隐藏的文件夹"><a href="#显示隐藏的文件夹" class="headerlink" title="显示隐藏的文件夹"></a>显示隐藏的文件夹</h4><p>根目录有些文件夹默认是隐藏的，但是有时候配置的时候需要查看隐藏的目录,要显示隐藏的目录，运行如下命令即可．</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">defaults write com.apple.finder AppleShowAllFiles -bool <span class="literal">true</span></div><div class="line">KillAll Finder</div></pre></td></tr></table></figure>
 <p>前往根目录，在Finder里按快捷键<code>Ctrl + Alt + G</code>．输入根目录符号/即可，可以看到原来没有显示的隐藏目录．</p>
+=======
+>>>>>>> 3022207df2a00d5d2ff4be72e536389d8783a983
 <h4 id="设置Java环境变量"><a href="#设置Java环境变量" class="headerlink" title="设置Java环境变量"></a>设置Java环境变量</h4><p>在当前用户的根目录下新建.bash_profiile隐藏文件。文件中添加如下内容：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home <span class="comment">#jdk安装路径   </span></div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$PATH</span> </div><div class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</div></pre></td></tr></table></figure>
 <h4 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h4><table>
@@ -566,7 +596,11 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
+<<<<<<< HEAD
                 <span class="site-state-item-count">144</span>
+=======
+                <span class="site-state-item-count">142</span>
+>>>>>>> 3022207df2a00d5d2ff4be72e536389d8783a983
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -574,17 +608,26 @@
 
           
             <div class="site-state-item site-state-categories">
+<<<<<<< HEAD
               
                 <span class="site-state-item-count">14</span>
+=======
+              <a href="/categories">
+                <span class="site-state-item-count">15</span>
+>>>>>>> 3022207df2a00d5d2ff4be72e536389d8783a983
                 <span class="site-state-item-name">分类</span>
-              
+              </a>
             </div>
           
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
+<<<<<<< HEAD
                 <span class="site-state-item-count">153</span>
+=======
+                <span class="site-state-item-count">152</span>
+>>>>>>> 3022207df2a00d5d2ff4be72e536389d8783a983
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -663,7 +706,11 @@
             
 
             
+<<<<<<< HEAD
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装常用软件"><span class="nav-number">1.</span> <span class="nav-text">安装常用软件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置root"><span class="nav-number">2.</span> <span class="nav-text">设置root</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#显示隐藏的文件夹"><span class="nav-number">3.</span> <span class="nav-text">显示隐藏的文件夹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置Java环境变量"><span class="nav-number">4.</span> <span class="nav-text">设置Java环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用快捷键"><span class="nav-number">5.</span> <span class="nav-text">常用快捷键</span></a></li></ol></div>
+=======
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装常用软件"><span class="nav-number">1.</span> <span class="nav-text">安装常用软件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置Java环境变量"><span class="nav-number">2.</span> <span class="nav-text">设置Java环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用快捷键"><span class="nav-number">3.</span> <span class="nav-text">常用快捷键</span></a></li></ol></div>
+>>>>>>> 3022207df2a00d5d2ff4be72e536389d8783a983
             
 
           </div>
