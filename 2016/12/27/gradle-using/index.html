@@ -98,7 +98,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
 Gradle构建脚本（build.gradle）指定了一个项目和它的任务。
 Gradle属性文件（gradle.properties）用来配置构建属性。
 Gradle设置文件（gradle.settings）对于只有一个项目的构建而言是可选的，如果我们的构建中包含多于一个项目，那么它就是必须的，因为它描述了哪一个项目参与构建。每一个多项目的构建都必">
-<meta property="og:updated_time" content="2017-01-03T08:52:59.451Z">
+<meta property="og:updated_time" content="2017-01-10T05:32:00.721Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gradle使用">
 <meta name="twitter:description" content="使用以下配置文件对Gradle的构建进行配置：
@@ -408,9 +408,16 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
 <li>name :是该library的唯一标识</li>
 <li>version:该library的版本号</li>
 </ul>
+<p>一个简单的打包命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gradle -p cc-web-boot bootRun</div></pre></td></tr></table></figure>
+<p>-p参数指定项目(project directory)的目录，如果不指定就是当前目录(-p, –project-dir,Specifies the start directory for Gradle. Defaults to current directory)。bootRun指代的是当前项目下的任务名称。</p>
+<h4 id="插件-Plugin"><a href="#插件-Plugin" class="headerlink" title="插件(Plugin)"></a>插件(Plugin)</h4><p>插件就是 Gradle 的扩展，简而言之就是为你添加一些非常有用的默认配置。Gradle 自带了很多插件，并且你也可以很容易的编写和分享自己的插件。Java plugin 作为其中之一，为你提供了诸如编译，测试，打包等一些功能。插件配置示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">apply plugin: &apos;java&apos;</div><div class="line">apply plugin: &apos;propdeps&apos;</div><div class="line">apply plugin: &apos;org.springframework.boot&apos;</div></pre></td></tr></table></figure>
 <h4 id="Wrapper"><a href="#Wrapper" class="headerlink" title="Wrapper"></a>Wrapper</h4><p>Wrapper主要是考虑在没有安装Gradle的电脑上使用Gradle命令。当执行gradlew(Gradle Wrapper)命令时，首先会检查电脑是否安装了Gradle，如果没有安装，会自动从gradle repository下载安装。需要查看Gradle Wrapper帮助，在命令行中输入如下命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gradle Wrapper --help</div></pre></td></tr></table></figure>
-<p>会打印出所有Gradle Wrapper</p>
+<p>会打印出所有Gradle Wrapper.</p>
+<h4 id="Gradle界面-GUI"><a href="#Gradle界面-GUI" class="headerlink" title="Gradle界面(GUI)"></a>Gradle界面(GUI)</h4><p>在终端中输入如下命令可以查看Gradle的GUI：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gradle --gui</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -529,7 +536,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">146</span>
+                <span class="site-state-item-count">148</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -547,7 +554,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">155</span>
+                <span class="site-state-item-count">156</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -626,7 +633,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#基础"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Wrapper"><span class="nav-number">2.</span> <span class="nav-text">Wrapper</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#基础"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插件-Plugin"><span class="nav-number">2.</span> <span class="nav-text">插件(Plugin)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Wrapper"><span class="nav-number">3.</span> <span class="nav-text">Wrapper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gradle界面-GUI"><span class="nav-number">4.</span> <span class="nav-text">Gradle界面(GUI)</span></a></li></ol></div>
             
 
           </div>
