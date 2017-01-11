@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/12/19/git-using/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="Git是目前世界上最先进的分布式版本控制系统，没有之一。Git有什么特点？简单来说就是：高端大气上档次！逼格那是相当高，装逼必备神器。当你说用Git管理源码的时候，逼格瞬间高好几个档次。最近项目中在用，结合以前使用的经验，简单的总结记录在此。">
-<meta property="og:updated_time" content="2017-01-09T05:34:55.995Z">
+<meta property="og:updated_time" content="2017-01-11T03:51:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git使用">
 <meta name="twitter:description" content="Git是目前世界上最先进的分布式版本控制系统，没有之一。Git有什么特点？简单来说就是：高端大气上档次！逼格那是相当高，装逼必备神器。当你说用Git管理源码的时候，逼格瞬间高好几个档次。最近项目中在用，结合以前使用的经验，简单的总结记录在此。">
@@ -197,6 +197,26 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -365,7 +385,8 @@
 <p>查看提交历史：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">log</span> --graph --all</div></pre></td></tr></table></figure>
 <p>Git保存用户名和密码：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config credential.helper store</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 是否保存认证信息</span></div><div class="line">git config credential.helper store</div></pre></td></tr></table></figure>
+<p>注意是否保存认证信息仅仅是规定在当前库(repository)是否保存认证信息，不是git全局设置，其他库如果需要保存认证信息，需要单独执行此命令。使用<code>git config --list</code>命令查看当前库所有的配置。</p>
 <p>Git查看Url：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote -v</div></pre></td></tr></table></figure>
 <h4 id="添加-Add"><a href="#添加-Add" class="headerlink" title="添加(Add)"></a>添加(Add)</h4><p>在使用Git的过程中，使用命令：</p>
@@ -461,6 +482,11 @@
     <div>
       
         
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/about/index/qrcode.jpg" alt="xiaoqiang jiang wechat" style="width: 200px; max-width: 100%;"/>
+    <div></div>
+</div>
+
 
       
     </div>
@@ -574,10 +600,10 @@
 
           
             <div class="site-state-item site-state-categories">
-              
+              <a href="/categories">
                 <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">分类</span>
-              
+              </a>
             </div>
           
 
