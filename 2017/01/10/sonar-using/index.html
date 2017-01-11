@@ -87,14 +87,14 @@
 <meta name="description" content="配置数据库登录MySQL数据库：
 1mysql -u root -p">
 <meta property="og:type" content="article">
-<meta property="og:title" content="sonar安装">
+<meta property="og:title" content="Sonarcube安装与使用">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/01/10/sonar-using/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="配置数据库登录MySQL数据库：
 1mysql -u root -p">
-<meta property="og:updated_time" content="2017-01-10T08:27:49.969Z">
+<meta property="og:updated_time" content="2017-01-10T09:02:57.896Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="sonar安装">
+<meta name="twitter:title" content="Sonarcube安装与使用">
 <meta name="twitter:description" content="配置数据库登录MySQL数据库：
 1mysql -u root -p">
 
@@ -130,7 +130,7 @@
 
 
 
-  <title> sonar安装 | 小强的博客 </title>
+  <title> Sonarcube安装与使用 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -299,7 +299,7 @@
             
             
               
-                sonar安装
+                Sonarcube安装与使用
               
             
           </h1>
@@ -393,7 +393,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># User credentials.</div><div class="line"># Permissions to create tables, indices and triggers must be granted to JDBC user.</div><div class="line"># The schema must be created first.</div><div class="line">sonar.jdbc.username=sonar</div><div class="line">sonar.jdbc.password=sonar123</div><div class="line"></div><div class="line">#----- Embedded Database (default)</div><div class="line"># H2 embedded database server listening port, defaults to 9092</div><div class="line">#sonar.embeddedDatabase.port=9092</div><div class="line">#----- MySQL 5.6 or greater</div><div class="line"># Only InnoDB storage engine is supported (not myISAM).</div><div class="line"># Only the bundled driver is supported. It can not be changed.</div><div class="line">sonar.jdbc.url=jdbc:mysql://localhost:3306/sonar?useUnicode=true&amp;characterEncoding=utf8&amp;rewriteBatchedStatements=true&amp;useConfigs=maxPerformance</div></pre></td></tr></table></figure>
 <p>配置完毕后，启动sonar：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./sonar.sh start &amp;</div></pre></td></tr></table></figure>
-<p>启动成功后，访问地址：<code>http://localhost:9000</code>即可看到sonarqube的主界面。</p>
+<p>启动成功后，访问地址：<code>http://localhost:9000</code>，即可看到sonarqube的主界面。首次登录的用户名和密码都是admin。</p>
+<h4 id="Sonar插件"><a href="#Sonar插件" class="headerlink" title="Sonar插件"></a>Sonar插件</h4><p>在多项目构建中的Sonar配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
 
       
     </div>
@@ -461,7 +463,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2017/01/10/sonar-using/"
-           data-title="sonar安装" data-url="http://jiangxiaoqiang.com/2017/01/10/sonar-using/">
+           data-title="Sonarcube安装与使用" data-url="http://jiangxiaoqiang.com/2017/01/10/sonar-using/">
       </div>
     
   </div>
@@ -605,7 +607,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置数据库"><span class="nav-number">1.</span> <span class="nav-text">配置数据库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置sonar"><span class="nav-number">2.</span> <span class="nav-text">配置sonar</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置数据库"><span class="nav-number">1.</span> <span class="nav-text">配置数据库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置sonar"><span class="nav-number">2.</span> <span class="nav-text">配置sonar</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sonar插件"><span class="nav-number">3.</span> <span class="nav-text">Sonar插件</span></a></li></ol></div>
             
 
           </div>
