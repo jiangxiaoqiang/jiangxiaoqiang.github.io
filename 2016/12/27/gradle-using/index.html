@@ -98,7 +98,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
 Gradle构建脚本（build.gradle）指定了一个项目和它的任务。
 Gradle属性文件（gradle.properties）用来配置构建属性。
 Gradle设置文件（gradle.settings）对于只有一个项目的构建而言是可选的，如果我们的构建中包含多于一个项目，那么它就是必须的，因为它描述了哪一个项目参与构建。每一个多项目的构建都必">
-<meta property="og:updated_time" content="2017-01-12T09:28:25.000Z">
+<meta property="og:updated_time" content="2017-01-12T10:03:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gradle使用">
 <meta name="twitter:description" content="使用以下配置文件对Gradle的构建进行配置：
@@ -443,8 +443,9 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
 <h4 id="软件包管理"><a href="#软件包管理" class="headerlink" title="软件包管理"></a>软件包管理</h4><p>安装指定版本的软件可以使用如下命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install gradle=2.12</div></pre></td></tr></table></figure>
 <p>其中gradle是软件包的名称，2.12是软件包的版本。</p>
-<h4 id="运行特定项目的任务"><a href="#运行特定项目的任务" class="headerlink" title="运行特定项目的任务"></a>运行特定项目的任务</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./gradlew build -p jiangxiaoqiang -x <span class="built_in">test</span></div></pre></td></tr></table></figure>
-<p>如上命令在项目文件夹jiangxiaoqiang下执行构建，并排除test任务，生成对应的jar包。</p>
+<h4 id="运行特定项目的任务"><a href="#运行特定项目的任务" class="headerlink" title="运行特定项目的任务"></a>运行特定项目的任务</h4><p>此处运行项目cc-web-boot下的bootRepackage任务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./gradlew build -p cc-web-boot/ bootRepackage -x <span class="built_in">test</span></div></pre></td></tr></table></figure>
+<p>如上命令在项目文件夹cc-web-boot下执行构建，并排除test任务，生成对应的jar包。bootRepackage任务依赖于Gradle assemble任务，assemble任务会编译程序中的源代码，并打包生成Jar文件，这个任务不执行单元测试。不使用spring-boot插件，主程序jar包，与依赖的jar包是分开的，需要分别打包，这在云环境中，上传部署比较麻烦，得传多个文件（或者上传前，先压缩成一个包，再传到服务器上解压），服务器节点多时，操作起来太累又重复。而使用spring-boot插件，会自动将依赖的包集成到主包里，非常方便。</p>
 
       
     </div>
@@ -454,7 +455,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
         
 <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
     <img id="wechat_subscriber_qcode" src="/uploads/qrcode.jpg" alt="xiaoqiang jiang wechat" style="width: 200px; max-width: 100%;"/>
-    <div>Welcome to subsribe my wechat public accout!</div>
+    <div>Welcome to subscribe my WeChat public accout!</div>
 </div>
 
 
