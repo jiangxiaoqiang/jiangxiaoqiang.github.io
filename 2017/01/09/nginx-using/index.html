@@ -94,7 +94,7 @@
 <meta property="og:description" content="安装在Ubuntu下，输入如下命令安装：
 1sudo apt install nginx -y
 安装完毕后配置文件在/etc/nginx/config.d。">
-<meta property="og:updated_time" content="2017-01-09T05:14:03.681Z">
+<meta property="og:updated_time" content="2017-01-13T02:19:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx使用">
 <meta name="twitter:description" content="安装在Ubuntu下，输入如下命令安装：
@@ -203,6 +203,26 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -389,14 +409,25 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install nginx -y</div></pre></td></tr></table></figure>
 <p>安装完毕后配置文件在<code>/etc/nginx/config.d</code>。</p>
 <a id="more"></a>
-<h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 重启Nginx</span></div><div class="line">sudo /etc/init.d/nginx restart</div></pre></td></tr></table></figure>
-
+<h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看Nginx的安装目录,一般在(/usr/local/nginx)下</span></div><div class="line">whereis nginx</div><div class="line"></div><div class="line"><span class="comment"># 重启Nginx</span></div><div class="line">sudo /etc/init.d/nginx restart</div></pre></td></tr></table></figure>
+<h4 id="location"><a href="#location" class="headerlink" title="location"></a>location</h4><p>每个 url 请求都会对应的一个服务，nginx 进行处理转发或者是本地的一个文件路径，或者是其他服务器的一个服务路径。而这个路径的匹配是通过 location 来进行的。我们可以将 server 当做对应一个域名进行的配置，而 location 是在一个域名下对更精细的路径进行配置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">location /api&#123;</div><div class="line">      proxy_pass http://dn5:28080;</div><div class="line">      proxy_redirect off;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>将前缀为api的请求发送到地址：<code>http://dn5:28080</code>.</p>
+<h4 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h4><h5 id="the-HTTP-rewrite-module-requires-the-PCRE-library"><a href="#the-HTTP-rewrite-module-requires-the-PCRE-library" class="headerlink" title="the HTTP rewrite module requires the PCRE library"></a>the HTTP rewrite module requires the PCRE library</h5><p>在安装时提示 the HTTP rewrite module requires the PCRE library：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">./configure: error: the HTTP rewrite module requires the PCRE library.</div><div class="line">You can either disable the module by using --without-http_rewrite_module</div><div class="line">option, or install the PCRE library into the system, or build the PCRE library</div><div class="line">statically from the source with nginx by using --with-pcre=&lt;path&gt; option.</div></pre></td></tr></table></figure>
+<p>安装pcre-devel与openssl-devel解决问题：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">yum -y install pcre-devel openssl openssl-devel</div><div class="line"> </div><div class="line">./configure --prefix=/usr/<span class="built_in">local</span>/nginx</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
       
     </div>
 
     <div>
       
         
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/qrcode.jpg" alt="xiaoqiang jiang wechat" style="width: 200px; max-width: 100%;"/>
+    <div>Welcome to subscribe my WeChat public accout!</div>
+</div>
+
 
       
     </div>
@@ -431,6 +462,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/10/id-design/" rel="prev" title="ID设计">
+                ID设计 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -504,7 +539,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">145</span>
+                <span class="site-state-item-count">152</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -512,17 +547,17 @@
 
           
             <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">14</span>
+              <a href="/categories">
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
-              
+              </a>
             </div>
           
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">154</span>
+                <span class="site-state-item-count">160</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -601,7 +636,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">2.</span> <span class="nav-text">常用命令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">2.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#location"><span class="nav-number">3.</span> <span class="nav-text">location</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见问题"><span class="nav-number">4.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#the-HTTP-rewrite-module-requires-the-PCRE-library"><span class="nav-number">4.1.</span> <span class="nav-text">the HTTP rewrite module requires the PCRE library</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -98,7 +98,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
 Gradle构建脚本（build.gradle）指定了一个项目和它的任务。
 Gradle属性文件（gradle.properties）用来配置构建属性。
 Gradle设置文件（gradle.settings）对于只有一个项目的构建而言是可选的，如果我们的构建中包含多于一个项目，那么它就是必须的，因为它描述了哪一个项目参与构建。每一个多项目的构建都必">
-<meta property="og:updated_time" content="2017-01-03T08:52:59.451Z">
+<meta property="og:updated_time" content="2017-01-13T12:06:42.958Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gradle使用">
 <meta name="twitter:description" content="使用以下配置文件对Gradle的构建进行配置：
@@ -209,6 +209,26 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -346,8 +366,8 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tools/" itemprop="url" rel="index">
-                    <span itemprop="name">Tools</span>
+                  <a href="/categories/Tool/" itemprop="url" rel="index">
+                    <span itemprop="name">Tool</span>
                   </a>
                 </span>
 
@@ -399,18 +419,33 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
 </ul>
 <a id="more"></a>
 <h4 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h4><p>在Ubuntu 16.04 LTS中安装Gradle:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install gradle -y</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo apt install gradle -y</div><div class="line"><span class="comment"># 安装指定版本的Gradle</span></div><div class="line">sudo apt install -y gradle=2.12</div></pre></td></tr></table></figure>
 <p>如下列出了Gradle常用的命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看所有任务</span></div><div class="line">gradle task</div><div class="line">gradle task --all</div><div class="line"></div><div class="line"><span class="comment"># 查看所有项目</span></div><div class="line">gradle projects</div><div class="line"></div><div class="line"><span class="comment"># 清楚app目录下的build文件夹</span></div><div class="line">gradle clean</div><div class="line"></div><div class="line"><span class="comment"># 检查依赖并编译打包 （正式和测试）</span></div><div class="line">gradle build</div><div class="line"></div><div class="line"><span class="comment">#编译并打Debug包</span></div><div class="line">gradle assembleDebug</div><div class="line"></div><div class="line"><span class="comment">#编译并打Release包</span></div><div class="line">gradle assembleRelease</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看所有任务</span></div><div class="line">gradle task</div><div class="line"><span class="comment"># 查看所有的任务(会列出task之间的依赖关系)</span></div><div class="line">gradle task --all</div><div class="line"></div><div class="line"><span class="comment"># 查看所有项目(查看所有项目要切换到项目的根目录执行命令)</span></div><div class="line">gradle projects</div><div class="line"></div><div class="line"><span class="comment"># 清楚app目录下的build文件夹</span></div><div class="line">gradle clean</div><div class="line"></div><div class="line"><span class="comment"># 检查依赖并编译打包 （正式和测试）</span></div><div class="line">gradle build</div><div class="line"></div><div class="line"><span class="comment"># 编译并打Debug包</span></div><div class="line">gradle assembleDebug</div><div class="line"></div><div class="line"><span class="comment"># 编译并打Release包</span></div><div class="line">gradle assembleRelease</div></pre></td></tr></table></figure>
 <p>定义一个依赖通常需要三个元素：</p>
 <ul>
 <li>group:创建该library的组织名，通常也会是包名，</li>
 <li>name :是该library的唯一标识</li>
 <li>version:该library的版本号</li>
 </ul>
-<h4 id="Wrapper"><a href="#Wrapper" class="headerlink" title="Wrapper"></a>Wrapper</h4><p>Wrapper主要是考虑在没有安装Gradle的电脑上使用Gradle命令。当执行gradlew(Gradle Wrapper)命令时，首先会检查电脑是否安装了Gradle，如果没有安装，会自动从gradle repository下载安装。需要查看Gradle Wrapper帮助，在命令行中输入如下命令：</p>
+<p>一个简单的打包命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gradle -p cc-web-boot bootRun</div></pre></td></tr></table></figure>
+<p>-p参数指定项目(project directory)的目录，如果不指定就是当前目录(-p, –project-dir,Specifies the start directory for Gradle. Defaults to current directory)。bootRun指代的是当前项目下的任务名称。打包完成后，生成的包文件在对应项目文件的build/libs目录下。使用命令查看当前property：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看当前所有的Property</span></div><div class="line">gradle properties</div></pre></td></tr></table></figure>
+<p>其中allprojects表示所有的Project，在多项目构建中，它将包含多个Project；buildDir表示构建结果的输出目录。</p>
+<h4 id="插件-Plugin"><a href="#插件-Plugin" class="headerlink" title="插件(Plugin)"></a>插件(Plugin)</h4><p>插件就是Gradle的扩展，简而言之就是为你添加一些非常有用的默认配置。Gradle 自带了很多插件，并且你也可以很容易的编写和分享自己的插件。Java plugin 作为其中之一，为你提供了诸如编译，测试，打包等一些功能。插件配置示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">apply plugin: &apos;java&apos;</div><div class="line">apply plugin: &apos;propdeps&apos;</div><div class="line">apply plugin: &apos;org.springframework.boot&apos;</div></pre></td></tr></table></figure>
+<h4 id="Wrapper"><a href="#Wrapper" class="headerlink" title="Wrapper"></a>Wrapper</h4><p>Wrapper主要是考虑在没有安装Gradle的电脑上使用Gradle命令。当执行gradlew(Gradle Wrapper)命令时，首先会检查电脑是否安装了Gradle，如果没有安装，会自动从gradle repository下载安装。注意安装不会真的在计算机中安装Gradle的发行版本，它会下载Gradle，存放在目录<code>$USER_HOME/.gradle/wrapper/dists</code>下，构建时使用命令调用而不是直接添加到当前计算机(试想如果不同的Gradle版本，如果添加到系统的环境变量了，构建时到底是以调用哪一个版本的Gradle呢)。需要查看Gradle Wrapper帮助，在命令行中输入如下命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gradle Wrapper --help</div></pre></td></tr></table></figure>
-<p>会打印出所有Gradle Wrapper</p>
+<p>会打印出所有Gradle Wrapper.</p>
+<h4 id="Gradle界面-GUI"><a href="#Gradle界面-GUI" class="headerlink" title="Gradle界面(GUI)"></a>Gradle界面(GUI)</h4><p>在终端中输入如下命令可以查看Gradle的GUI：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gradle --gui</div></pre></td></tr></table></figure>
+<h4 id="软件包管理"><a href="#软件包管理" class="headerlink" title="软件包管理"></a>软件包管理</h4><p>安装指定版本的软件可以使用如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install gradle=2.12</div></pre></td></tr></table></figure>
+<p>其中gradle是软件包的名称，2.12是软件包的版本。</p>
+<h4 id="运行特定项目的任务"><a href="#运行特定项目的任务" class="headerlink" title="运行特定项目的任务"></a>运行特定项目的任务</h4><p>此处运行项目cc-web-boot下的bootRepackage任务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./gradlew build -p cc-web-boot/ bootRepackage -x <span class="built_in">test</span></div></pre></td></tr></table></figure>
+<p>如上命令在项目文件夹cc-web-boot下执行构建，并排除test任务，生成对应的jar包。bootRepackage任务依赖于Gradle assemble任务，assemble任务会编译程序中的源代码，并打包生成Jar文件，这个任务不执行单元测试。不使用spring-boot插件，主程序jar包，与依赖的jar包是分开的，需要分别打包，这在云环境中，上传部署比较麻烦，得传多个文件（或者上传前，先压缩成一个包，再传到服务器上解压），服务器节点多时，操作起来太累又重复。而使用spring-boot插件，会自动将依赖的包集成到主包里，非常方便。</p>
 
       
     </div>
@@ -418,6 +453,11 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
     <div>
       
         
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/qrcode.jpg" alt="xiaoqiang jiang wechat" style="width: 200px; max-width: 100%;"/>
+    <div>Welcome to subscribe my WeChat public accout!</div>
+</div>
+
 
       
     </div>
@@ -529,7 +569,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">145</span>
+                <span class="site-state-item-count">152</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -537,17 +577,17 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
 
           
             <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">14</span>
+              <a href="/categories">
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
-              
+              </a>
             </div>
           
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">154</span>
+                <span class="site-state-item-count">160</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -626,7 +666,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#基础"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Wrapper"><span class="nav-number">2.</span> <span class="nav-text">Wrapper</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#基础"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插件-Plugin"><span class="nav-number">2.</span> <span class="nav-text">插件(Plugin)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Wrapper"><span class="nav-number">3.</span> <span class="nav-text">Wrapper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gradle界面-GUI"><span class="nav-number">4.</span> <span class="nav-text">Gradle界面(GUI)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#软件包管理"><span class="nav-number">5.</span> <span class="nav-text">软件包管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行特定项目的任务"><span class="nav-number">6.</span> <span class="nav-text">运行特定项目的任务</span></a></li></ol></div>
             
 
           </div>

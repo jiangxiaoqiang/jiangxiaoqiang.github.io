@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="tar.bz2解压tar.bz2的命令如下：
 1tar -jxvf xx.tar.bz2">
-<meta property="og:updated_time" content="2016-12-28T04:28:30.335Z">
+<meta property="og:updated_time" content="2017-01-11T06:27:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux压缩包管理">
 <meta name="twitter:description" content="tar.bz2解压tar.bz2的命令如下：
@@ -200,6 +200,26 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -390,6 +410,11 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install -y unrar</div></pre></td></tr></table></figure>
 <p>输入如下命令解压缩：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">unrar x -r simple.rar</div></pre></td></tr></table></figure>
+<h4 id="tar-xz"><a href="#tar-xz" class="headerlink" title="tar.xz"></a>tar.xz</h4><p>xz是一个使用LZMA压缩算法的无损数据压缩文件格式。和gzip与bzip2一样，同样支持多文件压缩，但是约定不能将多于一个的目标文件压缩进同一个档案文件。相反，xz通常作为一种归档文件自身的压缩格式，例如使用tar或cpioUnix程序创建的归档。xz 在GNU coreutils（版本 7.1 或更新）中被使用。xz 作为压缩软件包被收录在 Fedora (自Fedora 12起), Arch Linux, FreeBSD、 Slackware Linux、CRUX 和 Funtoo中。由于 xz 文件格式的压缩率更高，已在 Linux 各发行版中广泛使用。最典型的就是Linux内核，3.12版本的xz压缩包仅72.85MB，解压后能达到518.77MB。</p>
+<p>方法1(推荐)：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -Jxf sqlitestudio-3.1.1.tar.xz</div></pre></td></tr></table></figure>
+<p>方法2：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">xz <span class="_">-d</span> sqlitestudio-3.1.1.tar.xz</div><div class="line">tar -xf sqlitestudio-3.1.1.tar</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -397,6 +422,11 @@
     <div>
       
         
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/qrcode.jpg" alt="xiaoqiang jiang wechat" style="width: 200px; max-width: 100%;"/>
+    <div>Welcome to subscribe my WeChat public accout!</div>
+</div>
+
 
       
     </div>
@@ -508,7 +538,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">145</span>
+                <span class="site-state-item-count">152</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -516,17 +546,17 @@
 
           
             <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">14</span>
+              <a href="/categories">
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
-              
+              </a>
             </div>
           
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">154</span>
+                <span class="site-state-item-count">160</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -605,7 +635,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#tar-bz2"><span class="nav-number">1.</span> <span class="nav-text">tar.bz2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tar-gz"><span class="nav-number">2.</span> <span class="nav-text">tar.gz</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rar"><span class="nav-number">3.</span> <span class="nav-text">rar</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#tar-bz2"><span class="nav-number">1.</span> <span class="nav-text">tar.bz2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tar-gz"><span class="nav-number">2.</span> <span class="nav-text">tar.gz</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rar"><span class="nav-number">3.</span> <span class="nav-text">rar</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tar-xz"><span class="nav-number">4.</span> <span class="nav-text">tar.xz</span></a></li></ol></div>
             
 
           </div>

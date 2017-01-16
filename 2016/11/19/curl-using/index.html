@@ -90,10 +90,12 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/11/19/curl-using/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="简介curl is a tool to transfer data from or to a server, using one of the supported protocols (DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, S">
-<meta property="og:updated_time" content="2017-01-04T03:40:57.193Z">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2016/11/19/curl-using/curl-setcookie.jpg">
+<meta property="og:updated_time" content="2017-01-09T12:29:37.800Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="curl使用">
 <meta name="twitter:description" content="简介curl is a tool to transfer data from or to a server, using one of the supported protocols (DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, S">
+<meta name="twitter:image" content="http://jiangxiaoqiang.com/2016/11/19/curl-using/curl-setcookie.jpg">
 
 
 
@@ -197,6 +199,26 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -390,6 +412,10 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl --cookie <span class="string">"name=xxx"</span> www.example.com</div></pre></td></tr></table></figure>
 <p><code>-c cookie-file</code>可以保存服务器返回的cookie到文件，<code>-b cookie-file</code>可以使用这个文件作为cookie信息，进行后续的请求。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl -c cookies http://example.com</div><div class="line">curl -b cookies http://example.com</div></pre></td></tr></table></figure>
+<p>如果服务端采用Cookie验证登录请求。那么可以首先用浏览器登录网页，找到相应的Cookie，如下图所示：</p>
+<img src="/2016/11/19/curl-using/curl-setcookie.jpg" alt="找到Cookie" title="找到Cookie">
+<p>当Curl请求时，附加上Cookie就可以模拟浏览器的登录请求动作了，如下命令所示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl --cookie <span class="string">"cc-o-t=Q2ZWTGp3bFQrTmtOcG9pcTJ4SFV2VnpmNzNhaEhMbktoQWlXeWVyaGhVS3JWeVJEcEprTXBsbldDS3VCN01CeVRFNGxYVTZmQ2hIbHhTSy8zKzF3cDQvYjEwRncxUXgrQ3pMWC9XeTYzcXFrQ1NqQWkrdXRhMUJEc3RZV3ExK0k"</span> http://localhost:28080/api/xzss/detail/1</div></pre></td></tr></table></figure>
 <h4 id="请求API数据"><a href="#请求API数据" class="headerlink" title="请求API数据"></a>请求API数据</h4><p>比如需要在请求头中添加Key、Value键值对，可以添加-H(Header)参数，如下命令行所示：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -H <span class="string">"APPID:123"</span> http://localhost:28080/api/xysj?xdrShxym=addd</div></pre></td></tr></table></figure>
 <p>如果是需要发送多个请求头，那么多次指定-H参数即可,如下命令所示。</p>
@@ -416,6 +442,11 @@
     <div>
       
         
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/qrcode.jpg" alt="xiaoqiang jiang wechat" style="width: 200px; max-width: 100%;"/>
+    <div>Welcome to subscribe my WeChat public accout!</div>
+</div>
+
 
       
     </div>
@@ -527,7 +558,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">145</span>
+                <span class="site-state-item-count">152</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -535,17 +566,17 @@
 
           
             <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">14</span>
+              <a href="/categories">
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
-              
+              </a>
             </div>
           
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">154</span>
+                <span class="site-state-item-count">160</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
