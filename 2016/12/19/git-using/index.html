@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/12/19/git-using/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="Git是目前世界上最先进的分布式版本控制系统，没有之一。Git有什么特点？简单来说就是：高端大气上档次！逼格那是相当高，装逼必备神器。当你说用Git管理源码的时候，逼格瞬间高好几个档次。最近项目中在用，结合以前使用的经验，简单的总结记录在此。">
-<meta property="og:updated_time" content="2017-01-16T15:15:42.000Z">
+<meta property="og:updated_time" content="2017-01-19T02:21:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git使用">
 <meta name="twitter:description" content="Git是目前世界上最先进的分布式版本控制系统，没有之一。Git有什么特点？简单来说就是：高端大气上档次！逼格那是相当高，装逼必备神器。当你说用Git管理源码的时候，逼格瞬间高好几个档次。最近项目中在用，结合以前使用的经验，简单的总结记录在此。">
@@ -171,7 +171,9 @@
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle"></p>
+    
+      <p class="site-subtitle"></p>
+    
 </div>
 
 <div class="site-nav-toggle">
@@ -326,7 +328,9 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-19T23:34:02+08:00">
                 2016-12-19
               </time>
@@ -343,6 +347,9 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2016/12/19/git-using/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/19/git-using/" itemprop="commentCount"></span>
                 </a>
@@ -471,6 +478,9 @@
 <p>丢弃储藏：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git stash drop</div></pre></td></tr></table></figure>
 <p>drop后可以跟储藏的编号，如果没有指定，默认丢弃最新一次储藏。</p>
+<h4 id="远程仓库-remote"><a href="#远程仓库-remote" class="headerlink" title="远程仓库(remote)"></a>远程仓库(remote)</h4><p>添加远程仓库：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add osc https://github.com/jiangxiaoqiang/xiaoqiang-blog-source.git</div></pre></td></tr></table></figure>
+<p>其中osc为远程仓库的名称，<a href="https://github.com/jiangxiaoqiang/xiaoqiang-blog-source.git为远程仓库的地址。" target="_blank" rel="external">https://github.com/jiangxiaoqiang/xiaoqiang-blog-source.git为远程仓库的地址。</a></p>
 <h4 id="Your-branch-and-‘origin-master’-have-diverged"><a href="#Your-branch-and-‘origin-master’-have-diverged" class="headerlink" title="Your branch and ‘origin/master’ have diverged"></a>Your branch and ‘origin/master’ have diverged</h4><p>If you absolutely sure this is your case then you can force Git to push your changes:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#force push changes</span></div><div class="line">git push origin master <span class="_">-f</span></div></pre></td></tr></table></figure>
 <h5 id="Changes-not-staged-for-commit"><a href="#Changes-not-staged-for-commit" class="headerlink" title="Changes not staged for commit"></a>Changes not staged for commit</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git stash</div></pre></td></tr></table></figure>
@@ -482,6 +492,11 @@
     <div>
       
         
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/qrcode.jpg" alt="xiaoqiang jiang wechat" style="width: 200px; max-width: 100%;"/>
+    <div>Welcome to subscribe my WeChat public accout!</div>
+</div>
+
 
       
     </div>
@@ -583,12 +598,15 @@
           <p class="site-description motion-element" itemprop="description"></p>
         </div>
         <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">153</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">154</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
 
           
             <div class="site-state-item site-state-categories">
@@ -681,7 +699,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加-Add"><span class="nav-number">2.</span> <span class="nav-text">添加(Add)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发起pull-request"><span class="nav-number">3.</span> <span class="nav-text">发起pull request</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于Commit的建议"><span class="nav-number">4.</span> <span class="nav-text">关于Commit的建议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新-update"><span class="nav-number">5.</span> <span class="nav-text">更新(update)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#合并-merge"><span class="nav-number">6.</span> <span class="nav-text">合并(merge)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#撤销合并"><span class="nav-number">7.</span> <span class="nav-text">撤销合并</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拉取（Pull）"><span class="nav-number">8.</span> <span class="nav-text">拉取（Pull）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#储藏-Stash"><span class="nav-number">9.</span> <span class="nav-text">储藏(Stash)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Your-branch-and-‘origin-master’-have-diverged"><span class="nav-number">10.</span> <span class="nav-text">Your branch and ‘origin/master’ have diverged</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Changes-not-staged-for-commit"><span class="nav-number">10.1.</span> <span class="nav-text">Changes not staged for commit</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Please-commit-your-changes-or-stash-them-before-you-can-merge"><span class="nav-number">11.</span> <span class="nav-text">Please, commit your changes or stash them before you can merge</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加-Add"><span class="nav-number">2.</span> <span class="nav-text">添加(Add)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发起pull-request"><span class="nav-number">3.</span> <span class="nav-text">发起pull request</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于Commit的建议"><span class="nav-number">4.</span> <span class="nav-text">关于Commit的建议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新-update"><span class="nav-number">5.</span> <span class="nav-text">更新(update)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#合并-merge"><span class="nav-number">6.</span> <span class="nav-text">合并(merge)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#撤销合并"><span class="nav-number">7.</span> <span class="nav-text">撤销合并</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拉取（Pull）"><span class="nav-number">8.</span> <span class="nav-text">拉取（Pull）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#储藏-Stash"><span class="nav-number">9.</span> <span class="nav-text">储藏(Stash)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#远程仓库-remote"><span class="nav-number">10.</span> <span class="nav-text">远程仓库(remote)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Your-branch-and-‘origin-master’-have-diverged"><span class="nav-number">11.</span> <span class="nav-text">Your branch and ‘origin/master’ have diverged</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Changes-not-staged-for-commit"><span class="nav-number">11.1.</span> <span class="nav-text">Changes not staged for commit</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Please-commit-your-changes-or-stash-them-before-you-can-merge"><span class="nav-number">12.</span> <span class="nav-text">Please, commit your changes or stash them before you can merge</span></a></li></ol></div>
             
 
           </div>
@@ -822,6 +840,8 @@
     <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
+
+
 
 
 
