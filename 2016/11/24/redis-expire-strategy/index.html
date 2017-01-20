@@ -98,7 +98,7 @@
 消极方法（passive way），在主键被访问时如果发现它已经失效，那么就删除它
 
 积极方法（active way），周期性地从设置了失效时间的主键中选择一部分失效的主键删除">
-<meta property="og:updated_time" content="2016-12-06T15:22:31.000Z">
+<meta property="og:updated_time" content="2016-12-19T04:46:16.914Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis主键失效原理">
 <meta name="twitter:description" content="Redis 中的主键失效是如何实现的，即失效的主键是如何删除的？实际上，Redis 删除失效主键的方法主要有两种：
@@ -183,7 +183,9 @@
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle"></p>
+    
+      <p class="site-subtitle"></p>
+    
 </div>
 
 <div class="site-nav-toggle">
@@ -338,8 +340,10 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-24T11:22:22+08:00">
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2016-11-24T11:22:22+08:00">
                 2016-11-24
               </time>
             
@@ -351,11 +355,15 @@
 
           
             <span class="post-category" >
+            
               <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Programming/" itemprop="url" rel="index">
@@ -373,6 +381,9 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2016/11/24/redis-expire-strategy/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/24/redis-expire-strategy/" itemprop="commentCount"></span>
                 </a>
@@ -422,6 +433,11 @@
     <div>
       
         
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/qrcode.jpg" alt="xiaoqiang jiang wechat" style="width: 200px; max-width: 100%;"/>
+    <div>Welcome to subscribe my WeChat public accout!</div>
+</div>
+
 
       
     </div>
@@ -529,12 +545,15 @@
           <p class="site-description motion-element" itemprop="description"></p>
         </div>
         <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">153</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">155</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
 
           
             <div class="site-state-item site-state-categories">
@@ -768,6 +787,8 @@
     <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
+
+
 
 
 
