@@ -94,7 +94,7 @@
 <meta property="og:description" content="开机时自动运行一般有守护进程的服务在Fedora 24中都可以通过systemctl命令自动运行。
 1systemctl enable ServiceName
 对于没有服务的程序，如果想在开机时随系统启动可以通过脚本来实现。">
-<meta property="og:updated_time" content="2016-12-26T02:19:57.359Z">
+<meta property="og:updated_time" content="2017-01-22T03:47:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux开机自动启动程序">
 <meta name="twitter:description" content="开机时自动运行一般有守护进程的服务在Fedora 24中都可以通过systemctl命令自动运行。
@@ -337,7 +337,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2016-10-14T17:45:50+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-14T17:45:50+08:00">
                 2016-10-14
               </time>
             
@@ -426,7 +426,8 @@
 <p>其中startopenvpn.sh脚本中：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /etc/openvpn</div><div class="line">nohup openvpn /etc/openvpn/client.conf</div></pre></td></tr></table></figure>
 <p>需要注意的是，执行时需要切换到<code>/etc/openvpn</code>目录，默认的配置文件例如key等默认在当前目录下寻找。OpenVPN启动时需要root权限。需要成功启动OpenVPN客户端首次登陆时需要以root用户登陆。</p>
-<p>Ubuntu开机之后会执行<code>/etc/rc.local</code>文件中的脚本，所以可以直接在<code>/etc/rc.local</code>中添加启动脚本。当然要添加到语句<code>exit 0</code>前面才行。</p>
+<p>Ubuntu开机之后会执行<code>/etc/rc.local</code>文件中的脚本，所以可以直接在<code>/etc/rc.local</code>中添加启动脚本。当然要添加到语句<code>exit 0</code>前面才行。如下rc.local脚本，在启动后自动运行XX-Net:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/bin/sh -e</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># rc.local</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># This script is executed at the end of each multiuser runlevel.</span></div><div class="line"><span class="comment"># Make sure that the script will "exit 0" on success or any other</span></div><div class="line"><span class="comment"># value on error.</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># In order to enable or disable this script just change the execution</span></div><div class="line"><span class="comment"># bits.</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># By default this script does nothing.</span></div><div class="line">nohup /opt/<span class="built_in">local</span>/tools/XX-Net-3.2.8/start &amp;</div><div class="line"><span class="built_in">exit</span> 0</div></pre></td></tr></table></figure>
 <h4 id="联网后自动运行程序"><a href="#联网后自动运行程序" class="headerlink" title="联网后自动运行程序"></a>联网后自动运行程序</h4><p>网络连接建立后运行的脚本可以实现诸多实用功能，如动态域名绑定、连接VPN、上网认证等。实现这一目标的大体思路有两种：在基于NetworkManager的系统中，可配置其dispatcher脚本；Fedora对这一功能支持的不是很好，只能在网络连接建立后运行一个脚本，即/sbin/ifup-local。这个文件默认不存在，需要手动创建。下面的例子用vi编辑/创建这个文件，并添加执行权限。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vi /sbin/ifup-local</div><div class="line">chmod 755 /sbin/ifup-local</div></pre></td></tr></table></figure>
 <p><a href="https://en.wikipedia.org/wiki/Runlevel" target="_blank" rel="external">Runlevel</a></p>
@@ -555,7 +556,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">155</span>
+                <span class="site-state-item-count">159</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -573,7 +574,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">160</span>
+                <span class="site-state-item-count">164</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
