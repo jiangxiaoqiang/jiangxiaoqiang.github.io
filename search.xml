@@ -2,6 +2,30 @@
 <search>
   
   
+<<<<<<< Updated upstream
+=======
+    
+    <entry>
+      <title><![CDATA[localhost vs 127.0.0.1]]></title>
+      <url>http://jiangxiaoqiang.com/2017/01/21/localhost-vs-127-0-0-1/</url>
+      <content type="html"><![CDATA[<p>IPv4 的网络标准把 从127.0.0.1 到 127.255.255.254 IP地址块都用作loopback 。所有的发到这些地址的数据包都会被毫发无损的返回去(looped back ) ， 这一千六百多万个个地址中，最知名的、最常用的就是127.0.0.1 。</p>
+<a id="more"></a>
+<p>比如使用命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ping 127.0.0.1</div><div class="line">ping 127.0.0.2</div><div class="line">ping 127.255.255.254</div></pre></td></tr></table></figure>
+<p>在Fedora中，3个地址都是loopback，在Mac OS X中，只有127.0.0.1是loopback。</p>
+<p>对于IPv6来说， 它只把一个地址用作loopback , 就是::1(0000:0000:0000:0000:0000:0000:0000:0001) 。</p>
+<p>有了loopback 地址， 同一个计算机上的进程通信都很方便了， 根本不用走实际的物理网卡。比如说你在本机建立了一个Web服务器，然后通过浏览器用<a href="http://127.0.0.1:8080" target="_blank" rel="external">http://127.0.0.1:8080</a> 去访问， 操作系统内的网络协议栈会把这个HTTP GET请求封装到一个TCP包中，写上目的端口号8080，  然后再封装到一个IP包中， 写上目的地址127.0.0.1 。但是这个IP数据包并不会发送到物理的网卡那里去，更不会通过数据链路层发送到局域网乃至互联网中， 实际上它发给了虚拟的网络接口, 然后立刻被looped back到IP层的输入队列中。IP层收到数据包，交付给TCP层， TCP层发现目的端口是8080， 就会把GET请求取出来，交付给绑定8080端口的Web服务器。在Unix 和 Linux系统中， 通过把loopback 接口命名为 lo(loopback) 或者 lo0  （注意第一个字母是L的小写字母，不是数字一）.在Mac OS X上输入ifconfig命令后，可以看到lo虚拟网卡的信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">bogon:xiaoqiang-blog-source dolphin$ ifconfig</div><div class="line">lo0: flags=8049&lt;UP,LOOPBACK,RUNNING,MULTICAST&gt; mtu 16384</div><div class="line">	options=1203&lt;RXCSUM,TXCSUM,TXSTATUS,SW_TIMESTAMP&gt;</div><div class="line">	inet 127.0.0.1 netmask 0xff000000 </div><div class="line">	inet6 ::1 prefixlen 128 </div><div class="line">	inet6 fe80::1%lo0 prefixlen 64 scopeid 0x1 </div><div class="line">	nd6 options=201&lt;PERFORMNUD,DAD&gt;</div></pre></td></tr></table></figure>
+<p>至于localhost , 这就是个本机的主机名， 在大多数机器上， 这个主机名都会被计算机操作系统映射到127.0.0.1 (ipv4)或者::1 (ipv6) ,那使用localhost 和ip 实际上一样了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">127.0.0.1 localhost </div><div class="line">::1 localhost</div></pre></td></tr></table></figure>
+<p>当然你可以手工的修改hosts文件来改变这种默认映射。Windows的hosts 文件位置：   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">%SystemRoot%\System32\drivers\etc\hosts</div></pre></td></tr></table></figure>
+<p>Unix , Liunx的hosts 文件位置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/etc/hosts</div></pre></td></tr></table></figure>
+<p>但是有个有意思的例外就是mysql , 在Linux 上，当你使用localhost来连接数据库的时候，Mysql会使用Unix domain socket来传输数据，这种方式会快一些， 因为这是一种进程内通信(IPC)机制， 不走网络协议栈， 不需要打包拆包， 计算校验和，维护序号等操作。当你使用127.0.0.1的时候， mysql 还是会使用TCP/IP协议栈来进行数据传输。</p>
+]]></content>
+    </entry>
+>>>>>>> Stashed changes
     
     <entry>
       <title><![CDATA[Google Chrome总结与分享]]></title>
@@ -24,6 +48,21 @@
 <td style="text-align:center">Alt + f、Alt + e 或 F10</td>
 </tr>
 <tr>
+<<<<<<< Updated upstream
+=======
+<td>Ctrl + Shift + T</td>
+<td style="text-align:center">恢复已关闭的标签页（最多恢复10项）</td>
+</tr>
+<tr>
+<td>chrome://version/（about:version）</td>
+<td style="text-align:center">查看Google Chrome版本信息</td>
+</tr>
+<tr>
+<td>chrome://plugins/（about:plugin）</td>
+<td style="text-align:center">查看Google Chrome版本信息</td>
+</tr>
+<tr>
+>>>>>>> Stashed changes
 <td>Ctrl + Shift + B</td>
 <td style="text-align:center">显示隐藏书签</td>
 </tr>
@@ -35,9 +74,20 @@
 <td>gg</td>
 <td style="text-align:center">滑倒页面的顶部</td>
 </tr>
+<<<<<<< Updated upstream
 </tbody>
 </table>
 <h4 id="Plugin"><a href="#Plugin" class="headerlink" title="Plugin"></a>Plugin</h4><h5 id="Vimium-装逼神器，必备"><a href="#Vimium-装逼神器，必备" class="headerlink" title="Vimium(装逼神器，必备)"></a>Vimium(装逼神器，必备)</h5><p>Vimium is an open source Google Chrome Extension[1] which provides keyboard short-cuts for navigation and control in the spirit of the Vim editor. Unlike other add-ons for web browsers such as Vimperator or Pentadactyl, it doesn’t modify the browser’s interface but instead focuses on allowing the user to navigate web pages, tabs and links using vim-like keyboard commands rather than the mouse. It also allows the user to map or customise its key bindings.</p>
+=======
+<tr>
+<td>Ctrl + 9</td>
+<td style="text-align:center">切换到最后一个标签页</td>
+</tr>
+</tbody>
+</table>
+<p>在管理Google书签时，虽然没有发现快捷键，但是在安装了Vimium插件之后，可以按下键O或者B(Bookmark),输入关键字搜索书签内的内容，类似于快捷键效果。</p>
+<h4 id="Plugin"><a href="#Plugin" class="headerlink" title="Plugin"></a>Plugin</h4><h5 id="Vimium-装逼神器，必备"><a href="#Vimium-装逼神器，必备" class="headerlink" title="Vimium(装逼神器，必备)"></a>Vimium(装逼神器，必备)</h5><p>Vimium is an open source Google Chrome Extension which provides keyboard short-cuts for navigation and control in the spirit of the Vim editor. Unlike other add-ons for web browsers such as Vimperator or Pentadactyl, it doesn’t modify the browser’s interface but instead focuses on allowing the user to navigate web pages, tabs and links using vim-like keyboard commands rather than the mouse. It also allows the user to map or customise its key bindings.</p>
+>>>>>>> Stashed changes
 <table>
 <thead>
 <tr>
@@ -66,6 +116,62 @@
 <a id="more"></a>
 <p>启用Annotation Processor即可。Annotation Processor即为注解的处理器。与运行时注解RetentionPolicy.RUNTIME不同，Annotation Processor处理RetentionPolicy.SOURCE类型的注解。在Java代码编译阶段对标注RetentionPolicy.SOURCE类型的注解进行处理。这样在编译过程中添加代码，效率就非常高了。同样，Annotation Processor也可以实现IDE编写代码时的各种代码检验，例如当你在一个并未覆写任何父类方法的函数上添加了@Override注解，IDE会红线标识出你的函数提示错误。</p>
 <p>同时安装Lombok插件。</p>
+<<<<<<< Updated upstream
+=======
+<p>在项目编译Scala文件时，提示如下错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Warning:scala: skipping Scala files without a Scala SDK in module(s) system import</div></pre></td></tr></table></figure>
+<p>要解决此问题，打开Project Structure(Ctrl + Alt + Shift + S)-&gt;Global Libraries，添加相应的Scala SDK即可，如下图所示。</p>
+<img src="/2017/01/17/java-cannot-find-symbol/scala-sdk-adding.jpg" alt="添加scala SDK" title="添加scala SDK">
+<p>所用的Intellij Idea为Ultimate版本，在Community版本里面没有作此设置可以正常运行。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Fedora使用]]></title>
+      <url>http://jiangxiaoqiang.com/2017/01/17/fedora-using/</url>
+      <content type="html"><![CDATA[<h4 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h4><table>
+<thead>
+<tr>
+<th>字体名称</th>
+<th style="text-align:center">字号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UM Typewriter Regular</td>
+<td style="text-align:center">12</td>
+</tr>
+</tbody>
+</table>
+<h5 id="查看本机IP"><a href="#查看本机IP" class="headerlink" title="查看本机IP"></a>查看本机IP</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ifconfig -a</div><div class="line">ethtool -P eth0</div></pre></td></tr></table></figure>
+<p>ifconfig表示Interface Configuration.一般Linux，在<code>/etc/sysconfig/network-scripts</code>下找到ifcfg-eth0文件，编辑：</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">10.55.10.8</div></pre></td></tr></table></figure>
+<p>如果不知道哪个网络是有线网络，也可以先在界面上查看有线网络的相关设置，里面有相应的网络名称。另外，无限网络的密码除了在网络设置界面上看以外，也可以在目录<code>/etc/sysconfig/network-scripts</code>下看。直接使用超级用户打开目录下对应的key文件即可看到密码。</p>
+<p>手动设置ip</p>
+<h4 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h4><table>
+<thead>
+<tr>
+<th>快捷键(Short Keys)</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows + Space</td>
+<td style="text-align:center">切换输入法</td>
+</tr>
+</tbody>
+</table>
+<h4 id="安装MPlayer"><a href="#安装MPlayer" class="headerlink" title="安装MPlayer"></a>安装MPlayer</h4><p>输入如下命令安装MPlayer：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#安装视频播放器MPlayer</span></div><div class="line">dnf install -y mplayer</div></pre></td></tr></table></figure>
+<p>安装完毕后在终端中输入如下命令即可播放：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#播放文件</span></div><div class="line">mplayer Heidi.2015.海蒂和爷爷.720p.Chi_Ger.ZMZ-BD-MP4.mp4</div><div class="line"></div><div class="line"><span class="comment">#mplayer命令加文件名</span></div><div class="line">mplayer filename</div></pre></td></tr></table></figure>
+<h4 id="磁盘分析器"><a href="#磁盘分析器" class="headerlink" title="磁盘分析器"></a>磁盘分析器</h4><p>从终端里启动磁盘使用分析器，只需输入Baobab，然后按回车键。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#启动磁盘分析器</span></div><div class="line">baobab</div></pre></td></tr></table></figure>
+<p>界面如下图所示：</p>
+<p>界面界面</p>
+>>>>>>> Stashed changes
 ]]></content>
     </entry>
     
@@ -280,8 +386,14 @@
       <content type="html"><![CDATA[<p>忽然发现uGet在Mac下又玩不转了，还是命令行包打天下啊，Mac支持aria2下载，目前看来在各种平台上都能转起来的就aria了。</p>
 <a id="more"></a>
 <p>aria2最简单的下载,aria2后面跟上链接的地址即可:</p>
+<<<<<<< Updated upstream
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">aria2c http://ftp.jaist.ac.jp/pub/Linux/Fedora/releases/25/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-25-1.3.iso</div></pre></td></tr></table></figure>
 <p>会将下载的文件保存到当前目录下。</p>
+=======
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">aria2c http://ftp.jaist.ac.jp/pub/Linux/Fedora/releases/25/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-25-1.3.iso</div></pre></td></tr></table></figure>
+<p>会将下载的文件保存到当前目录下。打开断点续传选项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">aria2c -c http://ftp.jaist.ac.jp/pub/Linux/Fedora/releases/25/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-25-1.3.iso</div></pre></td></tr></table></figure>
+>>>>>>> Stashed changes
 ]]></content>
     </entry>
     
@@ -346,7 +458,11 @@
     </entry>
     
     <entry>
+<<<<<<< Updated upstream
       <title><![CDATA[Mac使用总结]]></title>
+=======
+      <title><![CDATA[Mac使用与技巧总结]]></title>
+>>>>>>> Stashed changes
       <url>http://jiangxiaoqiang.com/2017/01/01/mac-using/</url>
       <content type="html"><![CDATA[<h4 id="安装常用软件"><a href="#安装常用软件" class="headerlink" title="安装常用软件"></a>安装常用软件</h4><p>brew是Mac下一款包管理器，默认是没有安装的。先安装包管理工具，其他软件可以通过包管理工具方便的安装。在终端中输入如下命令安装brew。</p>
 <a id="more"></a>
@@ -443,7 +559,11 @@
 </tr>
 <tr>
 <td>触摸板三指上下滑动</td>
+<<<<<<< Updated upstream
 <td style="text-align:center">最小化和最大化当前窗口</td>
+=======
+<td style="text-align:center">最小化和最大化当前窗口（相当于F3）</td>
+>>>>>>> Stashed changes
 </tr>
 <tr>
 <td>Ctrl + A(Ahead)</td>
@@ -461,6 +581,37 @@
 <td>Ctrl + Click</td>
 <td style="text-align:center">相当于点击右键</td>
 </tr>
+<<<<<<< Updated upstream
+=======
+<tr>
+<td>Command + Up／Down</td>
+<td style="text-align:center">到Finder的上／下级目录</td>
+</tr>
+<tr>
+<td>触摸板三指左右滑动</td>
+<td style="text-align:center">在不同应用界面之间切换</td>
+</tr>
+<tr>
+<td>Ctrl + C -&gt; Option + Command + V</td>
+<td style="text-align:center">剪切</td>
+</tr>
+<tr>
+<td>Command + Option + 电源按钮</td>
+<td style="text-align:center">将Mac置于睡眠状态</td>
+</tr>
+<tr>
+<td>Command + Option + Left／Right</td>
+<td style="text-align:center">在Google Chrom中左右Tab页切换</td>
+</tr>
+<tr>
+<td>Command + Shift + 3</td>
+<td style="text-align:center">整个屏幕截图</td>
+</tr>
+<tr>
+<td>Command + Shift + 4</td>
+<td style="text-align:center">屏幕指定区域截图</td>
+</tr>
+>>>>>>> Stashed changes
 </tbody>
 </table>
 <h4 id="设置Terminal颜色显示"><a href="#设置Terminal颜色显示" class="headerlink" title="设置Terminal颜色显示"></a>设置Terminal颜色显示</h4><p>Mac的终端下默认时没有颜色的，比如可执行文件和文件夹应该以不同的颜色表示。必须以命令<code>ls -G</code>才可以显示颜色。可以在bash_profile文件中添加如下内容即可：</p>
@@ -718,6 +869,7 @@
 <p>安装完毕后在uGet中(uget→编辑(Edit)→设置(Settings))进行设置即可，如下图所示：</p>
 <img src="/2016/12/25/uget-using/uget-aria2-plugin-settings.jpg" alt="uGet aria2插件设置" title="uGet aria2插件设置">
 ]]></content>
+<<<<<<< Updated upstream
     </entry>
     
     <entry>
@@ -833,6 +985,9 @@
 <img src="/2016/12/25/websocket-sending-config/eclipse-websocket-message.png" alt="Eclipse配置WebSocket消息大小" title="Eclipse配置WebSocket消息大小">
 ]]></content>
     </entry>
+=======
+    </entry>
+>>>>>>> Stashed changes
     
     <entry>
       <title><![CDATA[vim使用]]></title>
@@ -1026,6 +1181,11 @@
 <h4 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h4><p>在Ubuntu下，常用的软件安装一条命令即搞定,跟上常用的软件名称即可，真的是一条命令安装所有软件,特别是重装系统之后，一条命令将原来的软件都安装完毕，节省了时间和精力，非常方便：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 安装常用软件(16.04 LTS及以后使用apt命令)</span></div><div class="line">sudo apt install -y wget curl aria2 keepass2 putty vim tree unzip git</div><div class="line">openssh-server uget maven gradle shutter nginx mysql-server nodejs </div><div class="line">texstudio virtualbox synaptic terminator</div></pre></td></tr></table></figure>
 <p>synaptic是一款图形化的apt(Advance Package Tool)包管理器，可以轻松查看已经安装的包，未安装的包。terminator它支持分割终端,并可以在终端中快速切换.</p>
+<<<<<<< Updated upstream
+=======
+<p>卸载软件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 卸载libreoffice</span></div><div class="line">sudo apt remove -y --purge libreoffice*</div></pre></td></tr></table></figure>
+>>>>>>> Stashed changes
 <h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><p>在Ubuntu下一些漂亮的字体记录。</p>
 <table>
 <thead>
@@ -1051,6 +1211,10 @@
 </table>
 <h4 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h4><ul>
 <li>长按Windows键会出现全局快捷键页面</li>
+<<<<<<< Updated upstream
+=======
+<li>在开发的过程中可以修改本机Host文件实现主机和IP的映射，这样在源码里只需要写上主机名称，如果某一个开发者想连接不同环境的主机进行调试，直接修改开发者本机的配置，这样不会影响其他开发者</li>
+>>>>>>> Stashed changes
 </ul>
 <h4 id="设置截屏快捷键"><a href="#设置截屏快捷键" class="headerlink" title="设置截屏快捷键"></a>设置截屏快捷键</h4><p>在安装好了Shutter之后，每次截取屏幕都需要打开Shutter，点击Selection按钮。其实可以配置截屏的快捷键，就像QQ的<code>Ctrl + Alt + A</code>一样。如下图所示：</p>
 <img src="/2016/12/20/ubuntu-using/shutter-selection-shortkey.png" alt="Ubuntu截图设置快捷键" title="Ubuntu截图设置快捷键">
@@ -1137,6 +1301,13 @@
 <td>Ctrl + Shift + Q</td>
 <td style="text-align:center">关闭终端所有Tab标签</td>
 </tr>
+<<<<<<< Updated upstream
+=======
+<tr>
+<td>Window + D(Desktop)</td>
+<td style="text-align:center">显示桌面，默认是没有此快捷键的，在系统的Keyboard Setting -&gt; Navigation 中，设置Hide All Normal Windows的热键为Window + D即可</td>
+</tr>
+>>>>>>> Stashed changes
 </tbody>
 </table>
 <p>参考资料：</p>
@@ -1205,7 +1376,11 @@
     <entry>
       <title><![CDATA[git使用]]></title>
       <url>http://jiangxiaoqiang.com/2016/12/19/git-using/</url>
+<<<<<<< Updated upstream
       <content type="html"><![CDATA[<p>Git是目前世界上最先进的分布式版本控制系统，没有之一。Git有什么特点？简单来说就是：高端大气上档次！逼格那是相当高，装逼必备神器。当你说用Git管理源码的时候，逼格瞬间高好几个档次。最近项目中在用，结合以前使用的经验，简单的总结记录在此。</p>
+=======
+      <content type="html"><![CDATA[<p>Git是目前世界上最先进的分布式版本控制系统，没有之一。Git有什么特点？简单来说就是：高端大气上档次！逼格那是相当高，装逼必备神器。当你说用Git管理源码的时候，逼格瞬间高好几个档次。最近项目中在用，结合以前使用的经验，简单的总结记录在此。另外Git在网络慢或者不稳定时，表现也很’好。</p>
+>>>>>>> Stashed changes
 <a id="more"></a>
 <h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><p>列出当前的Git配置：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config --list</div></pre></td></tr></table></figure>
@@ -1721,6 +1896,7 @@
     </entry>
     
     <entry>
+<<<<<<< Updated upstream
       <title><![CDATA[抽象类和接口区别]]></title>
       <url>http://jiangxiaoqiang.com/2016/12/14/abstract-and-interface-diff/</url>
       <content type="html"><![CDATA[<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><table>
@@ -1780,10 +1956,7 @@
 </tbody>
 </table>
 <h4 id="什么时候使用抽象类和接口"><a href="#什么时候使用抽象类和接口" class="headerlink" title="什么时候使用抽象类和接口"></a>什么时候使用抽象类和接口</h4><p>如果你拥有一些方法并且想让它们中的一些有默认实现，那么使用抽象类吧。<br>如果你想实现多重继承，那么你必须使用接口。由于Java不支持多继承，子类不能够继承多个类，但可以实现多个接口。因此你就可以使用接口来解决它。<br>如果基本功能在不断改变，那么就需要使用抽象类。如果不断改变基本功能并且使用接口，那么就需要改变所有实现了该接口的类。</p>
-]]></content>
-    </entry>
-    
-    <entry>
+=======
       <title><![CDATA[算法]]></title>
       <url>http://jiangxiaoqiang.com/2016/12/14/algorithm/</url>
       <content type="html"><![CDATA[<h4 id="汉诺塔算法"><a href="#汉诺塔算法" class="headerlink" title="汉诺塔算法"></a>汉诺塔算法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">hannoi</span><span class="params">(<span class="keyword">int</span> n, String from, String buffer, String to)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</div><div class="line">        System.out.println(<span class="string">"Move disk "</span> + n + <span class="string">" from "</span> + from + <span class="string">" to "</span> + to);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        hannoi(n - <span class="number">1</span>, from, to, buffer);</div><div class="line">        System.out.println(<span class="string">"Move disk "</span> + n + <span class="string">" from "</span> + from + <span class="string">" to "</span> + to);</div><div class="line">        hannoi(n - <span class="number">1</span>, buffer, from, to);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    hannoi(<span class="number">3</span>, <span class="string">"A"</span>, <span class="string">"B"</span>, <span class="string">"C"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -1795,6 +1968,84 @@
 <li>递归地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序。<br>递归的最底部情形，是数列的大小是零或一，也就是永远都已经被排序好了。虽然一直递归下去，但是这个算法总会结束，因为在每次的迭代（iteration）中，它至少会把一个元素摆到它最后的位置去。</li>
 </ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuickSort</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">static</span> <span class="keyword">int</span>[] arr;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> temp = arr[x];</div><div class="line">        arr[x] = arr[y];</div><div class="line">        arr[y] = temp;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quick_sort_recursive</span><span class="params">(<span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (start &gt;= end)</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        <span class="keyword">int</span> mid = arr[end];</div><div class="line">        <span class="keyword">int</span> left = start, right = end - <span class="number">1</span>;</div><div class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</div><div class="line">            <span class="keyword">while</span> (arr[left] &lt; mid &amp;&amp; left &lt; right)</div><div class="line">                left++;</div><div class="line">            <span class="keyword">while</span> (arr[right] &gt;= mid &amp;&amp; left &lt; right)</div><div class="line">                right--;</div><div class="line">            swap(left, right);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (arr[left] &gt;= arr[end]) &#123;</div><div class="line">            swap(left, end);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            left++;</div><div class="line">        &#125;</div><div class="line">        quick_sort_recursive(start, left - <span class="number">1</span>);</div><div class="line">        quick_sort_recursive(left + <span class="number">1</span>, end);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span>[] arrin)</span> </span>&#123;</div><div class="line">        arr = arrin;</div><div class="line">        quick_sort_recursive(<span class="number">0</span>, arr.length - <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] array = &#123;<span class="number">1</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">2</span>&#125;;</div><div class="line">        sort(array);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</div><div class="line">            <span class="keyword">int</span> sortedElement = array[i];</div><div class="line">            System.out.println(sortedElement);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+>>>>>>> Stashed changes
+]]></content>
+    </entry>
+    
+    <entry>
+<<<<<<< Updated upstream
+      <title><![CDATA[算法]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/14/algorithm/</url>
+      <content type="html"><![CDATA[<h4 id="汉诺塔算法"><a href="#汉诺塔算法" class="headerlink" title="汉诺塔算法"></a>汉诺塔算法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">hannoi</span><span class="params">(<span class="keyword">int</span> n, String from, String buffer, String to)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</div><div class="line">        System.out.println(<span class="string">"Move disk "</span> + n + <span class="string">" from "</span> + from + <span class="string">" to "</span> + to);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        hannoi(n - <span class="number">1</span>, from, to, buffer);</div><div class="line">        System.out.println(<span class="string">"Move disk "</span> + n + <span class="string">" from "</span> + from + <span class="string">" to "</span> + to);</div><div class="line">        hannoi(n - <span class="number">1</span>, buffer, from, to);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    hannoi(<span class="number">3</span>, <span class="string">"A"</span>, <span class="string">"B"</span>, <span class="string">"C"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><p>快速排序（英语：Quicksort），又称划分交换排序（partition-exchange sort），一种排序算法，最早由东尼·霍尔提出。在平均状况下，排序n个项目要Ο(n log n)次比较。在最坏状况下则需要Ο(n2)次比较，但这种状况并不常见。事实上，快速排序通常明显比其他Ο(n log n)算法更快，因为它的内部循环（inner loop）可以在大部分的架构上很有效率地被实现出来。</p>
+<p>快速排序使用分治法（Divide and conquer）策略来把一个序列（list）分为两个子序列（sub-lists）。<br>步骤为：</p>
+<ol>
+<li>从数列中挑出一个元素，称为”基准”（pivot）</li>
+<li>重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的数可以到任一边）。在这个分区结束之后，该基准就处于数列的中间位置。这个称为分区（partition）操作。</li>
+<li>递归地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序。<br>递归的最底部情形，是数列的大小是零或一，也就是永远都已经被排序好了。虽然一直递归下去，但是这个算法总会结束，因为在每次的迭代（iteration）中，它至少会把一个元素摆到它最后的位置去。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuickSort</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">static</span> <span class="keyword">int</span>[] arr;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> temp = arr[x];</div><div class="line">        arr[x] = arr[y];</div><div class="line">        arr[y] = temp;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quick_sort_recursive</span><span class="params">(<span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (start &gt;= end)</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        <span class="keyword">int</span> mid = arr[end];</div><div class="line">        <span class="keyword">int</span> left = start, right = end - <span class="number">1</span>;</div><div class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</div><div class="line">            <span class="keyword">while</span> (arr[left] &lt; mid &amp;&amp; left &lt; right)</div><div class="line">                left++;</div><div class="line">            <span class="keyword">while</span> (arr[right] &gt;= mid &amp;&amp; left &lt; right)</div><div class="line">                right--;</div><div class="line">            swap(left, right);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (arr[left] &gt;= arr[end]) &#123;</div><div class="line">            swap(left, end);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            left++;</div><div class="line">        &#125;</div><div class="line">        quick_sort_recursive(start, left - <span class="number">1</span>);</div><div class="line">        quick_sort_recursive(left + <span class="number">1</span>, end);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span>[] arrin)</span> </span>&#123;</div><div class="line">        arr = arrin;</div><div class="line">        quick_sort_recursive(<span class="number">0</span>, arr.length - <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] array = &#123;<span class="number">1</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">2</span>&#125;;</div><div class="line">        sort(array);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</div><div class="line">            <span class="keyword">int</span> sortedElement = array[i];</div><div class="line">            System.out.println(sortedElement);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+=======
+      <title><![CDATA[抽象类和接口区别]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/14/abstract-and-interface-diff/</url>
+      <content type="html"><![CDATA[<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align:center">抽象类</th>
+<th>接口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>默认的方法实现</td>
+<td style="text-align:center">它可以有默认的方法实现</td>
+<td>接口完全是抽象的。它根本不存在方法的实现</td>
+</tr>
+<tr>
+<td>实现</td>
+<td style="text-align:center">子类使用extends关键字来继承抽象类。如果子类不是抽象类的话，它需要提供抽象类中所有声明的方法的实现。</td>
+<td>子类使用关键字implements来实现接口。它需要提供接口中所有声明的方法的实现</td>
+</tr>
+<tr>
+<td>构造器</td>
+<td style="text-align:center">抽象类可以有构造器</td>
+<td>接口不能有构造器</td>
+</tr>
+<tr>
+<td>与正常Java类的区别</td>
+<td style="text-align:center">除了你不能实例化抽象类之外，它和普通Java类没有任何区别</td>
+<td>接口是完全不同的类型</td>
+</tr>
+<tr>
+<td>访问修饰符</td>
+<td style="text-align:center">抽象方法可以有public、protected和default这些修饰符</td>
+<td>接口方法默认修饰符是public。你不可以使用其它修饰符。</td>
+</tr>
+<tr>
+<td>main方法</td>
+<td style="text-align:center">抽象方法可以有main方法并且我们可以运行它</td>
+<td>接口没有main方法，因此我们不能运行它。</td>
+</tr>
+<tr>
+<td>多继承</td>
+<td style="text-align:center">抽象方法可以继承一个类和实现多个接口</td>
+<td>接口只可以继承一个或多个其它接口</td>
+</tr>
+<tr>
+<td>速度</td>
+<td style="text-align:center">它比接口速度要快</td>
+<td>接口是稍微有点慢的，因为它需要时间去寻找在类中实现的方法。</td>
+</tr>
+<tr>
+<td>添加新方法</td>
+<td style="text-align:center">如果你往抽象类中添加新的方法，你可以给它提供默认的实现。因此你不需要改变你现在的代码。</td>
+<td>如果你往接口中添加方法，那么你必须改变实现该接口的类。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="什么时候使用抽象类和接口"><a href="#什么时候使用抽象类和接口" class="headerlink" title="什么时候使用抽象类和接口"></a>什么时候使用抽象类和接口</h4><p>如果你拥有一些方法并且想让它们中的一些有默认实现，那么使用抽象类吧。<br>如果你想实现多重继承，那么你必须使用接口。由于Java不支持多继承，子类不能够继承多个类，但可以实现多个接口。因此你就可以使用接口来解决它。<br>如果基本功能在不断改变，那么就需要使用抽象类。如果不断改变基本功能并且使用接口，那么就需要改变所有实现了该接口的类。</p>
+>>>>>>> Stashed changes
 ]]></content>
     </entry>
     
@@ -2185,6 +2436,123 @@ public int hashCode() {
 <p>参考资料：</p>
 <p><a href="http://docs.oracle.com/javase/1.5.0/docs/tooldocs/share/jstat.html" target="_blank" rel="external">jstat - Java Virtual Machine Statistics Monitoring Tool</a></p>
 ]]></content>
+<<<<<<< Updated upstream
+=======
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Lombok精简Java代码]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/08/lombok/</url>
+      <content type="html"><![CDATA[<h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p><a href="https://projectlombok.org/" target="_blank" rel="external">lombok</a>提供了简单的注解的形式来帮助我们简化消除一些必须有但显得很臃肿的java代码,特别是相对于POJO(Plain Ordinary Java Object)。安装Lombok Plugin和引入Jar包之后方可使用。</p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>安装完毕lombok插件之后，添加如下包：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.16.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>常用的 lombok 注解：</p>
+<ul>
+<li><strong>@Data</strong>：注解在类上；提供类所有属性的 getting 和 setting 方法，此外还提供了equals、canEqual、hashCode、toString 方法</li>
+<li><strong>@Setter</strong>：注解在属性上；为属性提供 setting 方法</li>
+<li><strong>@Getter</strong>：注解在属性上；为属性提供 getting 方法</li>
+<li><strong>@Log4j</strong>：注解在类上；为类提供一个 属性名为log 的 log4j 日志对象</li>
+<li><strong>@NoArgsConstructor</strong>：注解在类上；为类提供一个无参的构造方法</li>
+<li><strong>@AllArgsConstructor</strong>：注解在类上；为类提供一个全参的构造方法</li>
+</ul>
+<p>如果不使用lombok注解，代码是这样：</p>
+<a id="more"></a>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> String id;</div><div class="line">    <span class="keyword">private</span> Logger log = Logger.getLogger(Person.class);</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String id)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.id = id;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getId</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> id;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(String id)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.id = id;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用lombok注解，代码是这样：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Data</span></div><div class="line"><span class="meta">@Log</span>4j</div><div class="line"><span class="meta">@NoArgsConstructor</span></div><div class="line"><span class="meta">@AllArgsConstructor</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> String id;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>一旦POJO字段较多时精简的代码就很明显了，而且使用Lombok的代码更加干净、易读，添加<strong>@Data</strong>注解之后，按Ctrl + O(Outline)可以看到生成了get和set方法。</p>
+<h4 id="EqualsAndHashCode"><a href="#EqualsAndHashCode" class="headerlink" title="@EqualsAndHashCode"></a>@EqualsAndHashCode</h4><p>@EqualsAndHashCode注解实现equals()方法和hashCode()方法。hashcode是用于散列数据的快速存取，如利用HashSet/HashMap/Hashtable类来存储数据时，都是根据存储对象的hashcode值来进行判断是否相同的。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Windows下用Nexus搭建Maven私服]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/08/maven-private-service/</url>
+      <content type="html"><![CDATA[<h4 id="Nexus简介"><a href="#Nexus简介" class="headerlink" title="Nexus简介"></a>Nexus简介</h4><p>使用Maven的中央仓库存在如下问题：</p>
+<ul>
+<li>Maven自己的中央库访问速度非常慢，外加GFW，基本没法用。</li>
+<li>有些jar包由于版权原因，maven中央仓库没有，比如oracle JDBC驱动。另外也会有一些项目中用到的比较老的开源jar包， 中央仓库也没有。这种情况我们需要把jar包手动上传到私服。</li>
+<li>公司自己开发的jar包并不开源，不能上传到maven中央仓库，只能部署到私服上面。</li>
+</ul>
+<a id="more"></a>
+<p>Nexus 是Maven仓库管理器，如果你使用Maven，你可以从Maven中央仓库下载所需要的构件（artifact），但这通常不是一个好的做法，你应该在本地架设一个Maven仓库服务器，在代理远程仓库的同时维护本地仓库，以节省带宽和时间，Nexus就可以满足这样的需要。此外，他还提供了强大的仓库管理功能，构件搜索功能，它基于REST，友好的UI是一个extjs的REST客户端，它占用较少的内存，基于简单文件系统而非数据库。这些优点使其日趋成为最流行的Maven仓库管理器。下载Nexus（nexus-3.0.1-01-win64.exe），安装完毕后访问<a href="http://192.168.1.102:8081/" target="_blank" rel="external">本地Maven私服主页</a>。</p>
+<h4 id="配置单个项目"><a href="#配置单个项目" class="headerlink" title="配置单个项目"></a>配置单个项目</h4><p>安装完毕后需要登录，默认的用户名密码是：<code>admin/admin123</code>。登录之后才会显示设置图标，才能添加repositories。将<a href="http://192.168.1.102:8081/repository/maven-public/" target="_blank" rel="external">本地Maven私服路径</a>配置到项目的pom.xml中即可。如下代码片段所示。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">repositories</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">repository</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>my-nexus-repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://192.168.1.102:8081/repository/maven-public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">releases</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">releases</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">pluginRepositories</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">pluginRepository</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>my-nexus-repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://192.168.1.102:8081/repository/maven-public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">releases</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">releases</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">pluginRepository</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">pluginRepositories</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>如果在本地私服没有的jar包，会自动从中心服务器下载。至此，最简单的Maven私服搭建完毕。</p>
+<h4 id="配置全局应用"><a href="#配置全局应用" class="headerlink" title="配置全局应用"></a>配置全局应用</h4><p>在Maven的settings.xml中配置profile元素，这样就能让本机所有的Maven项目都使用自己的Maven私服。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>central<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>*<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>Human Readable Name for this Mirror.<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://localhost:8081/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">mirrors</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">profiles</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">profile</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">repositories</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">repository</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">name</span>&gt;</span>Nexus<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://localhost:8081/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">releases</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></div><div class="line">		  <span class="tag">&lt;/<span class="name">releases</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></div><div class="line">		  <span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">profiles</span>&gt;</span></div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Java Web开发--log4j]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/08/log4j/</url>
+      <content type="html"><![CDATA[<h2 id="isDebugEnabled"><a href="#isDebugEnabled" class="headerlink" title="isDebugEnabled"></a>isDebugEnabled</h2><p>在输出日志时，判断输出级别：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(logger.isDebugEnabled()) &#123;</div><div class="line">    logger.debug(<span class="string">"通用处理，信息为："</span> + JSON.toJSONString(vehicleLocationData));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于debug，即不需要进行日志信息输出时：</p>
+<p>①假如debug方法中的参数比较简单时（比如直接就是写好的字符串），加不加这句if判断，在效率上也几乎没有什么差别；</p>
+<p>②假如debug方法中的参数比较复杂时（比如还要使用别的函数进行计算、或者还要进行字符串的拼接等等,如上代码片段所示，输出的内容需要序列化），在前面就加上这句if判断，会让效率提高（否则，开始大动干戈做了很多事情（比如字符串的拼接，序列化），后来才发现不需要进行输出日志信息），白白浪费了CPU资源，影响程序的运行效率。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Websocket发送消息长度设置]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/08/websocket-sending-config/</url>
+      <content type="html"><![CDATA[<p>项目中用到WebSocket技术，发送文本字节比较多时出现异常，立即断开了连接。项目在Tomcat上运行，Tomcat默认的文本大小为8192。</p>
+<a id="more"></a>
+<img src="/2016/12/08/websocket-sending-config/websocket-disconnect-exception.png" alt="WebSocket异常断开连接" title="WebSocket异常断开连接">
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">If the application does not define a MessageHandler.Partial for incoming text messages, any incoming text messages must be buffered so the entire message can be delivered in a single call to the registered MessageHandler.Whole for text messages. The default buffer size for text messages is 8192 bytes. This may be changed for a web application by setting the servlet context initialization parameter org.apache.tomcat.websocket.textBufferSize to the desired value in bytes.</div></pre></td></tr></table></figure>
+<p>在项目Tomcat的web.xml(<code>D:\Source\zwnewplatform\javasoftware\runtime\apache-tomcat-8.0.36\apache-tomcat-8.0.36\conf\web.xml</code>)中添加如下配置（注意单位为byte）。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>org.apache.tomcat.websocket.textBufferSize<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>327680<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>org.apache.tomcat.websocket.binaryBufferSize<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>327680<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>如果是Eclipse，则直接在Eclipse中配置，如下图所示：</p>
+<img src="/2016/12/08/websocket-sending-config/eclipse-websocket-message.png" alt="Eclipse配置WebSocket消息大小" title="Eclipse配置WebSocket消息大小">
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Spring MVC-DispatcherServlet处理请求过程]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/08/springmvc-dispatcherservlet/</url>
+      <content type="html"><![CDATA[<p>Spring MVC基于模型-视图-控制器(Model-View-Controller,MVC)模式，它能够帮助我们建立灵活和松耦合的Web程序.Spring MVC中用户请求如下图所示：</p>
+<a id="more"></a>
+<img src="/2016/12/08/springmvc-dispatcherservlet/example.jpg" alt="DispatcherServlet处理请求过程" title="DispatcherServlet处理请求过程">
+<h6 id="请求发出-HTTP-Resquest"><a href="#请求发出-HTTP-Resquest" class="headerlink" title="请求发出(HTTP Resquest)"></a>请求发出(HTTP Resquest)</h6><p>一个请求携带信息进入Spring MVC程序时，第一站是Spring的DispatcherServlet(在web.xml中配置)，它是接收所有用户请求的前端控制器Servlet。DispatcherServlet对请求URL进行解析，得到请求资源标识符（URI）。然后根据该URI，调用HandlerMapping获得该Handler配置的所有相关的对象（包括Handler对象以及Handler对象对应的拦截器），最后以HandlerExecutionChain对象的形式返回；DispatcherServlet的任务是将请求转发给Spring MVC控制器(Controller)，控制器是用于处理用户请求的Spring Bean。DispatcherServlet 根据获得的Handler，选择一个合适的HandlerAdapter。（如果成功获得HandlerAdapter后，此时将开始执行拦截器的preHandler()方法）</p>
+<h6 id="处理器映射-Handler-Mapping"><a href="#处理器映射-Handler-Mapping" class="headerlink" title="处理器映射(Handler Mapping)"></a>处理器映射(Handler Mapping)</h6><p>一般程序中会有不止一个控制器，那么DispatcherServlet需要知道将请求发送给哪个控制器，所以DispatcherServlet将会查询处理器映射(handler mapping)来确定请求的下一站，处理器映射会根据用户请求的URL来决定是哪个控制器。提取Request中的模型数据，填充Handler入参，开始执行Handler（Controller)。 在填充Handler的入参过程中，根据你的配置，Spring将帮你做一些额外的工作：</p>
+<ul>
+<li>HttpMessageConveter： 将请求消息（如Json、xml等数据）转换成一个对象，将对象转换为指定的响应信息</li>
+<li>数据转换：对请求消息进行数据转换。如String转换成Integer、Double等</li>
+<li>数据根式化：对请求消息进行数据格式化。 如将字符串转换成格式化数字或格式化日期等</li>
+<li>数据验证： 验证数据的有效性（长度、格式等），验证结果存储到BindingResult或Error中</li>
+</ul>
+<h6 id="控制器-Controller"><a href="#控制器-Controller" class="headerlink" title="控制器(Controller)"></a>控制器(Controller)</h6><p>DispatcherServlet选择了控制器之后，就会将请求发送给该控制器并等待控制器处理用户请求。控制器在完成了逻辑处理后，通常会返回处理结果并将这些结果在浏览器上显示，这些信息在Spring MVC中成为模型(Model)。Handler执行完成后，向DispatcherServlet 返回一个ModelAndView对象。</p>
+<h6 id="模型以及逻辑视图名称-Model"><a href="#模型以及逻辑视图名称-Model" class="headerlink" title="模型以及逻辑视图名称(Model)"></a>模型以及逻辑视图名称(Model)</h6><p>控制器仅仅返回模型信息往往是不够的，需要对模型信息进行格式化，生成用户友好的方式如html进行显示。所以模型信息将会被发送给一个视图(View，例如jsp视图。事实上，控制器同时产生了模型以及视图名称，将这些信息发送回DispatcherServlet。</p>
+<h6 id="视图解析器-View-Parser"><a href="#视图解析器-View-Parser" class="headerlink" title="视图解析器(View Parser)"></a>视图解析器(View Parser)</h6><p>DispatcherServlet收到控制器的视图名称并不直接表示某个特定的JSP，这个视图名称仅仅是个逻辑值，DispatcherServlet为了找到真正的视图，会使用视图解析器(view resolver)将视图名称匹配成一个具体的视图。根据返回的ModelAndView，选择一个适合的ViewResolver（必须是已经注册到Spring容器中的ViewResolver)返回给DispatcherServlet。</p>
+<h6 id="视图-View"><a href="#视图-View" class="headerlink" title="视图(View)"></a>视图(View)</h6><p>目前为止，DispatcherServlet知道了具体由哪个视图来显示模型信息，那么它就会将模型信息交付给视图，请求的任务到这里就完成了。ViewResolver 结合Model和View，来渲染视图。</p>
+<h6 id="响应-HTTP-Response"><a href="#响应-HTTP-Response" class="headerlink" title="响应(HTTP Response)"></a>响应(HTTP Response)</h6><p>视图渲染模型信息并输出，该输出最后会传递给用户端，展示给用户查看。从以上步骤可以看到，Spring MVC要处理很多过程，但是大部分过程是Spring框架内部处理的，事实上，我们可以十分方便利用Spring MVC框架的编写功能强大的Web应用程序，下一章我们将搭建一个基础的Spring MVC实例程序。</p>
+<p>原始地址：</p>
+<ul>
+<li><a href="http://wiki.jikexueyuan.com/project/spring/mvc-framework/spring-mvc-form-handling-example.html" target="_blank" rel="external">Spring MVC入门-DispatcherServlet处理请求过程</a></li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Spring框架搭建]]></title>
+      <url>http://jiangxiaoqiang.com/2016/12/08/spring/</url>
+      <content type="html"><![CDATA[<p>Spring的不足：</p>
+<ul>
+<li>配置太多</li>
+</ul>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="Could-not-open-ServletContext-resource-WEB-INF-applicationContext-xml"><a href="#Could-not-open-ServletContext-resource-WEB-INF-applicationContext-xml" class="headerlink" title="Could not open ServletContext resource [/WEB-INF/applicationContext.xml]"></a>Could not open ServletContext resource [/WEB-INF/applicationContext.xml]</h3><p>ContextLoaderListener has its own context which is shared by all servlets and filters. By default it will search /WEB-INF/applicationContext.xml。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>/WEB-INF/somewhere-else/root-context.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="Missing-artifact-org-aspectj-aspectjweaver-jar-1-8-0-M1"><a href="#Missing-artifact-org-aspectj-aspectjweaver-jar-1-8-0-M1" class="headerlink" title="Missing artifact org.aspectj:aspectjweaver:jar:1.8.0.M1"></a>Missing artifact org.aspectj:aspectjweaver:jar:1.8.0.M1</h3><p>According to a reported issue at springsource, aspectjweaver is “basically identical to AspectJ 1.7” except that it has early support for Java 8.As I don’t need Java 8 support, I basically added a compile dependency to the latest release version of aspectweaver:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.aspectj<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>aspectjweaver<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>This ensures that the 1.7.4 is used instead of the milestone release, and is an acceptable workaround for me, for the time being.</p>
+<h5 id="Exception-java-lang-ClassNotFoundException-org-apache-commons-dbcp-BasicDataSource"><a href="#Exception-java-lang-ClassNotFoundException-org-apache-commons-dbcp-BasicDataSource" class="headerlink" title="Exception java.lang.ClassNotFoundException: org.apache.commons.dbcp.BasicDataSource"></a>Exception java.lang.ClassNotFoundException: org.apache.commons.dbcp.BasicDataSource</h5><p>在POM.xml中引入jar包。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-dbcp<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-dbcp<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<h5 id="java-lang-NoClassDefFoundError-org-apache-ibatis-session-SqlSessionFactory"><a href="#java-lang-NoClassDefFoundError-org-apache-ibatis-session-SqlSessionFactory" class="headerlink" title="java.lang.NoClassDefFoundError: org/apache/ibatis/session/SqlSessionFactory"></a>java.lang.NoClassDefFoundError: org/apache/ibatis/session/SqlSessionFactory</h5><p>引入jar包。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.ibatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>ibatis-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+]]></content>
+>>>>>>> Stashed changes
     </entry>
     
     <entry>
@@ -3555,7 +3923,12 @@ public int hashCode() {
 <p>其中startopenvpn.sh脚本中：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /etc/openvpn</div><div class="line">nohup openvpn /etc/openvpn/client.conf</div></pre></td></tr></table></figure>
 <p>需要注意的是，执行时需要切换到<code>/etc/openvpn</code>目录，默认的配置文件例如key等默认在当前目录下寻找。OpenVPN启动时需要root权限。需要成功启动OpenVPN客户端首次登陆时需要以root用户登陆。</p>
+<<<<<<< Updated upstream
 <p>Ubuntu开机之后会执行<code>/etc/rc.local</code>文件中的脚本，所以可以直接在<code>/etc/rc.local</code>中添加启动脚本。当然要添加到语句<code>exit 0</code>前面才行。</p>
+=======
+<p>Ubuntu开机之后会执行<code>/etc/rc.local</code>文件中的脚本，所以可以直接在<code>/etc/rc.local</code>中添加启动脚本。当然要添加到语句<code>exit 0</code>前面才行。如下rc.local脚本，在启动后自动运行XX-Net:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/bin/sh -e</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># rc.local</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># This script is executed at the end of each multiuser runlevel.</span></div><div class="line"><span class="comment"># Make sure that the script will "exit 0" on success or any other</span></div><div class="line"><span class="comment"># value on error.</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># In order to enable or disable this script just change the execution</span></div><div class="line"><span class="comment"># bits.</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># By default this script does nothing.</span></div><div class="line">nohup /opt/<span class="built_in">local</span>/tools/XX-Net-3.2.8/start &amp;</div><div class="line"><span class="built_in">exit</span> 0</div></pre></td></tr></table></figure>
+>>>>>>> Stashed changes
 <h4 id="联网后自动运行程序"><a href="#联网后自动运行程序" class="headerlink" title="联网后自动运行程序"></a>联网后自动运行程序</h4><p>网络连接建立后运行的脚本可以实现诸多实用功能，如动态域名绑定、连接VPN、上网认证等。实现这一目标的大体思路有两种：在基于NetworkManager的系统中，可配置其dispatcher脚本；Fedora对这一功能支持的不是很好，只能在网络连接建立后运行一个脚本，即/sbin/ifup-local。这个文件默认不存在，需要手动创建。下面的例子用vi编辑/创建这个文件，并添加执行权限。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vi /sbin/ifup-local</div><div class="line">chmod 755 /sbin/ifup-local</div></pre></td></tr></table></figure>
 <p><a href="https://en.wikipedia.org/wiki/Runlevel" target="_blank" rel="external">Runlevel</a></p>
@@ -4072,7 +4445,11 @@ public int hashCode() {
 <img src="/2016/09/26/intllij-idea-encoding/change-theme.jpg" alt="修改默认主题" title="修改默认主题">
 <h4 id="Maven配置"><a href="#Maven配置" class="headerlink" title="Maven配置"></a>Maven配置</h4><p>使用Maven最头疼的就是从中央库下载jar包超级慢，等待下载jar包的感觉用重庆话讲：肚肠子把把逗紧了。解决办法就是使用私服地址，私服可以使用本地配置的Maven(不是Intellij Idea里面的boundle Maven)，修改Intellj Maven采用本机安装Maven在设置(Ctrl + Alt + S)中输入Maven，修改地址(例如：<code>D:\Source\zwnewplatform\javasoftware\runtime\apache-maven-3.3.9</code>)即可，如下图所示。</p>
 <img src="/2016/09/26/intllij-idea-encoding/specify-maven-addr.jpg" alt="修改Maven地址" title="修改Maven地址">
+<<<<<<< Updated upstream
 <h4 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h4><p>Intellij Idea可以完全丢掉键盘工作，有点早期Vim和Emacs编辑器的味道。善用Intellij Idea编辑器可以大幅提高工作效率，用快捷键有一种装逼的感觉，装逼人士必备。</p>
+=======
+<h4 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h4><p>Intellij Idea可以完全丢掉键盘工作，有点早期Vim和Emacs编辑器的味道。善用Intellij Idea编辑器可以大幅提高工作效率，用快捷键有一种装逼的感觉，装逼人士必备。如下是在Windows下的快捷键：</p>
+>>>>>>> Stashed changes
 <table>
 <thead>
 <tr>
@@ -4247,7 +4624,11 @@ public int hashCode() {
 </tr>
 <tr>
 <td>Ctrl + Shift + U</td>
+<<<<<<< Updated upstream
 <td style="text-align:center">变量转换为大写</td>
+=======
+<td style="text-align:center">单词大小写切换</td>
+>>>>>>> Stashed changes
 </tr>
 <tr>
 <td>Ctrl + W</td>
@@ -4279,6 +4660,32 @@ public int hashCode() {
 </tr>
 </tbody>
 </table>
+<<<<<<< Updated upstream
+=======
+<p>如下是在Mac OS X中的快捷键：</p>
+<table>
+<thead>
+<tr>
+<th>快捷键(Short Keys)</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Commmand + ,</td>
+<td style="text-align:center">调出Setting界面</td>
+</tr>
+<tr>
+<td>Commmand + ；</td>
+<td style="text-align:center">调出项目Setting界面</td>
+</tr>
+<tr>
+<td>Command + F4</td>
+<td style="text-align:center">关闭界面</td>
+</tr>
+</tbody>
+</table>
+>>>>>>> Stashed changes
 <h5 id="进入退出全屏"><a href="#进入退出全屏" class="headerlink" title="进入退出全屏"></a>进入退出全屏</h5><p>使用快捷键<code>Alt + V</code>打开View菜单，移动上下键选择<code>Enter Full Screen</code>即可。也可以自定义快捷键。</p>
 <h4 id="properties显示中文"><a href="#properties显示中文" class="headerlink" title="properties显示中文"></a>properties显示中文</h4><p>使用IntelliJ Idea打开属性文件时，如果包含中文，显示为原始的编码，正确显示中文需要做如下设置，到设置(settings)中,可以使用快捷键Ctrl + Alt + S打开设置界面，找到<code>File Encoding</code>选项卡，选中<code>Default encoding for properties file</code>即可，如下图所示.</p>
 <img src="/2016/09/26/intllij-idea-encoding/intellij-properties-encoding.png" alt="属性文件编码设置" title="属性文件编码设置">

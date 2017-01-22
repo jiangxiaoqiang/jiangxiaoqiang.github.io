@@ -92,11 +92,13 @@
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="在编译项目时，提示找不到符号，错误如下：
  123Error:(40, 20) java: cannot find symbol symbol:   method setParams(java.lang.String) location: variable log of type creditsystem.data.model.OperationLog">
-<meta property="og:updated_time" content="2017-01-19T01:25:00.059Z">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2017/01/17/java-cannot-find-symbol/scala-sdk-adding.jpg">
+<meta property="og:updated_time" content="2017-01-22T02:57:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java cannot find symbol">
 <meta name="twitter:description" content="在编译项目时，提示找不到符号，错误如下：
  123Error:(40, 20) java: cannot find symbol symbol:   method setParams(java.lang.String) location: variable log of type creditsystem.data.model.OperationLog">
+<meta name="twitter:image" content="http://jiangxiaoqiang.com/2017/01/17/java-cannot-find-symbol/scala-sdk-adding.jpg">
 
 
 
@@ -407,6 +409,11 @@
 <a id="more"></a>
 <p>启用Annotation Processor即可。Annotation Processor即为注解的处理器。与运行时注解RetentionPolicy.RUNTIME不同，Annotation Processor处理RetentionPolicy.SOURCE类型的注解。在Java代码编译阶段对标注RetentionPolicy.SOURCE类型的注解进行处理。这样在编译过程中添加代码，效率就非常高了。同样，Annotation Processor也可以实现IDE编写代码时的各种代码检验，例如当你在一个并未覆写任何父类方法的函数上添加了@Override注解，IDE会红线标识出你的函数提示错误。</p>
 <p>同时安装Lombok插件。</p>
+<p>在项目编译Scala文件时，提示如下错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Warning:scala: skipping Scala files without a Scala SDK in module(s) system import</div></pre></td></tr></table></figure>
+<p>要解决此问题，打开Project Structure(Ctrl + Alt + Shift + S)-&gt;Global Libraries，添加相应的Scala SDK即可，如下图所示。</p>
+<img src="/2017/01/17/java-cannot-find-symbol/scala-sdk-adding.jpg" alt="添加scala SDK" title="添加scala SDK">
+<p>所用的Intellij Idea为Ultimate版本，在Community版本里面没有作此设置可以正常运行。</p>
 
       
     </div>
@@ -414,11 +421,6 @@
     <div>
       
         
-<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
-    <img id="wechat_subscriber_qcode" src="/uploads/qrcode.jpg" alt="xiaoqiang jiang wechat" style="width: 200px; max-width: 100%;"/>
-    <div>Welcome to subscribe my WeChat public accout!</div>
-</div>
-
 
       
     </div>
@@ -444,8 +446,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/16/the-book-of-caikangyong/" rel="next" title="蔡康永先生的作品">
-                <i class="fa fa-chevron-left"></i> 蔡康永先生的作品
+              <a href="/2017/01/17/fedora-using/" rel="next" title="Fedora使用">
+                <i class="fa fa-chevron-left"></i> Fedora使用
               </a>
             
           </div>
@@ -521,7 +523,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">155</span>
+                <span class="site-state-item-count">157</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -539,7 +541,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">160</span>
+                <span class="site-state-item-count">162</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
