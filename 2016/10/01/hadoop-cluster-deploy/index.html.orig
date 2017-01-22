@@ -108,7 +108,7 @@ Hadoop 2.7.1.2.4.3.0-227
 HBase集群建立在hadoop集群基础之上，所以在搭建HBase集群之前需要把Hadoop集群搭建起来，并且要考虑二者的兼容性。
 下载JDK8u60安装包，输入如下命令进行安装：
 1rpm -ivh jdk-8u60-linux-x64.rpm">
-<meta property="og:updated_time" content="2016-12-19T04:46:16.890Z">
+<meta property="og:updated_time" content="2016-10-06T15:30:49.130Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hadoop 2.7.1集群部署(不断更新...)">
 <meta name="twitter:description" content="所用软件版本：
@@ -228,8 +228,6 @@ HBase集群建立在hadoop集群基础之上，所以在搭建HBase集群之前�
         </li>
       
         
-<<<<<<< HEAD
-=======
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
@@ -250,7 +248,6 @@ HBase集群建立在hadoop集群基础之上，所以在搭建HBase集群之前�
         </li>
       
         
->>>>>>> 3022207df2a00d5d2ff4be72e536389d8783a983
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -592,10 +589,10 @@ HBase集群建立在hadoop集群基础之上，所以在搭建HBase集群之前�
             <div class="site-state-item site-state-posts">
               <a href="/archives">
 <<<<<<< HEAD
-                <span class="site-state-item-count">144</span>
+                <span class="site-state-item-count">159</span>
 =======
-                <span class="site-state-item-count">142</span>
->>>>>>> 3022207df2a00d5d2ff4be72e536389d8783a983
+                <span class="site-state-item-count">157</span>
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -603,13 +600,8 @@ HBase集群建立在hadoop集群基础之上，所以在搭建HBase集群之前�
 
           
             <div class="site-state-item site-state-categories">
-<<<<<<< HEAD
-              
-                <span class="site-state-item-count">14</span>
-=======
               <a href="/categories">
-                <span class="site-state-item-count">15</span>
->>>>>>> 3022207df2a00d5d2ff4be72e536389d8783a983
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -619,10 +611,10 @@ HBase集群建立在hadoop集群基础之上，所以在搭建HBase集群之前�
             <div class="site-state-item site-state-tags">
               <a href="/tags">
 <<<<<<< HEAD
-                <span class="site-state-item-count">153</span>
+                <span class="site-state-item-count">164</span>
 =======
-                <span class="site-state-item-count">152</span>
->>>>>>> 3022207df2a00d5d2ff4be72e536389d8783a983
+                <span class="site-state-item-count">162</span>
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

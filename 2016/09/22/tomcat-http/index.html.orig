@@ -94,7 +94,7 @@ Connector获取请求请求被发送到Apache Tomcat服务器端口8080，被在
 Connector获取请求请求被发送到Apache Tomcat服务器端口8080，被在那里侦听的Coyote HTTP/1.1 Connector(org.apache.tomcat.util.net.NioEndpoint)获得。Tomcat源码中与connector相关的类位于org.apach">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/22/tomcat-http/nioendpoint-debug.jpg">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/22/tomcat-http/tomcat-handle-flow.jpg">
-<meta property="og:updated_time" content="2016-12-19T04:46:16.918Z">
+<meta property="og:updated_time" content="2016-11-04T12:44:27.726Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tomcat 8.0 HTTP请求流程">
 <meta name="twitter:description" content="假设来自浏览器的请求为：http://localhost:8080/test/index.jsp
@@ -207,8 +207,6 @@ Connector获取请求请求被发送到Apache Tomcat服务器端口8080，被在
         </li>
       
         
-<<<<<<< HEAD
-=======
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
@@ -229,7 +227,6 @@ Connector获取请求请求被发送到Apache Tomcat服务器端口8080，被在
         </li>
       
         
->>>>>>> 3022207df2a00d5d2ff4be72e536389d8783a983
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -526,10 +523,10 @@ Connector获取请求请求被发送到Apache Tomcat服务器端口8080，被在
             <div class="site-state-item site-state-posts">
               <a href="/archives">
 <<<<<<< HEAD
-                <span class="site-state-item-count">144</span>
+                <span class="site-state-item-count">159</span>
 =======
-                <span class="site-state-item-count">142</span>
->>>>>>> 3022207df2a00d5d2ff4be72e536389d8783a983
+                <span class="site-state-item-count">157</span>
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -537,13 +534,8 @@ Connector获取请求请求被发送到Apache Tomcat服务器端口8080，被在
 
           
             <div class="site-state-item site-state-categories">
-<<<<<<< HEAD
-              
-                <span class="site-state-item-count">14</span>
-=======
               <a href="/categories">
-                <span class="site-state-item-count">15</span>
->>>>>>> 3022207df2a00d5d2ff4be72e536389d8783a983
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -553,10 +545,10 @@ Connector获取请求请求被发送到Apache Tomcat服务器端口8080，被在
             <div class="site-state-item site-state-tags">
               <a href="/tags">
 <<<<<<< HEAD
-                <span class="site-state-item-count">153</span>
+                <span class="site-state-item-count">164</span>
 =======
-                <span class="site-state-item-count">152</span>
->>>>>>> 3022207df2a00d5d2ff4be72e536389d8783a983
+                <span class="site-state-item-count">162</span>
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

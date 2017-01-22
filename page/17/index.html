@@ -290,7 +290,11 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+<<<<<<< HEAD
   <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/12/12/java-object/">
+=======
+  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/12/08/spring/">
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xiaoqiang jiang">
@@ -315,8 +319,13 @@
             
               
                 
+<<<<<<< HEAD
                 <a class="post-title-link" href="/2016/12/12/java-object/" itemprop="url">
                   Java的Object类
+=======
+                <a class="post-title-link" href="/2016/12/08/spring/" itemprop="url">
+                  Spring框架搭建
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
                 </a>
               
             
@@ -332,8 +341,13 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
+<<<<<<< HEAD
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-12T19:15:12+08:00">
                 2016-12-12
+=======
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-08T00:02:16+08:00">
+                2016-12-08
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
               </time>
             
 
@@ -343,28 +357,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Programming/" itemprop="url" rel="index">
-                    <span itemprop="name">Programming</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -373,8 +365,13 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
+<<<<<<< HEAD
                 <a href="/2016/12/12/java-object/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/12/java-object/" itemprop="commentCount"></span>
+=======
+                <a href="/2016/12/08/spring/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/08/spring/" itemprop="commentCount"></span>
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
                 </a>
               </span>
             
@@ -401,6 +398,7 @@
 
       
         
+<<<<<<< HEAD
           <p>今天面试的时候，面试官问起了Object有哪些方法，回答出来大半，不过还是不完全，理解不够深入，平时还没有细细研究这些内容，回家时仔细总结，并记录如下。Java中的Object类是所有类的父类，它提供了以下11个方法：</p>
           <!--noindex-->
           <div class="post-more-link text-center">
@@ -409,6 +407,24 @@
             </a>
           </div>
           <!--/noindex-->
+=======
+          
+            <p>Spring的不足：</p>
+<ul>
+<li>配置太多</li>
+</ul>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="Could-not-open-ServletContext-resource-WEB-INF-applicationContext-xml"><a href="#Could-not-open-ServletContext-resource-WEB-INF-applicationContext-xml" class="headerlink" title="Could not open ServletContext resource [/WEB-INF/applicationContext.xml]"></a>Could not open ServletContext resource [/WEB-INF/applicationContext.xml]</h3><p>ContextLoaderListener has its own context which is shared by all servlets and filters. By default it will search /WEB-INF/applicationContext.xml。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>/WEB-INF/somewhere-else/root-context.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="Missing-artifact-org-aspectj-aspectjweaver-jar-1-8-0-M1"><a href="#Missing-artifact-org-aspectj-aspectjweaver-jar-1-8-0-M1" class="headerlink" title="Missing artifact org.aspectj:aspectjweaver:jar:1.8.0.M1"></a>Missing artifact org.aspectj:aspectjweaver:jar:1.8.0.M1</h3><p>According to a reported issue at springsource, aspectjweaver is “basically identical to AspectJ 1.7” except that it has early support for Java 8.As I don’t need Java 8 support, I basically added a compile dependency to the latest release version of aspectweaver:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.aspectj<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>aspectjweaver<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>This ensures that the 1.7.4 is used instead of the milestone release, and is an acceptable workaround for me, for the time being.</p>
+<h5 id="Exception-java-lang-ClassNotFoundException-org-apache-commons-dbcp-BasicDataSource"><a href="#Exception-java-lang-ClassNotFoundException-org-apache-commons-dbcp-BasicDataSource" class="headerlink" title="Exception java.lang.ClassNotFoundException: org.apache.commons.dbcp.BasicDataSource"></a>Exception java.lang.ClassNotFoundException: org.apache.commons.dbcp.BasicDataSource</h5><p>在POM.xml中引入jar包。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-dbcp<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-dbcp<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<h5 id="java-lang-NoClassDefFoundError-org-apache-ibatis-session-SqlSessionFactory"><a href="#java-lang-NoClassDefFoundError-org-apache-ibatis-session-SqlSessionFactory" class="headerlink" title="java.lang.NoClassDefFoundError: org/apache/ibatis/session/SqlSessionFactory"></a>java.lang.NoClassDefFoundError: org/apache/ibatis/session/SqlSessionFactory</h5><p>引入jar包。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.ibatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>ibatis-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+
+          
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
         
       
     </div>
@@ -445,7 +461,11 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+<<<<<<< HEAD
   <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/12/10/fedora-vpn-connect/">
+=======
+  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/12/03/spring-transaction/">
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xiaoqiang jiang">
@@ -470,8 +490,13 @@
             
               
                 
+<<<<<<< HEAD
                 <a class="post-title-link" href="/2016/12/10/fedora-vpn-connect/" itemprop="url">
                   Fedora设置VPN连接
+=======
+                <a class="post-title-link" href="/2016/12/03/spring-transaction/" itemprop="url">
+                  Spring事务管理
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
                 </a>
               
             
@@ -487,8 +512,13 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
+<<<<<<< HEAD
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-10T21:46:18+08:00">
                 2016-12-10
+=======
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-03T17:48:10+08:00">
+                2016-12-03
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
               </time>
             
 
@@ -528,8 +558,13 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
+<<<<<<< HEAD
                 <a href="/2016/12/10/fedora-vpn-connect/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/10/fedora-vpn-connect/" itemprop="commentCount"></span>
+=======
+                <a href="/2016/12/03/spring-transaction/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/03/spring-transaction/" itemprop="commentCount"></span>
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
                 </a>
               </span>
             
@@ -556,10 +591,17 @@
 
       
         
+<<<<<<< HEAD
           <p>在家里需要连接学校的VPN，家里的电脑安装的时Fedora 24。原以为会非常复杂，其实设置非常简单。</p>
           <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/12/10/fedora-vpn-connect/#more" rel="contents">
+=======
+          <p>事务最重要的两个特性，是事务的传播级别（Propagation Level）和数据隔离级别（Isolation Level）。传播级别定义的是事务的控制范围，事务隔离级别定义的是事务在数据库读写方面的控制范围。</p>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/12/03/spring-transaction/#more" rel="contents">
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
               阅读全文 &raquo;
             </a>
           </div>
@@ -600,7 +642,11 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+<<<<<<< HEAD
   <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/12/08/jvm-tools/">
+=======
+  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/12/02/mybatis-cache/">
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xiaoqiang jiang">
@@ -625,8 +671,13 @@
             
               
                 
+<<<<<<< HEAD
                 <a class="post-title-link" href="/2016/12/08/jvm-tools/" itemprop="url">
                   jvm工具
+=======
+                <a class="post-title-link" href="/2016/12/02/mybatis-cache/" itemprop="url">
+                  MyBatis使用
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
                 </a>
               
             
@@ -642,8 +693,13 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
+<<<<<<< HEAD
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-08T21:54:49+08:00">
                 2016-12-08
+=======
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-02T19:13:59+08:00">
+                2016-12-02
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
               </time>
             
 
@@ -661,8 +717,13 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
+<<<<<<< HEAD
                 <a href="/2016/12/08/jvm-tools/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/08/jvm-tools/" itemprop="commentCount"></span>
+=======
+                <a href="/2016/12/02/mybatis-cache/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/02/mybatis-cache/" itemprop="commentCount"></span>
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
                 </a>
               </span>
             
@@ -689,10 +750,17 @@
 
       
         
+<<<<<<< HEAD
           <h4 id="jps-JVM-Process-Status-Tools"><a href="#jps-JVM-Process-Status-Tools" class="headerlink" title="jps(JVM Process Status Tools)"></a>jps(JVM Process Status Tools)</h4><p>jps是参照Unix系统的取名规则命名的，而他的功能和ps的功能类似，可以列举正在运行的饿虚拟机进程并显示虚拟机执行的主类以及这些进程的唯一ID（LVMID，对应本机来说和PID相同）。VMID与LVMID需要特别说明下：如果是本地虚拟机进程，VMID(Virtual Machine IDentifier,虚机标识符)和LVMID(Local Virtual Machine IDentifier,虚机标识符)是一致的，如果是远程虚拟机进程，那VMID的格式应当是：[protocol:][//] lvmid [@hostname[:port]/servername]</p>
           <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/12/08/jvm-tools/#more" rel="contents">
+=======
+          <h4 id="MyBatis缓存"><a href="#MyBatis缓存" class="headerlink" title="MyBatis缓存"></a>MyBatis缓存</h4><p>正如大多数持久层框架一样，MyBatis 同样提供了一级缓存和二级缓存的支持；</p>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/12/02/mybatis-cache/#more" rel="contents">
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
               阅读全文 &raquo;
             </a>
           </div>
@@ -733,7 +801,11 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+<<<<<<< HEAD
   <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/12/03/spring-transaction/">
+=======
+  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/12/02/spring-viewresolver/">
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xiaoqiang jiang">
@@ -758,8 +830,13 @@
             
               
                 
+<<<<<<< HEAD
                 <a class="post-title-link" href="/2016/12/03/spring-transaction/" itemprop="url">
                   Spring事务管理
+=======
+                <a class="post-title-link" href="/2016/12/02/spring-viewresolver/" itemprop="url">
+                  Spring视图解析器
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
                 </a>
               
             
@@ -775,8 +852,13 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
+<<<<<<< HEAD
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-03T17:48:10+08:00">
                 2016-12-03
+=======
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-02T17:32:27+08:00">
+                2016-12-02
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
               </time>
             
 
@@ -816,8 +898,13 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
+<<<<<<< HEAD
                 <a href="/2016/12/03/spring-transaction/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/03/spring-transaction/" itemprop="commentCount"></span>
+=======
+                <a href="/2016/12/02/spring-viewresolver/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/02/spring-viewresolver/" itemprop="commentCount"></span>
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
                 </a>
               </span>
             
@@ -844,10 +931,17 @@
 
       
         
+<<<<<<< HEAD
           <p>事务最重要的两个特性，是事务的传播级别（Propagation Level）和数据隔离级别（Isolation Level）。传播级别定义的是事务的控制范围，事务隔离级别定义的是事务在数据库读写方面的控制范围。</p>
           <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/12/03/spring-transaction/#more" rel="contents">
+=======
+          <h4 id="InternalResourceViewResolver"><a href="#InternalResourceViewResolver" class="headerlink" title="InternalResourceViewResolver"></a>InternalResourceViewResolver</h4><p>在Sprinng MVC中，Handler执行完成后，向DispatcherServlet返回一个ModelAndView对象。此时就需要调用视图解析器(View Resolver)来渲染视图了。</p>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/12/02/spring-viewresolver/#more" rel="contents">
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
               阅读全文 &raquo;
             </a>
           </div>
@@ -888,7 +982,11 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+<<<<<<< HEAD
   <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/12/02/mybatis-cache/">
+=======
+  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/12/02/fedora-mysql-install/">
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xiaoqiang jiang">
@@ -913,8 +1011,13 @@
             
               
                 
+<<<<<<< HEAD
                 <a class="post-title-link" href="/2016/12/02/mybatis-cache/" itemprop="url">
                   MyBatis使用
+=======
+                <a class="post-title-link" href="/2016/12/02/fedora-mysql-install/" itemprop="url">
+                  Fedora上MySQL安装
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
                 </a>
               
             
@@ -930,7 +1033,11 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
+<<<<<<< HEAD
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-02T19:13:59+08:00">
+=======
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-02T17:31:29+08:00">
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
                 2016-12-02
               </time>
             
@@ -971,8 +1078,13 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
+<<<<<<< HEAD
                 <a href="/2016/12/02/mybatis-cache/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/02/mybatis-cache/" itemprop="commentCount"></span>
+=======
+                <a href="/2016/12/02/fedora-mysql-install/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/02/fedora-mysql-install/" itemprop="commentCount"></span>
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
                 </a>
               </span>
             
@@ -999,10 +1111,17 @@
 
       
         
+<<<<<<< HEAD
           <h4 id="MyBatis缓存"><a href="#MyBatis缓存" class="headerlink" title="MyBatis缓存"></a>MyBatis缓存</h4><p>正如大多数持久层框架一样，MyBatis 同样提供了一级缓存和二级缓存的支持；</p>
           <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/12/02/mybatis-cache/#more" rel="contents">
+=======
+          <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## Fedora 24 ##</span></div><div class="line">dnf install https://dev.mysql.com/get/mysql57-community-release-fc24-8.noarch.rpm</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/12/02/fedora-mysql-install/#more" rel="contents">
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
               阅读全文 &raquo;
             </a>
           </div>
@@ -1081,7 +1200,11 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
+<<<<<<< HEAD
                 <span class="site-state-item-count">159</span>
+=======
+                <span class="site-state-item-count">157</span>
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1099,7 +1222,11 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
+<<<<<<< HEAD
                 <span class="site-state-item-count">164</span>
+=======
+                <span class="site-state-item-count">162</span>
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

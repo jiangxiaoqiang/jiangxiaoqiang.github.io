@@ -100,7 +100,7 @@ CentOS 7.0
 
 
 Ambari是一款用于部署、管理、监控Hadoop集群的开源工具，通过Ambari用户可以更方便地管理大规模Hadoop集群。Ambari架构采用的是Server/Client的模式，主要由两部分组成：ambari-agent和ambari-server。ambari依赖其它已经成熟的工具，例如其ambari-server就">
-<meta property="og:updated_time" content="2016-12-19T04:46:16.882Z">
+<meta property="og:updated_time" content="2016-10-06T15:30:49.128Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Apache-Ambari 2.2.2.0 Agent手动安装">
 <meta name="twitter:description" content="Apache-Ambari 2.2.2.0
@@ -216,8 +216,6 @@ Ambari是一款用于部署、管理、监控Hadoop集群的开源工具，通�
         </li>
       
         
-<<<<<<< HEAD
-=======
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
@@ -238,7 +236,6 @@ Ambari是一款用于部署、管理、监控Hadoop集群的开源工具，通�
         </li>
       
         
->>>>>>> 3022207df2a00d5d2ff4be72e536389d8783a983
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -562,10 +559,10 @@ Ambari是一款用于部署、管理、监控Hadoop集群的开源工具，通�
             <div class="site-state-item site-state-posts">
               <a href="/archives">
 <<<<<<< HEAD
-                <span class="site-state-item-count">144</span>
+                <span class="site-state-item-count">159</span>
 =======
-                <span class="site-state-item-count">142</span>
->>>>>>> 3022207df2a00d5d2ff4be72e536389d8783a983
+                <span class="site-state-item-count">157</span>
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -573,13 +570,8 @@ Ambari是一款用于部署、管理、监控Hadoop集群的开源工具，通�
 
           
             <div class="site-state-item site-state-categories">
-<<<<<<< HEAD
-              
-                <span class="site-state-item-count">14</span>
-=======
               <a href="/categories">
-                <span class="site-state-item-count">15</span>
->>>>>>> 3022207df2a00d5d2ff4be72e536389d8783a983
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -589,10 +581,10 @@ Ambari是一款用于部署、管理、监控Hadoop集群的开源工具，通�
             <div class="site-state-item site-state-tags">
               <a href="/tags">
 <<<<<<< HEAD
-                <span class="site-state-item-count">153</span>
+                <span class="site-state-item-count">164</span>
 =======
-                <span class="site-state-item-count">152</span>
->>>>>>> 3022207df2a00d5d2ff4be72e536389d8783a983
+                <span class="site-state-item-count">162</span>
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -117,7 +117,7 @@ Apache Tomcat 8.0
 
 想了解平时学习的理论知识在实际的代码实现中是什么情况，">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/09/17/springmvc-sourcecode-debugging/springmvc-attach-source.png">
-<meta property="og:updated_time" content="2016-12-19T04:46:16.918Z">
+<meta property="og:updated_time" content="2016-10-06T15:30:49.149Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring MVC源码调试">
 <meta name="twitter:description" content="这里调试Spring MVC的环境是：
@@ -242,8 +242,6 @@ Apache Tomcat 8.0
         </li>
       
         
-<<<<<<< HEAD
-=======
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
@@ -264,7 +262,6 @@ Apache Tomcat 8.0
         </li>
       
         
->>>>>>> 3022207df2a00d5d2ff4be72e536389d8783a983
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -545,10 +542,10 @@ Apache Tomcat 8.0
             <div class="site-state-item site-state-posts">
               <a href="/archives">
 <<<<<<< HEAD
-                <span class="site-state-item-count">144</span>
+                <span class="site-state-item-count">159</span>
 =======
-                <span class="site-state-item-count">142</span>
->>>>>>> 3022207df2a00d5d2ff4be72e536389d8783a983
+                <span class="site-state-item-count">157</span>
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -556,13 +553,8 @@ Apache Tomcat 8.0
 
           
             <div class="site-state-item site-state-categories">
-<<<<<<< HEAD
-              
-                <span class="site-state-item-count">14</span>
-=======
               <a href="/categories">
-                <span class="site-state-item-count">15</span>
->>>>>>> 3022207df2a00d5d2ff4be72e536389d8783a983
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -572,10 +564,10 @@ Apache Tomcat 8.0
             <div class="site-state-item site-state-tags">
               <a href="/tags">
 <<<<<<< HEAD
-                <span class="site-state-item-count">153</span>
+                <span class="site-state-item-count">164</span>
 =======
-                <span class="site-state-item-count">152</span>
->>>>>>> 3022207df2a00d5d2ff4be72e536389d8783a983
+                <span class="site-state-item-count">162</span>
+>>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
