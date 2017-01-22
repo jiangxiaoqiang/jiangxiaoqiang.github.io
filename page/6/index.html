@@ -290,11 +290,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-<<<<<<< HEAD
   <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/12/31/backpack/">
-=======
-  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/12/30/elasticsearch-using/">
->>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xiaoqiang jiang">
@@ -319,13 +315,8 @@
             
               
                 
-<<<<<<< HEAD
                 <a class="post-title-link" href="/2016/12/31/backpack/" itemprop="url">
                   我的背包
-=======
-                <a class="post-title-link" href="/2016/12/30/elasticsearch-using/" itemprop="url">
-                  ElasticSearch使用
->>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
                 </a>
               
             
@@ -341,13 +332,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-<<<<<<< HEAD
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-31T21:59:29+08:00">
                 2016-12-31
-=======
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-30T16:06:55+08:00">
-                2016-12-30
->>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
               </time>
             
 
@@ -387,13 +373,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-<<<<<<< HEAD
                 <a href="/2016/12/31/backpack/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/31/backpack/" itemprop="commentCount"></span>
-=======
-                <a href="/2016/12/30/elasticsearch-using/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/30/elasticsearch-using/" itemprop="commentCount"></span>
->>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
                 </a>
               </span>
             
@@ -421,7 +402,6 @@
       
         
           
-<<<<<<< HEAD
             <p>是时候换一个高逼格的背包了，包里装电脑、书、笔记本，可以随时翻一翻，想想还蛮惬意的。上一个背包是大二去学校的时候老爸在镇上买的，结实耐用，到如今已经5年有余了。对背包的几点要求：</p>
 <ul>
 <li>要有逼格，不能太土，太Low，不能让背包和我一样</li>
@@ -433,23 +413,6 @@
 <img src="/2016/12/31/backpack/city-compact-backpack.jpg" alt="City Compact Backpack" title="City Compact Backpack">
 <p>City Compact Backpack是Incase旗下的产品。Incase创立于1997年美国加州，是专门以Apple产品为基础，用精品水准生产Apple周边产品的一个品牌。与 Apple 相同，Incase品牌风格主打的是高级简约的路线。</p>
 <p>买回来后看了一下它的铭牌，是采用一种叫做Ecoya的材料，这种材料在生产上色过程中采用了节水和低二氧化碳排放的工艺，既能保持原先的耐用性，也比传统材料更环保。不过还是跟自己预想的环保材料有差异，本以为是那种可以自然降解对环境无害的材料。不管只是商家的噱头也好，还是真正的减少了能量的消耗和碳的排放，也算是进步吧。</p>
-=======
-            <h4 id="什么是索引-Index"><a href="#什么是索引-Index" class="headerlink" title="什么是索引(Index)"></a>什么是索引(Index)</h4><p>索引只是一个用来指向一个或多个分片(shards)的“逻辑命名空间(logical namespace)”.一个分片(shard)是一个最小级别“工作单元(worker unit)”,它只是保存了索引中所有数据的一部分。分片就是一个Lucene实例，并且它本身就是一个完整的搜索引擎。我们的文档存储在分片中，并且在分片中被索引，但是我们的应用程序不会直接与它们通信，取而代之的是，直接与索引通信。当索引创建完成的时候，主分片的数量就固定了，但是复制分片的数量可以随时调整。Cluster包含多个node，Indices不应该理解成动词索引，Indices可理解成关系数据库中的databases，Indices可包含多个Index，Index对应关系数据库中的database，它是用来存储相关文档的。Elasticsearch与关系数据的类比对应关系可以做如下理解：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Relational DB ⇒ Databases ⇒ Tables ⇒ Rows ⇒ Columns</div><div class="line"></div><div class="line">Elasticsearch ⇒ Indices ⇒ Types ⇒ Documents ⇒ Fields</div></pre></td></tr></table></figure>
-<h4 id="什么是分片-Shard"><a href="#什么是分片-Shard" class="headerlink" title="什么是分片(Shard)"></a>什么是分片(Shard)</h4><p>分片(Shard)是Elasticsearch在集群中分发数据的关键。文档存储在分片中，然后分片分配到集群中的节点上。当集群扩容或缩小，lasticsearch将会自动在你的节点间迁移分片，以使集群保持平衡。分片可以是主分片(primary shard)或者是复制分片(replica shard)。索引中的每个文档属于一个单独的主分片，所以主分片的数量决定了索引最多能存储多少数据。理论上主分片能存储的数据大小是没有限制的，限制取决于你实际的使用情况。分片的最大容量完全取决于你的使用状况：硬件存储的大小、文档的大小和复杂度、如何索引和查询你的文档，以及你期望的响应时间。复制分片只是主分片的一个副本，它可以防止硬件故障导致的数据丢失，同时可以提供读请求，比如搜索或者从别的shard取回文档。</p>
-<h4 id="创建索引-Index"><a href="#创建索引-Index" class="headerlink" title="创建索引(Index)"></a>创建索引(Index)</h4><p>如下curl命令，创建一个名字为jiangxiaoqiang的索引(Index)：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">curl -XPUT <span class="string">'localhost:9200/jiangxiaoqiang?pretty'</span> <span class="_">-d</span><span class="string">'</span></div><div class="line">&#123;</div><div class="line">    "settings" : &#123;</div><div class="line">        "index" : &#123;</div><div class="line">            "number_of_shards" : 3,</div><div class="line">            "number_of_replicas" : 2</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;'</div></pre></td></tr></table></figure>
-<p>url里面的pretty是pretty format的含义，指代参数的json是良好格式化的。</p>
-<h4 id="创建Type"><a href="#创建Type" class="headerlink" title="创建Type"></a>创建Type</h4><p>ElasticSearch中每个文档必须有一个类型定义。这里的类型相当于数据库当中的表，类型定义了字段映射（类似数据库表结构），这样一来，每个索引可以包含多种文档类型，而每种文档类型定义一种映射关系。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">curl -XPUT <span class="string">'localhost:9200/jiangxiaoqiang/typejxq/_mapping'</span> <span class="_">-d</span><span class="string">'&#123;</span></div><div class="line">   "typejxq": &#123;</div><div class="line">      "properties": &#123;</div><div class="line">         "name": &#123;</div><div class="line">            "type": "string"</div><div class="line">         &#125;,</div><div class="line">         "desc": &#123;</div><div class="line">            "type": "string"</div><div class="line">         &#125;</div><div class="line">      &#125;</div><div class="line">   &#125;</div><div class="line">&#125;'</div></pre></td></tr></table></figure>
-<h4 id="添加数据"><a href="#添加数据" class="headerlink" title="添加数据"></a>添加数据</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">curl -XPUT <span class="string">'localhost:9200/jiangxiaoqiang/typejxq/1'</span> <span class="_">-d</span><span class="string">'&#123;</span></div><div class="line">   "name":"jiangxiaoqiang",</div><div class="line">   "desc":"dfaewgrehrehr"</div><div class="line">&#125;'</div></pre></td></tr></table></figure>
-<h4 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">curl -XPOST <span class="string">'localhost:9200/jiangxiaoqiang/_search'</span> <span class="_">-d</span><span class="string">'&#123;</span></div><div class="line">    "query": &#123;</div><div class="line">        "bool": &#123;</div><div class="line">            "must": [</div><div class="line">                &#123;</div><div class="line">                    "prefix": &#123;</div><div class="line">                        "name": "jiang"</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            ],</div><div class="line">            "must_not": [],</div><div class="line">            "should": []</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    "from": 0,</div><div class="line">    "size": 10,</div><div class="line">    "sort": [],</div><div class="line">    "aggs": &#123;&#125;</div><div class="line">&#125;'</div></pre></td></tr></table></figure>
-<p>参考资料：</p>
-<ul>
-<li><a href="https://www.zhihu.com/question/26446020" target="_blank" rel="external">在ElasticSearch中，集群(Cluster),节点(Node),分片(Shard),Indices(索引),replicas(备份)之间是什么关系？</a></li>
-<li><a href="https://www.elastic.co/guide/index.html" target="_blank" rel="external">Elastic Stack and Product Documentation</a></li>
-</ul>
->>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
 
           
         
@@ -488,11 +451,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-<<<<<<< HEAD
   <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/12/30/synchronized-reentrantlock-lock/">
-=======
-  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/12/28/java-date/">
->>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xiaoqiang jiang">
@@ -517,13 +476,8 @@
             
               
                 
-<<<<<<< HEAD
                 <a class="post-title-link" href="/2016/12/30/synchronized-reentrantlock-lock/" itemprop="url">
                   Java中synchronized、reentrantlock、lock区别
-=======
-                <a class="post-title-link" href="/2016/12/28/java-date/" itemprop="url">
-                  Java中的时间
->>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
                 </a>
               
             
@@ -539,13 +493,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-<<<<<<< HEAD
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-30T22:43:41+08:00">
                 2016-12-30
-=======
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-28T15:46:19+08:00">
-                2016-12-28
->>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
               </time>
             
 
@@ -585,13 +534,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-<<<<<<< HEAD
                 <a href="/2016/12/30/synchronized-reentrantlock-lock/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/30/synchronized-reentrantlock-lock/" itemprop="commentCount"></span>
-=======
-                <a href="/2016/12/28/java-date/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/28/java-date/" itemprop="commentCount"></span>
->>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
                 </a>
               </span>
             
@@ -618,23 +562,11 @@
 
       
         
-<<<<<<< HEAD
           
             <h4 id="synchronized"><a href="#synchronized" class="headerlink" title="synchronized"></a>synchronized</h4><h4 id="reentrantlock"><a href="#reentrantlock" class="headerlink" title="reentrantlock"></a>reentrantlock</h4><p>与目前的 synchronized 实现相比，争用下的 ReentrantLock 实现更具可伸缩性。（在未来的 JVM 版本中，synchronized 的争用性能很有可能会获得提高。）这意味着当许多线程都在争用同一个锁时，使用 ReentrantLock 的总体开支通常要比 synchronized 少得多。eentrantLock 构造器的一个参数是 boolean 值，它允许您选择想要一个 公平（fair）锁，还是一个 不公平（unfair）锁。公平锁使线程按照请求锁的顺序依次获得锁；而不公平锁则允许讨价还价，在这种情况下，线程有时可以比先请求锁的其他线程先得到锁。为什么我们不让所有的锁都公平呢？毕竟，公平是好事，不公平是不好的，不是吗？（当孩子们想要一个决定时，总会叫嚷“这不公平”。我们认为公平非常重要，孩子们也知道。）在现实中，公平保证了锁是非常健壮的锁，有很大的性能成本。要确保公平所需要的记帐（bookkeeping）和同步，就意味着被争夺的公平锁要比不公平锁的吞吐率更低。作为默认设置，应当把公平设置为 false ，除非公平对您的算法至关重要，需要严格按照线程排队的顺序对其进行服务。</p>
 <h4 id="lock"><a href="#lock" class="headerlink" title="lock"></a>lock</h4><p>Lock 和 synchronized 有一点明显的区别 —— lock 必须在 finally 块中释放。否则，如果受保护的代码将抛出异常，锁就有可能永远得不到释放！这一点区别看起来可能没什么，但是实际上，它极为重要。忘记在 finally 块中释放锁，可能会在程序中留下一个定时炸弹，当有一天炸弹爆炸时，您要花费很大力气才有找到源头在哪。而使用同步，JVM 将确保锁会获得自动释放。</p>
 
           
-=======
-          <p>如果单纯以Date类型定义时间字段，定义时间的格式：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@ApiModelProperty</span>(value = <span class="string">"数据更新时间戳"</span>)</div><div class="line"><span class="meta">@DateTimeFormat</span>(pattern = <span class="string">"yyyy-MM-dd HH:mm:ss"</span>)</div><div class="line"><span class="keyword">private</span> LocalDateTime sjc;</div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/28/java-date/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
->>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
         
       
     </div>
@@ -671,11 +603,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-<<<<<<< HEAD
   <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/12/30/elasticsearch-using/">
-=======
-  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/12/28/ubuntu-using-latex/">
->>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xiaoqiang jiang">
@@ -700,13 +628,8 @@
             
               
                 
-<<<<<<< HEAD
                 <a class="post-title-link" href="/2016/12/30/elasticsearch-using/" itemprop="url">
                   ElasticSearch使用
-=======
-                <a class="post-title-link" href="/2016/12/28/ubuntu-using-latex/" itemprop="url">
-                  Ubuntu使用Latex
->>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
                 </a>
               
             
@@ -722,13 +645,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-<<<<<<< HEAD
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-30T15:50:18+08:00">
                 2016-12-30
-=======
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-28T14:16:22+08:00">
-                2016-12-28
->>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
               </time>
             
 
@@ -768,13 +686,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-<<<<<<< HEAD
                 <a href="/2016/12/30/elasticsearch-using/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/30/elasticsearch-using/" itemprop="commentCount"></span>
-=======
-                <a href="/2016/12/28/ubuntu-using-latex/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/28/ubuntu-using-latex/" itemprop="commentCount"></span>
->>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
                 </a>
               </span>
             
@@ -801,7 +714,6 @@
 
       
         
-<<<<<<< HEAD
           
             <h4 id="什么是索引-Index"><a href="#什么是索引-Index" class="headerlink" title="什么是索引(Index)"></a>什么是索引(Index)</h4><p>索引只是一个用来指向一个或多个分片(shards)的“逻辑命名空间(logical namespace)”.一个分片(shard)是一个最小级别“工作单元(worker unit)”,它只是保存了索引中所有数据的一部分。分片就是一个Lucene实例，并且它本身就是一个完整的搜索引擎。我们的文档存储在分片中，并且在分片中被索引，但是我们的应用程序不会直接与它们通信，取而代之的是，直接与索引通信。当索引创建完成的时候，主分片的数量就固定了，但是复制分片的数量可以随时调整。Cluster包含多个node，Indices不应该理解成动词索引，Indices可理解成关系数据库中的databases，Indices可包含多个Index，Index对应关系数据库中的database，它是用来存储相关文档的。Elasticsearch与关系数据的类比对应关系可以做如下理解：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Relational DB ⇒ Databases ⇒ Tables ⇒ Rows ⇒ Columns</div><div class="line"></div><div class="line">Elasticsearch ⇒ Indices ⇒ Types ⇒ Documents ⇒ Fields</div></pre></td></tr></table></figure>
@@ -820,16 +732,6 @@
 </ul>
 
           
-=======
-          <p>LaTeX（ LATEX，音译“拉泰赫”）是一种基于TeX的排版系统，由美国计算机学家莱斯利·兰伯特（Leslie Lamport）在20世纪80年代初期开发。</p>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/28/ubuntu-using-latex/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
->>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
         
       
     </div>
@@ -866,11 +768,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-<<<<<<< HEAD
   <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/12/28/java-date/">
-=======
-  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/12/27/elasticsearch-introduce/">
->>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xiaoqiang jiang">
@@ -895,13 +793,8 @@
             
               
                 
-<<<<<<< HEAD
                 <a class="post-title-link" href="/2016/12/28/java-date/" itemprop="url">
                   Java中的时间
-=======
-                <a class="post-title-link" href="/2016/12/27/elasticsearch-introduce/" itemprop="url">
-                  ElasticSearch入门
->>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
                 </a>
               
             
@@ -917,173 +810,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-<<<<<<< HEAD
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-28T15:46:19+08:00">
                 2016-12-28
-=======
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-27T22:38:40+08:00">
-                2016-12-27
->>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-<<<<<<< HEAD
-                <a href="/2016/12/28/java-date/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/28/java-date/" itemprop="commentCount"></span>
-=======
-                <a href="/2016/12/27/elasticsearch-introduce/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/27/elasticsearch-introduce/" itemprop="commentCount"></span>
->>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-<<<<<<< HEAD
-          <p>如果单纯以Date类型定义时间字段，定义时间的格式：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@ApiModelProperty</span>(value = <span class="string">"数据更新时间戳"</span>)</div><div class="line"><span class="meta">@DateTimeFormat</span>(pattern = <span class="string">"yyyy-MM-dd HH:mm:ss"</span>)</div><div class="line"><span class="keyword">private</span> LocalDateTime sjc;</div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/28/java-date/#more" rel="contents">
-=======
-          <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>ElasticSearch是一个基于Lucene开发的搜索服务器，具有分布式多用户的能力，ElasticSearch是用Java开发的开源项目，基于Restful Web接口，能够达到实时搜索、稳定、可靠、快速、高性能、安装使用方便，同时它的横向扩展能力非常强，不需要重启服务。ElasticSearch是一个非常好用的实时分布式搜索和分析引擎，可以帮助我们快速的处理大规模数据，也可以用于全文检索，结构化搜索以及分析等。目前很多网站都在使用ElasticSearch进行全文检索，例如：GitHub、StackOverflow、Wiki等。ElasticSearch式建立在全文检索引擎Lucene基础上的，而Lucene是最先进、高效的开元搜索引擎框架，但是Lucene只是一个框架，要充分利用它的功能，需要很高的学习成本，而ElasticSearch使用Lucene作为内部引擎，在其基础上封装了功能强大的Restful API，让开发人员可以在不需要了解背后复杂的逻辑，即可实现比较高效的搜索。</p>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/27/elasticsearch-introduce/#more" rel="contents">
->>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-<<<<<<< HEAD
-  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/12/28/ubuntu-using-latex/">
-=======
-  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/12/27/gradle-using/">
->>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="xiaoqiang jiang">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="小强的博客">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="小强的博客" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-<<<<<<< HEAD
-                <a class="post-title-link" href="/2016/12/28/ubuntu-using-latex/" itemprop="url">
-                  Ubuntu使用Latex
-=======
-                <a class="post-title-link" href="/2016/12/27/gradle-using/" itemprop="url">
-                  Gradle使用
->>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-<<<<<<< HEAD
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-28T14:16:22+08:00">
-                2016-12-28
-=======
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-27T16:23:37+08:00">
-                2016-12-27
->>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
               </time>
             
 
@@ -1105,8 +833,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tool/" itemprop="url" rel="index">
-                    <span itemprop="name">Tool</span>
+                  <a href="/categories/Programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
                   </a>
                 </span>
 
@@ -1123,13 +851,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-<<<<<<< HEAD
-                <a href="/2016/12/28/ubuntu-using-latex/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/28/ubuntu-using-latex/" itemprop="commentCount"></span>
-=======
-                <a href="/2016/12/27/gradle-using/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/27/gradle-using/" itemprop="commentCount"></span>
->>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
+                <a href="/2016/12/28/java-date/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/28/java-date/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1156,22 +879,166 @@
 
       
         
-<<<<<<< HEAD
+          <p>如果单纯以Date类型定义时间字段，定义时间的格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@ApiModelProperty</span>(value = <span class="string">"数据更新时间戳"</span>)</div><div class="line"><span class="meta">@DateTimeFormat</span>(pattern = <span class="string">"yyyy-MM-dd HH:mm:ss"</span>)</div><div class="line"><span class="keyword">private</span> LocalDateTime sjc;</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/12/28/java-date/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/12/28/ubuntu-using-latex/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="xiaoqiang jiang">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="小强的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="小强的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/28/ubuntu-using-latex/" itemprop="url">
+                  Ubuntu使用Latex
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-28T14:16:22+08:00">
+                2016-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/12/28/ubuntu-using-latex/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/28/ubuntu-using-latex/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
           <p>LaTeX（ LATEX，音译“拉泰赫”）是一种基于TeX的排版系统，由美国计算机学家莱斯利·兰伯特（Leslie Lamport）在20世纪80年代初期开发。</p>
           <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/12/28/ubuntu-using-latex/#more" rel="contents">
-=======
-          <p>使用以下配置文件对Gradle的构建进行配置：</p>
-<ul>
-<li>Gradle构建脚本（build.gradle）指定了一个项目和它的任务。</li>
-<li>Gradle属性文件（gradle.properties）用来配置构建属性。</li>
-<li>Gradle设置文件（gradle.settings）对于只有一个项目的构建而言是可选的，如果我们的构建中包含多于一个项目，那么它就是必须的，因为它描述了哪一个项目参与构建。每一个多项目的构建都必须在项目结构的根目录中加入一个设置文件。</li>
-</ul>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/27/gradle-using/#more" rel="contents">
->>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
               阅读全文 &raquo;
             </a>
           </div>
@@ -1250,11 +1117,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-<<<<<<< HEAD
                 <span class="site-state-item-count">159</span>
-=======
-                <span class="site-state-item-count">157</span>
->>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1272,11 +1135,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-<<<<<<< HEAD
                 <span class="site-state-item-count">164</span>
-=======
-                <span class="site-state-item-count">162</span>
->>>>>>> b0b9b2f06dbf016c55198a92cf467a79d7cfab7f
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
