@@ -120,7 +120,7 @@ UM Typewriter Regular
 
 查看本机IP12ifconfig -aethtool -P eth0
 ifconfig表示Interface Configuration.一般Linux，在/etc/sysconfig/network-scripts下找到ifcfg-eth0文件，编辑：">
-<meta property="og:updated_time" content="2017-01-20T02:52:58.858Z">
+<meta property="og:updated_time" content="2017-01-23T08:49:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fedora使用">
 <meta name="twitter:description" content="常用操作
@@ -476,9 +476,71 @@ ifconfig表示Interface Configuration.一般Linux，在/etc/sysconfig/network-sc
 <td>Windows + Space</td>
 <td style="text-align:center">切换输入法</td>
 </tr>
+<tr>
+<td>Ctrl + Alt + Tab</td>
+<td style="text-align:center">切换键盘焦点</td>
+</tr>
 </tbody>
 </table>
-<h4 id="安装MPlayer"><a href="#安装MPlayer" class="headerlink" title="安装MPlayer"></a>安装MPlayer</h4><p>输入如下命令安装MPlayer：</p>
+<!-- 根据统一社会信用码统计行政许可数 -->
+<pre><code>&lt;select id=&quot;countXzxk&quot; resultType=&quot;java.util.HashMap&quot;&gt;
+    select XDR_SHXYM, count(*) AS total from TS_B_CREDIT_DOCUMENT where XDR_SHXYM in
+    &lt;foreach item=&quot;item&quot; index=&quot;index&quot; collection=&quot;list&quot; open=&quot;(&apos;&quot; separator=&quot;&apos;,&apos;&quot; close=&quot;&apos;)&quot;&gt;${item}&lt;/foreach&gt;
+    /*AND INFO_TYPE = 1
+    group by XDR_SHXYM*/
+&lt;/select&gt;
+
+&lt;!-- 根据统一社会信用码统计行政处罚数 --&gt;
+&lt;select id=&quot;countXzcf&quot; resultType=&quot;java.util.HashMap&quot;&gt;
+    select XDR_SHXYM, count(*) AS total from TS_B_CREDIT_DOCUMENT where XDR_SHXYM in
+    &lt;foreach item=&quot;item&quot; index=&quot;index&quot; collection=&quot;list&quot; open=&quot;(&apos;&quot; separator=&quot;&apos;,&apos;&quot; close=&quot;&apos;)&quot;&gt;${item}&lt;/foreach&gt;
+   /* AND INFO_TYPE = 2
+    group by XDR_SHXYM*/
+&lt;/select&gt;
+
+
+
+&lt;!-- 根据统一社会信用码统计行政许可数 --&gt;
+    &lt;select id=&quot;countXzxk&quot; resultType=&quot;java.util.HashMap&quot;&gt;
+        select *  from TS_B_CREDIT_DOCUMENT where XDR_SHXYM in
+        &lt;foreach item=&quot;item&quot; index=&quot;index&quot; collection=&quot;list&quot; open=&quot;(&apos;&quot; separator=&quot;&apos;,&apos;&quot; close=&quot;&apos;)&quot;&gt;${item}&lt;/foreach&gt;
+    &lt;/select&gt;
+
+    &lt;!-- 根据统一社会信用码统计行政处罚数 --&gt;
+    &lt;select id=&quot;countXzcf&quot; resultType=&quot;java.util.HashMap&quot;&gt;
+        select * from TS_B_CREDIT_DOCUMENT where XDR_SHXYM in
+        &lt;foreach item=&quot;item&quot; index=&quot;index&quot; collection=&quot;list&quot; open=&quot;(&apos;&quot; separator=&quot;&apos;,&apos;&quot; close=&quot;&apos;)&quot;&gt;${item}&lt;/foreach&gt;
+    &lt;/select&gt;
+
+    &lt;select id=&quot;countXzxk&quot; resultType=&quot;java.util.HashMap&quot;&gt;
+    /*select XDR_SHXYM, count(*) AS total from TS_B_CREDIT_DOCUMENT where XDR_SHXYM in*/
+    select * AS total from TS_B_CREDIT_DOCUMENT where XDR_SHXYM in
+
+    &lt;foreach item=&quot;item&quot; index=&quot;index&quot; collection=&quot;list&quot; open=&quot;(&apos;&quot; separator=&quot;&apos;,&apos;&quot; close=&quot;&apos;)&quot;&gt;#{item}&lt;/foreach&gt;
+    /*AND INFO_TYPE = 1
+    group by XDR_SHXYM*/
+&lt;/select&gt;
+
+&lt;!-- 根据统一社会信用码统计行政处罚数 --&gt;
+&lt;select id=&quot;countXzcf&quot; resultType=&quot;java.util.HashMap&quot;&gt;
+    /*select XDR_SHXYM, count(*) AS total from TS_B_CREDIT_DOCUMENT where XDR_SHXYM in*/
+    select * from TS_B_CREDIT_DOCUMENT where XDR_SHXYM in
+    &lt;foreach item=&quot;item&quot; index=&quot;index&quot; collection=&quot;list&quot; open=&quot;(&apos;&quot; separator=&quot;&apos;,&apos;&quot; close=&quot;&apos;)&quot;&gt;#{item}&lt;/foreach&gt;
+    /*AND INFO_TYPE = 2
+    group by XDR_SHXYM*/
+&lt;/select&gt;
+</code></pre><!-- 根据统一社会信用码统计行政许可数 -->
+<pre><code>&lt;select id=&quot;countXzxk&quot; resultType=&quot;java.util.HashMap&quot;&gt;
+    select * AS total from TS_B_CREDIT_DOCUMENT where XDR_SHXYM in
+    &lt;foreach item=&quot;item&quot; index=&quot;index&quot; collection=&quot;list&quot; open=&quot;(&quot; separator=&quot;,&quot; close=&quot;)&quot;&gt;#{item}&lt;/foreach&gt;
+&lt;/select&gt;
+
+&lt;!-- 根据统一社会信用码统计行政处罚数 --&gt;
+&lt;select id=&quot;countXzcf&quot; resultType=&quot;java.util.HashMap&quot;&gt;
+    select * from TS_B_CREDIT_DOCUMENT where XDR_SHXYM in
+    &lt;foreach item=&quot;item&quot; index=&quot;index&quot; collection=&quot;list&quot; open=&quot;(&quot; separator=&quot;,&quot; close=&quot;)&quot;&gt;#{item}&lt;/foreach&gt;
+&lt;/select&gt;
+</code></pre><h4 id="安装MPlayer"><a href="#安装MPlayer" class="headerlink" title="安装MPlayer"></a>安装MPlayer</h4><p>输入如下命令安装MPlayer：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#安装视频播放器MPlayer</span></div><div class="line">dnf install -y mplayer</div></pre></td></tr></table></figure>
 <p>安装完毕后在终端中输入如下命令即可播放：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#播放文件</span></div><div class="line">mplayer Heidi.2015.海蒂和爷爷.720p.Chi_Ger.ZMZ-BD-MP4.mp4</div><div class="line"></div><div class="line"><span class="comment">#mplayer命令加文件名</span></div><div class="line">mplayer filename</div></pre></td></tr></table></figure>
@@ -493,11 +555,6 @@ ifconfig表示Interface Configuration.一般Linux，在/etc/sysconfig/network-sc
     <div>
       
         
-<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
-    <img id="wechat_subscriber_qcode" src="/uploads/qrcode.jpg" alt="xiaoqiang jiang wechat" style="width: 200px; max-width: 100%;"/>
-    <div>Welcome to subscribe my WeChat public accout!</div>
-</div>
-
 
       
     </div>

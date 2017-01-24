@@ -84,22 +84,24 @@
 
 
 
-<meta name="description" content="安装在Ubuntu下，输入如下命令安装：
-1sudo apt install nginx -y
+<meta name="description" content="安装输入如下命令安装：
+12345# Ubuntu 16.04 LTSsudo apt install nginx -y# Mac OS Xbrew install nginx
 安装完毕后配置文件在/etc/nginx/config.d。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx使用总结">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/01/09/nginx-using/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="安装在Ubuntu下，输入如下命令安装：
-1sudo apt install nginx -y
+<meta property="og:description" content="安装输入如下命令安装：
+12345# Ubuntu 16.04 LTSsudo apt install nginx -y# Mac OS Xbrew install nginx
 安装完毕后配置文件在/etc/nginx/config.d。">
-<meta property="og:updated_time" content="2017-01-22T11:30:02.000Z">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2017/01/09/nginx-using/loadbalance.png">
+<meta property="og:updated_time" content="2017-01-23T04:28:19.464Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx使用总结">
-<meta name="twitter:description" content="安装在Ubuntu下，输入如下命令安装：
-1sudo apt install nginx -y
+<meta name="twitter:description" content="安装输入如下命令安装：
+12345# Ubuntu 16.04 LTSsudo apt install nginx -y# Mac OS Xbrew install nginx
 安装完毕后配置文件在/etc/nginx/config.d。">
+<meta name="twitter:image" content="http://jiangxiaoqiang.com/2017/01/09/nginx-using/loadbalance.png">
 
 
 
@@ -405,8 +407,8 @@
       
 
       
-        <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>在Ubuntu下，输入如下命令安装：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install nginx -y</div></pre></td></tr></table></figure>
+        <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>输入如下命令安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Ubuntu 16.04 LTS</span></div><div class="line">sudo apt install nginx -y</div><div class="line"></div><div class="line"><span class="comment"># Mac OS X</span></div><div class="line">brew install nginx</div></pre></td></tr></table></figure>
 <p>安装完毕后配置文件在<code>/etc/nginx/config.d</code>。</p>
 <a id="more"></a>
 <h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看Nginx的安装目录,一般在(/usr/local/nginx)下</span></div><div class="line">whereis nginx</div><div class="line"></div><div class="line"><span class="comment"># 重启Nginx</span></div><div class="line">sudo /etc/init.d/nginx restart</div></pre></td></tr></table></figure>
@@ -419,6 +421,18 @@
 <h4 id="location"><a href="#location" class="headerlink" title="location"></a>location</h4><p>每个 url 请求都会对应的一个服务，nginx 进行处理转发或者是本地的一个文件路径，或者是其他服务器的一个服务路径。而这个路径的匹配是通过 location 来进行的。我们可以将 server 当做对应一个域名进行的配置，而 location 是在一个域名下对更精细的路径进行配置。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">location /api&#123;</div><div class="line">      proxy_pass http://dn5:28080;</div><div class="line">      proxy_redirect off;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>将前缀为api的请求发送到地址：<code>http://dn5:28080</code>.</p>
+<h4 id="负载均衡-Load-Balance"><a href="#负载均衡-Load-Balance" class="headerlink" title="负载均衡(Load Balance)"></a>负载均衡(Load Balance)</h4><p>Nginx除了作为常规的Web服务器外，还会被大规模的用于反向代理前端，因为Nginx的异步框架可以处理很大的并发请求，把这些并发请求hold住之后就可以分发给后台服务端(backend servers，也叫做服务池， 后面简称backend)来做复杂的计算、处理和响应，这种模式的好处是相当多的：隐藏业务主机更安全，节约了公网IP地址，并且在业务量增加的时候可以方便地扩容后台服务器。</p>
+<img src="/2017/01/09/nginx-using/loadbalance.png" alt="负载均衡示意图" title="负载均衡示意图">
+<ul>
+<li><p>负载均衡算法</p>
+</li>
+<li><p>会话一致性</p>
+</li>
+<li><p>后台服务端的动态配置</p>
+</li>
+<li><p>基于DNS的负载均衡</p>
+</li>
+</ul>
 <h4 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h4><h5 id="the-HTTP-rewrite-module-requires-the-PCRE-library"><a href="#the-HTTP-rewrite-module-requires-the-PCRE-library" class="headerlink" title="the HTTP rewrite module requires the PCRE library"></a>the HTTP rewrite module requires the PCRE library</h5><p>在安装时提示 the HTTP rewrite module requires the PCRE library：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">./configure: error: the HTTP rewrite module requires the PCRE library.</div><div class="line">You can either disable the module by using --without-http_rewrite_module</div><div class="line">option, or install the PCRE library into the system, or build the PCRE library</div><div class="line">statically from the source with nginx by using --with-pcre=&lt;path&gt; option.</div></pre></td></tr></table></figure>
 <p>安装pcre-devel与openssl-devel解决问题：</p>
@@ -429,11 +443,6 @@
     <div>
       
         
-<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
-    <img id="wechat_subscriber_qcode" src="/uploads/qrcode.jpg" alt="xiaoqiang jiang wechat" style="width: 200px; max-width: 100%;"/>
-    <div>Welcome to subscribe my WeChat public accout!</div>
-</div>
-
 
       
     </div>
@@ -642,7 +651,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">2.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#location"><span class="nav-number">3.</span> <span class="nav-text">location</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见问题"><span class="nav-number">4.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#the-HTTP-rewrite-module-requires-the-PCRE-library"><span class="nav-number">4.1.</span> <span class="nav-text">the HTTP rewrite module requires the PCRE library</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">2.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#location"><span class="nav-number">3.</span> <span class="nav-text">location</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#负载均衡-Load-Balance"><span class="nav-number">4.</span> <span class="nav-text">负载均衡(Load Balance)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见问题"><span class="nav-number">5.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#the-HTTP-rewrite-module-requires-the-PCRE-library"><span class="nav-number">5.1.</span> <span class="nav-text">the HTTP rewrite module requires the PCRE library</span></a></li></ol></li></ol></div>
             
 
           </div>
