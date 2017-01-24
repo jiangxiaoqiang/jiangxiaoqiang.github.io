@@ -86,13 +86,13 @@
 
 <meta name="description" content="Git是目前世界上最先进的分布式版本控制系统，没有之一。Git有什么特点？简单来说就是：高端大气上档次！逼格那是相当高，装逼必备神器。当你说用Git管理源码的时候，逼格瞬间高好几个档次。最近项目中在用，结合以前使用的经验，简单的总结记录在此。另外Git在网络慢或者不稳定时，表现也很’好。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git使用">
+<meta property="og:title" content="Git使用技巧与经验总结">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/12/19/git-using/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="Git是目前世界上最先进的分布式版本控制系统，没有之一。Git有什么特点？简单来说就是：高端大气上档次！逼格那是相当高，装逼必备神器。当你说用Git管理源码的时候，逼格瞬间高好几个档次。最近项目中在用，结合以前使用的经验，简单的总结记录在此。另外Git在网络慢或者不稳定时，表现也很’好。">
-<meta property="og:updated_time" content="2017-01-20T02:52:58.858Z">
+<meta property="og:updated_time" content="2017-01-24T08:14:55.515Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git使用">
+<meta name="twitter:title" content="Git使用技巧与经验总结">
 <meta name="twitter:description" content="Git是目前世界上最先进的分布式版本控制系统，没有之一。Git有什么特点？简单来说就是：高端大气上档次！逼格那是相当高，装逼必备神器。当你说用Git管理源码的时候，逼格瞬间高好几个档次。最近项目中在用，结合以前使用的经验，简单的总结记录在此。另外Git在网络慢或者不稳定时，表现也很’好。">
 
 
@@ -127,7 +127,7 @@
 
 
 
-  <title> git使用 | 小强的博客 </title>
+  <title> Git使用技巧与经验总结 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -316,7 +316,7 @@
             
             
               
-                git使用
+                Git使用技巧与经验总结
               
             
           </h1>
@@ -478,6 +478,11 @@
 <p>丢弃储藏：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git stash drop</div></pre></td></tr></table></figure>
 <p>drop后可以跟储藏的编号，如果没有指定，默认丢弃最新一次储藏。</p>
+<h4 id="日志信息-log"><a href="#日志信息-log" class="headerlink" title="日志信息(log)"></a>日志信息(log)</h4><p>查看提交日志，常用的命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">log</span> --oneline --graph</div></pre></td></tr></table></figure>
+<p>提交日志一个有趣的应用是自动生成周报。如果要在每周五上交周报，那么可以运行如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">log</span> --author=<span class="string">"jiangxiaoqiang"</span> --after=<span class="string">"1 week ago"</span> --oneline</div></pre></td></tr></table></figure>
+<p>将输出的内容稍加编辑，即可生成一份简单的周报，当然前提是在每次提交的时候需要认真对待提交信息的填写，否则生成的内容也是没什么意义的。</p>
 <h4 id="远程仓库-remote"><a href="#远程仓库-remote" class="headerlink" title="远程仓库(remote)"></a>远程仓库(remote)</h4><p>添加远程仓库：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add osc https://github.com/jiangxiaoqiang/xiaoqiang-blog-source.git</div></pre></td></tr></table></figure>
 <p>其中osc为远程仓库的名称，<a href="https://github.com/jiangxiaoqiang/xiaoqiang-blog-source.git为远程仓库的地址。" target="_blank" rel="external">https://github.com/jiangxiaoqiang/xiaoqiang-blog-source.git为远程仓库的地址。</a></p>
@@ -555,7 +560,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/12/19/git-using/"
-           data-title="git使用" data-url="http://jiangxiaoqiang.com/2016/12/19/git-using/">
+           data-title="Git使用技巧与经验总结" data-url="http://jiangxiaoqiang.com/2016/12/19/git-using/">
       </div>
     
   </div>
@@ -699,7 +704,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加-Add"><span class="nav-number">2.</span> <span class="nav-text">添加(Add)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发起pull-request"><span class="nav-number">3.</span> <span class="nav-text">发起pull request</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于Commit的建议"><span class="nav-number">4.</span> <span class="nav-text">关于Commit的建议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新-update"><span class="nav-number">5.</span> <span class="nav-text">更新(update)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#合并-merge"><span class="nav-number">6.</span> <span class="nav-text">合并(merge)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#撤销合并"><span class="nav-number">7.</span> <span class="nav-text">撤销合并</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拉取（Pull）"><span class="nav-number">8.</span> <span class="nav-text">拉取（Pull）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#储藏-Stash"><span class="nav-number">9.</span> <span class="nav-text">储藏(Stash)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#远程仓库-remote"><span class="nav-number">10.</span> <span class="nav-text">远程仓库(remote)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Your-branch-and-‘origin-master’-have-diverged"><span class="nav-number">11.</span> <span class="nav-text">Your branch and ‘origin/master’ have diverged</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Changes-not-staged-for-commit"><span class="nav-number">11.1.</span> <span class="nav-text">Changes not staged for commit</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Please-commit-your-changes-or-stash-them-before-you-can-merge"><span class="nav-number">12.</span> <span class="nav-text">Please, commit your changes or stash them before you can merge</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加-Add"><span class="nav-number">2.</span> <span class="nav-text">添加(Add)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发起pull-request"><span class="nav-number">3.</span> <span class="nav-text">发起pull request</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于Commit的建议"><span class="nav-number">4.</span> <span class="nav-text">关于Commit的建议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新-update"><span class="nav-number">5.</span> <span class="nav-text">更新(update)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#合并-merge"><span class="nav-number">6.</span> <span class="nav-text">合并(merge)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#撤销合并"><span class="nav-number">7.</span> <span class="nav-text">撤销合并</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拉取（Pull）"><span class="nav-number">8.</span> <span class="nav-text">拉取（Pull）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#储藏-Stash"><span class="nav-number">9.</span> <span class="nav-text">储藏(Stash)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#日志信息-log"><span class="nav-number">10.</span> <span class="nav-text">日志信息(log)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#远程仓库-remote"><span class="nav-number">11.</span> <span class="nav-text">远程仓库(remote)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Your-branch-and-‘origin-master’-have-diverged"><span class="nav-number">12.</span> <span class="nav-text">Your branch and ‘origin/master’ have diverged</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Changes-not-staged-for-commit"><span class="nav-number">12.1.</span> <span class="nav-text">Changes not staged for commit</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Please-commit-your-changes-or-stash-them-before-you-can-merge"><span class="nav-number">13.</span> <span class="nav-text">Please, commit your changes or stash them before you can merge</span></a></li></ol></div>
             
 
           </div>
