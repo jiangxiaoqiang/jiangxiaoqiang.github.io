@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/01/22/the-manual-of-deployment/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="虽然理想中的程序是从来不用考虑部署，只需要简单的几个按即可。但是平时还是需要手动处理很多部署工作，将手动部署的一些步骤记录在此，避免遗忘。不管是小到一个简单的单机独立应用，还是大到跨国跨数据中心上千节点大型集群，部署过程大致如此。">
-<meta property="og:updated_time" content="2017-01-23T04:28:19.466Z">
+<meta property="og:updated_time" content="2017-01-23T01:46:58.371Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="通用程序部署手册(手动)">
 <meta name="twitter:description" content="虽然理想中的程序是从来不用考虑部署，只需要简单的几个按即可。但是平时还是需要手动处理很多部署工作，将手动部署的一些步骤记录在此，避免遗忘。不管是小到一个简单的单机独立应用，还是大到跨国跨数据中心上千节点大型集群，部署过程大致如此。">
@@ -404,7 +404,7 @@
 <h4 id="拷贝程序到服务器"><a href="#拷贝程序到服务器" class="headerlink" title="拷贝程序到服务器"></a>拷贝程序到服务器</h4><p>使用如下命令拷贝程序到服务端：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp system-web-boot-1.0.0.jar hldev@172.30.0.110:~</div></pre></td></tr></table></figure>
 <h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><p>使用Putty登录系统，启动：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 新开进程启动</span></div><div class="line">nohup java -jar system-web-boot-1.0.0.jar</div><div class="line"></div><div class="line"><span class="comment"># 启动，可以在界面上查看输出日志</span></div><div class="line">java -jar system-web-boot-1.0.0.jar</div><div class="line"></div><div class="line"><span class="comment"># 启动，优先使用IPv4</span></div><div class="line">java -jar -Djava.net.preferIPv4Stack=<span class="literal">true</span> system-web-boot-1.0.0.jar</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 新开进程启动</span></div><div class="line">nohup java -jar system-web-boot-1.0.0.jar</div><div class="line"></div><div class="line"><span class="comment"># 启动，可以在界面上查看输出日志</span></div><div class="line">java -jar system-web-boot-1.0.0.jar</div><div class="line"></div><div class="line"><span class="comment"># 启动，优先使用IPv4</span></div><div class="line">java -jar -Djava.net.preferIPv4Stack=<span class="literal">true</span> esystem-web-boot-1.0.0.jar</div></pre></td></tr></table></figure>
 <h4 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h4><p>访问相应的应用程序地址：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://172.30.0.110:28080/</div></pre></td></tr></table></figure>
 
@@ -414,6 +414,11 @@
     <div>
       
         
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/qrcode.jpg" alt="xiaoqiang jiang wechat" style="width: 200px; max-width: 100%;"/>
+    <div>Welcome to subscribe my WeChat public accout!</div>
+</div>
+
 
       
     </div>
