@@ -199,26 +199,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -409,7 +389,7 @@
 </ul>
 <p>Ambari是一款用于部署、管理、监控Hadoop集群的开源工具，通过Ambari用户可以更方便地管理大规模Hadoop集群。Ambari架构采用的是Server/Client的模式，主要由两部分组成：ambari-agent和ambari-server。ambari依赖其它已经成熟的工具，例如其ambari-server就依赖python，而ambari-agent还同时依赖ruby, puppet，facter等工具，还有它也依赖一些监控工具nagios和ganglia用于监控集群状况。目前能找到2种，一种是Apache Ambari，一种是Hortonworks Ambari，两者区别不大，这里安装的是Apache Ambari。</p>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/10/02/apache-ambari-using/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -573,7 +553,7 @@
 <p>下载JDK8u60安装包，输入如下命令进行安装：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -ivh jdk-8u60-linux-x64.rpm</div></pre></td></tr></table></figure>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/10/01/hadoop-cluster-deploy/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -712,7 +692,7 @@
 </ol>
 <h4 id="配置SSH免密登陆"><a href="#配置SSH免密登陆" class="headerlink" title="配置SSH免密登陆"></a>配置SSH免密登陆</h4><p>首先，运行<code>ssh localhost</code>来产生<code>/home/用户名/.ssh</code>目录，然后执行下面命令。</p>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/09/30/cluster-ssh-login/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -845,7 +825,7 @@
         
           <h4 id="hashcode作用"><a href="#hashcode作用" class="headerlink" title="hashcode作用"></a>hashcode作用</h4><p>hashcode提供了一种更加高效的寻找方式，在Set集合中的元素是无序不可重复的，要保证不重复，一种方式是在添加新数据时，逐一比较集合中已经存在的所有元素，如果当前集合的元素增多，效率是非常低的。hashcode可以解决这个问题，当向一个集合中添加某个元素，集合会首先调用hashCode方法，这样就可以直接定位它所存储的位置，若该处没有其他元素，则直接保存。若该处已经有元素存在，就调用equals方法来匹配这两个元素是否相同，相同则不存，不同则进行其他处理，比如散列到其他位置或者以链表的形式存储到当前已经存放的元素的尾部。hashcode此时作用是快速寻找处当前元素在集合中的位置，hashCode可以将集合分成若干个区域，每个对象都可以计算出他们的hash码，可以将hash码分组，每个分组对应着某个存储区域，根据一个对象的hash码就可以确定该对象所存储区域，这样就大大减少查询匹配元素的数量，提高了查询效率。</p>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/09/28/hashcode-and-equals/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -995,7 +975,7 @@
 </ul>
 <h4 id="MyBatis简介"><a href="#MyBatis简介" class="headerlink" title="MyBatis简介"></a>MyBatis简介</h4><p>MyBatis是一个可以自定义SQL、存储过程和高级映射的持久层框架。MyBatis摒除了大部分的JDBC代码、手工设置参数和结果集重获。MyBatis只使用简单的XML和注解来配置和映射基本数据类型、Map 接口和POJO(Plain Ordinary Java Object)到数据库记录。相对Hibernate和Apache OJB等“一站式”ORM(Object Relational Mapping)解决方案而言，Mybatis是一种“半自动化”的ORM实现。</p>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/09/27/spring-mybatis-integrete/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -1036,7 +1016,7 @@
   </nav>
 
 
-
+          
           </div>
           
 
@@ -1083,17 +1063,17 @@
 
           
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              
                 <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
-              </a>
+              
             </div>
           
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">164</span>
+                <span class="site-state-item-count">165</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1228,6 +1208,7 @@
 
 
 
+
   
   <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
@@ -1293,6 +1274,8 @@
     <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
+
+
 
 
 

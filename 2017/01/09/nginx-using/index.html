@@ -95,7 +95,7 @@
 12345# Ubuntu 16.04 LTSsudo apt install nginx -y# Mac OS Xbrew install nginx
 安装完毕后配置文件在/etc/nginx/config.d。">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2017/01/09/nginx-using/loadbalance.png">
-<meta property="og:updated_time" content="2017-01-23T01:35:07.716Z">
+<meta property="og:updated_time" content="2017-01-27T01:14:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx使用总结">
 <meta name="twitter:description" content="安装输入如下命令安装：
@@ -205,26 +205,6 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
           </a>
         </li>
       
@@ -437,17 +417,17 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">./configure: error: the HTTP rewrite module requires the PCRE library.</div><div class="line">You can either disable the module by using --without-http_rewrite_module</div><div class="line">option, or install the PCRE library into the system, or build the PCRE library</div><div class="line">statically from the source with nginx by using --with-pcre=&lt;path&gt; option.</div></pre></td></tr></table></figure>
 <p>安装pcre-devel与openssl-devel解决问题：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">yum -y install pcre-devel openssl openssl-devel</div><div class="line"> </div><div class="line">./configure --prefix=/usr/<span class="built_in">local</span>/nginx</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
+<p>参考资料：</p>
+<ul>
+<li><a href="http://kb.cnblogs.com/page/559213/" target="_blank" rel="external">Nginx的负载均衡原理</a></li>
+</ul>
+
       
     </div>
 
     <div>
       
         
-<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
-    <img id="wechat_subscriber_qcode" src="/uploads/qrcode.jpg" alt="xiaoqiang jiang wechat" style="width: 200px; max-width: 100%;"/>
-    <div>Welcome to subscribe my WeChat public accout!</div>
-</div>
-
 
       
     </div>
@@ -503,7 +483,7 @@
     </div>
   </div>
 
-
+          
           </div>
           
 
@@ -567,17 +547,17 @@
 
           
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              
                 <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
-              </a>
+              
             </div>
           
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">164</span>
+                <span class="site-state-item-count">165</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -728,6 +708,7 @@
 
 
 
+
   
   <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
@@ -797,6 +778,8 @@
     <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
+
+
 
 
 

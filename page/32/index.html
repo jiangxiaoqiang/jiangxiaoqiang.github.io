@@ -199,26 +199,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -382,7 +362,7 @@
           <p>在Eclipse中启动和调试Tomcat（一）中，断点只能在自定义Servlet中命中，如果想观察详细的Tomcat运行过程，还需要从Tomcat的入口开始进行调试。详细步骤如下(未完全通过，暂勿参考)：</p>
 <h4 id="引入Tomcat8-0-37jar包"><a href="#引入Tomcat8-0-37jar包" class="headerlink" title="引入Tomcat8.0.37jar包"></a>引入Tomcat8.0.37jar包</h4><p>由于Tomcat的入口类JIoEndPoint实现在tomcat-coyote.jar包中，入口org.apache.tomcat.util.net.JIoEndpoint，该类用来处理传递进来的TCP连接，它实现了一个简单的服务器模式：一个监听线程用来接收socket以及为每个进来的连接创建一个worker来处理。更加高级的功能会涉及到线程重用，如队列等。所以需要引入Tomcat8.0.37中的tomcat-coyote.jar包，在Tomcat8项目的lib目录中。</p>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/09/20/launching-and-debugging-tomcat-extra/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -527,7 +507,7 @@
 </li>
 </ul>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/09/20/launching-and-debugging-tomcat/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -818,7 +798,7 @@
 </ul>
 <p>想了解平时学习的理论知识在实际的代码实现中是什么情况，比较好的方式是阅读源码，如果能在阅读过程中根据疑问动手调试源码验证猜想和疑问，那就更加完美了。这里想看Spring MVC一个HTTP请求从开始到结束到底是怎么运行的，Spring MVC怎么处理，选取了4.2.3版本的源码进行调试。</p>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/09/17/springmvc-sourcecode-debugging/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -859,7 +839,7 @@
   </nav>
 
 
-
+          
           </div>
           
 
@@ -906,17 +886,17 @@
 
           
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              
                 <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
-              </a>
+              
             </div>
           
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">164</span>
+                <span class="site-state-item-count">165</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1051,6 +1031,7 @@
 
 
 
+
   
   <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
@@ -1116,6 +1097,8 @@
     <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
+
+
 
 
 

@@ -199,26 +199,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -381,7 +361,7 @@
         
           <p>以下是开发Rest接口时遇到的一些问题。</p>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2017/01/04/java-rest-summarize/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -673,7 +653,7 @@
 <li>屏幕分辨率1440*900(本人觉得不够细腻，选购时对分辨率要求可以再高些)</li>
 </ul>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2017/01/01/you-need-a-mac/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -715,7 +695,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2017/01/01/mac-using/">
+  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2017/01/01/spring/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xiaoqiang jiang">
@@ -740,8 +720,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/01/01/mac-using/" itemprop="url">
-                  Mac使用与技巧总结
+                <a class="post-title-link" href="/2017/01/01/spring/" itemprop="url">
+                  Spring框架搭建
                 </a>
               
             
@@ -757,7 +737,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-01T14:53:36+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-01T16:15:48+08:00">
                 2017-01-01
               </time>
             
@@ -776,8 +756,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/01/01/mac-using/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/01/mac-using/" itemprop="commentCount"></span>
+                <a href="/2017/01/01/spring/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/01/spring/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -804,14 +784,22 @@
 
       
         
-          <h4 id="安装常用软件"><a href="#安装常用软件" class="headerlink" title="安装常用软件"></a>安装常用软件</h4><p>brew是Mac下一款包管理器，默认是没有安装的。先安装包管理工具，其他软件可以通过包管理工具方便的安装。在终端中输入如下命令安装brew。</p>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/01/01/mac-using/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p>Spring的不足：</p>
+<ul>
+<li>配置太多</li>
+</ul>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="Could-not-open-ServletContext-resource-WEB-INF-applicationContext-xml"><a href="#Could-not-open-ServletContext-resource-WEB-INF-applicationContext-xml" class="headerlink" title="Could not open ServletContext resource [/WEB-INF/applicationContext.xml]"></a>Could not open ServletContext resource [/WEB-INF/applicationContext.xml]</h3><p>ContextLoaderListener has its own context which is shared by all servlets and filters. By default it will search /WEB-INF/applicationContext.xml。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>/WEB-INF/somewhere-else/root-context.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="Missing-artifact-org-aspectj-aspectjweaver-jar-1-8-0-M1"><a href="#Missing-artifact-org-aspectj-aspectjweaver-jar-1-8-0-M1" class="headerlink" title="Missing artifact org.aspectj:aspectjweaver:jar:1.8.0.M1"></a>Missing artifact org.aspectj:aspectjweaver:jar:1.8.0.M1</h3><p>According to a reported issue at springsource, aspectjweaver is “basically identical to AspectJ 1.7” except that it has early support for Java 8.As I don’t need Java 8 support, I basically added a compile dependency to the latest release version of aspectweaver:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.aspectj<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>aspectjweaver<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>This ensures that the 1.7.4 is used instead of the milestone release, and is an acceptable workaround for me, for the time being.</p>
+<h5 id="Exception-java-lang-ClassNotFoundException-org-apache-commons-dbcp-BasicDataSource"><a href="#Exception-java-lang-ClassNotFoundException-org-apache-commons-dbcp-BasicDataSource" class="headerlink" title="Exception java.lang.ClassNotFoundException: org.apache.commons.dbcp.BasicDataSource"></a>Exception java.lang.ClassNotFoundException: org.apache.commons.dbcp.BasicDataSource</h5><p>在POM.xml中引入jar包。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-dbcp<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-dbcp<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<h5 id="java-lang-NoClassDefFoundError-org-apache-ibatis-session-SqlSessionFactory"><a href="#java-lang-NoClassDefFoundError-org-apache-ibatis-session-SqlSessionFactory" class="headerlink" title="java.lang.NoClassDefFoundError: org/apache/ibatis/session/SqlSessionFactory"></a>java.lang.NoClassDefFoundError: org/apache/ibatis/session/SqlSessionFactory</h5><p>引入jar包。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.ibatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>ibatis-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+
+          
         
       
     </div>
@@ -848,7 +836,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/12/31/spring-boot-app-management/">
+  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2017/01/01/elasticsearch-using/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xiaoqiang jiang">
@@ -873,8 +861,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/31/spring-boot-app-management/" itemprop="url">
-                  spring-boot-app-management
+                <a class="post-title-link" href="/2017/01/01/elasticsearch-using/" itemprop="url">
+                  ElasticSearch使用
                 </a>
               
             
@@ -890,8 +878,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-31T23:24:09+08:00">
-                2016-12-31
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-01T16:15:48+08:00">
+                2017-01-01
               </time>
             
 
@@ -931,8 +919,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/12/31/spring-boot-app-management/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/31/spring-boot-app-management/" itemprop="commentCount"></span>
+                <a href="/2017/01/01/elasticsearch-using/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/01/elasticsearch-using/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -960,8 +948,21 @@
       
         
           
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@ComponentScan</span></div><div class="line"><span class="meta">@SpringBootApplication</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        SpringApplication app = <span class="keyword">new</span> SpringApplication(Application.class);</div><div class="line">        app.addListeners(<span class="keyword">new</span> ApplicationPidFileWriter(<span class="string">"app.pid"</span>));</div><div class="line">        app.run(args);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>when we already have our PID file we need bash script providing standard operations like stop, start, restart and status checking. Below you can find simple script solving that challenge. </p>
+            <h4 id="什么是索引-Index"><a href="#什么是索引-Index" class="headerlink" title="什么是索引(Index)"></a>什么是索引(Index)</h4><p>索引只是一个用来指向一个或多个分片(shards)的“逻辑命名空间(logical namespace)”.一个分片(shard)是一个最小级别“工作单元(worker unit)”,它只是保存了索引中所有数据的一部分。分片就是一个Lucene实例，并且它本身就是一个完整的搜索引擎。我们的文档存储在分片中，并且在分片中被索引，但是我们的应用程序不会直接与它们通信，取而代之的是，直接与索引通信。当索引创建完成的时候，主分片的数量就固定了，但是复制分片的数量可以随时调整。Cluster包含多个node，Indices不应该理解成动词索引，Indices可理解成关系数据库中的databases，Indices可包含多个Index，Index对应关系数据库中的database，它是用来存储相关文档的。Elasticsearch与关系数据的类比对应关系可以做如下理解：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Relational DB ⇒ Databases ⇒ Tables ⇒ Rows ⇒ Columns</div><div class="line"></div><div class="line">Elasticsearch ⇒ Indices ⇒ Types ⇒ Documents ⇒ Fields</div></pre></td></tr></table></figure>
+<h4 id="什么是分片-Shard"><a href="#什么是分片-Shard" class="headerlink" title="什么是分片(Shard)"></a>什么是分片(Shard)</h4><p>分片(Shard)是Elasticsearch在集群中分发数据的关键。文档存储在分片中，然后分片分配到集群中的节点上。当集群扩容或缩小，lasticsearch将会自动在你的节点间迁移分片，以使集群保持平衡。分片可以是主分片(primary shard)或者是复制分片(replica shard)。索引中的每个文档属于一个单独的主分片，所以主分片的数量决定了索引最多能存储多少数据。理论上主分片能存储的数据大小是没有限制的，限制取决于你实际的使用情况。分片的最大容量完全取决于你的使用状况：硬件存储的大小、文档的大小和复杂度、如何索引和查询你的文档，以及你期望的响应时间。复制分片只是主分片的一个副本，它可以防止硬件故障导致的数据丢失，同时可以提供读请求，比如搜索或者从别的shard取回文档。</p>
+<h4 id="创建索引-Index"><a href="#创建索引-Index" class="headerlink" title="创建索引(Index)"></a>创建索引(Index)</h4><p>如下curl命令，创建一个名字为jiangxiaoqiang的索引(Index)：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">curl -XPUT <span class="string">'localhost:9200/jiangxiaoqiang?pretty'</span> <span class="_">-d</span><span class="string">'</span></div><div class="line">&#123;</div><div class="line">    "settings" : &#123;</div><div class="line">        "index" : &#123;</div><div class="line">            "number_of_shards" : 3,</div><div class="line">            "number_of_replicas" : 2</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;'</div></pre></td></tr></table></figure>
+<p>url里面的pretty是pretty format的含义，指代参数的json是良好格式化的。</p>
+<h4 id="创建Type"><a href="#创建Type" class="headerlink" title="创建Type"></a>创建Type</h4><p>ElasticSearch中每个文档必须有一个类型定义。这里的类型相当于数据库当中的表，类型定义了字段映射（类似数据库表结构），这样一来，每个索引可以包含多种文档类型，而每种文档类型定义一种映射关系。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">curl -XPUT <span class="string">'localhost:9200/jiangxiaoqiang/typejxq/_mapping'</span> <span class="_">-d</span><span class="string">'&#123;</span></div><div class="line">   "typejxq": &#123;</div><div class="line">      "properties": &#123;</div><div class="line">         "name": &#123;</div><div class="line">            "type": "string"</div><div class="line">         &#125;,</div><div class="line">         "desc": &#123;</div><div class="line">            "type": "string"</div><div class="line">         &#125;</div><div class="line">      &#125;</div><div class="line">   &#125;</div><div class="line">&#125;'</div></pre></td></tr></table></figure>
+<h4 id="添加数据"><a href="#添加数据" class="headerlink" title="添加数据"></a>添加数据</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">curl -XPUT <span class="string">'localhost:9200/jiangxiaoqiang/typejxq/1'</span> <span class="_">-d</span><span class="string">'&#123;</span></div><div class="line">   "name":"jiangxiaoqiang",</div><div class="line">   "desc":"dfaewgrehrehr"</div><div class="line">&#125;'</div></pre></td></tr></table></figure>
+<h4 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">curl -XPOST <span class="string">'localhost:9200/jiangxiaoqiang/_search'</span> <span class="_">-d</span><span class="string">'&#123;</span></div><div class="line">    "query": &#123;</div><div class="line">        "bool": &#123;</div><div class="line">            "must": [</div><div class="line">                &#123;</div><div class="line">                    "prefix": &#123;</div><div class="line">                        "name": "jiang"</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            ],</div><div class="line">            "must_not": [],</div><div class="line">            "should": []</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    "from": 0,</div><div class="line">    "size": 10,</div><div class="line">    "sort": [],</div><div class="line">    "aggs": &#123;&#125;</div><div class="line">&#125;'</div></pre></td></tr></table></figure>
+<p>参考资料：</p>
+<ul>
+<li><a href="https://www.zhihu.com/question/26446020" target="_blank" rel="external">在ElasticSearch中，集群(Cluster),节点(Node),分片(Shard),Indices(索引),replicas(备份)之间是什么关系？</a></li>
+<li><a href="https://www.elastic.co/guide/index.html" target="_blank" rel="external">Elastic Stack and Product Documentation</a></li>
+</ul>
 
           
         
@@ -999,7 +1000,7 @@
   </nav>
 
 
-
+          
           </div>
           
 
@@ -1046,17 +1047,17 @@
 
           
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              
                 <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
-              </a>
+              
             </div>
           
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">164</span>
+                <span class="site-state-item-count">165</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1191,6 +1192,7 @@
 
 
 
+
   
   <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
@@ -1256,6 +1258,8 @@
     <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
+
+
 
 
 

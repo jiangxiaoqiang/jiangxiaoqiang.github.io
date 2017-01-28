@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/01/01/mac-using/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="安装常用软件brew是Mac下一款包管理器，默认是没有安装的。先安装包管理工具，其他软件可以通过包管理工具方便的安装。在终端中输入如下命令安装brew。">
-<meta property="og:updated_time" content="2017-01-22T01:29:29.541Z">
+<meta property="og:updated_time" content="2017-01-27T06:57:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac使用与技巧总结">
 <meta name="twitter:description" content="安装常用软件brew是Mac下一款包管理器，默认是没有安装的。先安装包管理工具，其他软件可以通过包管理工具方便的安装。在终端中输入如下命令安装brew。">
@@ -197,26 +197,6 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
           </a>
         </li>
       
@@ -381,7 +361,7 @@
 <a id="more"></a>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/bin/ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></div></pre></td></tr></table></figure>
 <p>安装完毕brew后，可以通过brew安装其他软件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 安装Lantern</span></div><div class="line">brew cask install Caskroom/cask/lantern</div><div class="line"><span class="comment"># 安装Google Chrome</span></div><div class="line">brew cask install Caskroom/cask/google-chrome</div><div class="line"><span class="comment"># 安装Java</span></div><div class="line">brew cask install java</div><div class="line"><span class="comment"># 安装PyCharm</span></div><div class="line">brew cask install pycharm</div><div class="line"><span class="comment"># 安装wget</span></div><div class="line">brew cask install wget</div><div class="line"><span class="comment"># 安装gradle</span></div><div class="line">brew install gradle</div><div class="line"><span class="comment"># 列出已经安装的软件名字</span></div><div class="line">brew list</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 安装Lantern</span></div><div class="line">brew cask install Caskroom/cask/lantern</div><div class="line"><span class="comment"># 安装Google Chrome</span></div><div class="line">brew cask install Caskroom/cask/google-chrome</div><div class="line"><span class="comment"># 安装Java</span></div><div class="line">brew cask install java</div><div class="line"><span class="comment"># 安装PyCharm</span></div><div class="line">brew cask install pycharm</div><div class="line"><span class="comment"># 安装wget</span></div><div class="line">brew cask install wget</div><div class="line"><span class="comment"># 安装gradle</span></div><div class="line">brew install gradle</div><div class="line"><span class="comment"># 列出已经安装的软件名字</span></div><div class="line">brew list</div><div class="line"><span class="comment"># 列出通过cask命令安装的软件的名字</span></div><div class="line">brew cask list</div><div class="line"><span class="comment"># 安装常用软件</span></div><div class="line">brew install htop gradle nginx aria2 node openssl pcre sbt scala wget</div></pre></td></tr></table></figure>
 <p>有些命令安装软件是brew，而有些命令安装软件是brew cask。brew是从下载源码解压然后<code>./configure &amp;&amp; make install</code>，同时会包含相关依存库。并自动配置好各种环境变量，而且易于卸载。而brew cask是已经编译好了的应用包(.dmg[Apple Disk Image]/.pkg)，仅仅是下载解压，放在统一的目录中(/opt/homebrew-cask/Caskroom)，省掉了自己去下载、解压、拖拽（安装）等步骤，同样，卸载相当容易与干净。这个对一般用户来说会比较方便，包含很多在AppStore里没有的常用软件。</p>
 <p>brew默认的安装路径在/usr/local/bin下。</p>
 <h4 id="设置root"><a href="#设置root" class="headerlink" title="设置root"></a>设置root</h4><p>打开终端，键入命令<code>sudo passwd root</code>,然后提示输入当前登录用户密码，通过以后，提示输入两遍root的密码。这样就设置好root帐号密码了，可以用root来登录MacOS了。打开终端，输入命令<code>su root</code>，输入密码即可．</p>
@@ -518,8 +498,37 @@
 <td>Command + Shift + 4</td>
 <td style="text-align:center">屏幕指定区域截图</td>
 </tr>
+<tr>
+<td>Command + Shift + H(Home)</td>
+<td style="text-align:center">打开Home目录，相当于Window + E</td>
+</tr>
+<tr>
+<td>Command + Shift + G(Go)</td>
+<td style="text-align:center">跳转到指定文件夹，如果想跳转到Home目录，输入～即可，注意输入的路径要是完整的绝对路径</td>
+</tr>
+<tr>
+<td>Command + Shift + C(Computer)</td>
+<td style="text-align:center">跳转到我的电脑</td>
+</tr>
+<tr>
+<td>Command + Option + Space</td>
+<td style="text-align:center">打开电脑Finder搜索</td>
+</tr>
+<tr>
+<td>Command + Option + D（Dock）</td>
+<td style="text-align:center">显示／隐藏Dock</td>
+</tr>
+<tr>
+<td>Command + Ctrl + Space</td>
+<td style="text-align:center">调出Emoj界面</td>
+</tr>
+<tr>
+<td>Fn + F11</td>
+<td style="text-align:center">显示桌面</td>
+</tr>
 </tbody>
 </table>
+<p>在Finder中，光标高亮在文件夹上按右键可以展开（Expand）子文件夹和子文件夹，按左键可以收拢（Toggle）子文件和子文件夹。选中文件后按下空格键，可以预览当前的文件。 </p>
 <h4 id="设置Terminal颜色显示"><a href="#设置Terminal颜色显示" class="headerlink" title="设置Terminal颜色显示"></a>设置Terminal颜色显示</h4><p>Mac的终端下默认时没有颜色的，比如可执行文件和文件夹应该以不同的颜色表示。必须以命令<code>ls -G</code>才可以显示颜色。可以在bash_profile文件中添加如下内容即可：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">alias</span> ls=<span class="string">"ls -G"</span></div></pre></td></tr></table></figure>
       
@@ -563,8 +572,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/01/01/you-need-a-mac/" rel="prev" title="你需要一台Mac">
-                你需要一台Mac <i class="fa fa-chevron-right"></i>
+              <a href="/2017/01/01/log4j/" rel="prev" title="Java Web开发--log4j">
+                Java Web开发--log4j <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -583,7 +592,7 @@
     </div>
   </div>
 
-
+          
           </div>
           
 
@@ -647,17 +656,17 @@
 
           
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              
                 <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
-              </a>
+              
             </div>
           
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">164</span>
+                <span class="site-state-item-count">165</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -808,6 +817,7 @@
 
 
 
+
   
   <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
@@ -877,6 +887,8 @@
     <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
+
+
 
 
 

@@ -199,26 +199,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -403,7 +383,7 @@
         
           <p>kafka允许通过seek(TopicPartition，long)指定新的位置，或者seekToBeginning，seekToEnd定位到最早或最近的offset。注意seek重置offsets只对当前消费者起作用，它并不会触发consumer的rebalance，或者影响其他消费者的fetchOffsets。在大多数情况下，消费者消费记录只是简单地从一开始到结束，并且定时地提交它的位置(不管是自动的还是手动的)。不过新的API也允许消费者手动控制它的位置，消费者可以在一个partition钟随意地往前或者往后移动位置。这就意味着消费者可以重新消费旧的记录(多次读取相同的记录)，或者直接跳到最近的记录，忽略掉中间的记录。</p>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/11/02/kafka-consume-position/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -558,7 +538,7 @@
         
           <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API，其实当前最热门的NoSQL数据库之一，NoSQL还包括了Memcached和mongodb。</p>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/11/01/redis/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -880,7 +860,7 @@
 <p>查看所有主题：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./kafka-topics.sh --list --zookeeper 192.168.24.11:2181</div></pre></td></tr></table></figure>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/10/29/kafka-common-operation/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -1040,7 +1020,7 @@
 <p>删除主题：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./kafka-topics.sh --zookeeper 192.168.24.244:2181 --delete --topic 0085000</div></pre></td></tr></table></figure>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/10/29/kafka-delete-topic/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -1081,7 +1061,7 @@
   </nav>
 
 
-
+          
           </div>
           
 
@@ -1128,17 +1108,17 @@
 
           
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              
                 <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
-              </a>
+              
             </div>
           
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">164</span>
+                <span class="site-state-item-count">165</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1273,6 +1253,7 @@
 
 
 
+
   
   <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
@@ -1338,6 +1319,8 @@
     <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
+
+
 
 
 

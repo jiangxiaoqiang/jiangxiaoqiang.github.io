@@ -199,26 +199,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -403,7 +383,7 @@
         
           <h4 id="presentation-assistant"><a href="#presentation-assistant" class="headerlink" title="presentation assistant"></a>presentation assistant</h4><p>这款插件可以实时的在Intellij屏幕底部展示当前按下的快捷键，包括Windows的快捷键和Mac的快捷键，可以帮助您记忆快捷键，清楚当前的行为(Action)。效果如下图所示。</p>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/10/08/intelli-idea-plugin/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -558,7 +538,7 @@
         
           <p>rm命令是一个非常危险的命令，由于这个命令引发的事故不少，最近也是深深的体会到了。在此记录下如何将rm命令变为安全的命令。对于需要在Linux下开发的朋友来说，这一步(屏蔽rm危险操作)觉得是必须的，非常、非常、非常重要。怎么强调都不为过。一定要花时间做rm命令的安全工作。</p>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/10/08/rm-command/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -714,7 +694,7 @@
           <h4 id="移除服务"><a href="#移除服务" class="headerlink" title="移除服务"></a>移除服务</h4><p>采用Ambari REST API移除相关服务。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#停止服务</span></div><div class="line">curl -i -H <span class="string">"X-Requested-By: ambari"</span> -u admin:admin -X PUT <span class="_">-d</span> <span class="string">'&#123;"RequestInfo":&#123;"context":"Stop Service"&#125;,"Body":&#123;"ServiceInfo":&#123;"state":"INSTALLED"&#125;&#125;&#125;'</span> http://192.168.24.226:8080/api/v1/clusters/zwlbs/services/AMBARI_METRICS</div><div class="line"><span class="comment">#查看服务状态</span></div><div class="line">curl -u admin:admin -H <span class="string">"X-Requested-by:ambari"</span> -i -k -X GET http://192.168.24.226:8080/api/v1/clusters/zwlbs/services/AMBARI_METRICS/</div><div class="line"><span class="comment">#移除服务</span></div><div class="line">curl -u admin:admin -H <span class="string">"X-Requested-By: ambari"</span> -X DELETE http://192.168.24.226:8080/api/v1/clusters/zwlbs/services/AMBARI_METRICS</div></pre></td></tr></table></figure>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/10/07/ambari-metrics-reinstall/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -870,7 +850,7 @@
           <h4 id="移除Ambari服务"><a href="#移除Ambari服务" class="headerlink" title="移除Ambari服务"></a>移除Ambari服务</h4><p>依次运行如下命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -qa | grep ambari</div></pre></td></tr></table></figure>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/10/07/ambari-uninstall/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -1025,7 +1005,7 @@
         
           <p>Fedora 24使用yum命令时标记为过期，推荐使用dnf安装。想了解一下Fedora为什么要从yum转移到dnf。大致有如下几个原因：</p>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/10/05/dnf-vs-yum/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -1066,7 +1046,7 @@
   </nav>
 
 
-
+          
           </div>
           
 
@@ -1113,17 +1093,17 @@
 
           
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              
                 <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
-              </a>
+              
             </div>
           
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">164</span>
+                <span class="site-state-item-count">165</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1258,6 +1238,7 @@
 
 
 
+
   
   <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
@@ -1323,6 +1304,8 @@
     <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
+
+
 
 
 

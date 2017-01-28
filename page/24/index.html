@@ -199,26 +199,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -404,7 +384,7 @@
           <h4 id="Invalid-partition-given-with-record"><a href="#Invalid-partition-given-with-record" class="headerlink" title="Invalid partition given with record"></a>Invalid partition given with record</h4><p>在Kafka生产者里写入消息时，提示写入失败，详细的错误信息如下所示：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[ERROR]-[2016年-10月-28日16:17:35.083]-[Thread-25]-[com.zw.socket.service.kafka.producer.ClientKafkaProducer]-&#123;生产者发送消息出错&#125;java.lang.IllegalArgumentException: Invalid partition given with record: 1 is not in the range [0...1].</div><div class="line">	at org.apache.kafka.clients.producer.KafkaProducer.partition(KafkaProducer.java:671) ~[kafka-clients-0.9.0.1.jar:?]</div><div class="line">	at org.apache.kafka.clients.producer.KafkaProducer.send(KafkaProducer.java:430) ~[kafka-clients-0.9.0.1.jar:?]</div><div class="line">	at org.apache.kafka.clients.producer.KafkaProducer.send(KafkaProducer.java:339) ~[kafka-clients-0.9.0.1.jar:?]</div><div class="line">	at com.zw.socket.service.kafka.producer.ClientKafkaProducer.sendMessage(ClientKafkaProducer.java:102) [classes/:?]</div><div class="line">	at com.zw.socket.service.handler.common.CommonCommandHandler.commonMessageWriteIntoKafka(CommonCommandHandler.java:95) [classes/:?]</div><div class="line">	at com.zw.socket.service.handler.device.DeviceMessageHandler.sendRegisterResult(DeviceMessageHandler.java:175) [classes/:?]</div><div class="line">	at com.zw.socket.service.handler.device.DeviceMessageHandler.isAllowRegisted(DeviceMessageHandler.java:161) [classes/:?]</div><div class="line">	at com.zw.socket.service.handler.device.DeviceMessageHandler.saveDeviceInfo(DeviceMessageHandler.java:216) [classes/:?]</div></pre></td></tr></table></figure>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/10/28/kafka-error/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -559,7 +539,7 @@
         
           <p>以前的旧键盘打字的声音有点大，中午打字都担心吵到旁边休息的同学，而且按键比较生硬，今天特意请飞哥换了一款键盘HP KU 1158，确实好用不少。一直在找一款适合长时间输入的键盘，而且要求声音要尽量小一些，价格平民化一些(Realforce一千多也还蛮贵的)。这款键盘符合要求。</p>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/10/27/new-keyboard/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -869,7 +849,7 @@
           <h4 id="消息广播"><a href="#消息广播" class="headerlink" title="消息广播"></a>消息广播</h4><p>消息广播将消息发送给所有用户。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</div><div class="line"> * 推送给所有用户</div><div class="line"> */</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">pushInfoImpl</span><span class="params">(String url, String content)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (simpMessagingTemplate != <span class="keyword">null</span>) &#123;</div><div class="line">        simpMessagingTemplate.convertAndSend(url, content);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/10/25/stomp-spring-message-push/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -1024,7 +1004,7 @@
         
           <h4 id="SQuirreL-GUI客户端简介"><a href="#SQuirreL-GUI客户端简介" class="headerlink" title="SQuirreL GUI客户端简介"></a>SQuirreL GUI客户端简介</h4><p>SQuirreL GUI(<a href="https://sourceforge.net/projects/squirrel-sql/?source=typ_redirect">下载地址</a>)客户端来连接Phoenix，就像MySQL使用Navicat for MySQL，Oracle使用PL/SQL Developer一样，在进行一些数据库操作的时候能够更加的直观和方便。同时它还可以连接MySQL。它可以运行在Windows、Linux、Mac OS操作系统上。</p>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/10/25/squirrel-phoenix-configuration/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -1065,7 +1045,7 @@
   </nav>
 
 
-
+          
           </div>
           
 
@@ -1112,17 +1092,17 @@
 
           
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              
                 <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
-              </a>
+              
             </div>
           
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">164</span>
+                <span class="site-state-item-count">165</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1257,6 +1237,7 @@
 
 
 
+
   
   <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
@@ -1322,6 +1303,8 @@
     <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
+
+
 
 
 

@@ -199,26 +199,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -404,7 +384,7 @@
           <p>Ambari安装包大概有400MB，HDP所包含的所有的服务(HDFS/ZooKeeper/Kafka/Flume)大概在7GB+，采用yum安装时速度在10KB以内，简直是让人绝望的速度。所以采用离线安装，为了速度，掏出无耻的迅雷(wget下载是假的，不过可以试一试，速度不理想换迅雷)，搭建本地YUM服务。</p>
 <h4 id="下载包"><a href="#下载包" class="headerlink" title="下载包"></a>下载包</h4><p>如果不知道应该下载哪个版本，可以到Repository的配置文件中查看当前版本。路径为：<code>/etc/yum.repo.d/</code>，查看文件ambari.repo、HDP.rep和HDP-UTILS.repo即可。</p>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/10/05/ambari-offline-install/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -568,7 +548,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum update -y</div></pre></td></tr></table></figure>
 <p>安装GCC编译环境</p>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/10/05/fedora-20-install-nodejs/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -724,7 +704,7 @@
           <p>删除删除Apache Ambari服务可调用Apache Ambari REST接口：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移除ZooKeeper服务</span></div><div class="line">curl -u admin:admin -H <span class="string">"X-Requested-By: ambari"</span> -X DELETE http://192.168.24.226:8080/api/v1/clusters/zwlbs/services/ZooKeeper</div><div class="line"></div><div class="line"><span class="comment">#移除MapReduce服务</span></div><div class="line">curl -u admin:admin -H <span class="string">"X-Requested-By: ambari"</span> -X DELETE http://192.168.24.226:8080/api/v1/clusters/zwlbs/services/ZooKeeper/MAPREDUCE2</div></pre></td></tr></table></figure>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/10/04/delete-ambari-service/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -858,7 +838,7 @@
           <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum install scim -y</div><div class="line">yum install scim-pinyin -y</div></pre></td></tr></table></figure>
 <p>SCIM(Smart Common Input Method)是基于GTK引擎，为GNOME/GTK环境下非英文/ASCII字符提供的输入。SCIM is a GTK-based input method engine for inputting non-English / non-ASCII characters in a GNOME/GTK environment. There is a KDE frontend called skim.它本身自带拼音、内码等输入法，同时提供简单的程序接口，方便程序员便捷的对其进行扩充。</p>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/10/03/fedora-20-install-input-method/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -1042,7 +1022,7 @@
   </nav>
 
 
-
+          
           </div>
           
 
@@ -1089,17 +1069,17 @@
 
           
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              
                 <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
-              </a>
+              
             </div>
           
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">164</span>
+                <span class="site-state-item-count">165</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1234,6 +1214,7 @@
 
 
 
+
   
   <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
@@ -1299,6 +1280,8 @@
     <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
+
+
 
 
 

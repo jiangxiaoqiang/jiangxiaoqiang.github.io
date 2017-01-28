@@ -90,7 +90,7 @@ Gradle构建脚本（build.gradle）指定了一个项目和它的任务。
 Gradle属性文件（gradle.properties）用来配置构建属性。
 Gradle设置文件（gradle.settings）对于只有一个项目的构建而言是可选的，如果我们的构建中包含多于一个项目，那么它就是必须的，因为它描述了哪一个项目参与构建。每一个多项目的构建都必">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Gradle使用">
+<meta property="og:title" content="Gradle使用经验总结">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/12/27/gradle-using/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="使用以下配置文件对Gradle的构建进行配置：
@@ -98,9 +98,9 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
 Gradle构建脚本（build.gradle）指定了一个项目和它的任务。
 Gradle属性文件（gradle.properties）用来配置构建属性。
 Gradle设置文件（gradle.settings）对于只有一个项目的构建而言是可选的，如果我们的构建中包含多于一个项目，那么它就是必须的，因为它描述了哪一个项目参与构建。每一个多项目的构建都必">
-<meta property="og:updated_time" content="2017-01-24T09:50:46.000Z">
+<meta property="og:updated_time" content="2017-01-28T00:44:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gradle使用">
+<meta name="twitter:title" content="Gradle使用经验总结">
 <meta name="twitter:description" content="使用以下配置文件对Gradle的构建进行配置：
 
 Gradle构建脚本（build.gradle）指定了一个项目和它的任务。
@@ -139,7 +139,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
 
 
 
-  <title> Gradle使用 | 小强的博客 </title>
+  <title> Gradle使用经验总结 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -209,26 +209,6 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
           </a>
         </li>
       
@@ -328,7 +308,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
             
             
               
-                Gradle使用
+                Gradle使用经验总结
               
             
           </h1>
@@ -418,6 +398,11 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
 <li>Gradle设置文件（gradle.settings）对于只有一个项目的构建而言是可选的，如果我们的构建中包含多于一个项目，那么它就是必须的，因为它描述了哪一个项目参与构建。每一个多项目的构建都必须在项目结构的根目录中加入一个设置文件。</li>
 </ul>
 <a id="more"></a>
+<h4 id="为什么使用Gradle"><a href="#为什么使用Gradle" class="headerlink" title="为什么使用Gradle"></a>为什么使用Gradle</h4><ul>
+<li>与Maven和Ant相比较，Maven和Ant的XML配置文件比较复杂。</li>
+<li>Gradle提供更细粒度的操作，自由定制化空间大</li>
+<li>与Maven和Ant完全兼容</li>
+</ul>
 <h4 id="手动安装Gradle"><a href="#手动安装Gradle" class="headerlink" title="手动安装Gradle"></a>手动安装Gradle</h4><p>下载Gradle，解压到指定文件夹，在用户根目录下的<code>.bash_profile</code>文件中，设置环境变量如下代码片段所示。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> GRADLE_HOME=/opt/<span class="built_in">local</span>/tools/gradle-2.12</div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$SONAR_HOME</span>/bin:<span class="variable">$SONAR_SCANNER</span>/bin:<span class="variable">$GRADLE_HOME</span>/bin</div><div class="line"></div><div class="line"><span class="comment"># 使环境变量生效</span></div><div class="line"><span class="built_in">source</span> .bash_profile</div></pre></td></tr></table></figure>
 <h4 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h4><p>在Ubuntu 16.04 LTS中安装Gradle:</p>
@@ -439,7 +424,12 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">apply plugin: &apos;java&apos;</div><div class="line">apply plugin: &apos;propdeps&apos;</div><div class="line">apply plugin: &apos;org.springframework.boot&apos;</div></pre></td></tr></table></figure>
 <h4 id="Wrapper"><a href="#Wrapper" class="headerlink" title="Wrapper"></a>Wrapper</h4><p>Wrapper主要是考虑在没有安装Gradle的电脑上使用Gradle命令。当执行gradlew(Gradle Wrapper)命令时，首先会检查电脑是否安装了Gradle，如果没有安装，会自动从gradle repository下载安装。注意安装不会真的在计算机中安装Gradle的发行版本，它会下载Gradle，存放在目录<code>$USER_HOME/.gradle/wrapper/dists</code>下，构建时使用命令调用而不是直接添加到当前计算机(试想如果不同的Gradle版本，如果添加到系统的环境变量了，构建时到底是以调用哪一个版本的Gradle呢)。需要查看Gradle Wrapper帮助，在命令行中输入如下命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gradle Wrapper --help</div></pre></td></tr></table></figure>
-<p>会打印出所有Gradle Wrapper.</p>
+<p>会打印出所有Gradle Wrapper.Most tools require installation on your computer before you can use them. If the installation is easy, you may think that’s fine. But it can be an unnecessary burden on the users of the build. Equally importantly, will the user install the right version of the tool for the build? What if they’re building an old version of the software? The Gradle Wrapper (henceforth referred to as the “Wrapper”) solves both these problems and is the preferred way of starting a Gradle build.需要添加Wrapper，在gradle.build中添加如下block:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">task wrapper(type: Wrapper) &#123;</div><div class="line">    description = &apos;Generates gradlew[.bat] scripts&apos;</div><div class="line">    gradleVersion = &apos;3.2.1&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>或者执行命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gradle wrapper --gradle-version 3.2.1</div></pre></td></tr></table></figure>
+<p>命令执行之后，会生成wrapper任务脚本，和如下文件夹及文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">gradlew</div><div class="line">gradlew.bat</div><div class="line">    gradle/wrapper/</div><div class="line">    gradle-wrapper.jar</div><div class="line">    gradle-wrapper.properties</div></pre></td></tr></table></figure>
 <h4 id="Gradle界面-GUI"><a href="#Gradle界面-GUI" class="headerlink" title="Gradle界面(GUI)"></a>Gradle界面(GUI)</h4><p>在终端中输入如下命令可以查看Gradle的GUI：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gradle --gui</div></pre></td></tr></table></figure>
 <h4 id="软件包管理"><a href="#软件包管理" class="headerlink" title="软件包管理"></a>软件包管理</h4><p>安装指定版本的软件可以使用如下命令：</p>
@@ -448,6 +438,23 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
 <h4 id="运行特定项目的任务"><a href="#运行特定项目的任务" class="headerlink" title="运行特定项目的任务"></a>运行特定项目的任务</h4><p>此处运行项目cc-web-boot下的bootRepackage任务：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./gradlew build -p cc-web-boot/ bootRepackage -x <span class="built_in">test</span></div></pre></td></tr></table></figure>
 <p>如上命令在项目文件夹cc-web-boot下执行构建，并排除test任务，生成对应的jar包。bootRepackage任务依赖于Gradle assemble任务，assemble任务会编译程序中的源代码，并打包生成Jar文件，这个任务不执行单元测试。不使用spring-boot插件，主程序jar包，与依赖的jar包是分开的，需要分别打包，这在云环境中，上传部署比较麻烦，得传多个文件（或者上传前，先压缩成一个包，再传到服务器上解压），服务器节点多时，操作起来太累又重复。而使用spring-boot插件，会自动将依赖的包集成到主包里，非常方便。</p>
+<h4 id="多项目构建"><a href="#多项目构建" class="headerlink" title="多项目构建"></a>多项目构建</h4><p>使用gradle构建多项目时，setting.gradle文件时必须存在的。并且要包含多个项目，示例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">include &quot;dolphin-framework&quot;, &quot;dolphin-common&quot;</div></pre></td></tr></table></figure>
+<p>在多项目构建时，指定多项目共同的中央仓库，可以使用allproject块,如下代码片段所示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">allprojects &#123;</div><div class="line">    repositories &#123;</div><div class="line">        maven &#123; url &apos;http://repox.gtan.com:8078&apos; &#125;</div><div class="line">        mavenCentral()</div><div class="line">        jcenter()</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>mavenCentral指代Maven的中央仓库(Maven central repository)，jcenter指代的是Java中央仓库(JCenter repository)。</p>
+<h4 id="buildscript"><a href="#buildscript" class="headerlink" title="buildscript"></a>buildscript</h4><p>buildscript中的声明是gradle脚本自身需要使用的资源。可以声明的资源包括依赖项、第三方插件、maven仓库地址等。而在build.gradle文件中直接声明的依赖项、仓库地址等信息是项目自身需要的资源。</p>
+<p>gradle是由groovy语言编写的，支持groovy语法，可以灵活的使用已有的各种ant插件、基于jvm的类库，这也是它比maven、ant等构建脚本强大的原因。虽然gradle支持开箱即用，但是如果你想在脚本中使用一些第三方的插件、类库等，就需要自己手动添加对这些插件、类库的引用。而这些插件、类库又不是直接服务于项目的，而是支持其它build脚本的运行。所以你应当将这部分的引用放置在buildscript代码块中。gradle在执行脚本时，会优先执行buildscript代码块中的内容，然后才会执行剩余的build脚本。buildscript脚本的简单示例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">buildscript &#123;</div><div class="line">    ext &#123;</div><div class="line">        springBootVersion = &apos;1.4.2.RELEASE&apos;</div><div class="line">        jacksonVersion = &apos;2.8.4&apos;</div><div class="line">        tomcatVersion = &apos;7.0.70&apos;</div><div class="line">        springfoxVersion = &apos;2.6.1&apos;</div><div class="line">        poiVersion = &quot;3.14&quot;</div><div class="line">    &#125;</div><div class="line">    repositories &#123;</div><div class="line">        maven &#123; url &apos;http://repox.gtan.com:8078&apos; &#125;</div><div class="line">        mavenCentral()</div><div class="line">        jcenter()</div><div class="line">        maven &#123; url &apos;http://repo.spring.io/plugins-release&apos; &#125;</div><div class="line">    &#125;</div><div class="line">    dependencies &#123;</div><div class="line">        classpath(&quot;org.springframework.boot:spring-boot-gradle-plugin:$&#123;springBootVersion&#125;&quot;)</div><div class="line">        classpath &apos;org.springframework.build.gradle:propdeps-plugin:0.0.7&apos;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>其中，ext为扩展属性(Extra properties),All enhanced objects in Gradle’s domain model can hold extra user-defined properties. This includes, but is not limited to, projects, tasks, and source sets. Extra properties can be added, read and set via the owning object’s ext property. Alternatively, an ext block can be used to add multiple properties at once.扩展属性在buildscript中指定后，可以在整个gradle脚本中使用(${属性名})。使用命令<code>gradle buildEnvironment</code>，可以打印出扩展属性到依赖关系图。</p>
+<p>Note, «GRADLE_USER_HOME» defaults to «USER_HOME»/.gradle, where «USER_HOME» is<br>the home directory of the current user. This location can be configured via the -g and –gradle-user-home command line switches, as well as by the GRADLE_USER_HOME environment variable and org.gradle.user.home JVM system property.</p>
+<p>参考资料：</p>
+<ul>
+<li><p>[Chapter 26. Multi-project Builds](<a href="https://docs.gradle.org/current/userguide/multi_project_builds.html" target="_blank" rel="external">https://docs.gradle.org/current/userguide/multi_project_builds.html</a></p>
+</li>
+<li><p><a href="">Gradle Userguide</a></p>
+</li>
+</ul>
 
       
     </div>
@@ -455,11 +462,6 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
     <div>
       
         
-<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
-    <img id="wechat_subscriber_qcode" src="/uploads/qrcode.jpg" alt="xiaoqiang jiang wechat" style="width: 200px; max-width: 100%;"/>
-    <div>Welcome to subscribe my WeChat public accout!</div>
-</div>
-
 
       
     </div>
@@ -515,7 +517,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
     </div>
   </div>
 
-
+          
           </div>
           
 
@@ -524,7 +526,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/12/27/gradle-using/"
-           data-title="Gradle使用" data-url="http://jiangxiaoqiang.com/2016/12/27/gradle-using/">
+           data-title="Gradle使用经验总结" data-url="http://jiangxiaoqiang.com/2016/12/27/gradle-using/">
       </div>
     
   </div>
@@ -579,17 +581,17 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
 
           
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              
                 <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
-              </a>
+              
             </div>
           
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">164</span>
+                <span class="site-state-item-count">165</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -668,7 +670,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#手动安装Gradle"><span class="nav-number">1.</span> <span class="nav-text">手动安装Gradle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基础"><span class="nav-number">2.</span> <span class="nav-text">基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插件-Plugin"><span class="nav-number">3.</span> <span class="nav-text">插件(Plugin)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Wrapper"><span class="nav-number">4.</span> <span class="nav-text">Wrapper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gradle界面-GUI"><span class="nav-number">5.</span> <span class="nav-text">Gradle界面(GUI)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#软件包管理"><span class="nav-number">6.</span> <span class="nav-text">软件包管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行特定项目的任务"><span class="nav-number">7.</span> <span class="nav-text">运行特定项目的任务</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么使用Gradle"><span class="nav-number">1.</span> <span class="nav-text">为什么使用Gradle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#手动安装Gradle"><span class="nav-number">2.</span> <span class="nav-text">手动安装Gradle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基础"><span class="nav-number">3.</span> <span class="nav-text">基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插件-Plugin"><span class="nav-number">4.</span> <span class="nav-text">插件(Plugin)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Wrapper"><span class="nav-number">5.</span> <span class="nav-text">Wrapper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gradle界面-GUI"><span class="nav-number">6.</span> <span class="nav-text">Gradle界面(GUI)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#软件包管理"><span class="nav-number">7.</span> <span class="nav-text">软件包管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行特定项目的任务"><span class="nav-number">8.</span> <span class="nav-text">运行特定项目的任务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多项目构建"><span class="nav-number">9.</span> <span class="nav-text">多项目构建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#buildscript"><span class="nav-number">10.</span> <span class="nav-text">buildscript</span></a></li></ol></div>
             
 
           </div>
@@ -737,6 +739,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
 
 
   
+
 
 
 
@@ -809,6 +812,8 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
     <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
+
+
 
 
 

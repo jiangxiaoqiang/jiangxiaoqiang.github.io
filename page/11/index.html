@@ -199,26 +199,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -694,7 +674,7 @@
 <h4 id="Mapper文件中遍历集合参数"><a href="#Mapper文件中遍历集合参数" class="headerlink" title="Mapper文件中遍历集合参数"></a>Mapper文件中遍历集合参数</h4><p>在遍历List<Integer>时，直接使用如下的语句即可：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">select * from table</div><div class="line"><span class="tag">&lt;<span class="name">where</span>&gt;</span></div><div class="line">    id in <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"ids"</span> <span class="attr">item</span>=<span class="string">"item"</span> <span class="attr">index</span>=<span class="string">"index"</span></div><div class="line"><span class="attr">open</span>=<span class="string">"("</span> <span class="attr">separator</span>=<span class="string">","</span> <span class="attr">close</span>=<span class="string">")"</span>&gt;</span>#&#123;item&#125;<span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">where</span>&gt;</span></div></pre></td></tr></table></figure>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/12/20/mybatis-using/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -977,7 +957,7 @@
         
           <p>Git是目前世界上最先进的分布式版本控制系统，没有之一。Git有什么特点？简单来说就是：高端大气上档次！逼格那是相当高，装逼必备神器。当你说用Git管理源码的时候，逼格瞬间高好几个档次。最近项目中在用，结合以前使用的经验，简单的总结记录在此。另外Git在网络慢或者不稳定时，表现也很’好。</p>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/12/19/git-using/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -1132,7 +1112,7 @@
         
           <h4 id="Spring-Boot特点"><a href="#Spring-Boot特点" class="headerlink" title="Spring Boot特点"></a>Spring Boot特点</h4><p>2013年12月12日，Spring发布了4.0版本。Spring的4.0版本可以说是一个重大的更新，其全面支持Java8，并且对Groovy语言也有良好的支持。另外引入了非常多的新项目，比如Spring boot，Spring Cloud，Spring WebSocket等。Spring由于其繁琐的配置，一度被人成为“配置地狱”，各种XML、Annotation配置，让人眼花缭乱，而且如果出错了也很难找出原因。Spring Boot项目就是为了解决配置繁琐的问题，最大化的实现convention over configuration(约定大于配置)。熟悉Ruby On Rails（ROR框架的程序员都知道，借助于ROR的脚手架工具只需简单的几步即可建立起一个Web应用程序。而Spring Boot就相当于Java平台上的ROR。</p>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/12/19/spring-boot/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -1173,7 +1153,7 @@
   </nav>
 
 
-
+          
           </div>
           
 
@@ -1220,17 +1200,17 @@
 
           
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              
                 <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
-              </a>
+              
             </div>
           
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">164</span>
+                <span class="site-state-item-count">165</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1365,6 +1345,7 @@
 
 
 
+
   
   <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
@@ -1430,6 +1411,8 @@
     <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
+
+
 
 
 

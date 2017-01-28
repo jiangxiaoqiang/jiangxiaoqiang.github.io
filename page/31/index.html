@@ -199,26 +199,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -404,7 +384,7 @@
           <h4 id="输入乱码"><a href="#输入乱码" class="headerlink" title="输入乱码"></a>输入乱码</h4><p>在控制台输入中文时显示的不是输入的汉字，而是显示正方形符号，此时输入的汉字显示乱码，如图所示。</p>
 <img src="/2016/09/26/intllij-idea-encoding/intelli-idea-input-encode.jpg" alt="输入时乱码" title="输入时乱码">
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/09/26/intllij-idea-encoding/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -537,7 +517,7 @@
         
           <h4 id="为什么要依赖注入"><a href="#为什么要依赖注入" class="headerlink" title="为什么要依赖注入"></a>为什么要依赖注入</h4><p>依赖注入(Dependency Injection)所要达到的目标是实现程序间的松耦合。将服务的调用者和服务的提供者分离。DI提供一种机制，在运行时绑定服务的提供者和调用者。</p>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/09/25/spring-ioc/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -672,7 +652,7 @@
 <p>Version: Neon Release (4.6.0)<br>Build id: 20160613-1800</p>
 <h4 id="Line-Breakpoint"><a href="#Line-Breakpoint" class="headerlink" title="Line Breakpoint"></a>Line Breakpoint</h4><p>Line Breakpoint是最简单的Eclipse断点，只要双击某行代码对应的左侧栏，就对该行设置上断点。断点的颜色为一个蓝色的实心点。</p>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/09/24/eclipse-breakpoint-type/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -805,7 +785,7 @@
         
           <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>Phoenix本意是凤凰的意思，<a href="http://phoenix.apache.org/">Apache Phoenix</a>是构建在HBase之上的关系型数据库层，作为内嵌的客户端JDBC驱动用以对HBase中的数据进行低延迟访问。Apache Phoenix会将用户编写的sql查询编译为一系列的scan操作，最终产生通用的JDBC结果集返回给客户端。数据表的元数据存储在HBase的表中被会标记版本号，所以进行查询的时候会自动选择正确的schema。直接使用HBase的API，结合协处理器（coprocessor）和自定义的过滤器的话，小范围的查询在毫秒级响应，千万数据的话响应速度为秒级。</p>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/09/23/phoenix-tutorial/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -942,7 +922,7 @@
 <li><strong>Http Connector</strong> 基于HTTP协议，负责建立HTTP连接。它又分为BIO Http Connector与<code>NIO Http Connector(org.apache.tomcat.util.net.NioEndpoint)</code>两种。BIO(blocking I/O)，顾名思义，即阻塞式I/O操作，表示Tomcat使用的是传统的Java I/O操作(即java.io包 及其子包)。一般而言，bio模式是三种运行模式中性能最低的一种。NIO为Network IO，后者提供非阻塞IO与长连接Comet支持。NIO(new I/O)，是Java SE 1.4及后续版本提供的一种新的I/O操作方式(即java.nio包及其子包)。Java nio是一个基于缓冲区、并能提供非阻塞I/O操作的Java API，因此nio也被看成是non-blocking I/O的缩写。它拥有比传统I/O操作(bio)更好的并发运行性能。</li>
 </ul>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2016/09/22/tomcat-http/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -983,7 +963,7 @@
   </nav>
 
 
-
+          
           </div>
           
 
@@ -1030,17 +1010,17 @@
 
           
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              
                 <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
-              </a>
+              
             </div>
           
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">164</span>
+                <span class="site-state-item-count">165</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1175,6 +1155,7 @@
 
 
 
+
   
   <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
@@ -1240,6 +1221,8 @@
     <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
+
+
 
 
 
