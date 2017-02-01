@@ -99,7 +99,7 @@ Gradle构建脚本（build.gradle）指定了一个项目和它的任务。
 Gradle属性文件（gradle.properties）用来配置构建属性。
 Gradle设置文件（gradle.settings）对于只有一个项目的构建而言是可选的，如果我们的构建中包含多于一个项目，那么它就是必须的，因为它描述了哪一个项目参与构建。每一个多项目的构建都必">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/12/27/gradle-using/gradle-build-workflow.jpg">
-<meta property="og:updated_time" content="2017-02-01T08:08:08.000Z">
+<meta property="og:updated_time" content="2017-02-01T12:13:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gradle使用经验总结">
 <meta name="twitter:description" content="使用以下配置文件对Gradle的构建进行配置：
@@ -438,6 +438,9 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
 </ul>
 <h4 id="手动安装Gradle"><a href="#手动安装Gradle" class="headerlink" title="手动安装Gradle"></a>手动安装Gradle</h4><p>下载Gradle，解压到指定文件夹，在用户根目录下的<code>.bash_profile</code>文件中，设置环境变量如下代码片段所示。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> GRADLE_HOME=/opt/<span class="built_in">local</span>/tools/gradle-2.12</div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$SONAR_HOME</span>/bin:<span class="variable">$SONAR_SCANNER</span>/bin:<span class="variable">$GRADLE_HOME</span>/bin</div><div class="line"></div><div class="line"><span class="comment"># 使环境变量生效</span></div><div class="line"><span class="built_in">source</span> .bash_profile</div></pre></td></tr></table></figure>
+<p>非手动安装时，可以输入如下命令查看gradle的home目录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">gradle getHomeDir</div><div class="line"><span class="comment"># Mac下</span></div><div class="line">brew info gradle</div></pre></td></tr></table></figure>
+<p>注意在Intellij Idea下设置gradle的目录为<code>/usr/local/Cellar/gradle/3.2.1/libexec</code>。</p>
 <h4 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h4><p>在Ubuntu 16.04 LTS中安装Gradle:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo apt install gradle -y</div><div class="line"></div><div class="line"><span class="comment"># 安装指定版本的Gradle</span></div><div class="line">sudo apt install -y gradle=2.12</div></pre></td></tr></table></figure>
 <p>如下列出了Gradle常用的命令：</p>
@@ -618,7 +621,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">163</span>
+                <span class="site-state-item-count">164</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
