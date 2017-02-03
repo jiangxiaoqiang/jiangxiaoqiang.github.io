@@ -99,7 +99,7 @@ Gradle构建脚本（build.gradle）指定了一个项目和它的任务。
 Gradle属性文件（gradle.properties）用来配置构建属性。
 Gradle设置文件（gradle.settings）对于只有一个项目的构建而言是可选的，如果我们的构建中包含多于一个项目，那么它就是必须的，因为它描述了哪一个项目参与构建。每一个多项目的构建都必">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/12/27/gradle-using/gradle-build-workflow.jpg">
-<meta property="og:updated_time" content="2017-02-01T12:13:18.000Z">
+<meta property="og:updated_time" content="2017-02-03T08:58:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gradle使用经验总结">
 <meta name="twitter:description" content="使用以下配置文件对Gradle的构建进行配置：
@@ -435,6 +435,8 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
 <li>与Maven和Ant相比较，Maven和Ant的XML配置文件比较复杂。</li>
 <li>Gradle提供更细粒度的操作，自由定制化空间大</li>
 <li>与Maven和Ant完全兼容</li>
+<li>Gradle对多语言、多平台有更原生(natural)的支持</li>
+<li>DSL(Domain Specific Language)比XML更简洁高效</li>
 </ul>
 <h4 id="手动安装Gradle"><a href="#手动安装Gradle" class="headerlink" title="手动安装Gradle"></a>手动安装Gradle</h4><p>下载Gradle，解压到指定文件夹，在用户根目录下的<code>.bash_profile</code>文件中，设置环境变量如下代码片段所示。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> GRADLE_HOME=/opt/<span class="built_in">local</span>/tools/gradle-2.12</div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$SONAR_HOME</span>/bin:<span class="variable">$SONAR_SCANNER</span>/bin:<span class="variable">$GRADLE_HOME</span>/bin</div><div class="line"></div><div class="line"><span class="comment"># 使环境变量生效</span></div><div class="line"><span class="built_in">source</span> .bash_profile</div></pre></td></tr></table></figure>
@@ -492,8 +494,13 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
 <p>Note, «GRADLE_USER_HOME» defaults to «USER_HOME»/.gradle, where «USER_HOME» is<br>the home directory of the current user. This location can be configured via the -g and –gradle-user-home command line switches, as well as by the GRADLE_USER_HOME environment variable and org.gradle.user.home JVM system property.</p>
 <h4 id="设置源码路径"><a href="#设置源码路径" class="headerlink" title="设置源码路径"></a>设置源码路径</h4><p>在混合编程中，需要设置不同开发语言的源码路径，如下代码片段所示：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">sourceSets &#123;</div><div class="line">    main &#123;</div><div class="line">        scala &#123;</div><div class="line">            srcDirs = [&apos;src/main/scala&apos;, &apos;src/main/java&apos;]</div><div class="line">        &#125;</div><div class="line">        java &#123;</div><div class="line">            srcDirs = []</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    test &#123;</div><div class="line">        scala &#123;</div><div class="line">            srcDirs = [&apos;src/test/scala&apos;, &apos;src/test/java&apos;]</div><div class="line">        &#125;</div><div class="line">        java &#123;</div><div class="line">            srcDirs = []</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="Gradle构建流程"><a href="#Gradle构建流程" class="headerlink" title="Gradle构建流程"></a>Gradle构建流程</h4><p>Gradle构建流程如下：processResources -&gt; compileJava -&gt; classes -&gt; jar。</p>
+<h4 id="Gradle构建生命周期-Gradle-Build-Lifecycle"><a href="#Gradle构建生命周期-Gradle-Build-Lifecycle" class="headerlink" title="Gradle构建生命周期(Gradle Build Lifecycle)"></a>Gradle构建生命周期(Gradle Build Lifecycle)</h4><p>关于Gradle构建的生命周期，全部都是Gradle用户使用手册里面的内容，这里仅仅是摘抄而已，可以直接下载用户手册进行阅读。</p>
+<p>初始化阶段(Initialization):Gradle supports single and multi-project builds. During the initialization phase, Gradle determines which projects are going to take part in the build, and creates a Project instance for each of these projects.</p>
+<p>配置阶段(Configuration):During this phase the project objects are configured. The build scripts of all projects which are part of the build are executed. Gradle 1.4 introduced an incubating opt-in feature called configuration on demand . In this mode, Gradle configures only relevant projects.</p>
+<p>执行阶段(Execution):Gradle determines the subset of the tasks, created and configured during the configuration phase, to be executed. The subset is determined by the task name arguments passed to the gradle command and the current directory. Gradle then executes each of the selected tasks.</p>
+<p>Gradle构建流程如下,这是在实际执行Gradle构建指令后窗口输出的内容：processResources -&gt; compileJava -&gt; classes -&gt; jar。</p>
 <img src="/2016/12/27/gradle-using/gradle-build-workflow.jpg" alt="Gradle构建流程" title="Gradle构建流程">
+<p>Gradle构建时，会先构建依赖包，再构建主要的包。每个包的构建按照上图的流程反复执行。</p>
 <p>参考资料：</p>
 <ul>
 <li><p><a href="https://docs.gradle.org/current/userguide/multi_project_builds.html" target="_blank" rel="external">Multi-project Builds</a></p>
@@ -501,6 +508,8 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
 <li><p><a href="">Gradle Userguide</a></p>
 </li>
 <li><p><a href="https://docs.gradle.org/current/dsl/" target="_blank" rel="external">Gradle Build Language Reference</a></p>
+</li>
+<li><p><a href="https://blog.gmem.cc/gradle-study-note" target="_blank" rel="external">Gradle学习笔记</a></p>
 </li>
 </ul>
 
@@ -621,7 +630,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">164</span>
+                <span class="site-state-item-count">166</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -630,7 +639,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -639,7 +648,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">169</span>
+                <span class="site-state-item-count">170</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -718,7 +727,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么使用Gradle"><span class="nav-number">1.</span> <span class="nav-text">为什么使用Gradle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#手动安装Gradle"><span class="nav-number">2.</span> <span class="nav-text">手动安装Gradle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基础"><span class="nav-number">3.</span> <span class="nav-text">基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插件-Plugin"><span class="nav-number">4.</span> <span class="nav-text">插件(Plugin)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#插件属性-Plugin-Properties"><span class="nav-number">4.1.</span> <span class="nav-text">插件属性(Plugin Properties)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Wrapper"><span class="nav-number">5.</span> <span class="nav-text">Wrapper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gradle界面-GUI"><span class="nav-number">6.</span> <span class="nav-text">Gradle界面(GUI)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#软件包管理"><span class="nav-number">7.</span> <span class="nav-text">软件包管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行特定项目的任务"><span class="nav-number">8.</span> <span class="nav-text">运行特定项目的任务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多项目构建"><span class="nav-number">9.</span> <span class="nav-text">多项目构建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#buildscript"><span class="nav-number">10.</span> <span class="nav-text">buildscript</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置源码路径"><span class="nav-number">11.</span> <span class="nav-text">设置源码路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gradle构建流程"><span class="nav-number">12.</span> <span class="nav-text">Gradle构建流程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么使用Gradle"><span class="nav-number">1.</span> <span class="nav-text">为什么使用Gradle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#手动安装Gradle"><span class="nav-number">2.</span> <span class="nav-text">手动安装Gradle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基础"><span class="nav-number">3.</span> <span class="nav-text">基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插件-Plugin"><span class="nav-number">4.</span> <span class="nav-text">插件(Plugin)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#插件属性-Plugin-Properties"><span class="nav-number">4.1.</span> <span class="nav-text">插件属性(Plugin Properties)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Wrapper"><span class="nav-number">5.</span> <span class="nav-text">Wrapper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gradle界面-GUI"><span class="nav-number">6.</span> <span class="nav-text">Gradle界面(GUI)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#软件包管理"><span class="nav-number">7.</span> <span class="nav-text">软件包管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行特定项目的任务"><span class="nav-number">8.</span> <span class="nav-text">运行特定项目的任务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多项目构建"><span class="nav-number">9.</span> <span class="nav-text">多项目构建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#buildscript"><span class="nav-number">10.</span> <span class="nav-text">buildscript</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置源码路径"><span class="nav-number">11.</span> <span class="nav-text">设置源码路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gradle构建生命周期-Gradle-Build-Lifecycle"><span class="nav-number">12.</span> <span class="nav-text">Gradle构建生命周期(Gradle Build Lifecycle)</span></a></li></ol></div>
             
 
           </div>

@@ -85,18 +85,27 @@
 
 
 <meta name="description" content="创建一个Spring-Boot项目初始化1gradle init
-增加配置">
+增加配置多项目构建
+一个多项目构建必须在根项目的根目录下包含settings.gradle文件，因为它指明了那些包含在多项目构建中的项目。
+如果需要在多项目构建的所有项目中加入公用的配置或行为，我们可以将这项配置加入到根项目的build.gradle文件中(使用allprojects)。
+如果需要在根项目的子项目中加入公用的配置或行">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Gradle搭建项目">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/02/01/gradle-creaete-spring-boot/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="创建一个Spring-Boot项目初始化1gradle init
-增加配置">
-<meta property="og:updated_time" content="2017-02-01T11:31:12.000Z">
+增加配置多项目构建
+一个多项目构建必须在根项目的根目录下包含settings.gradle文件，因为它指明了那些包含在多项目构建中的项目。
+如果需要在多项目构建的所有项目中加入公用的配置或行为，我们可以将这项配置加入到根项目的build.gradle文件中(使用allprojects)。
+如果需要在根项目的子项目中加入公用的配置或行">
+<meta property="og:updated_time" content="2017-02-03T01:15:53.937Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gradle搭建项目">
 <meta name="twitter:description" content="创建一个Spring-Boot项目初始化1gradle init
-增加配置">
+增加配置多项目构建
+一个多项目构建必须在根项目的根目录下包含settings.gradle文件，因为它指明了那些包含在多项目构建中的项目。
+如果需要在多项目构建的所有项目中加入公用的配置或行为，我们可以将这项配置加入到根项目的build.gradle文件中(使用allprojects)。
+如果需要在根项目的子项目中加入公用的配置或行">
 
 
 
@@ -391,7 +400,12 @@
 
       
         <h4 id="创建一个Spring-Boot项目"><a href="#创建一个Spring-Boot项目" class="headerlink" title="创建一个Spring-Boot项目"></a>创建一个Spring-Boot项目</h4><h5 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gradle init</div></pre></td></tr></table></figure>
-<h5 id="增加配置"><a href="#增加配置" class="headerlink" title="增加配置"></a>增加配置</h5>
+<h5 id="增加配置"><a href="#增加配置" class="headerlink" title="增加配置"></a>增加配置</h5><h4 id="多项目构建"><a href="#多项目构建" class="headerlink" title="多项目构建"></a>多项目构建</h4><ul>
+<li>一个多项目构建必须在根项目的根目录下包含settings.gradle文件，因为它指明了那些包含在多项目构建中的项目。</li>
+<li>如果需要在多项目构建的所有项目中加入公用的配置或行为，我们可以将这项配置加入到根项目的build.gradle文件中(使用allprojects)。</li>
+<li>如果需要在根项目的子项目中加入公用的配置或行为，我们可以将这项配置加入到根项目的build.gradle文件中(使用subprojects)。</li>
+</ul>
+
       
     </div>
 
@@ -426,6 +440,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/03/linux-performance-diagnostic/" rel="prev" title="Linux性能诊断">
+                Linux性能诊断 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -499,7 +517,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">164</span>
+                <span class="site-state-item-count">166</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -508,7 +526,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -517,7 +535,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">169</span>
+                <span class="site-state-item-count">170</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -596,7 +614,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建一个Spring-Boot项目"><span class="nav-number">1.</span> <span class="nav-text">创建一个Spring-Boot项目</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#初始化"><span class="nav-number">1.1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#增加配置"><span class="nav-number">1.2.</span> <span class="nav-text">增加配置</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建一个Spring-Boot项目"><span class="nav-number">1.</span> <span class="nav-text">创建一个Spring-Boot项目</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#初始化"><span class="nav-number">1.1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#增加配置"><span class="nav-number">1.2.</span> <span class="nav-text">增加配置</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多项目构建"><span class="nav-number">2.</span> <span class="nav-text">多项目构建</span></a></li></ol></div>
             
 
           </div>
