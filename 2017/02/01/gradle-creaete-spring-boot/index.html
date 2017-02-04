@@ -98,7 +98,7 @@
 一个多项目构建必须在根项目的根目录下包含settings.gradle文件，因为它指明了那些包含在多项目构建中的项目。
 如果需要在多项目构建的所有项目中加入公用的配置或行为，我们可以将这项配置加入到根项目的build.gradle文件中(使用allprojects)。
 如果需要在根项目的子项目中加入公用的配置或行">
-<meta property="og:updated_time" content="2017-02-03T01:15:53.937Z">
+<meta property="og:updated_time" content="2017-02-03T10:37:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gradle搭建项目">
 <meta name="twitter:description" content="创建一个Spring-Boot项目初始化1gradle init
@@ -405,6 +405,11 @@
 <li>如果需要在多项目构建的所有项目中加入公用的配置或行为，我们可以将这项配置加入到根项目的build.gradle文件中(使用allprojects)。</li>
 <li>如果需要在根项目的子项目中加入公用的配置或行为，我们可以将这项配置加入到根项目的build.gradle文件中(使用subprojects)。</li>
 </ul>
+<h4 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h4><h5 id="call-‘refresh’-before-multicasting-events-via-the-context"><a href="#call-‘refresh’-before-multicasting-events-via-the-context" class="headerlink" title="call ‘refresh’ before multicasting events via the context"></a>call ‘refresh’ before multicasting events via the context</h5><p>启动Spring Boot程序时报如下错误：</p>
+<p><strong> WARNING </strong> : Your ApplicationContext is unlikely to start due to a @ComponentScan of the default package.</p>
+<p>详细日志如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">2017-02-03 18:32:33.444  WARN 15138 --- [           main] ionWarningsApplicationContextInitializer : </div><div class="line"></div><div class="line">** WARNING ** : Your ApplicationContext is unlikely to start due to a @ComponentScan of the default package.</div><div class="line"></div><div class="line"></div><div class="line">2017-02-03 18:32:39.340  WARN 15138 --- [           main] ationConfigEmbeddedWebApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [Application]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name &apos;errorPageFilter&apos; for bean class [org.springframework.boot.web.support.ErrorPageFilter] conflicts with existing, non-compatible bean definition of same name and class [org.springframework.boot.context.web.ErrorPageFilter]</div><div class="line">2017-02-03 18:32:39.344 ERROR 15138 --- [           main] o.s.b.f.s.DefaultListableBeanFactory     : Destroy method on bean with name &apos;org.springframework.boot.autoconfigure.internalCachingMetadataReaderFactory&apos; threw an exception</div><div class="line"></div><div class="line">java.lang.IllegalStateException: ApplicationEventMulticaster not initialized - call &apos;refresh&apos; before multicasting events via the context: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@51a9ad5e: startup date [Fri Feb 03 18:32:33 CST 2017]; root of context hierarchy</div><div class="line">	at org.springframework.context.support.AbstractApplicationContext.getApplicationEventMulticaster(AbstractApplicationContext.java:404) [spring-context-4.3.5.RELEASE.jar:4.3.5.RELEASE]</div><div class="line">	at org.springframework.context.support.ApplicationListenerDetector.postProcessBeforeDestruction(ApplicationListenerDetector.java:97) ~[spring-context-4.3.5.RELEASE.jar:4.3.5.RELEASE]</div><div class="line">	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:253) ~[spring-beans-4.3.5.RELEASE.jar:4.3.5.RELEASE]</div><div class="line">	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:578) [spring-beans-4.3.5.RELEASE.jar:4.3.5.RELEASE]</div><div class="line">	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:554) [spring-beans-4.3.5.RELEASE.jar:4.3.5.RELEASE]</div><div class="line">	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:959) [spring-beans-4.3.5.RELEASE.jar:4.3.5.RELEASE]</div><div class="line">	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:523) [spring-beans-4.3.5.RELEASE.jar:4.3.5.RELEASE]</div><div class="line">	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:966) [spring-beans-4.3.5.RELEASE.jar:4.3.5.RELEASE]</div><div class="line">	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1033) [spring-context-4.3.5.RELEASE.jar:4.3.5.RELEASE]</div><div class="line">	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:555) [spring-context-4.3.5.RELEASE.jar:4.3.5.RELEASE]</div><div class="line">	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122) [spring-boot-1.4.3.RELEASE.jar:1.4.3.RELEASE]</div><div class="line">	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761) [spring-boot-1.4.3.RELEASE.jar:1.4.3.RELEASE]</div><div class="line">	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:371) [spring-boot-1.4.3.RELEASE.jar:1.4.3.RELEASE]</div><div class="line">	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-1.4.3.RELEASE.jar:1.4.3.RELEASE]</div><div class="line">	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1186) [spring-boot-1.4.3.RELEASE.jar:1.4.3.RELEASE]</div><div class="line">	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1175) [spring-boot-1.4.3.RELEASE.jar:1.4.3.RELEASE]</div><div class="line">	at Application.main(Application.java:12) [main/:na]</div></pre></td></tr></table></figure>
+<p>是由于不能直接将application.java 文件放在main/java文件夹下，必须要新建一个包把他放进去。</p>
 
       
     </div>
@@ -517,7 +522,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">166</span>
+                <span class="site-state-item-count">168</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -535,7 +540,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">170</span>
+                <span class="site-state-item-count">173</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -614,7 +619,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建一个Spring-Boot项目"><span class="nav-number">1.</span> <span class="nav-text">创建一个Spring-Boot项目</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#初始化"><span class="nav-number">1.1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#增加配置"><span class="nav-number">1.2.</span> <span class="nav-text">增加配置</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多项目构建"><span class="nav-number">2.</span> <span class="nav-text">多项目构建</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建一个Spring-Boot项目"><span class="nav-number">1.</span> <span class="nav-text">创建一个Spring-Boot项目</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#初始化"><span class="nav-number">1.1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#增加配置"><span class="nav-number">1.2.</span> <span class="nav-text">增加配置</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多项目构建"><span class="nav-number">2.</span> <span class="nav-text">多项目构建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见问题"><span class="nav-number">3.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#call-‘refresh’-before-multicasting-events-via-the-context"><span class="nav-number">3.1.</span> <span class="nav-text">call ‘refresh’ before multicasting events via the context</span></a></li></ol></li></ol></div>
             
 
           </div>

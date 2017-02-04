@@ -99,7 +99,7 @@ Gradle构建脚本（build.gradle）指定了一个项目和它的任务。
 Gradle属性文件（gradle.properties）用来配置构建属性。
 Gradle设置文件（gradle.settings）对于只有一个项目的构建而言是可选的，如果我们的构建中包含多于一个项目，那么它就是必须的，因为它描述了哪一个项目参与构建。每一个多项目的构建都必">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/12/27/gradle-using/gradle-build-workflow.jpg">
-<meta property="og:updated_time" content="2017-02-03T08:58:03.000Z">
+<meta property="og:updated_time" content="2017-02-04T01:35:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gradle使用经验总结">
 <meta name="twitter:description" content="使用以下配置文件对Gradle的构建进行配置：
@@ -500,7 +500,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
 <p>执行阶段(Execution):Gradle determines the subset of the tasks, created and configured during the configuration phase, to be executed. The subset is determined by the task name arguments passed to the gradle command and the current directory. Gradle then executes each of the selected tasks.</p>
 <p>Gradle构建流程如下,这是在实际执行Gradle构建指令后窗口输出的内容：processResources -&gt; compileJava -&gt; classes -&gt; jar。</p>
 <img src="/2016/12/27/gradle-using/gradle-build-workflow.jpg" alt="Gradle构建流程" title="Gradle构建流程">
-<p>Gradle构建时，会先构建依赖包，再构建主要的包。每个包的构建按照上图的流程反复执行。</p>
+<p>Gradle构建时，会先构建依赖包，再构建主要的包。每个包的构建按照上图的流程反复执行。processResources任务拷贝资源到生产环境的resource目录下(Copies production resources into the production resources directory).</p>
 <p>参考资料：</p>
 <ul>
 <li><p><a href="https://docs.gradle.org/current/userguide/multi_project_builds.html" target="_blank" rel="external">Multi-project Builds</a></p>
@@ -630,7 +630,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">166</span>
+                <span class="site-state-item-count">168</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -648,7 +648,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">170</span>
+                <span class="site-state-item-count">173</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
