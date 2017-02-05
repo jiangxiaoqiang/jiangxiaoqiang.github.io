@@ -12,7 +12,7 @@
     <entry>
       <title><![CDATA[推荐一款下载软件Deluge]]></title>
       <url>%2F2017%2F02%2F05%2Fdeluge%2F</url>
-      <content type="text"><![CDATA[推荐一款下载文件的软件Deluge，Deluge有大洪水、暴雨的含义。 Deluge的特点推荐Deluge主要基于它如下特点。 开源。Deluge基于GPL协议发布，代码完全公开。 跨平台。支持的平台包括Windows、Mac OS X、Linux，还可以运行在FreeBSD上面。 支持磁力链接。Deluge支持磁力链接下载。 安装在Ubuntu下，可以使用如下命令安装： 1sudo apt-get install -y deluge 在Mac OS X下，可以通过如下命令安装： 1brew install Caskroom/cask/deluge]]></content>
+      <content type="text"><![CDATA[推荐一款下载文件的软件Deluge，Deluge有大洪水、暴雨的含义。 Deluge的特点推荐Deluge主要基于它如下特点。 开源。Deluge基于GPL协议发布，代码完全公开。 跨平台。支持的平台包括Windows、Mac OS X、Linux，还可以运行在FreeBSD上面。 支持磁力链接。Deluge支持磁力链接下载。 安装在Ubuntu下，可以使用如下命令安装： 1sudo apt-get install -y deluge 在Mac OS X下，可以通过如下命令安装： 1brew install Caskroom/cask/deluge 效果]]></content>
     </entry>
 
     
