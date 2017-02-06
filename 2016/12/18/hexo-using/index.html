@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/12/18/hexo-using/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="Hexo是一个简洁、高效的博客框架。使用Markdown编写文章，快速渲染成博客静态网页。">
-<meta property="og:updated_time" content="2017-02-04T05:24:31.000Z">
+<meta property="og:updated_time" content="2017-02-06T05:09:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo使用总结">
 <meta name="twitter:description" content="Hexo是一个简洁、高效的博客框架。使用Markdown编写文章，快速渲染成博客静态网页。">
@@ -434,7 +434,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># Extensions</div><div class="line">plugins:</div><div class="line">- hexo-generator-sitemap</div></pre></td></tr></table></figure>
 <p>配置完毕后在使用<code>hexo g</code>命令生成项目时，会自动生成站点地图文件sitemap.xml。</p>
 <h4 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ERROR Local hexo not found in ~/source/blogs/xiaoqiang-blog-source</div><div class="line">ERROR Try running: &apos;npm install hexo --save&apos;</div></pre></td></tr></table></figure>
-<p>使用命令安装了还是不见好。删除项目文件夹下的node_module模块，使用<code>npm instal hexo --save</code>重新安装Hexo即可。</p>
+<p>使用命令安装了还是不见好。删除项目文件夹下的node_module模块，使用<code>npm install hexo --save</code>重新安装Hexo即可。</p>
+<h5 id="hexo-server命令无反应"><a href="#hexo-server命令无反应" class="headerlink" title="hexo server命令无反应"></a>hexo server命令无反应</h5><p>有时候在输入命令<code>hexo s</code>或者<code>hexo server</code>时，并没有按预期的启动server端，在4000端口监听。而是输出了hexo的帮助信息，此时要检查是否在站点的_config.yml文件中显示的指定了plugin，如果有显示的指定plugin那么同样需要指定插件hexo-Server模块,如下代码片段所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">plugins:</div><div class="line">- hexo-generator-sitemap</div><div class="line">- hexo-server</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -650,7 +652,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装搜索模块"><span class="nav-number">2.</span> <span class="nav-text">安装搜索模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Next主题"><span class="nav-number">3.</span> <span class="nav-text">安装Next主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置菜单"><span class="nav-number">4.</span> <span class="nav-text">设置菜单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成站点地图"><span class="nav-number">5.</span> <span class="nav-text">生成站点地图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见问题"><span class="nav-number">6.</span> <span class="nav-text">常见问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装搜索模块"><span class="nav-number">2.</span> <span class="nav-text">安装搜索模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Next主题"><span class="nav-number">3.</span> <span class="nav-text">安装Next主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置菜单"><span class="nav-number">4.</span> <span class="nav-text">设置菜单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成站点地图"><span class="nav-number">5.</span> <span class="nav-text">生成站点地图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见问题"><span class="nav-number">6.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#hexo-server命令无反应"><span class="nav-number">6.1.</span> <span class="nav-text">hexo server命令无反应</span></a></li></ol></li></ol></div>
             
 
           </div>
