@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/12/19/git-using/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="Git是目前世界上最先进的分布式版本控制系统，没有之一。Git有什么特点？简单来说就是：高端大气上档次！逼格那是相当高，装逼必备神器。当你说用Git管理源码的时候，逼格瞬间高好几个档次。最近项目中在用，结合以前使用的经验，简单的总结记录在此。另外Git在网络慢或者不稳定时，表现也很’好。">
-<meta property="og:updated_time" content="2017-02-04T15:21:32.000Z">
+<meta property="og:updated_time" content="2017-02-06T04:48:24.687Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git使用技巧与经验总结">
 <meta name="twitter:description" content="Git是目前世界上最先进的分布式版本控制系统，没有之一。Git有什么特点？简单来说就是：高端大气上档次！逼格那是相当高，装逼必备神器。当你说用Git管理源码的时候，逼格瞬间高好几个档次。最近项目中在用，结合以前使用的经验，简单的总结记录在此。另外Git在网络慢或者不稳定时，表现也很’好。">
@@ -505,6 +505,9 @@
 <h4 id="远程仓库-remote"><a href="#远程仓库-remote" class="headerlink" title="远程仓库(remote)"></a>远程仓库(remote)</h4><p>添加远程仓库：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add osc https://github.com/jiangxiaoqiang/xiaoqiang-blog-source.git</div></pre></td></tr></table></figure>
 <p>其中osc为远程仓库的名称，<a href="https://github.com/jiangxiaoqiang/xiaoqiang-blog-source.git为远程仓库的地址。" target="_blank" rel="external">https://github.com/jiangxiaoqiang/xiaoqiang-blog-source.git为远程仓库的地址。</a></p>
+<h4 id="凭证管理-Credential-Management"><a href="#凭证管理-Credential-Management" class="headerlink" title="凭证管理(Credential Management)"></a>凭证管理(Credential Management)</h4><p>在clone仓库时，提示仓库未找到(Not Found),由于电脑是原来前端同学的开发电脑，此时clone的是后端项目，而git存储的还是前端同学的用户，前端用户没有权限查看后端的代码，所以会提示此错误。开发的机器使用的操作系统是Winodws 7，删除原来的凭证。到目录<code>C:\Program Files\Git\mingw64\etc\gitconfig（和你在Git安装位置有关）</code>下，删除内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[credential]</div><div class="line">helper = manager</div></pre></td></tr></table></figure>
+<p>再次clone时，会提示输入认证信息，输入认证信息后即可成功clone。</p>
 <h4 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h4><h5 id="Your-branch-and-‘origin-master’-have-diverged"><a href="#Your-branch-and-‘origin-master’-have-diverged" class="headerlink" title="Your branch and ‘origin/master’ have diverged"></a>Your branch and ‘origin/master’ have diverged</h5><p>If you absolutely sure this is your case then you can force Git to push your changes:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#force push changes</span></div><div class="line">git push origin master <span class="_">-f</span></div></pre></td></tr></table></figure>
 <h6 id="Changes-not-staged-for-commit"><a href="#Changes-not-staged-for-commit" class="headerlink" title="Changes not staged for commit"></a>Changes not staged for commit</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git stash</div></pre></td></tr></table></figure>
@@ -621,7 +624,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">170</span>
+                <span class="site-state-item-count">173</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -630,7 +633,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -639,7 +642,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">175</span>
+                <span class="site-state-item-count">178</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -718,7 +721,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Git配置"><span class="nav-number">1.</span> <span class="nav-text">Git配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">2.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加-Add"><span class="nav-number">3.</span> <span class="nav-text">添加(Add)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发起pull-request"><span class="nav-number">4.</span> <span class="nav-text">发起pull request</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于Commit的建议"><span class="nav-number">5.</span> <span class="nav-text">关于Commit的建议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#克隆-clone"><span class="nav-number">6.</span> <span class="nav-text">克隆(clone)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新-update"><span class="nav-number">7.</span> <span class="nav-text">更新(update)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#合并-merge"><span class="nav-number">8.</span> <span class="nav-text">合并(merge)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#撤销合并"><span class="nav-number">9.</span> <span class="nav-text">撤销合并</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拉取（Pull）"><span class="nav-number">10.</span> <span class="nav-text">拉取（Pull）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#储藏-Stash"><span class="nav-number">11.</span> <span class="nav-text">储藏(Stash)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#日志信息-log"><span class="nav-number">12.</span> <span class="nav-text">日志信息(log)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#远程仓库-remote"><span class="nav-number">13.</span> <span class="nav-text">远程仓库(remote)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见问题"><span class="nav-number">14.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Your-branch-and-‘origin-master’-have-diverged"><span class="nav-number">14.1.</span> <span class="nav-text">Your branch and ‘origin/master’ have diverged</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Changes-not-staged-for-commit"><span class="nav-number">14.1.1.</span> <span class="nav-text">Changes not staged for commit</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Please-commit-your-changes-or-stash-them-before-you-can-merge"><span class="nav-number">14.2.</span> <span class="nav-text">Please, commit your changes or stash them before you can merge</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Git配置"><span class="nav-number">1.</span> <span class="nav-text">Git配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">2.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加-Add"><span class="nav-number">3.</span> <span class="nav-text">添加(Add)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发起pull-request"><span class="nav-number">4.</span> <span class="nav-text">发起pull request</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于Commit的建议"><span class="nav-number">5.</span> <span class="nav-text">关于Commit的建议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#克隆-clone"><span class="nav-number">6.</span> <span class="nav-text">克隆(clone)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新-update"><span class="nav-number">7.</span> <span class="nav-text">更新(update)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#合并-merge"><span class="nav-number">8.</span> <span class="nav-text">合并(merge)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#撤销合并"><span class="nav-number">9.</span> <span class="nav-text">撤销合并</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拉取（Pull）"><span class="nav-number">10.</span> <span class="nav-text">拉取（Pull）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#储藏-Stash"><span class="nav-number">11.</span> <span class="nav-text">储藏(Stash)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#日志信息-log"><span class="nav-number">12.</span> <span class="nav-text">日志信息(log)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#远程仓库-remote"><span class="nav-number">13.</span> <span class="nav-text">远程仓库(remote)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#凭证管理-Credential-Management"><span class="nav-number">14.</span> <span class="nav-text">凭证管理(Credential Management)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见问题"><span class="nav-number">15.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Your-branch-and-‘origin-master’-have-diverged"><span class="nav-number">15.1.</span> <span class="nav-text">Your branch and ‘origin/master’ have diverged</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Changes-not-staged-for-commit"><span class="nav-number">15.1.1.</span> <span class="nav-text">Changes not staged for commit</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Please-commit-your-changes-or-stash-them-before-you-can-merge"><span class="nav-number">15.2.</span> <span class="nav-text">Please, commit your changes or stash them before you can merge</span></a></li></ol></li></ol></div>
             
 
           </div>
