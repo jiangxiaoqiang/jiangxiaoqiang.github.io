@@ -892,42 +892,14 @@
 
       
         
-          
-            <p>项目的开发情况是源码管理采用Git，构建工具采用的是Gradle。</p>
-<h4 id="安装Git相关插件"><a href="#安装Git相关插件" class="headerlink" title="安装Git相关插件"></a>安装Git相关插件</h4><p>项目的源码管理采用的是Git，所以签出源码首先需要Git相关的插件：</p>
-<ul>
-<li>Git Clinet Plugin</li>
-<li>Git Plugin</li>
-<li>GitLab Plugin</li>
-<li>AnsiColor</li>
-</ul>
-<h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><p>在浏览器中输入不同的命令可以操作Jenkins。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 重启Jenkins</div><div class="line">http://localhost:8080/restart</div></pre></td></tr></table></figure>
-<h4 id="安装Gradle相关插件"><a href="#安装Gradle相关插件" class="headerlink" title="安装Gradle相关插件"></a>安装Gradle相关插件</h4><ul>
-<li>Gradle Plugin</li>
-</ul>
-<p>在插件安装中心没有搜索到Gradle Plugin，直接在Google里搜索插件，上传到Jenkins进行安装即可。</p>
-<h4 id="安装Scala相关插件"><a href="#安装Scala相关插件" class="headerlink" title="安装Scala相关插件"></a>安装Scala相关插件</h4><ul>
-<li>sbt Plugin</li>
-</ul>
-<p>项目开发中使用了Java与Scala，所以还需要安装Scala插件。</p>
-<h4 id="Publish-Over-SSH"><a href="#Publish-Over-SSH" class="headerlink" title="Publish Over SSH"></a>Publish Over SSH</h4><p>配置如下如所示。</p>
-<img src="/2017/02/06/jenkins-using/publish-over-ssh-config.jpg" alt="Publish Over SSH配置" title="Publish Over SSH配置">
-<p><code>**/*.war</code>:匹配当前路径(target/)下所有war包.Remove prefix移除target前缀，Remote directory表示远程目录。</p>
-<h4 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h4><h5 id="Gradle下载"><a href="#Gradle下载" class="headerlink" title="Gradle下载"></a>Gradle下载</h5><p>在使用Wrapper编译项目时，Jenkins始终会去下载Gradle，但是本机已经有安装Gradle，而且用户目录下已经存在通过Wrapper下载的Gradle文件。原因是Jenkins安装时默认是jenkins用户，而当前用户是hldev，所以Jenkins会自动下载Gradle文件。解决的方法就是修改Jenkins的默认启动用户名和组的名称。修改<code>/etc/default/jenkins</code>配置文件，将组名称和用户名称修改如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># user and group to be invoked as (default to jenkins)</div><div class="line">JENKINS_USER=&quot;hldev&quot;</div><div class="line">JENKINS_GROUP=&quot;hldev&quot;</div></pre></td></tr></table></figure>
-<p>这里需要注意的是，仅仅修改用户的名称和组的名称就可以了。不要修改配置文件中默认的NAME变量，NAME变量还是原来的jenkins不变。接着使用如下命令更改Jenkins相关目录的权限：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">chown -R hldev:hldev /var/lib/jenkins</div><div class="line">chown -R hldev:hldev /var/cache/jenkins</div><div class="line">chown -R hldev:hldev /var/log/jenkins</div></pre></td></tr></table></figure>
-<p>使用如下命令重新启动Jenkins即可：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo /etc/init.d/jenkins restart</div><div class="line">sudo service jenkins stop/start</div></pre></td></tr></table></figure>
-<p>Jenkins就会使用hldev用户下<code>~/.gradle/</code>目录下已经下载完成的Gradle，而不是默认使用Jenkins下载Gradle，这里下载了十几个小时都没有成功下载，可见几乎没有速度的。</p>
-<h5 id="找不到javac文件"><a href="#找不到javac文件" class="headerlink" title="找不到javac文件"></a>找不到javac文件</h5><p>在Jenkins中使用Gradle编译项目<code>/var/lib/jenkins/workspace/credit-system/gradlew -p /var/lib/jenkins/workspace/credit-system/cc-web-boot -x test build --stacktrace</code>时，提示如下错误：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Caused by: java.io.IOException: Cannot run program &quot;/usr/lib/jvm/java-8-openjdk-amd64/bin/javac&quot;: error=2, No such file or directory</div><div class="line">	at sbt.SimpleProcessBuilder.run(ProcessImpl.scala:349)</div><div class="line">	at sbt.AbstractProcessBuilder.run(ProcessImpl.scala:128)</div><div class="line">	at sbt.AbstractProcessBuilder$$anonfun$runBuffered$1.apply(ProcessImpl.scala:159)</div><div class="line">	at sbt.AbstractProcessBuilder$$anonfun$runBuffered$1.apply(ProcessImpl.scala:159)</div></pre></td></tr></table></figure>
-<p>提示找不到文件<code>/usr/lib/jvm/java-8-openjdk-amd64/bin/javac</code>，由于本机Java的Home目录是<code>/opt/local/jdk8</code>(可以使用<code>env</code>命令进行查看),当然会找不到Java的编译器。但是不知道到底是哪里指定了此目录。修复此问题，在系统的全局配置文件<code>/etc/profile</code>中配置Java相关的环境变量：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">export JAVA_HOME=/opt/local/jdk8</div><div class="line">export PATH=$PATH:$SONAR_HOME/bin:$SONAR_SCANNER/bin:$GRADLE_HOME/bin:.$JAVA_HOME/bin</div><div class="line">export CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar</div></pre></td></tr></table></figure>
-<p>配置完成后，Jenkins即可成功编译。在没有设置全局环境变量时，使用terminal可以成功编译项目，初步推断在<code>~/.bash_profile</code>中设置的环境变量，在终端中生效了，但是作用域未到Jenkins中，将之放到全局环境变量中即修复了此问题。</p>
-
-          
+          <p>项目的开发情况是源码管理采用Git，构建工具采用的是Gradle。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/06/jenkins-using/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
