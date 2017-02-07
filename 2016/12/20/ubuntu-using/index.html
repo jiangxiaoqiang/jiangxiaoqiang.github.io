@@ -95,7 +95,7 @@
 软件安装在Ubuntu下，常用的软件安装一条命令即搞定,跟上常用的软件名称即可，真的是一条命令安装所有软件,特别是重装系统之后，一条命令将原来的软件都安装完毕，节省了时间和精力，非常方便：
 1234# 安装常用软件(16.04 LTS及以后使用apt命令)sudo apt install -y wget curl aria2 k">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/12/20/ubuntu-using/shutter-selection-shortkey.png">
-<meta property="og:updated_time" content="2017-02-04T05:29:55.000Z">
+<meta property="og:updated_time" content="2017-02-06T09:29:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu使用快捷键与技巧总结">
 <meta name="twitter:description" content="使用的Ubuntu版本为14.04 LTS和16.04 LTS版本。
@@ -419,7 +419,7 @@
       
         <p>使用的Ubuntu版本为14.04 LTS和16.04 LTS版本。</p>
 <h4 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h4><p>在Ubuntu下，常用的软件安装一条命令即搞定,跟上常用的软件名称即可，真的是一条命令安装所有软件,特别是重装系统之后，一条命令将原来的软件都安装完毕，节省了时间和精力，非常方便：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 安装常用软件(16.04 LTS及以后使用apt命令)</span></div><div class="line">sudo apt install -y wget curl aria2 keepass2 putty vim tree unzip git</div><div class="line">openssh-server uget maven gradle shutter nginx mysql-server nodejs </div><div class="line">texstudio virtualbox synaptic terminator gimp graphiz</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 安装常用软件(16.04 LTS及以后使用apt命令)</span></div><div class="line">sudo apt install -y wget curl aria2 keepass2 putty vim tree unzip git</div><div class="line">openssh-server uget maven gradle shutter nginx mysql-server nodejs </div><div class="line">texstudio virtualbox synaptic terminator gimp graphiz deluge</div></pre></td></tr></table></figure>
 <p>synaptic是一款图形化的apt(Advance Package Tool)包管理器，可以轻松查看已经安装的包，未安装的包。terminator它支持分割终端,并可以在终端中快速切换.</p>
 <p>卸载软件：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 卸载libreoffice</span></div><div class="line">sudo apt remove -y --purge libreoffice*</div></pre></td></tr></table></figure>
@@ -450,6 +450,11 @@
 <li>长按Windows键会出现全局快捷键页面</li>
 <li>在开发的过程中可以修改本机Host文件实现主机和IP的映射，这样在源码里只需要写上主机名称，如果某一个开发者想连接不同环境的主机进行调试，直接修改开发者本机的配置，这样不会影响其他开发者</li>
 </ul>
+<h5 id="改变任务栏位置"><a href="#改变任务栏位置" class="headerlink" title="改变任务栏位置"></a>改变任务栏位置</h5><p>改变任务栏位置是Ubuntu 16.04 LTS才加入的特性，所以低版本的运行此命令不会生效，如果要使之生效需要重新启动系统。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 任务栏显示在底部</span></div><div class="line">gsettings <span class="built_in">set</span> com.canonical.Unity.Launcher launcher-position Bottom</div><div class="line"><span class="comment"># 任务栏显示在左侧</span></div><div class="line">gsettings <span class="built_in">set</span> com.canonical.Unity.Launcher launcher-position Left</div></pre></td></tr></table></figure>
+<p>也可以使用GUI工具dconf-editor来设置，可以立即生效，不需重启系统。dconf is a low-level configuration system and settings management. Its main purpose is to provide a back end to GSettings on platforms that don’t already have configuration storage systems. It depends on GLib. It is part of GNOME 3 and is a replacement for GConf.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install dconf-editor</div></pre></td></tr></table></figure>
+<p>安装好之后可以在该工具的 com – canonical – unity – launcher 中手动选择 Unity 在桌面中的所处位置。</p>
 <h4 id="设置截屏快捷键"><a href="#设置截屏快捷键" class="headerlink" title="设置截屏快捷键"></a>设置截屏快捷键</h4><p>在安装好了Shutter之后，每次截取屏幕都需要打开Shutter，点击Selection按钮。其实可以配置截屏的快捷键，就像QQ的<code>Ctrl + Alt + A</code>一样。如下图所示：</p>
 <img src="/2016/12/20/ubuntu-using/shutter-selection-shortkey.png" alt="Ubuntu截图设置快捷键" title="Ubuntu截图设置快捷键">
 <h5 id="设置Terminal默认路径"><a href="#设置Terminal默认路径" class="headerlink" title="设置Terminal默认路径"></a>设置Terminal默认路径</h5><p>一般情况下，在终端里有一个最高频的使用目录，希望打开终端时默认切换到此目录下。在Ubuntu里可以在Home目录下的bashrc<code>~/.bashrc</code>脚本里添加如下代码即可：</p>
@@ -714,7 +719,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">173</span>
+                <span class="site-state-item-count">175</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -732,7 +737,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">178</span>
+                <span class="site-state-item-count">179</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -811,7 +816,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#软件安装"><span class="nav-number">1.</span> <span class="nav-text">软件安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字体"><span class="nav-number">2.</span> <span class="nav-text">字体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小技巧"><span class="nav-number">3.</span> <span class="nav-text">小技巧</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置截屏快捷键"><span class="nav-number">4.</span> <span class="nav-text">设置截屏快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#设置Terminal默认路径"><span class="nav-number">4.1.</span> <span class="nav-text">设置Terminal默认路径</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打开程序"><span class="nav-number">5.</span> <span class="nav-text">打开程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快捷键"><span class="nav-number">6.</span> <span class="nav-text">快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Bash-Shell常用快捷键"><span class="nav-number">6.1.</span> <span class="nav-text">Bash Shell常用快捷键</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#软件安装"><span class="nav-number">1.</span> <span class="nav-text">软件安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字体"><span class="nav-number">2.</span> <span class="nav-text">字体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小技巧"><span class="nav-number">3.</span> <span class="nav-text">小技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#改变任务栏位置"><span class="nav-number">3.1.</span> <span class="nav-text">改变任务栏位置</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置截屏快捷键"><span class="nav-number">4.</span> <span class="nav-text">设置截屏快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#设置Terminal默认路径"><span class="nav-number">4.1.</span> <span class="nav-text">设置Terminal默认路径</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打开程序"><span class="nav-number">5.</span> <span class="nav-text">打开程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快捷键"><span class="nav-number">6.</span> <span class="nav-text">快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Bash-Shell常用快捷键"><span class="nav-number">6.1.</span> <span class="nav-text">Bash Shell常用快捷键</span></a></li></ol></li></ol></div>
             
 
           </div>
