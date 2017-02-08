@@ -84,17 +84,17 @@
 
 
 
-<meta name="description" content="简介GitLab是一个与Git结合的项目管理系统，它有社区版本(Community Edition)和企业版本(Enterprise Edition)，可以部署在公司的内网。这点对于保密性有要求的项目非常合适。目前集成有如下功能：">
+<meta name="description" content="简介GitLab是一个可以与Git相结合的开源项目，用于代码仓库管理等。它有社区版本(Community Edition)和企业版本(Enterprise Edition)，可以部署在公司的内网。这点对于保密性有要求的项目非常合适。目前集成有如下功能：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Gitlab在Ubuntu 16.04 LTS部署流程">
+<meta property="og:title" content="GitLab在Ubuntu 16.04 LTS部署流程">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/02/07/gitlab-deployment/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="简介GitLab是一个与Git结合的项目管理系统，它有社区版本(Community Edition)和企业版本(Enterprise Edition)，可以部署在公司的内网。这点对于保密性有要求的项目非常合适。目前集成有如下功能：">
+<meta property="og:description" content="简介GitLab是一个可以与Git相结合的开源项目，用于代码仓库管理等。它有社区版本(Community Edition)和企业版本(Enterprise Edition)，可以部署在公司的内网。这点对于保密性有要求的项目非常合适。目前集成有如下功能：">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2017/02/07/gitlab-deployment/gitlab-welcom-page.png">
-<meta property="og:updated_time" content="2017-02-08T03:55:53.030Z">
+<meta property="og:updated_time" content="2017-02-08T04:42:04.747Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gitlab在Ubuntu 16.04 LTS部署流程">
-<meta name="twitter:description" content="简介GitLab是一个与Git结合的项目管理系统，它有社区版本(Community Edition)和企业版本(Enterprise Edition)，可以部署在公司的内网。这点对于保密性有要求的项目非常合适。目前集成有如下功能：">
+<meta name="twitter:title" content="GitLab在Ubuntu 16.04 LTS部署流程">
+<meta name="twitter:description" content="简介GitLab是一个可以与Git相结合的开源项目，用于代码仓库管理等。它有社区版本(Community Edition)和企业版本(Enterprise Edition)，可以部署在公司的内网。这点对于保密性有要求的项目非常合适。目前集成有如下功能：">
 <meta name="twitter:image" content="http://jiangxiaoqiang.com/2017/02/07/gitlab-deployment/gitlab-welcom-page.png">
 
 
@@ -129,7 +129,7 @@
 
 
 
-  <title> Gitlab在Ubuntu 16.04 LTS部署流程 | 小强的博客 </title>
+  <title> GitLab在Ubuntu 16.04 LTS部署流程 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -328,7 +328,7 @@
             
             
               
-                Gitlab在Ubuntu 16.04 LTS部署流程
+                GitLab在Ubuntu 16.04 LTS部署流程
               
             
           </h1>
@@ -411,7 +411,7 @@
       
 
       
-        <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>GitLab是一个与Git结合的项目管理系统，它有社区版本(Community Edition)和企业版本(Enterprise Edition)，可以部署在公司的内网。这点对于保密性有要求的项目非常合适。目前集成有如下功能：</p>
+        <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>GitLab是一个可以与Git相结合的开源项目，用于代码仓库管理等。它有社区版本(Community Edition)和企业版本(Enterprise Edition)，可以部署在公司的内网。这点对于保密性有要求的项目非常合适。目前集成有如下功能：</p>
 <a id="more"></a>
 <ol>
 <li>Repository access</li>
@@ -423,7 +423,7 @@
 <li>Merge Requests</li>
 <li>Web Editor</li>
 </ol>
-<h4 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h4><p>这里的部署环境是在Ubuntu 16.04 LTS下，部署的是社区版本(Community Edition)，输入如下命令下载部署环境检查脚本：</p>
+<h4 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h4><p>这里的部署环境是在Ubuntu 16.04 LTS下，部署的是社区版本(Community Edition)，版本号为8.16.4 - f32ee82，输入如下命令下载部署环境检查脚本：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /tmp</div><div class="line">curl -LO https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh</div></pre></td></tr></table></figure>
 <p>运行脚本：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo bash /tmp/script.deb.sh</div></pre></td></tr></table></figure>
@@ -500,8 +500,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/02/08/burn-raspbian-operation-system/" rel="prev" title="burn-raspbian-operation-system">
-                burn-raspbian-operation-system <i class="fa fa-chevron-right"></i>
+              <a href="/2017/02/08/burn-raspbian-operation-system/" rel="prev" title="Raspberry Pi动手试用">
+                Raspberry Pi动手试用 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -529,7 +529,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2017/02/07/gitlab-deployment/"
-           data-title="Gitlab在Ubuntu 16.04 LTS部署流程" data-url="http://jiangxiaoqiang.com/2017/02/07/gitlab-deployment/">
+           data-title="GitLab在Ubuntu 16.04 LTS部署流程" data-url="http://jiangxiaoqiang.com/2017/02/07/gitlab-deployment/">
       </div>
     
   </div>
@@ -594,7 +594,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">180</span>
+                <span class="site-state-item-count">181</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

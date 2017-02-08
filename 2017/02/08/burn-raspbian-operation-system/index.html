@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Raspberry Pi," />
 
 
 
@@ -84,13 +84,16 @@
 
 
 
+<meta name="description" content="烧录操作系统(Burn Operation System)目前可以安装到Raspberry Pi上的系统有，官方推荐的系统可以点击这里：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="burn-raspbian-operation-system">
+<meta property="og:title" content="Raspberry Pi动手试用">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/02/08/burn-raspbian-operation-system/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:updated_time" content="2017-02-08T03:30:48.036Z">
+<meta property="og:description" content="烧录操作系统(Burn Operation System)目前可以安装到Raspberry Pi上的系统有，官方推荐的系统可以点击这里：">
+<meta property="og:updated_time" content="2017-02-08T05:34:14.814Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="burn-raspbian-operation-system">
+<meta name="twitter:title" content="Raspberry Pi动手试用">
+<meta name="twitter:description" content="烧录操作系统(Burn Operation System)目前可以安装到Raspberry Pi上的系统有，官方推荐的系统可以点击这里：">
 
 
 
@@ -124,7 +127,7 @@
 
 
 
-  <title> burn-raspbian-operation-system | 小强的博客 </title>
+  <title> Raspberry Pi动手试用 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -323,7 +326,7 @@
             
             
               
-                burn-raspbian-operation-system
+                Raspberry Pi动手试用
               
             
           </h1>
@@ -348,6 +351,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Equipment/" itemprop="url" rel="index">
+                    <span itemprop="name">Equipment</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -384,7 +409,20 @@
       
 
       
-        
+        <h4 id="烧录操作系统-Burn-Operation-System"><a href="#烧录操作系统-Burn-Operation-System" class="headerlink" title="烧录操作系统(Burn Operation System)"></a>烧录操作系统(Burn Operation System)</h4><p>目前可以安装到Raspberry Pi上的系统有，官方推荐的系统可以点击<a href="https://www.raspberrypi.org/downloads/" target="_blank" rel="external">这里</a>：</p>
+<a id="more"></a>
+<ul>
+<li><a href="[http://ubuntu-mate.org/raspberry-pi/">Ubuntu Mate</a></li>
+<li><a href="https://www.raspberrypi.org/downloads/" target="_blank" rel="external">Raspbian</a></li>
+<li><a href="http://pidora.ca/" target="_blank" rel="external">Pidora</a></li>
+<li><a href="https://developer.ubuntu.com/core/get-started" target="_blank" rel="external">snappy-raspi2</a></li>
+</ul>
+<p>入手Raspberry Pi后，启动Raspberry Pi之前需要将Raspbian系统烧录到SD卡中。此时需要自备读卡器和Micro SD卡。由于此处试用的是Ubuntu操作系统，输入如下命令进行烧录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo dd if=2012-12-16-wheezy-raspbian.img of=/dev/mmcblk0 bs=2M</div></pre></td></tr></table></figure>
+<p>烧录完成之后，将SD卡插入Raspberry Pi的卡槽中，接通电源启动Raspberry。</p>
+<p>参考资料：</p>
+<p><a href="https://www.raspberrypi.org/documentation/installation/installing-images/README.md" target="_blank" rel="external">INSTALLING OPERATING SYSTEM IMAGES</a></p>
+
       
     </div>
 
@@ -405,13 +443,19 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Raspberry-Pi/" rel="tag"># Raspberry Pi</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/07/gitlab-deployment/" rel="next" title="Gitlab在Ubuntu 16.04 LTS部署流程">
-                <i class="fa fa-chevron-left"></i> Gitlab在Ubuntu 16.04 LTS部署流程
+              <a href="/2017/02/07/gitlab-deployment/" rel="next" title="GitLab在Ubuntu 16.04 LTS部署流程">
+                <i class="fa fa-chevron-left"></i> GitLab在Ubuntu 16.04 LTS部署流程
               </a>
             
           </div>
@@ -445,7 +489,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2017/02/08/burn-raspbian-operation-system/"
-           data-title="burn-raspbian-operation-system" data-url="http://jiangxiaoqiang.com/2017/02/08/burn-raspbian-operation-system/">
+           data-title="Raspberry Pi动手试用" data-url="http://jiangxiaoqiang.com/2017/02/08/burn-raspbian-operation-system/">
       </div>
     
   </div>
@@ -469,8 +513,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -501,7 +554,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">180</span>
+                <span class="site-state-item-count">181</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -570,6 +623,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#烧录操作系统-Burn-Operation-System"><span class="nav-number">1.</span> <span class="nav-text">烧录操作系统(Burn Operation System)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
