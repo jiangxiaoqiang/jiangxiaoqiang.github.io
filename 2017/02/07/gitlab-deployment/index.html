@@ -84,16 +84,18 @@
 
 
 
-<meta name="description" content="简介部署">
+<meta name="description" content="简介GitLab是一个与Git结合的项目管理系统，它有社区版本(Community Edition)和企业版本(Enterprise Edition)，可以部署在公司的内网。这点对于保密性有要求的项目非常合适。目前集成有如下功能：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Gitlab部署">
+<meta property="og:title" content="Gitlab在Ubuntu 16.04 LTS部署流程">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/02/07/gitlab-deployment/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="简介部署">
-<meta property="og:updated_time" content="2017-02-07T09:16:08.466Z">
+<meta property="og:description" content="简介GitLab是一个与Git结合的项目管理系统，它有社区版本(Community Edition)和企业版本(Enterprise Edition)，可以部署在公司的内网。这点对于保密性有要求的项目非常合适。目前集成有如下功能：">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2017/02/07/gitlab-deployment/gitlab-welcom-page.png">
+<meta property="og:updated_time" content="2017-02-08T03:55:53.030Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gitlab部署">
-<meta name="twitter:description" content="简介部署">
+<meta name="twitter:title" content="Gitlab在Ubuntu 16.04 LTS部署流程">
+<meta name="twitter:description" content="简介GitLab是一个与Git结合的项目管理系统，它有社区版本(Community Edition)和企业版本(Enterprise Edition)，可以部署在公司的内网。这点对于保密性有要求的项目非常合适。目前集成有如下功能：">
+<meta name="twitter:image" content="http://jiangxiaoqiang.com/2017/02/07/gitlab-deployment/gitlab-welcom-page.png">
 
 
 
@@ -127,7 +129,7 @@
 
 
 
-  <title> Gitlab部署 | 小强的博客 </title>
+  <title> Gitlab在Ubuntu 16.04 LTS部署流程 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -326,7 +328,7 @@
             
             
               
-                Gitlab部署
+                Gitlab在Ubuntu 16.04 LTS部署流程
               
             
           </h1>
@@ -409,7 +411,54 @@
       
 
       
-        <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><h4 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h4>
+        <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>GitLab是一个与Git结合的项目管理系统，它有社区版本(Community Edition)和企业版本(Enterprise Edition)，可以部署在公司的内网。这点对于保密性有要求的项目非常合适。目前集成有如下功能：</p>
+<a id="more"></a>
+<ol>
+<li>Repository access</li>
+<li>Administration</li>
+<li>Issues</li>
+<li>Forks</li>
+<li>Code review</li>
+<li>Wiki</li>
+<li>Merge Requests</li>
+<li>Web Editor</li>
+</ol>
+<h4 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h4><p>这里的部署环境是在Ubuntu 16.04 LTS下，部署的是社区版本(Community Edition)，输入如下命令下载部署环境检查脚本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /tmp</div><div class="line">curl -LO https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh</div></pre></td></tr></table></figure>
+<p>运行脚本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo bash /tmp/script.deb.sh</div></pre></td></tr></table></figure>
+<p>脚本主要的工作是检查一些需要的软件是否已经安装，操作系统进行更新，可以使用命令<code>vim script.deb.sh</code>打开脚本，查看脚本都做了哪些工作。运行如下命令安装GitLab Community Edition：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install -y gitlab-ce</div></pre></td></tr></table></figure>
+<p>安装包大概200多MB。通过apt安装时，下载非常慢，直接到GitLab社区版的<a href="https://packages.gitlab.com/gitlab/gitlab-ce" target="_blank" rel="external">下载页面</a>下载即可。如果网速还是很慢，比如这里使用uGet下载速度只有几十KB，而GitLab的安装文件是托管在Amazon S3平台上的，Amazon S3对授权的Key有超时机制，超过一定时间会自动断开并拒绝再提供服务，如果没有在规定的时间内下载完毕，就必须重头再来，所以网速较慢的用户下载大文件是很难的(不太可能下载成功)，解决此问题，则可以到国内的镜像站点下载安装文件，Amazon的下载URL类似如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://packages-gitlab-com.s3-accelerate.amazonaws.com/7/8/ubuntu/package_files/14274.deb?AWSAccessKeyId=AKIAJ74R7IHMTQVGFCEA&amp;Signature=PFBjoOo8UDznbVKds3XUmVnpaCY%3D&amp;Expires=1486519796</div></pre></td></tr></table></figure>
+<p>首先信任GitLab的GPG公钥：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl https://packages.gitlab.com/gpg.key 2&gt; /dev/null | sudo apt-key add - &amp;&gt;/dev/null</div></pre></td></tr></table></figure>
+<p>在目录<code>/etc/apt/sources.list.d</code>目录下的文件gitlab_gitlab-ce.list中，修改安装的源为清华大学的开源镜像源，注意不同的发行版本写法有细微的区别，这里是Ubuntu 16.04 LTS版本的写法，可以参考<a href="https://mirror.tuna.tsinghua.edu.cn/help/gitlab-ce/" target="_blank" rel="external">这里</a>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">deb https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/ubuntu xenial main</div></pre></td></tr></table></figure>
+<p>修改后的文件内容为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># this file was generated by packages.gitlab.com for</div><div class="line"># the repository at https://packages.gitlab.com/gitlab/gitlab-ce</div><div class="line"></div><div class="line">deb https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/ubuntu xenial main</div><div class="line">deb-src https://packages.gitlab.com/gitlab/gitlab-ce/ubuntu/ xenial main</div></pre></td></tr></table></figure>
+<p>输入如下命令安装GitLab Community Edition：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt update</div><div class="line">sudo apt install -y gitlal-ce</div></pre></td></tr></table></figure>
+<p>此时下载速度基本在300KB以上。安装完毕后，输入如下命令配置GitLab：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gitlab-ctl reconfigure</div></pre></td></tr></table></figure>
+<p>GitLab默认使用的是80端口，但是在自己的机器上，80端已经被Nginx占用，所以需要修改GitLab的默认端口。使用如下命令修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vim /etc/gitlab/gitlab.rb</div></pre></td></tr></table></figure>
+<p>这里GitLab的端口修改为8081，如下片段所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">## GitLab URL</div><div class="line">##! URL on which GitLab will be reachable.</div><div class="line">##! For more details on configuring external_url see:</div><div class="line">##! https://docs.gitlab.com/omnibus/settings/configuration.html#configuring-the-external-url-for-gitlab</div><div class="line">external_url &apos;http://hldev-100:8081&apos;</div></pre></td></tr></table></figure>
+<p>修改后运行<code>sudo gitlab-ctl reconfigure</code>命令使之生效。除了这个端口外，还有一个unicorn用的端口，默认是8080，如果8080端口被其他程序占用(在自己的机器上，8080端口被Jenkins占用了)。那么unicorn就会无法启动，显示为502错误，”GitLab is not responding”。如下片段所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Whoops, GitLab is taking too much time to respond.</div><div class="line"></div><div class="line">Try refreshing the page, or going back and attempting the action again.</div><div class="line"></div><div class="line">Please contact your GitLab administrator if this problem persists.</div><div class="line"></div><div class="line">Go back</div></pre></td></tr></table></figure>
+<p>还是在<code>/etc/gitlab/gitlab.rb</code>文件中，将端口修改为8082，如下片段所示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">unicorn[&apos;port&apos;] = 8082</div></pre></td></tr></table></figure>
+<p>再次运行配置文件生效命令。访问地址<code>http://hldev-100:8081</code>即可。首页如下图所示：</p>
+<img src="/2017/02/07/gitlab-deployment/gitlab-welcom-page.png" alt="GitLab欢迎页" title="GitLab欢迎页">
+<h4 id="账号设置"><a href="#账号设置" class="headerlink" title="账号设置"></a>账号设置</h4><p>GitLab默认的账号如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Username: root</div><div class="line">Password: 5iveL!fe</div></pre></td></tr></table></figure>
+<p>首次登录时需要修改密码。</p>
+<p>参考资料：</p>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-gitlab-on-ubuntu-16-04" target="_blank" rel="external">How To Install and Configure GitLab on Ubuntu 16.04</a></p>
+<p><a href="https://mirror.tuna.tsinghua.edu.cn/help/gitlab-ce/" target="_blank" rel="external">Gitlab Community Edition 镜像使用帮助</a></p>
+<p><a href="http://skyao.github.io/2015/02/16/git-gitlab-setup/" target="_blank" rel="external">GitLab安装配置</a></p>
+
       
     </div>
 
@@ -451,6 +500,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/02/08/burn-raspbian-operation-system/" rel="prev" title="burn-raspbian-operation-system">
+                burn-raspbian-operation-system <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -476,7 +529,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2017/02/07/gitlab-deployment/"
-           data-title="Gitlab部署" data-url="http://jiangxiaoqiang.com/2017/02/07/gitlab-deployment/">
+           data-title="Gitlab在Ubuntu 16.04 LTS部署流程" data-url="http://jiangxiaoqiang.com/2017/02/07/gitlab-deployment/">
       </div>
     
   </div>
@@ -523,7 +576,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">177</span>
+                <span class="site-state-item-count">178</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -620,7 +673,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#部署"><span class="nav-number">2.</span> <span class="nav-text">部署</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#部署"><span class="nav-number">2.</span> <span class="nav-text">部署</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#账号设置"><span class="nav-number">3.</span> <span class="nav-text">账号设置</span></a></li></ol></div>
             
 
           </div>
