@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/02/08/burn-raspbian-operation-system/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="烧录操作系统(Burn Operation System)目前可以安装到Raspberry Pi上的系统有，官方推荐的系统可以点击这里：">
-<meta property="og:updated_time" content="2017-02-13T01:29:13.323Z">
+<meta property="og:updated_time" content="2017-02-13T10:59:08.427Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Raspberry Pi动手试用">
 <meta name="twitter:description" content="烧录操作系统(Burn Operation System)目前可以安装到Raspberry Pi上的系统有，官方推荐的系统可以点击这里：">
@@ -424,8 +424,14 @@
 <p>注意这里必须要先卸载此卷，否则在使用dd命令刻录时会提示<code>/media/dolphin/9016-4EF8 is a directionay</code>，从而导致刻录失败。输入如下命令进行烧录：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo dd if=2012-12-16-wheezy-raspbian.img of=/media/dolphin/9016-4EF8 bs=2M</div></pre></td></tr></table></figure>
 <p>of(output file)参数后面不要添加斜杠。if表示input file，bs表示block size。输入命令后系统在后台刻录，前台可能看不到进度，此时只需要耐心等待即可。烧录完成之后，将SD卡插入Raspberry Pi的卡槽中，接通电源启动Raspberry。</p>
+<h4 id="SSH登录树莓派"><a href="#SSH登录树莓派" class="headerlink" title="SSH登录树莓派"></a>SSH登录树莓派</h4><p>由于本人只选购了一个裸机，也没有屏幕，电源和网线是自己准备的。所以必须要SSH登录到树莓派上面进行操作，使用命令<code>ssh pi@192.168.1.101</code>登录时，提示拒绝连接:<code>ssh: connect to host 192.168.1.101 port 22: connection refused</code>。使用nmap也无法扫描到打开的端口，原来是树莓派官方默认关闭了SSH(话说关闭了不能搞点宣传吗，能高调点关闭吗，关了也不通知－－貌似也无法通知)，主要还是为了安全考虑，才关闭22端口:</p>
+<blockquote>
+<p>As of the November 2016 release, Raspbian has the SSH server disabled by default.</p>
+</blockquote>
+<p>重新开启也很简单，把SD卡拔下来，进入到根目录，新建一个名为<code>ssh</code>的文件就行了(For headless setup, SSH can be enabled by placing a file named ‘ssh’, without any extension, onto the boot partition of the SD card)。</p>
 <p>参考资料：</p>
 <p><a href="https://www.raspberrypi.org/documentation/installation/installing-images/README.md" target="_blank" rel="external">INSTALLING OPERATING SYSTEM IMAGES</a></p>
+<p><a href="http://raspberrypi.stackexchange.com/questions/40689/cannot-connect-to-raspbian-jessie-lite-but-to-raspbian-jessie" target="_blank" rel="external">Cannot connect to raspbian jessie lite but to raspbian jessie</a></p>
 
       
     </div>
@@ -544,7 +550,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">181</span>
+                <span class="site-state-item-count">182</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -553,7 +559,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -562,7 +568,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">187</span>
+                <span class="site-state-item-count">188</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -641,7 +647,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#烧录操作系统-Burn-Operation-System"><span class="nav-number">1.</span> <span class="nav-text">烧录操作系统(Burn Operation System)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#烧录操作系统-Burn-Operation-System"><span class="nav-number">1.</span> <span class="nav-text">烧录操作系统(Burn Operation System)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SSH登录树莓派"><span class="nav-number">2.</span> <span class="nav-text">SSH登录树莓派</span></a></li></ol></div>
             
 
           </div>

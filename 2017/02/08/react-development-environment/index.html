@@ -95,7 +95,8 @@ babel-preset-">
 1sudo npm install --save-dev babel-cli babel-core babel-polyfill babel-preset-es2015 babel-preset-react
 babel-preset-">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2017/02/08/react-development-environment/react-hello-world.png">
-<meta property="og:updated_time" content="2017-02-10T05:46:45.920Z">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2017/02/08/react-development-environment/content_structure.png">
+<meta property="og:updated_time" content="2017-02-13T05:11:50.189Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React开发环境搭建(Webpack+Babel+React)">
 <meta name="twitter:description" content="必备组件安装BabelBabel 是一个 JavaScript 编译器。使用它可以将ES6的语法转换为ES5的语法，以便在现在有的环境执行。在工程中安装Babel:
@@ -420,6 +421,7 @@ babel-preset-">
         <h4 id="必备组件"><a href="#必备组件" class="headerlink" title="必备组件"></a>必备组件</h4><h5 id="安装Babel"><a href="#安装Babel" class="headerlink" title="安装Babel"></a>安装Babel</h5><p>Babel 是一个 JavaScript 编译器。使用它可以将ES6的语法转换为ES5的语法，以便在现在有的环境执行。在工程中安装Babel:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install --save-dev babel-cli babel-core babel-polyfill babel-preset-es2015 babel-preset-react</div></pre></td></tr></table></figure>
 <p>babel-preset-es2015和babel-preset-react分别是ES6和React的插件集。babel通过polyfill来支持某些方法在低级别上浏览器不支持的问题。</p>
+<a id="more"></a>
 <h5 id="安装React"><a href="#安装React" class="headerlink" title="安装React"></a>安装React</h5><p>终端输入以下代码对react和react-dom进行安装：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install react react-dom --save</div></pre></td></tr></table></figure>
 <p>Babel针对React的所有的预设插件：</p>
@@ -439,7 +441,6 @@ babel-preset-">
 <h4 id="新建页面"><a href="#新建页面" class="headerlink" title="新建页面"></a>新建页面</h4><p>在根目录下，新建页面文件index.html:</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!doctype html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>redux blog<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"root"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"./dist/bundle.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
 <h4 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a>Webpack</h4><h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><p>Webpack是一个模块打包工具，能够把各种文件（例如：ReactJS、Babel、Coffeescript、Less/Sass等）作为模块进行编译后进行打包。输入如下命令安装Webpack：</p>
-<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install webpack -g</div></pre></td></tr></table></figure>
 <h5 id="Webpack配置文件"><a href="#Webpack配置文件" class="headerlink" title="Webpack配置文件"></a>Webpack配置文件</h5><p>每个项目下都应该包含一个webpack.config.js，用来告诉Webpack需要做些什么。Webpack在执行的时候，默认会搜索当前目录下的webpack.config.js文件。如下所示：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">entry</span>: <span class="string">"./app.js"</span>,</div><div class="line">  <span class="attr">output</span>: &#123;</div><div class="line">    <span class="attr">path</span>: __dirname+<span class="string">"/dist"</span>,</div><div class="line">    <span class="attr">filename</span>: <span class="string">"bundle.js"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -455,12 +456,24 @@ babel-preset-">
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:8083</div></pre></td></tr></table></figure>
 <p>效果如下图：</p>
 <img src="/2017/02/08/react-development-environment/react-hello-world.png" alt="React示例" title="React示例">
+<p>当前项目的目录结构如下图所示：</p>
+<img src="/2017/02/08/react-development-environment/content_structure.png" alt="项目目录结构" title="项目目录结构">
 <h4 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h4><h5 id="Error-Cannot-find-module-‘optimist’-webpack"><a href="#Error-Cannot-find-module-‘optimist’-webpack" class="headerlink" title="Error: Cannot find module ‘optimist’ webpack"></a>Error: Cannot find module ‘optimist’ webpack</h5><p>在运行webpack命令时，提示<code>Error: Cannot find module &#39;optimist&#39; webpack</code>，此时可以删除Webpack模块，重新安装：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo rm -rf /opt/local/node/lib/node_modules/webpack</div><div class="line">sudo npm install webpack -g</div></pre></td></tr></table></figure>
 <p>重新安装后，webpack命令可以正常使用。</p>
 <h5 id="ERROR-in-Entry-module-not-found-Error-Can’t-resolve-‘app-js’"><a href="#ERROR-in-Entry-module-not-found-Error-Can’t-resolve-‘app-js’" class="headerlink" title="ERROR in Entry module not found: Error: Can’t resolve ‘app.js’"></a>ERROR in Entry module not found: Error: Can’t resolve ‘app.js’</h5><p>在添加了webpack.config.js文件后，提示如下错误：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ERROR in Entry module not found: Error: Can&apos;t resolve &apos;app.js&apos; in &apos;/home/hldev/summerize/dolphin-framework-frontend&apos;</div></pre></td></tr></table></figure>
 <p>使用命令<code>webpack --display-error-details</code>输出详细错误，是缺少了文件夹node_modules。</p>
+<h5 id="ERROR-in-multi-webpack-dev-server"><a href="#ERROR-in-multi-webpack-dev-server" class="headerlink" title="ERROR in multi (webpack)-dev-server"></a>ERROR in multi (webpack)-dev-server</h5><p>在运行命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">webpack-dev-server --hot --inline --content-base --port 8083 .</div></pre></td></tr></table></figure>
+<p>出现如下错误提示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ERROR in multi (webpack)-dev-server/client?http://localhost:8083 webpack/hot/dev-server .</div><div class="line">Module not found: Error: Can&apos;t resolve &apos;/home/hldev/summerize/dolphin-framework-frontend&apos; in &apos;/home/hldev/summerize/dolphin-framework-frontend&apos;</div><div class="line"> @ multi (webpack)-dev-server/client?http://localhost:8083 webpack/hot/dev-server .</div><div class="line">webpack: Failed to compile.</div></pre></td></tr></table></figure>
+<h5 id="Error-Cannot-find-module-‘webpack’"><a href="#Error-Cannot-find-module-‘webpack’" class="headerlink" title="Error: Cannot find module ‘webpack’"></a>Error: Cannot find module ‘webpack’</h5><p>在运行命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">webpack --watch --progress --colors --display-error-details --config webpack/webpack.config.js</div></pre></td></tr></table></figure>
+<p>时，提示找不到Webpack模块，其实webpack已经全局安装了啊。切换到项目的目录下对Webpack进行局部安装即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install webpack</div></pre></td></tr></table></figure>
+<p>具体错误原因还未明白。</p>
+<h5 id="Uncaught-Error-The-root-route-must-render-a-single-element"><a href="#Uncaught-Error-The-root-route-must-render-a-single-element" class="headerlink" title="Uncaught Error: The root route must render a single element"></a>Uncaught Error: The root route must render a single element</h5><p>检查文件是否添加了export，在本项目中是由于Frame.js没有添加<code>export default Frame;</code>语句。</p>
 <p>参考资料：</p>
 <p><a href="https://webpack.js.org/configuration/" target="_blank" rel="external">Webpack Configuration Docuemnt</a></p>
 <p><a href="http://www.ruanyifeng.com/blog/2015/03/react.html" target="_blank" rel="external">React 入门实例教程</a></p>
@@ -587,7 +600,7 @@ babel-preset-">
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">181</span>
+                <span class="site-state-item-count">182</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -596,7 +609,7 @@ babel-preset-">
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -605,7 +618,7 @@ babel-preset-">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">187</span>
+                <span class="site-state-item-count">188</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -684,7 +697,7 @@ babel-preset-">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#必备组件"><span class="nav-number">1.</span> <span class="nav-text">必备组件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装Babel"><span class="nav-number">1.1.</span> <span class="nav-text">安装Babel</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装React"><span class="nav-number">1.2.</span> <span class="nav-text">安装React</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装Webpack-Server"><span class="nav-number">1.3.</span> <span class="nav-text">安装Webpack Server</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#初始化项目"><span class="nav-number">2.</span> <span class="nav-text">初始化项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新建JSX文件"><span class="nav-number">3.</span> <span class="nav-text">新建JSX文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新建入口文件"><span class="nav-number">4.</span> <span class="nav-text">新建入口文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新建页面"><span class="nav-number">5.</span> <span class="nav-text">新建页面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Webpack"><span class="nav-number">6.</span> <span class="nav-text">Webpack</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装"><span class="nav-number">6.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Webpack配置文件"><span class="nav-number">6.2.</span> <span class="nav-text">Webpack配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#将项目与Webpack结合"><span class="nav-number">6.3.</span> <span class="nav-text">将项目与Webpack结合</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见问题"><span class="nav-number">7.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Error-Cannot-find-module-‘optimist’-webpack"><span class="nav-number">7.1.</span> <span class="nav-text">Error: Cannot find module ‘optimist’ webpack</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ERROR-in-Entry-module-not-found-Error-Can’t-resolve-‘app-js’"><span class="nav-number">7.2.</span> <span class="nav-text">ERROR in Entry module not found: Error: Can’t resolve ‘app.js’</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#必备组件"><span class="nav-number">1.</span> <span class="nav-text">必备组件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装Babel"><span class="nav-number">1.1.</span> <span class="nav-text">安装Babel</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装React"><span class="nav-number">1.2.</span> <span class="nav-text">安装React</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装Webpack-Server"><span class="nav-number">1.3.</span> <span class="nav-text">安装Webpack Server</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#初始化项目"><span class="nav-number">2.</span> <span class="nav-text">初始化项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新建JSX文件"><span class="nav-number">3.</span> <span class="nav-text">新建JSX文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新建入口文件"><span class="nav-number">4.</span> <span class="nav-text">新建入口文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新建页面"><span class="nav-number">5.</span> <span class="nav-text">新建页面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Webpack"><span class="nav-number">6.</span> <span class="nav-text">Webpack</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装"><span class="nav-number">6.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Webpack配置文件"><span class="nav-number">6.2.</span> <span class="nav-text">Webpack配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#将项目与Webpack结合"><span class="nav-number">6.3.</span> <span class="nav-text">将项目与Webpack结合</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见问题"><span class="nav-number">7.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Error-Cannot-find-module-‘optimist’-webpack"><span class="nav-number">7.1.</span> <span class="nav-text">Error: Cannot find module ‘optimist’ webpack</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ERROR-in-Entry-module-not-found-Error-Can’t-resolve-‘app-js’"><span class="nav-number">7.2.</span> <span class="nav-text">ERROR in Entry module not found: Error: Can’t resolve ‘app.js’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ERROR-in-multi-webpack-dev-server"><span class="nav-number">7.3.</span> <span class="nav-text">ERROR in multi (webpack)-dev-server</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Error-Cannot-find-module-‘webpack’"><span class="nav-number">7.4.</span> <span class="nav-text">Error: Cannot find module ‘webpack’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Uncaught-Error-The-root-route-must-render-a-single-element"><span class="nav-number">7.5.</span> <span class="nav-text">Uncaught Error: The root route must render a single element</span></a></li></ol></li></ol></div>
             
 
           </div>
