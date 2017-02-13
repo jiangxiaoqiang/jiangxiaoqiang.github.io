@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="基础npm 允许在package.json文件里面，使用scripts字段定义脚本命令。例如可以在Package.js里面定义如下脚本：">
+<meta name="description" content="npm runnpm 允许在package.json文件里面，使用scripts字段定义脚本命令，供npm直接调用。例如可以在Package.json里面定义如下脚本：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="npm使用">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/01/10/npm-using/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="基础npm 允许在package.json文件里面，使用scripts字段定义脚本命令。例如可以在Package.js里面定义如下脚本：">
-<meta property="og:updated_time" content="2017-02-06T07:19:08.000Z">
+<meta property="og:description" content="npm runnpm 允许在package.json文件里面，使用scripts字段定义脚本命令，供npm直接调用。例如可以在Package.json里面定义如下脚本：">
+<meta property="og:updated_time" content="2017-02-09T03:28:52.474Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="npm使用">
-<meta name="twitter:description" content="基础npm 允许在package.json文件里面，使用scripts字段定义脚本命令。例如可以在Package.js里面定义如下脚本：">
+<meta name="twitter:description" content="npm runnpm 允许在package.json文件里面，使用scripts字段定义脚本命令，供npm直接调用。例如可以在Package.json里面定义如下脚本：">
 
 
 
@@ -409,12 +409,13 @@
       
 
       
-        <h4 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h4><p>npm 允许在package.json文件里面，使用scripts字段定义脚本命令。例如可以在Package.js里面定义如下脚本：</p>
+        <h4 id="npm-run"><a href="#npm-run" class="headerlink" title="npm run"></a>npm run</h4><p>npm 允许在package.json文件里面，使用scripts字段定义脚本命令，供npm直接调用。例如可以在Package.json里面定义如下脚本：</p>
 <a id="more"></a>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"name"</span>: <span class="string">"xiaoqiang"</span>,</div><div class="line">  <span class="attr">"version"</span>: <span class="string">"0.0.1"</span>,</div><div class="line">  <span class="attr">"private"</span>: <span class="literal">true</span>,</div><div class="line">  <span class="attr">"devDependencies"</span>: &#123;</div><div class="line">    <span class="attr">"babel-core"</span>: <span class="string">"6.18.2"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">"dependencies"</span>: &#123;</div><div class="line">    <span class="attr">"antd"</span>: <span class="string">"2.6.0"</span>  </div><div class="line">  &#125;,</div><div class="line">  <span class="attr">"scripts"</span>: &#123;</div><div class="line">    <span class="attr">"site-dev"</span>: <span class="string">"./node_modules/gulp/bin/gulp.js"</span>,</div><div class="line">    <span class="attr">"site-watch"</span>: <span class="string">"./node_modules/gulp/bin/gulp.js watch"</span>,</div><div class="line">    <span class="attr">"dev"</span>: <span class="string">"webpack --watch --progress --colors --display-error-details --config webpack/dev.config.js"</span>,</div><div class="line">    <span class="attr">"build"</span>: <span class="string">"webpack --verbose --display-error-details --config webpack/dev.config.js &amp;&amp; ./node_modules/gulp/bin/gulp.js"</span>,</div><div class="line">    <span class="attr">"prod"</span>: <span class="string">"webpack --progress --display-error-details --config webpack/prod.config.js &amp;&amp; ./node_modules/gulp/bin/gulp.js"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>运行脚本：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 安装依赖，如果我们的项目依赖了很多package，一个一个地安装那将是个体力活。</span></div><div class="line"><span class="comment"># 可以将项目依赖的包都在package.json这个文件里声明，然后一行命令搞定</span></div><div class="line">npm install</div><div class="line"><span class="comment"># 运行脚本里的site-dev,相当于执行npm gulp.js</span></div><div class="line">npm run site-dev</div><div class="line">npm run dev</div></pre></td></tr></table></figure>
-<p>npm不仅可用于模块管理，也可以用于执行脚本。package.json有一个scripts字段，可以用于指定脚本命令，供npm直接调用。以上的npm run命令就是直接调用的scripts字段指定的脚本。gulp是一个基于流的构建系统(The streaming build system)，暂时还不理解到底是个什么鬼东西。Webpack是一款用户打包前端模块的工具。主要是用来打包在浏览器端使用的javascript的。同时也能转换、捆绑、打包其他的静态资源，包括css、image、font file、template等。</p>
+<p>以上的npm run命令就是直接调用的scripts字段指定的脚本，其实npm run命令是npm run-script命令的缩写。gulp是一个基于流的构建系统(The streaming build system)，暂时还不理解到底是个什么鬼东西。Webpack是一款用户打包前端模块的工具。主要是用来打包在浏览器端使用的javascript的。同时也能转换、捆绑、打包其他的静态资源，包括css、image、font file、template等。</p>
+<p>在执行<code>npm run &lt;command&gt;</code>指令时，npm模块首先是执行在根目录下的package.json文件中script节点定义的对应的指令，package.json中调用Webpack完成项目的打包等工作。</p>
 
       
     </div>
@@ -533,7 +534,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">179</span>
+                <span class="site-state-item-count">181</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -551,7 +552,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">184</span>
+                <span class="site-state-item-count">187</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -630,7 +631,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#基础"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#npm-run"><span class="nav-number">1.</span> <span class="nav-text">npm run</span></a></li></ol></div>
             
 
           </div>
