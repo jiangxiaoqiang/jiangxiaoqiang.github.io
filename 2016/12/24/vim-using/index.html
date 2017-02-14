@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/12/24/vim-using/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="替換（substitute）1:[range]s/pattern/string/[c,e,g,i]">
-<meta property="og:updated_time" content="2017-02-03T01:15:53.937Z">
+<meta property="og:updated_time" content="2017-02-14T07:14:23.601Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim使用经验与技巧总结">
 <meta name="twitter:description" content="替換（substitute）1:[range]s/pattern/string/[c,e,g,i]">
@@ -501,6 +501,11 @@
 </tbody>
 </table>
 <p>在命令行模式下，输入斜杠，输入需要搜索的单词。匹配的单词会自动高亮，按n继续搜索下一个匹配结果，按#搜索上一个匹配结果。<br>/pattern 向下搜索 n继续搜索下一个<br>?pattern 向上搜索 #继续搜索上一个</p>
+<h4 id="文件编码"><a href="#文件编码" class="headerlink" title="文件编码"></a>文件编码</h4><p>有时在打开由Windows传输的文件时显示乱码，由于Windows操作系统下默认是采用的GBK编码，而Ubuntu下默认采用的是UTF-8编码，所以打开的时候会显示乱码。解决此问题可以在打开文件的时候指定编码，就不会出现乱码的情况了，以VIM编辑器为例，使用如下命令指定打开文件的编码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">vim file_name -c &quot;e ++enc=GBK&quot;</div><div class="line">#实例</div><div class="line">vim 最新脚本.sql -c &quot;e ++enc=GBK&quot;</div></pre></td></tr></table></figure>
+<p>此时可以正常无乱码查看文件了，此时如果想将此文件保存为UTF-8格式的文件，在下一次打开时就可以不用显示指定参数了，可以输入如下命令保存：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:w ++enc=utf-8 最新脚本utf-8.sql</div></pre></td></tr></table></figure>
+<p>保存后会生成一个新的以utf-8编码的文件<code>最新脚本utf-8.sql</code>。</p>
 
       
     </div>
@@ -543,8 +548,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/25/websocket-sending-config/" rel="prev" title="Websocket发送消息长度设置">
-                Websocket发送消息长度设置 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/25/lombok/" rel="prev" title="Lombok精简Java代码">
+                Lombok精简Java代码 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -619,7 +624,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">182</span>
+                <span class="site-state-item-count">183</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -716,7 +721,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#替換（substitute）"><span class="nav-number">1.</span> <span class="nav-text">替換（substitute）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">2.</span> <span class="nav-text">常用命令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#替換（substitute）"><span class="nav-number">1.</span> <span class="nav-text">替換（substitute）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">2.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件编码"><span class="nav-number">3.</span> <span class="nav-text">文件编码</span></a></li></ol></div>
             
 
           </div>

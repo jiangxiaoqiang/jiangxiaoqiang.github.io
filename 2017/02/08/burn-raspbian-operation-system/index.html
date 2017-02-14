@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/02/08/burn-raspbian-operation-system/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="烧录操作系统(Burn Operation System)目前可以安装到Raspberry Pi上的系统有，官方推荐的系统可以点击这里：">
-<meta property="og:updated_time" content="2017-02-13T10:59:08.427Z">
+<meta property="og:updated_time" content="2017-02-14T09:41:25.859Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Raspberry Pi动手试用">
 <meta name="twitter:description" content="烧录操作系统(Burn Operation System)目前可以安装到Raspberry Pi上的系统有，官方推荐的系统可以点击这里：">
@@ -420,10 +420,66 @@
 <p>入手Raspberry Pi后，启动Raspberry Pi之前需要将Raspbian系统烧录到SD卡中。此时需要自备读卡器和Micro SD卡。首先到<a href="https://www.raspberrypi.org/downloads/raspbian/" target="_blank" rel="external">官网</a>下载镜像，选择RASPBIAN JESSIE WITH PIXEL，可以下载zip包，也可以下载torrent文件。zip包大概有1.5GB大小，解压出来4.4GB左右。由于此处试用的是Ubuntu操作系统，输入如下命令查看Micro SD卡卷标名称：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">df -h</div></pre></td></tr></table></figure>
 <p>h表示human readable，已人机交互友好的方式显示系统当前可用卷的信息。此处查出的卷标名称为<code>/media/dolphin/9016-4EF8</code>。然后卸载此卷，使得用户不能对此卷进行操作：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">umount /media/dolphin/9016-4EF8</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">umount /media/dolphin/9016-4EF8</div><div class="line">umount /media/dolphin/sdb1</div><div class="line">umount /media/dolphin/Untitled</div></pre></td></tr></table></figure>
 <p>注意这里必须要先卸载此卷，否则在使用dd命令刻录时会提示<code>/media/dolphin/9016-4EF8 is a directionay</code>，从而导致刻录失败。输入如下命令进行烧录：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo dd if=2012-12-16-wheezy-raspbian.img of=/media/dolphin/9016-4EF8 bs=2M</div></pre></td></tr></table></figure>
-<p>of(output file)参数后面不要添加斜杠。if表示input file，bs表示block size。输入命令后系统在后台刻录，前台可能看不到进度，此时只需要耐心等待即可。烧录完成之后，将SD卡插入Raspberry Pi的卡槽中，接通电源启动Raspberry。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo dd if=2017-01-11-raspbian-jessie.img of=/dev/sdb1 bs=2M</div></pre></td></tr></table></figure>
+<p>of(output file)参数后面不要添加斜杠。if表示input file，bs表示block size。输入命令后系统在后台刻录，前台可能看不到进度，此时只需要耐心等待即可。让人感到郁闷的是，烧录后，Ubuntu不管怎样都无法读出存储卡的数据了。使用命令重新加载也无法读出。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo mount /dev/sdb1 /mnt -t ext3</div></pre></td></tr></table></figure>
+<p>提示错误如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">dolphin@dolphin-F81Se:~$ sudo mount /dev/sdb1 /mnt -t ext3</div><div class="line">mount: wrong fs type, bad option, bad superblock on /dev/sdb1,</div><div class="line">       missing codepage or helper program, or other error</div><div class="line">       In some cases useful info is found in syslog - try</div><div class="line">       dmesg | tail  or so</div></pre></td></tr></table></figure>
+<p>采用命令查看：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dmesg|tail</div></pre></td></tr></table></figure>
+<p>提示如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[ 4978.374994] EXT4-fs (sdb1): VFS: Can&apos;t find ext4 filesystem</div><div class="line">[ 4978.376737] EXT4-fs (sdb1): VFS: Can&apos;t find ext4 filesystem</div><div class="line">[ 4978.378490] EXT4-fs (sdb1): VFS: Can&apos;t find ext4 filesystem</div><div class="line">[ 4978.379857] FAT-fs (sdb1): bogus number of reserved sectors</div><div class="line">[ 4978.379863] FAT-fs (sdb1): Can&apos;t find a valid FAT filesystem</div><div class="line">[ 4978.383365] hfsplus: unable to find HFS+ superblock</div><div class="line">[ 5008.676937] EXT4-fs (sdb1): VFS: Can&apos;t find ext4 filesystem</div></pre></td></tr></table></figure>
+<h5 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h5><p>开始的时候还真没有想到会出现这么多的问题，本来以为挺简单，不过中间问题也比较多。在Mac上面格式化之后是Mac的文件系统格式，不过在Ubuntu下也可以识别，问题不大。因为下载的img镜像是在Ubuntu这台电脑上，所以刻录使用的是Ubuntu这台机器。使用dd命令刻录好之后，电脑怎么也识别不出U盘了，在Fedora上也是识别不出来。只好插到Mac上重新格式化才能识别。刻录完毕之后需要在闪存卡上添加文件的，所以，必须要Ubuntu刻录完毕后能够识别出U盘的文件系统。需要使用FAT32文件系统格式，开始的时候倒没有注意到这个问题。FAT32是古董级的文件系统了。不过FAT和FAT32也是目前兼容性最好的文件系统，几乎所有的设备都支持，FAT32的缺点是不支持单个文件大小在4GB以上的文件。exFAT给我们的最大好处：没有4GB的限制，没有32GB的限制，不会对U盘的寿命产生影响，有一大票的数码产品支持或即将支持。</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+<th>特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ext2()</td>
+<td>Ext2文件系统是Linux 特有的文件系统，它拥有传统UNIX 文件系统的许多特性，如块、inode 和目录等概念。Ext2 非常健壮，具有很多优良的性能。同时，Ext2 也是可扩展的，它提供 的扩展功能允许用户在不格式化文件系统的情况下使用新的特性。 Ext2的含义是Linux第二代文件系统(Linux second extended file system)。</td>
+<td><strong>最大文件大小</strong>： 1TB     <strong>最大文件极限</strong>： 仅受文件系统大小限制    <strong>最大分区/文件系统大小</strong>： 4TB    <strong>最大文件名长度</strong>： 255 字符    <strong>缺省最小/最大块大小</strong>： 1024/4096 字节    <strong>缺省inode 分配</strong>： 每4096 字节为1  <strong>在强制FS 检查前的最大装载</strong>： 20（可配置）</td>
+</tr>
+<tr>
+<td>Ext3</td>
+<td>Ext3 文件系统构筑于ext2 文件系统之上，对标准的Linux ext2 文件系统进行了日志扩展。 日志特性显著地减少文件系统崩溃后的恢复时间，它被广泛地应用于带有共享磁盘的HA 站 点。</td>
+<td></td>
+</tr>
+<tr>
+<td>Ext4</td>
+<td>Ext4改进版的Ext3。</td>
+<td></td>
+</tr>
+<tr>
+<td>FAT</td>
+<td>兼容性最好。</td>
+<td></td>
+</tr>
+<tr>
+<td>FAT32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>exFAT</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>NTFS</td>
+<td>兼容性较好。</td>
+</tr>
+</tbody>
+</table>
+<p>在Ubuntu下，可以输入命令<code>df -lhT</code>查看每个分区的文件系统类型。也可以打开文件<code>/etc/fstab(file system table)</code>文件进行查看。</p>
+<h5 id="unknown-filesystem-type-‘exfat’"><a href="#unknown-filesystem-type-‘exfat’" class="headerlink" title="unknown filesystem type ‘exfat’"></a>unknown filesystem type ‘exfat’</h5><p>是由于当前文件系统不识别exfat文件系统的缘故。重新格式化SD卡为兼容性较高的文件系统(如:FAT、FAT32    )即可。</p>
+<p>烧录完成之后，有可能当前电脑识别不出SD卡，此时可以将SD卡插入其他电脑，并修改其中的文件(我的电脑在Ubuntu下刻录之后，Ubuntu这台机器无法再读取U盘，但是安装Fedora系统的另一台计算机可以读取)，此处添加一个空的ssh文件。文件添加完毕后，将SD卡插入Raspberry Pi的卡槽中，接通电源启动Raspberry，那么就会默认启动sshd进程，知道了树莓派的IP后就可以使用ssh登录了。</p>
 <h4 id="SSH登录树莓派"><a href="#SSH登录树莓派" class="headerlink" title="SSH登录树莓派"></a>SSH登录树莓派</h4><p>由于本人只选购了一个裸机，也没有屏幕，电源和网线是自己准备的。所以必须要SSH登录到树莓派上面进行操作，使用命令<code>ssh pi@192.168.1.101</code>登录时，提示拒绝连接:<code>ssh: connect to host 192.168.1.101 port 22: connection refused</code>。使用nmap也无法扫描到打开的端口，原来是树莓派官方默认关闭了SSH(话说关闭了不能搞点宣传吗，能高调点关闭吗，关了也不通知－－貌似也无法通知)，主要还是为了安全考虑，才关闭22端口:</p>
 <blockquote>
 <p>As of the November 2016 release, Raspbian has the SSH server disabled by default.</p>
@@ -550,7 +606,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">182</span>
+                <span class="site-state-item-count">183</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -647,7 +703,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#烧录操作系统-Burn-Operation-System"><span class="nav-number">1.</span> <span class="nav-text">烧录操作系统(Burn Operation System)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SSH登录树莓派"><span class="nav-number">2.</span> <span class="nav-text">SSH登录树莓派</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#烧录操作系统-Burn-Operation-System"><span class="nav-number">1.</span> <span class="nav-text">烧录操作系统(Burn Operation System)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#问题解决"><span class="nav-number">1.1.</span> <span class="nav-text">问题解决</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#unknown-filesystem-type-‘exfat’"><span class="nav-number">1.2.</span> <span class="nav-text">unknown filesystem type ‘exfat’</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SSH登录树莓派"><span class="nav-number">2.</span> <span class="nav-text">SSH登录树莓派</span></a></li></ol></div>
             
 
           </div>

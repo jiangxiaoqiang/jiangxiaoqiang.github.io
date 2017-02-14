@@ -4,7 +4,56 @@
   <url>
     <loc>http://jiangxiaoqiang.com/2017/02/08/burn-raspbian-operation-system/</loc>
     
-    <lastmod>2017-02-13T10:59:08.427Z</lastmod>
+    <lastmod>2017-02-14T09:41:25.859Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2017/01/19/chrome-using/</loc>
+    
+    <lastmod>2017-02-14T09:22:38.750Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/12/24/vim-using/</loc>
+    
+    <lastmod>2017-02-14T07:14:23.601Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/12/20/ubuntu-using/</loc>
+    
+    <lastmod>2017-02-14T05:09:39.692Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2017/02/06/raspberry-pi-buy/</loc>
+    
+    <lastmod>2017-02-14T05:09:39.692Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2017/01/22/the-manual-of-deployment/</loc>
+    
+    <lastmod>2017-02-14T05:09:39.692Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2017/01/25/linux-command/</loc>
+    
+    <lastmod>2017-02-14T05:09:39.692Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2017/01/17/fedora-using/</loc>
+    
+    <lastmod>2017-02-14T05:09:39.692Z</lastmod>
     
   </url>
   
@@ -79,23 +128,9 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/12/20/ubuntu-using/</loc>
-    
-    <lastmod>2017-02-08T02:22:03.894Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://jiangxiaoqiang.com/2017/02/06/jenkins-using/</loc>
     
     <lastmod>2017-02-07T11:22:18.181Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jiangxiaoqiang.com/2017/02/06/raspberry-pi-buy/</loc>
-    
-    <lastmod>2017-02-07T05:39:22.000Z</lastmod>
     
   </url>
   
@@ -135,13 +170,6 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2017/01/22/the-manual-of-deployment/</loc>
-    
-    <lastmod>2017-02-06T06:12:48.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://jiangxiaoqiang.com/2017/02/06/ubuntu-theme-tweak/</loc>
     
     <lastmod>2017-02-06T05:50:16.000Z</lastmod>
@@ -163,13 +191,6 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/12/08/jvm-tools/</loc>
-    
-    <lastmod>2017-02-06T04:48:24.675Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://jiangxiaoqiang.com/2017/02/05/hotspot-jvm-options/</loc>
     
     <lastmod>2017-02-06T04:48:24.675Z</lastmod>
@@ -178,6 +199,13 @@
   
   <url>
     <loc>http://jiangxiaoqiang.com/2017/01/31/why-linux/</loc>
+    
+    <lastmod>2017-02-06T04:48:24.675Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/12/08/jvm-tools/</loc>
     
     <lastmod>2017-02-06T04:48:24.675Z</lastmod>
     
@@ -240,6 +268,13 @@
   </url>
   
   <url>
+    <loc>http://jiangxiaoqiang.com/2017/01/29/java-class-structure/</loc>
+    
+    <lastmod>2017-02-03T01:15:53.937Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jiangxiaoqiang.com/2017/01/08/java-command-compile/</loc>
     
     <lastmod>2017-02-03T01:15:53.937Z</lastmod>
@@ -247,21 +282,7 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/12/24/vim-using/</loc>
-    
-    <lastmod>2017-02-03T01:15:53.937Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://jiangxiaoqiang.com/2017/01/09/nginx-using/</loc>
-    
-    <lastmod>2017-02-03T01:15:53.937Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jiangxiaoqiang.com/2017/01/29/java-class-structure/</loc>
     
     <lastmod>2017-02-03T01:15:53.937Z</lastmod>
     
@@ -296,13 +317,6 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2017/01/17/fedora-using/</loc>
-    
-    <lastmod>2017-01-24T08:14:13.061Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://jiangxiaoqiang.com/2017/01/21/localhost-vs-127-0-0-1/</loc>
     
     <lastmod>2017-01-22T08:42:06.260Z</lastmod>
@@ -331,16 +345,16 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2017/01/19/chrome-using/</loc>
+    <loc>http://jiangxiaoqiang.com/2017/01/05/aria2-using/</loc>
     
-    <lastmod>2017-01-22T02:02:12.568Z</lastmod>
+    <lastmod>2017-01-22T02:02:12.564Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2017/01/05/aria2-using/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/11/19/curl-using/</loc>
     
-    <lastmod>2017-01-22T02:02:12.564Z</lastmod>
+    <lastmod>2017-01-19T01:25:00.059Z</lastmod>
     
   </url>
   
@@ -353,13 +367,6 @@
   
   <url>
     <loc>http://jiangxiaoqiang.com/2017/01/16/the-book-of-caikangyong/</loc>
-    
-    <lastmod>2017-01-19T01:25:00.059Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/11/19/curl-using/</loc>
     
     <lastmod>2017-01-19T01:25:00.059Z</lastmod>
     
@@ -485,14 +492,7 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/11/29/spring-step-by-step-privillege/</loc>
-    
-    <lastmod>2017-01-03T01:33:01.034Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jiangxiaoqiang.com/categories/index.html</loc>
+    <loc>http://jiangxiaoqiang.com/2016/12/31/spring-boot-app-management/</loc>
     
     <lastmod>2017-01-03T01:33:01.034Z</lastmod>
     
@@ -513,7 +513,21 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/12/31/spring-boot-app-management/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/10/27/new-keyboard/</loc>
+    
+    <lastmod>2017-01-03T01:33:01.034Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/12/25/uget-using/</loc>
+    
+    <lastmod>2017-01-03T01:33:01.034Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/categories/index.html</loc>
     
     <lastmod>2017-01-03T01:33:01.034Z</lastmod>
     
@@ -527,14 +541,7 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/27/new-keyboard/</loc>
-    
-    <lastmod>2017-01-03T01:33:01.034Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/12/25/uget-using/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/11/29/spring-step-by-step-privillege/</loc>
     
     <lastmod>2017-01-03T01:33:01.034Z</lastmod>
     
@@ -590,14 +597,14 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/21/Fedora-shortkey/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/12/23/react-using/</loc>
     
     <lastmod>2016-12-24T05:59:46.087Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/12/23/react-using/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/10/21/Fedora-shortkey/</loc>
     
     <lastmod>2016-12-24T05:59:46.087Z</lastmod>
     
@@ -646,7 +653,7 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/27/websocket-event/</loc>
+    <loc>http://jiangxiaoqiang.com/hexo-config.html</loc>
     
     <lastmod>2016-12-19T04:46:16.922Z</lastmod>
     
@@ -660,7 +667,7 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/tags/index.html</loc>
+    <loc>http://jiangxiaoqiang.com/2016/10/27/websocket-event/</loc>
     
     <lastmod>2016-12-19T04:46:16.922Z</lastmod>
     
@@ -674,63 +681,14 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/hexo-config.html</loc>
+    <loc>http://jiangxiaoqiang.com/tags/index.html</loc>
     
     <lastmod>2016-12-19T04:46:16.922Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/22/tomcat-http/</loc>
-    
-    <lastmod>2016-12-19T04:46:16.918Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/20/stomp-url-route/</loc>
-    
-    <lastmod>2016-12-19T04:46:16.918Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/25/stomp-spring-message-push/</loc>
-    
-    <lastmod>2016-12-19T04:46:16.918Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/</loc>
-    
-    <lastmod>2016-12-19T04:46:16.918Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/17/springmvc-sourcecode-debugging/</loc>
-    
-    <lastmod>2016-12-19T04:46:16.918Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/12/01/springmvc-filter/</loc>
-    
-    <lastmod>2016-12-19T04:46:16.918Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/12/25/spring/</loc>
-    
-    <lastmod>2016-12-19T04:46:16.918Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/12/02/spring-viewresolver/</loc>
     
     <lastmod>2016-12-19T04:46:16.918Z</lastmod>
     
@@ -744,28 +702,70 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/11/23/single-user-login/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/12/02/spring-viewresolver/</loc>
+    
+    <lastmod>2016-12-19T04:46:16.918Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/12/25/spring/</loc>
+    
+    <lastmod>2016-12-19T04:46:16.918Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/12/01/springmvc-filter/</loc>
+    
+    <lastmod>2016-12-19T04:46:16.918Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/17/springmvc-sourcecode-debugging/</loc>
+    
+    <lastmod>2016-12-19T04:46:16.918Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/25/stomp-spring-message-push/</loc>
+    
+    <lastmod>2016-12-19T04:46:16.918Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/20/stomp-url-route/</loc>
+    
+    <lastmod>2016-12-19T04:46:16.918Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/22/tomcat-http/</loc>
+    
+    <lastmod>2016-12-19T04:46:16.918Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/11/04/redis-client-connect/</loc>
     
     <lastmod>2016-12-19T04:46:16.914Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/12/14/spring-injection-type/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/11/15/redmine-install/</loc>
     
     <lastmod>2016-12-19T04:46:16.914Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/17/port-aready-in-use/</loc>
-    
-    <lastmod>2016-12-19T04:46:16.914Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/12/13/redis-cluster/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/12/13/redis-memcached-diff/</loc>
     
     <lastmod>2016-12-19T04:46:16.914Z</lastmod>
     
@@ -786,7 +786,14 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/11/04/redis-client-connect/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/11/15/redis-using/</loc>
+    
+    <lastmod>2016-12-19T04:46:16.914Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/11/23/single-user-login/</loc>
     
     <lastmod>2016-12-19T04:46:16.914Z</lastmod>
     
@@ -794,13 +801,6 @@
   
   <url>
     <loc>http://jiangxiaoqiang.com/2016/09/23/phoenix-tutorial/</loc>
-    
-    <lastmod>2016-12-19T04:46:16.914Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/11/24/redis-expire-strategy/</loc>
     
     <lastmod>2016-12-19T04:46:16.914Z</lastmod>
     
@@ -821,14 +821,14 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/11/15/redis-using/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/11/24/redis-expire-strategy/</loc>
     
     <lastmod>2016-12-19T04:46:16.914Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/12/13/redis-memcached-diff/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/11/01/redis/</loc>
     
     <lastmod>2016-12-19T04:46:16.914Z</lastmod>
     
@@ -856,7 +856,7 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/09/25/spring-ioc/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/12/14/spring-injection-type/</loc>
     
     <lastmod>2016-12-19T04:46:16.914Z</lastmod>
     
@@ -870,7 +870,7 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/11/01/redis/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/12/13/redis-cluster/</loc>
     
     <lastmod>2016-12-19T04:46:16.914Z</lastmod>
     
@@ -891,7 +891,7 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/11/15/redmine-install/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/10/17/port-aready-in-use/</loc>
     
     <lastmod>2016-12-19T04:46:16.914Z</lastmod>
     
@@ -899,6 +899,13 @@
   
   <url>
     <loc>http://jiangxiaoqiang.com/2016/09/27/spring-mybatis-integrete/</loc>
+    
+    <lastmod>2016-12-19T04:46:16.914Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/09/25/spring-ioc/</loc>
     
     <lastmod>2016-12-19T04:46:16.914Z</lastmod>
     
@@ -919,13 +926,6 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/29/kafka-delete-topic/</loc>
-    
-    <lastmod>2016-12-19T04:46:16.906Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://jiangxiaoqiang.com/2016/12/25/lombok/</loc>
     
     <lastmod>2016-12-19T04:46:16.906Z</lastmod>
@@ -933,7 +933,14 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/12/15/maven-using/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/12/25/maven-private-service/</loc>
+    
+    <lastmod>2016-12-19T04:46:16.906Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/29/kafka-delete-topic/</loc>
     
     <lastmod>2016-12-19T04:46:16.906Z</lastmod>
     
@@ -975,28 +982,7 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/12/14/java-memory-model/</loc>
-    
-    <lastmod>2016-12-19T04:46:16.906Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/12/25/maven-private-service/</loc>
-    
-    <lastmod>2016-12-19T04:46:16.906Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://jiangxiaoqiang.com/2016/12/13/message-oriented-middleware/</loc>
-    
-    <lastmod>2016-12-19T04:46:16.906Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jiangxiaoqiang.com/2016/12/25/log4j/</loc>
     
     <lastmod>2016-12-19T04:46:16.906Z</lastmod>
     
@@ -1010,7 +996,14 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/11/08/location-rectifying/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/12/25/log4j/</loc>
+    
+    <lastmod>2016-12-19T04:46:16.906Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/12/15/maven-using/</loc>
     
     <lastmod>2016-12-19T04:46:16.906Z</lastmod>
     
@@ -1024,7 +1017,7 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/13/linux-chkconfig-service-systemctl/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/11/08/location-rectifying/</loc>
     
     <lastmod>2016-12-19T04:46:16.906Z</lastmod>
     
@@ -1032,6 +1025,20 @@
   
   <url>
     <loc>http://jiangxiaoqiang.com/2016/12/13/netty-theory/</loc>
+    
+    <lastmod>2016-12-19T04:46:16.906Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/10/13/linux-chkconfig-service-systemctl/</loc>
+    
+    <lastmod>2016-12-19T04:46:16.906Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/12/14/java-memory-model/</loc>
     
     <lastmod>2016-12-19T04:46:16.906Z</lastmod>
     
@@ -1052,14 +1059,14 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/12/18/java-concurrent-program/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/12/18/java-concurrent-package/</loc>
     
     <lastmod>2016-12-19T04:46:16.898Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/12/18/java-concurrent-package/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/12/18/java-concurrent-program/</loc>
     
     <lastmod>2016-12-19T04:46:16.898Z</lastmod>
     
@@ -1080,7 +1087,7 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/12/14/interview-question/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/11/26/interview-experience/</loc>
     
     <lastmod>2016-12-19T04:46:16.894Z</lastmod>
     
@@ -1094,9 +1101,16 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/11/26/interview-experience/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/12/14/interview-question/</loc>
     
     <lastmod>2016-12-19T04:46:16.894Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jiangxiaoqiang.com/2016/12/13/hbase-rowkey-design/</loc>
+    
+    <lastmod>2016-12-19T04:46:16.890Z</lastmod>
     
   </url>
   
@@ -1115,14 +1129,14 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/11/19/hbase-dulplicate-data/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/10/01/hadoop-cluster-deploy/</loc>
     
     <lastmod>2016-12-19T04:46:16.890Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/01/hadoop-cluster-deploy/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/10/10/intellij-hot-deply/</loc>
     
     <lastmod>2016-12-19T04:46:16.890Z</lastmod>
     
@@ -1136,13 +1150,6 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/12/13/hbase-rowkey-design/</loc>
-    
-    <lastmod>2016-12-19T04:46:16.890Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://jiangxiaoqiang.com/2016/12/10/fedora-vpn-connect/</loc>
     
     <lastmod>2016-12-19T04:46:16.890Z</lastmod>
@@ -1150,7 +1157,7 @@
   </url>
   
   <url>
-    <loc>http://jiangxiaoqiang.com/2016/10/10/intellij-hot-deply/</loc>
+    <loc>http://jiangxiaoqiang.com/2016/11/19/hbase-dulplicate-data/</loc>
     
     <lastmod>2016-12-19T04:46:16.890Z</lastmod>
     
