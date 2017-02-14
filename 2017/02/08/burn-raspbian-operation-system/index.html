@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/02/08/burn-raspbian-operation-system/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="烧录操作系统(Burn Operation System)目前可以安装到Raspberry Pi上的系统有，官方推荐的系统可以点击这里：">
-<meta property="og:updated_time" content="2017-02-14T09:41:25.859Z">
+<meta property="og:updated_time" content="2017-02-14T10:36:33.542Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Raspberry Pi动手试用">
 <meta name="twitter:description" content="烧录操作系统(Burn Operation System)目前可以安装到Raspberry Pi上的系统有，官方推荐的系统可以点击这里：">
@@ -423,7 +423,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">umount /media/dolphin/9016-4EF8</div><div class="line">umount /media/dolphin/sdb1</div><div class="line">umount /media/dolphin/Untitled</div></pre></td></tr></table></figure>
 <p>注意这里必须要先卸载此卷，否则在使用dd命令刻录时会提示<code>/media/dolphin/9016-4EF8 is a directionay</code>，从而导致刻录失败。输入如下命令进行烧录：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo dd if=2017-01-11-raspbian-jessie.img of=/dev/sdb1 bs=2M</div></pre></td></tr></table></figure>
-<p>of(output file)参数后面不要添加斜杠。if表示input file，bs表示block size。输入命令后系统在后台刻录，前台可能看不到进度，此时只需要耐心等待即可。让人感到郁闷的是，烧录后，Ubuntu不管怎样都无法读出存储卡的数据了。使用命令重新加载也无法读出。</p>
+<p>of(output file)参数后面不要添加斜杠。if表示input file，bs表示block size。输入命令后系统在后台刻录，前台可能看不到进度，此时只需要耐心等待即可。如果想要看到写入的进度，可以使用dd的一款加强版本dcfldd，是dd的一个fork，在 dd 的基础上增加了取证和安全方面的功能。让人感到郁闷的是，烧录后，Ubuntu不管怎样都无法读出存储卡的数据了。使用命令重新加载也无法读出。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo mount /dev/sdb1 /mnt -t ext3</div></pre></td></tr></table></figure>
 <p>提示错误如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">dolphin@dolphin-F81Se:~$ sudo mount /dev/sdb1 /mnt -t ext3</div><div class="line">mount: wrong fs type, bad option, bad superblock on /dev/sdb1,</div><div class="line">       missing codepage or helper program, or other error</div><div class="line">       In some cases useful info is found in syslog - try</div><div class="line">       dmesg | tail  or so</div></pre></td></tr></table></figure>
@@ -488,6 +488,7 @@
 <p>参考资料：</p>
 <p><a href="https://www.raspberrypi.org/documentation/installation/installing-images/README.md" target="_blank" rel="external">INSTALLING OPERATING SYSTEM IMAGES</a></p>
 <p><a href="http://raspberrypi.stackexchange.com/questions/40689/cannot-connect-to-raspbian-jessie-lite-but-to-raspbian-jessie" target="_blank" rel="external">Cannot connect to raspbian jessie lite but to raspbian jessie</a></p>
+<p><a href="https://www.raspberrypi.org/documentation/installation/installing-images/linux.md" target="_blank" rel="external">INSTALLING OPERATING SYSTEM IMAGES ON LINUX</a></p>
 
       
     </div>
@@ -606,7 +607,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">183</span>
+                <span class="site-state-item-count">184</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -615,7 +616,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -624,7 +625,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">188</span>
+                <span class="site-state-item-count">189</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
