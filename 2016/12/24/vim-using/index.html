@@ -84,16 +84,19 @@
 
 
 
-<meta name="description" content="替換（substitute）1:[range]s/pattern/string/[c,e,g,i]">
+<meta name="description" content="替換（substitute）123:[range]s/pattern/string/[c,e,g,i]# 示例:%s/dn5/dn6/g
+将文件中所有的dn5替换成dn6。:%s/dn5/dn6/g会在全局范围(%)查找dn5并替换为dn6，所有出现都会被替换（g）。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vim使用经验与技巧总结">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/12/24/vim-using/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="替換（substitute）1:[range]s/pattern/string/[c,e,g,i]">
-<meta property="og:updated_time" content="2017-02-14T07:14:23.601Z">
+<meta property="og:description" content="替換（substitute）123:[range]s/pattern/string/[c,e,g,i]# 示例:%s/dn5/dn6/g
+将文件中所有的dn5替换成dn6。:%s/dn5/dn6/g会在全局范围(%)查找dn5并替换为dn6，所有出现都会被替换（g）。">
+<meta property="og:updated_time" content="2017-02-15T06:13:45.684Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim使用经验与技巧总结">
-<meta name="twitter:description" content="替換（substitute）1:[range]s/pattern/string/[c,e,g,i]">
+<meta name="twitter:description" content="替換（substitute）123:[range]s/pattern/string/[c,e,g,i]# 示例:%s/dn5/dn6/g
+将文件中所有的dn5替换成dn6。:%s/dn5/dn6/g会在全局范围(%)查找dn5并替换为dn6，所有出现都会被替换（g）。">
 
 
 
@@ -409,7 +412,8 @@
       
 
       
-        <h4 id="替換（substitute）"><a href="#替換（substitute）" class="headerlink" title="替換（substitute）"></a>替換（substitute）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:[range]s/pattern/string/[c,e,g,i]</div></pre></td></tr></table></figure>
+        <h4 id="替換（substitute）"><a href="#替換（substitute）" class="headerlink" title="替換（substitute）"></a>替換（substitute）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">:[range]s/pattern/string/[c,e,g,i]</div><div class="line"># 示例</div><div class="line">:%s/dn5/dn6/g</div></pre></td></tr></table></figure>
+<p>将文件中所有的dn5替换成dn6。<code>:%s/dn5/dn6/g</code>会在全局范围(<code>%</code>)查找<code>dn5</code>并替换为<code>dn6</code>，所有出现都会被替换（<code>g</code>）。</p>
 <a id="more"></a>
 <table>
 <thead>
@@ -506,6 +510,10 @@
 <p>此时可以正常无乱码查看文件了，此时如果想将此文件保存为UTF-8格式的文件，在下一次打开时就可以不用显示指定参数了，可以输入如下命令保存：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:w ++enc=utf-8 最新脚本utf-8.sql</div></pre></td></tr></table></figure>
 <p>保存后会生成一个新的以utf-8编码的文件<code>最新脚本utf-8.sql</code>。</p>
+<h4 id="vim获取文件权限"><a href="#vim获取文件权限" class="headerlink" title="vim获取文件权限"></a>vim获取文件权限</h4><p>有时在使用vim打开文件后保存时，提示没有权限。此时当然可以退出再以sudo命令打开编辑的文件，或者保存到临时的文件中再执行mv命令。但是还有一种更好的方法，输入如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:w !sudo tee %</div></pre></td></tr></table></figure>
+<p>此时文件即成功保存。此处利用了在vim中执行外部命令，在vim中执行外部命令的格式为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#语法</div><div class="line">:!&lt;cmd&gt;</div><div class="line">#示例</div><div class="line">:!ls</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -548,8 +556,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/25/log4j/" rel="prev" title="Java Web开发--log4j">
-                Java Web开发--log4j <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/25/websocket-sending-config/" rel="prev" title="Websocket发送消息长度设置">
+                Websocket发送消息长度设置 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -624,7 +632,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">184</span>
+                <span class="site-state-item-count">185</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -642,7 +650,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">189</span>
+                <span class="site-state-item-count">187</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -721,7 +729,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#替換（substitute）"><span class="nav-number">1.</span> <span class="nav-text">替換（substitute）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">2.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件编码"><span class="nav-number">3.</span> <span class="nav-text">文件编码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#替換（substitute）"><span class="nav-number">1.</span> <span class="nav-text">替換（substitute）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">2.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件编码"><span class="nav-number">3.</span> <span class="nav-text">文件编码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vim获取文件权限"><span class="nav-number">4.</span> <span class="nav-text">vim获取文件权限</span></a></li></ol></div>
             
 
           </div>

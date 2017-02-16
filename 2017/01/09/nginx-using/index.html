@@ -95,7 +95,7 @@
 12345# Ubuntu 16.04 LTSsudo apt install nginx -y# Mac OS Xbrew install nginx
 安装完毕后配置文件在/etc/nginx/config.d。">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2017/01/09/nginx-using/loadbalance.png">
-<meta property="og:updated_time" content="2017-02-03T01:15:53.937Z">
+<meta property="og:updated_time" content="2017-02-15T06:27:46.080Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx使用总结">
 <meta name="twitter:description" content="安装输入如下命令安装：
@@ -426,6 +426,8 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/<span class="built_in">local</span>/nginx/sbin/nginx -t</div></pre></td></tr></table></figure>
 <p>其中参数t表示测试配置文件，并退出，命令的结果为：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nginx: the configuration file /usr/local/nginx/conf/nginx.conf syntax is ok</div><div class="line">nginx: configuration file /usr/local/nginx/conf/nginx.conf test is successful</div></pre></td></tr></table></figure>
+<p>修改后使配置文件生效可以重启Nginx，不过更加方便的是重载Nginx：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo nginx -s reload</div><div class="line">#命令写上绝对路径</div><div class="line">sudo /usr/sbin/nginx -s reload</div></pre></td></tr></table></figure>
 <p>也可以输入如下命令查看Nginx帮助：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/<span class="built_in">local</span>/nginx/sbin/nginx -h</div></pre></td></tr></table></figure>
 <h4 id="location"><a href="#location" class="headerlink" title="location"></a>location</h4><p>每个 url 请求都会对应的一个服务，nginx 进行处理转发或者是本地的一个文件路径，或者是其他服务器的一个服务路径。而这个路径的匹配是通过 location 来进行的。我们可以将 server 当做对应一个域名进行的配置，而 location 是在一个域名下对更精细的路径进行配置。</p>
@@ -569,7 +571,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">184</span>
+                <span class="site-state-item-count">185</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -587,7 +589,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">189</span>
+                <span class="site-state-item-count">187</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
