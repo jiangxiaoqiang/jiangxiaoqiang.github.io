@@ -3,16 +3,23 @@
   
     
     <entry>
+      <title><![CDATA[React UI组件]]></title>
+      <url>%2F2017%2F02%2F16%2Freact-ui%2F</url>
+      <content type="text"><![CDATA[最近项目中使用了阿里蚂蚁金服前端团队捣鼓出来的一个React UI组件Antd，Ant自然而然表示我们是蚂蚁金服噻，d就表示Design噻。阿里信息平台的前端团队就不服气了，你能捣鼓，难道俺就不会吗？好的，又一个轮子uxcore造出来了。当然了，每个轮子有造每个轮子的理由。轮子当然是自己造的好使啊，不然就阅读别人厂家厚厚的一摞说明书。 还有一个Ant语言，也还需要熟悉。目前UI组件还有Google提供的Material UI，是基于Material风格的。 antd蚂蚁金服前端团队出的一款企业级UI Library。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Linux术语含义]]></title>
       <url>%2F2017%2F02%2F15%2Flinux-jargon%2F</url>
-      <content type="text"><![CDATA[rc的含义在Linux系统中，常常有结尾为rc的文件，例如:.bashrc、npmrc….。在使用linux系统中,脚本开机时自动运行，就要和/etc/rc.d/rc.local这个文件打交道，那么rc到底是什么含义呢？“rc”，它是“runcomm”的缩写――即名词“run command”(运行命令)的简写。来自麻省理工学院在 1965 年发展的 CTSS系统。相关文献曾记载这一段话：”具有从档案中取出一系列命令来执行的功能；这称为 “run commands” 又称为 “runcom”，而这种档案又称为一个 runcom (a runcom)。”rc”作为脚本类文件的后缀，这些脚本通常在程序的启动阶段被调用，通常是Linux系统启动时。如/etc/rc（连接到/etc/rc.d/rc）是Linux启动的主脚本，而.bashrc是当Linux的bash shell启动后所运行的脚本。.bashrc的前缀“.”是一个命名标准，它被设计用来在用户文件中隐藏那些用户指定的特殊文件;“ls”命令默认情况下不会列出此类文件，“rm”默认情况下也不会删除它们。许多程序在启动时，都需要“rc”后缀的初始文件或配置文件。]]></content>
+      <content type="text"><![CDATA[rc的含义在Linux系统中，常常有结尾为rc的文件，例如:.bashrc、npmrc….。在使用linux系统中,脚本开机时自动运行，就要和/etc/rc.d/rc.local这个文件打交道，那么rc到底是什么含义呢？“rc”，它是“runcomm”的缩写――即名词“run command”(运行命令)的简写。来自麻省理工学院在 1965 年发展的 CTSS系统。相关文献曾记载这一段话：”具有从档案中取出一系列命令来执行的功能；这称为 “run commands” 又称为 “runcom”。”rc”作为脚本类文件的后缀，这些脚本通常在程序的启动阶段被调用，通常是Linux系统启动时。如/etc/rc（连接到/etc/rc.d/rc）是Linux启动的主脚本，而.bashrc是当Linux的bash shell启动后所运行的脚本。.bashrc的前缀“.”是一个命名标准，它被设计用来在用户文件中隐藏那些用户指定的特殊文件;“ls”命令默认情况下不会列出此类文件，“rm”默认情况下也不会删除它们。许多程序在启动时，都需要“rc”后缀的初始文件或配置文件。]]></content>
     </entry>
 
     
     <entry>
       <title><![CDATA[歌手来生孝夫]]></title>
       <url>%2F2017%2F02%2F14%2Fjapanese-singer-laishengxiaofu%2F</url>
-      <content type="text"><![CDATA[最近听到了一首《シルエット・ロマンス》，就知道了来生孝夫。来生孝夫生于1950年11月16日，属于创作型歌手，所有的歌曲的词曲全部由他本人创作。《シルエット・ロマンス》最初发表于2000年11月10日的专辑《Dear my company》中。在2008年6月25日发行的专辑《Try to remember》中也有收录，不过后者应该是现场版(live)。下面是歌词与翻译，懂日文听起来感觉应该会不一样吧： 恋する女は 夢みたがりの 热恋中的女人 想梦见心爱的人吧 いつもヒロイン つかの間の 总是情场的女主人公 鏡に向って アイペンシルの 刹那间面朝镜子 彩色的眼线笔并排 色を並べて 迷うだけ 只迷恋这一切 窓辺の憂い顔は 装う女心 窗边忧郁的面孔 是假扮的女人心 茜色のシルエット（夕阳倒映出）暗红色的剪影 ああ あなたに 恋心ぬすまれて 啊！被你偷走的怀春的心 もっと ロマンス 私に仕掛けてきて 更加浪漫 我一直坠入爱河 ああ あなたに 恋もよう染められて 啊！被你浸染的恋爱的模样 もっと ロマンス ときめきを止めないで 更加浪漫 心跳停不下来 あなたのくちびる 首すじかすめ 你的双唇 从我的脖颈掠过 私の声も かすれてた 我的声音也变得嘶哑 無意識にイヤリング 気付いたらはずしてた 不知不觉发现了被摘掉的耳环 重なり合うシルエット シルエット（你我）重合的剪影 （重合的）剪影 ああ 抱きしめて 身動き出来ないほど 啊！想（紧紧）拥抱你 直到身体无法动弹 もっと ロマンス 甘くだましてほしい 更加浪漫 渴求甜蜜的谎言 ああ 抱きしめて 鼓動がひびくほどに 啊！想拥抱你 直到砰砰的心跳声响个不停 もっと ロマンス 激しく感じさせて 更加浪漫 让你感受激烈的爱 ああ あなたに 恋心ぬすまれて 啊！被你偷走的怀春的心 もっと ロマンス 私に仕掛けてきて 更加浪漫 我一直坠入爱河 ああ あなたに 恋もよう染められて 啊！被你浸染的恋爱的模样 もっと ロマンス ときめきを止めないで 更加浪漫 心跳停不下来 123456789101112131415161718192021222324恋する女は 夢みたがりの 热恋中的女人 想梦见心爱的人吧 いつもヒロイン つかの間の 总是情场的女主人公 鏡に向って アイペンシルの 刹那间面朝镜子 彩色的眼线笔并排 色を並べて 迷うだけ 只迷恋这一切 窓辺の憂い顔は 装う女心 窗边忧郁的面孔 是假扮的女人心 茜色のシルエット（夕阳倒映出）暗红色的剪影 ああ あなたに 恋心ぬすまれて 啊！被你偷走的怀春的心 もっと ロマンス 私に仕掛けてきて 更加浪漫 我一直坠入爱河 ああ あなたに 恋もよう染められて 啊！被你浸染的恋爱的模样 もっと ロマンス ときめきを止めないで 更加浪漫 心跳停不下来 あなたのくちびる 首すじかすめ 你的双唇 从我的脖颈掠过 私の声も かすれてた 我的声音也变得嘶哑 無意識にイヤリング 気付いたらはずしてた 不知不觉发现了被摘掉的耳环 重なり合うシルエット シルエット（你我）重合的剪影 （重合的）剪影 ああ 抱きしめて 身動き出来ないほど 啊！想（紧紧）拥抱你 直到身体无法动弹 もっと ロマンス 甘くだましてほしい 更加浪漫 渴求甜蜜的谎言 ああ 抱きしめて 鼓動がひびくほどに 啊！想拥抱你 直到砰砰的心跳声响个不停 もっと ロマンス 激しく感じさせて 更加浪漫 让你感受激烈的爱 ああ あなたに 恋心ぬすまれて 啊！被你偷走的怀春的心 もっと ロマンス 私に仕掛けてきて 更加浪漫 我一直坠入爱河 ああ あなたに 恋もよう染められて 啊！被你浸染的恋爱的模样 もっと ロマンス ときめきを止めないで 更加浪漫 心跳停不下来 这首歌最初是由大桥纯子演唱，周润发也有翻唱，名字叫《旧情人》，不过网友众口一词：发哥还是适合演电影。自己没有听周润发翻唱的版本。来生孝夫的另一首歌《Goodbye Day》张学友也翻唱过。 今天是2017年情人节(2月14日)，祝大家情人节快乐！]]></content>
+      <content type="text"><![CDATA[最近听到了一首《シルエット・ロマンス》，就知道了来生孝夫。来生孝夫生于1950年11月16日，属于创作型歌手，所有的歌曲的词曲全部由他本人创作。《シルエット・ロマンス》最初发表于2000年11月10日的专辑《Dear my company》中。在2008年6月25日发行的专辑《Try to remember》中也有收录，不过后者应该是现场版(live)。下面是歌词与翻译，懂日文听起来感觉应该会不一样吧： 恋する女は 夢みたがりの 热恋中的女人 想梦见心爱的人吧 いつもヒロイン つかの間の 总是情场的女主人公 鏡に向って アイペンシルの 刹那间面朝镜子 彩色的眼线笔并排 色を並べて 迷うだけ 只迷恋这一切 窓辺の憂い顔は 装う女心 窗边忧郁的面孔 是假扮的女人心 茜色のシルエット（夕阳倒映出）暗红色的剪影 ああ あなたに 恋心ぬすまれて 啊！被你偷走的怀春的心 もっと ロマンス 私に仕掛けてきて 更加浪漫 我一直坠入爱河 ああ あなたに 恋もよう染められて 啊！被你浸染的恋爱的模样 もっと ロマンス ときめきを止めないで 更加浪漫 心跳停不下来 あなたのくちびる 首すじかすめ 你的双唇 从我的脖颈掠过 私の声も かすれてた 我的声音也变得嘶哑 無意識にイヤリング 気付いたらはずしてた 不知不觉发现了被摘掉的耳环 重なり合うシルエット シルエット（你我）重合的剪影 （重合的）剪影 ああ 抱きしめて 身動き出来ないほど 啊！想（紧紧）拥抱你 直到身体无法动弹 もっと ロマンス 甘くだましてほしい 更加浪漫 渴求甜蜜的谎言 ああ 抱きしめて 鼓動がひびくほどに 啊！想拥抱你 直到砰砰的心跳声响个不停 もっと ロマンス 激しく感じさせて 更加浪漫 让你感受激烈的爱 ああ あなたに 恋心ぬすまれて 啊！被你偷走的怀春的心 もっと ロマンス 私に仕掛けてきて 更加浪漫 我一直坠入爱河 ああ あなたに 恋もよう染められて 啊！被你浸染的恋爱的模样 もっと ロマンス ときめきを止めないで 更加浪漫 心跳停不下来 这首歌最初是由大桥纯子演唱，周润发也有翻唱，名字叫《旧情人》，不过网友众口一词：发哥还是适合演电影。自己没有听周润发翻唱的版本。来生孝夫的另一首歌《Goodbye Day》张学友也翻唱过。 今天是2017年情人节(2月14日)，祝大家情人节快乐！]]></content>
     </entry>
 
     
@@ -444,6 +451,20 @@
 
     
     <entry>
+      <title><![CDATA[Websocket发送消息长度设置]]></title>
+      <url>%2F2016%2F12%2F25%2Fwebsocket-sending-config%2F</url>
+      <content type="text"><![CDATA[项目中用到WebSocket技术，发送文本字节比较多时出现异常，立即断开了连接。项目在Tomcat上运行，Tomcat默认的文本大小为8192。 1If the application does not define a MessageHandler.Partial for incoming text messages, any incoming text messages must be buffered so the entire message can be delivered in a single call to the registered MessageHandler.Whole for text messages. The default buffer size for text messages is 8192 bytes. This may be changed for a web application by setting the servlet context initialization parameter org.apache.tomcat.websocket.textBufferSize to the desired value in bytes. 在项目Tomcat的web.xml(D:\Source\zwnewplatform\javasoftware\runtime\apache-tomcat-8.0.36\apache-tomcat-8.0.36\conf\web.xml)中添加如下配置（注意单位为byte）。 12345678&lt;context-param&gt; &lt;param-name&gt;org.apache.tomcat.websocket.textBufferSize&lt;/param-name&gt; &lt;param-value&gt;327680&lt;/param-value&gt;&lt;/context-param&gt;&lt;context-param&gt; &lt;param-name&gt;org.apache.tomcat.websocket.binaryBufferSize&lt;/param-name&gt; &lt;param-value&gt;327680&lt;/param-value&gt;&lt;/context-param&gt; 如果是Eclipse，则直接在Eclipse中配置，如下图所示：]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Java Web开发--log4j]]></title>
+      <url>%2F2016%2F12%2F25%2Flog4j%2F</url>
+      <content type="text"><![CDATA[isDebugEnabled在输出日志时，判断输出级别： 123if(logger.isDebugEnabled()) &#123; logger.debug("通用处理，信息为：" + JSON.toJSONString(vehicleLocationData));&#125; 当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于debug，即不需要进行日志信息输出时： ①假如debug方法中的参数比较简单时（比如直接就是写好的字符串），加不加这句if判断，在效率上也几乎没有什么差别； ②假如debug方法中的参数比较复杂时（比如还要使用别的函数进行计算、或者还要进行字符串的拼接等等,如上代码片段所示，输出的内容需要序列化），在前面就加上这句if判断，会让效率提高（否则，开始大动干戈做了很多事情（比如字符串的拼接，序列化），后来才发现不需要进行输出日志信息），白白浪费了CPU资源，影响程序的运行效率。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Lombok精简Java代码]]></title>
       <url>%2F2016%2F12%2F25%2Flombok%2F</url>
       <content type="text"><![CDATA[简介lombok提供了简单的注解的形式来帮助我们简化消除一些必须有但显得很臃肿的java代码,特别是相对于POJO(Plain Ordinary Java Object)。安装Lombok Plugin和引入Jar包之后方可使用。 安装安装完毕lombok插件之后，添加如下包： 12345&lt;dependency&gt; &lt;groupId&gt;org.projectlombok&lt;/groupId&gt; &lt;artifactId&gt;lombok&lt;/artifactId&gt; &lt;version&gt;1.16.6&lt;/version&gt;&lt;/dependency&gt; 常用的 lombok 注解： @Data：注解在类上；提供类所有属性的 getting 和 setting 方法，此外还提供了equals、canEqual、hashCode、toString 方法 @Setter：注解在属性上；为属性提供 setting 方法 @Getter：注解在属性上；为属性提供 getting 方法 @Log4j：注解在类上；为类提供一个 属性名为log 的 log4j 日志对象 @NoArgsConstructor：注解在类上；为类提供一个无参的构造方法 @AllArgsConstructor：注解在类上；为类提供一个全参的构造方法 如果不使用lombok注解，代码是这样： 1234567891011121314151617181920public class Person &#123; private String id; private Logger log = Logger.getLogger(Person.class); public Person() &#123; &#125; public Person(String id) &#123; this.id = id; &#125; public String getId() &#123; return id; &#125; public void setId(String id) &#123; this.id = id; &#125;&#125; 使用lombok注解，代码是这样： 1234567@Data@Log4j@NoArgsConstructor@AllArgsConstructorpublic class Person &#123; private String id;&#125; 一旦POJO字段较多时精简的代码就很明显了，而且使用Lombok的代码更加干净、易读，添加@Data注解之后，按Ctrl + O(Outline)可以看到生成了get和set方法。 @EqualsAndHashCode@EqualsAndHashCode注解实现equals()方法和hashCode()方法。hashcode是用于散列数据的快速存取，如利用HashSet/HashMap/Hashtable类来存储数据时，都是根据存储对象的hashcode值来进行判断是否相同的。]]></content>
@@ -458,23 +479,9 @@
 
     
     <entry>
-      <title><![CDATA[Java Web开发--log4j]]></title>
-      <url>%2F2016%2F12%2F25%2Flog4j%2F</url>
-      <content type="text"><![CDATA[isDebugEnabled在输出日志时，判断输出级别： 123if(logger.isDebugEnabled()) &#123; logger.debug("通用处理，信息为：" + JSON.toJSONString(vehicleLocationData));&#125; 当输出级别是debug，即需要进行日志信息输出时，加不加这句if判断，在效率上几乎没有差别；当输出级别高于debug，即不需要进行日志信息输出时： ①假如debug方法中的参数比较简单时（比如直接就是写好的字符串），加不加这句if判断，在效率上也几乎没有什么差别； ②假如debug方法中的参数比较复杂时（比如还要使用别的函数进行计算、或者还要进行字符串的拼接等等,如上代码片段所示，输出的内容需要序列化），在前面就加上这句if判断，会让效率提高（否则，开始大动干戈做了很多事情（比如字符串的拼接，序列化），后来才发现不需要进行输出日志信息），白白浪费了CPU资源，影响程序的运行效率。]]></content>
-    </entry>
-
-    
-    <entry>
       <title><![CDATA[Spring框架搭建]]></title>
       <url>%2F2016%2F12%2F25%2Fspring%2F</url>
       <content type="text"><![CDATA[Spring的不足： 配置太多 常见问题Could not open ServletContext resource [/WEB-INF/applicationContext.xml]ContextLoaderListener has its own context which is shared by all servlets and filters. By default it will search /WEB-INF/applicationContext.xml。 1234&lt;context-param&gt; &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt; &lt;param-value&gt;/WEB-INF/somewhere-else/root-context.xml&lt;/param-value&gt;&lt;/context-param&gt; Missing artifact org.aspectj:aspectjweaver:jar:1.8.0.M1According to a reported issue at springsource, aspectjweaver is “basically identical to AspectJ 1.7” except that it has early support for Java 8.As I don’t need Java 8 support, I basically added a compile dependency to the latest release version of aspectweaver: 12345&lt;dependency&gt; &lt;groupId&gt;org.aspectj&lt;/groupId&gt; &lt;artifactId&gt;aspectjweaver&lt;/artifactId&gt; &lt;version&gt;1.7.4&lt;/version&gt;&lt;/dependency&gt; This ensures that the 1.7.4 is used instead of the milestone release, and is an acceptable workaround for me, for the time being. Exception java.lang.ClassNotFoundException: org.apache.commons.dbcp.BasicDataSource在POM.xml中引入jar包。 12345&lt;dependency&gt; &lt;groupId&gt;commons-dbcp&lt;/groupId&gt; &lt;artifactId&gt;commons-dbcp&lt;/artifactId&gt; &lt;version&gt;1.2.2&lt;/version&gt;&lt;/dependency&gt; java.lang.NoClassDefFoundError: org/apache/ibatis/session/SqlSessionFactory引入jar包。 12345&lt;dependency&gt; &lt;groupId&gt;org.apache.ibatis&lt;/groupId&gt; &lt;artifactId&gt;ibatis-core&lt;/artifactId&gt; &lt;version&gt;3.0&lt;/version&gt;&lt;/dependency&gt;]]></content>
-    </entry>
-
-    
-    <entry>
-      <title><![CDATA[Websocket发送消息长度设置]]></title>
-      <url>%2F2016%2F12%2F25%2Fwebsocket-sending-config%2F</url>
-      <content type="text"><![CDATA[项目中用到WebSocket技术，发送文本字节比较多时出现异常，立即断开了连接。项目在Tomcat上运行，Tomcat默认的文本大小为8192。 1If the application does not define a MessageHandler.Partial for incoming text messages, any incoming text messages must be buffered so the entire message can be delivered in a single call to the registered MessageHandler.Whole for text messages. The default buffer size for text messages is 8192 bytes. This may be changed for a web application by setting the servlet context initialization parameter org.apache.tomcat.websocket.textBufferSize to the desired value in bytes. 在项目Tomcat的web.xml(D:\Source\zwnewplatform\javasoftware\runtime\apache-tomcat-8.0.36\apache-tomcat-8.0.36\conf\web.xml)中添加如下配置（注意单位为byte）。 12345678&lt;context-param&gt; &lt;param-name&gt;org.apache.tomcat.websocket.textBufferSize&lt;/param-name&gt; &lt;param-value&gt;327680&lt;/param-value&gt;&lt;/context-param&gt;&lt;context-param&gt; &lt;param-name&gt;org.apache.tomcat.websocket.binaryBufferSize&lt;/param-name&gt; &lt;param-value&gt;327680&lt;/param-value&gt;&lt;/context-param&gt; 如果是Eclipse，则直接在Eclipse中配置，如下图所示：]]></content>
     </entry>
 
     
