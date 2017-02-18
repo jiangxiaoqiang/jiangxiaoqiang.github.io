@@ -95,7 +95,7 @@
 12345# Ubuntu 16.04 LTSsudo apt install nginx -y# Mac OS Xbrew install nginx
 安装完毕后配置文件在/etc/nginx/config.d。">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2017/01/09/nginx-using/loadbalance.png">
-<meta property="og:updated_time" content="2017-02-15T06:27:46.080Z">
+<meta property="og:updated_time" content="2017-02-17T08:47:30.211Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx使用总结">
 <meta name="twitter:description" content="安装输入如下命令安装：
@@ -421,7 +421,8 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Ubuntu 16.04 LTS</span></div><div class="line">sudo apt install nginx -y</div><div class="line"></div><div class="line"><span class="comment"># Mac OS X</span></div><div class="line">brew install nginx</div></pre></td></tr></table></figure>
 <p>安装完毕后配置文件在<code>/etc/nginx/config.d</code>。</p>
 <a id="more"></a>
-<h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看Nginx的安装目录,一般在(/usr/local/nginx)下</span></div><div class="line">whereis nginx</div><div class="line"></div><div class="line"><span class="comment"># 重启Nginx</span></div><div class="line">sudo /etc/init.d/nginx restart</div></pre></td></tr></table></figure>
+<h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><p>启动停止Nginx：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看Nginx的安装目录,一般在(/usr/local/nginx)下</span></div><div class="line">whereis nginx</div><div class="line"></div><div class="line"><span class="comment"># 重启Nginx</span></div><div class="line">sudo /etc/init.d/nginx restart</div><div class="line"></div><div class="line"><span class="comment"># 停止Nginx(legacy &lt; Ubuntu 16.04)</span></div><div class="line">sudo /etc/init.d/nginx stop</div><div class="line"><span class="comment"># Ubuntu 16.04 or higher</span></div><div class="line">sudo systemctl stop nginx</div><div class="line">sudo service nginx stop</div></pre></td></tr></table></figure>
 <p>在修改配置文件后，可以输入如下命令检查配置文件的正确性：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/<span class="built_in">local</span>/nginx/sbin/nginx -t</div></pre></td></tr></table></figure>
 <p>其中参数t表示测试配置文件，并退出，命令的结果为：</p>

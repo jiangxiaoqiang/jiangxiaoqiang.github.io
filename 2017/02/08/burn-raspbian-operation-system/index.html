@@ -90,10 +90,12 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/02/08/burn-raspbian-operation-system/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="烧录操作系统(Burn Operation System)目前可以安装到Raspberry Pi上的系统有，官方推荐的系统可以点击这里：">
-<meta property="og:updated_time" content="2017-02-14T10:36:33.542Z">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2017/02/08/burn-raspbian-operation-system/ssh-login-raspberry-pi.jpg">
+<meta property="og:updated_time" content="2017-02-18T07:37:39.730Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Raspberry Pi动手试用">
 <meta name="twitter:description" content="烧录操作系统(Burn Operation System)目前可以安装到Raspberry Pi上的系统有，官方推荐的系统可以点击这里：">
+<meta name="twitter:image" content="http://jiangxiaoqiang.com/2017/02/08/burn-raspbian-operation-system/ssh-login-raspberry-pi.jpg">
 
 
 
@@ -480,11 +482,21 @@
 <p>在Ubuntu下，可以输入命令<code>df -lhT</code>查看每个分区的文件系统类型。也可以打开文件<code>/etc/fstab(file system table)</code>文件进行查看。</p>
 <h5 id="unknown-filesystem-type-‘exfat’"><a href="#unknown-filesystem-type-‘exfat’" class="headerlink" title="unknown filesystem type ‘exfat’"></a>unknown filesystem type ‘exfat’</h5><p>是由于当前文件系统不识别exfat文件系统的缘故。重新格式化SD卡为兼容性较高的文件系统(如:FAT、FAT32    )即可。</p>
 <p>烧录完成之后，有可能当前电脑识别不出SD卡，此时可以将SD卡插入其他电脑，并修改其中的文件(我的电脑在Ubuntu下刻录之后，Ubuntu这台机器无法再读取U盘，但是安装Fedora系统的另一台计算机可以读取)，此处添加一个空的ssh文件。文件添加完毕后，将SD卡插入Raspberry Pi的卡槽中，接通电源启动Raspberry，那么就会默认启动sshd进程，知道了树莓派的IP后就可以使用ssh登录了。</p>
-<h4 id="SSH登录树莓派"><a href="#SSH登录树莓派" class="headerlink" title="SSH登录树莓派"></a>SSH登录树莓派</h4><p>由于本人只选购了一个裸机，也没有屏幕，电源和网线是自己准备的。所以必须要SSH登录到树莓派上面进行操作，使用命令<code>ssh pi@192.168.1.101</code>登录时，提示拒绝连接:<code>ssh: connect to host 192.168.1.101 port 22: connection refused</code>。使用nmap也无法扫描到打开的端口，原来是树莓派官方默认关闭了SSH(话说关闭了不能搞点宣传吗，能高调点关闭吗，关了也不通知－－貌似也无法通知)，主要还是为了安全考虑，才关闭22端口:</p>
+<h4 id="构建局域网"><a href="#构建局域网" class="headerlink" title="构建局域网"></a>构建局域网</h4><p>使用一根网线连接Pi和笔记本，组成一个局域网。在笔记本上配置DHCP(Dynamic Host Configuration Protocol)服务，这样Pi启动后就可以从DHCP获取IP：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install dhcp -y</div></pre></td></tr></table></figure>
+<p>打开dhcp配置文件<code>sudo vim /etc/dhcp/dhcpd.conf</code>，配置dhcp：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">subnet 192.168.33.0 netmask 255.255.255.0 &#123; </div><div class="line">    range 192.168.33.2 192.168.33.114; </div><div class="line">    default-lease-time 86400; </div><div class="line">    max-lease-time 259200; </div><div class="line">    option subnet-mask 255.255.255.0; </div><div class="line">    option broadcast-address 192.168.33.255; </div><div class="line">    option routers 192.168.33.2; </div><div class="line">    option domain-name-servers 192.168.33.2; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>配置完成后通过<code>dhcpd</code>命令启动，会提示相应文件的存储位置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Config file: /etc/dhcp/dhcpd.conf</div><div class="line">Database file: /var/lib/dhcpd/dhcpd.leases</div><div class="line">PID file: /var/run/dhcpd.pid</div></pre></td></tr></table></figure>
+<p>使用<code>arp</code>命令查看Raspberry Pi的IP，可以看到此处的IP是192.168.33.3：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Address                  HWtype  HWaddress           Flags Mask            Iface</div><div class="line">192.168.33.3             ether   c8:37:eb:36:16:63   C                     enp0s25</div><div class="line">gateway                  ether   f2:83:cd:94:23:14   C                     wlp3s0</div></pre></td></tr></table></figure>
+<h4 id="SSH登录树莓派"><a href="#SSH登录树莓派" class="headerlink" title="SSH登录树莓派"></a>SSH登录树莓派</h4><p>由于本人只选购了一个裸机，也没有屏幕，电源和网线是自己准备的。所以必须要SSH登录到树莓派上面进行操作，其实没有多大必要使用屏幕，到如今还比较庆幸当初没有花多余的钱购置配件，实在是没有任何必要。仅仅一个Raspberry Pi，一张8GB或以上的存储卡，一根网线，5V2A的充电器一个，USB数据线一条。许多配件家里都有现成的。使用命令<code>ssh pi@192.168.33.3</code>登录，注意或许会提示拒绝连接:<code>ssh: connect to host 192.168.33.3 port 22: connection refused</code>。使用nmap也无法扫描到打开的端口，原来是树莓派官方默认关闭了SSH(当初也是不知道，也没有屏幕，折腾了许久)，主要还是为了安全考虑，才关闭22端口:</p>
 <blockquote>
 <p>As of the November 2016 release, Raspbian has the SSH server disabled by default.</p>
 </blockquote>
-<p>重新开启也很简单，把SD卡拔下来，进入到根目录，新建一个名为<code>ssh</code>的文件就行了(For headless setup, SSH can be enabled by placing a file named ‘ssh’, without any extension, onto the boot partition of the SD card)。</p>
+<p>重新开启也很简单，把SD卡拔下来，进入到启动目录（这里也需要注意，一定要在启动目录boot下，因为Raspberry Pi有2个目录，不要弄错），新建一个名为<code>ssh</code>的文件就行了(For headless setup, SSH can be enabled by placing a file named ‘ssh’, without any extension, onto the boot partition of the SD card)。</p>
+<p>成功登陆Raspberry Pi,截图记录一下，当初以为非常简单，动手起来还是不容易的：</p>
+<img src="/2017/02/08/burn-raspbian-operation-system/ssh-login-raspberry-pi.jpg" alt="Raspberry Pi登陆" title="Raspberry Pi登陆">
 <p>参考资料：</p>
 <p><a href="https://www.raspberrypi.org/documentation/installation/installing-images/README.md" target="_blank" rel="external">INSTALLING OPERATING SYSTEM IMAGES</a></p>
 <p><a href="http://raspberrypi.stackexchange.com/questions/40689/cannot-connect-to-raspbian-jessie-lite-but-to-raspbian-jessie" target="_blank" rel="external">Cannot connect to raspbian jessie lite but to raspbian jessie</a></p>
@@ -704,7 +716,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#烧录操作系统-Burn-Operation-System"><span class="nav-number">1.</span> <span class="nav-text">烧录操作系统(Burn Operation System)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#问题解决"><span class="nav-number">1.1.</span> <span class="nav-text">问题解决</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#unknown-filesystem-type-‘exfat’"><span class="nav-number">1.2.</span> <span class="nav-text">unknown filesystem type ‘exfat’</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SSH登录树莓派"><span class="nav-number">2.</span> <span class="nav-text">SSH登录树莓派</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#烧录操作系统-Burn-Operation-System"><span class="nav-number">1.</span> <span class="nav-text">烧录操作系统(Burn Operation System)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#问题解决"><span class="nav-number">1.1.</span> <span class="nav-text">问题解决</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#unknown-filesystem-type-‘exfat’"><span class="nav-number">1.2.</span> <span class="nav-text">unknown filesystem type ‘exfat’</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构建局域网"><span class="nav-number">2.</span> <span class="nav-text">构建局域网</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SSH登录树莓派"><span class="nav-number">3.</span> <span class="nav-text">SSH登录树莓派</span></a></li></ol></div>
             
 
           </div>
