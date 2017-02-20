@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="烧录操作系统(Burn Operation System)目前可以安装到Raspberry Pi上的系统有，官方推荐的系统可以点击这里：">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2017/02/08/burn-raspbian-operation-system/ssh-login-raspberry-pi.jpg">
-<meta property="og:updated_time" content="2017-02-18T13:26:21.000Z">
+<meta property="og:updated_time" content="2017-02-20T01:28:22.919Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Raspberry Pi动手试用">
 <meta name="twitter:description" content="烧录操作系统(Burn Operation System)目前可以安装到Raspberry Pi上的系统有，官方推荐的系统可以点击这里：">
@@ -499,6 +499,7 @@
 <p>重新开启也很简单，把SD卡拔下来，进入到启动目录（这里也需要注意，一定要在启动目录boot下，因为Raspberry Pi有2个目录，不要弄错），新建一个名为<code>ssh</code>的文件就行了(For headless setup, SSH can be enabled by placing a file named ‘ssh’, without any extension, onto the boot partition of the SD card)。</p>
 <p>成功登陆Raspberry Pi,截图记录一下，当初以为非常简单，动手起来还是不容易的：</p>
 <img src="/2017/02/08/burn-raspbian-operation-system/ssh-login-raspberry-pi.jpg" alt="Raspberry Pi登陆" title="Raspberry Pi登陆">
+<p>虽然已经通过Fedora登录Raspberry Pi，但是此时Raspberry Pi和Fedora在同一个局域网里，而Fedora和路由在另一个局域网里，所以Raspberry Pi目前还无法连接互联网，只是一个局域网里面的设备。</p>
 <p>参考资料：</p>
 <p><a href="https://www.raspberrypi.org/documentation/installation/installing-images/README.md" target="_blank" rel="external">INSTALLING OPERATING SYSTEM IMAGES</a></p>
 <p><a href="http://raspberrypi.stackexchange.com/questions/40689/cannot-connect-to-raspbian-jessie-lite-but-to-raspbian-jessie" target="_blank" rel="external">Cannot connect to raspbian jessie lite but to raspbian jessie</a></p>
@@ -621,7 +622,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">189</span>
+                <span class="site-state-item-count">190</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -639,7 +640,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">191</span>
+                <span class="site-state-item-count">189</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

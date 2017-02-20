@@ -84,22 +84,16 @@
 
 
 
-<meta name="description" content="外网IPNgrokNgrok是非常流行的反向代理服务，可以进行内网穿透，支持80端口以及自定义tcp端口转发。这样即使你的树莓派没有公网IP也可以使用SSH远程登陆，而且可以把你的网站展示给小伙伴们看。下载Ngrok客户端：
-1wget -c https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip
-下载完毕后，解压到当前目录">
+<meta name="description" content="外网IP如果固定有外网IP，直接暴露22端口即可。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Raspberry外网访问">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/02/19/raspberry-internet-access/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="外网IPNgrokNgrok是非常流行的反向代理服务，可以进行内网穿透，支持80端口以及自定义tcp端口转发。这样即使你的树莓派没有公网IP也可以使用SSH远程登陆，而且可以把你的网站展示给小伙伴们看。下载Ngrok客户端：
-1wget -c https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip
-下载完毕后，解压到当前目录">
-<meta property="og:updated_time" content="2017-02-19T13:03:34.000Z">
+<meta property="og:description" content="外网IP如果固定有外网IP，直接暴露22端口即可。">
+<meta property="og:updated_time" content="2017-02-20T01:51:10.094Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Raspberry外网访问">
-<meta name="twitter:description" content="外网IPNgrokNgrok是非常流行的反向代理服务，可以进行内网穿透，支持80端口以及自定义tcp端口转发。这样即使你的树莓派没有公网IP也可以使用SSH远程登陆，而且可以把你的网站展示给小伙伴们看。下载Ngrok客户端：
-1wget -c https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip
-下载完毕后，解压到当前目录">
+<meta name="twitter:description" content="外网IP如果固定有外网IP，直接暴露22端口即可。">
 
 
 
@@ -393,7 +387,10 @@
       
 
       
-        <h4 id=""><a href="#" class="headerlink" title=" "></a> </h4><h4 id="外网IP"><a href="#外网IP" class="headerlink" title="外网IP"></a>外网IP</h4><h4 id="Ngrok"><a href="#Ngrok" class="headerlink" title="Ngrok"></a>Ngrok</h4><p>Ngrok是非常流行的反向代理服务，可以进行内网穿透，支持80端口以及自定义tcp端口转发。这样即使你的树莓派没有<a href="http://zh.raspberrypi.wikia.com/wiki/%E5%85%AC%E7%BD%91IP?redlink=1&amp;action=edit&amp;flow=create-page-article-redlink" target="_blank" rel="external">公网IP</a>也可以使用SSH远程登陆，而且可以把你的网站展示给小伙伴们看。下载Ngrok客户端：</p>
+        <h4 id="外网IP"><a href="#外网IP" class="headerlink" title="外网IP"></a>外网IP</h4><p>如果固定有外网IP，直接暴露22端口即可。</p>
+<a id="more"></a>
+<h4 id="端口转发"><a href="#端口转发" class="headerlink" title="端口转发"></a>端口转发</h4><p>如果没有外网固定IP，有DHCP获取的IP，也好办。在路由器上配置端口转发即可。一般家庭接入运营商获取的就是这样的IP。缺点是重启路由或者网络断开之后IP会改变，此时链接Raspberry的IP也要作相应的调整。不过一般情况下变化的频率不是很大，问题不大。</p>
+<h4 id="Ngrok"><a href="#Ngrok" class="headerlink" title="Ngrok"></a>Ngrok</h4><p>如果没有外网IP，也没有DHCP获取的外网IP，Ngrok是非常流行的反向代理服务，可以进行内网穿透，支持80端口以及自定义tcp端口转发。这样即使你的树莓派没有<a href="http://zh.raspberrypi.wikia.com/wiki/%E5%85%AC%E7%BD%91IP?redlink=1&amp;action=edit&amp;flow=create-page-article-redlink" target="_blank" rel="external">公网IP</a>也可以使用SSH远程登陆，而且可以把你的网站展示给小伙伴们看。下载Ngrok客户端：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget -c https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip</div></pre></td></tr></table></figure>
 <p>下载完毕后，解压到当前目录：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">unzip ngrok-stable-linux-arm.zip</div></pre></td></tr></table></figure>
@@ -403,7 +400,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nohup ./ngrok tcp 22 &amp;</div></pre></td></tr></table></figure>
 <p>新建端口转换后界面会给出提示，使用提示信息登陆即可。为了不使退出shell后自动断开，使用如下命令后台启动：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">setsid ./ngrok tcp 22</div></pre></td></tr></table></figure>
-<p>打开你的SSH客户端，主机名输入tunnel.org.cn，端口号输入54304(根据自己的修改)，是不是可以登陆了！</p>
+<p>登录Ngrok，在Dashboard的Status的Tab上即可以看到链接信息。但是使用Ngrok有一个致命的缺点是极不稳定，非常容易连接不上，基本没有达到基础的可用级别。不是一个可靠的解决方案。Ngrok可以付费使用，估计这也是免费不稳定的缘由之一，先让你尝试是可以的，稳定使用是需要费用的。毕竟服务器资源的开销也是一笔不菲的费用。</p>
 
       
     </div>
@@ -446,8 +443,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/02/19/house-decorate/" rel="prev" title="house-decorate">
-                house-decorate <i class="fa fa-chevron-right"></i>
+              <a href="/2017/02/19/house-decorate/" rel="prev" title="房屋装修的分享">
+                房屋装修的分享 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -522,7 +519,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">189</span>
+                <span class="site-state-item-count">190</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -540,7 +537,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">191</span>
+                <span class="site-state-item-count">189</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -619,7 +616,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#外网IP"><span class="nav-number">2.</span> <span class="nav-text">外网IP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ngrok"><span class="nav-number">3.</span> <span class="nav-text">Ngrok</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#外网IP"><span class="nav-number">1.</span> <span class="nav-text">外网IP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#端口转发"><span class="nav-number">2.</span> <span class="nav-text">端口转发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ngrok"><span class="nav-number">3.</span> <span class="nav-text">Ngrok</span></a></li></ol></div>
             
 
           </div>
