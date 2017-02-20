@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/02/19/raspberry-internet-access/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="外网IP如果固定有外网IP，直接暴露22端口即可。">
-<meta property="og:updated_time" content="2017-02-20T01:51:10.094Z">
+<meta property="og:updated_time" content="2017-02-20T11:47:04.500Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Raspberry外网访问">
 <meta name="twitter:description" content="外网IP如果固定有外网IP，直接暴露22端口即可。">
@@ -400,7 +400,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nohup ./ngrok tcp 22 &amp;</div></pre></td></tr></table></figure>
 <p>新建端口转换后界面会给出提示，使用提示信息登陆即可。为了不使退出shell后自动断开，使用如下命令后台启动：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">setsid ./ngrok tcp 22</div></pre></td></tr></table></figure>
-<p>登录Ngrok，在Dashboard的Status的Tab上即可以看到链接信息。但是使用Ngrok有一个致命的缺点是极不稳定，非常容易连接不上，基本没有达到基础的可用级别。不是一个可靠的解决方案。Ngrok可以付费使用，估计这也是免费不稳定的缘由之一，先让你尝试是可以的，稳定使用是需要费用的。毕竟服务器资源的开销也是一笔不菲的费用。</p>
+<p>setsid命令即使关闭终端，程序也能够后台运行。当用户注销（logout）或者网络断开时，终端会收到 HUP（hangup）信号从而关闭其所有子进程。nohup 的使用是十分方便的，只需在要处理的命令前加上 nohup 即可，标准输出和标准错误缺省会被重定向到 nohup.out 文件中。一般我们可在结尾加上”&amp;”来将命令同时放入后台运行，也可”&gt;<em>filename</em> 2&gt;&amp;1”来更改缺省的重定向文件名。如果进程不属于接受 HUP 信号的终端的子进程，那么自然也就不会受到 HUP 信号的影响了。setsid 就能帮助我们做到这一点。内核会给每个进程关联两个和进程ID无关的用户ID，一个是真实用户ID，还有一个是有效用户ID或者称为setuid（set user ID）。真实用户ID用于标识由谁为正在运行的进程负责。有效用户ID用于为新创建的文件分配所有权、检查文件访问许可，还用于通过kill系统调用向其 它进程发送信号时的许可检查。内核允许一个进程以调用exec一个setuid程序或者显式执行setuid系统调用的方式改变它的有效用户ID。 fork只是使得进程可以以后台方式运行，但不能使进程完全独立，因为fork出来的进程仍然继承了父进程已打开的终端、会话和进程组。</p>
+<p>登录Ngrok，在Dashboard的Status的Tab上即可以看到链接信息。但是<strong>使用Ngrok有一个致命的缺点是极不稳定,偶尔可以链接，非常容易连接不上，基本没有达到基础的可用级别。</strong>不是一个可靠的解决方案。Ngrok可以付费使用，估计这也是免费不稳定的缘由之一，先让你尝试是可以的，稳定使用是需要费用的。毕竟服务器资源的开销也是一笔不菲的费用。</p>
 
       
     </div>
@@ -519,7 +520,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">190</span>
+                <span class="site-state-item-count">192</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -528,7 +529,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -537,7 +538,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">189</span>
+                <span class="site-state-item-count">190</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

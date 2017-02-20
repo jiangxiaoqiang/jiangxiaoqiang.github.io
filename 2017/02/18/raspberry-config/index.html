@@ -84,25 +84,16 @@
 
 
 
-<meta name="description" content="网络配置(Network Config)使用ssh连接上Raspberry之后，还无法上网。
-ssh自动启动无线设置(WLAN Setting)Raspberry Pi 3内置了无线网卡，以前的版本是没有无线网卡的。只要对网卡有合适的设置就可以连接网络了。
-参考资料：
-ETTING WIFI UP VIA THE COMMAND LINE">
+<meta name="description" content="网络配置(Network Config)使用ssh连接上Raspberry之后，还无法上网。使用如下命令扫描无线热点：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Raspberry配置">
+<meta property="og:title" content="Raspberry初始配置">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/02/18/raspberry-config/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="网络配置(Network Config)使用ssh连接上Raspberry之后，还无法上网。
-ssh自动启动无线设置(WLAN Setting)Raspberry Pi 3内置了无线网卡，以前的版本是没有无线网卡的。只要对网卡有合适的设置就可以连接网络了。
-参考资料：
-ETTING WIFI UP VIA THE COMMAND LINE">
-<meta property="og:updated_time" content="2017-02-18T08:23:48.805Z">
+<meta property="og:description" content="网络配置(Network Config)使用ssh连接上Raspberry之后，还无法上网。使用如下命令扫描无线热点：">
+<meta property="og:updated_time" content="2017-02-20T07:19:35.869Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Raspberry配置">
-<meta name="twitter:description" content="网络配置(Network Config)使用ssh连接上Raspberry之后，还无法上网。
-ssh自动启动无线设置(WLAN Setting)Raspberry Pi 3内置了无线网卡，以前的版本是没有无线网卡的。只要对网卡有合适的设置就可以连接网络了。
-参考资料：
-ETTING WIFI UP VIA THE COMMAND LINE">
+<meta name="twitter:title" content="Raspberry初始配置">
+<meta name="twitter:description" content="网络配置(Network Config)使用ssh连接上Raspberry之后，还无法上网。使用如下命令扫描无线热点：">
 
 
 
@@ -136,7 +127,7 @@ ETTING WIFI UP VIA THE COMMAND LINE">
 
 
 
-  <title> Raspberry配置 | 小强的博客 </title>
+  <title> Raspberry初始配置 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -335,7 +326,7 @@ ETTING WIFI UP VIA THE COMMAND LINE">
             
             
               
-                Raspberry配置
+                Raspberry初始配置
               
             
           </h1>
@@ -418,7 +409,14 @@ ETTING WIFI UP VIA THE COMMAND LINE">
       
 
       
-        <h4 id="网络配置-Network-Config"><a href="#网络配置-Network-Config" class="headerlink" title="网络配置(Network Config)"></a>网络配置(Network Config)</h4><p>使用ssh连接上Raspberry之后，还无法上网。</p>
+        <h4 id="网络配置-Network-Config"><a href="#网络配置-Network-Config" class="headerlink" title="网络配置(Network Config)"></a>网络配置(Network Config)</h4><p>使用ssh连接上Raspberry之后，还无法上网。使用如下命令扫描无线热点：</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo iwlist wlan0 scan</div></pre></td></tr></table></figure>
+<p>修改无线配置文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo nano /etc/wpa_supplicant/wpa_supplicant.conf</div></pre></td></tr></table></figure>
+<p>添加密码:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">network=&#123;    </div><div class="line">  ssid="76D2"    </div><div class="line">  psk="cxyqw138597"</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>编辑完毕后重启wlan0，使用命令ifocnifg wlan0查看是否有IP，如有，则配置成功。</p>
 <h5 id="ssh自动启动"><a href="#ssh自动启动" class="headerlink" title="ssh自动启动"></a>ssh自动启动</h5><h5 id="无线设置-WLAN-Setting"><a href="#无线设置-WLAN-Setting" class="headerlink" title="无线设置(WLAN Setting)"></a>无线设置(WLAN Setting)</h5><p>Raspberry Pi 3内置了无线网卡，以前的版本是没有无线网卡的。只要对网卡有合适的设置就可以连接网络了。</p>
 <p>参考资料：</p>
 <p><a href="https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md" target="_blank" rel="external">ETTING WIFI UP VIA THE COMMAND LINE</a></p>
@@ -493,7 +491,7 @@ ETTING WIFI UP VIA THE COMMAND LINE">
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2017/02/18/raspberry-config/"
-           data-title="Raspberry配置" data-url="http://jiangxiaoqiang.com/2017/02/18/raspberry-config/">
+           data-title="Raspberry初始配置" data-url="http://jiangxiaoqiang.com/2017/02/18/raspberry-config/">
       </div>
     
   </div>
@@ -540,7 +538,7 @@ ETTING WIFI UP VIA THE COMMAND LINE">
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">190</span>
+                <span class="site-state-item-count">192</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -549,7 +547,7 @@ ETTING WIFI UP VIA THE COMMAND LINE">
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -558,7 +556,7 @@ ETTING WIFI UP VIA THE COMMAND LINE">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">189</span>
+                <span class="site-state-item-count">190</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
