@@ -84,16 +84,22 @@
 
 
 
-<meta name="description" content="####">
+<meta name="description" content="经常会看见如下的函数表达式:
+123(function()&amp;#123;	console.log(&quot;hello&quot;);&amp;#125;)();
+或者">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript自执行函数">
+<meta property="og:title" content="JavaScript立即执行函数表达式">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/02/21/javascript-self-execute-function/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="####">
-<meta property="og:updated_time" content="2017-02-21T02:39:51.261Z">
+<meta property="og:description" content="经常会看见如下的函数表达式:
+123(function()&amp;#123;	console.log(&quot;hello&quot;);&amp;#125;)();
+或者">
+<meta property="og:updated_time" content="2017-02-21T05:03:10.889Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript自执行函数">
-<meta name="twitter:description" content="####">
+<meta name="twitter:title" content="JavaScript立即执行函数表达式">
+<meta name="twitter:description" content="经常会看见如下的函数表达式:
+123(function()&amp;#123;	console.log(&quot;hello&quot;);&amp;#125;)();
+或者">
 
 
 
@@ -127,7 +133,7 @@
 
 
 
-  <title> JavaScript自执行函数 | 小强的博客 </title>
+  <title> JavaScript立即执行函数表达式 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -326,7 +332,7 @@
             
             
               
-                JavaScript自执行函数
+                JavaScript立即执行函数表达式
               
             
           </h1>
@@ -409,7 +415,32 @@
       
 
       
-        <p>#### </p>
+        <p>经常会看见如下的函数表达式:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">"hello"</span>);</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>或者</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(function()&#123;</div><div class="line">	console.log(&quot;hello&quot;);</div><div class="line">&#125;());</div></pre></td></tr></table></figure>
+<p>对此种用法的称呼不尽相同，其中包括「自执行匿名函数」（self-executing anonymous function），「立即执行函数表达式」（Immediately-Invoked Function Expression，以下简称IIFE）.函数表达式：</p>
+<blockquote>
+<p>/<em> 函数表达式中的函数可以为匿名函数，也可以有函数名，但是该函数实际上不能直接使用，只能通过表达式左边的变量 a 来调用。</em>/</p>
+<p>var a = function(){</p>
+<p>​    alert(‘Function expression’);</p>
+<p>}</p>
+<p>var b = new a();</p>
+</blockquote>
+<p>函数声明：</p>
+<blockquote>
+<p>// 函数声明时必须有函数名</p>
+<p>function a(){</p>
+<p>   alert(‘Function declaration’);</p>
+<p>}</p>
+<p>a();</p>
+</blockquote>
+<h4 id="为什么要使用立即执行函数表达式"><a href="#为什么要使用立即执行函数表达式" class="headerlink" title="为什么要使用立即执行函数表达式"></a>为什么要使用立即执行函数表达式</h4><ul>
+<li><strong>模拟块作用域</strong> 在同时引用多个库的情况下,容易造成变量污染.</li>
+<li><strong>解决闭包冲突</strong>（closure）是JavaScript的一个语言特性，简单来说就是在函数内部所定义的函数可以持有外层函数的执行环境.使用立即执行函数表达式可以解决闭包冲突.</li>
+<li><strong>模拟单例</strong></li>
+</ul>
 
       
     </div>
@@ -452,6 +483,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/02/21/java-cache-framework/" rel="prev" title="Java缓存框架">
+                Java缓存框架 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -477,7 +512,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2017/02/21/javascript-self-execute-function/"
-           data-title="JavaScript自执行函数" data-url="http://jiangxiaoqiang.com/2017/02/21/javascript-self-execute-function/">
+           data-title="JavaScript立即执行函数表达式" data-url="http://jiangxiaoqiang.com/2017/02/21/javascript-self-execute-function/">
       </div>
     
   </div>
@@ -501,8 +536,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -515,7 +559,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">193</span>
+                <span class="site-state-item-count">194</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -533,7 +577,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">191</span>
+                <span class="site-state-item-count">192</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -602,6 +646,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么要使用立即执行函数表达式"><span class="nav-number">1.</span> <span class="nav-text">为什么要使用立即执行函数表达式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>

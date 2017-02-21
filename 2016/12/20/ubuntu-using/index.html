@@ -95,7 +95,7 @@
 软件安装在Ubuntu下，常用的软件安装一条命令即搞定,跟上常用的软件名称即可，真的是一条命令安装所有软件,特别是重装系统之后，一条命令将原来的软件都安装完毕，节省了时间和精力，非常方便：
 1234# 安装常用软件(16.04 LTS及以后使用apt命令)sudo apt install -y wget curl aria2 k">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/12/20/ubuntu-using/shutter-selection-shortkey.png">
-<meta property="og:updated_time" content="2017-02-17T06:18:19.628Z">
+<meta property="og:updated_time" content="2017-02-21T05:22:30.961Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu使用快捷键与技巧总结">
 <meta name="twitter:description" content="使用的Ubuntu版本为14.04 LTS和16.04 LTS版本。
@@ -457,6 +457,9 @@
 <p>也可以使用GUI工具dconf-editor来设置，可以立即生效，不需重启系统。dconf is a low-level configuration system and settings management. Its main purpose is to provide a back end to GSettings on platforms that don’t already have configuration storage systems. It depends on GLib. It is part of GNOME 3 and is a replacement for GConf.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install dconf-editor</div></pre></td></tr></table></figure>
 <p>安装好之后可以在该工具的 com – canonical – unity – launcher 中手动选择 Unity 在桌面中的所处位置。</p>
+<h5 id="启用root用户"><a href="#启用root用户" class="headerlink" title="启用root用户"></a>启用root用户</h5><p>在Ubuntu Desktop 16.04中,root用户默认是禁用的,启用root用户:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo -i passwd root</div></pre></td></tr></table></figure>
+<p>输入root的密码即可.其中-i参数表示–login的含义.Run the shell specified by the target user’s password database entry as a login shell.  This means that login-specific resource files such as .profile or .login will be read by the shell.If a command is specified, it is passed to the shell for execution via the shell’s -c option.  If no command is specified, an interactive shell is executed.  sudo attempts to change to that user’s home directory before running the shell.  The command is run with an environment similar to the one a user would receive at log in.</p>
 <h4 id="设置截屏快捷键"><a href="#设置截屏快捷键" class="headerlink" title="设置截屏快捷键"></a>设置截屏快捷键</h4><p>在安装好了Shutter之后，每次截取屏幕都需要打开Shutter，点击Selection按钮。其实可以配置截屏的快捷键，就像QQ的<code>Ctrl + Alt + A</code>一样。如下图所示：</p>
 <img src="/2016/12/20/ubuntu-using/shutter-selection-shortkey.png" alt="Ubuntu截图设置快捷键" title="Ubuntu截图设置快捷键">
 <h5 id="设置Terminal默认路径"><a href="#设置Terminal默认路径" class="headerlink" title="设置Terminal默认路径"></a>设置Terminal默认路径</h5><p>一般情况下，在终端里有一个最高频的使用目录，希望打开终端时默认切换到此目录下。在Ubuntu里可以在Home目录下的bashrc<code>~/.bashrc</code>脚本里添加如下代码即可：</p>
@@ -777,7 +780,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">193</span>
+                <span class="site-state-item-count">194</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -795,7 +798,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">191</span>
+                <span class="site-state-item-count">192</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -874,7 +877,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#软件安装"><span class="nav-number">1.</span> <span class="nav-text">软件安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字体"><span class="nav-number">2.</span> <span class="nav-text">字体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小技巧"><span class="nav-number">3.</span> <span class="nav-text">小技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#改变任务栏位置"><span class="nav-number">3.1.</span> <span class="nav-text">改变任务栏位置</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置截屏快捷键"><span class="nav-number">4.</span> <span class="nav-text">设置截屏快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#设置Terminal默认路径"><span class="nav-number">4.1.</span> <span class="nav-text">设置Terminal默认路径</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打开程序"><span class="nav-number">5.</span> <span class="nav-text">打开程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快捷键"><span class="nav-number">6.</span> <span class="nav-text">快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Bash-Shell常用快捷键"><span class="nav-number">6.1.</span> <span class="nav-text">Bash Shell常用快捷键</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#格式化U盘"><span class="nav-number">7.</span> <span class="nav-text">格式化U盘</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#软件安装"><span class="nav-number">1.</span> <span class="nav-text">软件安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字体"><span class="nav-number">2.</span> <span class="nav-text">字体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小技巧"><span class="nav-number">3.</span> <span class="nav-text">小技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#改变任务栏位置"><span class="nav-number">3.1.</span> <span class="nav-text">改变任务栏位置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#启用root用户"><span class="nav-number">3.2.</span> <span class="nav-text">启用root用户</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置截屏快捷键"><span class="nav-number">4.</span> <span class="nav-text">设置截屏快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#设置Terminal默认路径"><span class="nav-number">4.1.</span> <span class="nav-text">设置Terminal默认路径</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打开程序"><span class="nav-number">5.</span> <span class="nav-text">打开程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快捷键"><span class="nav-number">6.</span> <span class="nav-text">快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Bash-Shell常用快捷键"><span class="nav-number">6.1.</span> <span class="nav-text">Bash Shell常用快捷键</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#格式化U盘"><span class="nav-number">7.</span> <span class="nav-text">格式化U盘</span></a></li></ol></div>
             
 
           </div>
