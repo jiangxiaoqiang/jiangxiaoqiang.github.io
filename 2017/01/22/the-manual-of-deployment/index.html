@@ -86,13 +86,13 @@
 
 <meta name="description" content="虽然理想中的程序是从来不用考虑部署，只需要简单的几个按即可(部署、回滚、回滚到指定版本)。但是平时还是需要手动处理很多部署工作，将手动部署的一些步骤记录在此，避免遗忘。不管是小到一个简单的单机独立应用，还是大到跨国跨数据中心上千节点大型集群，部署过程大致如此。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="通用程序部署手册(手动)">
+<meta property="og:title" content="通用部署流程">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/01/22/the-manual-of-deployment/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="虽然理想中的程序是从来不用考虑部署，只需要简单的几个按即可(部署、回滚、回滚到指定版本)。但是平时还是需要手动处理很多部署工作，将手动部署的一些步骤记录在此，避免遗忘。不管是小到一个简单的单机独立应用，还是大到跨国跨数据中心上千节点大型集群，部署过程大致如此。">
-<meta property="og:updated_time" content="2017-02-14T05:09:39.692Z">
+<meta property="og:updated_time" content="2017-02-23T08:18:52.337Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="通用程序部署手册(手动)">
+<meta name="twitter:title" content="通用部署流程">
 <meta name="twitter:description" content="虽然理想中的程序是从来不用考虑部署，只需要简单的几个按即可(部署、回滚、回滚到指定版本)。但是平时还是需要手动处理很多部署工作，将手动部署的一些步骤记录在此，避免遗忘。不管是小到一个简单的单机独立应用，还是大到跨国跨数据中心上千节点大型集群，部署过程大致如此。">
 
 
@@ -127,7 +127,7 @@
 
 
 
-  <title> 通用程序部署手册(手动) | 小强的博客 </title>
+  <title> 通用部署流程 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -326,7 +326,7 @@
             
             
               
-                通用程序部署手册(手动)
+                通用部署流程
               
             
           </h1>
@@ -412,14 +412,16 @@
         <p>虽然理想中的程序是从来不用考虑部署，只需要简单的几个按即可(部署、回滚、回滚到指定版本)。但是平时还是需要手动处理很多部署工作，将手动部署的一些步骤记录在此，避免遗忘。不管是小到一个简单的单机独立应用，还是大到跨国跨数据中心上千节点大型集群，部署过程大致如此。</p>
 <a id="more"></a>
 <h4 id="编译程序-Compile"><a href="#编译程序-Compile" class="headerlink" title="编译程序(Compile)"></a>编译程序(Compile)</h4><p>对于Java与Scala编写的后端代码，输入如下命令编译程序：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./gradlew -p cc-web-boot -x <span class="built_in">test</span> build</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 编译jar包</span></div><div class="line">./gradlew -p cc-web-boot -x <span class="built_in">test</span> build</div></pre></td></tr></table></figure>
 <p>编译完成后，切换到目标目录<code>cc-web-boot/build/libs</code>即可发现生成的jar包。命令指定项目的目录是<code>cc-web-boot</code>。对于Javascript、html、css编写的前端代码：</p>
 <h4 id="拷贝程序到服务器"><a href="#拷贝程序到服务器" class="headerlink" title="拷贝程序到服务器"></a>拷贝程序到服务器</h4><p>使用如下命令拷贝程序到服务端：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">scp system-web-boot-1.0.0.jar hldev@172.30.0.110:~</div><div class="line">scp system-web-boot-1.0.0.jar hl@192.168.32.106:/home/app/backend/credit-system</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">scp system-web-boot-1.0.0.jar hldev@172.30.0.110:~</div><div class="line">scp system-web-boot-1.0.0.jar hl@192.168.32.106:/home/app/</div></pre></td></tr></table></figure>
+<p>目前服务器Web使用的Tengine。需要将后端的jar/war包分别拷贝到12和13服务器。前端代码在11上，Nginx转发请求、负载均衡也在11服务器。在使用国产Web（默认端口9060）时要注意修改配置文件application.properties，将Cookie Domain和Datasource Url设置为相应的值。</p>
 <h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><p>使用Putty登录系统，启动：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 新开进程启动</span></div><div class="line">nohup java -jar system-web-boot-1.0.0.jar</div><div class="line"></div><div class="line"><span class="comment"># 启动，可以在界面上查看输出日志</span></div><div class="line">java -jar system-web-boot-1.0.0.jar</div><div class="line"></div><div class="line"><span class="comment"># 启动，优先使用IPv4</span></div><div class="line">java -jar -Djava.net.preferIPv4Stack=<span class="literal">true</span> esystem-web-boot-1.0.0.jar</div></pre></td></tr></table></figure>
 <h4 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h4><p>访问相应的应用程序地址：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://172.30.0.110:28080/</div></pre></td></tr></table></figure>
+<h4 id="优化与思考"><a href="#优化与思考" class="headerlink" title="优化与思考"></a>优化与思考</h4><p>如何使用Chubby使多机部署自动化，部署的程序如何回滚。目前采用的方式是scp拷贝到2台web服务器，肯定可以完全自动化完成的。</p>
 
       
     </div>
@@ -491,7 +493,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2017/01/22/the-manual-of-deployment/"
-           data-title="通用程序部署手册(手动)" data-url="http://jiangxiaoqiang.com/2017/01/22/the-manual-of-deployment/">
+           data-title="通用部署流程" data-url="http://jiangxiaoqiang.com/2017/01/22/the-manual-of-deployment/">
       </div>
     
   </div>
@@ -538,7 +540,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">194</span>
+                <span class="site-state-item-count">195</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -635,7 +637,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#编译程序-Compile"><span class="nav-number">1.</span> <span class="nav-text">编译程序(Compile)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拷贝程序到服务器"><span class="nav-number">2.</span> <span class="nav-text">拷贝程序到服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动"><span class="nav-number">3.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#访问"><span class="nav-number">4.</span> <span class="nav-text">访问</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#编译程序-Compile"><span class="nav-number">1.</span> <span class="nav-text">编译程序(Compile)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拷贝程序到服务器"><span class="nav-number">2.</span> <span class="nav-text">拷贝程序到服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动"><span class="nav-number">3.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#访问"><span class="nav-number">4.</span> <span class="nav-text">访问</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优化与思考"><span class="nav-number">5.</span> <span class="nav-text">优化与思考</span></a></li></ol></div>
             
 
           </div>

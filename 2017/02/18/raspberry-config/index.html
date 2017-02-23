@@ -84,16 +84,40 @@
 
 
 
-<meta name="description" content="网络配置(Network Config)使用ssh连接上Raspberry之后，还无法上网。使用如下命令扫描无线热点：">
+<meta name="description" content="Raspberry Pi经过各种改造，可以有不同的用途，包括但不限于如下用途：
+
+一个24小时在线下载的微型服务器(BitTorrent下载机)
+一个微型的Web网络服务器，托管个人网站等
+一个微型的科学上网代理服务器(Tor Router…)，或者叫家用 VPN 服务器
+搭建一个微型广播站，实现自己的广播(FM广播系统)
+一个路由器
+家庭NAS(Network Access Storage)
+X">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Raspberry初始配置">
+<meta property="og:title" content="Raspberry Pi 3 Model B配置">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/02/18/raspberry-config/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="网络配置(Network Config)使用ssh连接上Raspberry之后，还无法上网。使用如下命令扫描无线热点：">
-<meta property="og:updated_time" content="2017-02-20T07:19:35.869Z">
+<meta property="og:description" content="Raspberry Pi经过各种改造，可以有不同的用途，包括但不限于如下用途：
+
+一个24小时在线下载的微型服务器(BitTorrent下载机)
+一个微型的Web网络服务器，托管个人网站等
+一个微型的科学上网代理服务器(Tor Router…)，或者叫家用 VPN 服务器
+搭建一个微型广播站，实现自己的广播(FM广播系统)
+一个路由器
+家庭NAS(Network Access Storage)
+X">
+<meta property="og:updated_time" content="2017-02-23T08:18:52.337Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Raspberry初始配置">
-<meta name="twitter:description" content="网络配置(Network Config)使用ssh连接上Raspberry之后，还无法上网。使用如下命令扫描无线热点：">
+<meta name="twitter:title" content="Raspberry Pi 3 Model B配置">
+<meta name="twitter:description" content="Raspberry Pi经过各种改造，可以有不同的用途，包括但不限于如下用途：
+
+一个24小时在线下载的微型服务器(BitTorrent下载机)
+一个微型的Web网络服务器，托管个人网站等
+一个微型的科学上网代理服务器(Tor Router…)，或者叫家用 VPN 服务器
+搭建一个微型广播站，实现自己的广播(FM广播系统)
+一个路由器
+家庭NAS(Network Access Storage)
+X">
 
 
 
@@ -127,7 +151,7 @@
 
 
 
-  <title> Raspberry初始配置 | 小强的博客 </title>
+  <title> Raspberry Pi 3 Model B配置 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -326,7 +350,7 @@
             
             
               
-                Raspberry初始配置
+                Raspberry Pi 3 Model B配置
               
             
           </h1>
@@ -409,15 +433,35 @@
       
 
       
-        <h4 id="网络配置-Network-Config"><a href="#网络配置-Network-Config" class="headerlink" title="网络配置(Network Config)"></a>网络配置(Network Config)</h4><p>使用ssh连接上Raspberry之后，还无法上网。使用如下命令扫描无线热点：</p>
+        <p>Raspberry Pi经过各种改造，可以有不同的用途，包括但不限于如下用途：</p>
+<ul>
+<li>一个24小时在线下载的微型服务器(BitTorrent下载机)</li>
+<li>一个微型的Web网络服务器，托管个人网站等</li>
+<li>一个微型的科学上网代理服务器(Tor Router…)，或者叫家用 VPN 服务器</li>
+<li>搭建一个微型广播站，实现自己的广播(FM广播系统)</li>
+<li>一个路由器</li>
+<li>家庭NAS(Network Access Storage)</li>
+<li>XBMC操作系统打造家庭影院(XMBC 多媒体中心)</li>
+<li>添加一个摄像头做一个监控(Web Cam 服务器)</li>
+<li>有声书籍播放器</li>
+<li>一个Git服务器</li>
+<li>私有云服务ownCloud，可以在任何地方，包括用手机，上传下载文件，同步日历等</li>
+<li>一个闹钟</li>
+</ul>
+<p>但是在实现如上功能之前还是需要一步一步从最开始进行配置。</p>
 <a id="more"></a>
+<h4 id="网络配置-Network-Config"><a href="#网络配置-Network-Config" class="headerlink" title="网络配置(Network Config)"></a>网络配置(Network Config)</h4><p>使用ssh连接上Raspberry之后，还无法上网。使用如下命令扫描无线热点：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo iwlist wlan0 scan</div></pre></td></tr></table></figure>
 <p>修改无线配置文件：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo nano /etc/wpa_supplicant/wpa_supplicant.conf</div></pre></td></tr></table></figure>
 <p>添加密码:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">network=&#123;    </div><div class="line">  ssid="76D2"    </div><div class="line">  psk="cxyqw138597"</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">network=&#123;    </div><div class="line">  ssid="76D2"    </div><div class="line">  psk="cxyqw1387"</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>编辑完毕后重启wlan0，使用命令ifocnifg wlan0查看是否有IP，如有，则配置成功。</p>
 <h5 id="ssh自动启动"><a href="#ssh自动启动" class="headerlink" title="ssh自动启动"></a>ssh自动启动</h5><h5 id="无线设置-WLAN-Setting"><a href="#无线设置-WLAN-Setting" class="headerlink" title="无线设置(WLAN Setting)"></a>无线设置(WLAN Setting)</h5><p>Raspberry Pi 3内置了无线网卡，以前的版本是没有无线网卡的。只要对网卡有合适的设置就可以连接网络了。</p>
+<h4 id="远程连接"><a href="#远程连接" class="headerlink" title="远程连接"></a>远程连接</h4><p>可以使用远程桌面来访问Pi，过程也很简单，我通过iphone也连接到了Pi。在Pi上安装xrdp, 一个远程桌面的服务端：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install xrdp</div></pre></td></tr></table></figure>
+<p>安装好后xrdp就自动启动了，而且配置为随系统启动。在Fedora上安装rdesktop，一个远程桌面客户端：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo yum install rdesktop</div></pre></td></tr></table></figure>
 <p>参考资料：</p>
 <p><a href="https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md" target="_blank" rel="external">ETTING WIFI UP VIA THE COMMAND LINE</a></p>
 
@@ -462,8 +506,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/02/19/raspberry-install-server/" rel="prev" title="Raspberry搭建下载服务器">
-                Raspberry搭建下载服务器 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/02/19/raspberry-install-server/" rel="prev" title="Raspberry Pi 3 Model B搭建下载服务器">
+                Raspberry Pi 3 Model B搭建下载服务器 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -491,7 +535,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2017/02/18/raspberry-config/"
-           data-title="Raspberry初始配置" data-url="http://jiangxiaoqiang.com/2017/02/18/raspberry-config/">
+           data-title="Raspberry Pi 3 Model B配置" data-url="http://jiangxiaoqiang.com/2017/02/18/raspberry-config/">
       </div>
     
   </div>
@@ -538,7 +582,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">194</span>
+                <span class="site-state-item-count">195</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -635,7 +679,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#网络配置-Network-Config"><span class="nav-number">1.</span> <span class="nav-text">网络配置(Network Config)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ssh自动启动"><span class="nav-number">1.1.</span> <span class="nav-text">ssh自动启动</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#无线设置-WLAN-Setting"><span class="nav-number">1.2.</span> <span class="nav-text">无线设置(WLAN Setting)</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#网络配置-Network-Config"><span class="nav-number">1.</span> <span class="nav-text">网络配置(Network Config)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ssh自动启动"><span class="nav-number">1.1.</span> <span class="nav-text">ssh自动启动</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#无线设置-WLAN-Setting"><span class="nav-number">1.2.</span> <span class="nav-text">无线设置(WLAN Setting)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#远程连接"><span class="nav-number">2.</span> <span class="nav-text">远程连接</span></a></li></ol></div>
             
 
           </div>

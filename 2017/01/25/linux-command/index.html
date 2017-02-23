@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="查看文件占用情况：
 1du -alh">
-<meta property="og:updated_time" content="2017-02-14T05:09:39.692Z">
+<meta property="og:updated_time" content="2017-02-23T08:18:52.337Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux常用命令总结">
 <meta name="twitter:description" content="查看文件占用情况：
@@ -416,6 +416,8 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">du -alh</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <h4 id="scp"><a href="#scp" class="headerlink" title="scp"></a>scp</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#将本地文件夹上传到服务器</span></div><div class="line">scp -r /tmp/local_dir username@servername:remote_dir</div></pre></td></tr></table></figure>
+<h4 id="ss命令"><a href="#ss命令" class="headerlink" title="ss命令"></a>ss命令</h4><p>ss(Socket Statistics)命令用于显示本机Sock统计信息。相比于其他工具，它可以显示更多的信息(It can display more TCP and state informations than other tools)。l查看监听端口。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 显示所有TCP Sockets</span></div><div class="line">ss -t <span class="_">-a</span></div><div class="line"><span class="comment"># 查看ssh端口是否已经打开</span></div><div class="line">ss -t -n <span class="_">-a</span>|grep 22</div></pre></td></tr></table></figure></p>
+<p>t参数表示只显示TCP端口，n(number)表示以数字的方式显示，可以使用<code>ss --help</code>查看帮助。</p>
 <h4 id="lsof命令"><a href="#lsof命令" class="headerlink" title="lsof命令"></a>lsof命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
 <h4 id="top命令"><a href="#top命令" class="headerlink" title="top命令"></a>top命令</h4><p>在top命令界面中，按x可以打开或者关闭排序列的加亮效果，默认是以CPU的使用率进行排序。按键盘b可以高亮当前正在运行的进程。按住<code>Shift + &lt;</code>或者<code>Shift + &gt;</code>可以在高亮不同列，并在对应列上进行升序排序。命令<code>top -c(command)</code>可以列出command列的完整参数。</p>
 <p>交互参数：</p>
@@ -456,8 +458,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/22/the-manual-of-deployment/" rel="next" title="通用程序部署手册(手动)">
-                <i class="fa fa-chevron-left"></i> 通用程序部署手册(手动)
+              <a href="/2017/01/22/the-manual-of-deployment/" rel="next" title="通用部署流程">
+                <i class="fa fa-chevron-left"></i> 通用部署流程
               </a>
             
           </div>
@@ -542,7 +544,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">194</span>
+                <span class="site-state-item-count">195</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -639,7 +641,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#scp"><span class="nav-number">1.</span> <span class="nav-text">scp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lsof命令"><span class="nav-number">2.</span> <span class="nav-text">lsof命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#top命令"><span class="nav-number">3.</span> <span class="nav-text">top命令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#scp"><span class="nav-number">1.</span> <span class="nav-text">scp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ss命令"><span class="nav-number">2.</span> <span class="nav-text">ss命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lsof命令"><span class="nav-number">3.</span> <span class="nav-text">lsof命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#top命令"><span class="nav-number">4.</span> <span class="nav-text">top命令</span></a></li></ol></div>
             
 
           </div>
