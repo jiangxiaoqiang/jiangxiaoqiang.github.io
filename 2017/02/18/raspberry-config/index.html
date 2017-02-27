@@ -106,7 +106,7 @@ X">
 一个路由器
 家庭NAS(Network Access Storage)
 X">
-<meta property="og:updated_time" content="2017-02-23T08:18:52.337Z">
+<meta property="og:updated_time" content="2017-02-24T01:47:20.023Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Raspberry Pi 3 Model B配置">
 <meta name="twitter:description" content="Raspberry Pi经过各种改造，可以有不同的用途，包括但不限于如下用途：
@@ -455,13 +455,9 @@ X">
 <p>修改无线配置文件：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo nano /etc/wpa_supplicant/wpa_supplicant.conf</div></pre></td></tr></table></figure>
 <p>添加密码:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">network=&#123;    </div><div class="line">  ssid="76D2"    </div><div class="line">  psk="cxyqw1387"</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">network=&#123;    </div><div class="line">  ssid="76D2"    </div><div class="line">  psk="cxyqw138597"</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>编辑完毕后重启wlan0，使用命令ifocnifg wlan0查看是否有IP，如有，则配置成功。</p>
 <h5 id="ssh自动启动"><a href="#ssh自动启动" class="headerlink" title="ssh自动启动"></a>ssh自动启动</h5><h5 id="无线设置-WLAN-Setting"><a href="#无线设置-WLAN-Setting" class="headerlink" title="无线设置(WLAN Setting)"></a>无线设置(WLAN Setting)</h5><p>Raspberry Pi 3内置了无线网卡，以前的版本是没有无线网卡的。只要对网卡有合适的设置就可以连接网络了。</p>
-<h4 id="远程连接"><a href="#远程连接" class="headerlink" title="远程连接"></a>远程连接</h4><p>可以使用远程桌面来访问Pi，过程也很简单，我通过iphone也连接到了Pi。在Pi上安装xrdp, 一个远程桌面的服务端：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install xrdp</div></pre></td></tr></table></figure>
-<p>安装好后xrdp就自动启动了，而且配置为随系统启动。在Fedora上安装rdesktop，一个远程桌面客户端：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo yum install rdesktop</div></pre></td></tr></table></figure>
 <p>参考资料：</p>
 <p><a href="https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md" target="_blank" rel="external">ETTING WIFI UP VIA THE COMMAND LINE</a></p>
 
@@ -582,7 +578,7 @@ X">
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">195</span>
+                <span class="site-state-item-count">196</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -600,7 +596,7 @@ X">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">192</span>
+                <span class="site-state-item-count">193</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -679,7 +675,7 @@ X">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#网络配置-Network-Config"><span class="nav-number">1.</span> <span class="nav-text">网络配置(Network Config)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ssh自动启动"><span class="nav-number">1.1.</span> <span class="nav-text">ssh自动启动</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#无线设置-WLAN-Setting"><span class="nav-number">1.2.</span> <span class="nav-text">无线设置(WLAN Setting)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#远程连接"><span class="nav-number">2.</span> <span class="nav-text">远程连接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#网络配置-Network-Config"><span class="nav-number">1.</span> <span class="nav-text">网络配置(Network Config)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ssh自动启动"><span class="nav-number">1.1.</span> <span class="nav-text">ssh自动启动</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#无线设置-WLAN-Setting"><span class="nav-number">1.2.</span> <span class="nav-text">无线设置(WLAN Setting)</span></a></li></ol></li></ol></div>
             
 
           </div>

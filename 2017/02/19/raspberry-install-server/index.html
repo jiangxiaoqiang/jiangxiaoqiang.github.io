@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="由于Raspberry功耗很低，Raspberry Pi 3 Model B的功耗只有4W，4W是什么概念呢？假如你的Raspberry 7*24小时一年到头无休止开着，一年也才使用30度多一点的电量(4WX24小时X365天=31.2度)，一度电打算1块钱，开一整年也才30多块钱。由此看来，树莓派是个人可以养的起的服务器，所以可以使用它作为一个下载器。24小时不间断下载，就不用再等待下载完毕了，">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2017/02/19/raspberry-install-server/web-download-page.png">
-<meta property="og:updated_time" content="2017-02-22T01:53:29.947Z">
+<meta property="og:updated_time" content="2017-02-27T01:20:32.832Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Raspberry Pi 3 Model B搭建下载服务器">
 <meta name="twitter:description" content="由于Raspberry功耗很低，Raspberry Pi 3 Model B的功耗只有4W，4W是什么概念呢？假如你的Raspberry 7*24小时一年到头无休止开着，一年也才使用30度多一点的电量(4WX24小时X365天=31.2度)，一度电打算1块钱，开一整年也才30多块钱。由此看来，树莓派是个人可以养的起的服务器，所以可以使用它作为一个下载器。24小时不间断下载，就不用再等待下载完毕了，">
@@ -402,7 +402,10 @@
 <h3 id="aMule"><a href="#aMule" class="headerlink" title="aMule"></a>aMule</h3><p>aMule是一款开源跨平台的文件分享(下载)工具.</p>
 <h4 id="安装aMule"><a href="#安装aMule" class="headerlink" title="安装aMule"></a>安装aMule</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install amule-daemon amule-utils -y</div></pre></td></tr></table></figure>
 <h3 id="Deluge"><a href="#Deluge" class="headerlink" title="Deluge"></a>Deluge</h3><p>Deluge是一款开源跨平台的下载工具，支持Windows、Mac OS X、Linux等平台。</p>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install deluged -y</div><div class="line">sudo apt-get install deluge-console -y</div><div class="line">sudo apt-get install deluge-web -y</div><div class="line"># 也可以使用如下一条指令搞定</div><div class="line">sudo apt-get install deluged deluge-console deluge-web -y</div></pre></td></tr></table></figure>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install deluged -y</div><div class="line">sudo apt-get install deluge-console -y</div><div class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</div><div class="line"># 合并安装</div><div class="line">=======</div><div class="line">sudo apt-get install deluge-web -y</div><div class="line"># 也可以使用如下一条指令搞定</div><div class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; 161f826a0053efffea883fa5846c295ded50ec87</div><div class="line">sudo apt-get install deluged deluge-console deluge-web -y</div></pre></td></tr></table></figure>
+<p>待Deluge安装完毕后，输入如下命令启动：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 启动守护进程</span></div><div class="line">deluged</div><div class="line"><span class="comment"># 启动Web端</span></div><div class="line">deluge-web</div><div class="line"><span class="comment"># 启动Console端</span></div><div class="line">deluge-console</div></pre></td></tr></table></figure>
+<p>登录地址：<code>http://192.168.1.113:8112/</code>即可从Web访问Deluge。</p>
 
       
     </div>
@@ -521,7 +524,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">195</span>
+                <span class="site-state-item-count">196</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -539,7 +542,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">192</span>
+                <span class="site-state-item-count">193</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

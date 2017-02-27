@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="查看文件占用情况：
 1du -alh">
-<meta property="og:updated_time" content="2017-02-23T08:18:52.337Z">
+<meta property="og:updated_time" content="2017-02-27T01:20:32.832Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux常用命令总结">
 <meta name="twitter:description" content="查看文件占用情况：
@@ -415,7 +415,7 @@
         <p>查看文件占用情况：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">du -alh</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<h4 id="scp"><a href="#scp" class="headerlink" title="scp"></a>scp</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#将本地文件夹上传到服务器</span></div><div class="line">scp -r /tmp/local_dir username@servername:remote_dir</div></pre></td></tr></table></figure>
+<h4 id="scp"><a href="#scp" class="headerlink" title="scp"></a>scp</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#将本地文件夹上传到服务器</span></div><div class="line">scp -r /tmp/local_dir username@servername:remote_dir</div><div class="line"><span class="comment"># 将服务器文件拷贝到本地</span></div><div class="line">scp -r pi@192.168.1.113:/var/lib/daemon/GK ./</div></pre></td></tr></table></figure>
 <h4 id="ss命令"><a href="#ss命令" class="headerlink" title="ss命令"></a>ss命令</h4><p>ss(Socket Statistics)命令用于显示本机Sock统计信息。相比于其他工具，它可以显示更多的信息(It can display more TCP and state informations than other tools)。l查看监听端口。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 显示所有TCP Sockets</span></div><div class="line">ss -t <span class="_">-a</span></div><div class="line"><span class="comment"># 查看ssh端口是否已经打开</span></div><div class="line">ss -t -n <span class="_">-a</span>|grep 22</div></pre></td></tr></table></figure></p>
 <p>t参数表示只显示TCP端口，n(number)表示以数字的方式显示，可以使用<code>ss --help</code>查看帮助。</p>
 <h4 id="lsof命令"><a href="#lsof命令" class="headerlink" title="lsof命令"></a>lsof命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
@@ -544,7 +544,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">195</span>
+                <span class="site-state-item-count">196</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -562,7 +562,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">192</span>
+                <span class="site-state-item-count">193</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
