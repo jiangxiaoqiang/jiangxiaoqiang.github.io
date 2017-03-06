@@ -86,13 +86,13 @@
 
 <meta name="description" content="Hexo是一个简洁、高效的博客框架。使用Markdown编写文章，快速渲染成博客静态网页。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo使用总结">
+<meta property="og:title" content="Hexo使用总结">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/12/18/hexo-using/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="Hexo是一个简洁、高效的博客框架。使用Markdown编写文章，快速渲染成博客静态网页。">
-<meta property="og:updated_time" content="2017-02-06T05:09:14.000Z">
+<meta property="og:updated_time" content="2017-03-06T01:58:33.185Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo使用总结">
+<meta name="twitter:title" content="Hexo使用总结">
 <meta name="twitter:description" content="Hexo是一个简洁、高效的博客框架。使用Markdown编写文章，快速渲染成博客静态网页。">
 
 
@@ -127,7 +127,7 @@
 
 
 
-  <title> hexo使用总结 | 小强的博客 </title>
+  <title> Hexo使用总结 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -326,7 +326,7 @@
             
             
               
-                hexo使用总结
+                Hexo使用总结
               
             
           </h1>
@@ -417,7 +417,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-cli -g</div></pre></td></tr></table></figure>
 <p>仅仅安装了Hexo还不可以在浏览器中查看效果，还需要安装Hexo Server模块：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-server --save</div></pre></td></tr></table></figure>
-<p>安装之后就可以使用hexo server命令了。在Ubuntu下安装会出现获取文件失败的错误，可能需要多次尝试。提示：WARN  No layout: index.html时，一般是由于主题文件不存在导致，安装相应的主题即可。切换到源码目录下：</p>
+<p>安装之后就可以使用hexo server命令了。在Ubuntu下安装会出现获取文件失败的错误，可能需要多次尝试。提示：<code>WARN  No layout: index.html</code>时，一般是由于主题文件不存在导致，安装相应的主题即可。切换到源码目录下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure>
 <p>访问<code>http://localhost:4000</code>页面空白，提示<code>can not get /</code>，此时需要在源码目录下运行一下npm install命令即可。</p>
 <h4 id="安装搜索模块"><a href="#安装搜索模块" class="headerlink" title="安装搜索模块"></a>安装搜索模块</h4><p>安装搜索模块可自定义站内搜索，在源码目录下执行如下命令。</p>
@@ -437,6 +437,11 @@
 <p>使用命令安装了还是不见好。删除项目文件夹下的node_module模块，使用<code>npm install hexo --save</code>重新安装Hexo即可。</p>
 <h5 id="hexo-server命令无反应"><a href="#hexo-server命令无反应" class="headerlink" title="hexo server命令无反应"></a>hexo server命令无反应</h5><p>有时候在输入命令<code>hexo s</code>或者<code>hexo server</code>时，并没有按预期的启动server端，在4000端口监听。而是输出了hexo的帮助信息，此时要检查是否在站点的_config.yml文件中显示的指定了plugin，如果有显示的指定plugin那么同样需要指定插件hexo-Server模块,如下代码片段所示：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">plugins:</div><div class="line">- hexo-generator-sitemap</div><div class="line">- hexo-server</div></pre></td></tr></table></figure>
+<h5 id="watch-ENOSPC"><a href="#watch-ENOSPC" class="headerlink" title="watch ENOSPC"></a>watch ENOSPC</h5><p>在运行<code>hexo server</code>命令时，提示错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">FATAL watch /home/dolphin/dolphin/project/blogs/xiaoqiang-blog-source/themes/next/ ENOSPC</div><div class="line">Error: watch /home/dolphin/dolphin/project/blogs/xiaoqiang-blog-source/themes/next/ ENOSPC</div></pre></td></tr></table></figure>
+<p>运行如下命令即可解决：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf &amp;&amp; sudo sysctl -p</div></pre></td></tr></table></figure>
+<p>此命令可以提交监视文件的数量，估计是由于随着博客文章数量不断增加，监视文件数量达到上限，此命令可以提高监视文集的数量。</p>
 
       
     </div>
@@ -508,7 +513,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/12/18/hexo-using/"
-           data-title="hexo使用总结" data-url="http://jiangxiaoqiang.com/2016/12/18/hexo-using/">
+           data-title="Hexo使用总结" data-url="http://jiangxiaoqiang.com/2016/12/18/hexo-using/">
       </div>
     
   </div>
@@ -555,7 +560,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">196</span>
+                <span class="site-state-item-count">201</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -573,7 +578,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">193</span>
+                <span class="site-state-item-count">197</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -652,7 +657,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装搜索模块"><span class="nav-number">2.</span> <span class="nav-text">安装搜索模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Next主题"><span class="nav-number">3.</span> <span class="nav-text">安装Next主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置菜单"><span class="nav-number">4.</span> <span class="nav-text">设置菜单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成站点地图"><span class="nav-number">5.</span> <span class="nav-text">生成站点地图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见问题"><span class="nav-number">6.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#hexo-server命令无反应"><span class="nav-number">6.1.</span> <span class="nav-text">hexo server命令无反应</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装搜索模块"><span class="nav-number">2.</span> <span class="nav-text">安装搜索模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Next主题"><span class="nav-number">3.</span> <span class="nav-text">安装Next主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置菜单"><span class="nav-number">4.</span> <span class="nav-text">设置菜单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成站点地图"><span class="nav-number">5.</span> <span class="nav-text">生成站点地图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见问题"><span class="nav-number">6.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#hexo-server命令无反应"><span class="nav-number">6.1.</span> <span class="nav-text">hexo server命令无反应</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#watch-ENOSPC"><span class="nav-number">6.2.</span> <span class="nav-text">watch ENOSPC</span></a></li></ol></li></ol></div>
             
 
           </div>

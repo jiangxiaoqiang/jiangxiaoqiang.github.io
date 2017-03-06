@@ -90,10 +90,12 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/12/23/react-using/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="React 起源于 Facebook 的内部项目，因为该公司对市场上所有 JavaScript MVC 框架，都不满意，就决定自己写一套，用来架设Instagram的网站。">
-<meta property="og:updated_time" content="2016-12-24T05:59:46.087Z">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2016/12/23/react-using/react-redux-flow.jpg">
+<meta property="og:updated_time" content="2017-03-06T01:58:33.193Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初识React">
 <meta name="twitter:description" content="React 起源于 Facebook 的内部项目，因为该公司对市场上所有 JavaScript MVC 框架，都不满意，就决定自己写一套，用来架设Instagram的网站。">
+<meta name="twitter:image" content="http://jiangxiaoqiang.com/2016/12/23/react-using/react-redux-flow.jpg">
 
 
 
@@ -412,6 +414,70 @@
         <p>React 起源于 Facebook 的内部项目，因为该公司对市场上所有 JavaScript MVC 框架，都不满意，就决定自己写一套，用来架设Instagram的网站。</p>
 <a id="more"></a>
 <p>React 的设计思想极其独特，属于革命性创新，性能出众，代码逻辑却非常简单。从最早的UI引擎变成了一整套前后端通吃的 Web App 解决方案。衍生的 React Native 项目，目标更是宏伟，希望用写 Web App 的方式去写 Native App。如果能够实现，整个互联网行业都会被颠覆，因为同一组人只需要写一次 UI ，就能同时运行在服务器、浏览器和手机。</p>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+<h4 id="Redux流程"><a href="#Redux流程" class="headerlink" title="Redux流程"></a>Redux流程</h4><p>Redux流程如下图所示：</p>
+<img src="/2016/12/23/react-using/react-redux-flow.jpg" alt="Redux流程" title="Redux流程">
+<h4 id="Immutable"><a href="#Immutable" class="headerlink" title="Immutable"></a>Immutable</h4><blockquote>
+<p>Shared mutable state is the root of all evil（共享的可变状态是万恶之源）– Pete Hunt</p>
+</blockquote>
+<p>目前流行的 Immutable 库有两个：immutable.js和seamless-immutable。Facebook 工程师 Lee Byron 花费 3 年时间打造，与 React 同期出现，但没有被默认放到 React 工具集里（React 提供了简化的 Helper）。它内部实现了一套完整的 Persistent Data Structure，还有很多易用的数据类型。像 <code>Collection</code>、<code>List</code>、<code>Map</code>、<code>Set</code>、<code>Record</code>、<code>Seq</code>。有非常全面的<code>map</code>、<code>filter</code>、<code>groupBy</code>、<code>reduce``find</code>函数式操作方法。同时 API 也尽量与 Object 或 Array 类似。Immutable的优点：</p>
+<ul>
+<li>Immutable 降低了 Mutable 带来的复杂度</li>
+<li>节省内存 </li>
+<li>Undo/Redo，Copy/Paste，甚至时间旅行这些功能做起来小菜一碟</li>
+<li>并发安全</li>
+<li>函数式编程</li>
+</ul>
+<h4 id="Component与service关联"><a href="#Component与service关联" class="headerlink" title="Component与service关联"></a>Component与service关联</h4><p>在connect中将组件与service关联：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@connect(</div><div class="line">    (<span class="function"><span class="params">state</span> =&gt;</span> state),</div><div class="line">    dispatch =&gt; (&#123;</div><div class="line">        <span class="attr">globalService</span>: bindActionCreators(globalService, dispatch),</div><div class="line">        <span class="attr">xzcfService</span>: bindActionCreators(xzcfService, dispatch), </div><div class="line">        <span class="attr">redBlackService</span>:bindActionCreators(redBlackService,dispatch),</div><div class="line">        TYPES,</div><div class="line">        dispatch</div><div class="line">    &#125;)</div><div class="line">)</div></pre></td></tr></table></figure>
+<p><a href="http://repox.gtan.com:8078" target="_blank" rel="external">http://repox.gtan.com:8078</a></p>
+<p>=======</p>
+<h4 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h4><p>the constructor of a React component is executed once the first time the component is mounted, or instantiated. It is never called again in subsequent renders.Typically the constructor is used to set-up a component’s internal state, for example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">BatchQuery</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(props) &#123;</div><div class="line">        <span class="keyword">super</span>(props);</div><div class="line">        <span class="keyword">this</span>.state = &#123;</div><div class="line">            <span class="attr">query</span>: &#123;<span class="attr">blackTableNames</span>: [], <span class="attr">redTableNames</span>: []&#125;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="React生命周期"><a href="#React生命周期" class="headerlink" title="React生命周期"></a>React生命周期</h4><p>组件的生命周期分成三个状态：</p>
+<ul>
+<li><p>装载(Mounting)：组件被插入到DOM中</p>
+</li>
+<li><p>更新(Updating)：正在被重新渲染</p>
+</li>
+<li><p>卸载(Unmounting)：组件从DOM中移除</p>
+</li>
+</ul>
+<p>React 为每个状态都提供了两种处理函数，will 函数在进入状态之前调用，did 函数在进入状态之后调用，三种状态共计五种处理函数。</p>
+<ol>
+<li>componentWillMount()—render之前最后一次修改状态的机会</li>
+<li>componentDidMount()—成功render并渲染完成真实DOM之后触发，可以修改DOM</li>
+<li>componentWillUpdate(object nextProps, object nextState)</li>
+<li>componentDidUpdate(object prevProps, object prevState)</li>
+<li>componentWillUnmount()—组件卸载的时候执行，一般可用于清除数据</li>
+</ol>
+<p>此外，React 还提供两种特殊状态的处理函数。</p>
+<p>componentWillReceiveProps(object nextProps)：已加载组件收到新的参数时调用</p>
+<p>shouldComponentUpdate(object nextProps, object nextState)：组件判断是否重新渲染时调用</p>
+<p> 注意：render只能访问this.props和this.state，只有一个顶层组件，不允许修改状态和DOM输出</p>
+<h4 id="props"><a href="#props" class="headerlink" title="props"></a>props</h4><p>许多组件创建的时候可以自定义许多参数，这些参数就叫做属性(props)。</p>
+<blockquote>
+<p>Most components can be customized when they are created, with different parameters. These creation parameters are called <code>props</code>.</p>
+</blockquote>
+<p><code>this.props</code> 表示那些一旦定义，就不再改变的特性，而 <code>this.state</code> 是会随着用户互动而产生变化的特性。<code>this.props</code> 对象的属性与组件的属性一一对应，但是有一个例外，就是 <code>this.props.children</code> 属性。它表示组件的所有子节点。</p>
+<p>参考资料：</p>
+<p><a href="http://www.ruanyifeng.com/blog/2015/03/react.html" target="_blank" rel="external">React 入门实例教程</a></p>
+<p><a href="https://facebook.github.io/react-native/docs/props.html" target="_blank" rel="external">Props</a></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>a925bc4c2ab59b740987dc1ebfb80cdd78036d50</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 
       
     </div>
@@ -507,8 +573,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -521,7 +596,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">196</span>
+                <span class="site-state-item-count">201</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -539,7 +614,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">193</span>
+                <span class="site-state-item-count">197</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -608,6 +683,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Redux流程"><span class="nav-number">1.</span> <span class="nav-text">Redux流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Immutable"><span class="nav-number">2.</span> <span class="nav-text">Immutable</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Component与service关联"><span class="nav-number">3.</span> <span class="nav-text">Component与service关联</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#constructor-NaN"><span class="nav-number">4.</span> <span class="nav-text">constructor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#React生命周期"><span class="nav-number">5.</span> <span class="nav-text">React生命周期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#props"><span class="nav-number">6.</span> <span class="nav-text">props</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>

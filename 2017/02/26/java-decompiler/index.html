@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/02/26/java-decompiler/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="虽然Java是完全开源的(除开极少量Sun也无权处理的代码)，但是有时候也需要反编译源代码。比如部署上线的系统，有一些细微的修改，但是单从界面上无法判断修改是否已经成功应用于目标环境，比如增加了一个字段后，后台未返回相应的字段数据。此时就需要排查原因了，可以反编译服务器上的jar文件查看是否有新增的代码从而排除编译阶段的问题。如下是有帮助的一些工具的总结。">
-<meta property="og:updated_time" content="2017-02-27T01:20:32.832Z">
+<meta property="og:updated_time" content="2017-02-27T07:48:15.386Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java反编译">
 <meta name="twitter:description" content="虽然Java是完全开源的(除开极少量Sun也无权处理的代码)，但是有时候也需要反编译源代码。比如部署上线的系统，有一些细微的修改，但是单从界面上无法判断修改是否已经成功应用于目标环境，比如增加了一个字段后，后台未返回相应的字段数据。此时就需要排查原因了，可以反编译服务器上的jar文件查看是否有新增的代码从而排除编译阶段的问题。如下是有帮助的一些工具的总结。">
@@ -413,14 +413,15 @@
 <a id="more"></a>
 <h4 id="JD-GUI-GPLv3"><a href="#JD-GUI-GPLv3" class="headerlink" title="JD GUI(GPLv3)"></a>JD GUI(GPLv3)</h4><p>JD是Java Decompiler的缩写。它的目标是一个反编译Java 5及其后版本编译后的class文件的项目(The “Java Decompiler project” aims to develop tools in order to decompile and analyze Java 5 “byte code” and the later versions)。</p>
 <p>JD GUI是Java Decompiler Graphics User Interface的缩写。是JD的一个图形化的工具(<strong>JD-GUI</strong> is a standalone graphical utility that displays Java source codes of “.class” files. You can browse the reconstructed source code with the JD-GUI for instant access to methods and fields)。</p>
-<h5 id="安装JD-GUI"><a href="#安装JD-GUI" class="headerlink" title="安装JD GUI"></a>安装JD GUI</h5><p>官方有提供各种平台的安装文件，但是是托管在Amazon的云上的。估计是服务器在国外加上国内艰苦的上网环境。真的是下载不下来，往往是下载到部分了就到了授权时间(估计是Amazon对每个授权的Key做了时间限制)。一旦过了授权时间，又必须重头再来。还好在Github上有源码。使用如下命令下载源码：</p>
+<h5 id="获取JD-GUI源码"><a href="#获取JD-GUI源码" class="headerlink" title="获取JD GUI源码"></a>获取JD GUI源码</h5><p>官方有提供各种平台的安装文件，但是是托管在Amazon的云上的。估计是服务器在国外加上国内艰苦的上网环境。真的是下载不下来，往往是下载到部分了就到了授权时间(估计是Amazon对每个授权的Key做了时间限制)。一旦过了授权时间，又必须重头再来。还好在Github上有源码。使用如下命令下载源码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone -depth=1 https://github.com/java-decompiler/jd-gui.git</div></pre></td></tr></table></figure>
 <p>添加depth=1参数，表示只克隆最新的版本代码即可，不包含历史版本和历史改动记录等等。主要是为了应对艰苦的网络环境，如果不加此参数，克隆是相当慢的，自己没有成功过，每次到60%多就不动了。</p>
 <h5 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h5><p>输入如下命令编译：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./gradlew build</div></pre></td></tr></table></figure>
 <p>构建Mac上的安装文件：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./gradlew installOsxDist</div></pre></td></tr></table></figure>
-<p>构建完成后，生成的文件在目录(<code>jd-gui/build/install/jd-gui-osx</code>)下，切换到目录下运行相应脚本(<code>universalJavaApplicationStub.sh</code>)启动程序即可。</p>
+<p>构建完成后，生成的文件在目录(<code>jd-gui/build/install/jd-gui-osx</code>)下，切换到目录下运行相应脚本(<code>universalJavaApplicationStub.sh</code>)启动程序即可。如果在Ubuntu下，使用如下命令安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd /jd-gui/build/distributions</div><div class="line"># 查看Deb包信息,-i相当于--info</div><div class="line">sudo dpkg -I example.deb</div><div class="line"># 安装Deb包，i相当于Install</div><div class="line">sudo dpkg -i example.deb</div></pre></td></tr></table></figure>
 <h4 id="JAD"><a href="#JAD" class="headerlink" title="JAD"></a>JAD</h4><p><a href="https://varaneckas.com/jad/" target="_blank" rel="external">JAD</a>是一个可以使用命令行反编译.class文件的工具。使用jad，先解压出来jar文件。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jar -xvf test.jar -C classes</div></pre></td></tr></table></figure>
 <p>再使用jad工具反编译即可：</p>
@@ -467,6 +468,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/28/house-rent-experience/" rel="prev" title=" 关于租房的几点分享">
+                 关于租房的几点分享 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -540,7 +545,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">196</span>
+                <span class="site-state-item-count">201</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -558,7 +563,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">193</span>
+                <span class="site-state-item-count">197</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -637,7 +642,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#JD-GUI-GPLv3"><span class="nav-number">1.</span> <span class="nav-text">JD GUI(GPLv3)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装JD-GUI"><span class="nav-number">1.1.</span> <span class="nav-text">安装JD GUI</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#构建"><span class="nav-number">1.2.</span> <span class="nav-text">构建</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JAD"><span class="nav-number">2.</span> <span class="nav-text">JAD</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#JD-GUI-GPLv3"><span class="nav-number">1.</span> <span class="nav-text">JD GUI(GPLv3)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#获取JD-GUI源码"><span class="nav-number">1.1.</span> <span class="nav-text">获取JD GUI源码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#构建"><span class="nav-number">1.2.</span> <span class="nav-text">构建</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JAD"><span class="nav-number">2.</span> <span class="nav-text">JAD</span></a></li></ol></div>
             
 
           </div>

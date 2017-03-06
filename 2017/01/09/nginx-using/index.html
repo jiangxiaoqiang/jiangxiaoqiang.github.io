@@ -85,22 +85,22 @@
 
 
 <meta name="description" content="安装输入如下命令安装：
-12345# Ubuntu 16.04 LTSsudo apt install nginx -y# Mac OS Xbrew install nginx
-安装完毕后配置文件在/etc/nginx/config.d。">
+12345678# Ubuntu 16.04 LTSsudo apt install nginx -y# Fedora 24sudo dnf install nginx -y# Mac OS Xbrew install nginx
+安装完毕后配置文件在/etc/nginx/目录下。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx使用总结">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/01/09/nginx-using/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="安装输入如下命令安装：
-12345# Ubuntu 16.04 LTSsudo apt install nginx -y# Mac OS Xbrew install nginx
-安装完毕后配置文件在/etc/nginx/config.d。">
+12345678# Ubuntu 16.04 LTSsudo apt install nginx -y# Fedora 24sudo dnf install nginx -y# Mac OS Xbrew install nginx
+安装完毕后配置文件在/etc/nginx/目录下。">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2017/01/09/nginx-using/loadbalance.png">
-<meta property="og:updated_time" content="2017-02-17T08:47:30.211Z">
+<meta property="og:updated_time" content="2017-03-06T01:58:33.185Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx使用总结">
 <meta name="twitter:description" content="安装输入如下命令安装：
-12345# Ubuntu 16.04 LTSsudo apt install nginx -y# Mac OS Xbrew install nginx
-安装完毕后配置文件在/etc/nginx/config.d。">
+12345678# Ubuntu 16.04 LTSsudo apt install nginx -y# Fedora 24sudo dnf install nginx -y# Mac OS Xbrew install nginx
+安装完毕后配置文件在/etc/nginx/目录下。">
 <meta name="twitter:image" content="http://jiangxiaoqiang.com/2017/01/09/nginx-using/loadbalance.png">
 
 
@@ -418,17 +418,17 @@
 
       
         <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>输入如下命令安装：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Ubuntu 16.04 LTS</span></div><div class="line">sudo apt install nginx -y</div><div class="line"></div><div class="line"><span class="comment"># Mac OS X</span></div><div class="line">brew install nginx</div></pre></td></tr></table></figure>
-<p>安装完毕后配置文件在<code>/etc/nginx/config.d</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Ubuntu 16.04 LTS</span></div><div class="line">sudo apt install nginx -y</div><div class="line"></div><div class="line"><span class="comment"># Fedora 24</span></div><div class="line">sudo dnf install nginx -y</div><div class="line"></div><div class="line"><span class="comment"># Mac OS X</span></div><div class="line">brew install nginx</div></pre></td></tr></table></figure>
+<p>安装完毕后配置文件在<code>/etc/nginx/</code>目录下。</p>
 <a id="more"></a>
 <h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><p>启动停止Nginx：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看Nginx的安装目录,一般在(/usr/local/nginx)下</span></div><div class="line">whereis nginx</div><div class="line"></div><div class="line"><span class="comment"># 重启Nginx</span></div><div class="line">sudo /etc/init.d/nginx restart</div><div class="line"></div><div class="line"><span class="comment"># 停止Nginx(legacy &lt; Ubuntu 16.04)</span></div><div class="line">sudo /etc/init.d/nginx stop</div><div class="line"><span class="comment"># Ubuntu 16.04 or higher</span></div><div class="line">sudo systemctl stop nginx</div><div class="line">sudo service nginx stop</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看Nginx的安装目录,一般在(/usr/local/nginx)下</span></div><div class="line">whereis nginx</div><div class="line"></div><div class="line"><span class="comment"># 重启Nginx</span></div><div class="line">sudo /etc/init.d/nginx restart</div><div class="line"></div><div class="line"><span class="comment"># 停止Nginx(legacy &lt; Ubuntu 16.04)</span></div><div class="line">sudo /etc/init.d/nginx stop</div><div class="line"><span class="comment"># Ubuntu 16.04 or higher or Fedora 24</span></div><div class="line">sudo systemctl stop nginx</div><div class="line">sudo service nginx stop</div></pre></td></tr></table></figure>
 <p>在修改配置文件后，可以输入如下命令检查配置文件的正确性：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/<span class="built_in">local</span>/nginx/sbin/nginx -t</div></pre></td></tr></table></figure>
 <p>其中参数t表示测试配置文件，并退出，命令的结果为：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nginx: the configuration file /usr/local/nginx/conf/nginx.conf syntax is ok</div><div class="line">nginx: configuration file /usr/local/nginx/conf/nginx.conf test is successful</div></pre></td></tr></table></figure>
 <p>修改后使配置文件生效可以重启Nginx，不过更加方便的是重载Nginx：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo nginx -s reload</div><div class="line">#命令写上绝对路径</div><div class="line">sudo /usr/sbin/nginx -s reload</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># </div><div class="line">sudo nginx -s reload</div><div class="line">#命令写上绝对路径</div><div class="line">sudo /usr/sbin/nginx -s reload</div></pre></td></tr></table></figure>
 <p>也可以输入如下命令查看Nginx帮助：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/<span class="built_in">local</span>/nginx/sbin/nginx -h</div></pre></td></tr></table></figure>
 <h4 id="location"><a href="#location" class="headerlink" title="location"></a>location</h4><p>每个 url 请求都会对应的一个服务，nginx 进行处理转发或者是本地的一个文件路径，或者是其他服务器的一个服务路径。而这个路径的匹配是通过 location 来进行的。我们可以将 server 当做对应一个域名进行的配置，而 location 是在一个域名下对更精细的路径进行配置。</p>
@@ -446,7 +446,8 @@
 <li><p>基于DNS的负载均衡</p>
 </li>
 </ul>
-<h4 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h4><h5 id="the-HTTP-rewrite-module-requires-the-PCRE-library"><a href="#the-HTTP-rewrite-module-requires-the-PCRE-library" class="headerlink" title="the HTTP rewrite module requires the PCRE library"></a>the HTTP rewrite module requires the PCRE library</h5><p>在安装时提示 the HTTP rewrite module requires the PCRE library：</p>
+<h4 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h4><h5 id="403-Forbidden"><a href="#403-Forbidden" class="headerlink" title="403 Forbidden"></a>403 Forbidden</h5><p>有时候当Nginx读取本地目录时会收到403错误，权限问题。先来了解一下Nginx的用户管理，Nginx在以Linux service脚本启动时，通过start-stop-domain启动，会以root权限运行daemon进程。然后daemon进程读取<code>/etc/nginx/nginx.conf</code>文件中的user配置选项，默认这里的user=nginx。也就是用nginx用户启动worker process。403错误就是因为nginx用户没有权限访问我当前开发用的用户目录，<code>/home/dean/work/resources</code>。解决方法是将user=nginx替换成root，然后重新启动nginx，可以了。</p>
+<h5 id="the-HTTP-rewrite-module-requires-the-PCRE-library"><a href="#the-HTTP-rewrite-module-requires-the-PCRE-library" class="headerlink" title="the HTTP rewrite module requires the PCRE library"></a>the HTTP rewrite module requires the PCRE library</h5><p>在安装时提示 the HTTP rewrite module requires the PCRE library：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">./configure: error: the HTTP rewrite module requires the PCRE library.</div><div class="line">You can either disable the module by using --without-http_rewrite_module</div><div class="line">option, or install the PCRE library into the system, or build the PCRE library</div><div class="line">statically from the source with nginx by using --with-pcre=&lt;path&gt; option.</div></pre></td></tr></table></figure>
 <p>安装pcre-devel与openssl-devel解决问题：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">yum -y install pcre-devel openssl openssl-devel</div><div class="line"> </div><div class="line">./configure --prefix=/usr/<span class="built_in">local</span>/nginx</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
@@ -572,7 +573,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">196</span>
+                <span class="site-state-item-count">201</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -590,7 +591,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">193</span>
+                <span class="site-state-item-count">197</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -669,7 +670,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">2.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#location"><span class="nav-number">3.</span> <span class="nav-text">location</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#负载均衡-Load-Balance"><span class="nav-number">4.</span> <span class="nav-text">负载均衡(Load Balance)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见问题"><span class="nav-number">5.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#the-HTTP-rewrite-module-requires-the-PCRE-library"><span class="nav-number">5.1.</span> <span class="nav-text">the HTTP rewrite module requires the PCRE library</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">2.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#location"><span class="nav-number">3.</span> <span class="nav-text">location</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#负载均衡-Load-Balance"><span class="nav-number">4.</span> <span class="nav-text">负载均衡(Load Balance)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见问题"><span class="nav-number">5.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#403-Forbidden"><span class="nav-number">5.1.</span> <span class="nav-text">403 Forbidden</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#the-HTTP-rewrite-module-requires-the-PCRE-library"><span class="nav-number">5.2.</span> <span class="nav-text">the HTTP rewrite module requires the PCRE library</span></a></li></ol></li></ol></div>
             
 
           </div>

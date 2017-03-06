@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/10/05/dnf-vs-yum/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="Fedora 24使用yum命令时标记为过期，推荐使用dnf安装。想了解一下Fedora为什么要从yum转移到dnf。大致有如下几个原因：">
-<meta property="og:updated_time" content="2016-12-19T04:46:16.882Z">
+<meta property="og:updated_time" content="2017-03-06T01:58:33.185Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="dnf与yum">
 <meta name="twitter:description" content="Fedora 24使用yum命令时标记为过期，推荐使用dnf安装。想了解一下Fedora为什么要从yum转移到dnf。大致有如下几个原因：">
@@ -418,6 +418,7 @@
 <li>Lower memory reduction and less automatic synchronization of metadata – a time taking process.</li>
 </ul>
 <p>DNF包管理器克服了YUM包管理器的一些瓶颈，提升了包括用户体验，内存占用，依赖分析，运行速度等多方面的内容。DNF使用 RPM, libsolv 和 hawkey库进行包管理操作。DNF从Yum分支出来，使用专注于性能的C语言库hawkey进行依赖关系解析工作，大幅度提升包管理操作效率并降低内存消耗。Yum不能“Python 3 as default”，而DNF支持Python 2和Python 3。（Python 3分支自2008年发布以来积极开发了五年，已经成熟和稳定，而目前仍在维护的Python 2分支不增加新特性，只接受bug和安全修正，它最早的版本是在2000年发布的。）</p>
+<h4 id="dnf命令使用"><a href="#dnf命令使用" class="headerlink" title="dnf命令使用"></a>dnf命令使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 移除软件包</div><div class="line">sudo dnf erase packagename</div></pre></td></tr></table></figure>
 <p>参考资料来自：</p>
 <p><a href="http://www.tecmint.com/dnf-next-generation-package-management-utility-for-linux/" target="_blank" rel="external">DNF – The Next Generation Package Management Utility for RPM Based Distributions</a></p>
 
@@ -517,8 +518,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -531,7 +541,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">196</span>
+                <span class="site-state-item-count">201</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -549,7 +559,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">193</span>
+                <span class="site-state-item-count">197</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -618,6 +628,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#dnf命令使用"><span class="nav-number">1.</span> <span class="nav-text">dnf命令使用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
