@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/03/01/minidlna-file-share/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="MiniDLNA is server software with the aim of being fully compliant with DLNA(Digital Living Network Alliance)/UPnP clients. The MiniDNLA daemon serves media files (music, pictures, and video) to client">
-<meta property="og:updated_time" content="2017-03-06T01:58:33.185Z">
+<meta property="og:updated_time" content="2017-03-06T14:50:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="minidlna-file-share">
 <meta name="twitter:description" content="MiniDLNA is server software with the aim of being fully compliant with DLNA(Digital Living Network Alliance)/UPnP clients. The MiniDNLA daemon serves media files (music, pictures, and video) to client">
@@ -396,6 +396,12 @@
 <p>启动服务：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 启动服务</div><div class="line">sudo systemctl start minidlna</div><div class="line"># 强制刷新DLNA</div><div class="line">sudo service minidlna force-reload</div><div class="line">#查看服务是否已经运行</div><div class="line">ps -aux|grep minidlna</div><div class="line"># 查看服务状态</div><div class="line">service minidlna status</div></pre></td></tr></table></figure>
 <p>访问界面<code>http://127.0.0.1:8200/</code>。</p>
+<h4 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h4><h5 id="Media-directory-not-accessible"><a href="#Media-directory-not-accessible" class="headerlink" title="Media directory not accessible"></a>Media directory not accessible</h5><p>启动的时候提示目录权限拒绝：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Mar 02 12:36:00 localhost.localdomain minidlnad[3874]: [2017/03/02 12:36:00] minidlna.c:614: error: Media directory &quot;/home/dolphin/dlna&quot; not accessible [Permission Denide]</div></pre></td></tr></table></figure>
+<p>原因是由于miniDLNA启动的时候，默认用户是minidlna。可以修改对应目录的权限为miniDLNA，也可以修改DLNA启动用户。这里采用的是后者的方式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo chown -R dolphin:dolphin /var/run/minidlna</div><div class="line">sudo chown -R dolphin:dolphin /var/lib/minidlna/</div><div class="line">sudo chown -R dolphin:dolphin /var/cache/minidlna</div><div class="line">rm /var/cache/minidlna/minidlna.log</div></pre></td></tr></table></figure>
+<p>在文件<code>/usr/lib/systemd/system/minidlna.service</code>中修改miniDLNA的启动用户为dolphin。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">[Unit]</div><div class="line">Description=MiniDLNA is a DLNA/UPnP-AV server software</div><div class="line">After=syslog.target local-fs.target network.target</div><div class="line"></div><div class="line">[Service]</div><div class="line">User=dolphin</div><div class="line">Group=dolphin</div><div class="line">Type=simple</div><div class="line">ExecStart=/usr/sbin/minidlnad -S</div><div class="line"></div><div class="line">[Install]</div><div class="line">WantedBy=multi-user.target</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -422,8 +428,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/01/javascript-function/" rel="next" title="Javascript函数">
-                <i class="fa fa-chevron-left"></i> Javascript函数
+              <a href="/2017/03/01/javascript-function/" rel="next" title="Javascript使用总结">
+                <i class="fa fa-chevron-left"></i> Javascript使用总结
               </a>
             
           </div>
@@ -432,8 +438,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/03/browsersync-using/" rel="prev" title="Browsersync使用总结">
-                Browsersync使用总结 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/02/website-seo/" rel="prev" title="网站SEO分享">
+                网站SEO分享 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -508,7 +514,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">201</span>
+                <span class="site-state-item-count">203</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -517,7 +523,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -526,7 +532,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">197</span>
+                <span class="site-state-item-count">201</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -605,7 +611,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见问题"><span class="nav-number">2.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Media-directory-not-accessible"><span class="nav-number">2.1.</span> <span class="nav-text">Media directory not accessible</span></a></li></ol></li></ol></div>
             
 
           </div>

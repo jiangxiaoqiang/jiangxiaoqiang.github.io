@@ -95,7 +95,7 @@
 12345678# Ubuntu 16.04 LTSsudo apt install nginx -y# Fedora 24sudo dnf install nginx -y# Mac OS Xbrew install nginx
 安装完毕后配置文件在/etc/nginx/目录下。">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2017/01/09/nginx-using/loadbalance.png">
-<meta property="og:updated_time" content="2017-03-06T01:58:33.185Z">
+<meta property="og:updated_time" content="2017-03-07T15:25:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx使用总结">
 <meta name="twitter:description" content="安装输入如下命令安装：
@@ -372,8 +372,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Programming/" itemprop="url" rel="index">
-                    <span itemprop="name">Programming</span>
+                  <a href="/categories/Tool/" itemprop="url" rel="index">
+                    <span itemprop="name">Tool</span>
                   </a>
                 </span>
 
@@ -421,6 +421,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Ubuntu 16.04 LTS</span></div><div class="line">sudo apt install nginx -y</div><div class="line"></div><div class="line"><span class="comment"># Fedora 24</span></div><div class="line">sudo dnf install nginx -y</div><div class="line"></div><div class="line"><span class="comment"># Mac OS X</span></div><div class="line">brew install nginx</div></pre></td></tr></table></figure>
 <p>安装完毕后配置文件在<code>/etc/nginx/</code>目录下。</p>
 <a id="more"></a>
+<h4 id="开机自动启动"><a href="#开机自动启动" class="headerlink" title="开机自动启动"></a>开机自动启动</h4><p>开机启动在<code>/etc/rc.local</code>文件中添加nginx命令即可。</p>
 <h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><p>启动停止Nginx：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看Nginx的安装目录,一般在(/usr/local/nginx)下</span></div><div class="line">whereis nginx</div><div class="line"></div><div class="line"><span class="comment"># 重启Nginx</span></div><div class="line">sudo /etc/init.d/nginx restart</div><div class="line"></div><div class="line"><span class="comment"># 停止Nginx(legacy &lt; Ubuntu 16.04)</span></div><div class="line">sudo /etc/init.d/nginx stop</div><div class="line"><span class="comment"># Ubuntu 16.04 or higher or Fedora 24</span></div><div class="line">sudo systemctl stop nginx</div><div class="line">sudo service nginx stop</div></pre></td></tr></table></figure>
 <p>在修改配置文件后，可以输入如下命令检查配置文件的正确性：</p>
@@ -428,12 +429,12 @@
 <p>其中参数t表示测试配置文件，并退出，命令的结果为：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nginx: the configuration file /usr/local/nginx/conf/nginx.conf syntax is ok</div><div class="line">nginx: configuration file /usr/local/nginx/conf/nginx.conf test is successful</div></pre></td></tr></table></figure>
 <p>修改后使配置文件生效可以重启Nginx，不过更加方便的是重载Nginx：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># </div><div class="line">sudo nginx -s reload</div><div class="line">#命令写上绝对路径</div><div class="line">sudo /usr/sbin/nginx -s reload</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo nginx -s reload</div><div class="line">#命令写上绝对路径</div><div class="line">sudo /usr/sbin/nginx -s reload</div></pre></td></tr></table></figure>
 <p>也可以输入如下命令查看Nginx帮助：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/<span class="built_in">local</span>/nginx/sbin/nginx -h</div></pre></td></tr></table></figure>
 <h4 id="location"><a href="#location" class="headerlink" title="location"></a>location</h4><p>每个 url 请求都会对应的一个服务，nginx 进行处理转发或者是本地的一个文件路径，或者是其他服务器的一个服务路径。而这个路径的匹配是通过 location 来进行的。我们可以将 server 当做对应一个域名进行的配置，而 location 是在一个域名下对更精细的路径进行配置。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">location /api&#123;</div><div class="line">      proxy_pass http://dn5:28080;</div><div class="line">      proxy_redirect off;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>将前缀为api的请求发送到地址：<code>http://dn5:28080</code>.</p>
+<p>将前缀为api的请求发送到地址：<code>http://dn5:28080</code>.表明看rewrite和location功能有点像，都能实现跳转，主要区别在于rewrite是在同一域名内更改获取资源的路径，而location是对一类路径做控制访问或反向代理，可以proxy_pass到其他机器。很多情况下rewrite也会写在location里。</p>
 <h4 id="负载均衡-Load-Balance"><a href="#负载均衡-Load-Balance" class="headerlink" title="负载均衡(Load Balance)"></a>负载均衡(Load Balance)</h4><p>Nginx除了作为常规的Web服务器外，还会被大规模的用于反向代理前端，因为Nginx的异步框架可以处理很大的并发请求，把这些并发请求hold住之后就可以分发给后台服务端(backend servers，也叫做服务池， 后面简称backend)来做复杂的计算、处理和响应，这种模式的好处是相当多的：隐藏业务主机更安全，节约了公网IP地址，并且在业务量增加的时候可以方便地扩容后台服务器。</p>
 <img src="/2017/01/09/nginx-using/loadbalance.png" alt="负载均衡示意图" title="负载均衡示意图">
 <ul>
@@ -445,6 +446,17 @@
 </li>
 <li><p>基于DNS的负载均衡</p>
 </li>
+</ul>
+<p>Nginx的简单的负载均衡是HTTP Upstream模块，负载均衡的配置如下片段所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">upstream backend &#123;</div><div class="line">       server 192.168.1.2:8080;</div><div class="line">       #server 192.168.1.3:28080 backup;</div><div class="line">       #server 192.168.1.4:28080 backup;</div><div class="line">       #server 192.168.1.5:8080 backup;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p>nginx 的 upstream目前支持 4 种方式的分配<br>1)、轮询（默认）<br>      每个请求按时间顺序逐一分配到不同的后端服务器，如果后端服务器down掉，能自动剔除。<br>2)、weight<br>      指定轮询几率，weight和访问比率成正比，用于后端服务器性能不均的情况。<br>2)、ip_hash<br>      每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题。<br>3)、fair（第三方）<br>      按后端服务器的响应时间来分配请求，响应时间短的优先分配。<br>4)、url_hash（第三方）</p>
+<p>upstream 每个设备的状态:</p>
+<ul>
+<li>down 表示单前的server暂时不参与负载</li>
+<li>weight  默认为1.weight越大，负载的权重就越大。</li>
+<li>max_fails ：允许请求失败的次数默认为1.当超过最大次数时，返回proxy_next_upstream 模块定义的错误</li>
+<li>fail_timeout:max_fails 次失败后，暂停的时间。</li>
+<li>backup： 其它所有的非backup机器down或者忙的时候，请求backup机器。所以这台机器压力会最轻。</li>
 </ul>
 <h4 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h4><h5 id="403-Forbidden"><a href="#403-Forbidden" class="headerlink" title="403 Forbidden"></a>403 Forbidden</h5><p>有时候当Nginx读取本地目录时会收到403错误，权限问题。先来了解一下Nginx的用户管理，Nginx在以Linux service脚本启动时，通过start-stop-domain启动，会以root权限运行daemon进程。然后daemon进程读取<code>/etc/nginx/nginx.conf</code>文件中的user配置选项，默认这里的user=nginx。也就是用nginx用户启动worker process。403错误就是因为nginx用户没有权限访问我当前开发用的用户目录，<code>/home/dean/work/resources</code>。解决方法是将user=nginx替换成root，然后重新启动nginx，可以了。</p>
 <h5 id="the-HTTP-rewrite-module-requires-the-PCRE-library"><a href="#the-HTTP-rewrite-module-requires-the-PCRE-library" class="headerlink" title="the HTTP rewrite module requires the PCRE library"></a>the HTTP rewrite module requires the PCRE library</h5><p>在安装时提示 the HTTP rewrite module requires the PCRE library：</p>
@@ -573,7 +585,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">201</span>
+                <span class="site-state-item-count">203</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -582,7 +594,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -591,7 +603,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">197</span>
+                <span class="site-state-item-count">201</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -670,7 +682,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">2.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#location"><span class="nav-number">3.</span> <span class="nav-text">location</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#负载均衡-Load-Balance"><span class="nav-number">4.</span> <span class="nav-text">负载均衡(Load Balance)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见问题"><span class="nav-number">5.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#403-Forbidden"><span class="nav-number">5.1.</span> <span class="nav-text">403 Forbidden</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#the-HTTP-rewrite-module-requires-the-PCRE-library"><span class="nav-number">5.2.</span> <span class="nav-text">the HTTP rewrite module requires the PCRE library</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开机自动启动"><span class="nav-number">2.</span> <span class="nav-text">开机自动启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">3.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#location"><span class="nav-number">4.</span> <span class="nav-text">location</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#负载均衡-Load-Balance"><span class="nav-number">5.</span> <span class="nav-text">负载均衡(Load Balance)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见问题"><span class="nav-number">6.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#403-Forbidden"><span class="nav-number">6.1.</span> <span class="nav-text">403 Forbidden</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#the-HTTP-rewrite-module-requires-the-PCRE-library"><span class="nav-number">6.2.</span> <span class="nav-text">the HTTP rewrite module requires the PCRE library</span></a></li></ol></li></ol></div>
             
 
           </div>
