@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jiangxiaoqiang.com/2017/01/19/chrome-using/</loc>
+    
+    <lastmod>2017-03-09T10:30:11.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jiangxiaoqiang.com/2017/03/09/scala-using/</loc>
     
     <lastmod>2017-03-09T09:22:21.279Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>http://jiangxiaoqiang.com/2016/12/24/linux-compress-package-management/</loc>
     
     <lastmod>2017-03-09T08:37:30.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jiangxiaoqiang.com/2017/01/19/chrome-using/</loc>
-    
-    <lastmod>2017-03-09T06:14:12.841Z</lastmod>
     
   </url>
   
