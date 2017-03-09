@@ -84,21 +84,18 @@
 
 
 
-<meta name="description" content="因为我们用的是Tomcat，所以在IDEA中点击右上角那个“Edit Configurations”按钮，然后在弹出的界面中点击左上角的加号，选择tomcat server-&amp;gt;remote。
-服务器配置要让远程服务器运行的代码支持远程调试，则启动的时候必须加上特定的JVM参数，这些参数是：">
+<meta name="description" content="远程调试在排错时帮助非常大，有时在本地无法模拟实际的线上环境，有些错误需要达到特定的边界条件才触发，而在本地环境或许无法创造出这样的边界条件和环境。也有的时候本地由于某些限制无法访问特定计算机，只能在远程机上能够访问，但是远程机器上不一定有完整的开发环境。遇到这些场景，远程调试会帮助我们发现和定位问题所在，观察远程机上的软件运行过程，从而找到问题起因。因为我们用的是Tomcat，所以在IDEA中点">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Intellij-Idea远程调试">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/11/12/intellij-idea-remote-debbuging/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="因为我们用的是Tomcat，所以在IDEA中点击右上角那个“Edit Configurations”按钮，然后在弹出的界面中点击左上角的加号，选择tomcat server-&amp;gt;remote。
-服务器配置要让远程服务器运行的代码支持远程调试，则启动的时候必须加上特定的JVM参数，这些参数是：">
+<meta property="og:description" content="远程调试在排错时帮助非常大，有时在本地无法模拟实际的线上环境，有些错误需要达到特定的边界条件才触发，而在本地环境或许无法创造出这样的边界条件和环境。也有的时候本地由于某些限制无法访问特定计算机，只能在远程机上能够访问，但是远程机器上不一定有完整的开发环境。遇到这些场景，远程调试会帮助我们发现和定位问题所在，观察远程机上的软件运行过程，从而找到问题起因。因为我们用的是Tomcat，所以在IDEA中点">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/11/12/intellij-idea-remote-debbuging/tomcat-listening-port.png">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/11/12/intellij-idea-remote-debbuging/intellij-idea-remote-debugging.jpg">
-<meta property="og:updated_time" content="2017-01-05T13:42:41.000Z">
+<meta property="og:updated_time" content="2017-03-09T05:28:26.099Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Intellij-Idea远程调试">
-<meta name="twitter:description" content="因为我们用的是Tomcat，所以在IDEA中点击右上角那个“Edit Configurations”按钮，然后在弹出的界面中点击左上角的加号，选择tomcat server-&amp;gt;remote。
-服务器配置要让远程服务器运行的代码支持远程调试，则启动的时候必须加上特定的JVM参数，这些参数是：">
+<meta name="twitter:description" content="远程调试在排错时帮助非常大，有时在本地无法模拟实际的线上环境，有些错误需要达到特定的边界条件才触发，而在本地环境或许无法创造出这样的边界条件和环境。也有的时候本地由于某些限制无法访问特定计算机，只能在远程机上能够访问，但是远程机器上不一定有完整的开发环境。遇到这些场景，远程调试会帮助我们发现和定位问题所在，观察远程机上的软件运行过程，从而找到问题起因。因为我们用的是Tomcat，所以在IDEA中点">
 <meta name="twitter:image" content="http://jiangxiaoqiang.com/2016/11/12/intellij-idea-remote-debbuging/tomcat-listening-port.png">
 
 
@@ -370,8 +367,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Programming/" itemprop="url" rel="index">
-                    <span itemprop="name">Programming</span>
+                  <a href="/categories/Tool/" itemprop="url" rel="index">
+                    <span itemprop="name">Tool</span>
                   </a>
                 </span>
 
@@ -415,7 +412,7 @@
       
 
       
-        <p>因为我们用的是Tomcat，所以在IDEA中点击右上角那个“Edit Configurations”按钮，然后在弹出的界面中点击左上角的加号，选择tomcat server-&gt;remote。</p>
+        <p>远程调试在排错时帮助非常大，有时在本地无法模拟实际的线上环境，有些错误需要达到特定的边界条件才触发，而在本地环境或许无法创造出这样的边界条件和环境。也有的时候本地由于某些限制无法访问特定计算机，只能在远程机上能够访问，但是远程机器上不一定有完整的开发环境。遇到这些场景，远程调试会帮助我们发现和定位问题所在，观察远程机上的软件运行过程，从而找到问题起因。因为我们用的是Tomcat，所以在IDEA中点击右上角那个“Edit Configurations”按钮，然后在弹出的界面中点击左上角的加号，选择tomcat server-&gt;remote。</p>
 <h4 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a>服务器配置</h4><p>要让远程服务器运行的代码支持远程调试，则启动的时候必须加上特定的JVM参数，这些参数是：</p>
 <a id="more"></a>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-Xdebug -Xrunjdwp:transport=dt_socket,<span class="built_in">suspend</span>=n,server=y,address=<span class="variable">$&#123;debug_port&#125;</span></div></pre></td></tr></table></figure>
@@ -431,6 +428,9 @@
 <img src="/2016/11/12/intellij-idea-remote-debbuging/tomcat-listening-port.png" alt="检查服务端配置是否正确" title="检查服务端配置是否正确">
 <h4 id="Intellij-Idea配置"><a href="#Intellij-Idea配置" class="headerlink" title="Intellij Idea配置"></a>Intellij Idea配置</h4><p>Intellij Idea远程调试配置如下：</p>
 <img src="/2016/11/12/intellij-idea-remote-debbuging/intellij-idea-remote-debugging.jpg" alt="Intellij Idea远程调试配置" title="Intellij Idea远程调试配置">
+<h4 id="jar包远程调试"><a href="#jar包远程调试" class="headerlink" title="jar包远程调试"></a>jar包远程调试</h4><p>有时项目直接使用jar包部署，此时如果需要使用远程调试,在启动jar包时，添加特定的参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># Java 1.5或者1.5以上版本启动命令</div><div class="line">java -jar -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 example.jar</div><div class="line"># Java 1.4版本启动命令</div><div class="line">java -jar -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005 example.jar</div><div class="line"># Java 1.3或更早版本启动命令</div><div class="line">java -jar -Xnoagent -Djava.compiler=NONE -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005 example.jar</div></pre></td></tr></table></figure>
+<p>在Intellij Idea中进行配置,主机填写远程主机的IP，端口填写远程主机jar启动时指定的端口即可。</p>
 <p>参考资料：</p>
 <ul>
 <li><a href="http://www.raychase.net/1519" target="_blank" rel="external">JVM问题定位工具</a></li>
@@ -553,7 +553,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">203</span>
+                <span class="site-state-item-count">204</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -562,7 +562,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -571,7 +571,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">201</span>
+                <span class="site-state-item-count">199</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -650,7 +650,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#服务器配置"><span class="nav-number">1.</span> <span class="nav-text">服务器配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Intellij-Idea配置"><span class="nav-number">2.</span> <span class="nav-text">Intellij Idea配置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#服务器配置"><span class="nav-number">1.</span> <span class="nav-text">服务器配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Intellij-Idea配置"><span class="nav-number">2.</span> <span class="nav-text">Intellij Idea配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jar包远程调试"><span class="nav-number">3.</span> <span class="nav-text">jar包远程调试</span></a></li></ol></div>
             
 
           </div>

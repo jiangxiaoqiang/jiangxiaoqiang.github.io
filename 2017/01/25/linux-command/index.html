@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="查看文件占用情况：
 1du -alh">
-<meta property="og:updated_time" content="2017-02-24T15:38:24.000Z">
+<meta property="og:updated_time" content="2017-03-06T03:26:53.788Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux常用命令总结">
 <meta name="twitter:description" content="查看文件占用情况：
@@ -426,6 +426,11 @@
 <li>k:终止一个进程</li>
 <li>P：根据CPU使用率的百分比大小进行排序</li>
 </ul>
+<h4 id="pushd命令"><a href="#pushd命令" class="headerlink" title="pushd命令"></a>pushd命令</h4><p>有时需要在不同的目录之间进行切换，当然可以使用cd命令，但是有一些问题，一是需要输入很多重复的命令，其次是记忆这些长的路径也比较费力。pushd命令可以部分解决这个痛点：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pushd /home/hldev/summarize/blogs/xiaoqiang-blogs</div></pre></td></tr></table></figure>
+<p>此命令会把当前目录压栈，并跳转到目标目录<code>/home/hldev/summarize/blogs/xiaoqiang-blogs</code>。使用<code>dirs -v</code>命令可以查看当前已经压入栈中的目录。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">hldev@hldev-100:~/hldata/backend/credit-system$ dirs -v</div><div class="line"> 0  ~/hldata/backend/credit-system</div><div class="line"> 1  /home</div><div class="line"> 2  ~/summerize/xiaoqiang-blog-source/themes/next</div><div class="line"> 3  ~/summerize/xiaoqiang-blog-source/themes/next</div><div class="line"> 4  ~/summerize/jiangxiaoqiang.github.io</div><div class="line"> 5  ~</div></pre></td></tr></table></figure>
+<p>切换到压入栈中指定的目录只需要输入<code>pushd +N(pushd +2)</code>即可，N代表栈的编号。删除栈中的数据使用popd命令即可。</p>
 
       
     </div>
@@ -544,7 +549,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">203</span>
+                <span class="site-state-item-count">204</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -553,7 +558,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -562,7 +567,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">201</span>
+                <span class="site-state-item-count">199</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -641,7 +646,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#scp"><span class="nav-number">1.</span> <span class="nav-text">scp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ss命令"><span class="nav-number">2.</span> <span class="nav-text">ss命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lsof命令"><span class="nav-number">3.</span> <span class="nav-text">lsof命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#top命令"><span class="nav-number">4.</span> <span class="nav-text">top命令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#scp"><span class="nav-number">1.</span> <span class="nav-text">scp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ss命令"><span class="nav-number">2.</span> <span class="nav-text">ss命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lsof命令"><span class="nav-number">3.</span> <span class="nav-text">lsof命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#top命令"><span class="nav-number">4.</span> <span class="nav-text">top命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pushd命令"><span class="nav-number">5.</span> <span class="nav-text">pushd命令</span></a></li></ol></div>
             
 
           </div>
