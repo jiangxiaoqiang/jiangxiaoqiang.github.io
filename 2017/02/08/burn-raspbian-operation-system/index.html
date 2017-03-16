@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="简介树莓派（英语：Raspberry Pi），是一款基于Linux的单板机电脑。它由英国的树莓派基金会所开发，目的是以低价硬件及自由软件促进学校的基本计算机科学教育。剑桥计算机实验室厄普顿项目邮件组中相互交流想法时，为了方便指代厄普顿的电脑，邮件中使用了“树莓”这个水果名字。又由于最开始的原型机上只支持Python编程语言，“树莓”后面又跟上了代表Python的“派”。“树莓派”（Raspberr">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2017/02/08/burn-raspbian-operation-system/ssh-login-raspberry-pi.jpg">
-<meta property="og:updated_time" content="2017-03-06T01:58:33.193Z">
+<meta property="og:updated_time" content="2017-03-16T08:27:51.113Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Raspberry Pi动手试用">
 <meta name="twitter:description" content="简介树莓派（英语：Raspberry Pi），是一款基于Linux的单板机电脑。它由英国的树莓派基金会所开发，目的是以低价硬件及自由软件促进学校的基本计算机科学教育。剑桥计算机实验室厄普顿项目邮件组中相互交流想法时，为了方便指代厄普顿的电脑，邮件中使用了“树莓”这个水果名字。又由于最开始的原型机上只支持Python编程语言，“树莓”后面又跟上了代表Python的“派”。“树莓派”（Raspberr">
@@ -411,7 +411,7 @@
       
 
       
-        <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>树莓派（英语：Raspberry Pi），是一款基于Linux的单板机电脑。它由英国的树莓派基金会所开发，目的是以低价硬件及自由软件促进学校的基本计算机科学教育。剑桥计算机实验室厄普顿项目邮件组中相互交流想法时，为了方便指代厄普顿的电脑，邮件中使用了“树莓”这个水果名字。又由于最开始的原型机上只支持Python编程语言，“树莓”后面又跟上了代表Python的“派”。“树莓派”（Raspberry Pi）就这样诞生了。厄普顿于2009年成了慈善性质的“树莓派基金会”，成为研发树莓派的主要机构。树莓派的生产是通过有生产许可的两家公司：Element 14/Premier Farnell和RS Components。这两家公司都在网上出售树莓派。树莓派基金会于2016年2月发布了树莓派3,较前一代树莓派2，树莓派3的处理器升级为了64位的博通BCM2837，并首次加入了Wi-Fi无线网络及蓝牙功能，而售价仍然是35美元。树莓派3代的额定功率功率是4.0 W.</p>
+        <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>树莓派（英语：Raspberry Pi），是一款基于Linux的单板机电脑。它由英国的树莓派基金会所开发，目的是以低价硬件及自由软件促进学校的基本计算机科学教育。剑桥计算机实验室厄普顿项目邮件组中相互交流想法时，为了方便指代厄普顿的电脑，邮件中使用了“树莓”这个水果名字。又由于最开始的原型机上只支持Python编程语言，“树莓”后面又跟上了代表Python的“派”。“树莓派”（Raspberry Pi）就这样诞生了。厄普顿于2009年成了慈善性质的“树莓派基金会”，成为研发树莓派的主要机构。树莓派的生产是通过有生产许可的两家公司：Element 14/Premier Farnell和RS Components。这两家公司都在网上出售树莓派。树莓派基金会于2016年2月发布了树莓派3,较前一代树莓派2，树莓派3的处理器升级为了64位的博通BCM2837，并首次加入了Wi-Fi无线网络及蓝牙功能，而售价仍然是35美元。树莓派3代的额定功率功率是10.0 W(5V*2A).</p>
 <h4 id="烧录操作系统-Burn-Operation-System"><a href="#烧录操作系统-Burn-Operation-System" class="headerlink" title="烧录操作系统(Burn Operation System)"></a>烧录操作系统(Burn Operation System)</h4><p>目前可以安装到Raspberry Pi上的系统有，官方推荐的系统可以点击<a href="https://www.raspberrypi.org/downloads/" target="_blank" rel="external">这里</a>：</p>
 <a id="more"></a>
 <ul>
@@ -421,7 +421,7 @@
 <li><a href="https://developer.ubuntu.com/core/get-started" target="_blank" rel="external">snappy-raspi2</a></li>
 </ul>
 <p>入手Raspberry Pi后，启动Raspberry Pi之前需要将Raspbian系统烧录到SD卡中。此时需要自备读卡器和Micro SD卡。首先到<a href="https://www.raspberrypi.org/downloads/raspbian/" target="_blank" rel="external">官网</a>下载镜像，选择RASPBIAN JESSIE WITH PIXEL，可以下载zip包，也可以下载torrent文件。zip包大概有1.5GB大小，解压出来4.4GB左右。由于此处试用的是Ubuntu操作系统，输入如下命令查看Micro SD卡卷标名称：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">df -h</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">df -h</div><div class="line"># 列出移动设备的分区情况</div><div class="line"># 注意是外围设备，如果是本级硬盘是不会列出分区情况的</div><div class="line"># 输入p命令可列出磁盘的分区情况</div><div class="line">fdisk -l /dev/sdb</div></pre></td></tr></table></figure>
 <p>h表示human readable，已人机交互友好的方式显示系统当前可用卷的信息。此处查出的卷标名称为<code>/media/dolphin/9016-4EF8</code>。然后卸载此卷，使得用户不能对此卷进行操作：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">umount /media/dolphin/9016-4EF8</div><div class="line">umount /media/dolphin/sdb1</div><div class="line">umount /media/dolphin/Untitled</div></pre></td></tr></table></figure>
 <p>注意这里必须要先卸载此卷，否则在使用dd命令刻录时会提示<code>/media/dolphin/9016-4EF8 is a directionay</code>，从而导致刻录失败。输入如下命令进行烧录：</p>
@@ -627,7 +627,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">205</span>
+                <span class="site-state-item-count">213</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -636,7 +636,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -645,7 +645,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">199</span>
+                <span class="site-state-item-count">202</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

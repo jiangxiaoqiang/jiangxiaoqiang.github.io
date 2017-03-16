@@ -106,7 +106,8 @@ X">
 一个路由器
 家庭NAS(Network Access Storage)
 X">
-<meta property="og:updated_time" content="2017-03-06T01:58:33.185Z">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2017/02/18/raspberry-config/raspberry-ip.png">
+<meta property="og:updated_time" content="2017-03-16T08:27:51.113Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Raspberry Pi 3 Model B配置">
 <meta name="twitter:description" content="Raspberry Pi经过各种改造，可以有不同的用途，包括但不限于如下用途：
@@ -118,6 +119,7 @@ X">
 一个路由器
 家庭NAS(Network Access Storage)
 X">
+<meta name="twitter:image" content="http://jiangxiaoqiang.com/2017/02/18/raspberry-config/raspberry-ip.png">
 
 
 
@@ -456,8 +458,10 @@ X">
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo nano /etc/wpa_supplicant/wpa_supplicant.conf</div></pre></td></tr></table></figure>
 <p>添加密码:</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">network=&#123;    </div><div class="line">  ssid="76D2"    </div><div class="line">  psk="cxyqw138597"</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>编辑完毕后重启wlan0，使用命令ifocnifg wlan0查看是否有IP，如有，则配置成功。</p>
+<p>编辑完毕后重启wlan0，使用命令<code>ifocnifg wlan0</code>查看是否有IP，如有，则配置成功。如果没有，使用命令<code>sudo reboot</code>重启Raspberry。重启后，到路由器管理界面查看Raspberry的IP。</p>
+<img src="/2017/02/18/raspberry-config/raspberry-ip.png" alt="链接无线网络获取的IP" title="链接无线网络获取的IP">
 <h5 id="ssh自动启动"><a href="#ssh自动启动" class="headerlink" title="ssh自动启动"></a>ssh自动启动</h5><h5 id="无线设置-WLAN-Setting"><a href="#无线设置-WLAN-Setting" class="headerlink" title="无线设置(WLAN Setting)"></a>无线设置(WLAN Setting)</h5><p>Raspberry Pi 3内置了无线网卡，以前的版本是没有无线网卡的。只要对网卡有合适的设置就可以连接网络了。</p>
+<h4 id="安装常用软件"><a href="#安装常用软件" class="headerlink" title="安装常用软件"></a>安装常用软件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install -y minidlna htop youtube-dl</div></pre></td></tr></table></figure>
 <p>参考资料：</p>
 <p><a href="https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md" target="_blank" rel="external">ETTING WIFI UP VIA THE COMMAND LINE</a></p>
 
@@ -578,7 +582,7 @@ X">
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">205</span>
+                <span class="site-state-item-count">213</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -587,7 +591,7 @@ X">
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -596,7 +600,7 @@ X">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">199</span>
+                <span class="site-state-item-count">202</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -675,7 +679,7 @@ X">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#网络配置-Network-Config"><span class="nav-number">1.</span> <span class="nav-text">网络配置(Network Config)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ssh自动启动"><span class="nav-number">1.1.</span> <span class="nav-text">ssh自动启动</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#无线设置-WLAN-Setting"><span class="nav-number">1.2.</span> <span class="nav-text">无线设置(WLAN Setting)</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#网络配置-Network-Config"><span class="nav-number">1.</span> <span class="nav-text">网络配置(Network Config)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ssh自动启动"><span class="nav-number">1.1.</span> <span class="nav-text">ssh自动启动</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#无线设置-WLAN-Setting"><span class="nav-number">1.2.</span> <span class="nav-text">无线设置(WLAN Setting)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装常用软件"><span class="nav-number">2.</span> <span class="nav-text">安装常用软件</span></a></li></ol></div>
             
 
           </div>
