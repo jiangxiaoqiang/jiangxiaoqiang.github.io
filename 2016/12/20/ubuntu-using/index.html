@@ -95,7 +95,7 @@
 软件管理在Ubuntu下，常用的软件安装一条命令即搞定,跟上常用的软件名称即可，真的是一条命令安装所有软件,特别是重装系统之后，一条命令将原来的软件都安装完毕，节省了时间和精力，非常方便：
 1234# 安装常用软件(16.04 LTS及以后使用apt命令)sudo apt install -y wget curl aria2 k">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/12/20/ubuntu-using/shutter-selection-shortkey.png">
-<meta property="og:updated_time" content="2017-03-16T08:26:25.270Z">
+<meta property="og:updated_time" content="2017-03-17T04:40:05.357Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu使用快捷键与技巧总结">
 <meta name="twitter:description" content="使用的Ubuntu版本为14.04 LTS和16.04 LTS版本。
@@ -419,7 +419,7 @@
       
         <p>使用的Ubuntu版本为14.04 LTS和16.04 LTS版本。</p>
 <h4 id="软件管理"><a href="#软件管理" class="headerlink" title="软件管理"></a>软件管理</h4><p>在Ubuntu下，常用的软件安装一条命令即搞定,跟上常用的软件名称即可，真的是一条命令安装所有软件,特别是重装系统之后，一条命令将原来的软件都安装完毕，节省了时间和精力，非常方便：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 安装常用软件(16.04 LTS及以后使用apt命令)</span></div><div class="line">sudo apt install -y wget curl aria2 keepass2 putty vim tree unzip git</div><div class="line">openssh-server uget maven gradle shutter nginx mysql-server nodejs </div><div class="line">texstudio virtualbox synaptic terminator gimp graphiz deluge zsh quiterss</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 安装常用软件(16.04 LTS及以后使用apt命令)</span></div><div class="line">sudo apt install -y wget curl aria2 keepass2 putty vim tree unzip git</div><div class="line">openssh-server uget maven gradle shutter nginx mysql-server nodejs </div><div class="line">texstudio virtualbox synaptic terminator gimp graphiz deluge zsh quiterss fail2ban</div></pre></td></tr></table></figure>
 <ul>
 <li>synaptic是一款图形化的apt(Advance Package Tool)包管理器，可以轻松查看已经安装的包，未安装的包。terminator它支持分割终端,并可以在终端中快速切换.</li>
 </ul>
@@ -427,6 +427,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt list --installed</div></pre></td></tr></table></figure>
 <p>卸载软件：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 卸载libreoffice，包括二进制文件、配置文件和数据文件</span></div><div class="line">sudo apt remove -y --purge libreoffice*</div><div class="line"><span class="comment"># 移除包，包括二进制文件、配置文件和数据文件</span></div><div class="line">sudo apt-get purge packagename</div><div class="line"><span class="comment"># 仅仅移除二进制文件而不会移除配置和数据文件</span></div><div class="line">sudo apt-get remove packagename</div></pre></td></tr></table></figure>
+<p>有时在软件管理中心无法卸载，可以直接使用命令找到软件所在的目录强行删除，如下命令找到Intellij Idea的安装目录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo find / \( -name intellij* -not -name &quot;*.js&quot; -not -name &quot;*.svg&quot; -not -name &quot;*.md&quot; \) -print</div></pre></td></tr></table></figure>
 <h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><p>在Ubuntu下一些漂亮的字体记录。</p>
 <table>
 <thead>

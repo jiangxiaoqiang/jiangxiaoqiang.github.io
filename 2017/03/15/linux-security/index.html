@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Linux," />
 
 
 
@@ -84,13 +84,16 @@
 
 
 
+<meta name="description" content="Linux安全写基本书都写不完，这里是平时学习和研究Linux安全相关的总结。记录在此。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux-security">
+<meta property="og:title" content="Linux安全">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/03/15/linux-security/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:updated_time" content="2017-03-16T08:27:51.113Z">
+<meta property="og:description" content="Linux安全写基本书都写不完，这里是平时学习和研究Linux安全相关的总结。记录在此。">
+<meta property="og:updated_time" content="2017-03-17T06:10:33.930Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux-security">
+<meta name="twitter:title" content="Linux安全">
+<meta name="twitter:description" content="Linux安全写基本书都写不完，这里是平时学习和研究Linux安全相关的总结。记录在此。">
 
 
 
@@ -124,7 +127,7 @@
 
 
 
-  <title> linux-security | 小强的博客 </title>
+  <title> Linux安全 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -323,7 +326,7 @@
             
             
               
-                linux-security
+                Linux安全
               
             
           </h1>
@@ -348,6 +351,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Security/" itemprop="url" rel="index">
+                    <span itemprop="name">Security</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -384,7 +409,12 @@
       
 
       
-        
+        <p>Linux安全写基本书都写不完，这里是平时学习和研究Linux安全相关的总结。记录在此。</p>
+<a id="more"></a>
+<h4 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h4><h4 id="不使用密码登录"><a href="#不使用密码登录" class="headerlink" title="不使用密码登录"></a>不使用密码登录</h4><p>使用密码登录都会遭受攻击，攻击者可以做密码猜测，密码穷举，人的记忆有一个缺点就是很难记住随机字符，一般都是有规律可循，而这恰恰是一个安全的弱点，所以首先需要避免。禁用SSH密码登录，强制使用RSA/DSA验证。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">RSAAuthentication yes</div><div class="line">PubkeyAuthentication yes</div><div class="line">AuthorizedKeysFile %h/.ssh/authorized_keys</div><div class="line">PasswordAuthentication no</div></pre></td></tr></table></figure>
+<h4 id="fail2ban"><a href="#fail2ban" class="headerlink" title="fail2ban"></a>fail2ban</h4><p>防止暴力攻击，会自动激活iptables规则以阻止SSH到机器重复尝试。 </p>
+
       
     </div>
 
@@ -404,6 +434,12 @@
 
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
       
 
       
@@ -445,7 +481,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2017/03/15/linux-security/"
-           data-title="linux-security" data-url="http://jiangxiaoqiang.com/2017/03/15/linux-security/">
+           data-title="Linux安全" data-url="http://jiangxiaoqiang.com/2017/03/15/linux-security/">
       </div>
     
   </div>
@@ -469,8 +505,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -570,6 +615,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#SSH"><span class="nav-number">1.</span> <span class="nav-text">SSH</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不使用密码登录"><span class="nav-number">2.</span> <span class="nav-text">不使用密码登录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fail2ban"><span class="nav-number">3.</span> <span class="nav-text">fail2ban</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>

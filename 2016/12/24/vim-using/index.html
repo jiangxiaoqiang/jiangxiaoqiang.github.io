@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="替換（substitute）123:[range]s/pattern/string/[c,e,g,i]# 示例:%s/dn5/dn6/g
 将文件中所有的dn5替换成dn6。:%s/dn5/dn6/g会在全局范围(%)查找dn5并替换为dn6，所有出现都会被替换（g）。">
-<meta property="og:updated_time" content="2017-03-16T08:27:51.121Z">
+<meta property="og:updated_time" content="2017-03-17T05:30:21.235Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim使用经验与技巧总结">
 <meta name="twitter:description" content="替換（substitute）123:[range]s/pattern/string/[c,e,g,i]# 示例:%s/dn5/dn6/g
@@ -451,6 +451,10 @@
 <td>i</td>
 <td>ignore 不分大小寫。</td>
 </tr>
+<tr>
+<td>nG</td>
+<td>跳转到指定行，n代表行号</td>
+</tr>
 </tbody>
 </table>
 <p>g 大概都是要加的，否則只會替換每一行的第一個符合字串。可以合起來用，如 cgi，表示不分大小寫，整行替換，替換前要詢問是否替換。</p>
@@ -534,6 +538,13 @@
 </tbody>
 </table>
 <p>如果需要搜索文件，直接在树形目录的Tab页输入斜杠命令后键入搜索关键字即可。</p>
+<h4 id="全文搜索"><a href="#全文搜索" class="headerlink" title="全文搜索"></a>全文搜索</h4><p>VIM原生提供了强大的全文搜索命令，搜索命令的语法为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:vim[grep][!] /&#123;pattern&#125;/[g][j] &#123;file&#125; ...</div></pre></td></tr></table></figure>
+<p>第一个字段中括号里的 grep 是可选字段，所以我通常只使用 :vim ；</p>
+<p>第二个字段是要带入一个正则表达式，可以在 vim 中使用 :h regex 来查看用法；</p>
+<p>最后一个字段是要搜索的文件，如果希望递归搜索，要设置 <strong> ，举例来说，比如我想搜索当前目录下的所有 .c 文件，那么就要写成 *.c ，如果我要对此目录以及其递归子目录下的所有 .c 文件进行搜索，就要写成 \</strong>/*.c 。</p>
+<p>搜索结果会保存在 quickfix list 中，可以使用 :cw 查看。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 在当前目录以及子目录下的md(Markdown)文件中搜索以ssh开头的文件</div><div class="line">:vim /^ssh\&gt;/ **/*.md</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -749,7 +760,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#替換（substitute）"><span class="nav-number">1.</span> <span class="nav-text">替換（substitute）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">2.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件编码"><span class="nav-number">3.</span> <span class="nav-text">文件编码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vim获取文件权限"><span class="nav-number">4.</span> <span class="nav-text">vim获取文件权限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插件管理Vundle"><span class="nav-number">5.</span> <span class="nav-text">插件管理Vundle</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#The-NERD-Tree"><span class="nav-number">5.1.</span> <span class="nav-text">The NERD Tree</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#替換（substitute）"><span class="nav-number">1.</span> <span class="nav-text">替換（substitute）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">2.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件编码"><span class="nav-number">3.</span> <span class="nav-text">文件编码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vim获取文件权限"><span class="nav-number">4.</span> <span class="nav-text">vim获取文件权限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插件管理Vundle"><span class="nav-number">5.</span> <span class="nav-text">插件管理Vundle</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#The-NERD-Tree"><span class="nav-number">5.1.</span> <span class="nav-text">The NERD Tree</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全文搜索"><span class="nav-number">6.</span> <span class="nav-text">全文搜索</span></a></li></ol></div>
             
 
           </div>
