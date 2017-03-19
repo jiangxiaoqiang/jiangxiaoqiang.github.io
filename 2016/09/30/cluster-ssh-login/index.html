@@ -102,7 +102,7 @@
 远程主机用自己的私钥，解密登录密码，如果密码正确，就同意用户登录。
 
 配置SSH免密登陆首先，运行ssh localhost来产生/home/用户名/.ssh目录，然后执行下面命令。">
-<meta property="og:updated_time" content="2016-12-19T04:46:16.882Z">
+<meta property="og:updated_time" content="2017-03-17T06:29:08.281Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hadoop集群SSH免密钥登录">
 <meta name="twitter:description" content="免密登录原理SSH之所以能够保证安全，原因在于它采用了公钥加密。过程如下：
@@ -414,7 +414,7 @@
 <h4 id="配置SSH免密登陆"><a href="#配置SSH免密登陆" class="headerlink" title="配置SSH免密登陆"></a>配置SSH免密登陆</h4><p>首先，运行<code>ssh localhost</code>来产生<code>/home/用户名/.ssh</code>目录，然后执行下面命令。</p>
 <a id="more"></a>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa</div></pre></td></tr></table></figure>
-<p>生成RSA公钥和私钥。将生成的”id_rsa.pub”追加（这里切记是追加，不是覆盖）到授权的key里面去。这样的效果是实现了当前用户无密SSH登陆到自己：</p>
+<p>生成RSA公钥和私钥，注意在生成时要设置一个密码，尽量设置复杂一些。将生成的”id_rsa.pub”追加（这里切记是追加，不是覆盖）到授权的key里面去。这样的效果是实现了当前用户无密SSH登陆到自己，在首次登录时需要输入一遍生成Public Key时候设置的密码，可以勾选为自动保存，就只需要输入一次，以后就可以直接ssh登录：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#将id_rsa.pub追加到authorized_keys</span></div><div class="line">cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</div></pre></td></tr></table></figure>
 <p>如果要实现无密登陆到其它的主机，只需将生成的”id_rsa.pub”追加到其它主机的”~/.ssh/authorized_keys”中去。这里我们使用的方法是先将本机的”~/.ssh/id_rsa.pub”拷贝到你想无密登陆的主机上，再在相应的主机上使用”cat”命令将”~/.ssh/id_rsa.pub”追加到该主机的 “~/.ssh/authorized_keys”中。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp id_rsa.pub root@192.168.24.136:/tmp</div></pre></td></tr></table></figure>
@@ -543,7 +543,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">213</span>
+                <span class="site-state-item-count">215</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -552,7 +552,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -561,7 +561,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">202</span>
+                <span class="site-state-item-count">203</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

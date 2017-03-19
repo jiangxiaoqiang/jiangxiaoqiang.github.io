@@ -99,7 +99,7 @@ Gradle构建脚本（build.gradle）指定了一个项目和它的任务。
 Gradle属性文件（gradle.properties）用来配置构建属性。
 Gradle设置文件（gradle.settings）对于只有一个项目的构建而言是可选的，如果我们的构建中包含多于一个项目，那么它就是必须的，因为它描述了哪一个项目参与构建。每一个多项目的构建都必">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/12/27/gradle-using/gradle-build-workflow.jpg">
-<meta property="og:updated_time" content="2017-03-16T08:27:51.113Z">
+<meta property="og:updated_time" content="2017-03-17T08:07:39.151Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gradle使用经验总结">
 <meta name="twitter:description" content="使用以下配置文件对Gradle的构建进行配置：
@@ -485,6 +485,10 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
 <td>scala</td>
 <td>Scala 的插件继承自 Java 插件并添加了对 Scala 项目的支持。它可以处理 Scala 代码，以及混合的 Scala 和 Java 代码，甚至是纯 Java 代码。该插件支持联合编译，联合编译可以通过 Scala 及 Java 的各自的依赖任意地混合及匹配它们的代码。例如，一个 Scala 类可以继承自一个 Java 类，而这个 Java 类也可以继承自一个 Scala 类。这样一来，我们就能够在项目中使用最适合的语言，并且在有需要的情况下用其他的语言重写其中的任何类。</td>
 </tr>
+<tr>
+<td>propdeps</td>
+<td>此插件的作用是为Gradle提供另2个依赖配置(provided、optional)，和Maven生成的POM配置兼容。因为Gradle的依赖定义是：compile、runtime、testCompile和testRuntime，而Maven的依赖定义是：compile、compile、runtime、test和system。</td>
+</tr>
 </tbody>
 </table>
 <h5 id="插件属性-Plugin-Properties"><a href="#插件属性-Plugin-Properties" class="headerlink" title="插件属性(Plugin Properties)"></a>插件属性(Plugin Properties)</h5><p>Java插件有一些扩展属性:</p>
@@ -659,7 +663,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">213</span>
+                <span class="site-state-item-count">215</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -668,7 +672,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -677,7 +681,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">202</span>
+                <span class="site-state-item-count">203</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
