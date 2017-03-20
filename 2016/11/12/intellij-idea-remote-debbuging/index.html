@@ -84,19 +84,20 @@
 
 
 
-<meta name="description" content="远程调试在排错时帮助非常大，有时在本地无法模拟实际的线上环境，有些错误需要达到特定的边界条件才触发，而在本地环境或许无法创造出这样的边界条件和环境。也有的时候本地由于某些限制无法访问特定计算机，只能在远程机上能够访问，但是远程机器上不一定有完整的开发环境。遇到这些场景，远程调试会帮助我们发现和定位问题所在，观察远程机上的软件运行过程，从而找到问题起因。因为我们用的是Tomcat，所以在IDEA中点">
+<meta name="description" content="Java 调试的本质，就是和虚拟机打交道，通过操作虚拟机来达到观察调试我们自己代码的目的。远程调试在排错时帮助非常大，有时在本地无法模拟实际的线上环境，有些错误需要达到特定的边界条件才触发，而在本地环境或许无法创造出这样的边界条件和环境。也有的时候本地由于某些限制无法访问特定计算机，只能在远程机上能够访问，但是远程机器上不一定有完整的开发环境。遇到这些场景，远程调试会帮助我们发现和定位问题所在，观">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Intellij Idea远程调试">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2016/11/12/intellij-idea-remote-debbuging/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="远程调试在排错时帮助非常大，有时在本地无法模拟实际的线上环境，有些错误需要达到特定的边界条件才触发，而在本地环境或许无法创造出这样的边界条件和环境。也有的时候本地由于某些限制无法访问特定计算机，只能在远程机上能够访问，但是远程机器上不一定有完整的开发环境。遇到这些场景，远程调试会帮助我们发现和定位问题所在，观察远程机上的软件运行过程，从而找到问题起因。因为我们用的是Tomcat，所以在IDEA中点">
+<meta property="og:description" content="Java 调试的本质，就是和虚拟机打交道，通过操作虚拟机来达到观察调试我们自己代码的目的。远程调试在排错时帮助非常大，有时在本地无法模拟实际的线上环境，有些错误需要达到特定的边界条件才触发，而在本地环境或许无法创造出这样的边界条件和环境。也有的时候本地由于某些限制无法访问特定计算机，只能在远程机上能够访问，但是远程机器上不一定有完整的开发环境。遇到这些场景，远程调试会帮助我们发现和定位问题所在，观">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2016/11/12/intellij-idea-remote-debbuging/debugging-connect-localhost.png">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/11/12/intellij-idea-remote-debbuging/tomcat-listening-port.png">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/11/12/intellij-idea-remote-debbuging/intellij-idea-remote-debugging.jpg">
-<meta property="og:updated_time" content="2017-03-16T08:27:51.113Z">
+<meta property="og:updated_time" content="2017-03-20T03:23:15.310Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Intellij Idea远程调试">
-<meta name="twitter:description" content="远程调试在排错时帮助非常大，有时在本地无法模拟实际的线上环境，有些错误需要达到特定的边界条件才触发，而在本地环境或许无法创造出这样的边界条件和环境。也有的时候本地由于某些限制无法访问特定计算机，只能在远程机上能够访问，但是远程机器上不一定有完整的开发环境。遇到这些场景，远程调试会帮助我们发现和定位问题所在，观察远程机上的软件运行过程，从而找到问题起因。因为我们用的是Tomcat，所以在IDEA中点">
-<meta name="twitter:image" content="http://jiangxiaoqiang.com/2016/11/12/intellij-idea-remote-debbuging/tomcat-listening-port.png">
+<meta name="twitter:description" content="Java 调试的本质，就是和虚拟机打交道，通过操作虚拟机来达到观察调试我们自己代码的目的。远程调试在排错时帮助非常大，有时在本地无法模拟实际的线上环境，有些错误需要达到特定的边界条件才触发，而在本地环境或许无法创造出这样的边界条件和环境。也有的时候本地由于某些限制无法访问特定计算机，只能在远程机上能够访问，但是远程机器上不一定有完整的开发环境。遇到这些场景，远程调试会帮助我们发现和定位问题所在，观">
+<meta name="twitter:image" content="http://jiangxiaoqiang.com/2016/11/12/intellij-idea-remote-debbuging/debugging-connect-localhost.png">
 
 
 
@@ -412,11 +413,13 @@
       
 
       
-        <p>远程调试在排错时帮助非常大，有时在本地无法模拟实际的线上环境，有些错误需要达到特定的边界条件才触发，而在本地环境或许无法创造出这样的边界条件和环境。也有的时候本地由于某些限制无法访问特定计算机，只能在远程机上能够访问，但是远程机器上不一定有完整的开发环境。遇到这些场景，远程调试会帮助我们发现和定位问题所在，观察远程机上的软件运行过程，从而找到问题起因。因为我们用的是Tomcat，所以在IDEA中点击右上角那个“Edit Configurations”按钮，然后在弹出的界面中点击左上角的加号，选择tomcat server-&gt;remote。</p>
-<h4 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a>服务器配置</h4><p>要让远程服务器运行的代码支持远程调试，则启动的时候必须加上特定的JVM参数，这些参数是：</p>
+        <p>Java 调试的本质，就是和虚拟机打交道，通过操作虚拟机来达到观察调试我们自己代码的目的。远程调试在排错时帮助非常大，有时在本地无法模拟实际的线上环境，有些错误需要达到特定的边界条件才触发，而在本地环境或许无法创造出这样的边界条件和环境。也有的时候本地由于某些限制无法访问特定计算机，只能在远程机上能够访问，但是远程机器上不一定有完整的开发环境。遇到这些场景，远程调试会帮助我们发现和定位问题所在，观察远程机上的软件运行过程，从而找到问题起因。因为我们用的是Tomcat，所以在IDEA中点击右上角那个“Edit Configurations”按钮，然后在弹出的界面中点击左上角的加号，选择tomcat server-&gt;remote。</p>
 <a id="more"></a>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-Xdebug -Xrunjdwp:transport=dt_socket,<span class="built_in">suspend</span>=n,server=y,address=<span class="variable">$&#123;debug_port&#125;</span></div></pre></td></tr></table></figure>
-<p>其中的${debug_port}是用户自定义的，为debug端口，本例以53996端口为例。在Windows下到tomcat目录下的catalina.bat文件中，添加如下内容，设置catalina环境变量：</p>
+<h4 id="服务端配置"><a href="#服务端配置" class="headerlink" title="服务端配置"></a>服务端配置</h4><p>这里的服务端泛指的是实际运行Java虚拟机端，当在本机开发的时候，实际运行Java虚拟机的是本机，实际上也是通过Socket进行通信。远程调试，无非就是Java虚拟机运行在另一台机器而已，其他和本机开发并没有什么不同，另一台机器可以是局域网另一台机器，可以是数据中心的生产机器，互联网上的其他任何机器(要能够与本机相应端口直接链接)。本机调试时有如下输出:</p>
+<img src="/2016/11/12/intellij-idea-remote-debbuging/debugging-connect-localhost.png" alt="Java调试连接本机" title="Java调试连接本机">
+<p>要让远程服务器运行的代码支持远程调试，则启动的时候必须加上特定的JVM参数，这些参数是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 自己的理解X应该是eXecute的含义，dt是Data Transport的含义</span></div><div class="line">-Xdebug -Xrunjdwp:transport=dt_socket,<span class="built_in">suspend</span>=n,server=y,address=<span class="variable">$&#123;debug_port&#125;</span></div></pre></td></tr></table></figure>
+<p>JDWP(Java Debug Wire Protocol)是一个为 Java 调试而设计的一个通讯交互协议，它定义了调试器和被调试程序之间传递的信息的格式。在 JPDA 体系中，作为前端（front-end）的调试者（debugger）进程和后端（back-end）的被调试程序（debuggee）进程之间的交互数据的格式就是由 JDWP 来描述的，它详细完整地定义了请求命令、回应数据和错误代码，保证了前端和后端的 JVMTI 和 JDI 的通信通畅。比如在 Sun 公司提供的实现中，它提供了一个名为 jdwp.dll（jdwp.so）的动态链接库文件，在JDK 8中，文件在<code>/opt/local/jdk8/jre/lib/amd64/libjdwp.so</code>，这个动态库文件实现了一个 Agent，它会负责解析前端发出的请求或者命令，并将其转化为 JVMTI 调用，然后将 JVMTI 函数的返回值封装成 JDWP 数据发还给后端。其中的${debug_port}是用户自定义的，为debug端口，本例以53996端口为例。在Windows下到tomcat目录下的catalina.bat文件中，添加如下内容，设置catalina环境变量：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">set</span> CATALINA_OPTS=<span class="string">"-agentlib:jdwp=transport=dt_socket,address=53996,suspend=n,server=y"</span></div></pre></td></tr></table></figure>
 <p>如果是Linux，在catalina.sh文件中中，设置catalina环境变量：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> CATALINA_OPTS=<span class="string">"-agentlib:jdwp=transport=dt_socket,address=53996,suspend=n,server=y"</span></div></pre></td></tr></table></figure>
@@ -429,7 +432,7 @@
 <h4 id="Intellij-Idea配置"><a href="#Intellij-Idea配置" class="headerlink" title="Intellij Idea配置"></a>Intellij Idea配置</h4><p>Intellij Idea远程调试配置如下：</p>
 <img src="/2016/11/12/intellij-idea-remote-debbuging/intellij-idea-remote-debugging.jpg" alt="Intellij Idea远程调试配置" title="Intellij Idea远程调试配置">
 <h4 id="jar包远程调试"><a href="#jar包远程调试" class="headerlink" title="jar包远程调试"></a>jar包远程调试</h4><p>有时项目直接使用jar包部署，此时如果需要使用远程调试,在启动jar包时，添加特定的参数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># Java 1.5或者1.5以上版本启动命令</div><div class="line">java -jar -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 example.jar</div><div class="line"># Java 1.4版本启动命令</div><div class="line">java -jar -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005 example.jar</div><div class="line"># Java 1.3或更早版本启动命令</div><div class="line">java -jar -Xnoagent -Djava.compiler=NONE -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005 example.jar</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># Java 1.5或者1.5以上版本启动命令,jdwp=Java Debug Wire Protocol</div><div class="line">java -jar -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 example.jar</div><div class="line"># Java 1.4版本启动命令</div><div class="line">java -jar -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005 example.jar</div><div class="line"># Java 1.3或更早版本启动命令</div><div class="line">java -jar -Xnoagent -Djava.compiler=NONE -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005 example.jar</div></pre></td></tr></table></figure>
 <p>在Intellij Idea中进行配置,主机填写远程主机的IP，端口填写远程主机jar启动时指定的端口即可。</p>
 <p>参考资料：</p>
 <ul>
@@ -571,7 +574,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">203</span>
+                <span class="site-state-item-count">204</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -650,7 +653,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#服务器配置"><span class="nav-number">1.</span> <span class="nav-text">服务器配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Intellij-Idea配置"><span class="nav-number">2.</span> <span class="nav-text">Intellij Idea配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jar包远程调试"><span class="nav-number">3.</span> <span class="nav-text">jar包远程调试</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#服务端配置"><span class="nav-number">1.</span> <span class="nav-text">服务端配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Intellij-Idea配置"><span class="nav-number">2.</span> <span class="nav-text">Intellij Idea配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jar包远程调试"><span class="nav-number">3.</span> <span class="nav-text">jar包远程调试</span></a></li></ol></div>
             
 
           </div>

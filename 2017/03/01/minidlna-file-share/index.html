@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Raspberry,MiniDLNA," />
 
 
 
@@ -90,10 +90,12 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/03/01/minidlna-file-share/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="MiniDLNA is server software with the aim of being fully compliant with DLNA(Digital Living Network Alliance)/UPnP clients. The MiniDNLA daemon serves media files (music, pictures, and video) to client">
-<meta property="og:updated_time" content="2017-03-17T01:16:33.446Z">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2017/03/01/minidlna-file-share/upnp-media.png">
+<meta property="og:updated_time" content="2017-03-20T01:48:46.315Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="minidlna-file-share">
 <meta name="twitter:description" content="MiniDLNA is server software with the aim of being fully compliant with DLNA(Digital Living Network Alliance)/UPnP clients. The MiniDNLA daemon serves media files (music, pictures, and video) to client">
+<meta name="twitter:image" content="http://jiangxiaoqiang.com/2017/03/01/minidlna-file-share/upnp-media.png">
 
 
 
@@ -352,6 +354,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Equipment/" itemprop="url" rel="index">
+                    <span itemprop="name">Equipment</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -397,7 +421,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># 启动服务</div><div class="line">sudo systemctl start minidlna</div><div class="line"># 强制刷新DLNA</div><div class="line">sudo service minidlna force-reload</div><div class="line">#查看服务是否已经运行</div><div class="line">ps -aux|grep minidlna</div><div class="line"># 查看服务状态</div><div class="line">service minidlna status</div><div class="line"># MiniDLNA随机启动</div><div class="line">sudo update-rc.d minidlna defaults</div></pre></td></tr></table></figure>
 <p>访问界面<code>http://127.0.0.1:8200/</code>。DLNA 支持的媒体格式：Image JPEG PNG, GIF, TIFF，Audio LPCM AAC, AC-3, ATRAC 3plus, MP3, WMA9，AV MPEG2 MPEG-1,MPEG-4*, AVC, WMV9</p>
 <h4 id="VLC播放媒体"><a href="#VLC播放媒体" class="headerlink" title="VLC播放媒体"></a>VLC播放媒体</h4><p>在Raspberry上安装完毕MiniDLNA后，可以直接在局域网中的PC上通过VLC媒体播放器直接播放Raspberry Pi中的媒体文件。在Window-Playlist-Local Network-Universal Plugin Play中可以找到媒体文件，如下图所示。</p>
-
+<img src="/2017/03/01/minidlna-file-share/upnp-media.png" alt="播放Raspberry Pi媒体文件" title="播放Raspberry Pi媒体文件">
 <h4 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h4><h5 id="Media-directory-not-accessible"><a href="#Media-directory-not-accessible" class="headerlink" title="Media directory not accessible"></a>Media directory not accessible</h5><p>启动的时候提示目录权限拒绝：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Mar 02 12:36:00 localhost.localdomain minidlnad[3874]: [2017/03/02 12:36:00] minidlna.c:614: error: Media directory &quot;/home/dolphin/dlna&quot; not accessible [Permission Denide]</div></pre></td></tr></table></figure>
 <p>原因是由于miniDLNA启动的时候，默认用户是minidlna。可以修改对应目录的权限为miniDLNA，也可以修改DLNA启动用户。这里采用的是后者的方式：</p>
@@ -424,6 +448,14 @@
 
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Raspberry/" rel="tag"># Raspberry</a>
+          
+            <a href="/tags/MiniDLNA/" rel="tag"># MiniDLNA</a>
+          
+        </div>
       
 
       
@@ -534,7 +566,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">203</span>
+                <span class="site-state-item-count">204</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
