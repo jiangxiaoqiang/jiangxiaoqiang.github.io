@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/03/23/ansible-using/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="Ansible是一款自动化运维工具，基于Python开发，由Paramiko(python的一个可并发连接ssh主机功能库), PyYAML和Jinja2(模板化)三个关键模块实现。">
-<meta property="og:updated_time" content="2017-03-24T01:56:29.201Z">
+<meta property="og:updated_time" content="2017-03-30T08:06:26.759Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ansible使用总结">
 <meta name="twitter:description" content="Ansible是一款自动化运维工具，基于Python开发，由Paramiko(python的一个可并发连接ssh主机功能库), PyYAML和Jinja2(模板化)三个关键模块实现。">
@@ -417,7 +417,29 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[webservers]</div><div class="line">192.168.1.112 ansible_ssh_port=22 ansible_ssh_user=root</div></pre></td></tr></table></figure>
 <p>使用如下命令测试：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ansible webservers -vvv -m command -a date</div></pre></td></tr></table></figure>
-<h4 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h4><h5 id="Unreachable"><a href="#Unreachable" class="headerlink" title="Unreachable"></a>Unreachable</h5>
+<h4 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h4><ul>
+<li>command模块，该模块通过-a跟上要执行的命令可以直接执行，不过命令里如果有带有如下字符部分则执行不成功 “ so variables like $HOME and operations like “&lt;”, “&gt;”, “|”, and “&amp;” will not work (use the shell module if you need these features).”；</li>
+<li>shell 模块，用法其本和command一样，不过的是其是通过/bin/sh进行执行，所以shell 模块可以执行任何命令，就像在本机执行一样，“ It is almost exactly like the command module but runs the command through a shell (/bin/sh) on the remote node.”；</li>
+<li>raw模块，用法和shell 模块一样 ，其也可以执行任意命令，就像在本机执行一样，“Executes a low-down and dirty SSH command, not going through the module subsystem. There is no change handler support for this module. This module does not require python on the remote system”</li>
+<li>script模块，其是将管理端的shell 在被管理主机上执行，其原理是先将shell 复制到远程主机，再在远程主机上执行，原理类似于raw模块，“This module does not require python on the remote system, much like the raw module.” 。</li>
+</ul>
+<h4 id="Playbook"><a href="#Playbook" class="headerlink" title="Playbook"></a>Playbook</h4><pre><code class="shell"> #
+# 自动化部署Playback脚本
+#
+---
+- hosts: webservers # hosts中指定
+remote_user: root
+tasks:
+  - name: copy depoloy file
+    copy: src=~/file dist=~/file # 从本机拷贝到远程
+  - name: back up site
+    shell: &apos;mv /opt/app/frontend/dist /opt/app/frontend/dist-bak&apos;
+  - name: back up tar
+    shell: &apos;mv /opt/app/frontend/dist.tar.gz /opt/app/frontend/dist.tar.gz.bak&apos;
+</code></pre>
+<p>hosts后面根据local是从hosts中读取的，tasks是是关键词，指明了要执行哪些任务；下面的name是任务的名称，shell是前面提到的module(模块)，单引号中是命令。</p>
+<h4 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h4><h5 id="Unreachable"><a href="#Unreachable" class="headerlink" title="Unreachable"></a>Unreachable</h5><h5 id="is-not-file-or-directory"><a href="#is-not-file-or-directory" class="headerlink" title="is not file or directory"></a>is not file or directory</h5><p>在Ansibel中不能直接执行cd命令，需要使用chdir命令：</p>
+
       
     </div>
 
@@ -458,6 +480,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/24/word-of-chinese/" rel="prev" title="word-of-chinese">
+                word-of-chinese <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -531,7 +557,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">218</span>
+                <span class="site-state-item-count">223</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -540,7 +566,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -549,7 +575,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">206</span>
+                <span class="site-state-item-count">209</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -628,7 +654,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Ansible配置"><span class="nav-number">1.</span> <span class="nav-text">Ansible配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见问题"><span class="nav-number">2.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Unreachable"><span class="nav-number">2.1.</span> <span class="nav-text">Unreachable</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Ansible配置"><span class="nav-number">1.</span> <span class="nav-text">Ansible配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块"><span class="nav-number">2.</span> <span class="nav-text">模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Playbook"><span class="nav-number">3.</span> <span class="nav-text">Playbook</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见问题"><span class="nav-number">4.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Unreachable"><span class="nav-number">4.1.</span> <span class="nav-text">Unreachable</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#is-not-file-or-directory"><span class="nav-number">4.2.</span> <span class="nav-text">is not file or directory</span></a></li></ol></li></ol></div>
             
 
           </div>

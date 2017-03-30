@@ -86,14 +86,14 @@
 
 <meta name="description" content="MiniDLNA is server software with the aim of being fully compliant with DLNA(Digital Living Network Alliance)/UPnP clients. The MiniDNLA daemon serves media files (music, pictures, and video) to client">
 <meta property="og:type" content="article">
-<meta property="og:title" content="minidlna-file-share">
+<meta property="og:title" content="MiniDLNA文件共享">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/03/01/minidlna-file-share/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="MiniDLNA is server software with the aim of being fully compliant with DLNA(Digital Living Network Alliance)/UPnP clients. The MiniDNLA daemon serves media files (music, pictures, and video) to client">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2017/03/01/minidlna-file-share/upnp-media.png">
-<meta property="og:updated_time" content="2017-03-20T01:48:46.315Z">
+<meta property="og:updated_time" content="2017-03-30T08:06:26.759Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="minidlna-file-share">
+<meta name="twitter:title" content="MiniDLNA文件共享">
 <meta name="twitter:description" content="MiniDLNA is server software with the aim of being fully compliant with DLNA(Digital Living Network Alliance)/UPnP clients. The MiniDNLA daemon serves media files (music, pictures, and video) to client">
 <meta name="twitter:image" content="http://jiangxiaoqiang.com/2017/03/01/minidlna-file-share/upnp-media.png">
 
@@ -129,7 +129,7 @@
 
 
 
-  <title> minidlna-file-share | 小强的博客 </title>
+  <title> MiniDLNA文件共享 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -328,7 +328,7 @@
             
             
               
-                minidlna-file-share
+                MiniDLNA文件共享
               
             
           </h1>
@@ -366,8 +366,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Equipment/" itemprop="url" rel="index">
-                    <span itemprop="name">Equipment</span>
+                  <a href="/categories/Tool/" itemprop="url" rel="index">
+                    <span itemprop="name">Tool</span>
                   </a>
                 </span>
 
@@ -413,7 +413,8 @@
       
         <p>MiniDLNA is server software with the aim of being fully compliant with DLNA(Digital Living Network Alliance)/UPnP clients. The MiniDNLA daemon serves media files (music, pictures, and video) to clients on a network. Example clients include applications such as totem and xbmc, and devices such as portable media players, smartphones, and televisions.MiniDLNA is a simple, lightweight alternative to MediaTomb, but has fewer features. It does not have a web interface for administration and must be configured by editing a text file.</p>
 <a id="more"></a>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>在Fedora 24下，输入如下命令安装：</p>
+<p>在Raspberry Pi上下载文件完毕后，想直接通过局域网中的电脑直接播放Raspberry Pi上的媒体文件，不用再将文件拷贝到本地播放。其实再这里Raspberry Pi就是一个文件缓存服务器，可以解决视频卡顿的问题。这个任务可以使用MiniDLNA来完成，DLNA服务器搭建完毕后，就可以直接通过VLC播放Raspberry Pi上的内容了。在手机、PAD、Mac PC、Linux PC、Windows PC、高清电视上都可以播放Raspberry Pi上的内容，不用再将文件拷贝到各个设备上。</p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>输入如下命令安装：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo dnf install -y minidlna</div><div class="line"># Raspberry</div><div class="line">sudo apt-get install -y minidlna</div></pre></td></tr></table></figure>
 <p>编辑minidlna配置文件<code>/etc/minidlna.conf</code>:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">media_dir=/home/dolphin/dlna  #媒体文件目录</div><div class="line">db_dir=/var/lib/minidlna    #minidlna通过SQLite来建立媒体库索引，因此需要定义数据库目录</div><div class="line">listening_ip=192.168.1.111  #IP</div><div class="line">port=8200                   #web端口，可以通过ip:port查看索引状态</div><div class="line">friendly_name=Raspi_DLNA    #服务器命名</div></pre></td></tr></table></figure>
@@ -501,7 +502,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2017/03/01/minidlna-file-share/"
-           data-title="minidlna-file-share" data-url="http://jiangxiaoqiang.com/2017/03/01/minidlna-file-share/">
+           data-title="MiniDLNA文件共享" data-url="http://jiangxiaoqiang.com/2017/03/01/minidlna-file-share/">
       </div>
     
   </div>
@@ -548,7 +549,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">218</span>
+                <span class="site-state-item-count">223</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -557,7 +558,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -566,7 +567,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">206</span>
+                <span class="site-state-item-count">209</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

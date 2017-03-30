@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/03/03/httprequset-urlencoding/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="今天反映用中文查询数据时，接口没有返回数据。">
-<meta property="og:updated_time" content="2017-03-16T08:27:51.113Z">
+<meta property="og:updated_time" content="2017-03-30T08:06:26.759Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP请求的URL编码问题">
 <meta name="twitter:description" content="今天反映用中文查询数据时，接口没有返回数据。">
@@ -415,7 +415,7 @@
 <blockquote>
 <p>Invalid character found in the request target. The valid characters are defined in RFC 7230 and RFC 3986</p>
 </blockquote>
-<p>但是将中文编码作为参数，可以查询。RFC3986文档规定，Url中只允许包含英文字母（a-zA-Z）、数字（0-9）、-_.~4个特殊字符以及所有保留字符。</p>
+<p>但是将中文编码后作为参数传入，则可以成功查询。RFC3986文档规定，Url中只允许包含英文字母（a-zA-Z）、数字（0-9）、-_.~4个特殊字符以及所有保留字符。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl --data-urlencode &quot;param1=value1&amp;param2=value&quot; http://hostname.com</div></pre></td></tr></table></figure>
 <p>断定是服务端在接受到汉字参数时无法解析导致的此问题。由于是将Tomcat嵌入进Jar包进行编译，替换嵌入的Tomcat版本，将嵌入的Tomcat版本由7.0.75替换成8.0.35后，URL中可以带中文字符查询，估计是由于新版本会对URL中的汉字自动进行转义，不用再考虑请求中是否转义URL的问题。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">buildscript &#123;</div><div class="line">    ext &#123;</div><div class="line">        springBootVersion = &apos;1.4.5.RELEASE&apos;</div><div class="line">        jacksonVersion = &apos;2.8.7&apos;</div><div class="line">        springfoxVersion = &apos;2.6.1&apos;</div><div class="line">        poiVersion = &quot;3.14&quot;</div><div class="line">    &#125;</div><div class="line">    ext[&apos;tomcat.version&apos;] = &apos;8.0.35&apos;//原来是7.0.75</div><div class="line">    repositories &#123;</div><div class="line">        maven &#123; url &apos;http://repox.gtan.com:8078&apos; &#125;</div><div class="line">        mavenCentral()</div><div class="line">        jcenter()</div><div class="line">        maven &#123; url &apos;http://repo.spring.io/plugins-release&apos; &#125;</div><div class="line">    &#125;</div><div class="line">    dependencies &#123;</div><div class="line">        classpath(&quot;org.springframework.boot:spring-boot-gradle-plugin:$&#123;springBootVersion&#125;&quot;)</div><div class="line">        classpath &apos;org.springframework.build.gradle:propdeps-plugin:0.0.7&apos;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -535,7 +535,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">218</span>
+                <span class="site-state-item-count">223</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -544,7 +544,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -553,7 +553,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">206</span>
+                <span class="site-state-item-count">209</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

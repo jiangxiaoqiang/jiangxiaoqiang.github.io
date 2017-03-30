@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="查看文件占用情况：
 1du -alh">
-<meta property="og:updated_time" content="2017-03-17T03:36:17.799Z">
+<meta property="og:updated_time" content="2017-03-30T08:06:26.759Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux常用命令总结">
 <meta name="twitter:description" content="查看文件占用情况：
@@ -415,7 +415,14 @@
         <p>查看文件占用情况：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">du -alh</div></pre></td></tr></table></figure>
 <a id="more"></a>
+<h4 id="find命令"><a href="#find命令" class="headerlink" title="find命令"></a>find命令</h4><p>find命令主要用于文件的查找。再当前目录下查找.txt和.pdf文件：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 在本机中查找与Intellij有关，但是不包含JavaScript、svg、markdown文件</div><div class="line">sudo find / \( -name intellij* -not -name &quot;*.js&quot; -not -name &quot;*.svg&quot; -not -name &quot;*.md&quot; \) -print</div><div class="line"># 查找所有非txt的文件</div><div class="line">find . ! -name &quot;*.txt&quot; -print</div><div class="line"># 指定查找的深度，查询当前目录下的文件，如果是目录将f(file)换成d(directory)即可</div><div class="line">find . -maxdepth 1 -type f</div></pre></td></tr></table></figure>
+<p>-o参数表示或者(or)的含义。其他的还包括-a，表示而且(and)的含义。-not,相反的含义。正则方式查找：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find . -regex  &quot;.*\(\.txt|\.pdf\)$&quot;</div></pre></td></tr></table></figure>
+<h4 id="history命令"><a href="#history命令" class="headerlink" title="history命令"></a>history命令</h4><p>history命令可以查看shell的历史命令记录，shell默认保存的历史命令为1000条，验证此说法只需要打开<code>.bash_history</code>文件查看即可，如果计算机使用的时间足够长，那么最多有1000行命令记录。注销系统时，terminal会将所有的历史命令写入<code>.bash_history</code>文件。要修改历史命令保存的数量，如果需要排查用户执行的命令，也可以记录下命令执行时间等。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 在.bash_history中保存命令的记录总数</div><div class="line">HISTFILESIZE=10000</div><div class="line"># history命令输出的记录总数</div><div class="line">HISTSIZE=10000</div><div class="line">HISTTIMEFORMAT=&apos;%F %T&apos;</div><div class="line">export HISTTIMEFORMAT</div></pre></td></tr></table></figure>
+<p>history命令可以查看shell的历史命令记录，shell默认保存的历史命令为1000条，验证此说法只需要打开<code>.bash_history</code>文件查看即可，如果计算机使用的时间足够长，那么最多有1000行命令记录。注销系统时，terminal会将所有的历史命令写入</p>
+<p>history命令可以查看shell的历史命令记录，shell默认保存的历史命令为1000条，验证此说法只需要打开<code>.bash_history</code>文件查看即可，如果计算机使用的时间足够长，那么最多有1000行命令记录。注销系统时，terminal会将所有的历史命令写入</p>
 <h4 id="ls命令"><a href="#ls命令" class="headerlink" title="ls命令"></a>ls命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 列出当前目录下的目录，不列出文件</div><div class="line">ls -d */</div><div class="line"># 列出当前目录下的目录</div><div class="line">ls -l|grep ^d</div></pre></td></tr></table></figure>
 <h4 id="scp"><a href="#scp" class="headerlink" title="scp"></a>scp</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#将本地文件夹上传到服务器</span></div><div class="line">scp -r /tmp/local_dir username@servername:remote_dir</div><div class="line"><span class="comment"># 将服务器文件拷贝到本地</span></div><div class="line">scp -r pi@192.168.1.113:/var/lib/daemon/GK ./</div></pre></td></tr></table></figure>
 <h4 id="ss命令"><a href="#ss命令" class="headerlink" title="ss命令"></a>ss命令</h4><p>ss(Socket Statistics)命令用于显示本机Sock统计信息。相比于其他工具，它可以显示更多的信息(It can display more TCP and state informations than other tools)。l查看监听端口。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 显示所有TCP Sockets</span></div><div class="line">ss -t <span class="_">-a</span></div><div class="line"><span class="comment"># 查看ssh端口是否已经打开</span></div><div class="line">ss -t -n <span class="_">-a</span>|grep 22</div></pre></td></tr></table></figure></p>
@@ -551,7 +558,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">218</span>
+                <span class="site-state-item-count">223</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -560,7 +567,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -569,7 +576,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">206</span>
+                <span class="site-state-item-count">209</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -648,7 +655,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#ls命令"><span class="nav-number">1.</span> <span class="nav-text">ls命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scp"><span class="nav-number">2.</span> <span class="nav-text">scp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ss命令"><span class="nav-number">3.</span> <span class="nav-text">ss命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lsof命令"><span class="nav-number">4.</span> <span class="nav-text">lsof命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#top命令"><span class="nav-number">5.</span> <span class="nav-text">top命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pushd命令"><span class="nav-number">6.</span> <span class="nav-text">pushd命令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#find命令"><span class="nav-number">1.</span> <span class="nav-text">find命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#history命令"><span class="nav-number">2.</span> <span class="nav-text">history命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ls命令"><span class="nav-number">3.</span> <span class="nav-text">ls命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scp"><span class="nav-number">4.</span> <span class="nav-text">scp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ss命令"><span class="nav-number">5.</span> <span class="nav-text">ss命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lsof命令"><span class="nav-number">6.</span> <span class="nav-text">lsof命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#top命令"><span class="nav-number">7.</span> <span class="nav-text">top命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pushd命令"><span class="nav-number">8.</span> <span class="nav-text">pushd命令</span></a></li></ol></div>
             
 
           </div>

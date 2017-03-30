@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="YouTube是全球最大的视频分享网站，内容五花八门，地铁的地下通道是怎么建造的？超级跑车怎么生产出来的？特斯拉的使用体验如何？物体速度超过光速会发生什么？……强烈的满足了我的好奇心，由于内容太过于充实，难免会有毒草混杂其中。所以大陆的政策是坚决要保护群众的利益，不允许访问的。">
+<meta name="description" content="YouTube是全球最大的视频分享网站，内容五花八门，地铁的地下通道是怎么建造的？超级跑车怎么生产出来的？特斯拉的使用体验如何？物体速度超过光速会发生什么？……强烈的满足了我的好奇心。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="youtube缓慢卡顿的问题">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/02/03/youtube-slow/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="YouTube是全球最大的视频分享网站，内容五花八门，地铁的地下通道是怎么建造的？超级跑车怎么生产出来的？特斯拉的使用体验如何？物体速度超过光速会发生什么？……强烈的满足了我的好奇心，由于内容太过于充实，难免会有毒草混杂其中。所以大陆的政策是坚决要保护群众的利益，不允许访问的。">
-<meta property="og:updated_time" content="2017-03-24T01:56:29.205Z">
+<meta property="og:description" content="YouTube是全球最大的视频分享网站，内容五花八门，地铁的地下通道是怎么建造的？超级跑车怎么生产出来的？特斯拉的使用体验如何？物体速度超过光速会发生什么？……强烈的满足了我的好奇心。">
+<meta property="og:updated_time" content="2017-03-30T08:07:20.917Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="youtube缓慢卡顿的问题">
-<meta name="twitter:description" content="YouTube是全球最大的视频分享网站，内容五花八门，地铁的地下通道是怎么建造的？超级跑车怎么生产出来的？特斯拉的使用体验如何？物体速度超过光速会发生什么？……强烈的满足了我的好奇心，由于内容太过于充实，难免会有毒草混杂其中。所以大陆的政策是坚决要保护群众的利益，不允许访问的。">
+<meta name="twitter:description" content="YouTube是全球最大的视频分享网站，内容五花八门，地铁的地下通道是怎么建造的？超级跑车怎么生产出来的？特斯拉的使用体验如何？物体速度超过光速会发生什么？……强烈的满足了我的好奇心。">
 
 
 
@@ -409,13 +409,23 @@
       
 
       
-        <p>YouTube是全球最大的视频分享网站，内容五花八门，地铁的地下通道是怎么建造的？超级跑车怎么生产出来的？特斯拉的使用体验如何？物体速度超过光速会发生什么？……强烈的满足了我的好奇心，由于内容太过于充实，难免会有毒草混杂其中。所以大陆的政策是坚决要保护群众的利益，不允许访问的。</p>
+        <p>YouTube是全球最大的视频分享网站，内容五花八门，地铁的地下通道是怎么建造的？超级跑车怎么生产出来的？特斯拉的使用体验如何？物体速度超过光速会发生什么？……强烈的满足了我的好奇心。</p>
 <a id="more"></a>
 <p>本来服务器都相隔千山万水，还没有政策支持，速度慢也就不奇怪了。解决速度慢的问题大致有如下方法。</p>
 <h4 id="调低视频质量"><a href="#调低视频质量" class="headerlink" title="调低视频质量"></a>调低视频质量</h4><p>谁不喜欢高清无码呢？但是残酷的现实就在眼前啊，要求完美的自己也会降低标准。但是很多时候降低标准并不会奏效。那种要来了而不得的感觉，甭提有多让人抓狂了。</p>
 <h4 id="增加网络带宽"><a href="#增加网络带宽" class="headerlink" title="增加网络带宽"></a>增加网络带宽</h4><p>同上，该卡的总是会卡。</p>
 <h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>将视频下载到本地是终极的解决方案，彻底告别卡顿。可以登录网站<code>www.savefrom.net</code>，直接将视频地址复制到网站的搜索框中下载，也可以安装网站的插件。发现了一个下载Youtube视频的工具：youtube-dl(youtube downloader)，项目托管在Github上，是用Python写的脚本。一共有2W+的Star，500+的Contributor，直到最近都还有更新。以前已经安装，使用如下命令升级：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo -H pip install --upgrade youtube-dl</div></pre></td></tr></table></figure>
+<p>由於在國內的網絡環境u無法訪問youtube，下載youtube視頻需要與代理結合。暫時記錄使用youtube-dl下載國內視頻的方法。以下載《The Big Bang Theroy》爲例，下載視頻使用如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">youtube-dl http://tv.sohu.com/20150721/n417248066.shtml?txid=10ad708cb3c0cfcd5ea81608c0a558de&amp;vfm=bdvtx&amp;frp=v.baidu.com%2Ftv_intro%2F&amp;bl=jp_video</div></pre></td></tr></table></figure>
+<p>如果想下載所有清晰度格式的視頻，可以添加<code>--all-formats</code>參數：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">youtube-dl --all-formats http://tv.sohu.com/20150721/n417248066.shtml?txid=10ad708cb3c0cfcd5ea81608c0a558de&amp;vfm=bdvtx&amp;frp=v.baidu.com%2Ftv_intro%2F&amp;bl=jp_video</div></pre></td></tr></table></figure>
+<p>畢竟也沒有必要下載所有格式的視頻，可以先列出不同清晰度格式的視頻選擇自己需要的視頻再下載：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">youtube-dl --list-formats http://tv.sohu.com/20150721/n417248066.shtml?txid=10ad708cb3c0cfcd5ea81608c0a558de&amp;vfm=bdvtx&amp;frp=v.baidu.com%2Ftv_intro%2F&amp;bl=jp_video</div></pre></td></tr></table></figure>
+<p>選擇需要的清晰度的視頻下載：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">youtube-dl -f super http://tv.sohu.com/20150721/n417248066.shtml?txid=10ad708cb3c0cfcd5ea81608c0a558de&amp;vfm=bdvtx&amp;frp=v.baidu.com%2Ftv_intro%2F&amp;bl=jp_video</div></pre></td></tr></table></figure>
+<p>-f參數表示format的含義，super表示超清格式。但是下載完畢的視頻是單個文件，麼有合併的，所以需要使用FFmpeg工具將之合併：</p>
+<p>注意此種方式勿用於商業用途，視頻提供商需要大量的服務器和帶寬成本。</p>
 
       
     </div>
@@ -534,7 +544,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">218</span>
+                <span class="site-state-item-count">223</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -543,7 +553,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -552,7 +562,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">206</span>
+                <span class="site-state-item-count">209</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
