@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="MiniDLNA is server software with the aim of being fully compliant with DLNA(Digital Living Network Alliance)/UPnP clients. The MiniDNLA daemon serves media files (music, pictures, and video) to client">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2017/03/01/minidlna-file-share/upnp-media.png">
-<meta property="og:updated_time" content="2017-03-30T08:06:26.759Z">
+<meta property="og:updated_time" content="2017-04-03T06:41:38.400Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MiniDLNA文件共享">
 <meta name="twitter:description" content="MiniDLNA is server software with the aim of being fully compliant with DLNA(Digital Living Network Alliance)/UPnP clients. The MiniDNLA daemon serves media files (music, pictures, and video) to client">
@@ -423,6 +423,13 @@
 <p>访问界面<code>http://127.0.0.1:8200/</code>。DLNA 支持的媒体格式：Image JPEG PNG, GIF, TIFF，Audio LPCM AAC, AC-3, ATRAC 3plus, MP3, WMA9，AV MPEG2 MPEG-1,MPEG-4*, AVC, WMV9</p>
 <h4 id="VLC播放媒体"><a href="#VLC播放媒体" class="headerlink" title="VLC播放媒体"></a>VLC播放媒体</h4><p>在Raspberry上安装完毕MiniDLNA后，可以直接在局域网中的PC上通过VLC媒体播放器直接播放Raspberry Pi中的媒体文件。在Window-Playlist-Local Network-Universal Plugin Play中可以找到媒体文件，如下图所示。</p>
 <img src="/2017/03/01/minidlna-file-share/upnp-media.png" alt="播放Raspberry Pi媒体文件" title="播放Raspberry Pi媒体文件">
+<h4 id="權限控制"><a href="#權限控制" class="headerlink" title="權限控制"></a>權限控制</h4><p>有時想讓某些內容需要授權才能夠查看，比如自己的豔照什麼的。那麼就需要權限限制啦，在 Linux 上, 利用 MAC address 来过滤封包的程序叫作 ebtables.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install ebtables -y</div></pre></td></tr></table></figure>
+<p>ebtables 用起来很像 iptables, 不同的地方在于他是作用在较低阶的链路层(link layer). </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo ebtables -N dlna -P DROP</div><div class="line">sudo ebtables -A INPUT -p IPv4 --ip-proto tcp --ip-destination-port 8200 -j dlna</div></pre></td></tr></table></figure>
+<p>接著把设备的 MAC address 加进 dlna chain 中, 并且设定为接受封包:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo ebtables -A dlna -s XX:XX:XX:XX:XX:XX -j ACCEPT</div></pre></td></tr></table></figure>
+<p>这么一来就只有已登记 MAC address 的设备可以看到 server 上的媒体了。</p>
 <h4 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h4><h5 id="Media-directory-not-accessible"><a href="#Media-directory-not-accessible" class="headerlink" title="Media directory not accessible"></a>Media directory not accessible</h5><p>启动的时候提示目录权限拒绝：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Mar 02 12:36:00 localhost.localdomain minidlnad[3874]: [2017/03/02 12:36:00] minidlna.c:614: error: Media directory &quot;/home/dolphin/dlna&quot; not accessible [Permission Denide]</div></pre></td></tr></table></figure>
 <p>原因是由于miniDLNA启动的时候，默认用户是minidlna。可以修改对应目录的权限为miniDLNA，也可以修改DLNA启动用户。这里采用的是后者的方式：</p>
@@ -549,7 +556,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">223</span>
+                <span class="site-state-item-count">227</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -558,7 +565,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -567,7 +574,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">209</span>
+                <span class="site-state-item-count">211</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -646,7 +653,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VLC播放媒体"><span class="nav-number">2.</span> <span class="nav-text">VLC播放媒体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见问题"><span class="nav-number">3.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Media-directory-not-accessible"><span class="nav-number">3.1.</span> <span class="nav-text">Media directory not accessible</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VLC播放媒体"><span class="nav-number">2.</span> <span class="nav-text">VLC播放媒体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#權限控制"><span class="nav-number">3.</span> <span class="nav-text">權限控制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见问题"><span class="nav-number">4.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Media-directory-not-accessible"><span class="nav-number">4.1.</span> <span class="nav-text">Media directory not accessible</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="在Ubuntu 14.04下安装Gradle之后,提示如下错误:">
+<meta name="description" content="在Linux中，shell脚本能够帮助我们快速的完成指定的任务。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux Shell脚本调试">
+<meta property="og:title" content="Linux Shell脚本">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/01/08/linux-shell-debug/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="在Ubuntu 14.04下安装Gradle之后,提示如下错误:">
-<meta property="og:updated_time" content="2017-01-09T04:53:14.299Z">
+<meta property="og:description" content="在Linux中，shell脚本能够帮助我们快速的完成指定的任务。">
+<meta property="og:updated_time" content="2017-04-03T06:41:38.396Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux Shell脚本调试">
-<meta name="twitter:description" content="在Ubuntu 14.04下安装Gradle之后,提示如下错误:">
+<meta name="twitter:title" content="Linux Shell脚本">
+<meta name="twitter:description" content="在Linux中，shell脚本能够帮助我们快速的完成指定的任务。">
 
 
 
@@ -127,7 +127,7 @@
 
 
 
-  <title> Linux Shell脚本调试 | 小强的博客 </title>
+  <title> Linux Shell脚本 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -326,7 +326,7 @@
             
             
               
-                Linux Shell脚本调试
+                Linux Shell脚本
               
             
           </h1>
@@ -409,8 +409,10 @@
       
 
       
-        <p>在Ubuntu 14.04下安装Gradle之后,提示如下错误:</p>
+        <p>在Linux中，shell脚本能够帮助我们快速的完成指定的任务。</p>
 <a id="more"></a>
+<h4 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h4><p>使用<code>set -u</code>，当使用未初始化的变量时，让bash自动退出。你写的每一个脚本的开始都应该包含set -e。这告诉bash一但有任何一个语句返回非真的值，则退出bash。使用-e的好处是避免错误滚雪球般的变成严重错误，能尽早的捕获错误。</p>
+<h4 id="脚本调试"><a href="#脚本调试" class="headerlink" title="脚本调试"></a>脚本调试</h4><p>在Ubuntu 14.04下安装Gradle之后,提示如下错误:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># gradle</div><div class="line"></div><div class="line">ERROR: JAVA_HOME is set to an invalid directory: /usr/lib/jvm/default-java</div><div class="line"></div><div class="line">Please set the JAVA_HOME variable in your environment to match the</div><div class="line">location of your Java installation.</div></pre></td></tr></table></figure>
 <p>打开Gradle脚本:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /usr/bin/gradle</div></pre></td></tr></table></figure>
@@ -418,7 +420,15 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> JAVA_HOME=/usr/lib/jvm/jdk1.8.0_101</div></pre></td></tr></table></figure>
 <p>再次运行Gradle命令,问题已经修复.在解决的过程中,可以是用命令调试Gradle脚本:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bash -x /usr/bin/gradle</div></pre></td></tr></table></figure>
-<p>可以看到脚本运行过程中输出的变量.</p>
+<p>可以看到脚本运行过程中输出的变量.如果脚本太长，可以在<code>.bash_profile</code>中设置如下的环境变量，打印出脚本的行号：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">export PS4=&apos;+$&#123;BASH_SOURCE&#125;:$&#123;LINENO&#125;:$&#123;FUNCNAME[0]&#125;: &apos;</div><div class="line"># 使环境变量生效</div><div class="line">. .bash_profile</div></pre></td></tr></table></figure>
+<p>在设置环境变量之后不要忘记执行<code>. .bash_profile</code>命令。</p>
+<h4 id="调试部分脚本"><a href="#调试部分脚本" class="headerlink" title="调试部分脚本"></a>调试部分脚本</h4><h4 id="日志输出"><a href="#日志输出" class="headerlink" title="日志输出"></a>日志输出</h4><p>定义日志输出的函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># </div><div class="line">_log() &#123;</div><div class="line">    if [ &quot;$_DEBUG&quot; == &quot;true&quot; ]; then</div><div class="line">        echo 1&gt;&amp;2 &quot;$@&quot;</div><div class="line">    fi</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="bash专用调试器"><a href="#bash专用调试器" class="headerlink" title="bash专用调试器"></a>bash专用调试器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install bashdb -y</div></pre></td></tr></table></figure>
+<p>在执行Linux脚本时，有时需要改变脚本的执行路径，将执行路径切换到执行脚本所在的路径，此时可以使用如下命令运行脚本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">source example.sh</div><div class="line">. example.sh</div></pre></td></tr></table></figure>
+<p>在脚本里面写上<code>cd /your/path</code>即可。如果不使用source命令，则执行脚本的路径不会是预期路径，执行脚本时候，只是在当前的shell下开了一个子进程，切换目录的操作只对该进程中相关后续指令有效，但改变不了父进程的目录。</p>
 <p>参考资料:</p>
 <ul>
 <li><p><a href="http://stackoverflow.com/questions/22307516/gradle-finds-wrong-java-home-even-though-its-correctly-set" target="_blank" rel="external">Gradle finds wrong JAVA_HOME even though it’s correctly set</a></p>
@@ -499,7 +509,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2017/01/08/linux-shell-debug/"
-           data-title="Linux Shell脚本调试" data-url="http://jiangxiaoqiang.com/2017/01/08/linux-shell-debug/">
+           data-title="Linux Shell脚本" data-url="http://jiangxiaoqiang.com/2017/01/08/linux-shell-debug/">
       </div>
     
   </div>
@@ -523,8 +533,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -537,7 +556,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">223</span>
+                <span class="site-state-item-count">227</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -546,7 +565,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -555,7 +574,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">209</span>
+                <span class="site-state-item-count">211</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -624,6 +643,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#错误处理"><span class="nav-number">1.</span> <span class="nav-text">错误处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#脚本调试"><span class="nav-number">2.</span> <span class="nav-text">脚本调试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调试部分脚本"><span class="nav-number">3.</span> <span class="nav-text">调试部分脚本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#日志输出"><span class="nav-number">4.</span> <span class="nav-text">日志输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bash专用调试器"><span class="nav-number">5.</span> <span class="nav-text">bash专用调试器</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>

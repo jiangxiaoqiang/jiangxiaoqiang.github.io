@@ -99,7 +99,7 @@ Gradle构建脚本（build.gradle）指定了一个项目和它的任务。
 Gradle属性文件（gradle.properties）用来配置构建属性。
 Gradle设置文件（gradle.settings）对于只有一个项目的构建而言是可选的，如果我们的构建中包含多于一个项目，那么它就是必须的，因为它描述了哪一个项目参与构建。每一个多项目的构建都必">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/12/27/gradle-using/gradle-build-workflow.jpg">
-<meta property="og:updated_time" content="2017-03-17T08:07:39.151Z">
+<meta property="og:updated_time" content="2017-04-03T06:41:38.396Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gradle使用经验总结">
 <meta name="twitter:description" content="使用以下配置文件对Gradle的构建进行配置：
@@ -457,7 +457,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gradle -p cc-web-boot bootRun</div></pre></td></tr></table></figure>
 <p>-p参数指定项目(project directory)的目录，如果不指定就是当前目录(-p, –project-dir,Specifies the start directory for Gradle. Defaults to current directory)。bootRun指代的是当前项目下的任务名称。打包完成后，生成的包文件在对应项目文件的build/libs目录下。使用命令查看当前property：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看当前所有的Property</span></div><div class="line">gradle properties</div></pre></td></tr></table></figure>
-<p>其中allprojects表示所有的Project，在多项目构建中，它将包含多个Project；buildDir表示构建结果的输出目录。</p>
+<p>其中allprojects表示所有的Project，在多项目构建中，它将包含多个Project；buildDir表示构建结果的输出目录。如果需要刷新缓存，那么需要在构建命令后添加参数<code>--refresh-dependencies</code>，在命令行中刷新缓存有一个好处就是可以看到文件下载的进度和速度，如果在Intellij Idea中刷新是无法看到的。</p>
 <h4 id="构建-build"><a href="#构建-build" class="headerlink" title="构建(build)"></a>构建(build)</h4><h5 id="构建常见问题"><a href="#构建常见问题" class="headerlink" title="构建常见问题"></a>构建常见问题</h5><h6 id="错误-编码GBK的不可映射字符"><a href="#错误-编码GBK的不可映射字符" class="headerlink" title="错误: 编码GBK的不可映射字符"></a>错误: 编码GBK的不可映射字符</h6><p>在使用Gradle部署的时候出现此错误，原因是由于java源文件的编码采用的是UTF-8编码，而本地Java编译器默认的编码采用的是操作系统的默认编码，在Window 7下默认是GBK，所以出现了此错误。解决方法就是显示指定JDK编译器的编码为UTF-8。在系统环境变量中增加一个变量，变量名为: <code>JAVA_TOOL_OPTIONS</code>， 变量值为：<code>-Dfile.encoding=UTF-8</code>，保存，重新打开命令提示符，再运行一次刚刚的构建的命令即可。</p>
 <h4 id="Resolving-dependencies-‘-classpath’"><a href="#Resolving-dependencies-‘-classpath’" class="headerlink" title="Resolving dependencies ‘:classpath’"></a>Resolving dependencies ‘:classpath’</h4><p>在使用命令构建时一直停留在<code>Resolving dependencies &#39;:classpath&#39;</code>输出，无法往下进行构建。此时可以检查Maven的URL是否可以正常访问，此处是最初使用的地址是公司内部的局域网中的Maven仓库，在客户现场后即无法访问公司的内部网路，将原来无法访问的局域网的地址<code>htttp://dn6:8078</code>修改为广域网Maven公共仓库的地址<code>http://repox.gtan.com:8078</code>即可。由此可以知道原因是Maven的Url此时指定的是内网的URL，而当前电脑无法连接到内网的服务器，所以会一直停留在解析依赖的输出，将Maven仓库的URL改为外网即可成功构建。</p>
 <h4 id="插件-Plugin"><a href="#插件-Plugin" class="headerlink" title="插件(Plugin)"></a>插件(Plugin)</h4><p>插件就是Gradle的扩展，简而言之就是为你添加一些非常有用的默认配置。Gradle 自带了很多插件，并且你也可以很容易的编写和分享自己的插件。Java plugin 作为其中之一，为你提供了诸如编译，测试，打包等一些功能。插件配置示例：</p>
@@ -663,7 +663,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">223</span>
+                <span class="site-state-item-count">227</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -672,7 +672,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -681,7 +681,7 @@ Gradle设置文件（gradle.settings）对于只有一个项目的构建而言�
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">209</span>
+                <span class="site-state-item-count">211</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
