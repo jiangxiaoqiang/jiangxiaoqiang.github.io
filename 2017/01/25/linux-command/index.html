@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="查看文件占用情况：
 1du -alh">
-<meta property="og:updated_time" content="2017-03-30T08:06:26.759Z">
+<meta property="og:updated_time" content="2017-04-07T10:49:49.400Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux常用命令总结">
 <meta name="twitter:description" content="查看文件占用情况：
@@ -440,7 +440,7 @@
 <p>此命令会把当前目录压栈，并跳转到目标目录<code>/home/hldev/summarize/blogs/xiaoqiang-blogs</code>。使用<code>dirs -v</code>命令可以查看当前已经压入栈中的目录。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">hldev@hldev-100:~/hldata/backend/credit-system$ dirs -v</div><div class="line"> 0  ~/hldata/backend/credit-system</div><div class="line"> 1  /home</div><div class="line"> 2  ~/summerize/xiaoqiang-blog-source/themes/next</div><div class="line"> 3  ~/summerize/xiaoqiang-blog-source/themes/next</div><div class="line"> 4  ~/summerize/jiangxiaoqiang.github.io</div><div class="line"> 5  ~</div></pre></td></tr></table></figure>
 <p>切换到压入栈中指定的目录只需要输入<code>pushd +N(pushd +2)</code>即可，N代表栈的编号。删除栈中的数据使用popd命令即可。</p>
-
+<h4 id="判斷是否存在"><a href="#判斷是否存在" class="headerlink" title="判斷是否存在"></a>判斷是否存在</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">myFile=&quot;/opt/app/backend/app.id&quot;</div><div class="line"># 这里的-f参数判断$myFile是否存在 </div><div class="line">if [ ! -f &quot;$myFile&quot; ]; then </div><div class="line">	# 文件不存在</div><div class="line">	touch &quot;$myFile&quot; </div><div class="line">fi</div><div class="line"></div><div class="line"># 判斷進程是否存在</div><div class="line">process=`ps aux | grep mysqld | grep -v grep`;</div><div class="line">if [ &quot;$process&quot; == &quot;&quot; ]; then</div><div class="line">    sleep 1;</div><div class="line">    echo &quot;no process&quot;;</div><div class="line">else</div><div class="line">	echo &quot;process exsits&quot;;</div><div class="line">	break;</div><div class="line">fi</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -558,7 +558,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">227</span>
+                <span class="site-state-item-count">234</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -567,7 +567,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -576,7 +576,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">211</span>
+                <span class="site-state-item-count">214</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -655,7 +655,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#find命令"><span class="nav-number">1.</span> <span class="nav-text">find命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#history命令"><span class="nav-number">2.</span> <span class="nav-text">history命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ls命令"><span class="nav-number">3.</span> <span class="nav-text">ls命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scp"><span class="nav-number">4.</span> <span class="nav-text">scp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ss命令"><span class="nav-number">5.</span> <span class="nav-text">ss命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lsof命令"><span class="nav-number">6.</span> <span class="nav-text">lsof命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#top命令"><span class="nav-number">7.</span> <span class="nav-text">top命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pushd命令"><span class="nav-number">8.</span> <span class="nav-text">pushd命令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#find命令"><span class="nav-number">1.</span> <span class="nav-text">find命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#history命令"><span class="nav-number">2.</span> <span class="nav-text">history命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ls命令"><span class="nav-number">3.</span> <span class="nav-text">ls命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scp"><span class="nav-number">4.</span> <span class="nav-text">scp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ss命令"><span class="nav-number">5.</span> <span class="nav-text">ss命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lsof命令"><span class="nav-number">6.</span> <span class="nav-text">lsof命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#top命令"><span class="nav-number">7.</span> <span class="nav-text">top命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pushd命令"><span class="nav-number">8.</span> <span class="nav-text">pushd命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#判斷是否存在"><span class="nav-number">9.</span> <span class="nav-text">判斷是否存在</span></a></li></ol></div>
             
 
           </div>

@@ -96,7 +96,7 @@
 1234# 安装常用软件(16.04 LTS及以后使用apt命令)sudo apt install -y wget curl aria2 k">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/12/20/ubuntu-using/ubuntu-paste.png">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/12/20/ubuntu-using/shutter-selection-shortkey.png">
-<meta property="og:updated_time" content="2017-04-03T06:41:38.400Z">
+<meta property="og:updated_time" content="2017-04-07T10:49:49.412Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu使用快捷键与技巧总结">
 <meta name="twitter:description" content="使用的Ubuntu版本为14.04 LTS和16.04 LTS版本。
@@ -420,9 +420,10 @@
       
         <p>使用的Ubuntu版本为14.04 LTS和16.04 LTS版本。</p>
 <h4 id="软件管理"><a href="#软件管理" class="headerlink" title="软件管理"></a>软件管理</h4><p>在Ubuntu下，常用的软件安装一条命令即搞定,跟上常用的软件名称即可，真的是一条命令安装所有软件,特别是重装系统之后，一条命令将原来的软件都安装完毕，节省了时间和精力，非常方便：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 安装常用软件(16.04 LTS及以后使用apt命令)</span></div><div class="line">sudo apt install -y wget curl aria2 keepass2 putty vim tree unzip git</div><div class="line">openssh-server uget maven gradle shutter nginx mysql-server nodejs </div><div class="line">texstudio virtualbox synaptic terminator gimp graphiz deluge zsh quiterss fail2ban</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 安装常用软件(16.04 LTS及以后使用apt命令)</span></div><div class="line">sudo apt install -y wget curl aria2 keepass2 putty vim tree unzip git</div><div class="line">openssh-server uget maven gradle shutter nginx mysql-server nodejs </div><div class="line">texstudio virtualbox synaptic terminator gimp graphiz deluge zsh quiterss fail2ban manpages-posix</div></pre></td></tr></table></figure>
 <ul>
 <li>synaptic是一款图形化的apt(Advance Package Tool)包管理器，可以轻松查看已经安装的包，未安装的包。terminator它支持分割终端,并可以在终端中快速切换.</li>
+<li>manpages-posix是Ubuntu下的man手冊</li>
 </ul>
 <p>查看已经安装了哪些软件：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt list --installed</div></pre></td></tr></table></figure>
@@ -430,6 +431,26 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 卸载libreoffice，包括二进制文件、配置文件和数据文件</span></div><div class="line">sudo apt remove -y --purge libreoffice*</div><div class="line"><span class="comment"># 移除包，包括二进制文件、配置文件和数据文件</span></div><div class="line">sudo apt-get purge packagename</div><div class="line"><span class="comment"># 仅仅移除二进制文件而不会移除配置和数据文件</span></div><div class="line">sudo apt-get remove packagename</div></pre></td></tr></table></figure>
 <p>有时在软件管理中心无法卸载，可以直接使用命令找到软件所在的目录强行删除，如下命令找到Intellij Idea的安装目录：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo find / \( -name intellij* -not -name &quot;*.js&quot; -not -name &quot;*.svg&quot; -not -name &quot;*.md&quot; \) -print</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>开发语言</th>
+<th>开源协议</th>
+<th>支持的OS</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> <a href="https://sourceforge.net/projects/projectlibre/files/?source=navbar" target="_blank" rel="external">ProjectLibre</a></td>
+<td>Java</td>
+<td>未知</td>
+<td>Linux/Mac/Windows</td>
+<td>开源的项目管理工具,可生成甘特图</td>
+</tr>
+</tbody>
+</table>
 <h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><p>在Ubuntu下一些漂亮的字体记录。</p>
 <table>
 <thead>
@@ -662,6 +683,24 @@
 </tr>
 </tbody>
 </table>
+<h4 id="Terminator快捷键"><a href="#Terminator快捷键" class="headerlink" title="Terminator快捷键"></a>Terminator快捷键</h4><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alt+Left</td>
+<td style="text-align:center">Move to the terminal left of the current one(高亮左侧的终端)</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+X</td>
+<td style="text-align:center">Toggle between showing all terminals and only showing the current one (maximise)</td>
+</tr>
+</tbody>
+</table>
 <h4 id="格式化U盘"><a href="#格式化U盘" class="headerlink" title="格式化U盘"></a>格式化U盘</h4><p>卸载卷：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">umount /dev/sdb1</div></pre></td></tr></table></figure>
 <p>格式化:</p>
@@ -788,7 +827,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">227</span>
+                <span class="site-state-item-count">234</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -797,7 +836,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -806,7 +845,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">211</span>
+                <span class="site-state-item-count">214</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -885,7 +924,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#软件管理"><span class="nav-number">1.</span> <span class="nav-text">软件管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字体"><span class="nav-number">2.</span> <span class="nav-text">字体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小技巧"><span class="nav-number">3.</span> <span class="nav-text">小技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#改变任务栏位置"><span class="nav-number">3.1.</span> <span class="nav-text">改变任务栏位置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#启用root用户"><span class="nav-number">3.2.</span> <span class="nav-text">启用root用户</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择剪切板内容"><span class="nav-number">4.</span> <span class="nav-text">选择剪切板内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置截屏快捷键"><span class="nav-number">5.</span> <span class="nav-text">设置截屏快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#设置Terminal默认路径"><span class="nav-number">5.1.</span> <span class="nav-text">设置Terminal默认路径</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打开程序"><span class="nav-number">6.</span> <span class="nav-text">打开程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快捷键"><span class="nav-number">7.</span> <span class="nav-text">快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Bash-Shell常用快捷键"><span class="nav-number">7.1.</span> <span class="nav-text">Bash Shell常用快捷键</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#格式化U盘"><span class="nav-number">8.</span> <span class="nav-text">格式化U盘</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#软件管理"><span class="nav-number">1.</span> <span class="nav-text">软件管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字体"><span class="nav-number">2.</span> <span class="nav-text">字体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小技巧"><span class="nav-number">3.</span> <span class="nav-text">小技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#改变任务栏位置"><span class="nav-number">3.1.</span> <span class="nav-text">改变任务栏位置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#启用root用户"><span class="nav-number">3.2.</span> <span class="nav-text">启用root用户</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择剪切板内容"><span class="nav-number">4.</span> <span class="nav-text">选择剪切板内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置截屏快捷键"><span class="nav-number">5.</span> <span class="nav-text">设置截屏快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#设置Terminal默认路径"><span class="nav-number">5.1.</span> <span class="nav-text">设置Terminal默认路径</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打开程序"><span class="nav-number">6.</span> <span class="nav-text">打开程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快捷键"><span class="nav-number">7.</span> <span class="nav-text">快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Bash-Shell常用快捷键"><span class="nav-number">7.1.</span> <span class="nav-text">Bash Shell常用快捷键</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Terminator快捷键"><span class="nav-number">8.</span> <span class="nav-text">Terminator快捷键</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#格式化U盘"><span class="nav-number">9.</span> <span class="nav-text">格式化U盘</span></a></li></ol></div>
             
 
           </div>

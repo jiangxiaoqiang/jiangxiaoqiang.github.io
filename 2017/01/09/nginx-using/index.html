@@ -95,7 +95,7 @@
 12345678# Ubuntu 16.04 LTSsudo apt install nginx -y# Fedora 24sudo dnf install nginx -y# Mac OS Xbrew install nginx
 安装完毕后配置文件在/etc/nginx/目录下。">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2017/01/09/nginx-using/loadbalance.png">
-<meta property="og:updated_time" content="2017-03-20T07:38:36.622Z">
+<meta property="og:updated_time" content="2017-04-07T10:49:49.412Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx使用总结">
 <meta name="twitter:description" content="安装输入如下命令安装：
@@ -433,6 +433,7 @@
 <p>也可以输入如下命令查看Nginx帮助：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/<span class="built_in">local</span>/nginx/sbin/nginx -h</div></pre></td></tr></table></figure>
 <h4 id="rewrite"><a href="#rewrite" class="headerlink" title="rewrite"></a>rewrite</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">location /main &#123;</div><div class="line">        root   /home/hldev/hldata/frontend/credit-system-frontend/dist;</div><div class="line">        rewrite ^/(?!js|css).*$ /main/index.html break;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以上rewrite正則表達式表示，/後不緊接js或css字符的url鏈接。</p>
 <h4 id="location"><a href="#location" class="headerlink" title="location"></a>location</h4><p>每个 url 请求都会对应的一个服务，nginx 进行处理转发或者是本地的一个文件路径，或者是其他服务器的一个服务路径。而这个路径的匹配是通过 location 来进行的。我们可以将 server 当做对应一个域名进行的配置，而 location 是在一个域名下对更精细的路径进行配置。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">location /api&#123;</div><div class="line">      proxy_pass http://dn5:28080;</div><div class="line">      proxy_redirect off;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>将前缀为api的请求发送到地址：<code>http://dn5:28080</code>。如下配置，指定项目根目录的默认首页为<code>index.html</code>，如果不指定默认首页，那么就需要在URL中明确指定首页。</p>
@@ -453,7 +454,19 @@
 <h5 id="the-HTTP-rewrite-module-requires-the-PCRE-library"><a href="#the-HTTP-rewrite-module-requires-the-PCRE-library" class="headerlink" title="the HTTP rewrite module requires the PCRE library"></a>the HTTP rewrite module requires the PCRE library</h5><p>Nginx的Url rewrite模块依赖<a href="http://www.pcre.org/" target="_blank" rel="external">PCRE</a>(Perl Compatible Regular Expressionss)，The PCRE library is a set of functions that implement regular expression pattern matching using the same syntax and semantics as Perl 5. PCRE has its own native API, as well as a set of wrapper functions that correspond to the POSIX regular expression API. The PCRE library is free, even for building proprietary software.在安装时提示 the HTTP rewrite module requires the PCRE library：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">./configure: error: the HTTP rewrite module requires the PCRE library.</div><div class="line">You can either disable the module by using --without-http_rewrite_module</div><div class="line">option, or install the PCRE library into the system, or build the PCRE library</div><div class="line">statically from the source with nginx by using --with-pcre=&lt;path&gt; option.</div></pre></td></tr></table></figure>
 <p>安装pcre-devel与openssl-devel解决问题：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">yum -y install pcre-devel openssl openssl-devel</div><div class="line"> </div><div class="line">./configure --prefix=/usr/<span class="built_in">local</span>/nginx</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sudo yum -y install pcre-devel openssl openssl-devel</div><div class="line"> </div><div class="line">./configure --prefix=/usr/<span class="built_in">local</span>/nginx</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
+<h5 id="error-while-loading-shared-libraries-libpcre-so-0-cannot-open-shared-object-file-No-such-file-or-directory"><a href="#error-while-loading-shared-libraries-libpcre-so-0-cannot-open-shared-object-file-No-such-file-or-directory" class="headerlink" title="error while loading shared libraries: libpcre.so.0: cannot open shared object file: No such file or directory"></a>error while loading shared libraries: libpcre.so.0: cannot open shared object file: No such file or directory</h5><p>在使用命令<code>nginx -s reload</code>刷新时提示错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">error while loading shared libraries: libpcre.so.0: cannot open shared object file: No such file or directory</div></pre></td></tr></table></figure>
+<p>执行命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ldd which /usr/local/nginx/sbin/nginx</div></pre></td></tr></table></figure>
+<p>提示如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">nginx:</div><div class="line">        linux-vdso.so.1 =&gt;  (0x00007ffd71300000)</div><div class="line">        libpthread.so.0 =&gt; /lib64/libpthread.so.0 (0x00007fb80682a000)</div><div class="line">        libdl.so.2 =&gt; /lib64/libdl.so.2 (0x00007fb806625000)</div><div class="line">        libcrypt.so.1 =&gt; /lib64/libcrypt.so.1 (0x00007fb8063ee000)</div><div class="line">        libpcre.so.0 =&gt; not found</div><div class="line">        libssl.so.10 =&gt; /lib64/libssl.so.10 (0x00007fb80617f000)</div><div class="line">        libcrypto.so.10 =&gt; /lib64/libcrypto.so.10 (0x00007fb805d95000)</div><div class="line">        libz.so.1 =&gt; /lib64/libz.so.1 (0x00007fb805b7f000)</div><div class="line">        libc.so.6 =&gt; /lib64/libc.so.6 (0x00007fb8057bd000)</div><div class="line">        /lib64/ld-linux-x86-64.so.2 (0x00007fb806a5c000)</div><div class="line">        libfreebl3.so =&gt; /lib64/libfreebl3.so (0x00007fb8055ba000)</div><div class="line">        libgssapi_krb5.so.2 =&gt; /lib64/libgssapi_krb5.so.2 (0x00007fb80536c000)</div><div class="line">        libkrb5.so.3 =&gt; /lib64/libkrb5.so.3 (0x00007fb805084000)</div><div class="line">        libcom_err.so.2 =&gt; /lib64/libcom_err.so.2 (0x00007fb804e80000)</div><div class="line">        libk5crypto.so.3 =&gt; /lib64/libk5crypto.so.3 (0x00007fb804c4e000)</div><div class="line">        libkrb5support.so.0 =&gt; /lib64/libkrb5support.so.0 (0x00007fb804a3e000)</div><div class="line">        libkeyutils.so.1 =&gt; /lib64/libkeyutils.so.1 (0x00007fb80483a000)</div><div class="line">        libresolv.so.2 =&gt; /lib64/libresolv.so.2 (0x00007fb804620000)</div><div class="line">        libselinux.so.1 =&gt; /lib64/libselinux.so.1 (0x00007fb8043f8000)</div><div class="line">        libpcre.so.1 =&gt; /lib64/libpcre.so.1 (0x00007fb804197000)</div></pre></td></tr></table></figure>
+<p>原因可能是操作系统升级到了CentOS 7.3版本，没有对应的模块libpcre.so.0，只有对应的模块libpcre.so.1。使用如下命令可以快速解决问题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">link /usr/lib64/libpcre.so.1 /lib64/libpcre.so.0</div></pre></td></tr></table></figure>
+<h5 id="ERR-INCOMPLETE-CHUNKED-ENCODING"><a href="#ERR-INCOMPLETE-CHUNKED-ENCODING" class="headerlink" title="ERR_INCOMPLETE_CHUNKED_ENCODING"></a>ERR_INCOMPLETE_CHUNKED_ENCODING</h5><p>进入nginx日志查看：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2017/04/07 18:31:20 [crit] 7928#0: *33 open() &quot;/home/app/local/tengine/proxy_temp/7/00/0000000007&quot; failed (13: Permission denied) while reading upstream, client: 2.1.27.53, server: , request: &quot;GET /pubapi/global/homePage HTTP/1.1&quot;, upstream: &quot;http://192.168.1.2:28080/pubapi/global/homePage&quot;, host: &quot;192.168.1.2&quot;, referrer: &quot;http://192.168.1.2/&quot;</div></pre></td></tr></table></figure>
+<p>原来是nginx没有目录<code>/home/app/local/tengine/proxy_temp</code>权限导致此问题。在配置文件中修改:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># user为/home/app/local/tengine/proxy_temp目录的属主</div><div class="line">ser  &#123;user&#125;;</div></pre></td></tr></table></figure>
 <p>参考资料：</p>
 <ul>
 <li><a href="http://kb.cnblogs.com/page/559213/" target="_blank" rel="external">Nginx的负载均衡原理</a></li>
@@ -576,7 +589,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">227</span>
+                <span class="site-state-item-count">234</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -585,7 +598,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -594,7 +607,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">211</span>
+                <span class="site-state-item-count">214</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -673,7 +686,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开机自动启动"><span class="nav-number">2.</span> <span class="nav-text">开机自动启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">3.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rewrite"><span class="nav-number">4.</span> <span class="nav-text">rewrite</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#location"><span class="nav-number">5.</span> <span class="nav-text">location</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#负载均衡-Load-Balance"><span class="nav-number">6.</span> <span class="nav-text">负载均衡(Load Balance)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见问题"><span class="nav-number">7.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#403-Forbidden"><span class="nav-number">7.1.</span> <span class="nav-text">403 Forbidden</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#the-HTTP-rewrite-module-requires-the-PCRE-library"><span class="nav-number">7.2.</span> <span class="nav-text">the HTTP rewrite module requires the PCRE library</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开机自动启动"><span class="nav-number">2.</span> <span class="nav-text">开机自动启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">3.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rewrite"><span class="nav-number">4.</span> <span class="nav-text">rewrite</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#location"><span class="nav-number">5.</span> <span class="nav-text">location</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#负载均衡-Load-Balance"><span class="nav-number">6.</span> <span class="nav-text">负载均衡(Load Balance)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见问题"><span class="nav-number">7.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#403-Forbidden"><span class="nav-number">7.1.</span> <span class="nav-text">403 Forbidden</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#the-HTTP-rewrite-module-requires-the-PCRE-library"><span class="nav-number">7.2.</span> <span class="nav-text">the HTTP rewrite module requires the PCRE library</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#error-while-loading-shared-libraries-libpcre-so-0-cannot-open-shared-object-file-No-such-file-or-directory"><span class="nav-number">7.3.</span> <span class="nav-text">error while loading shared libraries: libpcre.so.0: cannot open shared object file: No such file or directory</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ERR-INCOMPLETE-CHUNKED-ENCODING"><span class="nav-number">7.4.</span> <span class="nav-text">ERR_INCOMPLETE_CHUNKED_ENCODING</span></a></li></ol></li></ol></div>
             
 
           </div>
