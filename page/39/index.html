@@ -300,7 +300,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/10/28/kafka-error/">
+  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/11/02/kafka-consume-position/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xiaoqiang jiang">
@@ -325,8 +325,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/28/kafka-error/" itemprop="url">
-                  Kafka常见错误
+                <a class="post-title-link" href="/2016/11/02/kafka-consume-position/" itemprop="url">
+                  Kafka消费position
                 </a>
               
             
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-28T17:06:23+08:00">
-                2016-10-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-02T18:17:19+08:00">
+                2016-11-02
               </time>
             
 
@@ -383,8 +383,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/10/28/kafka-error/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/28/kafka-error/" itemprop="commentCount"></span>
+                <a href="/2016/11/02/kafka-consume-position/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/02/kafka-consume-position/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -411,11 +411,10 @@
 
       
         
-          <h4 id="Invalid-partition-given-with-record"><a href="#Invalid-partition-given-with-record" class="headerlink" title="Invalid partition given with record"></a>Invalid partition given with record</h4><p>在Kafka生产者里写入消息时，提示写入失败，详细的错误信息如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[ERROR]-[2016年-10月-28日16:17:35.083]-[Thread-25]-[com.zw.socket.service.kafka.producer.ClientKafkaProducer]-&#123;生产者发送消息出错&#125;java.lang.IllegalArgumentException: Invalid partition given with record: 1 is not in the range [0...1].</div><div class="line">	at org.apache.kafka.clients.producer.KafkaProducer.partition(KafkaProducer.java:671) ~[kafka-clients-0.9.0.1.jar:?]</div><div class="line">	at org.apache.kafka.clients.producer.KafkaProducer.send(KafkaProducer.java:430) ~[kafka-clients-0.9.0.1.jar:?]</div><div class="line">	at org.apache.kafka.clients.producer.KafkaProducer.send(KafkaProducer.java:339) ~[kafka-clients-0.9.0.1.jar:?]</div><div class="line">	at com.zw.socket.service.kafka.producer.ClientKafkaProducer.sendMessage(ClientKafkaProducer.java:102) [classes/:?]</div><div class="line">	at com.zw.socket.service.handler.common.CommonCommandHandler.commonMessageWriteIntoKafka(CommonCommandHandler.java:95) [classes/:?]</div><div class="line">	at com.zw.socket.service.handler.device.DeviceMessageHandler.sendRegisterResult(DeviceMessageHandler.java:175) [classes/:?]</div><div class="line">	at com.zw.socket.service.handler.device.DeviceMessageHandler.isAllowRegisted(DeviceMessageHandler.java:161) [classes/:?]</div><div class="line">	at com.zw.socket.service.handler.device.DeviceMessageHandler.saveDeviceInfo(DeviceMessageHandler.java:216) [classes/:?]</div></pre></td></tr></table></figure>
+          <p>kafka允许通过seek(TopicPartition，long)指定新的位置，或者seekToBeginning，seekToEnd定位到最早或最近的offset。注意seek重置offsets只对当前消费者起作用，它并不会触发consumer的rebalance，或者影响其他消费者的fetchOffsets。在大多数情况下，消费者消费记录只是简单地从一开始到结束，并且定时地提交它的位置(不管是自动的还是手动的)。不过新的API也允许消费者手动控制它的位置，消费者可以在一个partition钟随意地往前或者往后移动位置。这就意味着消费者可以重新消费旧的记录(多次读取相同的记录)，或者直接跳到最近的记录，忽略掉中间的记录。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/10/28/kafka-error/#more" rel="contents">
+            <a class="btn" href="/2016/11/02/kafka-consume-position/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -456,7 +455,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/10/27/new-keyboard/">
+  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/11/01/redis/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xiaoqiang jiang">
@@ -481,8 +480,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/27/new-keyboard/" itemprop="url">
-                  HP KU 1158键盘
+                <a class="post-title-link" href="/2016/11/01/redis/" itemprop="url">
+                  Redis在Windows下配置
                 </a>
               
             
@@ -498,8 +497,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-27T13:08:21+08:00">
-                2016-10-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-01T11:22:57+08:00">
+                2016-11-01
               </time>
             
 
@@ -539,8 +538,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/10/27/new-keyboard/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/27/new-keyboard/" itemprop="commentCount"></span>
+                <a href="/2016/11/01/redis/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/01/redis/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -567,10 +566,10 @@
 
       
         
-          <p>以前的旧键盘打字的声音有点大，中午打字都担心吵到旁边休息的同学，而且按键比较生硬，今天特意请飞哥换了一款键盘HP KU 1158，确实好用不少。一直在找一款适合长时间输入的键盘，而且要求声音要尽量小一些，价格平民化一些(Realforce一千多也还蛮贵的)。这款键盘符合要求。</p>
+          <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API，其实当前最热门的NoSQL数据库之一，NoSQL还包括了Memcached和mongodb。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/10/27/new-keyboard/#more" rel="contents">
+            <a class="btn" href="/2016/11/01/redis/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -611,7 +610,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/10/27/websocket-event/">
+  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/11/01/she/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xiaoqiang jiang">
@@ -636,8 +635,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/27/websocket-event/" itemprop="url">
-                  WebSocket连接(SessionConnectEvent)、断开连接(SessionDisconnectEvent)事件
+                <a class="post-title-link" href="/2016/11/01/she/" itemprop="url">
+                  she
                 </a>
               
             
@@ -653,8 +652,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-27T10:51:45+08:00">
-                2016-10-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-01T09:23:13+08:00">
+                2016-11-01
               </time>
             
 
@@ -676,8 +675,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Programming/" itemprop="url" rel="index">
-                    <span itemprop="name">Programming</span>
+                  <a href="/categories/She/" itemprop="url" rel="index">
+                    <span itemprop="name">She</span>
                   </a>
                 </span>
 
@@ -694,8 +693,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/10/27/websocket-event/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/27/websocket-event/" itemprop="commentCount"></span>
+                <a href="/2016/11/01/she/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/01/she/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -723,10 +722,18 @@
       
         
           
-            <p>WebSocket事件：SessionConnectEvent(连接时), SessionConnectedEvent(连接后), SessionDisconnectEvent(断开连接)。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebSocketDisconnectHandler</span> <span class="keyword">implements</span> <span class="title">ApplicationListener</span>&lt;<span class="title">SessionDisconnectEvent</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onApplicationEvent</span><span class="params">(SessionDisconnectEvent sessionDisconnectEvent)</span> </span>&#123;</div><div class="line">        StompHeaderAccessor stompHeaderAccessor = StompHeaderAccessor.wrap(sessionDisconnectEvent.getMessage());</div><div class="line">        <span class="comment">//do something</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>添加了断开连接实现类后的逻辑后，还需要注入Bean，否则不会生效。在相关配置文件(<code>spring-socket-servlet.xml</code>)中增加如下配置即可。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"com.zw.socket.service.config.WebSocketDisconnectHandler"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div></pre></td></tr></table></figure>
+            <p>like:</p>
+<ul>
+<li>鱼(Fish)</li>
+<li>广味香肠</li>
+</ul>
+<h4 id="节目"><a href="#节目" class="headerlink" title="节目"></a>节目</h4><ul>
+<li>《真正男子漢》(Takes a Real man)</li>
+</ul>
+<p>dislike:</p>
+<ul>
+<li>生食(日本料理),可以少量吃北极贝和甜虾</li>
+</ul>
 
           
         
@@ -765,7 +772,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/10/25/stomp-spring-message-push/">
+  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/10/29/kafka-common-operation/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xiaoqiang jiang">
@@ -790,8 +797,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/25/stomp-spring-message-push/" itemprop="url">
-                  Stomp + WebSocket消息实时推送
+                <a class="post-title-link" href="/2016/10/29/kafka-common-operation/" itemprop="url">
+                  Kafka常用操作
                 </a>
               
             
@@ -807,8 +814,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-25T21:40:58+08:00">
-                2016-10-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-29T17:11:35+08:00">
+                2016-10-29
               </time>
             
 
@@ -848,8 +855,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/10/25/stomp-spring-message-push/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/25/stomp-spring-message-push/" itemprop="commentCount"></span>
+                <a href="/2016/10/29/kafka-common-operation/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/29/kafka-common-operation/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -876,11 +883,15 @@
 
       
         
-          <h4 id="消息广播"><a href="#消息广播" class="headerlink" title="消息广播"></a>消息广播</h4><p>消息广播将消息发送给所有用户。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</div><div class="line"> * 推送给所有用户</div><div class="line"> */</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">pushInfoImpl</span><span class="params">(String url, String content)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (simpMessagingTemplate != <span class="keyword">null</span>) &#123;</div><div class="line">        simpMessagingTemplate.convertAndSend(url, content);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          <p>启动kafka：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./kafka-server-start.sh ../config/server.properties &amp;</div></pre></td></tr></table></figure>
+<p>创建主题：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./kafka-topics.sh --zookeeper localhost:2181 --create --topic <span class="built_in">test</span>1 --partitions 1 --replication-factor 1 --config max.message.bytes=64000 --config flush.messages=1</div></pre></td></tr></table></figure>
+<p>查看所有主题：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./kafka-topics.sh --list --zookeeper 192.168.24.11:2181</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/10/25/stomp-spring-message-push/#more" rel="contents">
+            <a class="btn" href="/2016/10/29/kafka-common-operation/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -921,7 +932,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/10/25/squirrel-phoenix-configuration/">
+  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/10/29/kafka-delete-topic/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xiaoqiang jiang">
@@ -946,8 +957,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/25/squirrel-phoenix-configuration/" itemprop="url">
-                  SQuirreL GUI客户端集成Phoenix、MySQL配置
+                <a class="post-title-link" href="/2016/10/29/kafka-delete-topic/" itemprop="url">
+                  Kafka彻底删除主题
                 </a>
               
             
@@ -963,8 +974,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-25T09:24:13+08:00">
-                2016-10-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-29T14:24:15+08:00">
+                2016-10-29
               </time>
             
 
@@ -1004,8 +1015,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/10/25/squirrel-phoenix-configuration/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/25/squirrel-phoenix-configuration/" itemprop="commentCount"></span>
+                <a href="/2016/10/29/kafka-delete-topic/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/29/kafka-delete-topic/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1032,10 +1043,15 @@
 
       
         
-          <h4 id="SQuirreL-GUI客户端简介"><a href="#SQuirreL-GUI客户端简介" class="headerlink" title="SQuirreL GUI客户端简介"></a>SQuirreL GUI客户端简介</h4><p>SQuirreL GUI(<a href="https://sourceforge.net/projects/squirrel-sql/?source=typ_redirect">下载地址</a>)客户端来连接Phoenix，就像MySQL使用Navicat for MySQL，Oracle使用PL/SQL Developer一样，在进行一些数据库操作的时候能够更加的直观和方便。同时它还可以连接MySQL。它可以运行在Windows、Linux、Mac OS操作系统上。</p>
+          <p>这里的Kafka的版本是0.9.0.1，查看所有Topics和分区：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./kafka-topics.sh --describe --zookeeper 192.168.244.11:2181</div></pre></td></tr></table></figure>
+<p>只查看所有Topic：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./kafka-topics.sh --list --zookeeper 192.168.24.244:2181</div></pre></td></tr></table></figure>
+<p>删除主题：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./kafka-topics.sh --zookeeper 192.168.24.244:2181 --delete --topic 0085000</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/10/25/squirrel-phoenix-configuration/#more" rel="contents">
+            <a class="btn" href="/2016/10/29/kafka-delete-topic/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1071,7 +1087,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/38/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><span class="page-number current">39</span><a class="page-number" href="/page/40/">40</a><span class="space">&hellip;</span><a class="page-number" href="/page/47/">47</a><a class="extend next" rel="next" href="/page/40/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/38/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><span class="page-number current">39</span><a class="page-number" href="/page/40/">40</a><span class="space">&hellip;</span><a class="page-number" href="/page/48/">48</a><a class="extend next" rel="next" href="/page/40/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1114,7 +1130,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">234</span>
+                <span class="site-state-item-count">239</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1132,7 +1148,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">214</span>
+                <span class="site-state-item-count">215</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

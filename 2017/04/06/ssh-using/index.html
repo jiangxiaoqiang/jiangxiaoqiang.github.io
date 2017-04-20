@@ -84,25 +84,16 @@
 
 
 
-<meta name="description" content="ssh是Scure Shell的簡稱。
-端口轉發有时，本地电脑处于NAT内网中，难以从外部访问；而远程服务器可轻易被访问。利用远程转发功能，可允许他人通过远程服务器间接访问本地电脑的某个端口。
-1ssh -R 9090:localhost:80 my-remote-host.com
-这样，访问my-remote-host.com:9090就等同于用本机访问localhost:8080。">
+<meta name="description" content="ssh是Scure Shell的簡稱。OpenSSH 服务，是 Telnet 的安全替代产品。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ssh-using">
+<meta property="og:title" content="ssh使用经验与技巧总结">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/04/06/ssh-using/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="ssh是Scure Shell的簡稱。
-端口轉發有时，本地电脑处于NAT内网中，难以从外部访问；而远程服务器可轻易被访问。利用远程转发功能，可允许他人通过远程服务器间接访问本地电脑的某个端口。
-1ssh -R 9090:localhost:80 my-remote-host.com
-这样，访问my-remote-host.com:9090就等同于用本机访问localhost:8080。">
-<meta property="og:updated_time" content="2017-04-07T10:49:49.400Z">
+<meta property="og:description" content="ssh是Scure Shell的簡稱。OpenSSH 服务，是 Telnet 的安全替代产品。">
+<meta property="og:updated_time" content="2017-04-17T14:21:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ssh-using">
-<meta name="twitter:description" content="ssh是Scure Shell的簡稱。
-端口轉發有时，本地电脑处于NAT内网中，难以从外部访问；而远程服务器可轻易被访问。利用远程转发功能，可允许他人通过远程服务器间接访问本地电脑的某个端口。
-1ssh -R 9090:localhost:80 my-remote-host.com
-这样，访问my-remote-host.com:9090就等同于用本机访问localhost:8080。">
+<meta name="twitter:title" content="ssh使用经验与技巧总结">
+<meta name="twitter:description" content="ssh是Scure Shell的簡稱。OpenSSH 服务，是 Telnet 的安全替代产品。">
 
 
 
@@ -136,7 +127,7 @@
 
 
 
-  <title> ssh-using | 小强的博客 </title>
+  <title> ssh使用经验与技巧总结 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -335,7 +326,7 @@
             
             
               
-                ssh-using
+                ssh使用经验与技巧总结
               
             
           </h1>
@@ -418,10 +409,35 @@
       
 
       
-        <p>ssh是Scure Shell的簡稱。</p>
+        <p>ssh是Scure Shell的簡稱。OpenSSH 服务，是 Telnet 的安全替代产品。</p>
+<a id="more"></a>
 <h4 id="端口轉發"><a href="#端口轉發" class="headerlink" title="端口轉發"></a>端口轉發</h4><p>有时，本地电脑处于NAT内网中，难以从外部访问；而远程服务器可轻易被访问。利用远程转发功能，可允许他人通过远程服务器间接访问本地电脑的某个端口。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -R 9090:localhost:80 my-remote-host.com</div></pre></td></tr></table></figure>
 <p>这样，访问<code>my-remote-host.com:9090</code>就等同于用本机访问<code>localhost:8080</code>。</p>
+<h4 id="安裝-denyhosts-套件"><a href="#安裝-denyhosts-套件" class="headerlink" title="安裝 denyhosts 套件"></a>安裝 denyhosts 套件</h4><p>它會定時檢查 /var/log/auth.log 檔， 只要來自某 IP 的登入次數符合以下任一條件 (以下為預設值)</p>
+<ol>
+<li>1 次 root 登入失敗 (<code>DENY_THRESHOLD_ROOT=1</code>)</li>
+<li>5 次企圖使用不存在的帳戶登入 (<code>DENY_THRESHOLD_INVALID=5</code>)</li>
+<li>(5 天之內 <code>AGE_RESET_VALID=5d</code>) 發生 10 次一般正常用戶登入失敗 (<code>DENY_THRESHOLD_VALID=10</code>)</li>
+</ol>
+<p>就會把那個 IP 加到 /etc/hosts.deny 去， 也就是封鎖了那個 IP。</p>
+<h4 id="禁用密碼認證"><a href="#禁用密碼認證" class="headerlink" title="禁用密碼認證"></a>禁用密碼認證</h4><p>密碼登錄永遠無法避免端口掃描後的暴力破解，密碼登錄需要自己去記憶密碼，而人的記憶在安全看來有一個缺點是長度不夠，和有規律。而有規律也是一大破綻，不管多長的密碼，找出了規律就會輕而易舉的破解，而一般的規律都是有章可循的，是極爲有限的。密碼認證也無法防止中間人攻擊，而更加安全的做法是開啓密鑰認證。可以很好的避免上述問題。在<code>/etc/ssh/sshd_config</code>中，做如下配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">RSAAuthentication yes</div><div class="line">PubkeyAuthentication yes</div><div class="line">AuthorizedKeysFile .ssh/authorized_keys</div></pre></td></tr></table></figure>
+<p>將本機的公鑰添加到遠程主機信任列表：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -p 22222 hl@192.168.1.101 &apos;mkdir -p .ssh &amp;&amp; cat &gt;&gt; .ssh/authorized_keys&apos; &lt; ~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure>
+<p>-p, –parents,如果目录已经存在，不报错，在必要的时候创建父级目录(no error if existing, make parent directories as needed)。</p>
+<h4 id="禁止root登錄"><a href="#禁止root登錄" class="headerlink" title="禁止root登錄"></a>禁止root登錄</h4><p>在<code>/etc/ssh/sshd_config</code>文件中作如下設置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PermitRootLogin no</div></pre></td></tr></table></figure>
+<p>另外在文件<code>/var/log/secure</code>中，可以查看登錄的日誌記錄。</p>
+<h4 id="自定义配置"><a href="#自定义配置" class="headerlink" title="自定义配置"></a>自定义配置</h4><p>快速连接。在<code>~/.ssh/</code>文件夹下新建<code>config</code>文件，做如下配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Host aliyun</div><div class="line">    HostName 192.168.1.101</div><div class="line">    User dolphin</div><div class="line">    Port 22222</div></pre></td></tr></table></figure>
+<p>配置完毕后，字节输入<code>ssh aliyun</code>命令即可登录。</p>
+<h4 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h4><ul>
+<li>在输入ssh命令后，按下tab按键，即可列出所有可能的主机列表</li>
+<li>在做了免密登录的情况下使用scp命令拷贝文件时，可以列出远程文件和文件夹的列表</li>
+<li>使用自定义ssh的config文件的配置可以快速的连接相应的主机</li>
+</ul>
+<h4 id="常見問題"><a href="#常見問題" class="headerlink" title="常見問題"></a>常見問題</h4><h5 id="Authentication-refused-bad-ownership-or-modes-for-file"><a href="#Authentication-refused-bad-ownership-or-modes-for-file" class="headerlink" title="Authentication refused: bad ownership or modes for file"></a>Authentication refused: bad ownership or modes for file</h5><p>SSH doesn’t like it if your home or <code>~/.ssh</code> directories have group write permissions. Your home directory should be writable only by you, <code>~/.ssh</code> should be 700, and authorized_keys should be 600。</p>
 
       
     </div>
@@ -464,6 +480,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/04/11/cook/" rel="prev" title="cook">
+                cook <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -489,7 +509,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2017/04/06/ssh-using/"
-           data-title="ssh-using" data-url="http://jiangxiaoqiang.com/2017/04/06/ssh-using/">
+           data-title="ssh使用经验与技巧总结" data-url="http://jiangxiaoqiang.com/2017/04/06/ssh-using/">
       </div>
     
   </div>
@@ -536,7 +556,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">234</span>
+                <span class="site-state-item-count">239</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -554,7 +574,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">214</span>
+                <span class="site-state-item-count">215</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -633,7 +653,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#端口轉發"><span class="nav-number">1.</span> <span class="nav-text">端口轉發</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#端口轉發"><span class="nav-number">1.</span> <span class="nav-text">端口轉發</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安裝-denyhosts-套件"><span class="nav-number">2.</span> <span class="nav-text">安裝 denyhosts 套件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#禁用密碼認證"><span class="nav-number">3.</span> <span class="nav-text">禁用密碼認證</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#禁止root登錄"><span class="nav-number">4.</span> <span class="nav-text">禁止root登錄</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义配置"><span class="nav-number">5.</span> <span class="nav-text">自定义配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小技巧"><span class="nav-number">6.</span> <span class="nav-text">小技巧</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常見問題"><span class="nav-number">7.</span> <span class="nav-text">常見問題</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Authentication-refused-bad-ownership-or-modes-for-file"><span class="nav-number">7.1.</span> <span class="nav-text">Authentication refused: bad ownership or modes for file</span></a></li></ol></li></ol></div>
             
 
           </div>

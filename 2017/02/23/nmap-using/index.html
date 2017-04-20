@@ -85,18 +85,24 @@
 
 
 <meta name="description" content="安装1234# 在Ubuntu下安装sudo apt install nmap -y# 安装图形界面sudo apt install zenmap -y
-查看指定端口的状态有时我们想查看服务器具体的某一个端口是否UP，可以通过扫描实现。但是还有一种更加节省时间的方法，例如想查看凤凰网的80端口是否开启，可以输入如下命令：">
+端口掃描默認的端口掃描只掃描常用的1000個端口，如果需要掃描所有端口，使用如下命令：
+12nmap -p 1-65535 -A 192.168.1.12nmap -p- -A 192.168.1.12
+-A包含OS 探测，版本探测，脚本扫描，t">
 <meta property="og:type" content="article">
 <meta property="og:title" content="nmap的使用">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/02/23/nmap-using/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="安装1234# 在Ubuntu下安装sudo apt install nmap -y# 安装图形界面sudo apt install zenmap -y
-查看指定端口的状态有时我们想查看服务器具体的某一个端口是否UP，可以通过扫描实现。但是还有一种更加节省时间的方法，例如想查看凤凰网的80端口是否开启，可以输入如下命令：">
-<meta property="og:updated_time" content="2017-04-07T10:49:49.400Z">
+端口掃描默認的端口掃描只掃描常用的1000個端口，如果需要掃描所有端口，使用如下命令：
+12nmap -p 1-65535 -A 192.168.1.12nmap -p- -A 192.168.1.12
+-A包含OS 探测，版本探测，脚本扫描，t">
+<meta property="og:updated_time" content="2017-04-17T14:21:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nmap的使用">
 <meta name="twitter:description" content="安装1234# 在Ubuntu下安装sudo apt install nmap -y# 安装图形界面sudo apt install zenmap -y
-查看指定端口的状态有时我们想查看服务器具体的某一个端口是否UP，可以通过扫描实现。但是还有一种更加节省时间的方法，例如想查看凤凰网的80端口是否开启，可以输入如下命令：">
+端口掃描默認的端口掃描只掃描常用的1000個端口，如果需要掃描所有端口，使用如下命令：
+12nmap -p 1-65535 -A 192.168.1.12nmap -p- -A 192.168.1.12
+-A包含OS 探测，版本探测，脚本扫描，t">
 
 
 
@@ -413,6 +419,9 @@
 
       
         <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 在Ubuntu下安装</div><div class="line">sudo apt install nmap -y</div><div class="line"># 安装图形界面</div><div class="line">sudo apt install zenmap -y</div></pre></td></tr></table></figure>
+<h4 id="端口掃描"><a href="#端口掃描" class="headerlink" title="端口掃描"></a>端口掃描</h4><p>默認的端口掃描只掃描常用的1000個端口，如果需要掃描所有端口，使用如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nmap -p 1-65535 -A 192.168.1.12</div><div class="line">nmap -p- -A 192.168.1.12</div></pre></td></tr></table></figure>
+<p>-A包含OS 探测，版本探测，脚本扫描，traceroute。</p>
 <h4 id="查看指定端口的状态"><a href="#查看指定端口的状态" class="headerlink" title="查看指定端口的状态"></a>查看指定端口的状态</h4><p>有时我们想查看服务器具体的某一个端口是否UP，可以通过扫描实现。但是还有一种更加节省时间的方法，例如想查看凤凰网的80端口是否开启，可以输入如下命令：</p>
 <a id="more"></a>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nmap -p 80 ifeng.com</div></pre></td></tr></table></figure>
@@ -427,6 +436,31 @@
 <h5 id="诱饵扫描"><a href="#诱饵扫描" class="headerlink" title="诱饵扫描"></a>诱饵扫描</h5><p>诱饵扫描的工作原理时伪造大量的IP与自己的IP一并去访问网站，从而混淆判断。扫描的命令如下所示：</p>
 <h4 id="应用示例"><a href="#应用示例" class="headerlink" title="应用示例"></a>应用示例</h4><p>假设主机的IP是192.168.1.2，一些扫描示例如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># A参数表示启动OS和版本侦测、脚本扫描等，T4参数表示快速执行</span></div><div class="line">nmap -A -T4 192.168.1.2</div><div class="line"><span class="comment"># 操作系统侦测,O表示Operation System</span></div><div class="line">sudo nmap -O 192.168.1.2</div></pre></td></tr></table></figure>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+<h4 id="GUI"><a href="#GUI" class="headerlink" title="GUI"></a>GUI</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 在Fedora下安装Zenmap客户端</div><div class="line">rpm -vhU https://nmap.org/dist/zenmap-7.40-1.noarch.rpm</div></pre></td></tr></table></figure>
+<p>=======</p>
+<h4 id="加強安全手段"><a href="#加強安全手段" class="headerlink" title="加強安全手段"></a>加強安全手段</h4><h5 id="關閉不使用的服務"><a href="#關閉不使用的服務" class="headerlink" title="關閉不使用的服務"></a>關閉不使用的服務</h5><p>計算機對外暴露的端口越多，承擔的安全風險越大。暴露80端口會遭遇DDoS攻擊。如果沒有使用相應的服務，最好將之關閉。使用nmap經常會掃描到111端口開啓，如果您没有挂载 NFSv3 卷或者使用 NIS（<code>ypbind</code> 服务），则应该禁用 <code>rpcbind</code>服務。RPC即Remote Procedure Call Protocol（远程过程调用协议），RPCBIND用于取代旧版本中的portmap组件。 简单说，RPCBIND就是为了将不同服务与对应的端口进行绑定，以便支持机器间的互操作。</p>
+<h5 id="安全常識"><a href="#安全常識" class="headerlink" title="安全常識"></a>安全常識</h5><p>某些网络协议本身就比其它协议更不安全。这些协议包含一些服务：</p>
+<ul>
+<li><em>以不加密的方式在网络中传输用户名和密码</em> — 很多老的协议，比如 Telnet 和 FTP，它们对认证会话都不加密，应尽量避免使用。</li>
+<li><em>以不加密方式传输敏感数据</em> — 很多协议在网络间传输数据时不加密。这些协议包括 Telent、FTP、HTTP 和 SMTP。很多网络文件系统，比如 NFS 和 SMB 也以不加密的方式在网络间传输信息。用户在使用这些协议时有责任限制要传输的数据类型。</li>
+</ul>
+<p>本身就不安全的服务示例包括 <code>rlogin</code>、<code>rsh</code>、 <code>telnet</code>、以及<code>vsftpd</code>。</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>a34635dd6d8a285e6d56b47b2aa2f1b9c6997826</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 
       
     </div>
@@ -545,7 +579,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">234</span>
+                <span class="site-state-item-count">239</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -563,7 +597,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">214</span>
+                <span class="site-state-item-count">215</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -642,7 +676,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看指定端口的状态"><span class="nav-number">2.</span> <span class="nav-text">查看指定端口的状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#隐藏身份"><span class="nav-number">3.</span> <span class="nav-text">隐藏身份</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#诱饵扫描"><span class="nav-number">3.1.</span> <span class="nav-text">诱饵扫描</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用示例"><span class="nav-number">4.</span> <span class="nav-text">应用示例</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#端口掃描"><span class="nav-number">2.</span> <span class="nav-text">端口掃描</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看指定端口的状态"><span class="nav-number">3.</span> <span class="nav-text">查看指定端口的状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#隐藏身份"><span class="nav-number">4.</span> <span class="nav-text">隐藏身份</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#诱饵扫描"><span class="nav-number">4.1.</span> <span class="nav-text">诱饵扫描</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用示例"><span class="nav-number">5.</span> <span class="nav-text">应用示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GUI"><span class="nav-number">6.</span> <span class="nav-text">GUI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加強安全手段"><span class="nav-number">7.</span> <span class="nav-text">加強安全手段</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#關閉不使用的服務"><span class="nav-number">7.1.</span> <span class="nav-text">關閉不使用的服務</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安全常識"><span class="nav-number">7.2.</span> <span class="nav-text">安全常識</span></a></li></ol></li></ol></div>
             
 
           </div>

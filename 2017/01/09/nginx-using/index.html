@@ -95,7 +95,7 @@
 12345678# Ubuntu 16.04 LTSsudo apt install nginx -y# Fedora 24sudo dnf install nginx -y# Mac OS Xbrew install nginx
 安装完毕后配置文件在/etc/nginx/目录下。">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2017/01/09/nginx-using/loadbalance.png">
-<meta property="og:updated_time" content="2017-04-07T10:49:49.412Z">
+<meta property="og:updated_time" content="2017-04-10T13:59:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx使用总结">
 <meta name="twitter:description" content="安装输入如下命令安装：
@@ -459,14 +459,14 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">error while loading shared libraries: libpcre.so.0: cannot open shared object file: No such file or directory</div></pre></td></tr></table></figure>
 <p>执行命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ldd which /usr/local/nginx/sbin/nginx</div></pre></td></tr></table></figure>
-<p>提示如下：</p>
+<p>ldd命令用于打印程序或者库文件所依赖的共享库列表(print shared library dependencies)。比如需要看ls命令依賴哪些庫，可以輸入命令<code>ldd /bin/ls</code>，注意需要是全路徑。提示如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">nginx:</div><div class="line">        linux-vdso.so.1 =&gt;  (0x00007ffd71300000)</div><div class="line">        libpthread.so.0 =&gt; /lib64/libpthread.so.0 (0x00007fb80682a000)</div><div class="line">        libdl.so.2 =&gt; /lib64/libdl.so.2 (0x00007fb806625000)</div><div class="line">        libcrypt.so.1 =&gt; /lib64/libcrypt.so.1 (0x00007fb8063ee000)</div><div class="line">        libpcre.so.0 =&gt; not found</div><div class="line">        libssl.so.10 =&gt; /lib64/libssl.so.10 (0x00007fb80617f000)</div><div class="line">        libcrypto.so.10 =&gt; /lib64/libcrypto.so.10 (0x00007fb805d95000)</div><div class="line">        libz.so.1 =&gt; /lib64/libz.so.1 (0x00007fb805b7f000)</div><div class="line">        libc.so.6 =&gt; /lib64/libc.so.6 (0x00007fb8057bd000)</div><div class="line">        /lib64/ld-linux-x86-64.so.2 (0x00007fb806a5c000)</div><div class="line">        libfreebl3.so =&gt; /lib64/libfreebl3.so (0x00007fb8055ba000)</div><div class="line">        libgssapi_krb5.so.2 =&gt; /lib64/libgssapi_krb5.so.2 (0x00007fb80536c000)</div><div class="line">        libkrb5.so.3 =&gt; /lib64/libkrb5.so.3 (0x00007fb805084000)</div><div class="line">        libcom_err.so.2 =&gt; /lib64/libcom_err.so.2 (0x00007fb804e80000)</div><div class="line">        libk5crypto.so.3 =&gt; /lib64/libk5crypto.so.3 (0x00007fb804c4e000)</div><div class="line">        libkrb5support.so.0 =&gt; /lib64/libkrb5support.so.0 (0x00007fb804a3e000)</div><div class="line">        libkeyutils.so.1 =&gt; /lib64/libkeyutils.so.1 (0x00007fb80483a000)</div><div class="line">        libresolv.so.2 =&gt; /lib64/libresolv.so.2 (0x00007fb804620000)</div><div class="line">        libselinux.so.1 =&gt; /lib64/libselinux.so.1 (0x00007fb8043f8000)</div><div class="line">        libpcre.so.1 =&gt; /lib64/libpcre.so.1 (0x00007fb804197000)</div></pre></td></tr></table></figure>
 <p>原因可能是操作系统升级到了CentOS 7.3版本，没有对应的模块libpcre.so.0，只有对应的模块libpcre.so.1。使用如下命令可以快速解决问题：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">link /usr/lib64/libpcre.so.1 /lib64/libpcre.so.0</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># ln的功能是为某一个文件在另外一个位置建立一个同步的链接.当我们需要在不同的目录，用到相同的文件时，我们不需要在每一个需要的目录下都放一个必须相同的文件，我们只要在某个固定的目录，放上该文件，然后在 其它的目录下用ln命令链接（link）它就可以，不必重复的占用磁盘空间。這裏是將/lib64/libpcre.so.0鏈接到/lib64/libpcre.so.1，當程序訪問/lib64/libpcre.so.0時，自動訪問/lib64/libpcre.so.1</div><div class="line">link /usr/lib64/libpcre.so.1 /lib64/libpcre.so.0</div></pre></td></tr></table></figure>
 <h5 id="ERR-INCOMPLETE-CHUNKED-ENCODING"><a href="#ERR-INCOMPLETE-CHUNKED-ENCODING" class="headerlink" title="ERR_INCOMPLETE_CHUNKED_ENCODING"></a>ERR_INCOMPLETE_CHUNKED_ENCODING</h5><p>进入nginx日志查看：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2017/04/07 18:31:20 [crit] 7928#0: *33 open() &quot;/home/app/local/tengine/proxy_temp/7/00/0000000007&quot; failed (13: Permission denied) while reading upstream, client: 2.1.27.53, server: , request: &quot;GET /pubapi/global/homePage HTTP/1.1&quot;, upstream: &quot;http://192.168.1.2:28080/pubapi/global/homePage&quot;, host: &quot;192.168.1.2&quot;, referrer: &quot;http://192.168.1.2/&quot;</div></pre></td></tr></table></figure>
 <p>原来是nginx没有目录<code>/home/app/local/tengine/proxy_temp</code>权限导致此问题。在配置文件中修改:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># user为/home/app/local/tengine/proxy_temp目录的属主</div><div class="line">ser  &#123;user&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># user为/home/app/local/tengine/proxy_temp目录的属主</div><div class="line">user  &#123;user&#125;;</div></pre></td></tr></table></figure>
 <p>参考资料：</p>
 <ul>
 <li><a href="http://kb.cnblogs.com/page/559213/" target="_blank" rel="external">Nginx的负载均衡原理</a></li>
@@ -589,7 +589,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">234</span>
+                <span class="site-state-item-count">239</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -607,7 +607,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">214</span>
+                <span class="site-state-item-count">215</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

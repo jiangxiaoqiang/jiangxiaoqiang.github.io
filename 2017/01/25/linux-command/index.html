@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="小强的博客">
 <meta property="og:description" content="查看文件占用情况：
 1du -alh">
-<meta property="og:updated_time" content="2017-04-07T10:49:49.400Z">
+<meta property="og:updated_time" content="2017-04-20T12:50:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux常用命令总结">
 <meta name="twitter:description" content="查看文件占用情况：
@@ -424,7 +424,8 @@
 <p>history命令可以查看shell的历史命令记录，shell默认保存的历史命令为1000条，验证此说法只需要打开<code>.bash_history</code>文件查看即可，如果计算机使用的时间足够长，那么最多有1000行命令记录。注销系统时，terminal会将所有的历史命令写入</p>
 <p>history命令可以查看shell的历史命令记录，shell默认保存的历史命令为1000条，验证此说法只需要打开<code>.bash_history</code>文件查看即可，如果计算机使用的时间足够长，那么最多有1000行命令记录。注销系统时，terminal会将所有的历史命令写入</p>
 <h4 id="ls命令"><a href="#ls命令" class="headerlink" title="ls命令"></a>ls命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 列出当前目录下的目录，不列出文件</div><div class="line">ls -d */</div><div class="line"># 列出当前目录下的目录</div><div class="line">ls -l|grep ^d</div></pre></td></tr></table></figure>
-<h4 id="scp"><a href="#scp" class="headerlink" title="scp"></a>scp</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#将本地文件夹上传到服务器</span></div><div class="line">scp -r /tmp/local_dir username@servername:remote_dir</div><div class="line"><span class="comment"># 将服务器文件拷贝到本地</span></div><div class="line">scp -r pi@192.168.1.113:/var/lib/daemon/GK ./</div></pre></td></tr></table></figure>
+<h4 id="scp"><a href="#scp" class="headerlink" title="scp"></a>scp</h4><p>scp是Secure Copy的簡稱m,scp的优点是使用简单，缺点是无法列出远端目录和改变目录。在做了免密登錄後，通過tab按鍵可以列出遠程目錄。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#将本地文件夹上传到服务器</span></div><div class="line">scp -r /tmp/local_dir username@servername:remote_dir</div><div class="line"><span class="comment"># 将服务器文件拷贝到本地</span></div><div class="line">scp -r pi@192.168.1.113:/var/lib/daemon/GK ./</div><div class="line"><span class="comment"># 將遠程服務器文件拷貝到本地，並指定端口是22222</span></div><div class="line">scp -P 22222 -r pi@192.168.1.113:/var/lib/daemon/GK ./</div></pre></td></tr></table></figure>
 <h4 id="ss命令"><a href="#ss命令" class="headerlink" title="ss命令"></a>ss命令</h4><p>ss(Socket Statistics)命令用于显示本机Sock统计信息。相比于其他工具，它可以显示更多的信息(It can display more TCP and state informations than other tools)。l查看监听端口。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 显示所有TCP Sockets</span></div><div class="line">ss -t <span class="_">-a</span></div><div class="line"><span class="comment"># 查看ssh端口是否已经打开</span></div><div class="line">ss -t -n <span class="_">-a</span>|grep 22</div></pre></td></tr></table></figure></p>
 <p>t参数表示只显示TCP端口，n(number)表示以数字的方式显示，可以使用<code>ss --help</code>查看帮助。</p>
 <h4 id="lsof命令"><a href="#lsof命令" class="headerlink" title="lsof命令"></a>lsof命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
@@ -441,6 +442,15 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">hldev@hldev-100:~/hldata/backend/credit-system$ dirs -v</div><div class="line"> 0  ~/hldata/backend/credit-system</div><div class="line"> 1  /home</div><div class="line"> 2  ~/summerize/xiaoqiang-blog-source/themes/next</div><div class="line"> 3  ~/summerize/xiaoqiang-blog-source/themes/next</div><div class="line"> 4  ~/summerize/jiangxiaoqiang.github.io</div><div class="line"> 5  ~</div></pre></td></tr></table></figure>
 <p>切换到压入栈中指定的目录只需要输入<code>pushd +N(pushd +2)</code>即可，N代表栈的编号。删除栈中的数据使用popd命令即可。</p>
 <h4 id="判斷是否存在"><a href="#判斷是否存在" class="headerlink" title="判斷是否存在"></a>判斷是否存在</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">myFile=&quot;/opt/app/backend/app.id&quot;</div><div class="line"># 这里的-f参数判断$myFile是否存在 </div><div class="line">if [ ! -f &quot;$myFile&quot; ]; then </div><div class="line">	# 文件不存在</div><div class="line">	touch &quot;$myFile&quot; </div><div class="line">fi</div><div class="line"></div><div class="line"># 判斷進程是否存在</div><div class="line">process=`ps aux | grep mysqld | grep -v grep`;</div><div class="line">if [ &quot;$process&quot; == &quot;&quot; ]; then</div><div class="line">    sleep 1;</div><div class="line">    echo &quot;no process&quot;;</div><div class="line">else</div><div class="line">	echo &quot;process exsits&quot;;</div><div class="line">	break;</div><div class="line">fi</div></pre></td></tr></table></figure>
+<h4 id="autojump"><a href="#autojump" class="headerlink" title="autojump"></a>autojump</h4><p>使用Terminal的过程中，有许多时间是在不同的目录之间切换，但是我们很难记住所有的目录并准确无误的输入相应的路径。切换的过程中不得不反复按下tab选择目标路径。其实在使用Linux的过程中，高频使用的目录是有限的。而autojump工具就是將目錄使用的頻率按照權重排序，並根據目錄權重幫助我們快速找到相應的工作目錄。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># Fedora 22及以后版本安装</div><div class="line">sudo dnf install -y autojump</div><div class="line"># Ubuntu上安装</div><div class="line">sudo apt install -y autojump</div></pre></td></tr></table></figure>
+<p>获取数据autojump命令略显冗长，所以可以为autojump添加一个别名(alias)。在<code>~/.bashrc</code>文件中，添加如下一行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alias j=&apos;autojump&apos;</div></pre></td></tr></table></figure>
+<p>接着再运行<code>. ~/.bashrc</code>使之生效，或者重新开启一个终端(每次开启终端都会加载<code>.bashrc</code>文件)。</p>
+<h4 id="命令参数传递"><a href="#命令参数传递" class="headerlink" title="命令参数传递"></a>命令参数传递</h4><p>有时需要将一个命令的输出作为另一个命令的输入，可以采用如下的方式。</p>
+<h5 id="反引号"><a href="#反引号" class="headerlink" title="反引号``"></a>反引号``</h5><p>反引号括起来的字符串被shell解释为命令行，在执行时，shell首先执行该命令行，并以它的标准输出结果取代整个反引号（包括两个反引号）部分。例如将pwd命令的输出作为autojump命令的参数输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">j -a `pwd`</div><div class="line"># 采用$()的方式，与``的方式相同</div><div class="line">j -a $(pwd)</div><div class="line"># 可以采用xargs的方式，不过这里需要写命令autojump的全名</div><div class="line">pwd | xargs autojump -a</div></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -558,7 +568,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">234</span>
+                <span class="site-state-item-count">239</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -576,7 +586,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">214</span>
+                <span class="site-state-item-count">215</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -655,7 +665,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#find命令"><span class="nav-number">1.</span> <span class="nav-text">find命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#history命令"><span class="nav-number">2.</span> <span class="nav-text">history命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ls命令"><span class="nav-number">3.</span> <span class="nav-text">ls命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scp"><span class="nav-number">4.</span> <span class="nav-text">scp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ss命令"><span class="nav-number">5.</span> <span class="nav-text">ss命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lsof命令"><span class="nav-number">6.</span> <span class="nav-text">lsof命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#top命令"><span class="nav-number">7.</span> <span class="nav-text">top命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pushd命令"><span class="nav-number">8.</span> <span class="nav-text">pushd命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#判斷是否存在"><span class="nav-number">9.</span> <span class="nav-text">判斷是否存在</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#find命令"><span class="nav-number">1.</span> <span class="nav-text">find命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#history命令"><span class="nav-number">2.</span> <span class="nav-text">history命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ls命令"><span class="nav-number">3.</span> <span class="nav-text">ls命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scp"><span class="nav-number">4.</span> <span class="nav-text">scp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ss命令"><span class="nav-number">5.</span> <span class="nav-text">ss命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lsof命令"><span class="nav-number">6.</span> <span class="nav-text">lsof命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#top命令"><span class="nav-number">7.</span> <span class="nav-text">top命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pushd命令"><span class="nav-number">8.</span> <span class="nav-text">pushd命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#判斷是否存在"><span class="nav-number">9.</span> <span class="nav-text">判斷是否存在</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#autojump"><span class="nav-number">10.</span> <span class="nav-text">autojump</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令参数传递"><span class="nav-number">11.</span> <span class="nav-text">命令参数传递</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#反引号"><span class="nav-number">11.1.</span> <span class="nav-text">反引号``</span></a></li></ol></li></ol></div>
             
 
           </div>

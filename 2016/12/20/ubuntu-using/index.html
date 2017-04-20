@@ -96,7 +96,8 @@
 1234# 安装常用软件(16.04 LTS及以后使用apt命令)sudo apt install -y wget curl aria2 k">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/12/20/ubuntu-using/ubuntu-paste.png">
 <meta property="og:image" content="http://jiangxiaoqiang.com/2016/12/20/ubuntu-using/shutter-selection-shortkey.png">
-<meta property="og:updated_time" content="2017-04-07T10:49:49.412Z">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2016/12/20/ubuntu-using/xkillshortcut.png">
+<meta property="og:updated_time" content="2017-04-20T12:50:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu使用快捷键与技巧总结">
 <meta name="twitter:description" content="使用的Ubuntu版本为14.04 LTS和16.04 LTS版本。
@@ -420,7 +421,7 @@
       
         <p>使用的Ubuntu版本为14.04 LTS和16.04 LTS版本。</p>
 <h4 id="软件管理"><a href="#软件管理" class="headerlink" title="软件管理"></a>软件管理</h4><p>在Ubuntu下，常用的软件安装一条命令即搞定,跟上常用的软件名称即可，真的是一条命令安装所有软件,特别是重装系统之后，一条命令将原来的软件都安装完毕，节省了时间和精力，非常方便：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 安装常用软件(16.04 LTS及以后使用apt命令)</span></div><div class="line">sudo apt install -y wget curl aria2 keepass2 putty vim tree unzip git</div><div class="line">openssh-server uget maven gradle shutter nginx mysql-server nodejs </div><div class="line">texstudio virtualbox synaptic terminator gimp graphiz deluge zsh quiterss fail2ban manpages-posix</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 安装常用软件(16.04 LTS及以后使用apt命令)</span></div><div class="line">sudo apt install -y wget curl aria2 keepass2 putty vim tree unzip git</div><div class="line">openssh-server uget maven gradle shutter nginx mysql-server nodejs </div><div class="line">texstudio virtualbox synaptic terminator gimp graphiz deluge zsh quiterss fail2ban manpages-posix zeal</div></pre></td></tr></table></figure>
 <ul>
 <li>synaptic是一款图形化的apt(Advance Package Tool)包管理器，可以轻松查看已经安装的包，未安装的包。terminator它支持分割终端,并可以在终端中快速切换.</li>
 <li>manpages-posix是Ubuntu下的man手冊</li>
@@ -443,11 +444,32 @@
 </thead>
 <tbody>
 <tr>
-<td> <a href="https://sourceforge.net/projects/projectlibre/files/?source=navbar" target="_blank" rel="external">ProjectLibre</a></td>
+<td><a href="https://sourceforge.net/projects/projectlibre/files/?source=navbar" target="_blank" rel="external">ProjectLibre</a></td>
 <td>Java</td>
 <td>未知</td>
 <td>Linux/Mac/Windows</td>
 <td>开源的项目管理工具,可生成甘特图</td>
+</tr>
+<tr>
+<td><a href="https://typora.io/" target="_blank" rel="external">Typora</a></td>
+<td>JavaScript + C</td>
+<td>Unkonwn</td>
+<td>Linux/Mac/Windows</td>
+<td>Markdown编辑器，生成的页面美观</td>
+</tr>
+<tr>
+<td><a href="https://koji.fedoraproject.org/koji/buildinfo?buildID=809071" target="_blank" rel="external">Zeal</a></td>
+<td>Unkonwn</td>
+<td>GPLv3</td>
+<td>Linux/Mac/Windows</td>
+<td>离线文档浏览器</td>
+</tr>
+<tr>
+<td>Pencil</td>
+<td>Java</td>
+<td>GNU GPL</td>
+<td>Linux/Mac/Windows</td>
+<td>原型设计工具</td>
 </tr>
 </tbody>
 </table>
@@ -474,6 +496,70 @@
 </tr>
 </tbody>
 </table>
+<h4 id="目錄說明"><a href="#目錄說明" class="headerlink" title="目錄說明"></a>目錄說明</h4><table>
+<thead>
+<tr>
+<th>目錄名稱</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/bin</td>
+<td>裏面存放有基礎的命令二進制文件，即使<code>/usr/bin</code>沒有掛載，也保障一些基礎的命令可用，包含bash\cp\dmesg\less\more等等150多個命令，發現其實命令也還不算太多，也許用過的命令也就一半多一點</td>
+</tr>
+<tr>
+<td>/dev</td>
+<td>設備文件，linux中一切設備即文件</td>
+</tr>
+<tr>
+<td>/etc</td>
+<td>存放系統所有重要的配置文件</td>
+</tr>
+<tr>
+<td>/home</td>
+<td>用戶的家目錄</td>
+</tr>
+<tr>
+<td>/lib</td>
+<td>基礎的系統庫，和內核模塊(kernel module)，佔用空間最大的是內核模塊modules文件夾，使用命令<code>du -ah --max-depth=1</code>查看， <code>-a</code>，显示所有的文件和目录，而不仅仅显示目录。</td>
+</tr>
+<tr>
+<td>/root</td>
+<td>超級管理員的家目錄</td>
+</tr>
+<tr>
+<td>/sbin</td>
+<td>系統管理員使用的基礎的二進制文件</td>
+</tr>
+<tr>
+<td>/tmp</td>
+<td>系統級的臨時文件存放目錄</td>
+</tr>
+<tr>
+<td>/usr/bin</td>
+<td>用戶使用的二進制文件</td>
+</tr>
+<tr>
+<td>/usr/lib</td>
+<td>非系統級的庫文件</td>
+</tr>
+<tr>
+<td>/usr/sbin</td>
+<td>非基礎性的二進制文件</td>
+</tr>
+<tr>
+<td>/var</td>
+<td>可變數據，比如日誌等等</td>
+</tr>
+</tbody>
+</table>
+<p>查看当前文件夹文件个数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ls -l|grep &quot;^-&quot;|wc -l</div></pre></td></tr></table></figure>
+<p>创建外部连接</p>
+<p>使用外部连接</p>
+<p>USER_XYCQ.TS_B_XZCF</p>
+<p>create public link</p>
 <h4 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h4><ul>
 <li>长按Windows键会出现全局快捷键页面</li>
 <li>在开发的过程中可以修改本机Host文件实现主机和IP的映射，这样在源码里只需要写上主机名称，如果某一个开发者想连接不同环境的主机进行调试，直接修改开发者本机的配置，这样不会影响其他开发者</li>
@@ -486,14 +572,16 @@
 <h5 id="启用root用户"><a href="#启用root用户" class="headerlink" title="启用root用户"></a>启用root用户</h5><p>在Ubuntu Desktop 16.04中,root用户默认是禁用的,启用root用户:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo -i passwd root</div></pre></td></tr></table></figure>
 <p>输入root的密码即可.其中-i参数表示–login的含义.Run the shell specified by the target user’s password database entry as a login shell.  This means that login-specific resource files such as .profile or .login will be read by the shell.If a command is specified, it is passed to the shell for execution via the shell’s -c option.  If no command is specified, an interactive shell is executed.  sudo attempts to change to that user’s home directory before running the shell.  The command is run with an environment similar to the one a user would receive at log in.</p>
-<h4 id="选择剪切板内容"><a href="#选择剪切板内容" class="headerlink" title="选择剪切板内容"></a>选择剪切板内容</h4><p>在Ubuntu下按下<code>Ctrl + ；</code>快捷键，可以调出剪切板最近的内容，如下图所示：</p>
+<h5 id="选择剪切板内容"><a href="#选择剪切板内容" class="headerlink" title="选择剪切板内容"></a>选择剪切板内容</h5><p>在Ubuntu下按下<code>Ctrl + ；</code>快捷键，可以调出剪切板最近的内容，如下图所示：</p>
 <img src="/2016/12/20/ubuntu-using/ubuntu-paste.png" alt="Ubuntu选择剪贴板内容粘贴" title="Ubuntu选择剪贴板内容粘贴">
 <p>接着按下相应的数字即可粘贴剪贴板中相应的内容。</p>
-<h4 id="设置截屏快捷键"><a href="#设置截屏快捷键" class="headerlink" title="设置截屏快捷键"></a>设置截屏快捷键</h4><p>在安装好了Shutter之后，每次截取屏幕都需要打开Shutter，点击Selection按钮。其实可以配置截屏的快捷键，就像QQ的<code>Ctrl + Alt + A</code>一样。如下图所示：</p>
+<h5 id="设置截屏快捷键"><a href="#设置截屏快捷键" class="headerlink" title="设置截屏快捷键"></a>设置截屏快捷键</h5><p>在安装好了Shutter之后，每次截取屏幕都需要打开Shutter，点击Selection按钮。其实可以配置截屏的快捷键，就像QQ的<code>Ctrl + Alt + A</code>一样。如下图所示：</p>
 <img src="/2016/12/20/ubuntu-using/shutter-selection-shortkey.png" alt="Ubuntu截图设置快捷键" title="Ubuntu截图设置快捷键">
 <h5 id="设置Terminal默认路径"><a href="#设置Terminal默认路径" class="headerlink" title="设置Terminal默认路径"></a>设置Terminal默认路径</h5><p>一般情况下，在终端里有一个最高频的使用目录，希望打开终端时默认切换到此目录下。在Ubuntu里可以在Home目录下的bashrc<code>~/.bashrc</code>脚本里添加如下代码即可：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> [ <span class="_">-d</span> ~/document/blogs/jiangxiaoqiang/xiaoqiang-blog-source ];<span class="keyword">then</span></div><div class="line">    <span class="built_in">cd</span> ~/document/blogs/jiangxiaoqiang/xiaoqiang-blog-source</div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
 <p>代码的含义是，如果当前目录不在<code>~/document/blogs/jiangxiaoqiang/xiaoqiang-blog-source</code>目录下，那么就切换到此目录。下一次打开终端时默认路径即为：<code>~/document/blogs/jiangxiaoqiang/xiaoqiang-blog-source</code></p>
+<h5 id="强制kill进程"><a href="#强制kill进程" class="headerlink" title="强制kill进程"></a>强制kill进程</h5><p>有时有的界面点击关闭按钮无法关闭，也没有跳出Force Quit的确认窗口，此时就需要使用系统自带的xkill命令了。xkill在Ubuntu中时默认安装的。所以需要配置一个快捷键，使用快捷键激活xkill后，点击相应的窗口即可强制关闭窗口。</p>
+<img src="/2016/12/20/ubuntu-using/xkillshortcut.png" alt="xkill快捷键设置" title="xkill快捷键设置">
 <h4 id="打开程序"><a href="#打开程序" class="headerlink" title="打开程序"></a>打开程序</h4><p>平时打开程序，可以直接按下Window键，输入程序名称，点击Enter键即可。还有可以使用<code>Window + Tab</code>快捷键，可以在启动菜单里切换相应的程序打开，因为Window+数字组合键只能打开最多9个程序，超过9个程序的可以使用此种方式打开。</p>
 <h4 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h4><table>
 <thead>
@@ -827,7 +915,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">234</span>
+                <span class="site-state-item-count">239</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -845,7 +933,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">214</span>
+                <span class="site-state-item-count">215</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -924,7 +1012,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#软件管理"><span class="nav-number">1.</span> <span class="nav-text">软件管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字体"><span class="nav-number">2.</span> <span class="nav-text">字体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小技巧"><span class="nav-number">3.</span> <span class="nav-text">小技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#改变任务栏位置"><span class="nav-number">3.1.</span> <span class="nav-text">改变任务栏位置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#启用root用户"><span class="nav-number">3.2.</span> <span class="nav-text">启用root用户</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择剪切板内容"><span class="nav-number">4.</span> <span class="nav-text">选择剪切板内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置截屏快捷键"><span class="nav-number">5.</span> <span class="nav-text">设置截屏快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#设置Terminal默认路径"><span class="nav-number">5.1.</span> <span class="nav-text">设置Terminal默认路径</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打开程序"><span class="nav-number">6.</span> <span class="nav-text">打开程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快捷键"><span class="nav-number">7.</span> <span class="nav-text">快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Bash-Shell常用快捷键"><span class="nav-number">7.1.</span> <span class="nav-text">Bash Shell常用快捷键</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Terminator快捷键"><span class="nav-number">8.</span> <span class="nav-text">Terminator快捷键</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#格式化U盘"><span class="nav-number">9.</span> <span class="nav-text">格式化U盘</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#软件管理"><span class="nav-number">1.</span> <span class="nav-text">软件管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字体"><span class="nav-number">2.</span> <span class="nav-text">字体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#目錄說明"><span class="nav-number">3.</span> <span class="nav-text">目錄說明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小技巧"><span class="nav-number">4.</span> <span class="nav-text">小技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#改变任务栏位置"><span class="nav-number">4.1.</span> <span class="nav-text">改变任务栏位置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#启用root用户"><span class="nav-number">4.2.</span> <span class="nav-text">启用root用户</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#选择剪切板内容"><span class="nav-number">4.3.</span> <span class="nav-text">选择剪切板内容</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#设置截屏快捷键"><span class="nav-number">4.4.</span> <span class="nav-text">设置截屏快捷键</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#设置Terminal默认路径"><span class="nav-number">4.5.</span> <span class="nav-text">设置Terminal默认路径</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#强制kill进程"><span class="nav-number">4.6.</span> <span class="nav-text">强制kill进程</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打开程序"><span class="nav-number">5.</span> <span class="nav-text">打开程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快捷键"><span class="nav-number">6.</span> <span class="nav-text">快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Bash-Shell常用快捷键"><span class="nav-number">6.1.</span> <span class="nav-text">Bash Shell常用快捷键</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Terminator快捷键"><span class="nav-number">7.</span> <span class="nav-text">Terminator快捷键</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#格式化U盘"><span class="nav-number">8.</span> <span class="nav-text">格式化U盘</span></a></li></ol></div>
             
 
           </div>
