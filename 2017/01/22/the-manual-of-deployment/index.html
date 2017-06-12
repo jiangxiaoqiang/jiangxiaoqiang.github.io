@@ -84,16 +84,18 @@
 
 
 
-<meta name="description" content="虽然理想中的程序是从来不用考虑部署，只需要简单的几个按即可(部署、回滚、回滚到指定版本)。但是平时还是需要手动处理很多部署工作，将手动部署的一些步骤记录在此，避免遗忘。不管是小到一个简单的单机独立应用，还是大到跨国跨数据中心上千节点大型集群，部署过程大致如此。">
+<meta name="description" content="软件发布，往往需要整个团队的成员处于高度紧张的状态，随时待命排查问题。稍微大型一些的项目，加班通宵也是经常的事情。为了解决软件变化与发布的痛点，引入了持续持续集成，只需要简单的几个按即可(部署、回滚、回滚到指定版本)。但是由于种种客观条件限制，平时还是需要手动处理很多部署工作，将手动部署的一些步骤记录在此，避免遗忘。不管是小到一个简单的单机独立应用，还是大到跨国跨数据中心上千节点大型集群，部署过">
 <meta property="og:type" content="article">
-<meta property="og:title" content="通用部署流程">
+<meta property="og:title" content="平台部署流程">
 <meta property="og:url" content="http://jiangxiaoqiang.com/2017/01/22/the-manual-of-deployment/index.html">
 <meta property="og:site_name" content="小强的博客">
-<meta property="og:description" content="虽然理想中的程序是从来不用考虑部署，只需要简单的几个按即可(部署、回滚、回滚到指定版本)。但是平时还是需要手动处理很多部署工作，将手动部署的一些步骤记录在此，避免遗忘。不管是小到一个简单的单机独立应用，还是大到跨国跨数据中心上千节点大型集群，部署过程大致如此。">
-<meta property="og:updated_time" content="2017-04-10T13:59:00.000Z">
+<meta property="og:description" content="软件发布，往往需要整个团队的成员处于高度紧张的状态，随时待命排查问题。稍微大型一些的项目，加班通宵也是经常的事情。为了解决软件变化与发布的痛点，引入了持续持续集成，只需要简单的几个按即可(部署、回滚、回滚到指定版本)。但是由于种种客观条件限制，平时还是需要手动处理很多部署工作，将手动部署的一些步骤记录在此，避免遗忘。不管是小到一个简单的单机独立应用，还是大到跨国跨数据中心上千节点大型集群，部署过">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2017/01/22/the-manual-of-deployment/deploy-workflow.jpg">
+<meta property="og:updated_time" content="2017-06-12T14:16:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="通用部署流程">
-<meta name="twitter:description" content="虽然理想中的程序是从来不用考虑部署，只需要简单的几个按即可(部署、回滚、回滚到指定版本)。但是平时还是需要手动处理很多部署工作，将手动部署的一些步骤记录在此，避免遗忘。不管是小到一个简单的单机独立应用，还是大到跨国跨数据中心上千节点大型集群，部署过程大致如此。">
+<meta name="twitter:title" content="平台部署流程">
+<meta name="twitter:description" content="软件发布，往往需要整个团队的成员处于高度紧张的状态，随时待命排查问题。稍微大型一些的项目，加班通宵也是经常的事情。为了解决软件变化与发布的痛点，引入了持续持续集成，只需要简单的几个按即可(部署、回滚、回滚到指定版本)。但是由于种种客观条件限制，平时还是需要手动处理很多部署工作，将手动部署的一些步骤记录在此，避免遗忘。不管是小到一个简单的单机独立应用，还是大到跨国跨数据中心上千节点大型集群，部署过">
+<meta name="twitter:image" content="http://jiangxiaoqiang.com/2017/01/22/the-manual-of-deployment/deploy-workflow.jpg">
 
 
 
@@ -127,7 +129,7 @@
 
 
 
-  <title> 通用部署流程 | 小强的博客 </title>
+  <title> 平台部署流程 | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -326,7 +328,7 @@
             
             
               
-                通用部署流程
+                平台部署流程
               
             
           </h1>
@@ -409,16 +411,21 @@
       
 
       
-        <p>虽然理想中的程序是从来不用考虑部署，只需要简单的几个按即可(部署、回滚、回滚到指定版本)。但是平时还是需要手动处理很多部署工作，将手动部署的一些步骤记录在此，避免遗忘。不管是小到一个简单的单机独立应用，还是大到跨国跨数据中心上千节点大型集群，部署过程大致如此。</p>
+        <p>软件发布，往往需要整个团队的成员处于高度紧张的状态，随时待命排查问题。稍微大型一些的项目，加班通宵也是经常的事情。为了解决软件变化与发布的痛点，引入了持续持续集成，只需要简单的几个按即可(部署、回滚、回滚到指定版本)。但是由于种种客观条件限制，平时还是需要手动处理很多部署工作，将手动部署的一些步骤记录在此，避免遗忘。不管是小到一个简单的单机独立应用，还是大到跨国跨数据中心上千节点大型集群，部署过程大致如此。</p>
 <a id="more"></a>
-<h4 id="编译程序-Compile"><a href="#编译程序-Compile" class="headerlink" title="编译程序(Compile)"></a>编译程序(Compile)</h4><p>对于Java与Scala编写的后端代码，输入如下命令编译程序：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 编译jar包</span></div><div class="line">./gradlew -p cc-web-boot -x <span class="built_in">test</span> build</div></pre></td></tr></table></figure>
-<p>编译完成后，切换到目标目录<code>cc-web-boot/build/libs</code>即可发现生成的jar包。命令指定项目的目录是<code>cc-web-boot</code>。对于Javascript、html、css编写的前端代码：</p>
-<h4 id="拷贝程序到服务器"><a href="#拷贝程序到服务器" class="headerlink" title="拷贝程序到服务器"></a>拷贝程序到服务器</h4><p>使用如下命令拷贝程序到服务端：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">scp system-web-boot-1.0.0.jar hldev@172.30.0.110:~</div><div class="line">scp system-web-boot-1.0.0.jar hl@192.168.32.106:/home/app/</div></pre></td></tr></table></figure>
-<p>目前服务器Web使用的Tengine。需要将后端的jar/war包分别拷贝到12和13服务器。前端代码在11上，Nginx转发请求、负载均衡也在11服务器。在使用国产Web（默认端口9060）时要注意修改配置文件application.properties，将Cookie Domain和Datasource Url设置为相应的值。</p>
+<img src="/2017/01/22/the-manual-of-deployment/deploy-workflow.jpg" alt="部署流程" title="部署流程">
+<h4 id="获取最新源码"><a href="#获取最新源码" class="headerlink" title="获取最新源码"></a>获取最新源码</h4><p>项目采用的源码管理软件是Git，Git目前是全球最流行的源码管理系统，由Linux内核的作者Linus Torvalds开发，包括Windows操作的源码，Linux内核以及数不清的Linux发行版都采用Git作为源码管理系统。本项目的主干分支是v1分支，获取源码如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看本地分支情况</span></div><div class="line">git branch</div><div class="line"><span class="comment"># 将远程的v1分支合并到当前分支</span></div><div class="line">git pull osc v1</div></pre></td></tr></table></figure>
+<h4 id="编译程序-Compile"><a href="#编译程序-Compile" class="headerlink" title="编译程序(Compile)"></a>编译程序(Compile)</h4><p>本项目后端有部分Scala代码，编译时需要同时安装Java Compiler和Scala Compiler，杨老师说不需要Scala SDK只需要在Intellij Idea中安装插件即可，不过自己还是安装了Scala SDK，比较容易理解。对于Java与Scala编写的后端代码，输入如下命令编译程序：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 在Windows下编译后端代码</span></div><div class="line">./gradlew.bat -p cc-web-boot -x <span class="built_in">test</span> build</div><div class="line"><span class="comment"># 在Linux下，编译后端jar包</span></div><div class="line">./gradlew -p cc-web-boot -x <span class="built_in">test</span> build</div></pre></td></tr></table></figure>
+<p>编译完成后，切换到目标目录<code>cc-web-boot/build/libs</code>即可发现生成的jar包，jar包大概在70MB-90MB之间。命令指定项目的目录是<code>cc-web-boot</code>。对于Javascript、html、css编写的前端代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 在Linux下，编译前端包</span></div><div class="line">./build-release.sh</div></pre></td></tr></table></figure>
+<p>前端包的文件大概在7MB-10MB之间。</p>
+<h4 id="拷贝程序到服务器"><a href="#拷贝程序到服务器" class="headerlink" title="拷贝程序到服务器"></a>拷贝程序到服务器</h4><p>在拷贝到服务器端时，如果存在覆盖的情况，会顺手备份一个版本。一般以日期作为标识，不管版本重要与否，开始时是手动备份，后面有脚本自动完成备份。一定记得备份，备份，备份。使用如下命令拷贝程序到服务端：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">scp system-web-boot-1.0.0.jar dolphin@172.30.0.110:~</div><div class="line">scp system-web-boot-1.0.0.jar dolphin@192.168.32.106:/home/app/</div></pre></td></tr></table></figure>
+<p>system-web-boot-1.0.0.jar是目标jar包的名称，dolphin是ssh登陆用户名，172.30.0.110是部署目标服务器IP。目前服务器Web反向代理使用的Tengine。</p>
 <h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><p>使用Putty登录系统，启动：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 新开进程启动</span></div><div class="line">nohup java -jar system-web-boot-1.0.0.jar</div><div class="line"></div><div class="line"><span class="comment"># 启动，可以在界面上查看输出日志</span></div><div class="line">java -jar system-web-boot-1.0.0.jar</div><div class="line"></div><div class="line"><span class="comment"># 启动，优先使用IPv4</span></div><div class="line">java -jar -Djava.net.preferIPv4Stack=<span class="literal">true</span> esystem-web-boot-1.0.0.jar</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 新开进程启动,指定配置文件</span></div><div class="line">nohup java -jar system-web-boot-1.0.0.jar --spring.properties=</div><div class="line"></div><div class="line"><span class="comment"># 在当前Shell进程中启动，可以在界面上查看输出日志，退出Shell后程序自动退出</span></div><div class="line">java -jar system-web-boot-1.0.0.jar</div><div class="line"></div><div class="line"><span class="comment"># 启动，优先使用IPv4</span></div><div class="line">java -jar -Djava.net.preferIPv4Stack=<span class="literal">true</span> esystem-web-boot-1.0.0.jar</div></pre></td></tr></table></figure>
 <h4 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h4><p>访问相应的应用程序地址：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://172.30.0.110:28080/</div></pre></td></tr></table></figure>
 <h4 id="优化与思考"><a href="#优化与思考" class="headerlink" title="优化与思考"></a>优化与思考</h4><p>针对目前程序部署拷贝需要输入许多重复的命令，可以考虑在服务器上编写一个shell脚本，通过ansible控制脚本运行。脚本做的动作就是停止当前网站，备份当前网站的程序，从远程主机（此处的远程主机指的是程序员的开发机器）上获取最新的程序，启动程序。相应的实现回滚功能。只需要执行一条Ansible命令即可。此工具比较占优势的就是，不需要在目标机器上安装Agent，可以同时部署多台服务器。不仅仅是部署，其他的针对多台机器重复的操作都可以通过Ansible来实现自动化。</p>
@@ -498,7 +505,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2017/01/22/the-manual-of-deployment/"
-           data-title="通用部署流程" data-url="http://jiangxiaoqiang.com/2017/01/22/the-manual-of-deployment/">
+           data-title="平台部署流程" data-url="http://jiangxiaoqiang.com/2017/01/22/the-manual-of-deployment/">
       </div>
     
   </div>
@@ -642,7 +649,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#编译程序-Compile"><span class="nav-number">1.</span> <span class="nav-text">编译程序(Compile)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拷贝程序到服务器"><span class="nav-number">2.</span> <span class="nav-text">拷贝程序到服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动"><span class="nav-number">3.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#访问"><span class="nav-number">4.</span> <span class="nav-text">访问</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优化与思考"><span class="nav-number">5.</span> <span class="nav-text">优化与思考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#获取最新源码"><span class="nav-number">1.</span> <span class="nav-text">获取最新源码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编译程序-Compile"><span class="nav-number">2.</span> <span class="nav-text">编译程序(Compile)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拷贝程序到服务器"><span class="nav-number">3.</span> <span class="nav-text">拷贝程序到服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动"><span class="nav-number">4.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#访问"><span class="nav-number">5.</span> <span class="nav-text">访问</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优化与思考"><span class="nav-number">6.</span> <span class="nav-text">优化与思考</span></a></li></ol></div>
             
 
           </div>
