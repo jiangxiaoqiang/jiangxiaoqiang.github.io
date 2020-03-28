@@ -12,7 +12,7 @@ comment: false
 | ---------------- | ---------------------------------------- | -------- |
 | Language         | Java、C#、JavaScript、Shell、Assembly、C++、Python | 王爽《汇编语言》 |
 | Framework        | Spring、MyBatis                           |          |
-| Operation System | Redhat、CentOS、Ubuntu、Fedora、OpenSUSE     |          |
+| Operation System | Redhat、CentOS、Ubuntu、Fedora    |          |
 | Database         | MySQL、Apache HBase                       |          |
 | Message Queue    | Apache Kafka                             |          |
 | Cache            | Redis                                    |          |
