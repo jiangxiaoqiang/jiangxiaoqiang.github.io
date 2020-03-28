@@ -86,7 +86,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="小强的博客">
-<meta property="og:url" content="http://jiangxiaoqiang.com/tags/SSH/index.html">
+<meta property="og:url" content="http://jiangxiaoqiang.com/tags/ssh/index.html">
 <meta property="og:site_name" content="小强的博客">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小强的博客">
@@ -117,13 +117,13 @@
 
 
 
-  <link rel="canonical" href="http://jiangxiaoqiang.com/tags/SSH/"/>
+  <link rel="canonical" href="http://jiangxiaoqiang.com/tags/ssh/"/>
 
 
 
 
 
-  <title> 标签: SSH | 小强的博客 </title>
+  <title> 标签: ssh | 小强的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -291,7 +291,7 @@
   <div id="posts" class="posts-collapse">
     <div class="collection-title">
       <h2 >
-        SSH
+        ssh
         <small>标签</small>
       </h2>
     </div>
@@ -304,37 +304,9 @@
 
       <h1 class="post-title">
         
-            <a class="post-title-link" href="/2017/03/11/raspberry-ssh-connect/" itemprop="url">
+            <a class="post-title-link" href="/2017/04/06/ssh-using/" itemprop="url">
               
-                <span itemprop="name">Raspberry SSH连接</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-11T23:09:03+08:00"
-              content="2017-03-11" >
-          03-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/30/cluster-ssh-login/" itemprop="url">
-              
-                <span itemprop="name">Hadoop集群SSH免密钥登录</span>
+                <span itemprop="name">ssh使用经验与技巧总结</span>
               
             </a>
         
@@ -342,9 +314,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-30T16:41:35+08:00"
-              content="2016-09-30" >
-          09-30
+              datetime="2017-04-06T21:49:32+08:00"
+              content="2017-04-06" >
+          04-06
         </time>
       </div>
 
@@ -396,7 +368,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">234</span>
+                <span class="site-state-item-count">237</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -414,7 +386,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">214</span>
+                <span class="site-state-item-count">215</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -727,6 +699,45 @@
             str += "</ul>";
             if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
             if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
+-5x" /></div>' }
             $resultContent.innerHTML = str;
           });
           proceedsearch();
