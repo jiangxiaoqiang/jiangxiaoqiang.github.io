@@ -13,8 +13,7 @@ pipeline {
     stages {
         stage('checkout-source') {
             steps {
-                git branch master, 
-                credentialsId: 'github-credential',
+                git credentialsId: 'github-credential',
                 url: 'https://github.com/jiangxiaoqiang/jiangxiaoqiang.github.io.git'
              } 
         }
