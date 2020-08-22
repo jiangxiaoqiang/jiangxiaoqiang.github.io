@@ -15,7 +15,7 @@ pipeline {
         stage('checkout-source') {
             steps {
                 git credentialsId: 'gitlab-project-auth',
-                url: 'https://github.com/jiangxiaoqiang/xiaoqiang-blog-source.git'
+                url: 'https://github.com/jiangxiaoqiang/jiangxiaoqiang.github.io.git'
              } 
         }
         
@@ -27,7 +27,7 @@ pipeline {
                 sh "git diff-index --quiet HEAD || git commit -m \"[docs] scheduled auto commit task\" || git push"
                 sh "echo ${GITHUB_USERNAME}"
                 sh "echo ${GITHUB_PASSWORD}"
-                sh "git push https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/jiangxiaoqiang/xiaoqiang-blog-source.git"
+                sh "git push https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/jiangxiaoqiang/jiangxiaoqiang.github.io.git"
             }
         }
         
