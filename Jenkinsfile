@@ -25,6 +25,8 @@ pipeline {
                 sh "git config --global user.name \"jiangxiaoqiang\""
                 sh "git add -A"
                 sh "git diff-index --quiet HEAD || git commit -m \"[docs] scheduled auto commit task\" || git push"
+                sh "echo ${GITHUB_USERNAME}"
+                sh "echo ${GITHUB_PASSWORD}"
                 sh "git push https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/jiangxiaoqiang/xiaoqiang-blog-source.git"
             }
         }
