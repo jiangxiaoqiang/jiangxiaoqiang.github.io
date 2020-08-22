@@ -8,7 +8,8 @@ pipeline {
 
     environment {
         GITHUB_USERNAME     = credentials('github-username')
-        GITHUB_PASSWORD = credentials('github-password')
+        GITHUB_PASSWORD     = credentials('github-password')
+        GITHUB_PASSWORD1    = credentials('github-password-1')
     }
 
     stages {
@@ -27,6 +28,7 @@ pipeline {
                 sh "git diff-index --quiet HEAD || git commit -m \"[docs] scheduled auto commit task\" || git push"
                 sh "echo ${GITHUB_USERNAME}"
                 sh "echo ${GITHUB_PASSWORD}"
+                sh "echo ${GITHUB_PASSWORD1}"
                 sh "git push https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/jiangxiaoqiang/jiangxiaoqiang.github.io.git"
             }
         }
