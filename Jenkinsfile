@@ -20,7 +20,7 @@ pipeline {
                 sh "git config --global user.name \"jiangxiaoqiang\""
                 sh "git add -A"
                 sh "git diff-index --quiet HEAD || git commit -m \"[docs] scheduled auto commit task\" || git push"
-                sh "git push"
+                sh "git push --set-upstream origin master"
             }
         }
         
