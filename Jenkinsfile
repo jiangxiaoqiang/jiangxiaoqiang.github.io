@@ -16,7 +16,7 @@ pipeline {
                     }
                     sh 'git add .'
                     sh "git diff-index --quiet HEAD || git commit -m \"[docs] scheduled auto commit task\" || git push"
-                    sh "git push origin master"
+                    sh "git push https://${USER}:${PASS}github.com/jiangxiaoqiang/jiangxiaoqiang.github.io.git"
                 } 
             }
         }
