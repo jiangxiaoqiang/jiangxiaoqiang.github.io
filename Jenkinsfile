@@ -6,10 +6,6 @@ pipeline {
         }
     }
 
-    environment {
-       
-    }
-
     stages {
         stage('checkout-source') {
             steps {
