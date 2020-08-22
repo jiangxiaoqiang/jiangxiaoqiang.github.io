@@ -6,8 +6,12 @@ pipeline {
     }
 
     stages {
+
+        stage("trigger dolphin souce build"){
+            build job: 'xiaoqiang-blog-pipeline'
+        }
         
-       stage('publish') {
+        stage('publish') {
             steps{
                 sh "git config --global user.email \"jiangtingqiang@gmail.com\""
                 sh "git config --global user.name \"jiangxiaoqiang\""
