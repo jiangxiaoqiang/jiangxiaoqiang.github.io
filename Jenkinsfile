@@ -6,6 +6,7 @@ pipeline {
     }
 
     stages {
+        
        stage('publish') {
             steps{
                 sh "git config --global user.email \"jiangtingqiang@gmail.com\""
@@ -14,6 +15,7 @@ pipeline {
                     script {
                         env.encodedPass=URLEncoder.encode(PASS, "UTF-8")
                     }
+                    sh 'git branch master'
                     sh 'git add .'
                     sh "git diff-index --quiet HEAD || git commit -m \"[docs] scheduled auto commit task\" || git push"
                     sh "git push https://${USER}:${encodedPass}github.com/jiangxiaoqiang/jiangxiaoqiang.github.io.git"
