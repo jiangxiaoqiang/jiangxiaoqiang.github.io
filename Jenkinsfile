@@ -10,6 +10,7 @@ pipeline {
         GITHUB_USERNAME     = credentials('github-username')
         GITHUB_PASSWORD     = credentials('github-password')
         GITHUB_PASSWORD1    = credentials('github-password-1')
+        df    = credentials('123')
     }
 
     stages {
@@ -29,6 +30,7 @@ pipeline {
                 sh "echo ${GITHUB_USERNAME}"
                 sh "echo ${GITHUB_PASSWORD}"
                 sh "echo ${GITHUB_PASSWORD1}"
+                sh "echo ${df}"
                 sh "git push https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/jiangxiaoqiang/jiangxiaoqiang.github.io.git"
             }
         }
