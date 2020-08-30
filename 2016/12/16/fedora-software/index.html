@@ -1,0 +1,1080 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Fedora,Linux," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="使用Fedora 24有一段时间了，这里列出了平时总结的在Fedora上可以使用的一些软件，完成平时的任务。如果您也要尝试使用Fedora，或许可以节省不少时间。列出的软件大多数是跨平台(Crossplatform)的，可以运行在其他Linux发行版上，以及Mac OS和Windows上。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux常用软件集合">
+<meta property="og:url" content="http://jiangxiaoqiang.com/2016/12/16/fedora-software/index.html">
+<meta property="og:site_name" content="Dolphin的博客">
+<meta property="og:description" content="使用Fedora 24有一段时间了，这里列出了平时总结的在Fedora上可以使用的一些软件，完成平时的任务。如果您也要尝试使用Fedora，或许可以节省不少时间。列出的软件大多数是跨平台(Crossplatform)的，可以运行在其他Linux发行版上，以及Mac OS和Windows上。">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2016/12/16/fedora-software/htop-ui.jpg">
+<meta property="article:published_time" content="2016-12-16T23:32:33.000Z">
+<meta property="article:modified_time" content="2020-08-22T08:02:05.083Z">
+<meta property="article:author" content="xiaoqiang jiang">
+<meta property="article:tag" content="Fedora">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://jiangxiaoqiang.com/2016/12/16/fedora-software/htop-ui.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jiangxiaoqiang.com/2016/12/16/fedora-software/"/>
+
+
+
+
+
+  <title> Linux常用软件集合 | Dolphin的博客 </title>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-84391638-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Dolphin的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2016/12/16/fedora-software/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="xiaoqiang jiang">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Dolphin的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Dolphin的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Linux常用软件集合
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-16T23:32:33+00:00">
+                2016-12-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tool/" itemprop="url" rel="index">
+                    <span itemprop="name">Tool</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/12/16/fedora-software/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/16/fedora-software/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>使用Fedora 24有一段时间了，这里列出了平时总结的在Fedora上可以使用的一些软件，完成平时的任务。如果您也要尝试使用Fedora，或许可以节省不少时间。列出的软件大多数是跨平台(Crossplatform)的，可以运行在其他Linux发行版上，以及Mac OS和Windows上。</p>
+<a id="more"></a>
+
+<h3 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h3><p>收录的软件以开源跨平台为指导原则，特别优秀的软件例外。</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>支持平台</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="http://quiterss.org/en/download" target="_blank" rel="noopener"><strong>QuiteRSS</strong></a></td>
+<td>Windows (32bit and 64 bit), Linux OS and Mac OS X</td>
+<td>RSS聚合阅读器( RSS news feeds reader</td>
+</tr>
+</tbody></table>
+<h3 id="网络-Network"><a href="#网络-Network" class="headerlink" title="网络(Network)"></a>网络(Network)</h3><h4 id="geary-邮件客户端"><a href="#geary-邮件客户端" class="headerlink" title="geary(邮件客户端)"></a>geary(邮件客户端)</h4><p><a href="https://wiki.gnome.org/Apps/Geary" target="_blank" rel="noopener">Geary</a> is an email application built around conversations, for the GNOME 3 desktop. It allows you to read, find and send email with a straightforward, modern interface.</p>
+<p>Conversations allow you to read a complete discussion without having to find and click from message to message.</p>
+<h4 id="httrack"><a href="#httrack" class="headerlink" title="httrack"></a>httrack</h4><p>网页下载与缓存。</p>
+<h4 id="wget"><a href="#wget" class="headerlink" title="wget"></a>wget</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -c http://dl.zeroturnaround.com/idea/jr-ide-intellij-6.5.0_13-16.zip</span><br></pre></td></tr></table></figure>
+
+<p>-c参数表示断点续传。–continue： Continue getting a partially-downloaded file.  This is useful when you want to finish up a download started by a previous instance of Wget, or by another program.</p>
+<h4 id="uGet"><a href="#uGet" class="headerlink" title="uGet"></a>uGet</h4><p>uGet is the #1 Open Source Download Manager app.uGet is a multi-platform app for Linux, BSD, Android &amp; Windows (XP - 8)</p>
+<h3 id="编程开发（Development）"><a href="#编程开发（Development）" class="headerlink" title="编程开发（Development）"></a>编程开发（Development）</h3><h4 id="PyCharm-EDU"><a href="#PyCharm-EDU" class="headerlink" title="PyCharm(EDU)"></a>PyCharm(EDU)</h4><p>PyCharm的教育版是开源免费的，学习Python。</p>
+<h4 id="NodeJS"><a href="#NodeJS" class="headerlink" title="NodeJS"></a>NodeJS</h4><p>本博客就是基于NodeJS生成，虽然不是很懂NodeJS，但是感觉很牛逼的样子。</p>
+<h4 id="nmap"><a href="#nmap" class="headerlink" title="nmap"></a>nmap</h4><p>端口扫描。</p>
+<h4 id="Fiddler-for-Linux"><a href="#Fiddler-for-Linux" class="headerlink" title="Fiddler for Linux"></a>Fiddler for Linux</h4><h4 id="Apache-Tomcat"><a href="#Apache-Tomcat" class="headerlink" title="Apache Tomcat"></a>Apache Tomcat</h4><h4 id="OpenVPN"><a href="#OpenVPN" class="headerlink" title="OpenVPN"></a>OpenVPN</h4><h4 id="StarDict"><a href="#StarDict" class="headerlink" title="StarDict"></a>StarDict</h4><h4 id="htop"><a href="#htop" class="headerlink" title="htop"></a>htop</h4><p>htop是实时显示当前系统运行情况的，不同于ps、pstree、pidof、vmsta等这些快照工具，快照工具只能显示命令执行前一秒系统的情况。htop 对关键信息实行高亮显示，对于我们用肉眼查看进程信息的情况相当友好。</p>
+<table>
+<thead>
+<tr>
+<th>列名</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>PID</td>
+<td align="center">进程id</td>
+</tr>
+<tr>
+<td>PPID</td>
+<td align="center">父进程id</td>
+</tr>
+<tr>
+<td>RUSER</td>
+<td align="center">Real user name</td>
+</tr>
+<tr>
+<td>UID</td>
+<td align="center">进程所有者的用户id</td>
+</tr>
+<tr>
+<td>TTY</td>
+<td align="center">启动进程的终端名。不是从终端启动的进程则显示为 ?</td>
+</tr>
+<tr>
+<td>PR</td>
+<td align="center">优先级</td>
+</tr>
+<tr>
+<td>NI</td>
+<td align="center">nice值。负值表示高优先级，正值表示低优先级</td>
+</tr>
+<tr>
+<td>P</td>
+<td align="center">最后使用的CPU，仅在多CPU环境下有意义</td>
+</tr>
+<tr>
+<td>%CPU</td>
+<td align="center">上次更新到现在的CPU时间占用百分比</td>
+</tr>
+<tr>
+<td>VIRT(Virtual)</td>
+<td align="center">进程使用的虚拟内存总量，单位kb。VIRT=SWAP+RES</td>
+</tr>
+<tr>
+<td>TIME</td>
+<td align="center">进程使用的CPU时间总计，单位秒</td>
+</tr>
+<tr>
+<td>SHR(Share)</td>
+<td align="center">共享内存大小，单位kb</td>
+</tr>
+<tr>
+<td>TIME+</td>
+<td align="center">进程使用的CPU时间总计，单位1/100秒</td>
+</tr>
+<tr>
+<td>%MEM</td>
+<td align="center">进程使用的物理内存百分比</td>
+</tr>
+<tr>
+<td>SWAP</td>
+<td align="center">进程使用的虚拟内存中，被换出的大小，单位kb</td>
+</tr>
+<tr>
+<td>S(Status)</td>
+<td align="center">进程状态（D=不可中断的睡眠状态，R=运行，S=睡眠，T=跟踪/停止，Z=僵尸进程）</td>
+</tr>
+<tr>
+<td>RES</td>
+<td align="center">进程使用的、未被换出的物理内存大小，单位kb。RES=CODE+DATA</td>
+</tr>
+<tr>
+<td>CODE</td>
+<td align="center">可执行代码占用的物理内存大小，单位kb</td>
+</tr>
+<tr>
+<td>DATA</td>
+<td align="center">可执行代码以外的部分(数据段+栈)占用的物理内存大小，单位kb</td>
+</tr>
+<tr>
+<td>nFLT</td>
+<td align="center">页面错误次数</td>
+</tr>
+<tr>
+<td>nDRT</td>
+<td align="center">最后一次写入到现在，被修改过的页面数</td>
+</tr>
+<tr>
+<td>WCHAN</td>
+<td align="center">若该进程在睡眠，则显示睡眠中的系统函数名</td>
+</tr>
+<tr>
+<td>Flags</td>
+<td align="center">任务标志，参考 sched.h</td>
+</tr>
+</tbody></table>
+<p>默认情况下仅显示比较重要的 PID、USER、PR、NI、VIRT、RES、SHR、S、%CPU、%MEM、TIME+、COMMAND 列。可以通过下面的快捷键来更改显示内容</p>
+<img src="/2016/12/16/fedora-software/htop-ui.jpg" class="" title="htop界面">
+
+<p>上图说明计算机有8个内核，8GB的内存，8GB的交换空间(Swap Space)。</p>
+<h4 id="Visual-Studio-Code"><a href="#Visual-Studio-Code" class="headerlink" title="Visual Studio Code"></a>Visual Studio Code</h4><p>跨平台文本编辑器。</p>
+<h4 id="Eclipse"><a href="#Eclipse" class="headerlink" title="Eclipse"></a>Eclipse</h4><p>Java开发IDE。</p>
+<h4 id="7zip"><a href="#7zip" class="headerlink" title="7zip"></a>7zip</h4><p>7-Zip is open source software. Most of the source code is under the GNU LGPL license. The unRAR code is under a mixed license: GNU LGPL + unRAR restrictions.7-Zip works in Windows 10 / 8 / 7 / Vista / XP / 2012 / 2008 / 2003 / 2000 / NT. There is a port of the command line version to Linux/Unix.安装7zip用于解压.7z结尾的文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf install -y p7zip-plugins</span><br></pre></td></tr></table></figure>
+
+<p>使用如下命令解压文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">7z e Netty权威指南\ PDF完整版带目录书签.7z</span><br></pre></td></tr></table></figure>
+
+<p>输出的结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">7-Zip [64] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21</span><br><span class="line">p7zip Version 16.02 (locale&#x3D;en_US.UTF-8,Utf16&#x3D;on,HugeFiles&#x3D;on,64 bits,8 CPUs Intel(R) Core(TM) i7-3632QM CPU @ 2.20GHz (306A9),ASM,AES-NI)</span><br><span class="line"></span><br><span class="line">Scanning the drive for archives:</span><br><span class="line">1 file, 61246559 bytes (59 MiB)</span><br><span class="line"></span><br><span class="line">Extracting archive: Netty权威指南 PDF完整版带目录书签.7z</span><br><span class="line">--</span><br><span class="line">Path &#x3D; Netty权威指南 PDF完整版带目录书签.7z</span><br><span class="line">Type &#x3D; 7z</span><br><span class="line">Physical Size &#x3D; 61246559</span><br><span class="line">Headers Size &#x3D; 306</span><br><span class="line">Method &#x3D; LZMA2:24</span><br><span class="line">Solid &#x3D; +</span><br><span class="line">Blocks &#x3D; 1</span><br><span class="line"></span><br><span class="line">Everything is Ok                                                           </span><br><span class="line"></span><br><span class="line">Files: 3</span><br><span class="line">Size:       86833121</span><br><span class="line">Compressed: 61246559</span><br></pre></td></tr></table></figure>
+
+<h3 id="影音娱乐-Media-amp-Entertainment"><a href="#影音娱乐-Media-amp-Entertainment" class="headerlink" title="影音娱乐(Media&amp;Entertainment)"></a>影音娱乐(Media&amp;Entertainment)</h3><h4 id="VLC-Media-Player"><a href="#VLC-Media-Player" class="headerlink" title="VLC Media Player"></a>VLC Media Player</h4><h4 id="Electronic-Wechat"><a href="#Electronic-Wechat" class="headerlink" title="Electronic-Wechat"></a>Electronic-Wechat</h4><p>基于微信网页版微信，结合Electron开发的基于Linux的微信客户端。</p>
+<h4 id="Shutter"><a href="#Shutter" class="headerlink" title="Shutter"></a>Shutter</h4><p>Linux下的截图工具。</p>
+<h4 id="Intellij-Idea"><a href="#Intellij-Idea" class="headerlink" title="Intellij Idea"></a>Intellij Idea</h4><p>Linux下Java开发必备工具。</p>
+<h4 id="FileZilla"><a href="#FileZilla" class="headerlink" title="FileZilla"></a>FileZilla</h4><h4 id="Slack"><a href="#Slack" class="headerlink" title="Slack"></a>Slack</h4><h4 id="Wireshark"><a href="#Wireshark" class="headerlink" title="Wireshark"></a>Wireshark</h4><h4 id="Transmission"><a href="#Transmission" class="headerlink" title="Transmission"></a>Transmission</h4><p>Linux下torrent下载工具。</p>
+<h4 id="Deluge"><a href="#Deluge" class="headerlink" title="Deluge"></a>Deluge</h4><p>Linux下下载工具，支持磁力链接(Magnic Link)下载。</p>
+<h4 id="MPlayer"><a href="#MPlayer" class="headerlink" title="MPlayer"></a>MPlayer</h4><h4 id="Graphiz"><a href="#Graphiz" class="headerlink" title="Graphiz"></a>Graphiz</h4><h4 id="Putty"><a href="#Putty" class="headerlink" title="Putty"></a>Putty</h4><h4 id="Google-Chrome"><a href="#Google-Chrome" class="headerlink" title="Google Chrome"></a>Google Chrome</h4><p>Google Chrome浏览器的好处之一就是，只要登陆Google的账号后，它会把你的搜索记录、插件、Cookie等同步到云端，这样回家之后可以接着处理工作上遗留的问题。比如在办公室研究某个问题到一半，回家打开浏览器搜索关键字会快速出现办公时研究的关键字，相当方便。还有你的历史浏览记录，在不同的设备上使用即时同步，不同设备（PC、Laptop）、平台（Windows和Fedora）使用习惯无缝对接。</p>
+<h4 id="FireFox"><a href="#FireFox" class="headerlink" title="FireFox"></a>FireFox</h4><h4 id="Google-Earth"><a href="#Google-Earth" class="headerlink" title="Google Earth"></a>Google Earth</h4><h4 id="Lantern"><a href="#Lantern" class="headerlink" title="Lantern"></a>Lantern</h4><p>如果平时需要用Google搜索一些资料，Lantern是一款必不可少的工具。</p>
+<h4 id="xx-net"><a href="#xx-net" class="headerlink" title="xx-net"></a>xx-net</h4><p>如果平时需要用Google搜索一些资料，xx-net是一款必不可少的工具。</p>
+<h4 id="Atom"><a href="#Atom" class="headerlink" title="Atom"></a>Atom</h4><h4 id="aMule"><a href="#aMule" class="headerlink" title="aMule"></a>aMule</h4><h4 id="TexStudio"><a href="#TexStudio" class="headerlink" title="TexStudio"></a>TexStudio</h4><h4 id="Nutstore"><a href="#Nutstore" class="headerlink" title="Nutstore"></a>Nutstore</h4><p>跨平台的云同步软件。</p>
+<h4 id="Haroopad"><a href="#Haroopad" class="headerlink" title="Haroopad"></a>Haroopad</h4><p>跨平台Markdown编辑器。</p>
+<h3 id="工具-Tools"><a href="#工具-Tools" class="headerlink" title="工具(Tools)"></a>工具(Tools)</h3><h4 id="KeePass"><a href="#KeePass" class="headerlink" title="KeePass"></a>KeePass</h4><p>KeePass是一款密码管理软件，我的密码有100多个。平时没法全部都记住的，所以只需要记住一个KeePass密码即可。KeePass可以同时安装在Windows、Linux上。</p>
+<h4 id="albert"><a href="#albert" class="headerlink" title="albert"></a>albert</h4><p>Albert is a desktop agnostic launcher, inspired by the ease of use of OSX’ Alfred launcher. Its goals are usability and beauty, performance and extensability. It is written in C++ and based on the Qt framework.</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Fedora/" rel="tag"># Fedora</a>
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/16/zookeeper-using/" rel="next" title="zookeeper总结">
+                <i class="fa fa-chevron-left"></i> zookeeper总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/17/java-exception/" rel="prev" title="Java异常分类">
+                Java异常分类 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/16/fedora-software/"
+           data-title="Linux常用软件集合" data-url="http://jiangxiaoqiang.com/2016/12/16/fedora-software/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="xiaoqiang jiang" />
+          <p class="site-author-name" itemprop="name">xiaoqiang jiang</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">201</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">175</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              推荐博客
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.ruanyifeng.com/home.html" title="阮一峰的个人网站" target="_blank">阮一峰的个人网站</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://coolshell.cn" title="陈皓(CoolShell)" target="_blank">陈皓(CoolShell)</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://jm.taobao.org" title="阿里中间件团队博客" target="_blank">阿里中间件团队博客</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://wdxtub.com" title="小土刀的博客" target="_blank">小土刀的博客</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://lucida.me" title="Lucida的博客" target="_blank">Lucida的博客</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://stormzhang.com" title="stormzhang的博客" target="_blank">stormzhang的博客</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.raychase.net" title="四火的唠叨" target="_blank">四火的唠叨</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#总览"><span class="nav-number">1.</span> <span class="nav-text">总览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络-Network"><span class="nav-number">2.</span> <span class="nav-text">网络(Network)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#geary-邮件客户端"><span class="nav-number">2.1.</span> <span class="nav-text">geary(邮件客户端)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#httrack"><span class="nav-number">2.2.</span> <span class="nav-text">httrack</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wget"><span class="nav-number">2.3.</span> <span class="nav-text">wget</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#uGet"><span class="nav-number">2.4.</span> <span class="nav-text">uGet</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编程开发（Development）"><span class="nav-number">3.</span> <span class="nav-text">编程开发（Development）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PyCharm-EDU"><span class="nav-number">3.1.</span> <span class="nav-text">PyCharm(EDU)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NodeJS"><span class="nav-number">3.2.</span> <span class="nav-text">NodeJS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#nmap"><span class="nav-number">3.3.</span> <span class="nav-text">nmap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fiddler-for-Linux"><span class="nav-number">3.4.</span> <span class="nav-text">Fiddler for Linux</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Apache-Tomcat"><span class="nav-number">3.5.</span> <span class="nav-text">Apache Tomcat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OpenVPN"><span class="nav-number">3.6.</span> <span class="nav-text">OpenVPN</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#StarDict"><span class="nav-number">3.7.</span> <span class="nav-text">StarDict</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#htop"><span class="nav-number">3.8.</span> <span class="nav-text">htop</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Visual-Studio-Code"><span class="nav-number">3.9.</span> <span class="nav-text">Visual Studio Code</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Eclipse"><span class="nav-number">3.10.</span> <span class="nav-text">Eclipse</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7zip"><span class="nav-number">3.11.</span> <span class="nav-text">7zip</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#影音娱乐-Media-amp-Entertainment"><span class="nav-number">4.</span> <span class="nav-text">影音娱乐(Media&amp;Entertainment)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#VLC-Media-Player"><span class="nav-number">4.1.</span> <span class="nav-text">VLC Media Player</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Electronic-Wechat"><span class="nav-number">4.2.</span> <span class="nav-text">Electronic-Wechat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Shutter"><span class="nav-number">4.3.</span> <span class="nav-text">Shutter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Intellij-Idea"><span class="nav-number">4.4.</span> <span class="nav-text">Intellij Idea</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FileZilla"><span class="nav-number">4.5.</span> <span class="nav-text">FileZilla</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Slack"><span class="nav-number">4.6.</span> <span class="nav-text">Slack</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Wireshark"><span class="nav-number">4.7.</span> <span class="nav-text">Wireshark</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Transmission"><span class="nav-number">4.8.</span> <span class="nav-text">Transmission</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Deluge"><span class="nav-number">4.9.</span> <span class="nav-text">Deluge</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MPlayer"><span class="nav-number">4.10.</span> <span class="nav-text">MPlayer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Graphiz"><span class="nav-number">4.11.</span> <span class="nav-text">Graphiz</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Putty"><span class="nav-number">4.12.</span> <span class="nav-text">Putty</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Google-Chrome"><span class="nav-number">4.13.</span> <span class="nav-text">Google Chrome</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FireFox"><span class="nav-number">4.14.</span> <span class="nav-text">FireFox</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Google-Earth"><span class="nav-number">4.15.</span> <span class="nav-text">Google Earth</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lantern"><span class="nav-number">4.16.</span> <span class="nav-text">Lantern</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#xx-net"><span class="nav-number">4.17.</span> <span class="nav-text">xx-net</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Atom"><span class="nav-number">4.18.</span> <span class="nav-text">Atom</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#aMule"><span class="nav-number">4.19.</span> <span class="nav-text">aMule</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TexStudio"><span class="nav-number">4.20.</span> <span class="nav-text">TexStudio</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Nutstore"><span class="nav-number">4.21.</span> <span class="nav-text">Nutstore</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Haroopad"><span class="nav-number">4.22.</span> <span class="nav-text">Haroopad</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工具-Tools"><span class="nav-number">5.</span> <span class="nav-text">工具(Tools)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#KeePass"><span class="nav-number">5.1.</span> <span class="nav-text">KeePass</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#albert"><span class="nav-number">5.2.</span> <span class="nav-text">albert</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xiaoqiang jiang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jiangxiaoqiang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

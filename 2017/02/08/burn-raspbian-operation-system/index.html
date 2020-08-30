@@ -1,0 +1,1032 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Raspberry Pi," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="简介树莓派（英语：Raspberry Pi），是一款基于Linux的单板机电脑。它由英国的树莓派基金会所开发，目的是以低价硬件及自由软件促进学校的基本计算机科学教育。剑桥计算机实验室厄普顿项目邮件组中相互交流想法时，为了方便指代厄普顿的电脑，邮件中使用了“树莓”这个水果名字。又由于最开始的原型机上只支持Python编程语言，“树莓”后面又跟上了代表Python的“派”。“树莓派”（Raspberr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Raspberry Pi动手试用">
+<meta property="og:url" content="http://jiangxiaoqiang.com/2017/02/08/burn-raspbian-operation-system/index.html">
+<meta property="og:site_name" content="Dolphin的博客">
+<meta property="og:description" content="简介树莓派（英语：Raspberry Pi），是一款基于Linux的单板机电脑。它由英国的树莓派基金会所开发，目的是以低价硬件及自由软件促进学校的基本计算机科学教育。剑桥计算机实验室厄普顿项目邮件组中相互交流想法时，为了方便指代厄普顿的电脑，邮件中使用了“树莓”这个水果名字。又由于最开始的原型机上只支持Python编程语言，“树莓”后面又跟上了代表Python的“派”。“树莓派”（Raspberr">
+<meta property="og:image" content="http://jiangxiaoqiang.com/2017/02/08/burn-raspbian-operation-system/ssh-login-raspberry-pi.jpg">
+<meta property="article:published_time" content="2017-02-08T11:30:48.000Z">
+<meta property="article:modified_time" content="2020-08-22T08:02:04.565Z">
+<meta property="article:author" content="xiaoqiang jiang">
+<meta property="article:tag" content="Raspberry Pi">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://jiangxiaoqiang.com/2017/02/08/burn-raspbian-operation-system/ssh-login-raspberry-pi.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jiangxiaoqiang.com/2017/02/08/burn-raspbian-operation-system/"/>
+
+
+
+
+
+  <title> Raspberry Pi动手试用 | Dolphin的博客 </title>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-84391638-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Dolphin的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://jiangxiaoqiang.com/2017/02/08/burn-raspbian-operation-system/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="xiaoqiang jiang">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Dolphin的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Dolphin的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Raspberry Pi动手试用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-08T11:30:48+00:00">
+                2017-02-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Equipment/" itemprop="url" rel="index">
+                    <span itemprop="name">Equipment</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/02/08/burn-raspbian-operation-system/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/08/burn-raspbian-operation-system/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>树莓派（英语：Raspberry Pi），是一款基于Linux的单板机电脑。它由英国的树莓派基金会所开发，目的是以低价硬件及自由软件促进学校的基本计算机科学教育。剑桥计算机实验室厄普顿项目邮件组中相互交流想法时，为了方便指代厄普顿的电脑，邮件中使用了“树莓”这个水果名字。又由于最开始的原型机上只支持Python编程语言，“树莓”后面又跟上了代表Python的“派”。“树莓派”（Raspberry Pi）就这样诞生了。厄普顿于2009年成了慈善性质的“树莓派基金会”，成为研发树莓派的主要机构。树莓派的生产是通过有生产许可的两家公司：Element 14/Premier Farnell和RS Components。这两家公司都在网上出售树莓派。树莓派基金会于2016年2月发布了树莓派3,较前一代树莓派2，树莓派3的处理器升级为了64位的博通BCM2837，并首次加入了Wi-Fi无线网络及蓝牙功能，而售价仍然是35美元。树莓派3代的额定功率功率是10.0 W(5V*2A).</p>
+<h4 id="烧录操作系统-Burn-Operation-System"><a href="#烧录操作系统-Burn-Operation-System" class="headerlink" title="烧录操作系统(Burn Operation System)"></a>烧录操作系统(Burn Operation System)</h4><p>目前可以安装到Raspberry Pi上的系统有，官方推荐的系统可以点击<a href="https://www.raspberrypi.org/downloads/" target="_blank" rel="noopener">这里</a>：</p>
+<a id="more"></a>
+
+<ul>
+<li><a href="[http://ubuntu-mate.org/raspberry-pi/">Ubuntu Mate</a></li>
+<li><a href="https://www.raspberrypi.org/downloads/" target="_blank" rel="noopener">Raspbian</a></li>
+<li><a href="http://pidora.ca/" target="_blank" rel="noopener">Pidora</a></li>
+<li><a href="https://developer.ubuntu.com/core/get-started" target="_blank" rel="noopener">snappy-raspi2</a></li>
+</ul>
+<p>入手Raspberry Pi后，启动Raspberry Pi之前需要将Raspbian系统烧录到SD卡中。此时需要自备读卡器和Micro SD卡。首先到<a href="https://www.raspberrypi.org/downloads/raspbian/" target="_blank" rel="noopener">官网</a>下载镜像，选择RASPBIAN JESSIE WITH PIXEL，可以下载zip包，也可以下载torrent文件。zip包大概有1.5GB大小，解压出来4.4GB左右。由于此处试用的是Ubuntu操作系统，输入如下命令查看Micro SD卡卷标名称：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df -h</span><br><span class="line"><span class="meta">#</span><span class="bash"> 列出移动设备的分区情况</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 注意是外围设备，如果是本级硬盘是不会列出分区情况的</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 输入p命令可列出磁盘的分区情况</span></span><br><span class="line">fdisk -l /dev/sdb</span><br></pre></td></tr></table></figure>
+
+<p>h表示human readable，已人机交互友好的方式显示系统当前可用卷的信息。此处查出的卷标名称为<code>/media/dolphin/9016-4EF8</code>。然后卸载此卷，使得用户不能对此卷进行操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">umount &#x2F;media&#x2F;dolphin&#x2F;9016-4EF8</span><br><span class="line">umount &#x2F;media&#x2F;dolphin&#x2F;sdb1</span><br><span class="line">umount &#x2F;media&#x2F;dolphin&#x2F;Untitled</span><br></pre></td></tr></table></figure>
+
+<p>注意这里必须要先卸载此卷，否则在使用dd命令刻录时会提示<code>/media/dolphin/9016-4EF8 is a directionay</code>，从而导致刻录失败。输入如下命令进行烧录：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dd if=2017-01-11-raspbian-jessie.img of=/dev/sdb bs=2M</span><br></pre></td></tr></table></figure>
+
+<p>of(output file)参数后面不要添加斜杠。if表示input file，bs表示block size。输入命令后系统在后台刻录，前台可能看不到进度，此时只需要耐心等待即可。如果想要看到写入的进度，可以使用dd的一款加强版本dcfldd，是dd的一个fork，在 dd 的基础上增加了取证和安全方面的功能。让人感到郁闷的是，烧录后，Ubuntu不管怎样都无法读出存储卡的数据了。使用命令重新加载也无法读出。<strong>这里需要注意,SD卡分boot区和数据区，所以在使用dd命令刻录时，填写sdb，而不是sdb1。</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount /dev/sdb1 /mnt -t ext3</span><br></pre></td></tr></table></figure>
+
+<p>提示错误如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dolphin@dolphin-F81Se:~$ sudo mount &#x2F;dev&#x2F;sdb1 &#x2F;mnt -t ext3</span><br><span class="line">mount: wrong fs type, bad option, bad superblock on &#x2F;dev&#x2F;sdb1,</span><br><span class="line">       missing codepage or helper program, or other error</span><br><span class="line">       In some cases useful info is found in syslog - try</span><br><span class="line">       dmesg | tail  or so</span><br></pre></td></tr></table></figure>
+
+<p>采用命令查看：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dmesg|tail</span><br></pre></td></tr></table></figure>
+
+<p>提示如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[ 4978.374994] EXT4-fs (sdb1): VFS: Can&#39;t find ext4 filesystem</span><br><span class="line">[ 4978.376737] EXT4-fs (sdb1): VFS: Can&#39;t find ext4 filesystem</span><br><span class="line">[ 4978.378490] EXT4-fs (sdb1): VFS: Can&#39;t find ext4 filesystem</span><br><span class="line">[ 4978.379857] FAT-fs (sdb1): bogus number of reserved sectors</span><br><span class="line">[ 4978.379863] FAT-fs (sdb1): Can&#39;t find a valid FAT filesystem</span><br><span class="line">[ 4978.383365] hfsplus: unable to find HFS+ superblock</span><br><span class="line">[ 5008.676937] EXT4-fs (sdb1): VFS: Can&#39;t find ext4 filesystem</span><br></pre></td></tr></table></figure>
+
+<h5 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h5><p>开始的时候还真没有想到会出现这么多的问题，本来以为挺简单，不过中间问题也比较多。在Mac上面格式化之后是Mac的文件系统格式，不过在Ubuntu下也可以识别，问题不大。因为下载的img镜像是在Ubuntu这台电脑上，所以刻录使用的是Ubuntu这台机器。使用dd命令刻录好之后，电脑怎么也识别不出U盘了，在Fedora上也是识别不出来。只好插到Mac上重新格式化才能识别。刻录完毕之后需要在闪存卡上添加文件的，所以，必须要Ubuntu刻录完毕后能够识别出U盘的文件系统。需要使用FAT32文件系统格式，开始的时候倒没有注意到这个问题。FAT32是古董级的文件系统了。不过FAT和FAT32也是目前兼容性最好的文件系统，几乎所有的设备都支持，FAT32的缺点是不支持单个文件大小在4GB以上的文件。exFAT给我们的最大好处：没有4GB的限制，没有32GB的限制，不会对U盘的寿命产生影响，有一大票的数码产品支持或即将支持。</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+<th>特性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ext2()</td>
+<td>Ext2文件系统是Linux 特有的文件系统，它拥有传统UNIX 文件系统的许多特性，如块、inode 和目录等概念。Ext2 非常健壮，具有很多优良的性能。同时，Ext2 也是可扩展的，它提供 的扩展功能允许用户在不格式化文件系统的情况下使用新的特性。 Ext2的含义是Linux第二代文件系统(Linux second extended file system)。</td>
+<td><strong>最大文件大小</strong>： 1TB     <strong>最大文件极限</strong>： 仅受文件系统大小限制    <strong>最大分区/文件系统大小</strong>： 4TB    <strong>最大文件名长度</strong>： 255 字符    <strong>缺省最小/最大块大小</strong>： 1024/4096 字节    <strong>缺省inode 分配</strong>： 每4096 字节为1  <strong>在强制FS 检查前的最大装载</strong>： 20（可配置）</td>
+</tr>
+<tr>
+<td>Ext3</td>
+<td>Ext3 文件系统构筑于ext2 文件系统之上，对标准的Linux ext2 文件系统进行了日志扩展。 日志特性显著地减少文件系统崩溃后的恢复时间，它被广泛地应用于带有共享磁盘的HA 站 点。</td>
+<td></td>
+</tr>
+<tr>
+<td>Ext4</td>
+<td>Ext4改进版的Ext3。</td>
+<td></td>
+</tr>
+<tr>
+<td>FAT</td>
+<td>兼容性最好。</td>
+<td></td>
+</tr>
+<tr>
+<td>FAT32</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>exFAT</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>NTFS</td>
+<td>兼容性较好。</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>在Ubuntu下，可以输入命令<code>df -lhT</code>查看每个分区的文件系统类型。也可以打开文件<code>/etc/fstab(file system table)</code>文件进行查看。</p>
+<h5 id="unknown-filesystem-type-‘exfat’"><a href="#unknown-filesystem-type-‘exfat’" class="headerlink" title="unknown filesystem type ‘exfat’"></a>unknown filesystem type ‘exfat’</h5><p>是由于当前文件系统不识别exfat文件系统的缘故。重新格式化SD卡为兼容性较高的文件系统(如:FAT、FAT32    )即可。</p>
+<p>烧录完成之后，有可能当前电脑识别不出SD卡，此时可以将SD卡插入其他电脑，并修改其中的文件(我的电脑在Ubuntu下刻录之后，Ubuntu这台机器无法再读取U盘，但是安装Fedora系统的另一台计算机可以读取)，此处添加一个空的ssh文件。文件添加完毕后，将SD卡插入Raspberry Pi的卡槽中，接通电源启动Raspberry，那么就会默认启动sshd进程，知道了树莓派的IP后就可以使用ssh登录了。</p>
+<h4 id="构建局域网"><a href="#构建局域网" class="headerlink" title="构建局域网"></a>构建局域网</h4><p>使用一根网线连接Pi和笔记本，组成一个局域网。在笔记本上配置DHCP(Dynamic Host Configuration Protocol)服务，这样Pi启动后就可以从DHCP获取IP：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install dhcp -y</span><br></pre></td></tr></table></figure>
+
+<p>打开dhcp配置文件<code>sudo vim /etc/dhcp/dhcpd.conf</code>，配置dhcp：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">subnet 192.168.33.0 netmask 255.255.255.0 &#123; </span><br><span class="line">    range 192.168.33.2 192.168.33.114; </span><br><span class="line">    default-lease-time 86400; </span><br><span class="line">    max-lease-time 259200; </span><br><span class="line">    option subnet-mask 255.255.255.0; </span><br><span class="line">    option broadcast-address 192.168.33.255; </span><br><span class="line">    option routers 192.168.33.2; </span><br><span class="line">    option domain-name-servers 192.168.33.2; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>配置完成后通过<code>dhcpd</code>命令启动，会提示相应文件的存储位置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Config file: &#x2F;etc&#x2F;dhcp&#x2F;dhcpd.conf</span><br><span class="line">Database file: &#x2F;var&#x2F;lib&#x2F;dhcpd&#x2F;dhcpd.leases</span><br><span class="line">PID file: &#x2F;var&#x2F;run&#x2F;dhcpd.pid</span><br></pre></td></tr></table></figure>
+<p>配置与Pi连接的网卡的IP:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ifconfig enp0s25 192.168.33.2/24</span><br></pre></td></tr></table></figure>
+
+<p>enp0s25指代的是有线网卡的名称。en指代的是Ethernet,p0s25指代的是PCI接口物理位置为(0,25)，其中横坐标代表bus，纵坐标代表slot。自从将原来的旧的引导系统initd替换为systemd，网卡采用的是另一套命名规则。使用<code>arp</code>命令查看Raspberry Pi的IP，可以看到此处的IP是192.168.33.3：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Address                  HWtype  HWaddress           Flags Mask            Iface</span><br><span class="line">192.168.33.3             ether   c8:37:eb:36:16:63   C                     enp0s25</span><br><span class="line">gateway                  ether   f2:83:cd:94:23:14   C                     wlp3s0</span><br></pre></td></tr></table></figure>
+
+<h4 id="SSH登录树莓派"><a href="#SSH登录树莓派" class="headerlink" title="SSH登录树莓派"></a>SSH登录树莓派</h4><p><code>nmap</code>命令（Network Mapper）是一个开源的工具，可以用来寻找“开启的主机”。Linux，Mac OS，和Windows平台上都可以使用。输入如下命令获取树莓派的IP：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 扫描局域网中UP的主机</span></span><br><span class="line">nmap -sn 192.168.1.0/24</span><br></pre></td></tr></table></figure>
+
+<p>由于本人只选购了一个裸机，也没有屏幕，电源和网线是自己准备的。所以必须要SSH登录到树莓派上面进行操作，其实没有多大必要使用屏幕，到如今还比较庆幸当初没有花多余的钱购置配件，实在是没有任何必要。仅仅一个Raspberry Pi，一张8GB或以上的存储卡，一根网线，5V2A的充电器一个，USB数据线一条。许多配件家里都有现成的。使用命令<code>ssh pi@192.168.33.3</code>登录，注意或许会提示拒绝连接:<code>ssh: connect to host 192.168.33.3 port 22: connection refused</code>。使用nmap也无法扫描到打开的端口，原来是树莓派官方默认关闭了SSH(当初也是不知道，也没有屏幕，折腾了许久)，主要还是为了安全考虑，才关闭22端口:</p>
+<blockquote>
+<p>As of the November 2016 release, Raspbian has the SSH server disabled by default.</p>
+</blockquote>
+<p>重新开启也很简单，把SD卡拔下来，进入到启动目录（这里也需要注意，一定要在启动目录boot下，因为Raspberry Pi有2个目录，不要弄错），新建一个名为<code>ssh</code>的文件就行了(For headless setup, SSH can be enabled by placing a file named ‘ssh’, without any extension, onto the boot partition of the SD card)。</p>
+<p>成功登陆Raspberry Pi,截图记录一下，当初以为非常简单，动手起来还是不容易的：</p>
+<img src="/2017/02/08/burn-raspbian-operation-system/ssh-login-raspberry-pi.jpg" class="" title="Raspberry Pi登陆">
+
+<p>虽然已经通过Fedora登录Raspberry Pi，但是此时Raspberry Pi和Fedora在同一个局域网里，而Fedora和路由在另一个局域网里，所以Raspberry Pi目前还无法连接互联网，只是一个局域网里面的设备。</p>
+<p>参考资料：</p>
+<p><a href="https://www.douban.com/note/607175261/" target="_blank" rel="noopener">树莓派：关于教育的故事</a></p>
+<p><a href="https://www.raspberrypi.org/documentation/installation/installing-images/README.md" target="_blank" rel="noopener">INSTALLING OPERATING SYSTEM IMAGES</a></p>
+<p><a href="http://raspberrypi.stackexchange.com/questions/40689/cannot-connect-to-raspbian-jessie-lite-but-to-raspbian-jessie" target="_blank" rel="noopener">Cannot connect to raspbian jessie lite but to raspbian jessie</a></p>
+<p><a href="https://www.raspberrypi.org/documentation/installation/installing-images/linux.md" target="_blank" rel="noopener">INSTALLING OPERATING SYSTEM IMAGES ON LINUX</a></p>
+<p><a href="https://zh.wikipedia.org/wiki/%E6%A0%91%E8%8E%93%E6%B4%BE" target="_blank" rel="noopener">树莓派</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Raspberry-Pi/" rel="tag"># Raspberry Pi</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/07/gitlab-deployment/" rel="next" title="GitLab在Ubuntu 16.04 LTS部署流程">
+                <i class="fa fa-chevron-left"></i> GitLab在Ubuntu 16.04 LTS部署流程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/08/react-development-environment/" rel="prev" title="React开发环境搭建(Webpack+Babel+React)">
+                React开发环境搭建(Webpack+Babel+React) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/08/burn-raspbian-operation-system/"
+           data-title="Raspberry Pi动手试用" data-url="http://jiangxiaoqiang.com/2017/02/08/burn-raspbian-operation-system/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="xiaoqiang jiang" />
+          <p class="site-author-name" itemprop="name">xiaoqiang jiang</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">201</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">175</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              推荐博客
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.ruanyifeng.com/home.html" title="阮一峰的个人网站" target="_blank">阮一峰的个人网站</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://coolshell.cn" title="陈皓(CoolShell)" target="_blank">陈皓(CoolShell)</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://jm.taobao.org" title="阿里中间件团队博客" target="_blank">阿里中间件团队博客</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://wdxtub.com" title="小土刀的博客" target="_blank">小土刀的博客</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://lucida.me" title="Lucida的博客" target="_blank">Lucida的博客</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://stormzhang.com" title="stormzhang的博客" target="_blank">stormzhang的博客</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.raychase.net" title="四火的唠叨" target="_blank">四火的唠叨</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#烧录操作系统-Burn-Operation-System"><span class="nav-number">2.</span> <span class="nav-text">烧录操作系统(Burn Operation System)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#问题解决"><span class="nav-number">2.1.</span> <span class="nav-text">问题解决</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#unknown-filesystem-type-‘exfat’"><span class="nav-number">2.2.</span> <span class="nav-text">unknown filesystem type ‘exfat’</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构建局域网"><span class="nav-number">3.</span> <span class="nav-text">构建局域网</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SSH登录树莓派"><span class="nav-number">4.</span> <span class="nav-text">SSH登录树莓派</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xiaoqiang jiang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jiangxiaoqiang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
